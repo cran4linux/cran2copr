@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  msprog
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reproducible Assessment of Disability Course in Multiple Sclerosis
 
@@ -29,9 +29,11 @@ Analyse disability course in multiple sclerosis (MS) from longitudinal
 data. The package provides a flexible framework for identifying disability
 events under user-specified criteria, allowing adaptation to different
 study designs and endpoints. Tools are included to facilitate transparent
-and reproducible reporting of the settings used in the analysis. For an
-introduction to the package and illustrative applications, see Montobbio
-et al. (2024) <doi:10.1177/13524585241243157>.
+and reproducible reporting of the settings used in the analysis. For
+consensus-based recommendations on endpoint calculation and use of the
+package, see Montobbio et al. (2026) <doi:10.1177/13524585261478492>. For
+the original description of the computational framework and illustrative
+applications, see Montobbio et al. (2024) <doi:10.1177/13524585241243157>.
 
 %prep
 %setup -q -c -n %{packname}

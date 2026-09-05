@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cardinalfda
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          FDA Safety Tables and Figures
 
@@ -18,13 +18,15 @@ BuildRequires:    R-devel >= 4.2
 Requires:         R-core >= 4.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-gtsummary >= 2.5.1
-BuildRequires:    R-CRAN-dplyr >= 1.2.1
+BuildRequires:    R-CRAN-dplyr >= 1.2.0
 BuildRequires:    R-CRAN-cards >= 0.8.1
 BuildRequires:    R-CRAN-cardx >= 0.3.4
+BuildRequires:    R-CRAN-crane >= 0.3.1
 Requires:         R-CRAN-gtsummary >= 2.5.1
-Requires:         R-CRAN-dplyr >= 1.2.1
+Requires:         R-CRAN-dplyr >= 1.2.0
 Requires:         R-CRAN-cards >= 0.8.1
 Requires:         R-CRAN-cardx >= 0.3.4
+Requires:         R-CRAN-crane >= 0.3.1
 
 %description
 Provides implementations of safety tables and figures recommended by the

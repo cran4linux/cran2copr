@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  redlist
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the IUCN Red List Data
+Summary:          Interface to the IUCN Red List Data with Risk Metrics
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,21 +21,34 @@ BuildRequires:    R-CRAN-cli >= 3.6.3
 BuildRequires:    R-CRAN-magrittr >= 2.0.3
 BuildRequires:    R-CRAN-dplyr >= 1.1.4
 BuildRequires:    R-CRAN-httr2 >= 1.1.2
+BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-rvest >= 1.0.4
 BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-cli >= 3.6.3
 Requires:         R-CRAN-magrittr >= 2.0.3
 Requires:         R-CRAN-dplyr >= 1.1.4
 Requires:         R-CRAN-httr2 >= 1.1.2
+Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-rvest >= 1.0.4
 Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Provides an interface to access data from the International Union for
-Conservation of Nature (IUCN) Red List
-<https://api.iucnredlist.org/api-docs/index.html>. It allows users to
-retrieve up-to-date information on species' conservation status,
-supporting biodiversity research and conservation efforts.
+Access species conservation data from the International Union for
+Conservation of Nature (IUCN) Red List API
+<https://api.iucnredlist.org/api-docs/index.html>, including assessments,
+taxonomy, threats, habitats and historical status. The package also
+reconciles taxonomic names between the IUCN Red List and the Global
+Biodiversity Information Facility (GBIF), retrieves and checks GBIF
+occurrence records, and computes the range and population metrics of the
+IUCN Red List Categories and Criteria (IUCN Standards and Petitions
+Committee, 2024,
+<https://cmsdocs.s3.amazonaws.com/RedListGuidelines.pdf>): extent of
+occurrence and area of occupancy for criterion B, and population reduction
+for criterion A.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,28 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  growth
-%global packver   1.1.2
+%global packname  plotomics
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Normal and Elliptically-Contoured Repeated Measurements Models
+Summary:          High-Performance Bioinformatics Visualizations
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 1.4
-Requires:         R-core >= 1.4
-BuildRequires:    R-CRAN-rmutil 
-Requires:         R-CRAN-rmutil 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-htmlwidgets 
+Requires:         R-CRAN-htmlwidgets 
 
 %description
-Functions for fitting various normal theory (growth curve) and
-elliptically-contoured repeated measurements models with ARMA and random
-effects dependence.
+Lightweight, GPU-accelerated bioinformatics visualization widgets (volcano
+plots, expression and clustered heatmaps, dot plots, stacked violins,
+embeddings, spatial tissue maps, oncoprints, protein domain lollipops,
+Kaplan-Meier curves, mutational signature profiles, UpSet plots, treemaps,
+networks and Hi-C contact matrices) backed by a shared JavaScript core and
+exposed to R through 'htmlwidgets'. Designed for large datasets that
+render smoothly in the browser, the 'RStudio' Viewer, R Markdown, Quarto
+and Shiny.
 
 %prep
 %setup -q -c -n %{packname}

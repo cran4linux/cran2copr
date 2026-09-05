@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ramchoice
-%global packver   2.2
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Revealed Preference and Attention Analysis in Random Limited Attention Models
 
@@ -17,19 +17,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-lpSolve 
 BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-lpSolve 
 Requires:         R-CRAN-MASS 
 
 %description
-It is widely documented in psychology, economics and other disciplines
-that socio-economic agent may not pay full attention to all available
-alternatives, rendering standard revealed preference theory invalid. This
-package implements the estimation and inference procedures of Cattaneo,
-Ma, Masatlioglu and Suleymanov (2020) <arXiv:1712.03448> and Cattaneo,
-Cheung, Ma, and Masatlioglu (2022) <arXiv:2110.10650>, which utilizes
-standard choice data to partially identify and estimate a decision maker's
-preference and attention. For inference, several simulation-based critical
-values are provided.
+Implements identification, estimation, inference, and specification
+procedures for random limited-attention models, including the Random
+Attention Model of Cattaneo, Ma, Masatlioglu, and Suleymanov (2020)
+<doi:10.1086/706861> and the Attention Overload Model of Cattaneo, Cheung,
+Ma, and Masatlioglu (2026) <doi:10.48550/arXiv.2110.10650>. The methods
+use standard choice data to partially identify preferences and attention
+and provide simulation-based procedures for statistical inference.
 
 %prep
 %setup -q -c -n %{packname}

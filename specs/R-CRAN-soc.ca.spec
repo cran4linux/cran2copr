@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  triageR
-%global packver   0.2.0
+%global packname  soc.ca
+%global packver   0.8.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.8.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automated Machine Learning and AI Agent Tools for Clinical Prediction Modelling
+Summary:          Specific Correspondence Analysis for the Social Sciences
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,45 +17,50 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DALEX 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ellmer 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-mice 
-BuildRequires:    R-CRAN-naniar 
-BuildRequires:    R-CRAN-parsnip 
-BuildRequires:    R-CRAN-pROC 
-BuildRequires:    R-CRAN-quarto 
-BuildRequires:    R-CRAN-recipes 
-BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-ellipse 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-ggpp 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-workflows 
-BuildRequires:    R-CRAN-yardstick 
-Requires:         R-CRAN-DALEX 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ellmer 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-mice 
-Requires:         R-CRAN-naniar 
-Requires:         R-CRAN-parsnip 
-Requires:         R-CRAN-pROC 
-Requires:         R-CRAN-quarto 
-Requires:         R-CRAN-recipes 
-Requires:         R-CRAN-survival 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-ellipse 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-ggpp 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-workflows 
-Requires:         R-CRAN-yardstick 
 
 %description
-Provides a streamlined workflow for building, validating, and reporting
-clinical prediction models. Combines standard machine learning tools with
-an optional AI agent that recommends appropriate statistical methods, runs
-sensitivity analyses, and flags common pitfalls. Includes automated
-generation of reports aligned with TRIPOD+AI reporting guidance (Collins
-et al. (2024 <doi:10.1136/bmj-2023-078378>)) for reproducible,
-guideline-aligned research.
+Specific and class specific multiple correspondence analysis on
+survey-like data. Soc.ca is optimized to the needs of the social scientist
+and presents easily interpretable results in near publication ready
+quality.
 
 %prep
 %setup -q -c -n %{packname}

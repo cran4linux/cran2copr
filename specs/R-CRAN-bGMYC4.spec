@@ -1,35 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mcauchyd
-%global packver   1.3.6
+%global packname  bGMYC4
+%global packver   4.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.6
+Version:          4.1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Cauchy Distribution; Kullback-Leibler Divergence
+Summary:          Bayesian General Mixed Yule-Coalescent Model for Species Delimitation
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-rgl 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-ape >= 5.0
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-future.apply 
+Requires:         R-CRAN-ape >= 5.0
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-future.apply 
 
 %description
-Distance between multivariate Cauchy distributions, as presented by N.
-Bouhlel and D. Rousseau (2022) <doi:10.3390/e24060838>. Manipulation of
-multivariate Cauchy distributions.
+Implements a Bayesian version of the general mixed Yule-coalescent model
+for species delimitation. It uses Markov Chain Monte Carlo simulation to
+evaluate the posterior distribution of the model and supports flexible
+prior specification on model parameters.
 
 %prep
 %setup -q -c -n %{packname}

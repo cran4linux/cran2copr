@@ -1,37 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  kofdata
-%global packver   0.2.1
+%global packname  rlas
+%global packver   1.9.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.9.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Get Data from the 'KOF Datenservice' API
+Summary:          Read and Write 'las' and 'laz' Binary File Formats Used for Remote Sensing Data
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite >= 1.1
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-xts 
-BuildRequires:    R-CRAN-zoo 
-Requires:         R-CRAN-jsonlite >= 1.1
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-xts 
-Requires:         R-CRAN-zoo 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-data.table 
+Requires:         R-utils 
 
 %description
-Read Swiss time series data from the 'KOF Data' API,
-<https://datenservice.kof.ethz.ch>. The API provides macro economic time
-series data mostly about Switzerland. The package itself is a set of
-wrappers around the 'KOF Datenservice' API. The 'kofdata' package is able
-to consume public information as well as data that requires an API token.
+Read and write 'las' and 'laz' binary file formats. The LAS file format is
+a public file format for the interchange of 3-dimensional point cloud data
+between data users. The LAS specifications are approved by the American
+Society for Photogrammetry and Remote Sensing
+<https://community.asprs.org/leadership-restricted/leadership-content/public-documents/standards>.
+The LAZ file format is an open and lossless compression scheme for binary
+LAS format versions 1.0 to 1.4 <https://laszip.org/>.
 
 %prep
 %setup -q -c -n %{packname}

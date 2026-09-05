@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidypredict
-%global packver   1.1.1
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Run Predictions Inside the Database
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rlang >= 1.1.1
 BuildRequires:    R-CRAN-dplyr >= 0.7
@@ -23,26 +23,31 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-rlang >= 1.1.1
 Requires:         R-CRAN-dplyr >= 0.7
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
 
 %description
 It parses a fitted 'R' model object, and returns a formula in 'Tidy Eval'
 code that calculates the predictions.  It works with several databases
 back-ends because it leverages 'dplyr' and 'dbplyr' for the final 'SQL'
-translation of the algorithm. It currently supports lm(), glm(),
-randomForest(), ranger(), rpart(), earth(), xgb.Booster.complete(),
-lgb.Booster(), catboost.Model(), cubist(), and ctree() models.
+translation of the algorithm.  Dozens of model classes are supported; see
+the "Supported models" article at
+<https://tidypredict.tidymodels.org/articles/models.html> for the current
+list.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  unsum
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reconstruct Raw Data from Summary Statistics
 
@@ -14,24 +14,31 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
+BuildRequires:    cargo
 BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggtext 
+BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-nanoparquet 
-BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-roundwork 
+BuildRequires:    R-CRAN-S7 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggtext 
+Requires:         R-grid 
 Requires:         R-CRAN-nanoparquet 
-Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-roundwork 
+Requires:         R-CRAN-S7 
 Requires:         R-CRAN-scales 
+Requires:         R-stats 
 Requires:         R-CRAN-tibble 
 Requires:         R-utils 
 
