@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ClustBlock
-%global packver   6.0.0
+%global packver   6.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.0.0
+Version:          6.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Clustering of Datasets
 
@@ -43,7 +43,8 @@ at the same time is possible thanks to cluscata_liking function (Vigneau,
 Cariou, Giacalone, Berget & Llobell (2022)
 <doi:10.1016/j.foodqual.2021.104358>). Clustering of variables
 (quantitative, qualitative or mixed) can be done thanks to the
-MixCluStatis() function.
+MixCluStatis() function. Clustering on JAR + Liking can be achieved thanks
+to preprocess_JAR_liking function.
 
 %prep
 %setup -q -c -n %{packname}

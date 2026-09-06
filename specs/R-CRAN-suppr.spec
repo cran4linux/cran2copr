@@ -1,44 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  IntegMultiReg
-%global packver   0.1.1
+%global packname  suppr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Integrative Bayesian Multiple Regression for Multi-Platform Biomarkers
+Summary:          Supplementary Idiomatic Utilities and Extensions
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-graphics 
-Requires:         R-grDevices 
+Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-A Bayesian framework that integrates several regression models to identify
-a parsimonious set of biomarkers shared across disparate data platforms
-(for example genomic, transcriptomic and proteomic assays). Subjects are
-partitioned into subgroups defined by their pattern of platform
-availability, so that no subject with partially missing platform data is
-excluded, and information is borrowed across subgroups through a Markov
-random field prior on the variable-selection indicators together with
-non-local (product moment) priors on the regression effects. The
-methodology was introduced for time-to-event outcomes by Chekouo, Stingo,
-Doecke and Do (2017) <doi:10.1111/biom.12587>; this package additionally
-supports continuous (Gaussian) and binary (probit) outcomes. Posterior
-inference is carried out by a Markov chain Monte Carlo sampler implemented
-in C for computational efficiency.
+Miscellaneous supplementary functions designed to follow idiomatic 'R'
+conventions. Some functions are simple wrappers that reduce repetitive
+code, while others address common tasks or extend existing 'R' functions.
 
 %prep
 %setup -q -c -n %{packname}

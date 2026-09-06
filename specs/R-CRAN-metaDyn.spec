@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  metaDyn
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Meta-Analysis of Dynamic Model Estimates
 
@@ -18,10 +18,10 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-OpenMx >= 2.22.10
-BuildRequires:    R-CRAN-fitVARMxID >= 1.0.2
+BuildRequires:    R-CRAN-fitVARMxID >= 1.0.6
 BuildRequires:    R-CRAN-Matrix 
 Requires:         R-CRAN-OpenMx >= 2.22.10
-Requires:         R-CRAN-fitVARMxID >= 1.0.2
+Requires:         R-CRAN-fitVARMxID >= 1.0.6
 Requires:         R-CRAN-Matrix 
 
 %description

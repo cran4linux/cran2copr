@@ -1,39 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  insight
-%global packver   1.5.4
+%global packname  qdaR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easy Access to Model Information for Various Model Objects
+Summary:          Read and Analyse Qualitative Coding Exported from Zotero
 
-License:          GPL-3
+License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-MASS 
 
 %description
-A tool to provide an easy, intuitive and consistent access to information
-contained in various R models, like model formulas, model terms,
-information about random effects, data that was used to fit the model or
-data from response variables. 'insight' mainly revolves around two types
-of functions: Functions that find (the names of) information, starting
-with 'find_', and functions that get the underlying data, starting with
-'get_'. The package has a consistent syntax and works with many different
-model objects, where otherwise functions to access these information are
-missing.
+Reads the versioned exchange files written by the Zotero plugins 'zotQDA'
+and 'qdaZ' -- coded fragments, code systems, coding histories and
+team-consensus results -- validates them against the shipped contract, and
+reproduces the plugin's graphics with 'ggplot2'. Adds what those plugins
+deliberately leave out: six agreement coefficients with bootstrap
+confidence intervals, the reliability of the segmentation itself,
+chi-squared tests of code by group tables with effect sizes,
+correspondence analysis, multidimensional scaling and hierarchical
+clustering of codes.  Projects from other programs can be read through the
+'REFI-QDA' interchange standard <https://www.qdasoftware.org/>, which
+makes those analyses available to users of established software that does
+not offer them; the subset a '.qdpx' supports is reported on import.
+Reference files are included, so every function can be tried without a
+Zotero installation.
 
 %prep
 %setup -q -c -n %{packname}

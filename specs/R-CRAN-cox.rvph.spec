@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cox.rvph
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Remedy for Violations of the Proportional Hazards Assumption in Cox Proportional Hazards Models
 
@@ -22,7 +22,7 @@ Requires:         R-CRAN-survival
 
 %description
 Remedying proportional hazards assumption violations of a Cox proportional
-hazards model using stepwise changepoint and time-varying coefficient
+hazards model using stepwise split-point and time-varying coefficient
 methods based on Cox (1972) <doi:10.1111/j.2517-6161.1972.tb00899.x> and
 Klein and Moeschberger (1997) <doi:10.1007/978-1-4757-2728-9>.
 

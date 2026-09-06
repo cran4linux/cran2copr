@@ -1,57 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggcube
-%global packver   0.3.0
+%global packname  LABTNSCPSS
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          3D Plotting with 'ggplot2'
+Summary:          Calculation of Comorbidity and Frailty Scores
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-labeling 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-polyclip 
-BuildRequires:    R-CRAN-isoband 
-BuildRequires:    R-CRAN-systemfonts 
-BuildRequires:    R-CRAN-htmlwidgets 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-glue 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-rlang 
-Requires:         R-grid 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-labeling 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-polyclip 
-Requires:         R-CRAN-isoband 
-Requires:         R-CRAN-systemfonts 
-Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-glue 
 
 %description
-A 'ggplot2' extension for creating 3D figures. Provides 3D geoms, stats,
-and a coord_3d() coordinate system supporting rotation, perspective, and
-lighting.
+Computes comorbidity indices and combined frailty scores for multiple ICD
+coding systems, including ICD-10-CA, ICD-10-CM, and ICD-11. The package
+provides tools to preprocess episode data, map diagnosis codes to chronic
+categories, propagate conditions across episodes, and generate comorbidity
+and frailty measures. The methods implemented are original to this package
+and were developed by the authors for research applications; a manuscript
+describing the methodology is currently in preparation.
 
 %prep
 %setup -q -c -n %{packname}

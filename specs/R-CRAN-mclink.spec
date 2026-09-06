@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mclink
-%global packver   1.1.2
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Metabolic Pathway Completeness and Abundance Calculation
 
@@ -21,11 +21,15 @@ BuildRequires:    R-CRAN-tibble >= 3.2.1
 BuildRequires:    R-CRAN-stringr >= 1.5.1
 BuildRequires:    R-CRAN-data.table >= 1.17.8
 BuildRequires:    R-CRAN-dplyr >= 1.1.4
+BuildRequires:    R-CRAN-matrixStats >= 1.0.0
+BuildRequires:    R-parallel 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-tibble >= 3.2.1
 Requires:         R-CRAN-stringr >= 1.5.1
 Requires:         R-CRAN-data.table >= 1.17.8
 Requires:         R-CRAN-dplyr >= 1.1.4
+Requires:         R-CRAN-matrixStats >= 1.0.0
+Requires:         R-parallel 
 Requires:         R-utils 
 
 %description

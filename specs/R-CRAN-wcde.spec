@@ -1,44 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  spMC
-%global packver   0.3.16
+%global packname  wcde
+%global packver   0.0.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.16
+Version:          0.0.8.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Continuous-Lag Spatial Markov Chains
+Summary:          Download Data from the Wittgenstein Centre Human Capital Data Explorer
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.5.0
-Requires:         R-core >= 4.5.0
-BuildRequires:    R-base 
-BuildRequires:    R-methods 
-BuildRequires:    R-datasets 
-BuildRequires:    R-utils 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-Requires:         R-base 
-Requires:         R-methods 
-Requires:         R-datasets 
-Requires:         R-utils 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-countrycode 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-RCurl 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-countrycode 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-RCurl 
 
 %description
-A set of functions is provided for 1) the stratum lengths analysis along a
-chosen direction, 2) fast estimation of continuous lag spatial Markov
-chains model parameters and probability computing (also for large data
-sets), 3) transition probability maps and transiograms drawing, 4)
-simulation methods for categorical random fields. More details on the
-methodology are discussed in Sartore (2013) <doi:10.32614/RJ-2013-022> and
-Sartore et al. (2016) <doi:10.1016/j.cageo.2016.06.001>.
+Download and plot education specific demographic data from the
+Wittgenstein Centre for Demography and Human Capital Data Explorer
+<https://dataexplorer.wittgensteincentre.org/>.
 
 %prep
 %setup -q -c -n %{packname}

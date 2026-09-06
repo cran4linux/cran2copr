@@ -1,44 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  spMC
-%global packver   0.3.16
+%global packname  sssp
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.16
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Continuous-Lag Spatial Markov Chains
+Summary:          Semi-Symmetric Sparse Projection
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.5.0
-Requires:         R-core >= 4.5.0
-BuildRequires:    R-base 
-BuildRequires:    R-methods 
-BuildRequires:    R-datasets 
-BuildRequires:    R-utils 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-Requires:         R-base 
-Requires:         R-methods 
-Requires:         R-datasets 
-Requires:         R-utils 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
+BuildRequires:    R-devel
+Requires:         R-core
 
 %description
-A set of functions is provided for 1) the stratum lengths analysis along a
-chosen direction, 2) fast estimation of continuous lag spatial Markov
-chains model parameters and probability computing (also for large data
-sets), 3) transition probability maps and transiograms drawing, 4)
-simulation methods for categorical random fields. More details on the
-methodology are discussed in Sartore (2013) <doi:10.32614/RJ-2013-022> and
-Sartore et al. (2016) <doi:10.1016/j.cageo.2016.06.001>.
+Computes the exact joint sparsity and group sparsity projection using the
+Semi-symmetric Sparse Projection algorithm of J. Shen and S. Damadi,
+"Sparse projection onto semi-symmetric sets with applications to sparse
+optimization", Journal of Global Optimization (2026),
+<doi:10.1007/s10898-026-01592-y>.
 
 %prep
 %setup -q -c -n %{packname}
