@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggfortify
-%global packver   0.4.22
+%global packver   0.4.23
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.22
+Version:          0.4.23
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Visualization Tools for Statistical Analysis Results
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-ggplot2 >= 2.0.0
@@ -33,6 +34,7 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-gridExtra 
 Requires:         R-grid 
 Requires:         R-CRAN-scales 
+Requires:         R-stats 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 

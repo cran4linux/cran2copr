@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Hmisc
-%global packver   5.2-6
+%global packver   5.3-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.2.6
+Version:          5.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Harrell Miscellaneous
 
@@ -58,10 +58,10 @@ Contains many functions useful for data analysis, high-level graphics,
 utility operations, functions for computing sample size and power,
 simulation, importing and annotating datasets, imputing missing values,
 advanced table making, variable clustering, character string manipulation,
-conversion of R objects to LaTeX and html code, recoding variables,
-caching, simplified parallel computing, encrypting and decrypting data
-using a safe workflow, general moving window statistical estimation, and
-assistance in interpreting principal component analysis.
+conversion of R objects to Typst, LaTeX, and html code, recoding
+variables, caching, simplified parallel computing, encrypting and
+decrypting data using a safe workflow, general moving window statistical
+estimation, and assistance in interpreting principal component analysis.
 
 %prep
 %setup -q -c -n %{packname}

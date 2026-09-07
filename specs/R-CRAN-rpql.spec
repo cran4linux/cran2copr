@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rpql
-%global packver   0.8.3
+%global packver   0.8.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.3
+Version:          0.8.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regularized PQL for Joint Selection in GLMMs
 
@@ -16,14 +16,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-gamlss.dist 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-gamlss.dist 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-MASS 

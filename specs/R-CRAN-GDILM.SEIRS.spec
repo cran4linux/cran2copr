@@ -1,38 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gamlss.mx
-%global packver   6.0-1
+%global packname  GDILM.SEIRS
+%global packver   0.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.0.1
+Version:          0.0.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fitting Mixture Distributions with GAMLSS
+Summary:          Spatial Modeling of Infectious Disease with Reinfection
 
-License:          GPL-2 | GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.2.1
-Requires:         R-core >= 2.2.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-gamlss.dist 
-BuildRequires:    R-CRAN-gamlss 
-BuildRequires:    R-CRAN-nnet 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-ngspatial 
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-gamlss.dist 
-Requires:         R-CRAN-gamlss 
-Requires:         R-CRAN-nnet 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-ngspatial 
 Requires:         R-stats 
-Requires:         R-graphics 
 
 %description
-The main purpose of this package is to allow fitting of mixture
-distributions with generalised additive models for location scale and
-shape models see Chapter 7 of Stasinopoulos et al. (2017)
-<doi:10.1201/b21973-4>.
+Geographically Dependent Individual Level Models (GDILMs) within the
+Susceptible-Exposed-Infectious-Recovered-Susceptible (SEIRS) framework are
+applied to model infectious disease transmission, incorporating
+reinfection dynamics. This package employs a likelihood based Monte Carlo
+Expectation Conditional Maximization (MCECM) algorithm for estimating
+model parameters. It also provides tools for GDILM fitting, parameter
+estimation, AIC calculation on real pandemic data, and simulation studies
+customized to user-defined model settings. The methods are described in
+Abed, Torabi and Mashreghi (2025) <doi:10.1016/j.sste.2025.100780>.
 
 %prep
 %setup -q -c -n %{packname}

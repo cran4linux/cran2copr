@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RelDists
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation for some Reliability Distributions
 
@@ -20,7 +20,6 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-EstimationTools >= 4.0.0
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-gamlss 
-BuildRequires:    R-CRAN-gamlss.dist 
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-zipfR 
 BuildRequires:    R-CRAN-BBmisc 
@@ -29,7 +28,6 @@ BuildRequires:    R-CRAN-VGAM
 Requires:         R-CRAN-EstimationTools >= 4.0.0
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-gamlss 
-Requires:         R-CRAN-gamlss.dist 
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-zipfR 
 Requires:         R-CRAN-BBmisc 

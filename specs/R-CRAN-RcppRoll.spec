@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RcppRoll
-%global packver   0.3.2
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient Rolling / Windowed Operations
 
@@ -16,8 +16,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.15.1
 Requires:         R-core >= 2.15.1
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
 
 %description
 Provides fast and efficient routines for common rolling / windowed

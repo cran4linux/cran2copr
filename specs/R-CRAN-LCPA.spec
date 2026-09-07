@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LCPA
-%global packver   1.0.2
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          A General Framework for Latent Classify and Profile Analysis
+Summary:          A General Framework for Latent Class and Profile Analysis
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,6 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-CompQuadForm 
 BuildRequires:    R-CRAN-clue 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-tidyr 
@@ -34,6 +36,8 @@ BuildRequires:    R-CRAN-reshape2
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-reticulate 
+Requires:         R-methods 
+Requires:         R-CRAN-CompQuadForm 
 Requires:         R-CRAN-clue 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-tidyr 
@@ -51,24 +55,36 @@ Requires:         R-CRAN-reshape2
 Requires:         R-CRAN-scales 
 
 %description
-A unified latent class modeling framework that encompasses both latent
-class analysis (LCA) and latent profile analysis (LPA), offering a
-one-stop solution for latent class modeling. It implements
-state-of-the-art parameter estimation methods, including the
-expectation–maximization (EM) algorithm, neural network estimation (NNE;
-requires users to have 'Python' and its dependent libraries installed on
-their computer), and integration with 'Mplus' (requires users to have
-'Mplus' installed on their computer). In addition, it provides commonly
-used model fit indices such as the Akaike information criterion (AIC) and
-Bayesian information criterion (BIC), as well as classification accuracy
-measures such as entropy. The package also includes fully functional
-likelihood ratio tests (LRT) and bootstrap likelihood ratio tests (BLRT)
-to facilitate model comparison, along with bootstrap-based and observed
-information matrix-based standard error estimation. Furthermore, it
-supports the standard three-step approach for LCA, LPA, and latent
-transition analysis (LTA) with covariates, enabling detailed covariate
-analysis. Finally, it includes several user-friendly auxiliary functions
-to enhance interactive usability.
+Provides a unified framework for finite-mixture latent variable models,
+including latent class analysis (LCA), latent profile analysis (LPA),
+latent class/profile analysis with covariates, and latent transition
+analysis (LTA), within one consistent interface. Estimation methods
+include the expectation-maximization (EM) algorithm; neural network
+estimation, which requires 'Python' and its dependent libraries;
+integration with 'Mplus', which requires an installed copy of 'Mplus'; and
+stochastic EM (SEM) through the optional 'flexmix', 'Rmixmod', and
+'RMixtComp' backends. 'flexmix' and the default 'Rmixmod' path perform
+configurable warm-up trajectories and promote the best candidates to full
+SEM replications. 'Rmixmod' additionally exposes its native strategy
+interface, including chained SEM-to-EM estimation, whereas 'RMixtComp'
+exposes its native SEM and Gibbs controls without the external warm-up
+stage. Model assessment includes the Akaike information criterion (AIC),
+Bayesian information criterion (BIC), Schwarz information criterion (SIC),
+consistent AIC (CAIC), approximate weight of evidence (AWE),
+sample-size-adjusted BIC (SABIC), entropy, and average posterior
+probabilities. Model-comparison procedures include the ordinary
+likelihood-ratio test, the Mplus TECH11 Vuong-Lo-Mendell-Rubin and
+adjusted Lo-Mendell-Rubin tests, and fixed-replicate or sequential
+parametric bootstrap likelihood-ratio tests. Standard errors can be
+estimated by nonparametric bootstrap, numerical observed information, or
+analytic observed information based on Louis' identity.
+Classification-error-adjusted maximum-likelihood and Bolck-Croon-Hagenaars
+three-step methods support covariates predicting latent membership,
+initial-status and transition regressions, and latent classes or states
+predicting continuous and categorical external observed dependent
+variables. Simulation, posterior-probability, classification-error,
+extraction, summary, plotting, model-adjustment, and update utilities are
+also provided for reproducible workflows.
 
 %prep
 %setup -q -c -n %{packname}

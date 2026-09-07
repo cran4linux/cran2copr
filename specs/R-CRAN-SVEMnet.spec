@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SVEMnet
-%global packver   3.5.0
+%global packver   3.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.5.0
+Version:          3.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Self-Validated Ensemble Models with Lasso and Relaxed Elastic Net Regression
 
@@ -23,8 +23,6 @@ BuildRequires:    R-CRAN-cluster
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-lhs 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-gamlss 
-BuildRequires:    R-CRAN-gamlss.dist 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-glmnet >= 4.1
 Requires:         R-stats 
@@ -32,28 +30,24 @@ Requires:         R-CRAN-cluster
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lhs 
 Requires:         R-parallel 
-Requires:         R-CRAN-gamlss 
-Requires:         R-CRAN-gamlss.dist 
 Requires:         R-utils 
 
 %description
-Tools for fitting self-validated ensemble models (SVEM; Lemkus et al.
-(2021) <doi:10.1016/j.chemolab.2021.104439>) in small-sample
-design-of-experiments and related workflows, using elastic net and relaxed
-elastic net regression via 'glmnet' (Friedman et al. (2010)
-<doi:10.18637/jss.v033.i01>). Fractional random-weight bootstraps with
-anti-correlated validation copies are used to tune penalty paths by
-validation-weighted AIC/BIC. Supports Gaussian and binomial responses,
-deterministic expansion helpers for shared factor spaces, prediction with
-bootstrap uncertainty, a random-search optimizer that respects mixture
-constraints and combines multiple responses via desirability functions,
-and a batch sequential-design proposer based on Thompson sampling from the
-bootstrap ensemble (Thompson (1933) <doi:10.1093/biomet/25.3-4.285>;
-Kandasamy et al. (2018) <doi:10.48550/arXiv.1705.09236>). Also includes a
-permutation-based whole-model test for Gaussian SVEM fits (Karl (2024)
-<doi:10.1016/j.chemolab.2024.105122>). The package and its workflows are
-described in Karl (2026) <doi:10.1016/j.chemolab.2026.105660>. Package
-code was drafted with assistance from generative AI tools.
+Implements the self-validated elastic-net and relaxed elastic-net ensemble
+modeling and multi-response optimization workflow described in Karl (2026)
+<doi:10.1016/j.chemolab.2026.105660>. Self-validated ensemble models
+(SVEM; Lemkus et al. (2021) <doi:10.1016/j.chemolab.2021.104439>) are
+fitted for small-sample design-of-experiments and related workflows using
+'glmnet' (Friedman et al. (2010) <doi:10.18637/jss.v033.i01>). Fractional
+random-weight bootstraps with anti-correlated validation copies are used
+to tune penalty paths by validation-weighted AIC/BIC. Supports Gaussian
+and binomial responses, deterministic expansion helpers for shared factor
+spaces, prediction with bootstrap uncertainty, and a random-search
+optimizer that respects mixture constraints and combines multiple
+responses via desirability functions. Also includes a permutation-based
+whole-model test for Gaussian SVEM fits (Karl (2024)
+<doi:10.1016/j.chemolab.2024.105122>). Package code was drafted with
+assistance from generative AI tools.
 
 %prep
 %setup -q -c -n %{packname}
