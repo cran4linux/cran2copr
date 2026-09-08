@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  isoexplorer
-%global packver   0.4.1
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          GUI Components to Explore Stable Isotope Data Files
 
@@ -19,7 +19,7 @@ Requires:         R-core >= 4.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 3.6.0
 BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-isoreader2 >= 0.6.0
+BuildRequires:    R-CRAN-isoreader2 >= 0.7.0
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-purrr 
@@ -44,7 +44,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-cli >= 3.6.0
 Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-isoreader2 >= 0.6.0
+Requires:         R-CRAN-isoreader2 >= 0.7.0
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 

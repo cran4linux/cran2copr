@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  evalITR
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Evaluating Individualized Treatment Rules
 
@@ -25,7 +25,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-e1071 
-BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-furrr 
 BuildRequires:    R-CRAN-gbm 
 BuildRequires:    R-CRAN-ggdist 
 BuildRequires:    R-CRAN-ggplot2 
@@ -36,9 +36,7 @@ BuildRequires:    R-CRAN-haven
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rpart 
-BuildRequires:    R-CRAN-rqPen 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-bartCause 
 BuildRequires:    R-CRAN-SuperLearner 
 Requires:         R-CRAN-MASS >= 7.0
@@ -49,7 +47,7 @@ Requires:         R-stats
 Requires:         R-CRAN-caret 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-e1071 
-Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-furrr 
 Requires:         R-CRAN-gbm 
 Requires:         R-CRAN-ggdist 
 Requires:         R-CRAN-ggplot2 
@@ -60,9 +58,7 @@ Requires:         R-CRAN-haven
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rpart 
-Requires:         R-CRAN-rqPen 
 Requires:         R-CRAN-scales 
-Requires:         R-utils 
 Requires:         R-CRAN-bartCause 
 Requires:         R-CRAN-SuperLearner 
 
@@ -72,7 +68,8 @@ Treatment Rules under randomized data. The provided metrics include
 Population Average Value (PAV), Population Average Prescription Effect
 (PAPE), Area Under Prescription Effect Curve (AUPEC). It also provides the
 tools to analyze Individualized Treatment Rules under budget constraints.
-Detailed reference in Imai and Li (2019) <arXiv:1905.05389>.
+Detailed reference in Imai and Li (2023)
+<doi:10.1080/01621459.2021.1923511>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  healthbR
-%global packver   0.2.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access Brazilian Public Health Data
 
@@ -55,9 +55,12 @@ health beneficiaries, consumer complaints, and financial statements),
 'ANVISA' ('Agencia Nacional de Vigilancia Sanitaria' - product
 registrations, 'pharmacovigilance', 'hemovigilance', 'technovigilance',
 and controlled substance sales via 'SNGPC'), and other health information
-systems. Data is downloaded from the Brazilian Ministry of Health and
-'IBGE' repositories. Data is returned in tidy format following tidyverse
-conventions.
+systems. Data is downloaded from 'DATASUS' (the Ministry of Health's
+informatics department: compressed '.dbc' microdata read natively, or the
+healthbr-data 'Parquet' mirror with per-file provenance) and from 'IBGE'
+repositories, and is returned in tidy format following tidyverse
+conventions. A vignette compares the package with 'microdatasus' on the
+'DATASUS' systems both read.
 
 %prep
 %setup -q -c -n %{packname}

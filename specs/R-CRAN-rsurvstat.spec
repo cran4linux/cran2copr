@@ -1,42 +1,58 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  HaploVar
-%global packver   0.1.2
+%global packname  rsurvstat
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Defining Local Haplotype Variants for Use in Trait Association and Trait Prediction Analyses
+Summary:          Download Infectious Disease Data from 'SurvStat' (Robert Koch Institute)
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.00
-Requires:         R-core >= 4.00
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-dbscan 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-whisker 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-locfit 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sf 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-dbscan 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-whisker 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-locfit 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sf 
 
 %description
-A local haplotyping tool for use in trait association and trait prediction
-analyses pipelines. 'HaploVar' enables users take single nucleotide
-polymorphisms (SNPs) (in VCF format) and a linkage disequilibrium (LD)
-matrix, calculate local haplotypes and format the output to be compatible
-with a wide range of trait association and trait prediction tools. The
-local haplotypes are calculated from the LD matrix using a clustering
-algorithm called density-based spatial clustering of applications with
-noise (DBSCAN) (Ester et al., 1996) <ISBN: 1577350049>.
+Provides an interface to the 'SurvStat' web service from the Robert Koch
+Institute (<https://tools.rki.de/SurvStat/SurvStatWebService.svc>)
+allowing downloads of disease time series stratified by pathogen type and
+subtype, age, and geography from notifiable disease reports in Germany.
 
 %prep
 %setup -q -c -n %{packname}

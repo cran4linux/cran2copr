@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  multilevelmediation
-%global packver   0.4.1
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utility Functions for Multilevel Mediation Analysis
 
@@ -48,10 +48,9 @@ multilevel mediation, the option of a moderating variable for either the
 a, b, or both paths, and covariates. Currently the 1-1-1 model is
 supported and several options of random effects; the initial code for
 bootstrapping was evaluated in simulations by Falk, Vogel, Hammami, and
-Miočević (2024) <doi:10.3758/s13428-023-02079-4>. Support for Bayesian
-estimation using 'brms' comprises ongoing work. Currently only continuous
-mediators and outcomes are supported. Factors for any predictors must be
-numerically represented.
+Miočević (2024) <doi:10.3758/s13428-023-02079-4>. Currently only
+continuous mediators and outcomes are supported. Factors for any
+predictors must be numerically represented.
 
 %prep
 %setup -q -c -n %{packname}

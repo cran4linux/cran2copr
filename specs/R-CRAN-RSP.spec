@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RSP
-%global packver   0.5
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'shiny' Applications for Statistical and Psychometric Analysis
 
@@ -23,12 +23,17 @@ BuildRequires:    R-CRAN-GPArotation
 BuildRequires:    R-CRAN-Metrics 
 BuildRequires:    R-CRAN-ShinyItemAnalysis 
 BuildRequires:    R-CRAN-catR 
+BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-foreign 
 BuildRequires:    R-CRAN-gt 
 BuildRequires:    R-CRAN-hornpa 
+BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-lavaan 
 BuildRequires:    R-CRAN-mirt 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-polycor 
@@ -38,6 +43,8 @@ BuildRequires:    R-CRAN-semPlot
 BuildRequires:    R-CRAN-shinyBS 
 BuildRequires:    R-CRAN-shinyWidgets 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-visNetwork 
 BuildRequires:    R-CRAN-ltm 
 BuildRequires:    R-CRAN-shinycustomloader 
 BuildRequires:    R-CRAN-shinyjs 
@@ -52,12 +59,17 @@ Requires:         R-CRAN-GPArotation
 Requires:         R-CRAN-Metrics 
 Requires:         R-CRAN-ShinyItemAnalysis 
 Requires:         R-CRAN-catR 
+Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-foreign 
 Requires:         R-CRAN-gt 
 Requires:         R-CRAN-hornpa 
+Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-lavaan 
 Requires:         R-CRAN-mirt 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-polycor 
@@ -67,6 +79,8 @@ Requires:         R-CRAN-semPlot
 Requires:         R-CRAN-shinyBS 
 Requires:         R-CRAN-shinyWidgets 
 Requires:         R-CRAN-scales 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-visNetwork 
 Requires:         R-CRAN-ltm 
 Requires:         R-CRAN-shinycustomloader 
 Requires:         R-CRAN-shinyjs 

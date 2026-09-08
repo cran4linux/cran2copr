@@ -1,72 +1,71 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BiostatsUHNplus
-%global packver   1.0.5
+%global packname  r4pde
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nested Data Summary, Adverse Events and REDCap
+Summary:          Tools for Quantitative Plant Disease Epidemiology
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-afex 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-ggh4x 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-MCMCglmm 
-BuildRequires:    R-CRAN-openxlsx 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-parallelly 
-BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-nasapower 
+BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-reportRmd 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rstatix 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-afex 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-cowplot 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-terra 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-car 
+Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-ggh4x 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-MCMCglmm 
-Requires:         R-CRAN-openxlsx 
-Requires:         R-parallel 
-Requires:         R-CRAN-parallelly 
-Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-nasapower 
+Requires:         R-CRAN-progress 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-reportRmd 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rstatix 
 Requires:         R-stats 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tibble 
-Requires:         R-utils 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-terra 
 
 %description
-Tools and code snippets for summarizing nested data, adverse events and
-REDCap study information.
+Tools for quantitative plant disease epidemiology, including functional
+analysis of disease progress curves, spatial epidemiology, disease
+quantification, and weather-driven epidemic analysis. The package also
+serves as an educational resource and companion to the book "R for Plant
+Disease Epidemiology" (R4PDE). Several functions are based on classical
+and contemporary methods, including those discussed in Laurence V. Madden,
+Gareth Hughes, and Frank van den Bosch (2007) <doi:10.1094/9780890545058>.
 
 %prep
 %setup -q -c -n %{packname}

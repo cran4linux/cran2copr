@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  proteus
-%global packver   1.1.5
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiform Seq2Seq Model for Time-Feature Analysis
 
@@ -17,44 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggthemes >= 4.2.4
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.3
-BuildRequires:    R-CRAN-imputeTS >= 3.1
-BuildRequires:    R-CRAN-modeest >= 2.4.0
-BuildRequires:    R-CRAN-lubridate >= 1.7.9.2
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-abind >= 1.4.5
-BuildRequires:    R-CRAN-readr >= 1.4.0
-BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-future >= 1.33.0
-BuildRequires:    R-CRAN-scales >= 1.1.1
-BuildRequires:    R-CRAN-greybox >= 1.0.7
-BuildRequires:    R-CRAN-dplyr >= 1.0.2
-BuildRequires:    R-CRAN-tictoc >= 1.0.1
-BuildRequires:    R-CRAN-fANCOVA >= 0.6.1
-BuildRequires:    R-CRAN-narray >= 0.4.1
 BuildRequires:    R-CRAN-purrr >= 0.3.4
-BuildRequires:    R-CRAN-furrr >= 0.3.1
 BuildRequires:    R-CRAN-torch >= 0.3.0
-BuildRequires:    R-CRAN-moments >= 0.14
-Requires:         R-CRAN-ggthemes >= 4.2.4
-Requires:         R-CRAN-ggplot2 >= 3.3.3
-Requires:         R-CRAN-imputeTS >= 3.1
-Requires:         R-CRAN-modeest >= 2.4.0
-Requires:         R-CRAN-lubridate >= 1.7.9.2
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-abind >= 1.4.5
-Requires:         R-CRAN-readr >= 1.4.0
-Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-future >= 1.33.0
-Requires:         R-CRAN-scales >= 1.1.1
-Requires:         R-CRAN-greybox >= 1.0.7
-Requires:         R-CRAN-dplyr >= 1.0.2
-Requires:         R-CRAN-tictoc >= 1.0.1
-Requires:         R-CRAN-fANCOVA >= 0.6.1
-Requires:         R-CRAN-narray >= 0.4.1
 Requires:         R-CRAN-purrr >= 0.3.4
-Requires:         R-CRAN-furrr >= 0.3.1
 Requires:         R-CRAN-torch >= 0.3.0
-Requires:         R-CRAN-moments >= 0.14
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Seq2seq time-feature analysis based on variational model, with a wide

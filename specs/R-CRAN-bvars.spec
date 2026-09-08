@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bvars
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Forecasting with Large Vector Autoregressions
 
@@ -34,7 +34,8 @@ Requires:         R-CRAN-R6
 %description
 Provides fast and efficient procedures for Bayesian estimation and
 forecasting using state-of-the-art Vector Autoregressions. This package
-includes the model proposed by Chan (2020)
+includes the model proposed by Shang, Wang, Woźniak (2026)
+<doi:10.48550/arXiv.2608.28087> and Chan (2020)
 <doi:10.1080/07350015.2018.1451336>, that is, a Bayesian Vector
 Autoregression with Minnesota priors and a flexible structure of the error
 term specification. The latter includes: conditional multivariate normal
@@ -44,9 +45,9 @@ Stochastic Volatility. Additionally, the package facilitates predictive
 analyses using density forecasting and forecast-error variance
 decompositions. All this is complemented by simple workflows, useful plots
 and summary functions, and comprehensive documentation. The 'bvars'
-package aligns with R packages 'bsvars' by Woźniak (2024)
-<doi:10.32614/CRAN.package.bsvars>, 'bsvarSIGNs' by Wang & Woźniak (2025)
-<doi:10.32614/CRAN.package.bsvarSIGNs>, and 'bpvars' by Woźniak (2025)
+package aligns with R packages 'bsvars' by Woźniak (2026)
+<doi:10.32614/CRAN.package.bsvars>, 'bsvarSIGNs' by Wang & Woźniak (2026)
+<doi:10.32614/CRAN.package.bsvarSIGNs>, and 'bpvars' by Woźniak (2026)
 <doi:10.32614/CRAN.package.bpvars> regarding objects, workflows, and code
 structure, and they constitute an integrated toolset.
 

@@ -1,40 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  emulator
-%global packver   1.3-0
+%global packname  CompositionalZADR
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Emulation of Computer Programs
+Summary:          Compositional Data Analysis with the Zero Adjusted Dirichlet Distribution
 
-License:          GPL
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.1
-Requires:         R-core >= 3.0.1
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-quadform 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-quadform 
+BuildRequires:    R-CRAN-Compositional 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-Compositional 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-Rfast 
+Requires:         R-stats 
 
 %description
-Allows one to estimate the output of a computer program, as a function of
-the input parameters, without actually running it. The computer program is
-assumed to be a Gaussian process, whose parameters are estimated using
-Bayesian techniques that give a PDF of expected program output.  This PDF
-is conditional on a training set of runs, each consisting of a point in
-parameter space and the model output at that point.  The emphasis is on
-complex codes that take weeks or months to run, and that have a large
-number of undetermined input parameters; many climate prediction models
-fall into this class.  The emulator essentially determines Bayesian
-posterior estimates of the PDF of the output of a model, conditioned on
-results from previous runs and a user-specified prior linear model.  The
-package includes functionality to evaluate quadratic forms efficiently.
+Regression, discriminant analysis, maximum likelihood estimation, random
+values generation, and contour plots of the zero adjusted Dirichlet
+distribution. The relevant paper is Tsagris M. and Stewart C. (2018). "A
+Dirichlet regression model for compositional data with zeros".
+Lobachevskii Journal of Mathematics, 39(3): 398--412.
+<doi:10.1134/S1995080218030198>.
 
 %prep
 %setup -q -c -n %{packname}

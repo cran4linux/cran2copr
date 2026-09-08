@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  kstIO
-%global packver   0.5-1
+%global packver   0.6-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Knowledge Space Theory Input/Output
 
@@ -17,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.4.0
 Requires:         R-core >= 4.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-kstMatrix >= 2.3.0
+BuildRequires:    R-CRAN-kstMatrix >= 3.0.0
 BuildRequires:    R-CRAN-sets 
 BuildRequires:    R-CRAN-openxlsx2 
 BuildRequires:    R-CRAN-readODS 
 BuildRequires:    R-tools 
-Requires:         R-CRAN-kstMatrix >= 2.3.0
+Requires:         R-CRAN-kstMatrix >= 3.0.0
 Requires:         R-CRAN-sets 
 Requires:         R-CRAN-openxlsx2 
 Requires:         R-CRAN-readODS 

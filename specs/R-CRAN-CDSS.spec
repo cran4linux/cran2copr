@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CDSS
-%global packver   0.3-1
+%global packver   1.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Course-Dependent Skill Structures
 
@@ -19,8 +19,10 @@ Requires:         R-core >= 4.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-openxlsx >= 4.2.0
 BuildRequires:    R-CRAN-readODS >= 2.0.0
+BuildRequires:    R-utils 
 Requires:         R-CRAN-openxlsx >= 4.2.0
 Requires:         R-CRAN-readODS >= 2.0.0
+Requires:         R-utils 
 
 %description
 Deriving skill structures from skill assignment data for courses (sets of

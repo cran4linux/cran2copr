@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BiMaUmisc
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          BiMaU Miscellaneous
 
@@ -31,11 +31,13 @@ Requires:         R-graphics
 Requires:         R-utils 
 
 %description
-Contains a function to plot publication-ready survival curves with the
-Kaplan-Meier method (1958) <doi:10.2307/2281868> and a function to format
-p-values, which are useful for repetitive analyses. BiMaU stands for the
-Biostatistics and Mathematics Research Unit at the Sant Joan de Déu -
-Pediatric Cancer Center Barcelona <https://github.com/BiMaU-PCCB>.
+Contains a function to plot publication-ready survival curves using the
+Kaplan-Meier method (1958) <doi:10.2307/2281868>, a function to format
+p-values, and a function to automatically select statistical tests for
+comparing continuous variables between groups, which are useful for
+repetitive analyses. BiMaU stands for the Biostatistics and Mathematics
+Research Unit at the Sant Joan de Déu - Pediatric Cancer Center Barcelona
+<https://github.com/BiMaU-PCCB>.
 
 %prep
 %setup -q -c -n %{packname}

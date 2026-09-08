@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lambdaTS
-%global packver   1.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Variational Seq2Seq Model with Lambda Transformer for Time Series Analysis
 
@@ -14,43 +14,19 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-narray 
-BuildRequires:    R-CRAN-fANCOVA 
-BuildRequires:    R-CRAN-imputeTS 
-BuildRequires:    R-CRAN-modeest 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-tictoc 
-BuildRequires:    R-CRAN-bizdays 
 BuildRequires:    R-CRAN-torch 
-Requires:         R-CRAN-car 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-abind 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-narray 
-Requires:         R-CRAN-fANCOVA 
-Requires:         R-CRAN-imputeTS 
-Requires:         R-CRAN-modeest 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-tictoc 
-Requires:         R-CRAN-bizdays 
 Requires:         R-CRAN-torch 
 
 %description
-Time series analysis based on lambda transformer and variational seq2seq,
-built on 'Torch'.
+Probabilistic multivariate time series forecasting using a variational
+sequence-to-sequence model with Lambda-style temporal aggregation.
+Provides transformations, uncertainty estimates, diagnostics, and
+publication-ready plots.
 
 %prep
 %setup -q -c -n %{packname}

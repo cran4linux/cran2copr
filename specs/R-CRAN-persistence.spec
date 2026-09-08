@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  persistence
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimal Graph Partition using the Persistence
 
@@ -20,7 +20,11 @@ Requires:         R-core
 %description
 Calculate the optimal vertex partition of a graph using the persistence as
 objective function. These subroutines have been used in Avellone et al.
-<doi:10.1007/s10288-023-00559-z>.
+<doi:10.1007/s10288-023-00559-z> and Avellone et al.
+<doi:10.1016/j.ins.2025.123032>. This package is deprecated and has been
+superseded by the 'scalednap' package, which provides the same
+functionality and additional features; new and existing users should
+install 'scalednap' instead.
 
 %prep
 %setup -q -c -n %{packname}

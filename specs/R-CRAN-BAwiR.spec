@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BAwiR
-%global packver   1.5.3
+%global packver   1.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.3
+Version:          1.5.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Basketball Data
 
@@ -27,10 +27,8 @@ BuildRequires:    R-CRAN-janitor
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-polite 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-robotstxt 
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-stringr 
@@ -47,10 +45,8 @@ Requires:         R-CRAN-janitor
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-polite 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-robotstxt 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-stringr 

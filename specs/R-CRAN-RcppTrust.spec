@@ -1,32 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ZeroOneDists
-%global packver   1.0.1
+%global packname  RcppTrust
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          One Zero Statistical Distributions
+Summary:          Thread-Safe C++ Port of the 'trust' Trust Region Optimizer
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-gamlss 
-Requires:         R-CRAN-gamlss 
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Implementation of new statistical distributions in (0, 1) interval. Each
-distribution includes the traditional functions as well as an additional
-function called the family function, which can be used to estimate
-parameters using Generalized Additive Models for Location, Scale and
-Shape, GAMLSS by Rigby & Stasinopoulos (2005)
-<doi:10.1111/j.1467-9876.2005.00510.x>.
+Does local optimization using two derivatives and trust regions.
+Guaranteed to converge to a local minimum of the objective function. This
+is a thread-safe C++ port of the algorithm in the 'trust' package by
+Charles J. Geyer, exposed both as a drop-in R function and as a
+C-callable, thread-safe entry point (with function pointers registered for
+other packages to call without linking against this package's shared
+library) so it can be used from parallel C++ code such as in 'nlmixr2est'.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  naive
-%global packver   1.2.3
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Empirical Extrapolation of Time Feature Patterns
 
@@ -17,40 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.2
-BuildRequires:    R-CRAN-imputeTS >= 3.3
-BuildRequires:    R-CRAN-modeest >= 2.4.0
-BuildRequires:    R-CRAN-readr >= 2.1.4
-BuildRequires:    R-CRAN-Rfast >= 2.0.7
-BuildRequires:    R-CRAN-lubridate >= 1.9.2
-BuildRequires:    R-CRAN-fastDummies >= 1.6.3
-BuildRequires:    R-CRAN-entropy >= 1.3.1
-BuildRequires:    R-CRAN-scales >= 1.2.1
-BuildRequires:    R-CRAN-tictoc >= 1.2
-BuildRequires:    R-CRAN-greybox >= 1.0.8
-BuildRequires:    R-CRAN-purrr >= 1.0.1
-BuildRequires:    R-CRAN-philentropy >= 0.7.0
-BuildRequires:    R-CRAN-fANCOVA >= 0.6.1
-BuildRequires:    R-CRAN-moments >= 0.14.1
-Requires:         R-CRAN-ggplot2 >= 3.4.2
-Requires:         R-CRAN-imputeTS >= 3.3
-Requires:         R-CRAN-modeest >= 2.4.0
-Requires:         R-CRAN-readr >= 2.1.4
-Requires:         R-CRAN-Rfast >= 2.0.7
-Requires:         R-CRAN-lubridate >= 1.9.2
-Requires:         R-CRAN-fastDummies >= 1.6.3
-Requires:         R-CRAN-entropy >= 1.3.1
-Requires:         R-CRAN-scales >= 1.2.1
-Requires:         R-CRAN-tictoc >= 1.2
-Requires:         R-CRAN-greybox >= 1.0.8
-Requires:         R-CRAN-purrr >= 1.0.1
-Requires:         R-CRAN-philentropy >= 0.7.0
-Requires:         R-CRAN-fANCOVA >= 0.6.1
-Requires:         R-CRAN-moments >= 0.14.1
 
 %description
-An application for the empirical extrapolation of time features selecting
-and summarizing the most relevant patterns in time sequences.
+Empirically extrapolates recurring patterns in numeric and categorical
+time-feature sequences. Candidate windows are selected by similarity,
+validated with rolling-origin evaluation, and summarized as forecast
+distributions. The runtime package uses only base R.
 
 %prep
 %setup -q -c -n %{packname}

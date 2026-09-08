@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pairwiseLLM
-%global packver   1.1.0
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pairwise Comparison Tools for Large Language Model-Based Writing Evaluation
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-httr2 
@@ -27,6 +28,7 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-httr2 
@@ -46,12 +48,15 @@ multiple providers ('OpenAI', 'Anthropic', 'Google Gemini', 'Together AI',
 and locally-hosted 'Ollama' models), includes bias-tested prompt templates
 and a flexible template registry, and offers tools for constructing
 forward and reversed comparison sets to analyze consistency and positional
-bias. Results can be modeled using Bradley–Terry (1952)
-<doi:10.2307/2334029> or Elo rating methods to derive writing quality
-scores. For information on the method of pairwise comparisons, see
-Thurstone (1927) <doi:10.1037/h0070288> and Heldsinger & Humphry (2010)
-<doi:10.1007/BF03216919>. For information on Elo ratings, see Clark et al.
-(2018) <doi:10.1371/journal.pone.0190393>.
+bias. The package additionally supports adaptive pairing workflows that
+iteratively select comparisons based on model uncertainty to improve
+ranking efficiency. Results can be modeled using frequentist or Bayesian
+Bradley–Terry–Luce models (Bradley & Terry, 1952 <doi:10.2307/2334029>;
+see also Caron & Doucet, 2012 <doi:10.1080/10618600.2012.638220>) or Elo
+rating methods (see Clark et al., 2018 <doi:10.1371/journal.pone.0190393>)
+to derive writing quality scores. For information on pairwise comparisons
+and comparative judgement, see Thurstone (1927) <doi:10.1037/h0070288> and
+Heldsinger & Humphry (2010) <doi:10.1007/BF03216919>.
 
 %prep
 %setup -q -c -n %{packname}

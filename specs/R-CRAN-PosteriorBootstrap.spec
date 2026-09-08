@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PosteriorBootstrap
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Non-Parametric Sampling with Parallel Monte Carlo
 
@@ -36,7 +36,7 @@ logistic regression method; when the concentration is high, the samples
 are close to the simplified variational Bayes logistic regression. The
 method is described in full in the paper Lyddon, Walker, and Holmes
 (2018), "Nonparametric learning from Bayesian models with randomized
-objective functions" <arXiv:1806.11544>.
+objective functions" <doi:10.48550/arXiv.1806.11544>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  saeproj.multilevel
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Small Area Estimation Using a Projection Estimator with a Multilevel Regression Model
 
@@ -36,8 +36,13 @@ Requires:         R-utils
 Provides tools for small area estimation using a projection estimator with
 a linear multilevel working model. The main function fits a multilevel
 model to a smaller survey containing the response variable and auxiliary
-predictors, predicts outcomes in a larger projection survey, and computes
-domain-level estimates with a design-based residual correction.
+predictors. The fitted model is used to predict outcomes in a larger
+projection survey, and domain-level estimates are computed by combining
+synthetic predictions with a design-based residual correction. For
+methodological references, see Kim and Rao (2012)
+<doi:10.1093/biomet/asr063>, Food and Agriculture Organization of the
+United Nations (2021) <doi:10.4060/cb3253en>, and Moura and Holt (1999)
+<https://www150.statcan.gc.ca/n1/pub/12-001-x/1999001/article/4714-eng.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

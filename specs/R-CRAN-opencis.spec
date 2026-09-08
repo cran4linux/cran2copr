@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  opencis
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Import Data from Spanish Sociological Research Center (CIS)
 
@@ -22,17 +22,21 @@ BuildRequires:    R-CRAN-haven >= 2.5.3
 BuildRequires:    R-CRAN-magrittr >= 2.0.0
 BuildRequires:    R-CRAN-memoise >= 2.0.0
 BuildRequires:    R-CRAN-httr >= 1.4.7
+BuildRequires:    R-CRAN-cachem >= 1.1.0
 BuildRequires:    R-CRAN-purrr >= 1.0.0
 BuildRequires:    R-CRAN-rvest >= 1.0.0
 BuildRequires:    R-CRAN-stringr >= 1.0.0
+BuildRequires:    R-CRAN-digest >= 0.6.0
 Requires:         R-CRAN-tibble >= 3.0.0
 Requires:         R-CRAN-haven >= 2.5.3
 Requires:         R-CRAN-magrittr >= 2.0.0
 Requires:         R-CRAN-memoise >= 2.0.0
 Requires:         R-CRAN-httr >= 1.4.7
+Requires:         R-CRAN-cachem >= 1.1.0
 Requires:         R-CRAN-purrr >= 1.0.0
 Requires:         R-CRAN-rvest >= 1.0.0
 Requires:         R-CRAN-stringr >= 1.0.0
+Requires:         R-CRAN-digest >= 0.6.0
 
 %description
 Search and import data directly to R from the Spanish Sociological

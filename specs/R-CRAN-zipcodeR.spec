@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  zipcodeR
-%global packver   0.3.5
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data & Functions for Working with US ZIP Codes
 
@@ -45,7 +45,9 @@ Make working with ZIP codes in R painless with an integrated dataset of
 U.S. ZIP codes and functions for working with them. Search ZIP codes by
 multiple geographies, including state, county, city & across time zones.
 Also included are functions for relating ZIP codes to Census data,
-geocoding & distance calculations.
+geocoding & distance calculations. New analyses can select an immutable
+modern data bundle through the next-generation API, while the historical
+interface remains compatible with version 0.3.5 for reproducible research.
 
 %prep
 %setup -q -c -n %{packname}

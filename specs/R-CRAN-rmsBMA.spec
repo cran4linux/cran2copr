@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rmsBMA
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reduced Model Space Bayesian Model Averaging
 
@@ -43,8 +43,11 @@ supports reduced model space inference, thereby preserving degrees of
 freedom for estimation. It provides posterior summaries, Extreme Bounds
 Analysis, model selection procedures, joint inclusion measures, and
 graphical tools for exploring model probabilities, model size
-distributions, and coefficient distributions. The methodological approach
-follows Doppelhofer and Weeks (2009) <doi:10.1002/jae.1046>.
+distributions, and coefficient distributions. When the model space is too
+large to enumerate, it can be explored by Markov chain Monte Carlo model
+composition instead. The methodological approach follows Doppelhofer and
+Weeks (2009) <doi:10.1002/jae.1046> and Madigan and York (1995)
+<doi:10.2307/1403615>.
 
 %prep
 %setup -q -c -n %{packname}
