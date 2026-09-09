@@ -1,30 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cpp11qpdf
-%global packver   1.3.5
+%global packname  sfOpenData
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.5
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Split, Combine and Compress PDF Files
+Summary:          A Lightweight Interface to San Francisco Open Data APIs
 
-License:          Apache License (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
 BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-cpp11 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-curl 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
 
 %description
-Bindings to 'qpdf': 'qpdf' (<https://qpdf.sourceforge.io/>) is a an
-open-source PDF rendering library that allows to conduct
-content-preserving transformations of PDF files such as split, combine,
-and compress PDF files.
+Provides a unified set of helper functions to access datasets from the San
+Francisco Open Data platform <https://data.sfgov.org/>. Functions return
+results as tidy tibbles and support optional filtering, sorting, and row
+limits via the Socrata API. The package provides a consistent interface
+for discovering and downloading datasets from the San Francisco Open Data
+Portal using human-readable dataset keys or official Socrata dataset
+identifiers.
 
 %prep
 %setup -q -c -n %{packname}

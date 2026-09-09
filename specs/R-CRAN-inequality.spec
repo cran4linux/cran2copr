@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  inequality
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Inequality Measurement, Decomposition, and Poverty Analysis
 
@@ -29,7 +29,7 @@ Requires:         R-stats
 %description
 Tools for measuring income and wealth inequality. Computes the Gini
 coefficient with bootstrap or asymptotic confidence intervals following
-Davidson (2009) <doi:10.1016/j.jeconom.2008.09.011>, the extended S-Gini
+Davidson (2009) <doi:10.1016/j.jeconom.2008.11.004>, the extended S-Gini
 family, Theil T and L indices (generalised entropy family), the Atkinson
 index, the Kolm absolute inequality index, Palma ratio, Hoover index,
 percentile ratios, and Lorenz curves. Supports between-within group

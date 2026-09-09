@@ -1,29 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  NHSRdatasets
-%global packver   1.0.0
+%global packname  DPrivStats
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          NHS and Healthcare-Related Data for Education and Training
+Summary:          Differentially Private Classical Statistical Inference
 
-License:          CC0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildArch:        noarch
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-stats 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Free United Kingdom National Health Service (NHS) and other healthcare, or
-population health-related data for education and training purposes. This
-package contains synthetic data based on real healthcare datasets, or cuts
-of open-licenced official data.  This package exists to support skills
-development in the NHS-R community: <https://nhsrcommunity.com/>.
+Implements differentially private (DP) versions of common classical
+statistical procedures, including descriptive statistics (mean, variance,
+quantiles, histograms), hypothesis tests (t-test, chi-square,
+Kolmogorov-Smirnov, one-way ANOVA), and regression (closed-form DP linear
+regression and DP-SGD for generalized linear models). Provides Laplace and
+Gaussian mechanisms with analytic calibration, exponential mechanism for
+medians, privacy-aware confidence intervals that account for both sampling
+and privacy noise, and privacy budget accounting via basic, advanced, and
+Renyi differential privacy (RDP) composition. Designed for official
+statistics and privacy-preserving data analysis research.
 
 %prep
 %setup -q -c -n %{packname}

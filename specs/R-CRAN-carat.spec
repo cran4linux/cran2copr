@@ -1,50 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GPCMlasso
-%global packver   0.2-0
+%global packname  carat
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          2.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Regularized Explanatory Generalized Partial Credit Models
+Summary:          Covariate-Adaptive Randomization for Clinical Trials
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.4
-BuildRequires:    R-CRAN-ltm 
-BuildRequires:    R-CRAN-TeachingDemos 
-BuildRequires:    R-CRAN-cubature 
-BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-CRAN-statmod 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-mirt 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-gridExtra >= 2.3
+BuildRequires:    R-CRAN-stringr >= 1.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.1.2
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.4
-Requires:         R-CRAN-ltm 
-Requires:         R-CRAN-TeachingDemos 
-Requires:         R-CRAN-cubature 
-Requires:         R-CRAN-caret 
-Requires:         R-CRAN-statmod 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-mirt 
+Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-gridExtra >= 2.3
+Requires:         R-CRAN-stringr >= 1.5.0
+Requires:         R-CRAN-Rcpp >= 1.1.2
 Requires:         R-methods 
 
 %description
-Fits explanatory generalized partial credit models and related ordinal
-item response models with global and item-specific covariate effects.
-Penalized marginal maximum likelihood estimation is used for variable
-selection, detection of differential item functioning, and clustering of
-item-specific covariate effects by fusion penalties. The package extends
-the regularization approach for differential item functioning in
-generalized partial credit models proposed by Schauberger and Mair (2020)
-<doi:10.3758/s13428-019-01224-2>.
+Provides functions and command-line user interface to generate allocation
+sequence by covariate-adaptive randomization for clinical trials. The
+package currently supports six covariate-adaptive randomization
+procedures. Three hypothesis testing methods that are valid and robust
+under covariate-adaptive randomization are also available in the package
+to facilitate the inference for treatment effect under the included
+randomization procedures. Additionally, the package provides comprehensive
+and efficient tools to allow one to evaluate and compare the performance
+of randomization procedures and tests based on various criteria. See Ma W,
+Ye X, Tu F, and Hu F (2023) <doi: 10.18637/jss.v107.i02> for details.
 
 %prep
 %setup -q -c -n %{packname}

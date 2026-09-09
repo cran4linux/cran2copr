@@ -1,29 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  NHSRdatasets
-%global packver   1.0.0
+%global packname  pinsearch
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          NHS and Healthcare-Related Data for Education and Training
+Summary:          Specification Search for Partial Factorial Invariance
 
-License:          CC0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-lavaan 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-lavaan 
+Requires:         R-stats 
 
 %description
-Free United Kingdom National Health Service (NHS) and other healthcare, or
-population health-related data for education and training purposes. This
-package contains synthetic data based on real healthcare datasets, or cuts
-of open-licenced official data.  This package exists to support skills
-development in the NHS-R community: <https://nhsrcommunity.com/>.
+Automate specification search for identifying noninvariant items in
+factorial invariance analyses, as described in Yoon & Millsap (2007)
+<doi:10.1080/10705510701301677>. Models are specified in 'lavaan' syntax.
+Supports continuous indicators with loadings, intercepts, residuals
+(uniqueness), and residual covariances invariance, and ordered categorical
+indicators with loadings, thresholds, and residual covariances invariance.
 
 %prep
 %setup -q -c -n %{packname}

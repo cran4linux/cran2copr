@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  traj
-%global packver   3.0.1
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.1
+Version:          3.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Feature-Based Clustering of Longitudinal Trajectories
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-cluster 
@@ -23,12 +23,16 @@ BuildRequires:    R-CRAN-clusterCrit
 BuildRequires:    R-CRAN-fclust 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-RSpectra 
+BuildRequires:    R-CRAN-Matrix 
 Requires:         R-stats 
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-clusterCrit 
 Requires:         R-CRAN-fclust 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-RSpectra 
+Requires:         R-CRAN-Matrix 
 
 %description
 Identifies clusters of individual longitudinal trajectories. In the spirit

@@ -1,29 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  NHSRdatasets
-%global packver   1.0.0
+%global packname  pdglasso
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          NHS and Healthcare-Related Data for Education and Training
+Summary:          Graphical Lasso for Coloured Gaussian Graphical Models for Paired Data
 
-License:          CC0
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildArch:        noarch
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.13
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 1.0.13
+Requires:         R-CRAN-MASS 
 
 %description
-Free United Kingdom National Health Service (NHS) and other healthcare, or
-population health-related data for education and training purposes. This
-package contains synthetic data based on real healthcare datasets, or cuts
-of open-licenced official data.  This package exists to support skills
-development in the NHS-R community: <https://nhsrcommunity.com/>.
+Implements methods for coloured Gaussian graphical models with equality
+"R"estrictions on "CON"centration values (RCON models; Højsgaard and
+Lauritzen (2008) <doi:10.1111/j.1467-9868.2008.00666.x>) for paired data
+(pdRCON models). Provides an Alternating Direction Method of Multipliers
+(ADMM) algorithm for solving the penalized likelihood problem introduced
+by Ranciati and Roverato (2024) <doi:10.1007/s11222-024-10513-6>. Provides
+functions for computing maximum likelihood estimates and generating
+simulated pdRCON models and datasets.
 
 %prep
 %setup -q -c -n %{packname}

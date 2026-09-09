@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lvmPlot
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Publication-Quality Diagrams for Latent Variable Models
 
@@ -33,7 +33,9 @@ latent class and profile models, item response theory models, and common
 mixture outputs through a unified graph grammar with model-aware defaults,
 geometry diagnostics, layout quality scoring, automatic layout selection,
 customizable publication styles, 'RStudio' preview, SVG/PDF/PNG export,
-'TikZ' output, and reproducible publication bundles.
+'TikZ' output, and reproducible publication bundles. A local 'Shiny'
+editor supports mouse dragging of nodes and coefficient labels,
+synchronized figure downloads, and reusable editing state.
 
 %prep
 %setup -q -c -n %{packname}

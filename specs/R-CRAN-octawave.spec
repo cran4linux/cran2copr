@@ -1,45 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  penetrance
-%global packver   0.1.4
+%global packname  octawave
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Methods for Penetrance Estimation in Family-Based Studies
+Summary:          Spatial Octahedral Quantum Wave Functions
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-kinship2 >= 1.8.5
-BuildRequires:    R-CRAN-clipp 
-BuildRequires:    R-stats 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-Requires:         R-CRAN-kinship2 >= 1.8.5
-Requires:         R-CRAN-clipp 
-Requires:         R-stats 
-Requires:         R-parallel 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-matlab 
+BuildRequires:    R-CRAN-plotly 
 Requires:         R-graphics 
 Requires:         R-grDevices 
+Requires:         R-CRAN-matlab 
+Requires:         R-CRAN-plotly 
 
 %description
-Implements statistical methods for estimating disease penetrance in
-family-based studies. Penetrance refers to the probability of disease
-manifestation in individuals carrying specific genetic variants. The
-package provides tools for age-specific penetrance estimation, handling
-missing data, and accounting for ascertainment bias in family studies.
-Cite as: Kubista, N., Braun, D. & Parmigiani, G. (2025)
-<doi:10.1093/bioadv/vbaf154>.
+Provides mathematical tools for simulating and visualizing
+three-dimensional octahedral quantum wave interferences and spatial
+resonance fields. Includes functions for MRI slice generation of fullerene
+structures and wave models. Computational modeling and three-dimensional
+visualization of fullerene and octahedral topologies are implemented
+within the R statistical environment, with interactive plotting powered by
+'plotly'. Theoretical foundations are based on the topological frameworks
+of Cataldo et al. (2015) <doi:10.1002/wcms.1207>, Dresselhaus et al.
+(1996, ISBN:9780122218200), and Coxeter (1973, ISBN:9780486614809); the
+geometric principles of equations of the octahedron type are outlined in
+Bobenko and Suris (2012) <doi:10.1093/imrn/rnr083>. Additional structural
+and biological symmetry contexts are derived from Bragg (1914)
+<doi:10.1098/rspa.1914.0015> and Caspar and Klug (1962)
+<doi:10.1101/sqb.1962.027.001.005>.
 
 %prep
 %setup -q -c -n %{packname}

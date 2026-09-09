@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TestDesign
-%global packver   1.7.0
+%global packver   1.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.0
+Version:          1.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimal Test Design Approach to Fixed and Adaptive Test Construction
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-lpSolve
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-logitnorm 
 BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-highs 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.0
 Requires:         R-methods 
@@ -29,6 +30,7 @@ Requires:         R-CRAN-lpSolve
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-logitnorm 
 Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-highs 
 
 %description
 Uses the optimal test design approach by Birnbaum (1968,

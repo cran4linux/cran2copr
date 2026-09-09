@@ -1,29 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  NHSRdatasets
+%global packname  numops
 %global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          NHS and Healthcare-Related Data for Education and Training
+Summary:          Lightweight Numerical Operations
 
-License:          CC0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
 
 %description
-Free United Kingdom National Health Service (NHS) and other healthcare, or
-population health-related data for education and training purposes. This
-package contains synthetic data based on real healthcare datasets, or cuts
-of open-licenced official data.  This package exists to support skills
-development in the NHS-R community: <https://nhsrcommunity.com/>.
+Provides dependency-free helpers for recurring numerical tasks on vectors,
+matrices, and arrays. Operations cover bounds, interpolation, remapping,
+division, Euclidean norms, normalization, and adjacent differences.
+Multi-input operations use strict scalar recycling, reject incompatible
+lengths, and preserve names, dimensions, and dimension names where
+applicable. Explicit handling of invalid intervals, zero denominators, and
+zero norms gives consistent behavior for common edge cases.
 
 %prep
 %setup -q -c -n %{packname}

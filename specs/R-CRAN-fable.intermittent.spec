@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fable.intermittent
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Forecasting Models for Intermittent Time Series
 
@@ -20,21 +20,20 @@ BuildRequires:    R-CRAN-tibble >= 3.0.0
 BuildRequires:    R-CRAN-nloptr >= 2.0.0
 BuildRequires:    R-CRAN-tsibble >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-BuildRequires:    R-CRAN-distributional >= 0.7.1
+BuildRequires:    R-CRAN-distributional >= 0.9.0
 BuildRequires:    R-CRAN-fabletools >= 0.6.0
+BuildRequires:    R-CRAN-tweedieDistr >= 0.2.0
 BuildRequires:    R-CRAN-generics >= 0.1.0
-BuildRequires:    R-CRAN-tweedieDistr >= 0.1.0
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-tibble >= 3.0.0
 Requires:         R-CRAN-nloptr >= 2.0.0
 Requires:         R-CRAN-tsibble >= 1.0.0
 Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-Rcpp >= 1.0.0
-Requires:         R-CRAN-distributional >= 0.7.1
+Requires:         R-CRAN-distributional >= 0.9.0
 Requires:         R-CRAN-fabletools >= 0.6.0
+Requires:         R-CRAN-tweedieDistr >= 0.2.0
 Requires:         R-CRAN-generics >= 0.1.0
-Requires:         R-CRAN-tweedieDistr >= 0.1.0
 
 %description
 Extends the 'fable' framework to support forecasting methods specifically
@@ -50,7 +49,8 @@ be used to evaluate accuracy, plot and print the results seamlessly with
 <doi:10.1016/j.ijforecast.2015.12.004>, Hasni, Aguir, Babai, Jemai (2019)
 <doi:10.1080/00207543.2018.1424375>, Damato, Azzimonti, Corani (2025)
 <doi:10.1016/j.ijforecast.2025.10.001>, Sbrana (2025)
-<doi:10.1080/01605682.2025.2569661>.
+<doi:10.1080/01605682.2025.2569661>, Sbrana, Babai (2026)
+<doi:10.1016/j.ejor.2026.06.009>.
 
 %prep
 %setup -q -c -n %{packname}

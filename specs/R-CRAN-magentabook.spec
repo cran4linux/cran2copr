@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  magentabook
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          HM Treasury Magenta Book Policy Evaluation Primitives
 
@@ -26,22 +26,23 @@ Requires:         R-utils
 
 %description
 Implements policy evaluation primitives from HM Treasury Magenta Book
-guidance (HM Treasury, 2020): theory of change and log-frame construction,
+guidance (HM Treasury, 2026): theory of change and log-frame construction,
 evaluation planning and stakeholder mapping, power and
 minimum-detectable-effect calculations for randomised designs (including
-cluster and stepped-wedge designs following 'Hussey' and 'Hughes' (2007)
-<doi:10.1016/j.cct.2006.05.007> and 'Hemming' et al. (2015)
+cluster and stepped-wedge designs following Hussey and Hughes (2007)
+<doi:10.1016/j.cct.2006.05.007> and Hemming et al. (2015)
 <doi:10.1136/bmj.h391>), Maryland Scientific Methods Scale ratings,
 structured confidence ratings, light-weight difference-in-differences and
-interrupted-time-series estimators ('Bernal' et al. (2017)
-<doi:10.1093/ije/dyw098>) with cluster-robust standard errors ('Cameron'
-and 'Miller' (2015) <doi:10.3368/jhr.50.2.317>), pre-treatment balance
-checks ('Stuart' (2010) <doi:10.1214/09-STS313>), and cost-effectiveness
-analysis (cost per outcome, incremental cost-effectiveness ratio,
-acceptability curves, incremental net benefit, quality-adjusted and
-disability-adjusted life years). Designed as the evaluation companion to
-the appraisal package 'greenbook'. Bundled rubric and reference tables
-carry vintage metadata for reproducibility.
+interrupted-time-series estimators (Bernal et al. (2017)
+<doi:10.1093/ije/dyw098>) with cluster-robust standard errors (Cameron and
+Miller (2015) <doi:10.3368/jhr.50.2.317>), pre-treatment balance checks
+(Stuart (2010) <doi:10.1214/09-STS313>), and cost-effectiveness analysis
+(cost per outcome, incremental cost-effectiveness ratio, acceptability
+curves, incremental net benefit, quality-adjusted and disability-adjusted
+life years). Designed as the evaluation companion to the appraisal package
+'greenbook'. Bundled rubric and reference tables carry vintage metadata
+for reproducibility. Aligned with the May 2026 republication of the
+Magenta Book.
 
 %prep
 %setup -q -c -n %{packname}

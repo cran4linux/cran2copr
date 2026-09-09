@@ -1,29 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  NHSRdatasets
-%global packver   1.0.0
+%global packname  pressfreedom
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          NHS and Healthcare-Related Data for Education and Training
+Summary:          Press Freedom Dashboard
 
-License:          CC0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-CRAN-pressfreedom.data >= 0.3.0
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-bslib 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-countrycode 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-purrr 
+Requires:         R-CRAN-pressfreedom.data >= 0.3.0
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-bslib 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-countrycode 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-purrr 
 
 %description
-Free United Kingdom National Health Service (NHS) and other healthcare, or
-population health-related data for education and training purposes. This
-package contains synthetic data based on real healthcare datasets, or cuts
-of open-licenced official data.  This package exists to support skills
-development in the NHS-R community: <https://nhsrcommunity.com/>.
+A Shiny dashboard for exploring Reporters Without Borders (RWB) Press
+Freedom Index data from 2002 to the present. Combines RWB scores with
+United Nations M49 geographic classifications to enable comparisons across
+countries, regions, and time.
 
 %prep
 %setup -q -c -n %{packname}

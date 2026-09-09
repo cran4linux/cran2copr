@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mpshock
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Monetary Policy Shock Series for Empirical Macroeconomics
 
@@ -31,16 +31,16 @@ tidy data frames with provenance metadata. Version 0.1.0 includes thirteen
 series covering the United States, United Kingdom, and Australia: for the
 US, the policy news shock of Nakamura and Steinsson (2018)
 <doi:10.1093/qje/qjy004>, the orthogonalised surprise of Bauer and Swanson
-(2023) <doi:10.1257/aer.20201220>, the target and path factors of the
-Swanson (2021) <doi:10.1016/j.jmoneco.2020.09.003> extension of Gurkaynak,
-Sack, and Swanson (2005), the pure monetary policy and central bank
-information shocks of Jarocinski and Karadi (2020)
-<doi:10.1257/mac.20180090>, the informationally-robust shock of
-Miranda-Agrippino and Ricco (2021) <doi:10.1257/mac.20180124>, and the
-shadow federal funds rate of Wu and Xia (2016) <doi:10.1111/jmcb.12300>;
-for the UK, the UK Monetary Policy Event-Study Database of Braun,
-Miranda-Agrippino, and Saha (2025) <doi:10.1016/j.jmoneco.2024.103645>,
-the high-frequency surprise of Cesa-Bianchi, Thwaites, and Vicondoa (2020)
+(2023) <doi:10.1086/723574>, the target and path factors of the Swanson
+(2021) <doi:10.1016/j.jmoneco.2020.09.003> extension of Gurkaynak, Sack,
+and Swanson (2005), the pure monetary policy and central bank information
+shocks of Jarocinski and Karadi (2020) <doi:10.1257/mac.20180090>, the
+informationally-robust shock of Miranda-Agrippino and Ricco (2021)
+<doi:10.1257/mac.20180124>, and the shadow federal funds rate of Wu and
+Xia (2016) <doi:10.1111/jmcb.12300>; for the UK, the UK Monetary Policy
+Event-Study Database of Braun, Miranda-Agrippino, and Saha (2025)
+<doi:10.1016/j.jmoneco.2024.103645>, the high-frequency surprise of
+Cesa-Bianchi, Thwaites, and Vicondoa (2020)
 <doi:10.1016/j.euroecorev.2020.103375>, and the narrative shock of Cloyne
 and Hurtgen (2016) <doi:10.1257/mac.20150093>; for Australia, the
 three-component RBA surprise of Hambur and Haque (2023)

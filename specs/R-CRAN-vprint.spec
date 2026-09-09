@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vprint
-%global packver   1.3
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          More Flexible Form of Boolean Verbose
 
@@ -17,13 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-crayon 
+Requires:         R-CRAN-crayon 
 
 %description
 R functions are not supposed to print text without giving the user the
 option to turn the printing off or on using a Boolean 'verbose' in a
 construct like 'if(verbose) print(...)'. But this black/white approach is
 rather rigid, and an approach with shades of gray might be more
-appropriate in many circumstances.
+appropriate in many circumstances. As of Version 1.4, also supports text
+and background colors, as well as text styles.
 
 %prep
 %setup -q -c -n %{packname}

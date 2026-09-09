@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sense
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automatic Stacked Ensemble for Regression Tasks
 
@@ -17,43 +17,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-visNetwork >= 2.0.9
-BuildRequires:    R-CRAN-readr >= 2.0.1
-BuildRequires:    R-CRAN-lubridate >= 1.7.10
 BuildRequires:    R-CRAN-data.table >= 1.14.0
-BuildRequires:    R-CRAN-tictoc >= 1.0.1
 BuildRequires:    R-CRAN-paradox >= 1.0.0
 BuildRequires:    R-CRAN-mlr3tuning >= 0.8.0
-BuildRequires:    R-CRAN-mlr3viz >= 0.5.5
-BuildRequires:    R-CRAN-forcats >= 0.5.1
 BuildRequires:    R-CRAN-mlr3learners >= 0.5.0
-BuildRequires:    R-CRAN-mlr3filters >= 0.4.2
-BuildRequires:    R-CRAN-mlr3pipelines >= 0.3.5.1
-BuildRequires:    R-CRAN-purrr >= 0.3.4
 BuildRequires:    R-CRAN-bbotk >= 0.3.2
 BuildRequires:    R-CRAN-mlr3 >= 0.12.0
-BuildRequires:    R-CRAN-Metrics >= 0.1.4
-Requires:         R-CRAN-visNetwork >= 2.0.9
-Requires:         R-CRAN-readr >= 2.0.1
-Requires:         R-CRAN-lubridate >= 1.7.10
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-data.table >= 1.14.0
-Requires:         R-CRAN-tictoc >= 1.0.1
 Requires:         R-CRAN-paradox >= 1.0.0
 Requires:         R-CRAN-mlr3tuning >= 0.8.0
-Requires:         R-CRAN-mlr3viz >= 0.5.5
-Requires:         R-CRAN-forcats >= 0.5.1
 Requires:         R-CRAN-mlr3learners >= 0.5.0
-Requires:         R-CRAN-mlr3filters >= 0.4.2
-Requires:         R-CRAN-mlr3pipelines >= 0.3.5.1
-Requires:         R-CRAN-purrr >= 0.3.4
 Requires:         R-CRAN-bbotk >= 0.3.2
 Requires:         R-CRAN-mlr3 >= 0.12.0
-Requires:         R-CRAN-Metrics >= 0.1.4
+Requires:         R-CRAN-R6 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-utils 
 
 %description
-Stacked ensemble for regression tasks based on 'mlr3' framework with a
-pipeline for preprocessing numeric and factor features and hyper-parameter
-tuning using grid or random search.
+Stacked ensembles for regression tasks using the 'mlr3' framework,
+internal preprocessing and out-of-fold stacking, and hyperparameter tuning
+using grid or random search. Supports numeric and categorical predictors.
 
 %prep
 %setup -q -c -n %{packname}

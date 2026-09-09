@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  NHSRdatasets
-%global packver   1.0.0
+%global packname  ekioplot
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          NHS and Healthcare-Related Data for Education and Training
+Summary:          EKIO Visual Identity for 'ggplot2'
 
-License:          CC0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,13 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-systemfonts 
+Requires:         R-CRAN-ggplot2 >= 4.0.0
+Requires:         R-CRAN-cli 
+Requires:         R-grDevices 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-systemfonts 
 
 %description
-Free United Kingdom National Health Service (NHS) and other healthcare, or
-population health-related data for education and training purposes. This
-package contains synthetic data based on real healthcare datasets, or cuts
-of open-licenced official data.  This package exists to support skills
-development in the NHS-R community: <https://nhsrcommunity.com/>.
+Implements EKIO's visual identity for data visualization with 'ggplot2'.
+Supplies a coordinated theme, color palettes, discrete and continuous
+scales, and helpers for accessible text contrast. Includes high-level
+recipes for common charts so analysts can create consistent,
+publication-ready graphics with concise code.
 
 %prep
 %setup -q -c -n %{packname}

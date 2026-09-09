@@ -1,29 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  NHSRdatasets
-%global packver   1.0.0
+%global packname  nisone
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          NHS and Healthcare-Related Data for Education and Training
+Summary:          Inference for Samples of Size at Least One
 
-License:          CC0
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 
 %description
-Free United Kingdom National Health Service (NHS) and other healthcare, or
-population health-related data for education and training purposes. This
-package contains synthetic data based on real healthcare datasets, or cuts
-of open-licenced official data.  This package exists to support skills
-development in the NHS-R community: <https://nhsrcommunity.com/>.
+Provides different interval estimates of a location parameter when the
+sample size is one or more. These include classical methods when n=1, new
+Bayesian analogues of these classical methods, and extensions of these
+methods to larger sample sizes in the normal case. Other functions
+calculate Bayes factors based on t-statistics, and implement the
+(generalized) inverse normal distribution. These methods are described in
+Gerard (2026) <doi:10.48550/arXiv.2607.25007>.
 
 %prep
 %setup -q -c -n %{packname}

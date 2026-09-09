@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidyllm
-%global packver   0.5.2
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Integration of Large Language Models
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-S7 >= 0.2.0
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-coro 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-purrr 
@@ -38,6 +39,7 @@ Requires:         R-CRAN-S7 >= 0.2.0
 Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-coro 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-purrr 

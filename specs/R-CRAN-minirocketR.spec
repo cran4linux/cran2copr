@@ -1,31 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  vcpen
-%global packver   1.9
+%global __requires_exclude ^libmpi
+%global packname  minirocketR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Penalized Variance Components Analysis
+Summary:          'MiniRocket': A Very Fast (Almost) Deterministic Transform for Time Series Classification
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-BuildRequires:    R-CRAN-RcppArmadillo >= 0.8.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.0
-Requires:         R-CRAN-RcppArmadillo >= 0.8.0
-Requires:         R-methods 
-Requires:         R-CRAN-knitr 
+Requires:         R-stats 
 
 %description
-Method to perform penalized variance component analysis.
+High-performance R and C++ implementation using 'OpenMP' parallelization
+for the 'MiniRocket' algorithm. Extracts features from univariate time
+series for downstream classification as described in 'Dempster et al.'
+(2021) (<doi:10.1145/3447548.3467231>).
 
 %prep
 %setup -q -c -n %{packname}

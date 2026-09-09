@@ -1,29 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  NHSRdatasets
-%global packver   1.0.0
+%global packname  spatcovar
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          NHS and Healthcare-Related Data for Education and Training
+Summary:          Construct Spatial Covariates from Polygon Data
 
-License:          CC0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-sf >= 1.0.0
+BuildRequires:    R-CRAN-exactextractr >= 0.9.0
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-units 
+Requires:         R-CRAN-sf >= 1.0.0
+Requires:         R-CRAN-exactextractr >= 0.9.0
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-units 
 
 %description
-Free United Kingdom National Health Service (NHS) and other healthcare, or
-population health-related data for education and training purposes. This
-package contains synthetic data based on real healthcare datasets, or cuts
-of open-licenced official data.  This package exists to support skills
-development in the NHS-R community: <https://nhsrcommunity.com/>.
+Provides a consistent interface for constructing commonly used spatial
+covariates from polygon data. Computes polygon areas, distances to
+reference features, point and line intersection counts, line lengths
+within polygons, polygon overlap areas and shares, and raster zonal
+summaries. Handles coordinate reference system validation, geometry
+repair, unit conversion, row preservation, and standardised missing value
+semantics while relying on established spatial libraries for the
+underlying geometry operations.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidySEM
-%global packver   0.2.11
+%global packver   0.2.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.11
+Version:          0.2.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Structural Equation Modeling
 
@@ -18,7 +18,6 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
-BuildRequires:    R-CRAN-igraph >= 2.0.0
 BuildRequires:    R-CRAN-lavaan >= 0.6.21
 BuildRequires:    R-CRAN-nonnest2 >= 0.5.6
 BuildRequires:    R-stats 
@@ -35,7 +34,6 @@ BuildRequires:    R-CRAN-future.apply
 BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-progress 
 Requires:         R-CRAN-ggplot2 >= 3.5.0
-Requires:         R-CRAN-igraph >= 2.0.0
 Requires:         R-CRAN-lavaan >= 0.6.21
 Requires:         R-CRAN-nonnest2 >= 0.5.6
 Requires:         R-stats 

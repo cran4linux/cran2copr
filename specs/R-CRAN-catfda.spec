@@ -1,29 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  NHSRdatasets
-%global packver   1.0.0
+%global packname  catfda
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          NHS and Healthcare-Related Data for Education and Training
+Summary:          Statistical Analysis for Categorical Functional Data
 
-License:          CC0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-mgcv >= 1.8.40
+BuildRequires:    R-CRAN-doRNG >= 1.8.0
+BuildRequires:    R-CRAN-foreach >= 1.5.0
+BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-stats 
+Requires:         R-CRAN-mgcv >= 1.8.40
+Requires:         R-CRAN-doRNG >= 1.8.0
+Requires:         R-CRAN-foreach >= 1.5.0
+Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-stats 
 
 %description
-Free United Kingdom National Health Service (NHS) and other healthcare, or
-population health-related data for education and training purposes. This
-package contains synthetic data based on real healthcare datasets, or cuts
-of open-licenced official data.  This package exists to support skills
-development in the NHS-R community: <https://nhsrcommunity.com/>.
+Implements methods for estimating latent Gaussian processes from
+categorical functional data using binomial, probit, or multinomial
+GAM-based approaches, and for clustering individuals via multivariate
+functional principal component scores. Methods are described in Champon et
+al. (2026) <doi:10.1080/01621459.2026.2672226>.
 
 %prep
 %setup -q -c -n %{packname}
