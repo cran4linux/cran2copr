@@ -1,37 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  prinsurf
-%global packver   1.0
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Constructs Principal Surfaces
+Summary:          Principal Surface Contour Biplots
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rgl 
-Requires:         R-CRAN-rgl 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 
 %description
-Construct a principal surface that are two-dimensional surfaces that pass
-through the middle of a p-dimensional data set. They minimise the distance
-from the data points, and provide a nonlinear summary of data. The
-surfaces are nonparametric and their shape is suggested by the data. The
-formation of a surface is found using an iterative procedure which starts
-with a linear summary, typically with a principal component plane. Each
-successive iteration is a local average of the p-dimensional points, where
-an average is based on a projection of a point onto the nonlinear surface
-of the previous iteration. For more information on principal surfaces, see
-Ganey, R. (2019,
-"https://open.uct.ac.za/items/4e655d7d-d10c-481b-9ccc-801903aebfc8").
+Fits principal surfaces, the two-dimensional generalisation of the
+principal curves of Hastie and Stuetzle (1989)
+<doi:10.1080/01621459.1989.10478797>, and displays them as biplots in
+which each variable is read off the contour lines of its fitted surface
+coordinate function. Sample predictivity, the proportion of a sample's
+squared length that is reconstructed by the fitted surface, is reported as
+a per-sample diagnostic of how well the surface represents the data.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  anticlust
-%global packver   0.8.14
+%global packver   0.8.16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.14
+Version:          0.8.16
 Release:          1%{?dist}%{?buildtag}
 Summary:          Subset Partitioning via Anticlustering
 
@@ -19,9 +19,11 @@ Requires:         R-core >= 3.6.0
 BuildRequires:    R-CRAN-RANN >= 2.6.0
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-lpSolve 
+BuildRequires:    R-CRAN-MASS 
 Requires:         R-CRAN-RANN >= 2.6.0
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-lpSolve 
+Requires:         R-CRAN-MASS 
 
 %description
 The method of anticlustering partitions a pool of elements into groups
@@ -37,8 +39,9 @@ anticlustering methods described in Papenberg and Klau (2021;
 <doi:10.1037/met0000301>), Brusco et al. (2020; <doi:10.1111/bmsp.12186>),
 Papenberg (2024; <doi:10.1111/bmsp.12315>), Papenberg, Wang, et al. (2025;
 <doi:10.1016/j.crmeth.2025.101137>), Papenberg, Breuer, et al. (2025;
-<doi:10.1017/psy.2025.10052>), and Yang et al. (2022;
-<doi:10.1016/j.ejor.2022.02.003>). The optimal algorithms require that an
+<doi:10.1017/psy.2025.10052>), Yang et al. (2022;
+<doi:10.1016/j.ejor.2022.02.003>), and Wu et al. (2025;
+<doi:10.1016/j.cor.2025.107030>). The optimal algorithms require that an
 integer linear programming solver is installed. This package will install
 'lpSolve' (<https://cran.r-project.org/package=lpSolve>) as a default
 solver, but it is also possible to use the package 'Rglpk'

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  R.matlab
-%global packver   3.7.0
+%global packver   3.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.7.0
+Version:          3.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read and Write MAT Files and Call MATLAB from Within R
 
@@ -30,7 +30,7 @@ Requires:         R-utils
 
 %description
 Methods readMat() and writeMat() for reading and writing MAT files.  For
-user with MATLAB v6 or newer installed (either locally or on a remote
+users with MATLAB v6 or newer installed (either locally or on a remote
 host), the package also provides methods for controlling MATLAB
 (trademark) via R and sending and retrieving data between R and MATLAB.
 

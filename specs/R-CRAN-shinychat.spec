@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shinychat
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Chat UI Component for 'shiny'
 
@@ -17,12 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-R6 >= 2.5.0
 BuildRequires:    R-CRAN-promises >= 1.3.2
+BuildRequires:    R-CRAN-rlang >= 1.2.0
 BuildRequires:    R-CRAN-shiny >= 1.10.0
-BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-ellmer >= 0.4.1
+BuildRequires:    R-CRAN-bslib >= 0.12.0
 BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-bslib 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-coro 
 BuildRequires:    R-CRAN-fastmap 
@@ -30,12 +31,13 @@ BuildRequires:    R-CRAN-htmltools
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-S7 
+Requires:         R-CRAN-R6 >= 2.5.0
 Requires:         R-CRAN-promises >= 1.3.2
+Requires:         R-CRAN-rlang >= 1.2.0
 Requires:         R-CRAN-shiny >= 1.10.0
-Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-ellmer >= 0.4.1
+Requires:         R-CRAN-bslib >= 0.12.0
 Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-bslib 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-coro 
 Requires:         R-CRAN-fastmap 

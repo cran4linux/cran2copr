@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  aoristic
-%global packver   1.1.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generates Aoristic Probability Distributions
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-openxlsx
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-dplyr 
@@ -30,7 +29,6 @@ Requires:         R-CRAN-openxlsx
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grid 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
@@ -43,8 +41,8 @@ happens. As a result, police databases often record a 'start' (or 'from')
 date and time, and an 'end' (or 'to') date and time. The time span between
 these date/times can be minutes, hours, or sometimes days, hence the term
 'Aoristic'. Aoristic is one of the past tenses in Greek and represents an
-uncertain occurrence in time. For events with a location describes with
-either a latitude/longitude, or X,Y coordinate pair, and a start and end
+uncertain occurrence in time. For events with a location described by
+either a latitude/longitude or X/Y coordinate pair, and a start and end
 date/time, this package generates an aoristic data frame with aoristic
 weighted probability values for each hour of the week, for each
 observation. The coordinates are not necessary for the program to

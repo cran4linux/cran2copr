@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  climatekit
-%global packver   0.2.0
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Unified Climate Indices for Temperature, Precipitation, and Drought
 
@@ -19,10 +19,8 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 3.6.0
 BuildRequires:    R-stats 
-BuildRequires:    R-tools 
 Requires:         R-CRAN-cli >= 3.6.0
 Requires:         R-stats 
-Requires:         R-tools 
 
 %description
 Compute the standard suite of climate indices from daily weather

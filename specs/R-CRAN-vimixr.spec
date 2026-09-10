@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vimixr
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Collapsed Variational Inference for Dirichlet Process (DP) Mixture Model
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-Rfast
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-irlba 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-patchwork 
@@ -31,6 +32,7 @@ Requires:         R-CRAN-Rfast
 Requires:         R-CRAN-rlang 
 Requires:         R-parallel 
 Requires:         R-stats 
+Requires:         R-CRAN-irlba 
 
 %description
 Collapsed Variational Inference for a Dirichlet Process (DP) mixture model

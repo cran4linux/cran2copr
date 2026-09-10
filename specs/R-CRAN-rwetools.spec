@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rwetools
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimating Propensity Scores (PS), PS-Based Weights, and Effects
 
@@ -35,12 +35,12 @@ package covers the full analytic pipeline - from estimating propensity
 scores via logistic regression, to calculating weights or creating a
 matched cohort, to generating publication-ready Table 1s with standardized
 mean differences and weighted balance diagnostics. It also estimates
-incidence rates, hazard ratios, risk ratios, and risk differences with
-support for stratified and direct-standardized analyses. All core
-functions produce formatted 'Excel' reports with embedded 'README'
-documentation, making results immediately shareable with collaborators and
-stakeholders. Methods are based on Rosenbaum and Rubin (1983)
-<doi:10.1093/biomet/70.1.41>, Austin (2011)
+incidence rates, rate differences and rate ratios, hazard ratios, risks,
+risk ratios, and risk differences, including competing-risk methods and
+optionally stratified hazard models. Many functions can write formatted
+'Excel' reports with method documentation, making results immediately
+shareable with collaborators and stakeholders. Methods are based on
+Rosenbaum and Rubin (1983) <doi:10.1093/biomet/70.1.41>, Austin (2011)
 <doi:10.1080/00273171.2011.568786>, and Desai et al. (2017)
 <doi:10.1097/EDE.0000000000000595>.
 

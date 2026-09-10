@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bodycompref
-%global packver   2.0.1
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reference Values for CT-Assessed Body Composition
 
@@ -29,15 +29,15 @@ Requires:         R-CRAN-sae
 %description
 Get z-scores, percentiles, absolute values, and percent of predicted of a
 reference cohort. Functionality requires installing the data packages
-'adiposerefdata' and 'musclerefdata'. For more information on the
-underlying research, please visit our website which also includes a
-graphical interface. The models and underlying data are described in
-Marquardt JP et al.(planned publication 2025; reserved doi
-10.1097/RLI.0000000000001104), "Subcutaneous and Visceral adipose tissue
-Reference Values from Framingham Heart Study Thoracic and Abdominal CT",
-*Investigative Radiology* and Tonnesen PE et al. (2023), "Muscle Reference
-Values from Thoracic and Abdominal CT for Sarcopenia Assessment [column]
-The Framingham Heart Study", *Investigative Radiology*,
+'adiposerefdata' and 'musclerefdata' from p-mq.github.io/drat. For more
+information on the underlying research, please visit our website which
+also includes a graphical interface. The models and underlying data are
+described in Marquardt J. Peter et al (2025), "Subcutaneous and Visceral
+adipose tissue Reference Values from Framingham Heart Study Thoracic and
+Abdominal CT", *Investigative Radiology*
+<doi:10.1097/RLI.0000000000001104> and Tonnesen PE et al. (2023), "Muscle
+Reference Values from Thoracic and Abdominal CT for Sarcopenia Assessment
+[column] The Framingham Heart Study", *Investigative Radiology*,
 <doi:10.1097/RLI.0000000000001012>.
 
 %prep

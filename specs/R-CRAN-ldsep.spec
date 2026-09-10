@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ldsep
-%global packver   2.1.6
+%global packver   2.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.6
+Version:          2.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linkage Disequilibrium Shrinkage Estimation for Polyploids
 
@@ -23,7 +23,6 @@ BuildRequires:    R-CRAN-ashr
 BuildRequires:    R-CRAN-corrplot 
 BuildRequires:    R-CRAN-lpSolve 
 BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-modeest 
 BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp 
@@ -33,7 +32,6 @@ Requires:         R-CRAN-ashr
 Requires:         R-CRAN-corrplot 
 Requires:         R-CRAN-lpSolve 
 Requires:         R-CRAN-abind 
-Requires:         R-CRAN-modeest 
 Requires:         R-CRAN-matrixStats 
 
 %description

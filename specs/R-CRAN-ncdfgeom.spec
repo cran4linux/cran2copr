@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ncdfgeom
-%global packver   1.2.2
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          'NetCDF' Geometry and Time Series
 
@@ -14,14 +14,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-RNetCDF 
 BuildRequires:    R-CRAN-ncmeta 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-methods 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stars 
 BuildRequires:    R-CRAN-areal 
 Requires:         R-CRAN-RNetCDF 
@@ -29,6 +30,7 @@ Requires:         R-CRAN-ncmeta
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-dplyr 
 Requires:         R-methods 
+Requires:         R-stats 
 Requires:         R-CRAN-stars 
 Requires:         R-CRAN-areal 
 

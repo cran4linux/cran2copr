@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nhdR
-%global packver   0.6.1
+%global packver   0.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.6.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Working with the National Hydrography Dataset
 
@@ -14,7 +14,7 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         p7zip
+Recommends:       p7zip
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
@@ -34,6 +34,8 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-datasets 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-maps 
 Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-sf 
@@ -50,6 +52,8 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-digest 
+Requires:         R-datasets 
+Requires:         R-utils 
 
 %description
 Tools for working with the National Hydrography Dataset, with functions

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  goldilocks
-%global packver   0.6.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Adaptive Trial Designs for Survival and Binary Endpoints
 
@@ -38,11 +38,11 @@ Requires:         R-stats
 Implements Goldilocks adaptive trial designs for time-to-event and
 fixed-time binary endpoints. Outcomes are generated with a piecewise
 exponential model, with conjugate Gamma priors used for predictive
-imputation. Final analyses may use log-rank or Cox tests, Bayesian
-piecewise-exponential inference, frequentist risk differences, or Bayesian
-beta-binomial inference. The method closely follows Broglio and colleagues
-<doi:10.1080/10543406.2014.888569> and supports simulation of design
-operating characteristics.
+imputation. Final analyses may use log-rank, Cox, or restricted mean
+survival time tests, Bayesian piecewise-exponential inference, frequentist
+risk differences, or Bayesian beta-binomial inference. The method closely
+follows Broglio and colleagues (2014) <doi:10.1080/10543406.2014.888569>
+and supports simulation of design operating characteristics.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hdf5lib
-%global packver   2.1.1.2
+%global packver   2.2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1.2
+Version:          2.2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Headers and Static Libraries for 'HDF5'
 
@@ -19,7 +19,7 @@ Requires:         R-core >= 4.2.0
 
 %description
 Provides a self-contained, static build of the 'HDF5' (Hierarchical Data
-Format 5) 'C' library (release 2.1.1) for R package developers. Designed
+Format 5) 'C' library (release 2.2.0) for R package developers. Designed
 for use in the 'LinkingTo' field, it enables zero-dependency integration
 by building the library entirely from source during installation.
 Additionally, it compiles and internally links a comprehensive suite of

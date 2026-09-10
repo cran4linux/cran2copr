@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bifactory
-%global packver   0.5.2
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          (Bifactor) ESEM with Continuous (MLR) or Ordered (WLSMV) Data
+Summary:          (Bifactor) ESEM with Continuous (MLR) or Ordinal (WLSMV) Data
 
 License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lavaan >= 0.6.21
+BuildRequires:    R-CRAN-lavaan >= 0.7.2
 BuildRequires:    R-CRAN-GPArotation 
 BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-MASS 
@@ -26,8 +26,9 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-lavaan >= 0.6.21
+Requires:         R-CRAN-lavaan >= 0.7.2
 Requires:         R-CRAN-GPArotation 
 Requires:         R-CRAN-psych 
 Requires:         R-CRAN-MASS 
@@ -36,20 +37,21 @@ Requires:         R-stats
 Requires:         R-utils 
 Requires:         R-graphics 
 Requires:         R-methods 
+Requires:         R-parallel 
 Requires:         R-CRAN-withr 
 
 %description
 Fits bifactor exploratory structural equation models (B-ESEM), together
 with standard exploratory structural equation modeling (ESEM) and
-confirmatory factor analysis (CFA), for continuous and ordered-categorical
-data. Continuous models use 'lavaan' native efa() blocks with robust
-maximum likelihood (MLR) estimation. Ordered-categorical ESEM defaults to
-the 'lavaan' weighted least squares mean- and variance-adjusted (WLSMV)
-estimator; ordered B-ESEM uses a custom diagonally weighted least squares
-(DWLS) path with polychoric correlations from 'psych', rotation-delta
-standard errors via 'numDeriv', and a mean- and variance-adjusted
-chi-square. Target, geomin, and oblimin rotations use 'GPArotation'; the
-bifactor ESEM approach follows Morin, Arens and Marsh (2016)
+confirmatory factor analysis (CFA), for continuous and ordinal data.
+Continuous models use 'lavaan' native efa() blocks with robust maximum
+likelihood (MLR) estimation. Ordinal ESEM defaults to the 'lavaan'
+weighted least squares mean- and variance-adjusted (WLSMV) estimator;
+ordinal B-ESEM uses a custom diagonally weighted least squares (DWLS) path
+with polychoric correlations from 'psych', rotation-delta standard errors
+via 'numDeriv', and a mean- and variance-adjusted chi-square. Target,
+geomin, and oblimin rotations use 'GPArotation'; the bifactor ESEM
+approach follows Morin, Arens and Marsh (2016)
 <doi:10.1080/10705511.2014.961800>. Additional features include
 multi-group measurement invariance (configural through strict, with
 partial invariance), ESEM-within-CFA conversion, McDonald's omega

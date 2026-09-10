@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RFmstate
-%global packver   0.1.2
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Random Forest-Based Multistate Survival Analysis
 
@@ -31,23 +31,23 @@ Requires:         R-grDevices
 Requires:         R-utils 
 
 %description
-Fits cause-specific random survival forests for flexible multistate
-survival analysis with covariate-adjusted transition probabilities
-computed via product-integral. State transitions are modeled by random
-forests. Subject-specific transition probability matrices are assembled
-from predicted cumulative hazards using the product-integral formula. Also
-provides a standalone Aalen-Johansen nonparametric estimator as a
-covariate-free baseline. Supports arbitrary state spaces with any number
-of states (three or more) and any set of allowed transitions, applicable
-to clinical trials, disease progression, reliability engineering, and
-other domains where subjects move among discrete states over time.
-Provides per-transition feature importance, bias-variance diagnostics, and
-comprehensive visualizations. Handles right censoring and competing
-transitions. Methods are described in Ishwaran et al. (2008)
-<doi:10.1214/08-AOAS169> for random survival forests, Putter et al. (2007)
-<doi:10.1002/sim.2712> for multistate competing risks decomposition, and
-Aalen and Johansen (1978) <https://www.jstor.org/stable/4615704> for the
-nonparametric estimator.
+Fits transition-specific cause-specific random survival forests on a
+clock-reset duration scale for acyclic, non-recurrent multistate
+processes. Entry-conditioned state-occupation probabilities are assembled
+from predicted cumulative hazards by semi-Markov entry-mass and sojourn
+convolution on a validated regular grid. The one-row-per-subject interface
+supports one common initial state, one recorded entry per state, baseline
+time-fixed covariates, competing exits, and independent right censoring.
+Left truncation, recurrent visits, directed cycles, time-dependent
+covariates, and ongoing-sojourn dynamic prediction are not supported. The
+package also provides calendar-time Aalen-Johansen point estimates as a
+covariate-free descriptive baseline, transition-specific permutation
+importance, genuine ranger edge OOB concordance, and patient-level
+cross-validated IPCW state-probability scoring. Methods are described in
+Ishwaran et al. (2008) <doi:10.1214/08-AOAS169> for random survival
+forests, Putter et al. (2007) <doi:10.1002/sim.2712> for multistate
+competing risks decomposition, and Aalen and Johansen (1978)
+<https://www.jstor.org/stable/4615704> for the nonparametric estimator.
 
 %prep
 %setup -q -c -n %{packname}

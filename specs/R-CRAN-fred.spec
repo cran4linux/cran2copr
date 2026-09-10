@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fred
-%global packver   0.2.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access 'Federal Reserve Economic Data'
 
@@ -19,10 +19,18 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 3.6.0
 BuildRequires:    R-CRAN-httr2 >= 1.0.0
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
 BuildRequires:    R-tools 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-cli >= 3.6.0
 Requires:         R-CRAN-httr2 >= 1.0.0
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-stats 
 Requires:         R-tools 
+Requires:         R-utils 
 
 %description
 Provides clean, tidy access to economic data from the 'Federal Reserve
@@ -37,9 +45,14 @@ transformations (percent change, log, etc.) and frequency aggregation are
 supported, with readable transform aliases such as 'yoy_pct' and
 'log_diff'. Real-time and vintage helpers (built on 'ALFRED') return a
 series as it appeared on a given date, the first-release version, every
-revision, or a panel of selected vintages. Data is cached locally for
-subsequent calls. This product uses the 'FRED' API but is not endorsed or
-certified by the 'Federal Reserve Bank of St. Louis'.
+revision, or a panel of selected vintages. An offline curated catalogue of
+around fifty popular series, NBER recession reference dates, and FOMC
+meeting dates support discoverability and event-study workflows. Default
+'plot' method shades NBER recession periods. Reproducibility helpers
+produce BibTeX or plain-text citations and YAML manifests with per-object
+hashes. Data is cached locally for subsequent calls. This product uses the
+'FRED' API but is not endorsed or certified by the 'Federal Reserve Bank
+of St. Louis'.
 
 %prep
 %setup -q -c -n %{packname}

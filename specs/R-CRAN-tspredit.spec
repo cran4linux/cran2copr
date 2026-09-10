@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tspredit
-%global packver   2.0.707
+%global packver   2.0.717
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.707
+Version:          2.0.717
 Release:          1%{?dist}%{?buildtag}
 Summary:          Time Series Prediction with Integrated Tuning
 
@@ -18,28 +18,24 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-DescTools 
 BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-CRAN-elmNNRcpp 
 BuildRequires:    R-CRAN-FNN 
 BuildRequires:    R-CRAN-forecast 
 BuildRequires:    R-CRAN-hht 
 BuildRequires:    R-CRAN-KFAS 
-BuildRequires:    R-CRAN-mFilter 
 BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-CRAN-randomForest 
 BuildRequires:    R-CRAN-wavelets 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-daltoolbox 
 Requires:         R-stats 
-Requires:         R-CRAN-DescTools 
 Requires:         R-CRAN-e1071 
 Requires:         R-CRAN-elmNNRcpp 
 Requires:         R-CRAN-FNN 
 Requires:         R-CRAN-forecast 
 Requires:         R-CRAN-hht 
 Requires:         R-CRAN-KFAS 
-Requires:         R-CRAN-mFilter 
 Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-randomForest 
 Requires:         R-CRAN-wavelets 

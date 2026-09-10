@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mRpostman
-%global packver   1.4.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          An IMAP Client for R
 
@@ -14,10 +14,10 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildArch:        noarch
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-stringi 
@@ -28,6 +28,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-curl 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-stringi 
@@ -39,9 +40,11 @@ Requires:         R-CRAN-rvest
 Requires:         R-CRAN-xml2 
 
 %description
-A session-based IMAP client that implements the full functionality of the
-IMAP4rev1 protocol (RFC 3501), allowing virtually all e-mail operations to
-be performed from within R, paving the way for e-mail data analysis.
+A session-based IMAP client that implements the full command sets of the
+IMAP4rev2 (RFC 9051) and IMAP4rev1 (RFC 3501) protocols, along with the
+optional extensions registered with the Internet Assigned Numbers
+Authority, allowing virtually all e-mail operations to be performed from
+within R, paving the way for e-mail data analysis.
 
 %prep
 %setup -q -c -n %{packname}

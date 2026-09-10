@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  webexercises
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Interactive Web Exercises in 'R Markdown' (Formerly 'webex')
+Summary:          Create Interactive Web Exercises
 
 License:          CC BY-SA 4.0
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,23 +18,32 @@ BuildRequires:    R-devel >= 3.1.2
 Requires:         R-core >= 3.1.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rmarkdown >= 2.2
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-utils 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-usethis 
 Requires:         R-CRAN-rmarkdown >= 2.2
+Requires:         R-stats 
+Requires:         R-utils 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-yaml 
-Requires:         R-utils 
 Requires:         R-grDevices 
 Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-usethis 
 
 %description
-Functions for easily creating interactive web pages using 'R Markdown'
-that students can use in self-guided learning.
+Functions for easily creating interactive web exercises in 'R Markdown',
+'Quarto', and package vignettes that students can use in self-guided
+learning.
 
 %prep
 %setup -q -c -n %{packname}

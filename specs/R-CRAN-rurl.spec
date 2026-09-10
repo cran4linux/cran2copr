@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rurl
-%global packver   1.2.0
+%global packver   3.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          3.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parse, Clean, and Normalize URLs
 
@@ -14,23 +14,25 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-punycoder >= 1.0.0
+BuildRequires:    R-CRAN-punycoder >= 1.2.1
+BuildRequires:    R-CRAN-pslr >= 1.1.1
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-stringi 
-Requires:         R-CRAN-punycoder >= 1.0.0
+Requires:         R-CRAN-punycoder >= 1.2.1
+Requires:         R-CRAN-pslr >= 1.1.1
 Requires:         R-utils 
-Requires:         R-CRAN-curl 
 Requires:         R-CRAN-stringi 
 
 %description
 A lightweight toolkit for extracting structured information from URLs.
 Includes functions for parsing, normalizing protocols, extracting domains,
-and constructing clean URLs. The package includes a processed copy of the
-Public Suffix List from <https://publicsuffix.org> for domain extraction.
+and constructing clean URLs. Domain and public-suffix extraction is
+delegated to the 'pslr' package, which implements the Public Suffix List
+from <https://publicsuffix.org>. Punycode and IDNA encoding is handled by
+the 'punycoder' package.
 
 %prep
 %setup -q -c -n %{packname}

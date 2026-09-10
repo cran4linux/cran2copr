@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dccmidas
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          DCC Models with GARCH and GARCH-MIDAS Specifications in the Univariate Step, RiskMetrics, Moving Covariance and Scalar and Diagonal BEKK Models
 
@@ -22,7 +22,7 @@ BuildRequires:    R-CRAN-zoo >= 1.8.8
 BuildRequires:    R-CRAN-rugarch >= 1.4.4
 BuildRequires:    R-CRAN-maxLik >= 1.3.8
 BuildRequires:    R-CRAN-roll >= 1.1.4
-BuildRequires:    R-CRAN-Rdpack >= 1.0
+BuildRequires:    R-CRAN-Rdpack >= 1.0.0
 BuildRequires:    R-CRAN-xts >= 0.12.0
 BuildRequires:    R-CRAN-rumidas >= 0.1.1
 BuildRequires:    R-CRAN-Rcpp 
@@ -33,7 +33,7 @@ Requires:         R-CRAN-zoo >= 1.8.8
 Requires:         R-CRAN-rugarch >= 1.4.4
 Requires:         R-CRAN-maxLik >= 1.3.8
 Requires:         R-CRAN-roll >= 1.1.4
-Requires:         R-CRAN-Rdpack >= 1.0
+Requires:         R-CRAN-Rdpack >= 1.0.0
 Requires:         R-CRAN-xts >= 0.12.0
 Requires:         R-CRAN-rumidas >= 0.1.1
 

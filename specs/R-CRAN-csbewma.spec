@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  csbewma
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cumulative Standardized Binomial EWMA for Multiple Stream Processes
 
@@ -20,9 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
 Requires:         R-CRAN-patchwork 
+Requires:         R-utils 
 
 %description
 Implements the Cumulative Standardized Binomial Exponentially Weighted

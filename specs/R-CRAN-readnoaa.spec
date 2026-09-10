@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  readnoaa
-%global packver   0.1.1
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access 'NOAA' Climate and Weather Data
 
@@ -28,14 +28,14 @@ Requires:         R-tools
 Provides clean, tidy access to climate and weather data from the 'National
 Oceanic and Atmospheric Administration' ('NOAA') via the 'National Centers
 for Environmental Information' ('NCEI') Data Service API
-<https://www.ncei.noaa.gov/access/services/data/v1>. Covers daily weather
-observations, monthly and annual summaries, and 30-year climate normals
-from over 100,000 stations across 180 countries. No API key is required.
-Dedicated functions handle the most common datasets, while a generic
-fetcher provides access to all 'NCEI' datasets. Station discovery
-functions help users find stations by location or name. Data is downloaded
-on first use and cached locally for subsequent calls. This package is not
-endorsed or certified by 'NOAA'.
+<https://www.ncei.noaa.gov/support/access-data-service-api-user-documentation>.
+Covers daily weather observations, monthly and annual summaries, and
+30-year climate normals from over 100,000 stations across 180 countries.
+No API key is required. Dedicated functions handle the most common
+datasets, while a generic fetcher provides access to all 'NCEI' datasets.
+Station discovery functions help users find stations by location or name.
+Data is downloaded on first use and cached locally for subsequent calls.
+This package is not endorsed or certified by 'NOAA'.
 
 %prep
 %setup -q -c -n %{packname}
