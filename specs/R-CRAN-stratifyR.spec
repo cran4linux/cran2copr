@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  stratifyR
-%global packver   1.0-5
+%global packver   2.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimal Stratification of Univariate Populations
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,46 +17,48 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fitdistrplus 
-BuildRequires:    R-CRAN-zipfR 
-BuildRequires:    R-CRAN-triangle 
-BuildRequires:    R-CRAN-mc2d 
-BuildRequires:    R-CRAN-actuar 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-kableExtra 
+BuildRequires:    R-CRAN-nloptr >= 2.0.0
+BuildRequires:    R-CRAN-fitdistrplus >= 1.1.0
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-graphics 
-Requires:         R-CRAN-fitdistrplus 
-Requires:         R-CRAN-zipfR 
-Requires:         R-CRAN-triangle 
-Requires:         R-CRAN-mc2d 
-Requires:         R-CRAN-actuar 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-kableExtra 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-actuar 
+BuildRequires:    R-CRAN-mc2d 
+Requires:         R-CRAN-nloptr >= 2.0.0
+Requires:         R-CRAN-fitdistrplus >= 1.1.0
 Requires:         R-stats 
+Requires:         R-utils 
 Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-actuar 
+Requires:         R-CRAN-mc2d 
 
 %description
-The stratification of univariate populations under stratified sampling
-designs is implemented according to Khan et al. (2002)
-<doi:10.1177/0008068320020518> and Khan et al. (2015)
-<doi:10.1080/02664763.2015.1018674> in this library. It determines the
-Optimum Strata Boundaries (OSB) and Optimum Sample Sizes (OSS) for the
-study variable, y, using the best-fit frequency distribution of a survey
-variable (if data is available) or a hypothetical distribution (if data is
-not available). The method formulates the problem of determining the OSB
-as mathematical programming problem which is solved by using a dynamic
-programming technique. If a dataset of the population is available to the
-surveyor, the method estimates its best-fit distribution and determines
-the OSB and OSS under Neyman allocation directly. When the dataset is not
-available, stratification is made based on the assumption that the values
-of the study variable, y, are available as hypothetical realizations of
-proxy values of y from recent surveys. Thus, it requires certain
-distributional assumptions about the study variable. At present, it
-handles stratification for the populations where the study variable
-follows a continuous distribution, namely, Pareto, Triangular,
-Right-triangular, Weibull, Gamma, Exponential, Uniform, Normal, Log-normal
-and Cauchy distributions.
+Determines Optimum Strata Boundaries (OSB) and Optimum Sample Sizes (OSS)
+for univariate stratified sampling designs under Neyman allocation.  The
+stratification variable is described by a best-fitting parametric
+distribution, selected automatically by AIC from a set of continuous
+families (normal, log-normal, gamma, Weibull, exponential, Cauchy,
+uniform, Pareto, triangular and right-triangular), and the optimum
+boundaries are obtained by minimising the Neyman objective. Version 2.0
+keeps the original globally optimal Dynamic Programming (DP) solver of
+Reddy and Khan (2020) as the default and adds two faster derivative-free
+alternatives for interactive and large-scale use: a multi-start 'COBYLA'
+solver and a two-phase 'global' solver that couples 'DIRECT-L' with
+'COBYLA' refinement.  It also provides cost-constrained allocation with
+unequal per-stratum costs, a design-efficiency comparison
+(compare_designs), two- and three-dimensional and interactive
+visualisations, solution-quality diagnostics (a Cauchy-Schwarz optimality
+gap and KKT first-order residuals for the derivative-free solvers) and a
+self-contained 'shiny' application, while remaining backward compatible
+with the strata.data() and strata.distr() interface of version 1.x.  The
+methodology follows Khan et al. (2008)
+<https://www150.statcan.gc.ca/n1/pub/12-001-x/2008002/article/10761-eng.pdf>,
+Reddy and Khan (2018) <doi:10.1111/anzs.12244> and Reddy and Khan (2020)
+<doi:10.1111/anzs.12301>.
 
 %prep
 %setup -q -c -n %{packname}

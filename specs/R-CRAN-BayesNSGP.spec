@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BayesNSGP
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Analysis of Non-Stationary Gaussian Process Models
 
@@ -45,6 +45,12 @@ spatial data sets (Finley, et al (2017) <doi:10.48550/arXiv.1702.00434>).
 Bayesian inference is carried out using Markov chain Monte Carlo methods
 via the "nimble" package, and posterior prediction for the Gaussian
 process at unobserved locations is provided as a post-processing step.
+Also provided are nearest-neighbor Gaussian process components for use
+directly in user-written model code, where the spatial process is retained
+as a latent field: neighbor-structure construction, a latent-field density
+and matching simulation function, a purpose-built Metropolis-Hastings
+sampler that updates the field one node at a time, and posterior
+prediction at unobserved locations.
 
 %prep
 %setup -q -c -n %{packname}

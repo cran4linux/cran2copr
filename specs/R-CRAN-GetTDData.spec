@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GetTDData
-%global packver   1.7.0
+%global packver   1.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.0
+Version:          1.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Get Data for Brazilian Bonds (Tesouro Direto)
 
@@ -31,6 +31,7 @@ BuildRequires:    R-CRAN-fs
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-readxl 
 Requires:         R-utils 
@@ -45,6 +46,7 @@ Requires:         R-CRAN-fs
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-lifecycle 
 
 %description
 Downloads and aggregates data for Brazilian government issued bonds

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  immunaut
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Machine Learning Immunogenicity and Vaccine Response Analysis
 
@@ -38,6 +38,7 @@ BuildRequires:    R-CRAN-R.utils
 BuildRequires:    R-CRAN-clusterSim 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-MLmetrics 
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-dplyr 
@@ -59,6 +60,7 @@ Requires:         R-CRAN-R.utils
 Requires:         R-CRAN-clusterSim 
 Requires:         R-parallel 
 Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-MLmetrics 
 
 %description
 Used for analyzing immune responses and predicting vaccine efficacy using

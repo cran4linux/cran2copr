@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  GADAG
-%global packver   0.99.0
+%global packver   0.99.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.99.0
+Version:          0.99.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Genetic Algorithm for Learning Directed Acyclic Graphs
 
@@ -17,23 +18,30 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp >= 0.12.5
 BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-cvTools 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 0.12.5
 Requires:         R-CRAN-igraph 
-Requires:         R-MASS 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-cvTools 
 
 %description
-Sparse large Directed Acyclic Graphs learning with a combination of a
-convex program and a tailored genetic algorithm (see Champion et al.
-(2017) <https://hal.archives-ouvertes.fr/hal-01172745v2/document>).
+Learns sparse large Directed Acyclic Graphs with a combination of a convex
+program and a tailored genetic algorithm.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -43,6 +51,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

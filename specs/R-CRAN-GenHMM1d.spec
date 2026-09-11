@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GenHMM1d
-%global packver   0.2.6
+%global packver   0.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.2.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Goodness-of-Fit for Zero-Inflated Univariate Hidden Markov Models
 
@@ -32,7 +32,6 @@ BuildRequires:    R-CRAN-GLDEX
 BuildRequires:    R-CRAN-GeneralizedHyperbolic 
 BuildRequires:    R-CRAN-actuar 
 BuildRequires:    R-CRAN-extraDistr 
-BuildRequires:    R-CRAN-gamlss.dist 
 BuildRequires:    R-CRAN-sgt 
 BuildRequires:    R-CRAN-skewt 
 BuildRequires:    R-CRAN-sn 
@@ -53,7 +52,6 @@ Requires:         R-CRAN-GLDEX
 Requires:         R-CRAN-GeneralizedHyperbolic 
 Requires:         R-CRAN-actuar 
 Requires:         R-CRAN-extraDistr 
-Requires:         R-CRAN-gamlss.dist 
 Requires:         R-CRAN-sgt 
 Requires:         R-CRAN-skewt 
 Requires:         R-CRAN-sn 

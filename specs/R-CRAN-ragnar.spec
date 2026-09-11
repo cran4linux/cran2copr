@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ragnar
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Retrieval-Augmented Generation (RAG) Workflows
 
@@ -16,15 +16,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.3.0
 Requires:         R-core >= 4.3.0
-BuildRequires:    R-CRAN-mirai >= 2.5.1
+BuildRequires:    R-CRAN-mirai >= 2.6.0
 BuildRequires:    R-CRAN-reticulate >= 1.42.0
 BuildRequires:    R-CRAN-duckdb >= 1.3.1
+BuildRequires:    R-CRAN-DBI >= 1.2.0
 BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-blob 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-commonmark 
 BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-dbplyr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-glue 
@@ -38,15 +38,15 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-mirai >= 2.5.1
+Requires:         R-CRAN-mirai >= 2.6.0
 Requires:         R-CRAN-reticulate >= 1.42.0
 Requires:         R-CRAN-duckdb >= 1.3.1
+Requires:         R-CRAN-DBI >= 1.2.0
 Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-blob 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-commonmark 
 Requires:         R-CRAN-curl 
-Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-dbplyr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-glue 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  easybgm
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extracting and Visualizing Bayesian Graphical Models
 
@@ -17,35 +17,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bgms >= 0.1.4
+BuildRequires:    R-CRAN-bgms >= 0.1.6.3
 BuildRequires:    R-CRAN-BDgraph 
 BuildRequires:    R-CRAN-BGGM 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-HDInterval 
-BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-qgraph 
 BuildRequires:    R-CRAN-coda 
-Requires:         R-CRAN-bgms >= 0.1.4
+Requires:         R-CRAN-bgms >= 0.1.6.3
 Requires:         R-CRAN-BDgraph 
 Requires:         R-CRAN-BGGM 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-HDInterval 
-Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-qgraph 
 Requires:         R-CRAN-coda 
 
 %description
 Fit and visualize the results of a Bayesian analysis of networks commonly
 found in psychology. The package supports cross-sectional network models
-fitted using the packages 'BDgraph', 'bgms' and 'BGGM', as well as network
-comparison tests fitted using the packages 'bgms' and 'BBGM'. The package
-provides the parameter estimates, posterior inclusion probabilities,
-inclusion Bayes factor, and the posterior density of the parameters. In
-addition, for 'BDgraph' and 'bgms' it allows to assess the posterior
-structure space. Furthermore, the package comes with an extensive suite
-for visualizing results.
+for ordinal, binary, continuous, and mixed data, fitted using the packages
+'bgms' (default), 'BDgraph', and 'BGGM', as well as network comparison
+tests fitted using the packages 'bgms' and 'BGGM'. The package provides
+the parameter estimates, posterior inclusion probabilities, inclusion
+Bayes factor, and the posterior density of the parameters. In addition,
+for 'BDgraph' and 'bgms' it allows to assess the posterior structure
+space. Furthermore, the package comes with an extensive suite for
+visualizing results.
 
 %prep
 %setup -q -c -n %{packname}
