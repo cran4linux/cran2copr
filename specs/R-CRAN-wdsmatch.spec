@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wdsmatch
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Weighted Double Score Matching for Survey-Weighted Causal Inference
 
@@ -28,14 +28,14 @@ matching, survey-weighted imputation within match sets, and Hajek
 normalization to target the population average treatment effect (PATE) and
 the population average treatment effect on the treated (PATT). Supports
 both retrospective (treatment-dependent) and prospective
-(treatment-independent) sampling designs. Achieves double robustness:
-consistent estimation when either the propensity score or prognostic score
-model is correctly specified. Provides polynomial sieve bias correction
-and linearization-based multinomial bootstrap variance estimation that
-preserves the survey-weighted matching structure without re-matching.
-Methods are described in Zeng, Tong, Tong, Lu, Mukherjee, and Li (2026,
-under review) "Where to weight? Estimating population causal effects with
-weighted double score matching in complex surveys".
+(treatment-independent) sampling designs. Uses propensity probabilities
+and arm-specific prognostic scores for matching, with a complete quadratic
+bias correction in each arm's double score. Provides linearization-based
+multinomial replication variance estimates and centered normal Wald
+confidence intervals, retaining the original matching reuse coefficients
+without re-matching. Supplied scores can be held fixed for inference
+conditional on those scores. This weight-only interface does not encode
+survey strata, clusters, or design-specific replicate weights.
 
 %prep
 %setup -q -c -n %{packname}

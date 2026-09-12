@@ -1,41 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  defm
-%global packver   0.2.1.0
+%global packname  arcstat
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation and Simulation of Multi-Binary Response Models
+Summary:          Arc-Length Statistics: Goodness of Fit, Distributions and a Bayesian Test
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-stats4 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-devel
+Requires:         R-core
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-barry 
-Requires:         R-stats4 
-Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
 
 %description
-Multi-binary response models are a class of models that allow for the
-estimation of multiple binary outcomes simultaneously. This package
-provides functions to estimate and simulate these models using the
-Discrete Exponential-Family Models [DEFM] framework. In it, we implement
-the models described in Vega Yon, Valente, and Pugh (2023)
-<doi:10.48550/arXiv.2211.00627>. DEFMs include Exponential-Family Random
-Graph Models [ERGMs], which characterize graphs using sufficient
-statistics, which is also the core of DEFMs. Using sufficient statistics,
-we can describe the data through meaningful motifs, for example,
-transitions between different states, joint distribution of the outcomes,
-etc.
+Inference from the arc length of statistical functions. Three tools share
+one pure-C back-end: a goodness-of-fit test based on the arc length of the
+probability plot, with an analytic saddlepoint null and sensitivity to
+local density structure that the empirical-distribution tests miss; two
+constructions that build a distribution from the arc length of its
+defining curve, the arc-length generator and the quantile arc-length
+family estimated by L-moments; and a Bayesian nonparametric arc-length
+goodness-of-fit test on the Dirichlet-process posterior. The same C
+sources back the 'Python' package 'arcstat'.
 
 %prep
 %setup -q -c -n %{packname}

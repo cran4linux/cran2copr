@@ -1,30 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  adbcdrivermanager
-%global packver   0.24.0-2
+%global packname  eidosapi
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.24.0.2
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Arrow' Database Connectivity ('ADBC') Driver Manager
+Summary:          Connect to the Taxonomic Services of the Spanish Inventory of Natural Patrimony and Biodiversity
 
-License:          Apache License (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-nanoarrow >= 0.3.0
-Requires:         R-CRAN-nanoarrow >= 0.3.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-fuzzyjoin 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-fuzzyjoin 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-httr 
 
 %description
-Provides a developer-facing interface to 'Arrow' Database Connectivity
-('ADBC') for the purposes of driver development, driver testing, and
-building high-level database interfaces for users. 'ADBC'
-<https://arrow.apache.org/adbc/> is an API standard for database access
-libraries that uses 'Arrow' for result sets and query parameters.
+Provides access to 'EIDOS'
+<https://iepnb.gob.es/areas-tematicas/especies-silvestres/eidos>, the
+taxonomic information service from the Spanish Inventory of Natural
+Patrimony and Biodiversity. This package includes a suite of functions
+that help retrieve species' taxonomic and conservation information from
+'EIDOS' and match taxa names against the checklists available in the
+database. More information can be found at Miranda Cebrián, H. (2025)
+<doi:10.7818/ECOS.3134>.
 
 %prep
 %setup -q -c -n %{packname}

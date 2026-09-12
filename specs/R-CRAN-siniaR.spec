@@ -1,36 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  HDclust
-%global packver   1.0.4
+%global packname  siniaR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Clustering High Dimensional Data with Hidden Markov Model on Variable Blocks
+Summary:          Access to Peru's Environmental Statistics ('SINIA' / 'MINAM')
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.16
-BuildRequires:    R-CRAN-Rtsne >= 0.11
-BuildRequires:    R-CRAN-RcppProgress >= 0.1
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Rcpp >= 0.12.16
-Requires:         R-CRAN-Rtsne >= 0.11
-Requires:         R-CRAN-RcppProgress >= 0.1
-Requires:         R-methods 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-curl >= 4.3.0
+BuildRequires:    R-CRAN-cli >= 3.0.0
+BuildRequires:    R-CRAN-tibble >= 3.0.0
+BuildRequires:    R-CRAN-jsonlite >= 1.7.0
+Requires:         R-CRAN-curl >= 4.3.0
+Requires:         R-CRAN-cli >= 3.0.0
+Requires:         R-CRAN-tibble >= 3.0.0
+Requires:         R-CRAN-jsonlite >= 1.7.0
 
 %description
-Clustering of high dimensional data with Hidden Markov Model on Variable
-Blocks (HMM-VB) fitted via Baum-Welch algorithm. Clustering is performed
-by the Modal Baum-Welch algorithm (MBW), which finds modes of the density
-function. Lin Lin and Jia Li (2017)
-<https://jmlr.org/papers/v18/16-342.html>.
+Provides programmatic access to official environmental statistics and data
+of Peru from the National Environmental Information System ('SINIA',
+<https://sinia.minam.gob.pe/>), Ministry of the Environment ('MINAM').
+Includes indicator catalogs, technical metadata sheets ('fichas
+técnicas'), and structured historical series for 'R'.
 
 %prep
 %setup -q -c -n %{packname}

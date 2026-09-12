@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wintime
-%global packver   0.4.4
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Win Time Methods for Time-to-Event Data in Clinical Trials
 
@@ -29,10 +29,9 @@ endpoints. The package handles event times, event indicators, and
 treatment arm indicators and supports calculations on observed and
 resampled data. Detailed explanations of each method and usage examples
 are provided in "Use of win time for ordered composite endpoints in
-clinical trials," by Troendle et al.
-(2024)<https://pubmed.ncbi.nlm.nih.gov/38417455/>. For more information,
-see the package documentation or the vignette titled "Introduction to
-wintime."
+clinical trials," by Troendle et al. (2024)<doi:10.1002/sim.10045>. For
+more information, see the package documentation or the vignette titled
+"Introduction to wintime."
 
 %prep
 %setup -q -c -n %{packname}

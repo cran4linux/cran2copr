@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  normalblockr
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Gaussian Graphical Models with Latent Clustering Structure
 
@@ -16,7 +16,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-glassoFast 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
@@ -32,7 +31,6 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-glassoFast 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
@@ -55,8 +53,11 @@ data. The model clusters variables and, building on the graphical lasso,
 infers a network of statistical dependencies between clusters rather than
 between individual variables, for known or unknown clusterings, with an
 optional zero-inflation extension for data with an excess of exact zeros.
-See Tous & Chiquet (2026) <doi:10.1016/j.csda.2026.108347> for the model
-itself and its variational expectation-maximization estimation procedure.
+A complementary family clusters variables by their regression response to
+covariates rather than by their covariance, sharing one profile per
+cluster. See Tous & Chiquet (2026) <doi:10.1016/j.csda.2026.108347> for
+the model itself and its variational expectation-maximization estimation
+procedure.
 
 %prep
 %setup -q -c -n %{packname}

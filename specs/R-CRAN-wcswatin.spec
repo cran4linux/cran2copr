@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wcswatin
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Weather and Climate Inputs for 'SWAT'
 
@@ -19,7 +19,6 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-ncdf4 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-glue 
@@ -34,7 +33,6 @@ BuildRequires:    R-CRAN-progressr
 BuildRequires:    R-methods 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-raster 
 Requires:         R-CRAN-ncdf4 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-glue 

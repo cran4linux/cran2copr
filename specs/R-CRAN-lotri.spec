@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lotri
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Simple Way to Specify Symmetric, Block Diagonal Matrices
 
@@ -16,13 +16,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
+BuildRequires:    R-CRAN-armadillo4r >= 15.4.2
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-cpp4r 
-BuildRequires:    R-CRAN-armadillo4r 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-crayon 
 Requires:         R-methods 

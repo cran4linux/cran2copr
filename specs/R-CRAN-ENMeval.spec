@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ENMeval
-%global packver   2.0.5.2
+%global packver   2.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.5.2
+Version:          2.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automated Tuning and Evaluations of Ecological Niche Models
 
@@ -22,6 +22,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-maxnet 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
@@ -37,6 +38,7 @@ Requires:         R-methods
 Requires:         R-CRAN-terra 
 Requires:         R-CRAN-maxnet 
 Requires:         R-parallel 
+Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-foreach 
 Requires:         R-utils 
 Requires:         R-stats 

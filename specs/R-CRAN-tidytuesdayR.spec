@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidytuesdayR
-%global packver   1.3.2
+%global packver   1.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access the Weekly 'TidyTuesday' Project Dataset
 
@@ -22,13 +22,14 @@ BuildRequires:    R-CRAN-lubridate >= 1.7.0
 BuildRequires:    R-CRAN-xml2 >= 1.2.0
 BuildRequires:    R-CRAN-purrr >= 1.0.0
 BuildRequires:    R-CRAN-readr >= 1.0.0
+BuildRequires:    R-CRAN-stbl >= 0.4.0
 BuildRequires:    R-CRAN-rvest >= 0.3.2
-BuildRequires:    R-CRAN-stbl >= 0.3.0
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-gh 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-markdown 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
@@ -37,13 +38,14 @@ Requires:         R-CRAN-lubridate >= 1.7.0
 Requires:         R-CRAN-xml2 >= 1.2.0
 Requires:         R-CRAN-purrr >= 1.0.0
 Requires:         R-CRAN-readr >= 1.0.0
+Requires:         R-CRAN-stbl >= 0.4.0
 Requires:         R-CRAN-rvest >= 0.3.2
-Requires:         R-CRAN-stbl >= 0.3.0
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-gh 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-markdown 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tidyr 
 Requires:         R-utils 

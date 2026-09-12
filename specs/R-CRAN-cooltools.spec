@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cooltools
-%global packver   2.18
+%global packver   2.33
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.18
+Version:          2.33
 Release:          1%{?dist}%{?buildtag}
-Summary:          Practical Tools for Scientific Computations and Visualizations
+Summary:          Practical Tools for Scientific Computation and Visualisation
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -28,11 +28,11 @@ BuildRequires:    R-CRAN-raster
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-cubature 
 BuildRequires:    R-CRAN-bit64 
-BuildRequires:    R-CRAN-float 
 BuildRequires:    R-CRAN-randtoolbox 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-FNN 
-BuildRequires:    R-CRAN-hdf5r 
+BuildRequires:    R-CRAN-gitcreds 
+BuildRequires:    R-CRAN-pak 
 Requires:         R-CRAN-plotrix 
 Requires:         R-CRAN-celestial 
 Requires:         R-CRAN-data.table 
@@ -45,27 +45,24 @@ Requires:         R-CRAN-raster
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-cubature 
 Requires:         R-CRAN-bit64 
-Requires:         R-CRAN-float 
 Requires:         R-CRAN-randtoolbox 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-FNN 
-Requires:         R-CRAN-hdf5r 
+Requires:         R-CRAN-gitcreds 
+Requires:         R-CRAN-pak 
 
 %description
-Collection of routines for efficient scientific computations in physics
-and astrophysics. These routines include utility functions, numerical
-computation tools, as well as visualisation tools. They can be used, for
-example, for generating random numbers from spherical and custom
-distributions, information and entropy analysis, special Fourier
-transforms, two-point correlation estimation (e.g. as in Landy & Szalay
-(1993) <doi:10.1086/172900>), binning & gridding of point sets, 2D
-interpolation, Monte Carlo integration, vector arithmetic and coordinate
-transformations. Also included is a non-exhaustive list of important
-constants and cosmological conversion functions. The graphics routines can
-be used to produce and export publication-ready scientific plots and
-movies, e.g. as used in Obreschkow et al. (2020, MNRAS Vol 493, Issue 3,
-Pages 4551–4569). These routines include special color scales, projection
-functions, and bitmap handling routines.
+Provides utilities for scientific computation and visualisation, with an
+emphasis on applications in physics and astrophysics. Functionality
+includes random sampling from spherical and custom distributions,
+information and entropy analysis, Fourier transforms, two-point
+correlation estimation, binning and gridding of point sets,
+two-dimensional interpolation, Monte Carlo integration, vector operations,
+coordinate transformations, physical constants, and cosmological
+conversions. Graphics tools support the creation and export of
+publication-quality plots, animations, colour scales, map projections, and
+bitmap images. Several of these tools were used by Obreschkow et al.
+(2020) <doi:10.1093/mnras/staa445>.
 
 %prep
 %setup -q -c -n %{packname}

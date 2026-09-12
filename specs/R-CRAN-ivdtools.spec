@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ivdtools
-%global packver   0.1.3
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Tools for Evaluation of in Vitro Diagnostic Reagents
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-minpack.lm
 BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-CRAN-nls2 
 BuildRequires:    R-CRAN-nortest 
+BuildRequires:    R-CRAN-ppwdeming 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
@@ -34,6 +35,7 @@ Requires:         R-CRAN-minpack.lm
 Requires:         R-CRAN-nloptr 
 Requires:         R-CRAN-nls2 
 Requires:         R-CRAN-nortest 
+Requires:         R-CRAN-ppwdeming 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-utils 
@@ -42,15 +44,18 @@ Requires:         R-CRAN-VFP
 
 %description
 Provides statistical workflows used in the evaluation of in vitro
-diagnostic reagents. Facilities include method comparison and Bland-Altman
-analysis, receiver operating characteristic analysis, qualitative
-agreement, precision and variance-component analysis, reference intervals,
-stability studies, quality-control charts, curve fitting, analytical
-sensitivity, outlier and normality assessment, and sample-size
-calculations. For methodological details, see Bland and Altman (1986)
-<doi:10.1016/S0140-6736(86)90837-8>, Passing and Bablok (1983)
-<doi:10.1515/cclm.1983.21.11.709>, Linnet (1993)
-<doi:10.1093/clinchem/39.3.424>, Hanley and McNeil (1982)
+diagnostic reagents. Facilities include method comparison, commutability
+assessment, Bland-Altman and receiver operating characteristic analysis,
+qualitative agreement, C5 and C95 estimation, precision and
+variance-component analysis, linearity, interference, dilution and spiking
+studies, high-dose hook assessment, measurement uncertainty,
+reference-material bias, reference intervals, stability studies,
+quality-control charts, curve fitting, analytical sensitivity, outlier and
+normality assessment, and sample-size calculations. For methodological
+details, see Bland and Altman (1986) <doi:10.1016/S0140-6736(86)90837-8>,
+Passing and Bablok (1983) <doi:10.1515/cclm.1983.21.11.709>, Linnet (1993)
+<doi:10.1093/clinchem/39.3.424>, Hawkins and Kraker (2026)
+<doi:10.1093/jalm/jfaf183>, Hanley and McNeil (1982)
 <doi:10.1148/radiology.143.1.7063747>, Horn et al. (1998)
 <doi:10.1093/clinchem/44.3.622>, Westgard et al. (1981)
 <doi:10.1093/clinchem/27.3.493>, and Lu et al. (2016)

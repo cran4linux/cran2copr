@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Certara.NLME8
-%global packver   3.0.2
+%global packver   3.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.2
+Version:          3.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities for Certara's Nonlinear Mixed-Effects Modeling Engine
 
@@ -19,26 +19,25 @@ Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-batchtools >= 0.9.9
 BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-reshape 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-data.table 
 Requires:         R-CRAN-batchtools >= 0.9.9
 Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-reshape 
 Requires:         R-utils 
 Requires:         R-CRAN-data.table 
 
 %description
-Perform Nonlinear Mixed-Effects (NLME) Modeling using Certara's
-NLME-Engine. Access the same Maximum Likelihood engines used in the
-Phoenix platform, including algorithms for parametric methods, individual,
-and pooled data analysis. The Quasi-Random Parametric
-Expectation-Maximization Method (QRPEM) is also supported
-<https://www.page-meeting.org/default.asp?abstract=2338>. Execution is
-supported both locally or on remote machines. Remote execution includes
-support for Linux Sun Grid Engine (SGE), Simple Linux Utility for Resource
-Management (SLURM) grids, Linux and Windows multicore, and individual
-runs.
+Interface to Certara's Nonlinear Mixed-Effects (NLME) modeling engine
+('NLME-Engine') for pharmacokinetic and pharmacodynamic (PK/PD) modeling
+and simulation. Provides access to the Maximum Likelihood estimation
+algorithms available in the 'Phoenix' NLME platform for population,
+individual, and pooled analyses using parametric methods. Includes
+utilities for setting up NLME installations and parallel settings, running
+estimation, bootstrap, and covariate search workflows, and updating model
+files from engine output. Jobs can be executed locally or across
+high-performance computing resources, including Linux Sun Grid Engine
+(SGE) and Simple Linux Utility for Resource Management (SLURM) grids as
+well as multicore Linux and Windows hosts.
 
 %prep
 %setup -q -c -n %{packname}

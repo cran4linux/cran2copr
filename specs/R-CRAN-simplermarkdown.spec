@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  simplermarkdown
-%global packver   0.0.6
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simple Engine for Generating Reports using R
 
@@ -14,9 +14,9 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         pandoc
-BuildRequires:    R-devel
-Requires:         R-core
+Recommends:       pandoc
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rjson 
 BuildRequires:    R-tools 
@@ -27,7 +27,7 @@ Requires:         R-tools
 Runs R-code present in a pandoc markdown file and includes the resulting
 output in the resulting markdown file. This file can then be converted
 into any of the output formats supported by pandoc. The package can also
-be used as an engine for writing package vignettes.
+be used as an low dependency engine for writing package vignettes.
 
 %prep
 %setup -q -c -n %{packname}

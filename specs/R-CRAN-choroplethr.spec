@@ -1,39 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  awdb
-%global packver   0.1.4
+%global packname  choroplethr
+%global packver   5.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          5.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Query the USDA NWCC Air and Water Database REST API
+Summary:          Create Color-Coded Choropleth Maps in R
 
-License:          MIT + file LICENSE
+License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    cargo
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
-BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 2.0.0
+BuildRequires:    R-CRAN-tigris >= 1.0
+BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-sf 
-Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-httr2 
+BuildRequires:    R-CRAN-tidycensus 
+Requires:         R-CRAN-ggplot2 >= 2.0.0
+Requires:         R-CRAN-tigris >= 1.0
+Requires:         R-CRAN-Hmisc 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-sf 
+Requires:         R-CRAN-tidycensus 
 
 %description
-Query the four endpoints of the 'Air and Water Database (AWDB) REST API'
-maintained by the National Water and Climate Center (NWCC) at the United
-States Department of Agriculture (USDA). Endpoints include data, forecast,
-reference-data, and metadata. The package is extremely light weight, with
-'Rust' via 'extendr' doing most of the heavy lifting to deserialize and
-flatten deeply nested 'JSON' responses. The AWDB can be found at
-<https://wcc.sc.egov.usda.gov/awdbRestApi/swagger-ui/index.html>.
+Easily create color-coded (choropleth) maps in R. No knowledge of
+cartography or shapefiles needed; go directly from your geographically
+identified data to a highly customizable map with a single line of code!
+Supported geographies: U.S. states, counties, census tracts, and zip
+codes, world countries and sub-country regions (e.g., provinces,
+prefectures, etc.).
 
 %prep
 %setup -q -c -n %{packname}

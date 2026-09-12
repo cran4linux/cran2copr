@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  qrjoint
-%global packver   2.0-11
+%global packver   2.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.11
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Joint Estimation in Linear Quantile Regression
 
@@ -24,6 +24,8 @@ BuildRequires:    R-CRAN-coda
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-kernlab 
 BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-grDevices 
@@ -32,6 +34,7 @@ Requires:         R-CRAN-coda
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-kernlab 
 Requires:         R-CRAN-quantreg 
+Requires:         R-CRAN-Rcpp 
 
 %description
 Joint estimation of quantile specific intercept and slope parameters in a

@@ -1,46 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gllvm
-%global packver   2.0.15
+%global packname  sglssnal
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.15
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Linear Latent Variable Models
+Summary:          Sparse-Group Lasso via Semismooth Newton Augmented Lagrangian
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-TMB 
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-fishMod 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-alabama 
-BuildRequires:    R-CRAN-nloptr 
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-TMB 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-RSpectra 
+BuildRequires:    R-methods 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-fishMod 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-alabama 
-Requires:         R-CRAN-nloptr 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RSpectra 
 Requires:         R-methods 
+Requires:         R-utils 
 
 %description
-Analysis of multivariate data using generalized linear latent variable
-models (gllvm). Estimation is performed using either the Laplace method,
-variational approximations, or extended variational approximations,
-implemented via TMB (Kristensen et al. (2016),
-<doi:10.18637/jss.v070.i05>).
+Implements the sparse-group lasso method of Zhang et al. (2020)
+<doi:10.1007/s10107-018-1329-6>. Unlike many widely available methods
+based on first-order descent, this method uses second-order information to
+solve the dual optimization problem via a semismooth Newton method.
 
 %prep
 %setup -q -c -n %{packname}

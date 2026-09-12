@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  htmlreportR
-%global packver   1.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          'HTML' Reporting Made Simple(R)
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-xfun
 BuildRequires:    R-grDevices 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-stringr 
 Requires:         R-methods 
 Requires:         R-CRAN-mime 
 Requires:         R-CRAN-ggplot2 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-xfun
 Requires:         R-grDevices 
 Requires:         R-utils 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-stringr 
 
 %description
 Create compressed, interactive 'HTML' (Hypertext Markup Language) reports

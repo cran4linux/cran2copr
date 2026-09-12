@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  VIM
-%global packver   7.3.0
+%global packver   7.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.3.0
+Version:          7.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualization and Imputation of Missing Values
 
@@ -17,8 +17,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-data.table >= 1.9.4
-BuildRequires:    R-CRAN-paradox >= 1.0.0
-BuildRequires:    R-CRAN-mlr3tuning >= 1.0.0
 BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-grid 
 BuildRequires:    R-grDevices 
@@ -37,14 +35,7 @@ BuildRequires:    R-CRAN-ranger
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-xgboost 
-BuildRequires:    R-CRAN-mlr3 
-BuildRequires:    R-CRAN-mlr3pipelines 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-mlr3learners 
-BuildRequires:    R-CRAN-future 
 Requires:         R-CRAN-data.table >= 1.9.4
-Requires:         R-CRAN-paradox >= 1.0.0
-Requires:         R-CRAN-mlr3tuning >= 1.0.0
 Requires:         R-CRAN-colorspace 
 Requires:         R-grid 
 Requires:         R-grDevices 
@@ -63,11 +54,6 @@ Requires:         R-CRAN-ranger
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-xgboost 
-Requires:         R-CRAN-mlr3 
-Requires:         R-CRAN-mlr3pipelines 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-mlr3learners 
-Requires:         R-CRAN-future 
 
 %description
 Provides methods for imputation and visualization of missing values. It

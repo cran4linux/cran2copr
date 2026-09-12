@@ -1,36 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  imaginarycss
-%global packver   0.1.0
+%global packname  nbsurv
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Studying Imaginary Cognitive Social Structure
+Summary:          Conditional Naive Bayes Survival Modelling for Right-Censored Data
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-barry 
+BuildRequires:    R-utils 
 Requires:         R-graphics 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-survival 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Provides functions to measure and test imaginary cognitive social
-structure (CSS) motifs, which are patterns of perceived relationships
-among individuals in a social network. Includes tools for calculating
-motif frequencies, comparing observed motifs to expected distributions,
-and visualizing motif structures. Implements methods described in Tanaka
-and Vega Yon (2023) <doi:10.1016/j.socnet.2023.11.005>.
+Fits conditional naive Bayes survival models for right-censored outcomes
+using inverse-probability of censoring weighting. The package provides
+model fitting, prediction, resampling-based evaluation, cross-validation,
+hyper-parameter tuning, and permutation variable importance utilities for
+horizon-specific survival prediction. The model is the censored naive
+Bayes classifier of Wolfson et al. (2015) <doi:10.1002/sim.6526>, which
+combines the marginal Kaplan-Meier survivor function with horizon-specific
+class-conditional covariate densities and inverse-probability-of-censoring
+weights. Resampling evaluation uses the
+inverse-probability-of-censoring-weighted Brier score of Gerds and
+Schumacher (2006) <doi:10.1002/bimj.200610301>.
 
 %prep
 %setup -q -c -n %{packname}

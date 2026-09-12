@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LABTNSCPSS
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculation of Comorbidity and Frailty Scores
 
@@ -17,37 +17,38 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.3.0
 Requires:         R-core >= 4.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 
 %description
 Computes comorbidity indices and combined frailty scores for multiple ICD
 coding systems, including ICD-10-CA, ICD-10-CM, and ICD-11. The package
 provides tools to preprocess episode data, map diagnosis codes to chronic
 categories, propagate conditions across episodes, and generate comorbidity
-and frailty measures. The methods implemented are original to this package
-and were developed by the authors for research applications; a manuscript
-describing the methodology is currently in preparation.
+and frailty measures. The methodology is described in Nikiema, Bayani, and
+Bally (2026), "A Semantic-Based Carry-Forward Approach: Uncovering Chronic
+Disease Burden in Real-World Data Analysis", International Journal of
+Medical Informatics, article 106709 <doi:10.1016/j.ijmedinf.2026.106709>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,56 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sf
-%global packver   1.1-3
+%global packname  rpsurv
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simple Features for R
+Summary:          Fast Royston-Parmar Flexible Parametric Survival Models
 
-License:          GPL-2 | MIT + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gdal-devel
-BuildRequires:    geos-devel
-BuildRequires:    proj-devel
-BuildRequires:    sqlite-devel
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-s2 >= 1.1.0
-BuildRequires:    R-CRAN-DBI >= 0.8
-BuildRequires:    R-CRAN-units >= 0.7.0
-BuildRequires:    R-CRAN-classInt >= 0.4.1
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppParallel 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-grid 
-BuildRequires:    R-stats 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-s2 >= 1.1.0
-Requires:         R-CRAN-DBI >= 0.8
-Requires:         R-CRAN-units >= 0.7.0
-Requires:         R-CRAN-classInt >= 0.4.1
-Requires:         R-methods 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RcppParallel 
+Requires:         R-CRAN-survival 
+Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-grid 
-Requires:         R-stats 
-Requires:         R-tools 
-Requires:         R-utils 
 
 %description
-Support for simple feature access, a standardized way to encode and
-analyze spatial vector data. Binds to 'GDAL' <doi:10.5281/zenodo.5884351>
-for reading and writing data, to 'GEOS' <doi:10.5281/zenodo.11396894> for
-geometrical operations, and to 'PROJ' <doi:10.5281/zenodo.5884394> for
-projection conversions and datum transformations. Uses by default the 's2'
-package for geometry operations on geodetic (long/lat degree) coordinates.
+Fits Royston-Parmar flexible parametric survival models (Royston and
+Parmar, 2002) <doi:10.1002/sim.1203> on the log cumulative hazard, odds,
+and probit scales, with time-varying (non-proportional) covariate effects
+via restricted cubic splines in log time. The likelihood and its analytic
+gradient are evaluated in C++ with 'RcppParallel', giving large speedups
+over pure-R implementations for large datasets.
 
 %prep
 %setup -q -c -n %{packname}

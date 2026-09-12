@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  simr
-%global packver   1.0.11
+%global packname  MBHdesign
+%global packver   2.3.22
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.11
+Version:          2.3.22
 Release:          1%{?dist}%{?buildtag}
-Summary:          Power Analysis for Generalised Linear Mixed Models by Simulation
+Summary:          Spatial Designs for Ecological and Environmental Surveys
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,43 +17,38 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lmerTest >= 3.0.0
-BuildRequires:    R-CRAN-lme4 >= 1.1.16
-BuildRequires:    R-CRAN-binom 
-BuildRequires:    R-CRAN-car 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-iterators 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-pbkrtest 
-BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-reformulas 
-BuildRequires:    R-CRAN-RLRsim 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-geometry 
+BuildRequires:    R-CRAN-randtoolbox 
+BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-lmerTest >= 3.0.0
-Requires:         R-CRAN-lme4 >= 1.1.16
-Requires:         R-CRAN-binom 
-Requires:         R-CRAN-car 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-iterators 
-Requires:         R-methods 
-Requires:         R-CRAN-pbkrtest 
-Requires:         R-CRAN-plotrix 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-reformulas 
-Requires:         R-CRAN-RLRsim 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-class 
+BuildRequires:    R-parallel 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-terra 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-geometry 
+Requires:         R-CRAN-randtoolbox 
+Requires:         R-CRAN-mvtnorm 
 Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-class 
+Requires:         R-parallel 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-CRAN-terra 
 
 %description
-Calculate power for generalised linear mixed models, using simulation.
-Designed to work with models fit using the 'lme4' package. Described in
-Green and MacLeod, 2016 <doi:10.1111/2041-210X.12504>.
+Provides spatially survey balanced designs. Information about the package
+itself is given in Foster (2021) <doi:10.1111/2041-210X.13535>. Designs
+using MBHdesign can: 1) accommodate, without substantial detrimental
+effects on spatial balance, legacy sites (Foster et al., 2017
+<doi:10.1111/2041-210X.12782>); 2) be based on points or transects (foster
+et al. 2020 <doi:10.1111/2041-210X.13321> and produce clustered samples
+(Foster et al. (in press). The base idea that these designs stem from is
+the quasi-random number method described Robinson et al. (2013)
+<doi:10.1111/biom.12059> and adjusted in Robinson et al. (2017)
+<doi:10.1016/j.spl.2017.05.004>.
 
 %prep
 %setup -q -c -n %{packname}

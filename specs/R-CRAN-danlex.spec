@@ -1,38 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  adbi
-%global packver   0.1.2
+%global packname  danlex
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'DBI' Compliant Database Access Using 'ADBC'
+Summary:          Access Danish Legislation from Retsinformation
 
-License:          LGPL (>= 2.1)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DBI >= 1.2.0
-BuildRequires:    R-CRAN-adbcdrivermanager >= 0.8.0
-BuildRequires:    R-CRAN-nanoarrow >= 0.3.0
-BuildRequires:    R-methods 
-Requires:         R-CRAN-DBI >= 1.2.0
-Requires:         R-CRAN-adbcdrivermanager >= 0.8.0
-Requires:         R-CRAN-nanoarrow >= 0.3.0
-Requires:         R-methods 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-xml2 
 
 %description
-In order to make Arrow Database Connectivity ('ADBC'
-<https://arrow.apache.org/adbc/>) accessible from R, an interface
-compliant with the 'DBI' package is provided, using driver back-ends that
-are implemented in the 'adbcdrivermanager' framework. This enables
-interacting with database systems using the Arrow data format, thereby
-offering an efficient alternative to 'ODBC' for analytical applications.
+Provides access to Danish acts, regulations and treaties published by
+Retsinformation via its European Legislation Identifier (ELI) service.
+Part of the lexverse family of packages for legal and regulatory data.
 
 %prep
 %setup -q -c -n %{packname}
