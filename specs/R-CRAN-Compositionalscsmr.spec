@@ -1,39 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tesseract
-%global packver   5.3.1
+%global packname  Compositionalscsmr
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.3.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Open Source OCR Engine
+Summary:          Simplical-Simplicial Spatial Median Regression for Compositional Data
 
-License:          Apache License 2.0
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    leptonica-devel
-BuildRequires:    tesseract-devel
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-pdftools >= 1.5
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-digest 
-Requires:         R-CRAN-pdftools >= 1.5
-Requires:         R-CRAN-Rcpp >= 0.12.12
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-digest 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-Compositional 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-quadprog 
+BuildRequires:    R-CRAN-rangen 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-Compositional 
+Requires:         R-graphics 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-quadprog 
+Requires:         R-CRAN-rangen 
+Requires:         R-CRAN-Rfast 
+Requires:         R-stats 
 
 %description
-Bindings to 'Tesseract': a powerful optical character recognition (OCR)
-engine that supports over 100 languages. The engine is highly configurable
-in order to tune the detection algorithms and obtain the best possible
-results.
+Simplicial-simplicial regression is performed via the simplicially
+constrained spatial median regression model. The regression coefficients
+are constrained to be non-negative and sum to 1. For the spatial median
+regression the iteratively reweighted least squares algorithm is adopted,
+where quadratic programming is used to impose the constraints.
 
 %prep
 %setup -q -c -n %{packname}

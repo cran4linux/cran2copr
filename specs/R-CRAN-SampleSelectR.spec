@@ -1,38 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  days2lessons
+%global packname  SampleSelectR
 %global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Distributes Teachers Lessons On Days in a Balanced Manner
+Summary:          Randomly Select Samples for Various Probability-Based Methods
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
+BuildRequires:    R-CRAN-tidytable 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
+Requires:         R-CRAN-tidytable 
+Requires:         R-utils 
 
 %description
-The set of teacher/class lessons is completed with a column that allocates
-a day to each lesson, so that the distribution of lessons by day, by
-class, and by teacher is as uniform as possible.
-<https://vlad.bazon.net/>.
+Randomly select samples using simple random sampling (SRS), systematic
+sampling, and various probability proportional to size (PPS) methods,
+including systematic PPS and sequential PPS (i.e., Chromy's method). Also
+includes functionality to allocate sample sizes across strata using
+proportional, power, Neyman, and optimal allocation methods, and to select
+samples within strata. Designed to make survey sample design and selection
+reproducible, efficient, and transparent for survey statisticians and
+researchers. Sampling methods follow Kalton (1983)
+<doi:10.4135/9781412984683> and Chromy (1979)
+<http://www.asasrms.org/Proceedings/papers/1979_081.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

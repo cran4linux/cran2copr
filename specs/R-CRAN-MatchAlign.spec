@@ -1,39 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tesseract
-%global packver   5.3.1
+%global packname  MatchAlign
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.3.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Open Source OCR Engine
+Summary:          Parsing GFA and GAF Alignment Files
 
-License:          Apache License 2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    leptonica-devel
-BuildRequires:    tesseract-devel
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-pdftools >= 1.5
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-digest 
-Requires:         R-CRAN-pdftools >= 1.5
-Requires:         R-CRAN-Rcpp >= 0.12.12
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-digest 
+BuildArch:        noarch
 
 %description
-Bindings to 'Tesseract': a powerful optical character recognition (OCR)
-engine that supports over 100 languages. The engine is highly configurable
-in order to tune the detection algorithms and obtain the best possible
-results.
+Provides tools for extracting segment paths from Graphical Fragment
+Assembly ('GFA') and Graph Alignment Format ('GAF') files.
+parse_paths_gfa() reads P (path) and W (walk) records and returns a named
+list of segment identifiers for each accession. parse_paths_gaf() parses
+the path string from each alignment and returns a named list of segments
+traversed by each query. parse_segment_lengths_gfa() reads S records and
+returns a named list of segment lengths keyed by segment identifier. These
+tools are intended to simplify downstream interpretation and analysis of
+pangenome graphs.
 
 %prep
 %setup -q -c -n %{packname}

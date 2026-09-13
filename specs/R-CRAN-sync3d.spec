@@ -1,39 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tesseract
-%global packver   5.3.1
+%global packname  sync3d
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.3.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Open Source OCR Engine
+Summary:          Synchronized 3D Vector and Marker Animations in 'Plotly'
 
-License:          Apache License 2.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    leptonica-devel
-BuildRequires:    tesseract-devel
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-pdftools >= 1.5
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-digest 
-Requires:         R-CRAN-pdftools >= 1.5
-Requires:         R-CRAN-Rcpp >= 0.12.12
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-digest 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-plotly 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-plotly 
 
 %description
-Bindings to 'Tesseract': a powerful optical character recognition (OCR)
-engine that supports over 100 languages. The engine is highly configurable
-in order to tune the detection algorithms and obtain the best possible
-results.
+Provides a domain-agnostic visualization utility designed to bypass
+structural rendering limitations within multi-trace three-dimensional
+animations in 'Plotly' by implementing a decoupled rendering pipeline.
+Computational processing of time-dependent physical states (markers and
+nodes) is managed within the R environment, while a custom
+hardware-accelerated 'WebGL' injection handles the synchronous rendering
+of complex topological frameworks (lines and edges) directly within the
+'UI' browser interface via 'htmlwidgets'. This dual-layer architecture
+ensures smooth execution of synchronized multi-component 3D animations
+without framework degradation or controller loss.
 
 %prep
 %setup -q -c -n %{packname}

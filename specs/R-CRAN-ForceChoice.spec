@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ForceChoice
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Forced-Choice Modeling Based on Item Response Theory and Cognitive Diagnostic Models
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
-BuildRequires:    R-CRAN-rstantools >= 2.6.0
+BuildRequires:    R-CRAN-rstantools >= 2.7.1
 BuildRequires:    R-CRAN-rstan >= 2.18.1
 BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
 BuildRequires:    R-CRAN-BH >= 1.66.0
@@ -32,7 +32,7 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-RcppParallel >= 5.0.1
-Requires:         R-CRAN-rstantools >= 2.6.0
+Requires:         R-CRAN-rstantools >= 2.7.1
 Requires:         R-CRAN-rstan >= 2.18.1
 Requires:         R-CRAN-Rcpp >= 0.12.0
 Requires:         R-CRAN-coda 

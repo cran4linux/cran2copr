@@ -1,39 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tesseract
-%global packver   5.3.1
+%global packname  basetable
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.3.1
+Version:          1.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Open Source OCR Engine
+Summary:          Fast and Memory-Efficient Base R Table Manipulation
 
-License:          Apache License 2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    leptonica-devel
-BuildRequires:    tesseract-devel
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-pdftools >= 1.5
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-digest 
-Requires:         R-CRAN-pdftools >= 1.5
-Requires:         R-CRAN-Rcpp >= 0.12.12
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-digest 
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
+BuildRequires:    R-parallel 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-parallel 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Bindings to 'Tesseract': a powerful optical character recognition (OCR)
-engine that supports over 100 languages. The engine is highly configurable
-in order to tune the detection algorithms and obtain the best possible
-results.
+A tabular data manipulation, exploration and validation toolkit with a
+base R-style interface (subset, transform, aggregate, merge, split) and no
+external computation dependency. Grouping, joins, ordering, filtering,
+reshaping and delimited-file reading run in a bundled 'C++' engine that
+uses multiple threads for the heavier operations. Grouped reducers
+accumulate in compiled code without materialising intermediate columns, so
+grouped aggregation and counting allocate close to nothing. Results are
+returned as an ordinary data frame with a light 'basetable' class.
 
 %prep
 %setup -q -c -n %{packname}

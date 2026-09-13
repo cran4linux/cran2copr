@@ -1,38 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  days2lessons
-%global packver   1.0.0
+%global packname  metajam
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Distributes Teachers Lessons On Days in a Balanced Manner
+Summary:          Easily Download Data and Metadata from 'DataONE'
 
-License:          MIT + file LICENSE
+License:          Apache License (== 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-XML >= 3.95.0.1
+BuildRequires:    R-CRAN-dataone >= 2.3.0
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-EML 
+BuildRequires:    R-CRAN-emld 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-XML >= 3.95.0.1
+Requires:         R-CRAN-dataone >= 2.3.0
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-EML 
+Requires:         R-CRAN-emld 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-readr 
 Requires:         R-stats 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-The set of teacher/class lessons is completed with a column that allocates
-a day to each lesson, so that the distribution of lessons by day, by
-class, and by teacher is as uniform as possible.
-<https://vlad.bazon.net/>.
+A set of tools to foster the development of reproducible analytical
+workflow by simplifying the download of data and metadata from 'DataONE'
+(<https://www.dataone.org>) and easily importing this information into R.
 
 %prep
 %setup -q -c -n %{packname}

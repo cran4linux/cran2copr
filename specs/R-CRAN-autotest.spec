@@ -1,38 +1,59 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  days2lessons
-%global packver   1.0.0
+%global packname  autotest
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Distributes Teachers Lessons On Days in a Balanced Manner
+Summary:          Automatic Package Testing
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-here 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-pkgload 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-testthat 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-typetracer 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-fs 
+Requires:         R-grDevices 
+Requires:         R-CRAN-here 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-memoise 
+Requires:         R-methods 
+Requires:         R-CRAN-pkgload 
 Requires:         R-CRAN-rlang 
-Requires:         R-stats 
+Requires:         R-CRAN-testthat 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-typetracer 
+Requires:         R-CRAN-withr 
 
 %description
-The set of teacher/class lessons is completed with a column that allocates
-a day to each lesson, so that the distribution of lessons by day, by
-class, and by teacher is as uniform as possible.
-<https://vlad.bazon.net/>.
+Automatic testing of R packages by tracing function calls made in examples
+and tests, then systematically varying the inputs to check that functions
+respond sensibly. The package is a development aid for authors submitting
+to the 'rOpenSci' statistical software review project ('rOpenSci' authors,
+2021; <doi:10.5281/zenodo.5556756>).
 
 %prep
 %setup -q -c -n %{packname}

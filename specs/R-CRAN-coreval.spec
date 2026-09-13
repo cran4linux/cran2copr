@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mnirs
-%global packver   0.8.0
+%global packname  coreval
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Muscle Near-Infrared Spectroscopy Processing and Analysis
+Summary:          Check Clinical Trial Data Against 'CDISC' Open Rules
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,32 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-cli 
+BuildRequires:    R-CRAN-haven 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-rlang 
-Requires:         R-stats 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-utils 
+Requires:         R-CRAN-haven 
 
 %description
-Read, process, and analyse data from muscle near-infrared spectroscopy
-(mNIRS) devices. Import raw data from file and return time-series data and
-metadata. Standardised methods for cleaning, filtering, transforming, and
-analysing mNIRS data. Custom plot theme and colour palette. Intended for
-mNIRS researchers and practitioners in exercise physiology, sports
-science, and clinical practice.
+Finds conformance problems in clinical trial data without leaving R, using
+the openly published 'CDISC' Open Rules ('CORE'). Check a single dataset
+while you are still writing the code that builds it, or a whole study
+folder once it exists, and get the findings back as a tidy data frame
+pointing at the exact row and variable. Reads transport ('XPT'), 'SAS' and
+comma-separated files, plus 'Define-XML' when present, and covers rules
+for the 'SDTM', 'SEND' and 'TIG' standards. The rules are bundled inside
+the package, so nothing is downloaded and your data never leaves your
+machine: no internet, no API key, no account. When a rule cannot be
+checked - because it needs a dataset you did not supply, for instance - it
+is reported as skipped with the reason, never counted as a pass. Meant as
+a quick first pass before a qualified validation system, never as a
+replacement for one. An independent project: not affiliated with or
+endorsed by 'CDISC', and not a 'CORE'-certified conformance engine.
 
 %prep
 %setup -q -c -n %{packname}

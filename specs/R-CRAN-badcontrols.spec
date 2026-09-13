@@ -1,43 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  extrasteps
-%global packver   0.3.0
+%global packname  badcontrols
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          More Miscellaneous Steps for the 'recipes' Package
+Summary:          Difference-in-Differences with Bad Controls
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-recipes >= 1.0.7
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-recipes >= 1.0.7
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-generics 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-vctrs 
+BuildRequires:    R-CRAN-ptetools >= 1.0.1
+BuildRequires:    R-stats 
+Requires:         R-CRAN-ptetools >= 1.0.1
+Requires:         R-stats 
 
 %description
-Contains additional miscellaneous steps for the 'recipes' package. These
-steps are useful, but doesn't have a good home in other 'recipes' packages
-or its extensions.
+Implements methods for difference-in-differences with bad controls, i.e.,
+time-varying covariates that are affected by the treatment.  Provides
+imputation, doubly robust, and machine learning estimators that are based
+on Caetano, Callaway, Payne, and Sant'Anna (2026)
+<doi:10.48550/arXiv.2608.03881>.
 
 %prep
 %setup -q -c -n %{packname}

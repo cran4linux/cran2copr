@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  days2lessons
-%global packver   1.0.0
+%global packname  cogmod
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Distributes Teachers Lessons On Days in a Balanced Manner
+Summary:          Cognitive Models for Subjective Scales and Decision Making Tasks
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,22 +17,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-brms 
+BuildRequires:    R-CRAN-insight 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-brms 
+Requires:         R-CRAN-insight 
 Requires:         R-stats 
 
 %description
-The set of teacher/class lessons is completed with a column that allocates
-a day to each lesson, so that the distribution of lessons by day, by
-class, and by teacher is as uniform as possible.
-<https://vlad.bazon.net/>.
+Implements cognitive models for data from subjective (Likert or analog)
+scales and from decision making tasks with reaction times and choice data.
+Provides random generation, density functions, and custom response
+distributions for Bayesian estimation with 'brms', covering
+discreted-beta, ordered beta and choice-confidence models for subjective
+ratings, reaction-times families (Shifted Log-Normal, Shifted Wald), as
+well as sequential sampling models including the drift diffusion model
+(DDM), the racing diffusion model (RDM), the lognormal race model (LNR),
+and linear ballistic accumulator (LBA) model. The website provides
+examples and tutorials for using and interpreting the models. Methods are
+described in Ratcliff and McKoon (2008) <doi:10.1162/neco.2008.12-06-420>,
+Brown and Heathcote (2008) <doi:10.1016/j.cogpsych.2007.12.002>, Rouder et
+al. (2015) <doi:10.1007/s11336-013-9396-3>, Tillman et al. (2020)
+<doi:10.3758/s13423-020-01719-6>, Kubinec (2023)
+<doi:10.1017/pan.2022.20>, and Sciandra et al. (2024)
+<doi:10.1007/s10651-023-00592-5>.
 
 %prep
 %setup -q -c -n %{packname}

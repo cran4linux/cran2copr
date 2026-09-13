@@ -1,37 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dsdp
-%global packver   0.1.2
+%global packname  ibist
+%global packver   0.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Density Estimation with Semidefinite Programming
+Summary:          Data and Functions for Introduction to Biostatistics with R
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-stats 
+Requires:         R-CRAN-Rcpp 
 
 %description
-The models of probability density functions are Gaussian or exponential
-distributions with polynomial correction terms. Using a maximum likelihood
-method, 'dsdp' computes parameters of Gaussian or exponential
-distributions together with degrees of polynomials by a grid search, and
-coefficient of polynomials by a variant of semidefinite programming. It
-adopts Akaike Information Criterion for model selection. See a vignette
-for a tutorial and more on our 'Github' repository
-<https://github.com/tsuchiya-lab/dsdp/>.
+Provides datasets and supporting functions for the book Introduction to
+Biostatistics with R by Schifano and Yan (2026+), published by Taylor &
+Francis. The package is intended for teaching introductory biostatistics
+and for reproducing examples in the text.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,39 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tesseract
-%global packver   5.3.1
+%global packname  NeuralSTATIS
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.3.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Open Source OCR Engine
+Summary:          Neural Network Enhanced STATIS Methodology for Three-Way Data Analysis
 
-License:          Apache License 2.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    leptonica-devel
-BuildRequires:    tesseract-devel
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-pdftools >= 1.5
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-digest 
-Requires:         R-CRAN-pdftools >= 1.5
-Requires:         R-CRAN-Rcpp >= 0.12.12
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-digest 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-grid 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-reticulate 
+Requires:         R-stats 
 
 %description
-Bindings to 'Tesseract': a powerful optical character recognition (OCR)
-engine that supports over 100 languages. The engine is highly configurable
-in order to tune the detection algorithms and obtain the best possible
-results.
+Combines Autoencoders with the STATIS (Structuring Three-way Arrays in
+Statistics) methodology for dimensional reduction and visualization of
+multi-way data (tables x individuals x variables). Methods are based on
+L'Hermier des Plantes (1976) and Carrera Buri & Galindo-Villardón (2026)
+<https://www.mdpi.com/1999-4893/19/8/637/pdf>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,39 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tesseract
-%global packver   5.3.1
+%global packname  chestR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.3.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Open Source OCR Engine
+Summary:          Kernel-Weighted Cox Regression for Treatment Effect Heterogeneity
 
-License:          Apache License 2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    leptonica-devel
-BuildRequires:    tesseract-devel
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-pdftools >= 1.5
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-digest 
-Requires:         R-CRAN-pdftools >= 1.5
-Requires:         R-CRAN-Rcpp >= 0.12.12
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-digest 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-scales 
 
 %description
-Bindings to 'Tesseract': a powerful optical character recognition (OCR)
-engine that supports over 100 languages. The engine is highly configurable
-in order to tune the detection algorithms and obtain the best possible
-results.
+Explores treatment effect heterogeneity and candidate predictive
+biomarkers by re-fitting weighted Cox proportional hazards models on a
+biomarker grid. Kernel weights centred at each grid point produce local
+coefficient estimates that can be visualised across biomarker space.
+Builds on ideas related to graphical Cox treatment-covariate interaction
+methods [see Bonetti and Gelber (2004) <doi:10.1093/biostatistics/kxh002>
+and local partial-likelihood approaches Fan, Lin and Zhou (2006)
+<doi:10.1214/009053605000000796>].
 
 %prep
 %setup -q -c -n %{packname}

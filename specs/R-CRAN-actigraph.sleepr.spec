@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  actigraph.sleepr
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Detect Periods of Sleep and Non-Wear in 'ActiGraph' Data
 
@@ -19,6 +19,7 @@ Requires:         R-core >= 3.2.4
 BuildRequires:    R-CRAN-tidyr >= 1.1.1
 BuildRequires:    R-CRAN-dplyr >= 1.0.1
 BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppRoll 
 BuildRequires:    R-CRAN-RSQLite 
 BuildRequires:    R-CRAN-assertthat 
@@ -30,10 +31,10 @@ BuildRequires:    R-CRAN-zoo
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-tidyr >= 1.1.1
 Requires:         R-CRAN-dplyr >= 1.0.1
 Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-RcppRoll 
 Requires:         R-CRAN-RSQLite 
 Requires:         R-CRAN-assertthat 
@@ -50,10 +51,11 @@ Requires:         R-CRAN-tidyselect
 Reads *.agd files exported from 'ActiGraph' devices; implements the
 Troiano (2008) <doi:10.1249/mss.0b013e31815a51b3> and Choi (2011)
 <doi:10.1249/MSS.0b013e3181ed61a3> algorithms for detecting periods on
-non-wear; implements the Sadeh (1994) <doi:10.1093/sleep/17.3.201> and
-Cole-Kripke (1992) <doi:10.1093/sleep/15.5.461> algorithms for detecting
-asleep/awake state and the Tudor-Locke (2014) <doi:10.1139/apnm-2013-0173>
-algorithm to detect sleep periods from asleep/awake states.
+non-wear; implements the Sadeh (1994) <doi:10.1093/sleep/17.3.201>,
+Cole-Kripke (1992) <doi:10.1093/sleep/15.5.461>, and Oakley (1997)
+algorithms for detecting asleep/awake state and the Tudor-Locke (2014)
+<doi:10.1139/apnm-2013-0173> algorithm to detect sleep periods from
+asleep/awake states.
 
 %prep
 %setup -q -c -n %{packname}

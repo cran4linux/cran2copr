@@ -1,39 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tesseract
-%global packver   5.3.1
+%global packname  AutoGenAI
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.3.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Open Source OCR Engine
+Summary:          Adaptive Optimization of Prompts, Models and Generation Strategies
 
-License:          Apache License 2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    leptonica-devel
-BuildRequires:    tesseract-devel
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-pdftools >= 1.5
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-digest 
-Requires:         R-CRAN-pdftools >= 1.5
-Requires:         R-CRAN-Rcpp >= 0.12.12
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-digest 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Bindings to 'Tesseract': a powerful optical character recognition (OCR)
-engine that supports over 100 languages. The engine is highly configurable
-in order to tune the detection algorithms and obtain the best possible
-results.
+Provides provider-agnostic tools for jointly comparing and optimizing
+prompts, language-model providers, and generation strategies for
+generative artificial intelligence workflows. Candidate configurations can
+be evaluated using user-supplied scoring functions, cost and latency
+measurements, robustness perturbations, Pareto-front screening, budget and
+latency constraints, prompt evolution, adaptive routing, self-consistency,
+and text-output ensembles. The core workflow is designed to run offline
+with deterministic mock providers, while external model application
+programming interfaces can be connected through user-defined provider
+functions. Evolutionary search concepts are described by Goldberg (1989,
+ISBN:0201157675), and multi-objective optimization concepts are related to
+Deb, Pratap, Agarwal and Meyarivan (2002) <doi:10.1109/4235.996017>.
 
 %prep
 %setup -q -c -n %{packname}

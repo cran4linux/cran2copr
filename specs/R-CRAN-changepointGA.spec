@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  changepointGA
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Changepoint Detection via Modified Genetic Algorithms
 
@@ -47,7 +47,8 @@ features of 'changepointGA' include encoding changepoint configurations in
 an integer format, enabling dynamic and simultaneous estimation of model
 hyperparameters, changepoint configurations, and associated parameters.
 The detailed algorithmic implementation can be found in the package
-vignettes and in the paper of Li (2024, <doi:10.48550/arXiv.2410.15571>).
+vignettes and in the paper of Li and Lu (2024,
+<doi:10.48550/arXiv.2410.15571>).
 
 %prep
 %setup -q -c -n %{packname}

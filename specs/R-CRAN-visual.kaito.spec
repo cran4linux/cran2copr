@@ -1,39 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tesseract
-%global packver   5.3.1
+%global packname  visual.kaito
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.3.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Open Source OCR Engine
+Summary:          Interactive 3D Visualizations for Group Comparisons
 
-License:          Apache License 2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    leptonica-devel
-BuildRequires:    tesseract-devel
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-pdftools >= 1.5
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-digest 
-Requires:         R-CRAN-pdftools >= 1.5
-Requires:         R-CRAN-Rcpp >= 0.12.12
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-digest 
+BuildArch:        noarch
 
 %description
-Bindings to 'Tesseract': a powerful optical character recognition (OCR)
-engine that supports over 100 languages. The engine is highly configurable
-in order to tune the detection algorithms and obtain the best possible
-results.
+Draws interactive, rotatable statistical visualizations in three
+dimensions, built on 'plotly'. Two families of plots are provided.
+Triaxial box plots (boxplot3d(), boxplot3d_interactive()) compare groups
+on three continuous variables at once, with Tukey, fixed-percentile, mean
++/- SD, and letter-value box/whisker conventions, plus parametric and
+non-parametric significance testing (per-axis and joint 3D via MANOVA /
+PERMANOVA). Bivariate density plots (ttest_plot3d(), manova_plot3d())
+compare two or more groups on two continuous variables as overlapping 3D
+density surfaces, reporting per-axis t-tests together with a joint
+Hotelling's T-squared test (two groups), or a one-way MANOVA omnibus test
+with Bonferroni, Tukey, Fisher's LSD, and Dunnett post-hoc comparisons
+(more than two groups). All plots include live, pre-computed controls
+(view, method, scale, transparency) so results can be explored
+interactively without re-running R code.
 
 %prep
 %setup -q -c -n %{packname}

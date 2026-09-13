@@ -1,39 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tesseract
-%global packver   5.3.1
+%global packname  USPopulationSampler
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.3.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Open Source OCR Engine
+Summary:          Population-Weighted Sampling of Geographic Locations in the United States
 
-License:          Apache License 2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    leptonica-devel
-BuildRequires:    tesseract-devel
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-pdftools >= 1.5
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
 BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-digest 
-Requires:         R-CRAN-pdftools >= 1.5
-Requires:         R-CRAN-Rcpp >= 0.12.12
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-arrow 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-curl 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-digest 
+Requires:         R-parallel 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-arrow 
+Requires:         R-CRAN-data.table 
+Requires:         R-utils 
+Requires:         R-stats 
 
 %description
-Bindings to 'Tesseract': a powerful optical character recognition (OCR)
-engine that supports over 100 languages. The engine is highly configurable
-in order to tune the detection algorithms and obtain the best possible
-results.
+Generate geospatial locations within census block groups (BG; the smallest
+geographic unit for which population counts are available) within target
+counties, states, or across the entirety of the U.S. randomly selected
+according to population counts by using the Census Bureau reference data
+and optionally allow users to conduct temporal assignments on sampled
+locations using Covid-19 data.
 
 %prep
 %setup -q -c -n %{packname}

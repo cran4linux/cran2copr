@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mnirs
-%global packver   0.8.0
+%global packname  stratigraphr
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Muscle Near-Infrared Spectroscopy Processing and Analysis
+Summary:          Archaeological Stratigraphy and Chronological Sequences
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,32 +17,44 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-igraph >= 0.3.0
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-pillar 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-relations 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-sets 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidygraph 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-vroom 
+Requires:         R-CRAN-igraph >= 0.3.0
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-pillar 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-relations 
 Requires:         R-CRAN-rlang 
-Requires:         R-stats 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-sets 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidygraph 
 Requires:         R-utils 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-vroom 
 
 %description
-Read, process, and analyse data from muscle near-infrared spectroscopy
-(mNIRS) devices. Import raw data from file and return time-series data and
-metadata. Standardised methods for cleaning, filtering, transforming, and
-analysing mNIRS data. Custom plot theme and colour palette. Intended for
-mNIRS researchers and practitioners in exercise physiology, sports
-science, and clinical practice.
+A tidy framework for working with archaeological stratigraphy and
+chronology. Includes tools for reading, analysing, and visualising
+stratigraphic sequences (Harris matrices) as directed graphs following the
+definition of Dye and Buck (2015) <doi:10.1016/j.jas.2015.08.008> and an R
+interface to the Chronological Query Language (CQL) used in 'OxCal' by
+Bronk Ramsey (2009) <doi:10.1017/S0033822200033865>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,43 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  polite
-%global packver   0.1.4
+%global packname  MobilityDataPT
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Be Nice on the Web
+Summary:          Get Mobility Related Data for Portugal
 
-License:          MIT + file LICENSE
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-memoise 
-BuildRequires:    R-CRAN-ratelimitr 
-BuildRequires:    R-CRAN-robotstxt 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-usethis 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-memoise 
-Requires:         R-CRAN-ratelimitr 
-Requires:         R-CRAN-robotstxt 
-Requires:         R-CRAN-rvest 
-Requires:         R-stats 
-Requires:         R-CRAN-usethis 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-sf 
 
 %description
-Be responsible when scraping data from websites by following polite
-principles: introduce yourself, ask for permission, take slowly and never
-ask twice.
+A collection of methods to get mobility related data for Portugal.
 
 %prep
 %setup -q -c -n %{packname}

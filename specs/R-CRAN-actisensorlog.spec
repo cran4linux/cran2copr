@@ -1,39 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tesseract
-%global packver   5.3.1
+%global packname  actisensorlog
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.3.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Open Source OCR Engine
+Summary:          Summarize 'SensorLog'/'SensorLogger' Activity Data
 
-License:          Apache License 2.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    leptonica-devel
-BuildRequires:    tesseract-devel
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-pdftools >= 1.5
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-digest 
-Requires:         R-CRAN-pdftools >= 1.5
-Requires:         R-CRAN-Rcpp >= 0.12.12
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-digest 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-actibase 
+BuildRequires:    R-CRAN-actiread 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-geosphere 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-lutz 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-actibase 
+Requires:         R-CRAN-actiread 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-geosphere 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-lutz 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-tidyr 
 
 %description
-Bindings to 'Tesseract': a powerful optical character recognition (OCR)
-engine that supports over 100 languages. The engine is highly configurable
-in order to tune the detection algorithms and obtain the best possible
-results.
+Provides functions for analyzing 'SensorLog'
+<https://sensorlog.berndthomas.net/> and 'SensorLogger'
+<https://www.tszheichoi.com/sensorlogger> data.
 
 %prep
 %setup -q -c -n %{packname}

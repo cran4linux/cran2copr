@@ -1,39 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tesseract
-%global packver   5.3.1
+%global packname  Rfactor
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.3.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Open Source OCR Engine
+Summary:          Rainfall Erosivity Calculations from Precipitation Records
 
-License:          Apache License 2.0
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    leptonica-devel
-BuildRequires:    tesseract-devel
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-pdftools >= 1.5
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-digest 
-Requires:         R-CRAN-pdftools >= 1.5
-Requires:         R-CRAN-Rcpp >= 0.12.12
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-digest 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-clock 
+BuildRequires:    R-CRAN-data.table 
+Requires:         R-CRAN-clock 
+Requires:         R-CRAN-data.table 
 
 %description
-Bindings to 'Tesseract': a powerful optical character recognition (OCR)
-engine that supports over 100 languages. The engine is highly configurable
-in order to tune the detection algorithms and obtain the best possible
-results.
+Calculates rainfall erosivity from timestamped precipitation records. The
+package identifies rainfall events, calculates continuous rolling rainfall
+intensities, rainfall kinetic energy, and event EI30 erosivity, aggregates
+contributing event erosivity to monthly and yearly totals, and calculates
+multi-year mean monthly and annual rainfall erosivity. Storm separation,
+event omission criteria, intensity durations, and rainfall kinetic-energy
+equations are configurable. Rainfall kinetic energy can be calculated
+using the formulations of Brown and Foster (1987)
+<doi:10.13031/2013.31957>, McGregor et al. (1995)
+<doi:10.13031/2013.27921>, and Laws and Parsons (1943)
+<doi:10.1029/TR024i002p00452>.
 
 %prep
 %setup -q -c -n %{packname}

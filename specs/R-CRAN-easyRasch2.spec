@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  easyRasch2
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Psychometric Analysis with Rasch Measurement Theory
 
@@ -19,6 +19,7 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-psychotools >= 0.7.3
 BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-mirt 
 BuildRequires:    R-stats 
@@ -26,6 +27,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-psychotools >= 0.7.3
 Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-mirt 
 Requires:         R-stats 

@@ -1,48 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mnirs
-%global packver   0.8.0
+%global packname  rdatagouv
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Muscle Near-Infrared Spectroscopy Processing and Analysis
+Summary:          Tools to Download and Explore Datasets from Data.gouv.fr
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-nanoparquet 
 BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-vroom 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-nanoparquet 
 Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-rlang 
-Requires:         R-stats 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-utils 
+Requires:         R-CRAN-vroom 
 
 %description
-Read, process, and analyse data from muscle near-infrared spectroscopy
-(mNIRS) devices. Import raw data from file and return time-series data and
-metadata. Standardised methods for cleaning, filtering, transforming, and
-analysing mNIRS data. Custom plot theme and colour palette. Intended for
-mNIRS researchers and practitioners in exercise physiology, sports
-science, and clinical practice.
+Provides a client for the public API of data.gouv.fr, the French
+government's open data platform. It helps you find a dataset that matches
+your interests, judge whether it is usable, download it, and re-fetch the
+exact same table later in a reproducible way. You can search the catalog
+and filter by producer or theme (dg_find_datasets(),
+dg_find_organization(), dg_find_topics()), pull a dataset's tabular
+resources into tidy tibbles (dg_pull_dataset()), inspect the documented
+variables of its data schema (dg_schema()), and compute summary metrics
+such as size, number of columns and missing-value rate (dg_summary(),
+dg_summarise()). Each returned table carries a stable identifier
+(dg_table_id(), dg_refetch()) so it can be re-fetched later. Requests are
+built on top of 'httr2'.
 
 %prep
 %setup -q -c -n %{packname}

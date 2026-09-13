@@ -1,39 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tesseract
-%global packver   5.3.1
+%global packname  rankMANOVA
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.3.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Open Source OCR Engine
+Summary:          Rank-Based Tests for Multivariate Data in Nonparametric Factorial Designs
 
-License:          Apache License 2.0
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    leptonica-devel
-BuildRequires:    tesseract-devel
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-pdftools >= 1.5
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-digest 
-Requires:         R-CRAN-pdftools >= 1.5
-Requires:         R-CRAN-Rcpp >= 0.12.12
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-digest 
+BuildRequires:    R-devel >= 4.5.0
+Requires:         R-core >= 4.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS >= 7.3.43
+BuildRequires:    R-parallel 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-multcomp 
+Requires:         R-CRAN-MASS >= 7.3.43
+Requires:         R-parallel 
+Requires:         R-methods 
+Requires:         R-CRAN-multcomp 
 
 %description
-Bindings to 'Tesseract': a powerful optical character recognition (OCR)
-engine that supports over 100 languages. The engine is highly configurable
-in order to tune the detection algorithms and obtain the best possible
-results.
+Implemented are an ANOVA-type test statistic for testing hypotheses
+formulated in Mann-Whitney-type effects in nonparametric factorial
+designs. Statistical inference is based on a wild or a sample-specific
+bootstrap approach as described in 'Dobler et al. (2019)
+<doi:10.1007/s10463-019-00717-3>'. The unweighted treatment effects
+considered do not depend on sample sizes and allow for transitive
+ordering. The package thus provides an extension of the univariate
+'rankFD' package to multivariate data.
 
 %prep
 %setup -q -c -n %{packname}

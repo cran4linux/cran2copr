@@ -1,47 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  zenstats
-%global packver   0.1.2
+%global packname  AutoEDA
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistics from 'Zenodo' Deposits
+Summary:          Automatic Exploratory Data Analysis
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-polite 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-polite 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-RCurl 
-Requires:         R-CRAN-readr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-CRAN-factoextra 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-GGally 
+BuildRequires:    R-CRAN-visdat 
+BuildRequires:    R-CRAN-igraph 
+Requires:         R-CRAN-e1071 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-psych 
+Requires:         R-CRAN-factoextra 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-GGally 
+Requires:         R-CRAN-visdat 
+Requires:         R-CRAN-igraph 
 
 %description
-Fetch statistics about views, downloads and data volume from 'Zenodo'
-deposits. The package collects a 'Zenodo' (<https://zenodo.org>) deposit
-file information, respecting the website scrapping policies.
+Automatically performs exploratory data analysis for tabular datasets,
+including data summaries, missing value analysis, descriptive statistics,
+visualizations, correlation analysis, outlier detection, and automated
+report generation. The package provides a streamlined workflow for rapid
+data exploration and produces publication-ready tables and graphics. For
+methodological details, see Tukey (1977, ISBN:9780201076165) and the cited
+methodological literature in the package documentation.
 
 %prep
 %setup -q -c -n %{packname}

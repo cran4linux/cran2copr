@@ -1,38 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  days2lessons
-%global packver   1.0.0
+%global packname  gcmrec
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Distributes Teachers Lessons On Days in a Balanced Manner
+Summary:          General Class of Models for Recurrent Event Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-scales 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 
 %description
-The set of teacher/class lessons is completed with a column that allocates
-a day to each lesson, so that the distribution of lessons by day, by
-class, and by teacher is as uniform as possible.
-<https://vlad.bazon.net/>.
+Parameter estimation for the general class of semiparametric models for
+recurrent event data proposed by Peña and Hollander (2004,
+<ISBN:978-1-4020-7737-6>). The model incorporates an effective age
+function encoding the impact of interventions after each event occurrence,
+the effect of accumulating event occurrences, a link function for possibly
+time-dependent covariates, and optional gamma frailties to induce
+dependence among inter-event times. It also fits the extension for cancer
+relapses of González et al. (2005) <doi:10.1002/sim.2410>. Estimation is
+performed by profile likelihood, with an expectation-maximization
+algorithm for the frailty model, and the package provides descriptive,
+diagnostic and predictive tools for the fitted models.
 
 %prep
 %setup -q -c -n %{packname}
