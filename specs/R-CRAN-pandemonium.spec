@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pandemonium
-%global packver   1.0.0
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          High Dimensional Analysis in Linked Spaces
 
@@ -30,6 +30,7 @@ BuildRequires:    R-CRAN-shinythemes >= 1.2.0
 BuildRequires:    R-CRAN-dendextend >= 1.19.1
 BuildRequires:    R-CRAN-shiny >= 1.13.0
 BuildRequires:    R-CRAN-rlang >= 1.1.7
+BuildRequires:    R-CRAN-expm >= 1.0
 BuildRequires:    R-CRAN-viridis >= 0.6.5
 BuildRequires:    R-CRAN-shinyFeedback >= 0.4.0
 BuildRequires:    R-CRAN-DT >= 0.34.0
@@ -54,6 +55,7 @@ Requires:         R-CRAN-shinythemes >= 1.2.0
 Requires:         R-CRAN-dendextend >= 1.19.1
 Requires:         R-CRAN-shiny >= 1.13.0
 Requires:         R-CRAN-rlang >= 1.1.7
+Requires:         R-CRAN-expm >= 1.0
 Requires:         R-CRAN-viridis >= 0.6.5
 Requires:         R-CRAN-shinyFeedback >= 0.4.0
 Requires:         R-CRAN-DT >= 0.34.0

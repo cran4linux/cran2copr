@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  simBKMRdata
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Helper Functions for Bayesian Kernel Machine Regression
 
@@ -31,8 +31,8 @@ subgroup, and application of adaptive, data-driven thresholds for feature
 selection via Posterior Inclusion Probabilities (PIPs). It is especially
 suited for handling skewed exposure data and enhancing the
 interpretability of BKMR results through principled variable selection.
-The methodology is shown in Hasan et. al. (2025)
-<doi:10.1101/2025.04.14.25325822>.
+The methodology is described in Hasan et al. (2025)
+<doi:10.1080/00949655.2025.2608780> and <doi:10.1101/2025.04.14.25325822>.
 
 %prep
 %setup -q -c -n %{packname}

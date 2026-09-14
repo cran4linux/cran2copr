@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SubTS
-%global packver   1.0
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Positive Tempered Stable Distributions and Related Subordinators
+Summary:          Tempered Stable Subordinators and Related Distributions
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -26,13 +26,14 @@ Requires:         R-stats
 Requires:         R-CRAN-tweedie 
 
 %description
-Contains methods for the simulation of positive tempered stable
-distributions and related subordinators. Including classical tempered
-stable, rapidly deceasing tempered stable, truncated stable, truncated
-tempered stable, generalized Dickman, truncated gamma, generalized gamma,
-and p-gamma. For details, see Dassios et al (2019)
+Contains methods for the simulation of tempered stable subordinators and
+related distributions. Including classical tempered stable (both finite
+and infinite variation), rapidly deceasing tempered stable, truncated
+stable, truncated tempered stable, generalized Dickman, truncated gamma,
+generalized gamma, and p-gamma. For details, see Dassios et al (2019)
 <doi:10.1017/jpr.2019.6>, Dassios et al (2020) <doi:10.1145/3368088>,
-Grabchak (2021) <doi:10.1016/j.spl.2020.109015>.
+Grabchak (2021) <doi:10.1016/j.spl.2020.109015>, Grabchak (2026)
+<doi:10.48550/arXiv.2604.17732>.
 
 %prep
 %setup -q -c -n %{packname}

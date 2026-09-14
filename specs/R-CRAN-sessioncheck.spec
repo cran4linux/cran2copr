@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sessioncheck
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Checks Session Status
 
@@ -25,7 +25,8 @@ attached environments, session run time, R options, locale settings, and
 system environment variables. Intended as a safer replacement for the
 common 'rm(list = ls())' idiom: rather than silently wiping the global
 environment, sessioncheck() surfaces problems so the user can make an
-informed decision.
+informed decision. The package also supplies tools for documenting the
+session state, to aid in the overall process.
 
 %prep
 %setup -q -c -n %{packname}

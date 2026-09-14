@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  simPDF
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Multi-Page PDF Report Layout on the Graphics Device
 
@@ -30,9 +30,9 @@ real width and height via 'strwidth'/'strheight', the vertical cursor
 advances by measured height, and pages break automatically. This
 eliminates the text-overlap of dead-reckoned coordinate reports (such as
 the 'nmw' NONMEM diagnostic reports) and replaces slow
-'.Rmd'/'knitr'/'LaTeX' pipelines for fixed report generation. Interactive
-AcroForm CRFs are out of scope and handled by the sibling 'pdfCRF'
-package.
+'.Rmd'/'knitr'/'LaTeX' pipelines for fixed report generation: no external
+toolchain is started and the document is written in a single pass.
+Interactive AcroForm CRFs are out of scope.
 
 %prep
 %setup -q -c -n %{packname}

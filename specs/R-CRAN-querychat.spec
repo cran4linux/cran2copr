@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  querychat
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Filter and Query Data Frames in 'shiny' Using an LLM Chat Interface
 
@@ -17,36 +17,44 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-shiny >= 1.14.0
 BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-ellmer >= 0.4.1
-BuildRequires:    R-CRAN-shinychat >= 0.4.0
+BuildRequires:    R-CRAN-ellmer >= 0.5.0
+BuildRequires:    R-CRAN-shinychat >= 0.5.0
 BuildRequires:    R-CRAN-bslib >= 0.11.0
 BuildRequires:    R-CRAN-bsicons 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-coro 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-promises 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-S7 
-BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-whisker 
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-zip 
+Requires:         R-CRAN-shiny >= 1.14.0
 Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-ellmer >= 0.4.1
-Requires:         R-CRAN-shinychat >= 0.4.0
+Requires:         R-CRAN-ellmer >= 0.5.0
+Requires:         R-CRAN-shinychat >= 0.5.0
 Requires:         R-CRAN-bslib >= 0.11.0
 Requires:         R-CRAN-bsicons 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-coro 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-promises 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-S7 
-Requires:         R-CRAN-shiny 
 Requires:         R-utils 
 Requires:         R-CRAN-whisker 
+Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-zip 
 
 %description
 Adds an LLM-powered chatbot to your 'shiny' app, that can turn your users'

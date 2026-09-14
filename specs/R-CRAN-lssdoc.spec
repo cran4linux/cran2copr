@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lssdoc
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Render Multilingual Questionnaires from 'LimeSurvey' '.lss' Files
+Summary:          Render 'LimeSurvey' '.lss' Questionnaires as Word and PDF Documents
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,23 +18,24 @@ BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-xml2 
 
 %description
-Render 'LimeSurvey' '.lss' survey exports as multilingual questionnaire
-documents in Word ('.docx') or PDF, displaying up to four languages side
-by side with localized chrome in English, French, German, Spanish and
-Italian. Includes a rule-based automated audit that flags missing
-translations, forward filter references, duplicate codes, array-scale
-inconsistencies and orphan structural references. Designed for anyone
-working with a 'LimeSurvey' survey: researchers, methodologists, ethics
-committees, translators and reviewers. Processing is fully local: the
-source file is the only input and no questionnaire content is uploaded to
-a third-party service.
+Render 'LimeSurvey' '.lss' survey exports as questionnaire documents in
+Word ('.docx') or PDF, displaying one to four languages side by side with
+localized chrome in English, French, German, Spanish and Italian. Includes
+a rule-based automated audit that flags missing translations, forward
+filter references, duplicate codes, array-scale inconsistencies and orphan
+structural references. Designed for anyone working with a 'LimeSurvey'
+survey: researchers, methodologists, ethics committees, translators and
+reviewers. Processing is fully local: the source file is the only input
+and no questionnaire content is uploaded to a third-party service.
 
 %prep
 %setup -q -c -n %{packname}

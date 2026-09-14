@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TextAnalysisR
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Text Mining Workflow Tool
 
@@ -20,6 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-igraph 
@@ -32,14 +33,18 @@ BuildRequires:    R-CRAN-RColorBrewer
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidytext 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-widyr 
 BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-grDevices 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-igraph 
@@ -52,9 +57,12 @@ Requires:         R-CRAN-RColorBrewer
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-shiny 
+Requires:         R-stats 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidytext 
+Requires:         R-tools 
+Requires:         R-utils 
 Requires:         R-CRAN-widyr 
 Requires:         R-CRAN-withr 
 

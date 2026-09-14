@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  stbl
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Stabilize Function Arguments
+Summary:          Stabilize Objects
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,16 +19,18 @@ Requires:         R-core >= 4.1
 BuildRequires:    R-CRAN-cli >= 3.4.0
 BuildRequires:    R-CRAN-rlang >= 1.0.3
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-vctrs 
 Requires:         R-CRAN-cli >= 3.4.0
 Requires:         R-CRAN-rlang >= 1.0.3
 Requires:         R-CRAN-glue 
+Requires:         R-methods 
 Requires:         R-CRAN-vctrs 
 
 %description
-A set of consistent, opinionated functions to quickly check function
-arguments, coerce them to the desired configuration, or deliver
-informative error messages when that is not possible.
+A set of consistent, opinionated functions to quickly check objects,
+coerce them to the desired configuration, or deliver informative error
+messages when that is not possible.
 
 %prep
 %setup -q -c -n %{packname}

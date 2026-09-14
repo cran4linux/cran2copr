@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  compIndexBuilder
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Composite Index Builder & Analytics 'shiny' App
 
@@ -52,14 +52,16 @@ Requires:         R-CRAN-jsonlite
 Provides an interactive 'shiny' application for constructing, analysing,
 comparing, and visualising composite indices from tabular multidimensional
 data. Supports multi-sheet 'Excel' workbooks with active-sheet selection,
-refresh controls, per-sheet and workbook-wide exports, missing-data
-processing, indicator direction and normalisation controls, equal and
-custom weighting, entity-level ranking, time-series analysis and
-forecasting, entity comparisons, pillar-based sub-indices with equal,
-custom, correlation-based, or principal-component weights, and diagnostic
-tools including internal-consistency reliability assessment, coefficient
-of variation, principal component analysis, sensitivity analysis,
-correlation heatmaps, and weighted flow visualizations.
+refresh controls, per-sheet and workbook-wide exports, automatic reshaping
+of wide indicator-year columns such as 'IN1-2019' into panel form,
+configurable missing-value code handling, indicator direction and
+normalisation controls, equal and custom weighting, entity-level ranking,
+time-series analysis and forecasting, entity comparisons, pillar-based
+sub-indices with equal, custom, correlation-based, or principal-component
+weights, and diagnostic tools including internal-consistency reliability
+assessment, coefficient of variation, principal component analysis,
+sensitivity analysis, correlation heatmaps, and weighted flow
+visualizations.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,38 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  modeltuning
+%global packname  AnomalyScore
 %global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Model Selection and Tuning Utilities
+Summary:          Anomaly Scoring for Multivariate Time Series
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-future.apply 
-BuildRequires:    R-CRAN-progressr 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-future.apply 
-Requires:         R-CRAN-progressr 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-dtw 
+BuildRequires:    R-CRAN-astsa 
+BuildRequires:    R-CRAN-transport 
+BuildRequires:    R-CRAN-TSA 
+BuildRequires:    R-CRAN-RANN 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mvLSW 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-dtw 
+Requires:         R-CRAN-astsa 
+Requires:         R-CRAN-transport 
+Requires:         R-CRAN-TSA 
+Requires:         R-CRAN-RANN 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mvLSW 
+Requires:         R-stats 
 
 %description
-Provides a lightweight framework for model selection and hyperparameter
-tuning in R. The package offers intuitive tools for grid search,
-cross-validation, and combined grid search with cross-validation that work
-seamlessly with virtually any modeling package. Designed for flexibility
-and ease of use, it standardizes tuning workflows while remaining fully
-compatible with a wide range of model interfaces and estimation functions.
+Compute an anomaly score for multivariate time series based on the
+k-nearest neighbors algorithm. Different computations of distances between
+time series are provided.
 
 %prep
 %setup -q -c -n %{packname}
