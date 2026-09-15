@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  matSPACE
-%global packver   0.1.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sparse Partial Correlation Estimation for Matrix-Variate Data
 
@@ -25,7 +25,7 @@ Requires:         R-stats
 Fits sparse partial correlation networks for matrix-variate data by
 extending the SPACE joint partial correlation estimation framework to a
 Kronecker-product covariance structure. All partial correlations are
-estimated simultaneously via an L1-penalized ('lasso') shooting algorithm
+estimated simultaneously via an L1-penalized (lasso) shooting algorithm
 within a single optimization framework, which preserves symmetry of the
 estimated network and avoids the tuning-parameter selection difficulties
 of separate node-wise regressions. Optional features include column

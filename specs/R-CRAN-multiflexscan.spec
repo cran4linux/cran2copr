@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  multiflexscan
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Information Criterion and Scan Statistic Approach for Detecting Multiple Disease Clusters
 
@@ -18,12 +18,14 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rflexscan >= 1.2.0
+BuildRequires:    R-CRAN-doRNG 
 BuildRequires:    R-CRAN-doSNOW 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-parallel 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-rflexscan >= 1.2.0
+Requires:         R-CRAN-doRNG 
 Requires:         R-CRAN-doSNOW 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-igraph 

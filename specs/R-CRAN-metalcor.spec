@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  metalcor
-%global packver   1.0.0
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Meta-Analysis of Correlated Genetic Association Studies
 
@@ -35,7 +35,7 @@ standalone.  Another key innovation, the estimation of the correlation
 parameter from the median product of correlated standard normal variables,
 is provided, as well as a complete set of functions for their underlying
 distribution: density, cumulative, quantile, and random deviates.
-Described in Tu and Ochoa (2025) <doi:10.1101/2025.05.10.653279>.
+Described in Tu and Ochoa (2026) <doi:10.1016/j.xhgg.2026.100657>.
 
 %prep
 %setup -q -c -n %{packname}

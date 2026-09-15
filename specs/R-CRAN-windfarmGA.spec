@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sportsfeatures
-%global packver   0.2.0
+%global packname  windfarmGA
+%global packver   5.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          5.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Longitudinal Sports Analytics Asset and Workload Feature Processing
+Summary:          Genetic Algorithm for Wind Farm Layout Optimization
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,27 +16,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-mice 
-BuildRequires:    R-CRAN-modelsummary 
-BuildRequires:    R-CRAN-lme4 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-mice 
-Requires:         R-CRAN-modelsummary 
-Requires:         R-CRAN-lme4 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-calibrate 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-calibrate 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-A synthetic, longitudinal athletic dataset generated through a
-transparent, rule-based simulation engine. Captures individual activity
-sessions across multiple athletes, environmental conditions, and
-physiological responses. Specifically designed as an alternative to legacy
-teaching datasets by introducing realistic hierarchical repeated measures,
-complex two-way covariate interactions, and a deliberate Missing Not At
-Random (MNAR) tracking mechanism suitable for advanced imputation
-workflows. Methodologies implemented are based on van Buuren (2018)
-<doi:10.1201/9780429492259> and Bates et al. (2015)
-<doi:10.18637/jss.v067.i01>.
+The genetic algorithm is designed to optimize wind farms of any shape.
+Each layout is encoded as n unique grid-cell identifiers. It requires a
+predefined amount of turbines, a unified rotor radius and an average wind
+speed value for each incoming wind direction. A terrain effect model can
+be included that downloads an 'SRTM' elevation model and loads a Corine
+Land Cover raster to approximate surface roughness.
 
 %prep
 %setup -q -c -n %{packname}

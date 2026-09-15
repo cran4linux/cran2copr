@@ -1,38 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Sequential
-%global packver   4.6.3
+%global packname  mardist
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.6.3
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Exact Sequential Analysis for Poisson and Binomial Data
+Summary:          Calculation of Maritime Distances
 
-License:          GPL-2
+License:          EUPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-pmultinom 
-BuildRequires:    R-CRAN-DescTools 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-pmultinom 
-Requires:         R-CRAN-DescTools 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-leaflet 
+BuildRequires:    R-CRAN-igraph 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-leaflet 
+Requires:         R-CRAN-igraph 
 
 %description
-Functions to calculate exact critical values, statistical power, expected
-time to signal, and required sample sizes for performing exact sequential
-analysis. All these calculations can be done for either Poisson or
-binomial data, for continuous or group sequential analyses, and for
-different types of rejection boundaries. In case of group sequential
-analyses, the group sizes do not have to be specified in advance and the
-alpha spending can be arbitrarily settled. For regression versions of the
-methods, Monte Carlo and asymptotic methods are used.
+Tools and utilities for calculating distances and visualising maritime
+routes.
 
 %prep
 %setup -q -c -n %{packname}

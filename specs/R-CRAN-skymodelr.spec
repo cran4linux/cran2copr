@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  skymodelr
-%global packver   0.3.2
+%global packver   0.6.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.6.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generates and Samples Realistic Terrestrial Atmospheres
 
@@ -16,14 +16,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.3.0
 Requires:         R-core >= 4.3.0
-BuildRequires:    R-CRAN-rayimage >= 0.24.1
+BuildRequires:    R-CRAN-libopenexr >= 3.4.12.6
+BuildRequires:    R-CRAN-rayimage >= 0.27.0
 BuildRequires:    R-CRAN-rayvertex >= 0.14.0
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-swephR 
 BuildRequires:    R-CRAN-RcppThread 
 BuildRequires:    R-CRAN-libimath 
-BuildRequires:    R-CRAN-libopenexr 
-Requires:         R-CRAN-rayimage >= 0.24.1
+Requires:         R-CRAN-rayimage >= 0.27.0
 Requires:         R-CRAN-rayvertex >= 0.14.0
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-swephR 

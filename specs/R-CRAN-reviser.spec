@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  reviser
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyzing Revisions in Real-Time Time Series Vintages
 
@@ -25,7 +25,6 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-CRAN-systemfit 
-BuildRequires:    R-CRAN-calculus 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-tibble 
@@ -41,7 +40,6 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-car 
 Requires:         R-CRAN-sandwich 
 Requires:         R-CRAN-systemfit 
-Requires:         R-CRAN-calculus 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-tibble 

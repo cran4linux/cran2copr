@@ -1,38 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggChinaFlag
-%global packver   0.4.0
+%global packname  cureAssess
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Drawing Chinese National and Historical Flags with 'ggplot2'
+Summary:          Assessing Cure Model Appropriateness for Survival Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-flexsurv 
+BuildRequires:    R-CRAN-flexsurvcure 
+BuildRequires:    R-CRAN-survminer 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-showtext 
-BuildRequires:    R-CRAN-ggforce 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-flexsurv 
+Requires:         R-CRAN-flexsurvcure 
+Requires:         R-CRAN-survminer 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-showtext 
-Requires:         R-CRAN-ggforce 
+Requires:         R-stats 
 
 %description
-Provides programmatic implementations for drawing Chinese national and
-historical flags using analytic geometry and 'ggplot2'-based vector
-graphics. Flag designs are constructed entirely from geometric primitives
-such as polygons and rectangles, without relying on external image files.
-The package is intended for educational demonstration, reproducible
-visualization, and procedural graphics in R.
+Assesses whether cure models are appropriate for right-censored survival
+data, where a fraction of subjects may never experience the event of
+interest. Implements a two-stage workflow combining Kaplan-Meier
+visualization and comparison of parametric cure and non-cure models by the
+Akaike information criterion with formal diagnostics for sufficient
+follow-up and for the presence of a cured fraction. The diagnostics
+include the statistics of Maller and Zhou (1992)
+<doi:10.1093/biomet/79.4.731> and Maller and Zhou (1994)
+<doi:10.1080/01621459.1994.10476889>, the test of Shen (2000)
+<doi:10.1016/S0167-7152(00)00063-8>, and the ratio estimation of censored
+uncured subjects ('RECeUS') method of Selukar and Othus (2023)
+<doi:10.1002/sim.9610>.
 
 %prep
 %setup -q -c -n %{packname}

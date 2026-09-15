@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  formatters
-%global packver   0.5.12
+%global packver   0.5.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.12
+Version:          0.5.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          ASCII Formatting for Values and Tables
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.6.3
+Requires:         R-core >= 3.6.3
 BuildArch:        noarch
 BuildRequires:    R-CRAN-checkmate >= 2.1.0
 BuildRequires:    R-CRAN-stringi >= 1.7.12

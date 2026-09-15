@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  topolow
-%global packver   2.0.1
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Force-Directed Euclidean Embedding of Dissimilarity Data
 
@@ -16,31 +16,46 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildArch:        noarch
 BuildRequires:    R-parallel >= 4.1.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-reshape2 >= 1.4.4
 BuildRequires:    R-CRAN-data.table >= 1.14.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grid 
 BuildRequires:    R-stats 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-filelock 
 BuildRequires:    R-CRAN-lhs 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-zoo 
 Requires:         R-parallel >= 4.1.0
 Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-reshape2 >= 1.4.4
 Requires:         R-CRAN-data.table >= 1.14.0
 Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-Rcpp >= 1.0.0
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-grid 
 Requires:         R-stats 
+Requires:         R-tools 
 Requires:         R-utils 
 Requires:         R-CRAN-filelock 
 Requires:         R-CRAN-lhs 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-zoo 
 
 %description
 A robust implementation of Topolow algorithm. It embeds objects into a

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Sequential
-%global packver   4.6.3
+%global packname  AutoViz
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.6.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Exact Sequential Analysis for Poisson and Binomial Data
+Summary:          Automated Data Visualization and Exploratory Dashboarding
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,22 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-pmultinom 
-BuildRequires:    R-CRAN-DescTools 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-pmultinom 
-Requires:         R-CRAN-DescTools 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-rlang 
 
 %description
-Functions to calculate exact critical values, statistical power, expected
-time to signal, and required sample sizes for performing exact sequential
-analysis. All these calculations can be done for either Poisson or
-binomial data, for continuous or group sequential analyses, and for
-different types of rejection boundaries. In case of group sequential
-analyses, the group sizes do not have to be specified in advance and the
-alpha spending can be arbitrarily settled. For regression versions of the
-methods, Monte Carlo and asymptotic methods are used.
+Provides automated exploratory data analysis, visualization
+recommendation, summary statistics, missing-value assessment, outlier
+screening, and HTML dashboard generation for rectangular data. The package
+automatically identifies variable types and common analytical
+relationships and recommends appropriate visualization methods based on
+data structure, cardinality, and analytical objectives. It provides a
+transparent, reproducible workflow for data profiling and visualization
+that can be used independently or as a component within interactive
+applications.
 
 %prep
 %setup -q -c -n %{packname}

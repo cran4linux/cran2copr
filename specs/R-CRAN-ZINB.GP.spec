@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Sequential
-%global packver   4.6.3
+%global packname  ZINB.GP
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.6.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Exact Sequential Analysis for Poisson and Binomial Data
+Summary:          Bayesian Zero-Inflated Negative Binomial Gaussian Process Models
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,22 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-pmultinom 
-BuildRequires:    R-CRAN-DescTools 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-pmultinom 
-Requires:         R-CRAN-DescTools 
+BuildRequires:    R-CRAN-BayesLogit 
+BuildRequires:    R-CRAN-LaplacesDemon 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-msm 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-BayesLogit 
+Requires:         R-CRAN-LaplacesDemon 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-msm 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-stats 
 
 %description
-Functions to calculate exact critical values, statistical power, expected
-time to signal, and required sample sizes for performing exact sequential
-analysis. All these calculations can be done for either Poisson or
-binomial data, for continuous or group sequential analyses, and for
-different types of rejection boundaries. In case of group sequential
-analyses, the group sizes do not have to be specified in advance and the
-alpha spending can be arbitrarily settled. For regression versions of the
-methods, Monte Carlo and asymptotic methods are used.
+Fits Bayesian zero-inflated negative binomial regression models with
+Gaussian process random effects for spatial, temporal, or spatiotemporal
+count data. Provides Markov chain Monte Carlo sampling, configurable
+random effects in the zero-inflation and count components, and posterior
+predictive draws. Implements a full GP version of the methods described by
+He and Huang (2024) <doi:10.1016/j.jspi.2023.106098>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rapsimng.decide.core
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Decision-Oriented Analysis Core for APSIM Next Generation Outputs
 
@@ -19,8 +19,9 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 
 %description
-Provides a low-level interface for analysing APSIM Next Generation
-simulation outputs to support structured decision-making workflows.
+Provides a low-level interface for analysing Agricultural Production
+Systems sIMulator ('APSIM') Next Generation simulation outputs to support
+structured decision-making workflows.
 
 %prep
 %setup -q -c -n %{packname}

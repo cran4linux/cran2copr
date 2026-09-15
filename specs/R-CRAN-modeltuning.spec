@@ -1,38 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Sequential
-%global packver   4.6.3
+%global packname  modeltuning
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.6.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Exact Sequential Analysis for Poisson and Binomial Data
+Summary:          Model Selection and Tuning Utilities
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-pmultinom 
-BuildRequires:    R-CRAN-DescTools 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-pmultinom 
-Requires:         R-CRAN-DescTools 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-progressr 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-progressr 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-rlang 
 
 %description
-Functions to calculate exact critical values, statistical power, expected
-time to signal, and required sample sizes for performing exact sequential
-analysis. All these calculations can be done for either Poisson or
-binomial data, for continuous or group sequential analyses, and for
-different types of rejection boundaries. In case of group sequential
-analyses, the group sizes do not have to be specified in advance and the
-alpha spending can be arbitrarily settled. For regression versions of the
-methods, Monte Carlo and asymptotic methods are used.
+Provides a lightweight framework for model selection and hyperparameter
+tuning in R. The package offers intuitive tools for grid search,
+cross-validation, and combined grid search with cross-validation that work
+seamlessly with virtually any modeling package. Designed for flexibility
+and ease of use, it standardizes tuning workflows while remaining fully
+compatible with a wide range of model interfaces and estimation functions.
 
 %prep
 %setup -q -c -n %{packname}

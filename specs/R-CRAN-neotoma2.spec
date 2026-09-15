@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  neotoma2
-%global packver   1.0.12
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.12
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Working with the Neotoma Paleoecology Database
 
@@ -18,8 +18,9 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-leaflet 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-geojsonsf 
 BuildRequires:    R-CRAN-purrr 
@@ -27,7 +28,6 @@ BuildRequires:    R-CRAN-httr
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-leaflet 
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-progress 
@@ -35,8 +35,9 @@ BuildRequires:    R-CRAN-uuid
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-sf 
+Requires:         R-CRAN-leaflet 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-geojsonsf 
 Requires:         R-CRAN-purrr 
@@ -44,7 +45,6 @@ Requires:         R-CRAN-httr
 Requires:         R-CRAN-jsonlite 
 Requires:         R-methods 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-leaflet 
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-progress 

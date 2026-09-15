@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pavo
-%global packver   2.9.0
+%global packver   2.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9.0
+Version:          2.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Perceptual Analysis, Visualization and Organization of Spectral Colour Data
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-lightr >= 1.0
 BuildRequires:    R-CRAN-geometry >= 0.4.0
@@ -26,7 +26,6 @@ BuildRequires:    R-CRAN-farver
 BuildRequires:    R-CRAN-plot3D 
 BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-viridisLite 
 Requires:         R-CRAN-lightr >= 1.0
 Requires:         R-CRAN-geometry >= 0.4.0
 Requires:         R-CRAN-cluster 
@@ -36,7 +35,6 @@ Requires:         R-CRAN-farver
 Requires:         R-CRAN-plot3D 
 Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-viridisLite 
 
 %description
 A cohesive framework for the spectral and spatial analysis of colour

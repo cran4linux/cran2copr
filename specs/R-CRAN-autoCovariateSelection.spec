@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  autoCovariateSelection
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automated Covariate Selection Using HDPS Algorithm
+Summary:          R Package to Implement Automated Covariate Selection for Two Exposure Cohorts Using High-Dimensional Propensity Score Algorithm
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -53,6 +54,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

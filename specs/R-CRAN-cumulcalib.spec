@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cumulcalib
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cumulative Calibration Assessment for Prediction Models
 
@@ -32,9 +32,9 @@ implements the methodology described in Sadatsafavi and Petkau (2024)
 takes in vectors of binary responses and predicted risks. The package also
 implements non-parametric assessment of the calibration of individualized
 treatment effect (ITE) models using data from a randomized trial, via
-cumulcalibITE(), as described in Sadatsafavi et al. (2025)
-<doi:10.48550/arXiv.2512.08140>. The plot() and summary() methods are
-implemented for the results returned by cumulcalib() and cumulcalibITE().
+cumulcalibITE(), as described in Sadatsafavi et al. (2026)
+<doi:10.1002/sim.70724>. The plot() and summary() methods are implemented
+for the results returned by cumulcalib() and cumulcalibITE().
 
 %prep
 %setup -q -c -n %{packname}

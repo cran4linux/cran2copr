@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  badp
-%global packver   0.6.1
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Averaging for Dynamic Panels
 
@@ -23,7 +23,6 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-pbapply 
@@ -39,7 +38,6 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grid 
 Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-parallel 
 Requires:         R-CRAN-pbapply 

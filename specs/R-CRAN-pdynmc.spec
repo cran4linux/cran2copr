@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pdynmc
-%global packver   0.9.12
+%global packver   0.9.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.12
+Version:          0.9.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Moment Condition Based Estimation of Linear Dynamic Panel Data Models
 
@@ -55,7 +55,7 @@ according to the plot shown in Hansen and Lee, 2021
 <doi:10.3982/ECTA16274>). For a more detailed description of the GMM-based
 functionality, please see Fritsch, Pua, Schnurbus (2021)
 <doi:10.32614/RJ-2021-035>. For more details on the IV-based estimation
-routines, see Fritsch, Pua, and Schnurbus (WP, 2024) and Han and Phillips
+routines, see Fritsch, Pua, and Schnurbus (WP, 2026) and Han and Phillips
 (2010) <doi:10.1017/S026646660909063X>.
 
 %prep

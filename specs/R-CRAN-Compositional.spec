@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Compositional
-%global packver   8.3
+%global packver   8.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          8.3
+Version:          8.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compositional Data Analysis
 
@@ -23,7 +23,7 @@ BuildRequires:    R-CRAN-emplik
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-CRAN-kernreg 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-mda 
@@ -31,8 +31,9 @@ BuildRequires:    R-CRAN-minpack.lm
 BuildRequires:    R-CRAN-mixture 
 BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-CRAN-osqp 
-BuildRequires:    R-CRAN-quadprog 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-quadprog 
+BuildRequires:    R-CRAN-quantreg 
 BuildRequires:    R-CRAN-rangen 
 BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-CRAN-Rfast2 
@@ -46,7 +47,7 @@ Requires:         R-CRAN-emplik
 Requires:         R-CRAN-glmnet 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-CRAN-quantreg 
+Requires:         R-CRAN-kernreg 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-mda 
@@ -54,8 +55,9 @@ Requires:         R-CRAN-minpack.lm
 Requires:         R-CRAN-mixture 
 Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-osqp 
-Requires:         R-CRAN-quadprog 
 Requires:         R-parallel 
+Requires:         R-CRAN-quadprog 
+Requires:         R-CRAN-quantreg 
 Requires:         R-CRAN-rangen 
 Requires:         R-CRAN-Rfast 
 Requires:         R-CRAN-Rfast2 

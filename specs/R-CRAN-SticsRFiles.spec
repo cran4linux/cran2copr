@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SticsRFiles
-%global packver   1.6.0
+%global packver   1.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.7.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read and Modify 'STICS' Input/Output Files
+Summary:          Read and Modify STICS Input/Output Files
 
 License:          LGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -22,12 +22,14 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-methods 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-semver 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
@@ -41,12 +43,14 @@ Requires:         R-CRAN-cli
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-lubridate 
 Requires:         R-methods 
+Requires:         R-parallel 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-semver 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
@@ -57,13 +61,16 @@ Requires:         R-CRAN-xml2
 Requires:         R-CRAN-xslt 
 
 %description
-Manipulating input and output files of the 'STICS' crop model. Files are
-either 'JavaSTICS' XML files or text files used by the model 'fortran'
-executable. Most basic functionalities are reading or writing parameter
-names and values in both XML or text input files, and getting data from
-output files.  Advanced functionalities include XML files generation from
-XML templates and/or spreadsheets, or text files generation from XML files
-by using 'xslt' transformation.
+Manipulating input and output files of the 'STICS' crop model (Beaudouin
+et al. (2022) <doi:10.35690/978-2-7592-3679-4>).  The package is based on
+the model software, which is accessible, as well as resources, on its web
+site <https://stics.inrae.fr/eng/>.  Files are either 'JavaSTICS' XML
+files or text files used by the model 'fortran' executable. Most basic
+functionalities are reading or writing parameter names and values in both
+XML or text input files, and getting data from output files.  Advanced
+functionalities include XML files generation from XML templates and/or
+spreadsheets, or text files generation from XML files by using 'xslt'
+transformation.
 
 %prep
 %setup -q -c -n %{packname}

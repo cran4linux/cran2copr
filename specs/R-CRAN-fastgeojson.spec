@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fastgeojson
-%global packver   0.1.3
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          High-Performance 'GeoJSON' and 'JSON' Serialization
 
@@ -14,16 +14,18 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    cargo
+BuildRequires:    R-devel >= 4.5
+Requires:         R-core >= 4.5
 
 %description
-Converts R data frames and 'sf' spatial objects into 'JSON' and 'GeoJSON'
-strings. The core encoders are implemented in 'Rust' using the 'extendr'
-framework and are designed to efficiently serialize large tabular and
-spatial datasets. Returns serialized 'JSON' text, allowing applications
-such as 'shiny' or web APIs to transfer data to client-side 'JavaScript'
-libraries without additional encoding overhead.
+Converts R objects such as data frames, lists and vectors into 'JSON'
+strings, and 'sf' spatial objects into 'GeoJSON'. The core encoders are
+implemented in 'Rust' using the 'extendr' framework and are designed to
+efficiently serialize large tabular and spatial datasets. Returns
+serialized 'JSON' text, allowing applications such as 'shiny' or web APIs
+to transfer data to client-side 'JavaScript' libraries without additional
+encoding overhead.
 
 %prep
 %setup -q -c -n %{packname}

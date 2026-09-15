@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hydrodownloadR
-%global packver   0.1.3
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hydrologic Station Catalogs and Time Series from Public APIs
 
@@ -17,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-httr2 >= 1.1.0
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dataRetrieval 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-pdftools 
@@ -37,12 +37,12 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-cellranger 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-httr2 >= 1.1.0
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dataRetrieval 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-pdftools 
@@ -59,17 +59,19 @@ Requires:         R-CRAN-stringi
 Requires:         R-CRAN-stringr 
 
 %description
-Provides a unified, extensible interface to discover hydrologic stations
-and download daily time series (e.g., water discharge, water level, water
-temperature, and several other water quality parameter) from national and
-regional public APIs. Includes a provider registry, S3 generics 'stations'
-and 'timeseries', licensing metadata, date-range and 'complete history'
-modes, rate limiting and retries, optional authentication via environment
-variables, tidy outputs, UTF-8 to ASCII transliteration, and WGS84
-coordinates. Designed for reproducible workflows and straightforward
-addition of new providers. Background and use cases are described in
-Farber et al. (2025) <doi:10.5194/essd-17-4613-2025> and Farber et al.
-(2023) <doi:10.57757/IUGG23-2838>.
+Provides a unified, extensible interface for discovering hydrological
+stations and downloading hydrological daily time series (e.g., water
+discharge, water level, water temperature) and discrete water-quality
+observations from national and regional public APIs. Water-quality
+observations are retained at their original sampling timestamps. Includes
+a provider registry, S3 generics 'stations' and 'timeseries', licensing
+metadata, date-range and 'complete history' modes, rate limiting and
+retries, optional authentication via environment variables, tidy outputs,
+UTF-8 to ASCII transliteration, and WGS84 coordinates. Designed for
+reproducible workflows and straightforward addition of new providers.
+Background and use cases are described in Farber et al. (2025)
+<doi:10.5194/essd-17-4613-2025> and Farber et al. (2023)
+<doi:10.57757/IUGG23-2838>.
 
 %prep
 %setup -q -c -n %{packname}

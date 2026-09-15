@@ -1,51 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PNDSIBGE
-%global packver   0.1.1
+%global packname  SensoryDataSets
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Downloading, Reading and Analyzing PNDS Microdata - Package in Development
+Summary:          A Collection of Sensory Evaluation and Consumer Science Datasets
 
-License:          GPL-3
+License:          GPL (>= 2) | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-projmgr 
-BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-survey 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-timeDate 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-projmgr 
-Requires:         R-CRAN-RCurl 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-survey 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-timeDate 
 Requires:         R-utils 
 
 %description
-Provides tools for downloading, reading and analyzing the National Survey
-of Demographic and Health - PNDS, a household survey from Brazilian
-Institute of Geography and Statistics - IBGE. The data must be downloaded
-from the official website <https://www.ibge.gov.br/>. Further analysis
-must be made using package 'survey'.
+Provides a curated collection of datasets for sensory evaluation, consumer
+research, and related statistical applications. The collection includes
+consumer acceptance and liking scores, sensory profiles, descriptive
+evaluations, physical and chemical measurements, wine quality and
+bitterness assessments, and data from products such as bread, olive oil,
+orange juice, grape blends, wine, cocktails, and perfume. The package is
+intended for teaching, exploratory data analysis, statistical modeling,
+multivariate analysis, consumer studies, and methodological research in
+sensory and consumer science. The original sources and applicable
+licensing terms are documented in the 'LICENSES_DETAILS.md' file.
 
 %prep
 %setup -q -c -n %{packname}
