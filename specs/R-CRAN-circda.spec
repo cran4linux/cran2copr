@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  circda
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Circular Data Analysis
 
@@ -19,12 +19,14 @@ Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-circular 
 BuildRequires:    R-CRAN-Directional 
+BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-rangen 
 BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-circular 
 Requires:         R-CRAN-Directional 
+Requires:         R-CRAN-glmnet 
 Requires:         R-graphics 
 Requires:         R-CRAN-rangen 
 Requires:         R-CRAN-Rfast 
@@ -33,7 +35,17 @@ Requires:         R-stats
 %description
 Functions to perform maximum likelihood estimation, model-based
 clustering, discriminant and regression analysis with a circular response
-variable. <doi:10.1080/01621459.2019.1585249>.
+variable.  The standard textbook for such data is the "Directional
+Statistics" by Mardia, K. V. and Jupp, P. E. (2000). Other references
+include: Tsagris M. and Alzeley O. (2025). "Circular and spherical
+projected Cauchy distributions: A Novel Framework for Circular and
+Directional Data Modeling". Australian & New Zealand Journal of
+Statistics, 67(1): 77--103. <doi:10.1111/anzs.12434>. Tsagris M.,
+Papastamoulis P. and Kato S. (2025). "Directional data analysis: spherical
+Cauchy or Poisson kernel-based distribution". Statistics and Computing,
+35:51 <doi:10.1007/s11222-025-10583-0>. Alzeley O. and Tsagris (2026). "On
+the generalized circular projected Cauchy distribution". Mathematics,
+14(11): 1934 <doi:10.3390/math14111934>.
 
 %prep
 %setup -q -c -n %{packname}

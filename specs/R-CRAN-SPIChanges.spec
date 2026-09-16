@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SPIChanges
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Improves the Interpretation of the Standardized Precipitation Index Under Changing Climate Conditions
 
@@ -17,21 +17,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-gamlss 
-BuildRequires:    R-CRAN-gamlss.dist 
+BuildRequires:    R-CRAN-dglm 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-MuMIn 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-spsUtil 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-brglm2 
 BuildRequires:    R-CRAN-zoo 
-Requires:         R-CRAN-gamlss 
-Requires:         R-CRAN-gamlss.dist 
+Requires:         R-CRAN-dglm 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-MuMIn 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-spsUtil 
 Requires:         R-stats 
 Requires:         R-CRAN-brglm2 
 Requires:         R-CRAN-zoo 

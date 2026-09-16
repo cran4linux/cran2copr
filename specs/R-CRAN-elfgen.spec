@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  elfgen
-%global packver   2.3.5
+%global packver   2.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.5
+Version:          2.3.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ecological Limit Function Model Generation and Analysis Toolkit
 
@@ -27,7 +27,7 @@ BuildRequires:    R-CRAN-scales
 BuildRequires:    R-CRAN-sqldf 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-sbtools 
-BuildRequires:    R-CRAN-nhdplusTools 
+BuildRequires:    R-CRAN-hydrogeofetch 
 Requires:         R-utils 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-quantreg 
@@ -38,7 +38,7 @@ Requires:         R-CRAN-scales
 Requires:         R-CRAN-sqldf 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-sbtools 
-Requires:         R-CRAN-nhdplusTools 
+Requires:         R-CRAN-hydrogeofetch 
 
 %description
 A toolset for generating Ecological Limit Function (ELF) models and

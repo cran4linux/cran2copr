@@ -1,40 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  agghoo
-%global packver   0.1-0
+%global packname  staggeredGMM
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Aggregated Hold-Out Cross Validation
+Summary:          GMM Estimation of Treatment Effects Under Staggered Adoption
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-class 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-rpart 
-BuildRequires:    R-CRAN-FNN 
-Requires:         R-CRAN-class 
-Requires:         R-parallel 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-rpart 
-Requires:         R-CRAN-FNN 
+BuildRequires:    R-CRAN-fixest 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-fixest 
+Requires:         R-CRAN-MASS 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-The 'agghoo' procedure is an alternative to usual cross-validation.
-Instead of choosing the best model trained on V subsamples, it determines
-a winner model for each subsample, and then aggregates the V outputs. For
-the details, see "Aggregated hold-out" by Guillaume Maillard, Sylvain
-Arlot, Matthieu Lerasle (2021) <arXiv:1909.04890> published in Journal of
-Machine Learning Research 22(20):1--55.
+Estimates cohort-by-time average treatment effects under staggered
+treatment adoption by the generalized method of moments. Three weighting
+schemes are provided, corresponding to a pooled stationary covariance, a
+cohort-specific stationary covariance, and an unrestricted within-cohort
+covariance. Optional adjustment for baseline covariates by outcome
+regression, and a serial-correlation robust over-identification test of
+parallel trends and no anticipation, are also supported. The methods are
+described in Arora and Bijani (2026) <doi:10.2139/ssrn.6558759>.
 
 %prep
 %setup -q -c -n %{packname}

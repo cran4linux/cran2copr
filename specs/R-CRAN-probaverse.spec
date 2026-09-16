@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  probaverse
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Install and Load the 'probaverse' Packages
 
@@ -17,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-distionary 
-BuildRequires:    R-CRAN-distplyr 
-BuildRequires:    R-CRAN-famish 
-Requires:         R-CRAN-distionary 
-Requires:         R-CRAN-distplyr 
-Requires:         R-CRAN-famish 
+BuildRequires:    R-CRAN-distplyr >= 0.3.0
+BuildRequires:    R-CRAN-famish >= 0.2.1
+BuildRequires:    R-CRAN-distionary >= 0.2.0
+Requires:         R-CRAN-distplyr >= 0.3.0
+Requires:         R-CRAN-famish >= 0.2.1
+Requires:         R-CRAN-distionary >= 0.2.0
 
 %description
 The 'probaverse' is a suite of packages designed to facilitate creating

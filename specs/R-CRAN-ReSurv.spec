@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ReSurv
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Machine Learning Models for Predicting Claim Counts
 
@@ -14,47 +14,33 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-dtplyr 
+BuildRequires:    R-CRAN-actuar 
 BuildRequires:    R-CRAN-fastDummies 
-BuildRequires:    R-CRAN-forecast 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-bshazard 
 BuildRequires:    R-CRAN-SynthETIC 
-BuildRequires:    R-CRAN-rpart 
-BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-xgboost 
-BuildRequires:    R-CRAN-SHAPforxgboost 
-Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-stats 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-dtplyr 
+Requires:         R-CRAN-actuar 
 Requires:         R-CRAN-fastDummies 
-Requires:         R-CRAN-forecast 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-survival 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-bshazard 
 Requires:         R-CRAN-SynthETIC 
-Requires:         R-CRAN-rpart 
-Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-xgboost 
-Requires:         R-CRAN-SHAPforxgboost 
 
 %description
 Prediction of claim counts using the feature based development factors

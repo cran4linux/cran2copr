@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  text2map
-%global packver   0.2.3
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Tools for Text Matrices, Embeddings, and Networks
 
@@ -17,10 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-qgraph >= 1.6.9
 BuildRequires:    R-CRAN-Matrix >= 1.4.2
 BuildRequires:    R-CRAN-igraph >= 1.2.6
-BuildRequires:    R-CRAN-text2vec 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
@@ -30,16 +28,16 @@ BuildRequires:    R-CRAN-kit
 BuildRequires:    R-CRAN-fastmatch 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-ClusterR 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-rsvd 
 BuildRequires:    R-CRAN-permute 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-pillar 
-Requires:         R-CRAN-qgraph >= 1.6.9
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-text2vec 
+BuildRequires:    R-CRAN-RhpcBLASctl 
 Requires:         R-CRAN-Matrix >= 1.4.2
 Requires:         R-CRAN-igraph >= 1.2.6
-Requires:         R-CRAN-text2vec 
 Requires:         R-parallel 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
@@ -49,17 +47,19 @@ Requires:         R-CRAN-kit
 Requires:         R-CRAN-fastmatch 
 Requires:         R-methods 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-ClusterR 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-rsvd 
 Requires:         R-CRAN-permute 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-pillar 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-text2vec 
+Requires:         R-CRAN-RhpcBLASctl 
 
 %description
-This is a collection of functions optimized for working with with various
-kinds of text matrices. Focusing on the text matrix as the primary object
-- represented either as a base R dense matrix or a 'Matrix' package sparse
+This is a collection of functions optimized for working with various kinds
+of text matrices. Focusing on the text matrix as the primary object -
+represented either as a base R dense matrix or a 'Matrix' package sparse
 matrix - allows for a consistent and intuitive interface that stays close
 to the underlying mathematical foundation of computational text analysis.
 In particular, the package includes functions for working with word

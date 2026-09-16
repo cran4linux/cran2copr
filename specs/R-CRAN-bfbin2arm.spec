@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bfbin2arm
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayes Factor Design for Two-Arm Binomial Trials
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-statmod 
 BuildRequires:    R-CRAN-VGAM 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-parallel 
@@ -26,6 +27,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-stats 
+Requires:         R-CRAN-statmod 
 Requires:         R-CRAN-VGAM 
 Requires:         R-CRAN-dplyr 
 Requires:         R-parallel 

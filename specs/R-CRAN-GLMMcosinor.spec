@@ -1,52 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PhytoIn
-%global packver   0.2.0
+%global packname  GLMMcosinor
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Vegetation Analysis and Forest Inventory
+Summary:          Fit a Cosinor Model Using a Generalized Mixed Modeling Framework
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-ggforce 
-BuildRequires:    R-CRAN-packcircles 
-BuildRequires:    R-CRAN-BIOMASS 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-glmmTMB 
+BuildRequires:    R-CRAN-reformulas 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-utils 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-ggforce 
-Requires:         R-CRAN-packcircles 
-Requires:         R-CRAN-BIOMASS 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-glmmTMB 
+Requires:         R-CRAN-reformulas 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scales 
-Requires:         R-utils 
 Requires:         R-stats 
 
 %description
-Provides functions and example datasets for phytosociological analysis,
-forest inventory, biomass and carbon estimation, and visualization of
-vegetation data. Includes functions to compute structural parameters
-[phytoparam(), summary.param(), stats()], estimate above-ground biomass
-and carbon [AGB()], stratify wood volume by diameter at breast height
-(DBH) classes [stratvol()], generate collector and rarefaction curves
-[collector.curve(), rarefaction()], and visualize basal areas on quadrat
-maps [BAplot(), including rectangular plots and individual coordinates].
-Several example datasets are provided to demonstrate the functionality of
-these tools. For more details see FAO (1981, ISBN:92-5-101132-X) "Manual
-of forest inventory", IBGE (2012, ISBN:9788524042720) "Manual técnico da
-vegetação brasileira" and Heringer et al. (2020) "Phytosociology in R: A
-routine to estimate phytosociological parameters"
-<doi:10.22533/at.ed.3552009033>.
+Allows users to fit a cosinor model using the 'glmmTMB' framework. This
+extends on existing cosinor modeling packages, including 'cosinor' and
+'circacompare', by including a wide range of available link functions and
+the capability to fit mixed models. The cosinor model is described by
+Cornelissen (2014) <doi:10.1186/1742-4682-11-16>.
 
 %prep
 %setup -q -c -n %{packname}

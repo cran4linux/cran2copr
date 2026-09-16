@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  precrec
-%global packver   0.14.5
+%global packver   0.24.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.14.5
+Version:          0.24.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate Accurate Precision-Recall and ROC (Receiver Operator Characteristics) Curves
 
@@ -14,28 +14,34 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.1
-Requires:         R-core >= 3.2.1
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildRequires:    R-graphics >= 4.0.0
+BuildRequires:    R-CRAN-cli >= 3.4.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
 BuildRequires:    R-CRAN-withr >= 2.3.0
-BuildRequires:    R-CRAN-gridExtra >= 2.0
+BuildRequires:    R-CRAN-checkmate >= 2.0.0
+BuildRequires:    R-CRAN-gridExtra >= 2.0.0
 BuildRequires:    R-CRAN-data.table >= 1.10.4
 BuildRequires:    R-CRAN-Rcpp >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-assertthat >= 0.2
 BuildRequires:    R-grid 
 BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-graphics >= 4.0.0
+Requires:         R-CRAN-cli >= 3.4.0
 Requires:         R-CRAN-ggplot2 >= 3.0.0
 Requires:         R-CRAN-withr >= 2.3.0
-Requires:         R-CRAN-gridExtra >= 2.0
+Requires:         R-CRAN-checkmate >= 2.0.0
+Requires:         R-CRAN-gridExtra >= 2.0.0
 Requires:         R-CRAN-data.table >= 1.10.4
 Requires:         R-CRAN-Rcpp >= 1.0.0
 Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-assertthat >= 0.2
 Requires:         R-grid 
 Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Accurate calculations and visualization of precision-recall and ROC

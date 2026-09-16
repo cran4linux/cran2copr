@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  socketR
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          POSIX Socket Programming for R
 
@@ -14,13 +14,17 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.6.0
+Requires:         R-core >= 4.6.0
 BuildRequires:    R-CRAN-R6 
 Requires:         R-CRAN-R6 
 
 %description
-Provides a small, type-safe interface to POSIX sockets on Linux.
+Provides a small POSIX sockets interface to R, enabling direct network
+communication from R for applications that need low-level socket control
+or lightweight client and server connections. This package provides IPv4
+and IPv6 support with 'TCP/UDP' protocols. It functional API with
+'socket_create' and an R6 interface through 'Socket' object.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  multivator
-%global packver   1.1-11
+%global packver   1.2-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.11
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Multivariate Emulator
 
@@ -17,16 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.1
 Requires:         R-core >= 3.0.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-emulator >= 1.2.15
+BuildRequires:    R-CRAN-emulator >= 1.3.0
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-mathjaxr 
-Requires:         R-CRAN-emulator >= 1.2.15
+BuildRequires:    R-CRAN-quadform 
+Requires:         R-CRAN-emulator >= 1.3.0
 Requires:         R-utils 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-methods 
-Requires:         R-CRAN-mathjaxr 
+Requires:         R-CRAN-quadform 
 
 %description
 A multivariate generalization of the emulator package.

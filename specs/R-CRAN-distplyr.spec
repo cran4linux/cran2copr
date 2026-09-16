@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  distplyr
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Manipulate and Combine Probability Distributions
 
@@ -17,18 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ellipsis 
+BuildRequires:    R-CRAN-distionary >= 0.2.0
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-distionary 
-Requires:         R-CRAN-ellipsis 
+Requires:         R-CRAN-distionary >= 0.2.0
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-vctrs 
 Requires:         R-stats 
 Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-distionary 
 
 %description
 Go beyond standard probability distributions such as the Normal or

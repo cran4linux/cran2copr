@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PatientGenerator
-%global packver   0.1.4
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generator of Synthetic Patient Data for the OMOP Common Data Model
 
@@ -20,35 +20,37 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-bslib 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-duckdb 
 BuildRequires:    R-CRAN-ellmer 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-CRAN-r2d3 
 BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-testthat 
+BuildRequires:    R-CRAN-cli 
 Requires:         R-CRAN-bslib 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-DT 
-Requires:         R-CRAN-duckdb 
 Requires:         R-CRAN-ellmer 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-openxlsx 
 Requires:         R-CRAN-r2d3 
 Requires:         R-CRAN-R6 
+Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-testthat 
+Requires:         R-CRAN-cli 
 
 %description
 Tools to generate synthetic patient-level test datasets in the

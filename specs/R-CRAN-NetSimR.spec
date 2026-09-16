@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  NetSimR
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Actuarial Functions for Non-Life Insurance Modelling
 
@@ -18,35 +18,25 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-shiny >= 1.8.1
+BuildRequires:    R-CRAN-future >= 1.17.0
 BuildRequires:    R-CRAN-bslib >= 0.9.0
-BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-parallel 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-reactable 
-BuildRequires:    R-CRAN-fitdistrplus 
 Requires:         R-CRAN-shiny >= 1.8.1
+Requires:         R-CRAN-future >= 1.17.0
 Requires:         R-CRAN-bslib >= 0.9.0
-Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-future.apply 
 Requires:         R-parallel 
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-reactable 
-Requires:         R-CRAN-fitdistrplus 
 
 %description
 Assists actuaries and other insurance modellers in pricing, reserving and
