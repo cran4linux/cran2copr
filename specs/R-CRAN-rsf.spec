@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rsf
-%global packver   0.3.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Report of Statistical Findings in 'bookdown'
+Summary:          Report of Statistical Findings in Quarto
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,31 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bookdown 
 BuildRequires:    R-CRAN-gert 
-BuildRequires:    R-CRAN-here 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-renv 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-usethis 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-ymlthis 
-Requires:         R-CRAN-bookdown 
 Requires:         R-CRAN-gert 
-Requires:         R-CRAN-here 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-renv 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-usethis 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-ymlthis 
 
 %description
 A report of statistical findings (RSF) project template is generated using
-a 'bookdown' format. 'YAML' fields can be further customized. Additional
-helper functions provide extra features to the RSF.
+a Quarto book.
 
 %prep
 %setup -q -c -n %{packname}

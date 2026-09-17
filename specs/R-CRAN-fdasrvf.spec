@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fdasrvf
-%global packver   2.4.4
+%global packver   2.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.4
+Version:          2.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Elastic Functional Data Analysis
 
@@ -19,9 +19,9 @@ Requires:         R-core >= 4.3.0
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-lpSolve 
+BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-Rcpp 
@@ -33,9 +33,9 @@ BuildRequires:    R-CRAN-RcppArmadillo
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-fields 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-lpSolve 
+Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-Rcpp 

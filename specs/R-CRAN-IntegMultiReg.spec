@@ -1,35 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CEC
-%global packver   0.12.0
+%global packname  IntegMultiReg
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.0
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cross-Entropy Clustering
+Summary:          Integrative Bayesian Multiple Regression for Multi-Platform Biomarkers
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-graphics 
-Requires:         R-methods 
+Requires:         R-grDevices 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Splits data into Gaussian type clusters using the Cross-Entropy Clustering
-('CEC') method. This method allows for the simultaneous use of various
-types of Gaussian mixture models, for performing the reduction of
-unnecessary clusters, and for discovering new clusters by splitting them.
-'CEC' is based on the work of Spurek, P. and Tabor, J. (2014)
-<doi:10.1016/j.patcog.2014.03.006>.
+A Bayesian framework that integrates several regression models to identify
+a parsimonious set of biomarkers shared across disparate data platforms
+(for example genomic, transcriptomic and proteomic assays). Subjects are
+partitioned into subgroups defined by their pattern of platform
+availability, so that no subject with partially missing platform data is
+excluded, and information is borrowed across subgroups through a Markov
+random field prior on the variable-selection indicators together with
+non-local (product moment) priors on the regression effects. The
+methodology was introduced for time-to-event outcomes by Chekouo, Stingo,
+Doecke and Do (2017) <doi:10.1111/biom.12587>; this package additionally
+supports continuous (Gaussian) and binary (probit) outcomes. Posterior
+inference is carried out by a Markov chain Monte Carlo sampler implemented
+in C for computational efficiency.
 
 %prep
 %setup -q -c -n %{packname}

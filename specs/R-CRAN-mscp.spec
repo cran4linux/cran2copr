@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mscp
-%global packver   1.0
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiscale Change Point Detection via Gradual Bandwidth Adjustment in Moving Sum Processes
 
@@ -20,8 +21,8 @@ BuildArch:        noarch
 %description
 Multiscale moving sum procedure for the detection of changes in
 expectation in univariate sequences. References - Multiscale change point
-detection via gradual bandwidth adjustment in moving sum processes
-(2021+), Tijana Levajkovic and Michael Messer.
+detection via gradual bandwidth adjustment in moving sum processes, Tijana
+Levajkovic and Michael Messer (2023) <doi:10.1214/22-EJS2101>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -31,6 +32,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

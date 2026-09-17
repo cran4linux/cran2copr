@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  blox
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Block Diagonal Matrix Approximation
 
@@ -26,7 +26,7 @@ Requires:         R-CRAN-RcppArmadillo
 %description
 Finds the best block diagonal matrix approximation of a symmetric matrix.
 This can be exploited for divisive hierarchical clustering using singular
-vectors, named HC-SVD. The method is described in Bauer (202Xa)
+vectors, named HC-SVD. The method is described in Bauer (202X)
 <doi:10.48550/arXiv.2308.06820>.
 
 %prep

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  coinclp
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to the 'COIN-OR' 'Clp' Linear Programming Solver
 
@@ -32,7 +32,7 @@ construction, warm starts, presolve options, basis access and 'MPS' files.
 A compatibility layer reproduces the interface of the archived 'clpAPI'
 package so that existing code keeps working. 'Clp' itself is not bundled
 and must be installed on the system; the 'Rtools' toolchain supplies it on
-'Windows'.
+'Windows', from 'Rtools' 4.3 on.
 
 %prep
 %setup -q -c -n %{packname}

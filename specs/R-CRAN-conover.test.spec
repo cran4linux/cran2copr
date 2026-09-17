@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  conover.test
-%global packver   1.1.7
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.7
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Conover-Iman Test of Multiple Comparisons Using Rank Sums
 
@@ -18,25 +18,23 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scrutiny 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scrutiny 
 
 %description
-Computes the Conover-Iman test (1979) for 0th-order stochastic dominance
-and reports the results among multiple pairwise comparisons after a
-Kruskal-Wallis omnibus test for i0th-order stochastic dominance among k
-groups (Kruskal and Wallis, 1952). conover.test makes k(k-1)/2 multiple
-pairwise comparisons based on Conover-Iman t-test-statistic of the rank
+Computes the Conover-Iman test (1979) for stochastic superiority and
+reports the results among multiple pairwise comparisons after a
+Kruskal-Wallis omnibus test for stochastic superiority among k groups
+(Kruskal and Wallis, 1952). conover.test makes k(k-1)/2 multiple pairwise
+comparisons based on Conover-Iman t-test-statistic of the rank
 differences. The null hypothesis for each pairwise comparison is that the
 probability of observing a randomly selected value from the first group
 that is larger than a randomly selected value from the second group equals
 one half; this null hypothesis corresponds to that of the
-Wilcoxon-Mann-Whitney rank-sum test. Like the rank-sum test, if the data
-can be assumed to be continuous, and the distributions are assumed
-identical except for a difference in location, Conover-Iman test may be
-understood as a test for median difference and for mean difference.
-conover.test accounts for tied ranks. The Conover-Iman test is strictly
-valid if and only if the corresponding Kruskal-Wallis null hypothesis is
-rejected.
+Wilcoxon-Mann-Whitney rank-sum test. conover.test accounts for tied ranks.
+The Conover-Iman test is strictly valid if and only if the corresponding
+Kruskal-Wallis null hypothesis is rejected.
 
 %prep
 %setup -q -c -n %{packname}

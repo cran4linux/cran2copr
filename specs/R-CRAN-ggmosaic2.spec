@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dawaR
-%global packver   0.3.4
+%global packname  ggmosaic2
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          An API Wrapper for 'DAWA' - 'The Danish Address Web API'
+Summary:          Mosaic Plots in the 'ggplot2' Framework, Extended
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,28 +17,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-memoise >= 2.0.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-tidyRSS 
+BuildRequires:    R-CRAN-plotly >= 4.9.3
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
+BuildRequires:    R-CRAN-withr >= 2.5.0
+BuildRequires:    R-CRAN-productplots 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-memoise >= 2.0.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-tidyRSS 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-plotly >= 4.9.3
+Requires:         R-CRAN-ggplot2 >= 4.0.0
+Requires:         R-CRAN-withr >= 2.5.0
+Requires:         R-CRAN-productplots 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-curl 
-Requires:         R-utils 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-scales 
 
 %description
-Functions for interacting with all sections of the official 'Danish
-Address Web API' (also known as 'DAWA') <https://api.dataforsyningen.dk>.
-The development of this package is completely independent from the
-government agency, Klimadatastyrelsen, who maintains the API.
+Mosaic plots in the 'ggplot2' framework. Mosaic plot functionality is
+provided in a single 'ggplot2' layer by calling the geom 'mosaic'. This
+extends the now-defunct 'ggmosaic' package by allowing fitted loglinear
+models which can be used to show patterns of association among variables
+in frequency tables.
 
 %prep
 %setup -q -c -n %{packname}

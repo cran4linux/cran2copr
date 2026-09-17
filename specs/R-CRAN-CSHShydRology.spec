@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CSHShydRology
-%global packver   1.5.0
+%global packver   1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Canadian Hydrological Analyses
 
@@ -17,46 +17,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-circular 
+BuildRequires:    R-datasets 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-Kendall 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-CRAN-timeDate 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggspatial 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-tidyterra 
-BuildRequires:    R-CRAN-tidyhydat 
-BuildRequires:    R-CRAN-whitebox 
-BuildRequires:    R-datasets 
-BuildRequires:    R-CRAN-circular 
 BuildRequires:    R-CRAN-MGBT 
 BuildRequires:    R-CRAN-outliers 
 BuildRequires:    R-CRAN-TeachingDemos 
-BuildRequires:    R-CRAN-Kendall 
+BuildRequires:    R-CRAN-timeDate 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-circular 
+Requires:         R-datasets 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-fields 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-Kendall 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-plotrix 
-Requires:         R-CRAN-timeDate 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggspatial 
-Requires:         R-stats 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-tidyterra 
-Requires:         R-CRAN-tidyhydat 
-Requires:         R-CRAN-whitebox 
-Requires:         R-datasets 
-Requires:         R-CRAN-circular 
 Requires:         R-CRAN-MGBT 
 Requires:         R-CRAN-outliers 
 Requires:         R-CRAN-TeachingDemos 
-Requires:         R-CRAN-Kendall 
+Requires:         R-CRAN-timeDate 
+Requires:         R-stats 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-scales 
 
 %description
 A collection of user-submitted functions to aid in the analysis of

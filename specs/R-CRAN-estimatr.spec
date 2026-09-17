@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  estimatr
-%global packver   1.0.6
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Estimators for Design-Based Inference
 
@@ -16,26 +16,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-rlang >= 0.2.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.16
 BuildRequires:    R-CRAN-Formula 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-rlang >= 0.2.0
-Requires:         R-CRAN-Rcpp >= 0.12.16
 Requires:         R-CRAN-Formula 
 Requires:         R-CRAN-generics 
 Requires:         R-methods 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
 
 %description
-Fast procedures for small set of commonly-used, design-appropriate
+Fast procedures for a small set of commonly-used, design-appropriate
 estimators with robust standard errors and confidence intervals. Includes
 estimators for linear regression, instrumental variables regression,
 difference-in-means, Horvitz-Thompson estimation, and regression improving
 precision of experimental estimates by interacting treatment with centered
 pre-treatment covariates introduced by Lin (2013)
-<doi:10.1214/12-AOAS583>.
+<doi:10.1214/12-AOAS583>. Fixed effects are absorbed by alternating
+projections rather than by dummy expansion, and Horvitz-Thompson variance
+is computed from the randomization declaration.
 
 %prep
 %setup -q -c -n %{packname}

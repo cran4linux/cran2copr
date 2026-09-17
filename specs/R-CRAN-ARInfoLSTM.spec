@@ -1,41 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  emaxnls
-%global packver   0.2.0
+%global packname  ARInfoLSTM
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nonlinear Least Squares Estimation for Emax Regression Models
+Summary:          ARIMA-Informed LSTM for Time Series Forecasting
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Deriv 
-BuildRequires:    R-CRAN-minpack.lm 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-forecast >= 8.21
+BuildRequires:    R-CRAN-cli >= 3.6.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-torch >= 0.11.0
+BuildRequires:    R-CRAN-coro 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-Deriv 
-Requires:         R-CRAN-minpack.lm 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-forecast >= 8.21
+Requires:         R-CRAN-cli >= 3.6.0
+Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-torch >= 0.11.0
+Requires:         R-CRAN-coro 
 Requires:         R-stats 
 Requires:         R-utils 
 
 %description
-Provides estimation and covariate selection tools for Emax regression
-models using nonlinear least squares methods. Supported optimisation
-algorithms are Gauss-Newton, Levenberg-Marquardt, and the port library for
-bounded optimisation. The package also provides tools to assist in
-simulation work using Emax regression.
+Implements an ARIMA-Informed Long Short-Term Memory (LSTM) framework for
+univariate time series forecasting. The package integrates statistical
+information extracted from AutoRegressive Integrated Moving Average
+(ARIMA) models with deep learning-based LSTM architectures to improve
+forecasting accuracy, stability, and interpretability. Inspired by the
+philosophy of Physics-Informed Machine Learning (PIML), the proposed
+framework incorporates information from classical statistical models into
+neural network learning, creating a hybrid forecasting approach that
+combines domain knowledge with data-driven intelligence. The methodology
+is motivated by hybrid forecasting framework proposed by Yeasin and Paul
+(2024) <doi:10.1007/s11227-023-05542-3>.
 
 %prep
 %setup -q -c -n %{packname}

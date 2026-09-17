@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  templateICAr
-%global packver   0.10.0
+%global packver   0.11.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.0
+Version:          0.11.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate Brain Networks and Connectivity with ICA and Empirical Priors
 
@@ -45,13 +45,15 @@ Requires:         R-utils
 %description
 Implements the template ICA (independent components analysis) model
 proposed in Mejia et al. (2020) <doi:10.1080/01621459.2019.1679638> and
-the spatial template ICA model proposed in proposed in Mejia et al. (2022)
+the spatial template ICA model proposed in Mejia et al. (2022)
 <doi:10.1080/10618600.2022.2104289>. Both models estimate subject-level
 brain as deviations from known population-level networks, which are
 estimated using standard ICA algorithms. Both models employ an
 expectation-maximization algorithm for estimation of the latent brain
 networks and unknown model parameters. Includes direct support for
-'CIFTI', 'GIFTI', and 'NIFTI' neuroimaging file formats.
+'CIFTI', 'GIFTI', and 'NIFTI' neuroimaging file formats. Note, this
+package has been deprecated and superseded by 'BayesBrainMap', which
+includes model improvements and new names for the core functions.
 
 %prep
 %setup -q -c -n %{packname}

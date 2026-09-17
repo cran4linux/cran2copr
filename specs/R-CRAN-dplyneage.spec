@@ -1,34 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RAFS
-%global packver   0.2.5
+%global packname  dplyneage
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Robust Aggregative Feature Selection
+Summary:          Column Lineage Visualization for 'dplyr' Pipelines
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MDFS >= 1.5.3
-BuildRequires:    R-CRAN-fastcluster 
-BuildRequires:    R-CRAN-splitTools 
-Requires:         R-CRAN-MDFS >= 1.5.3
-Requires:         R-CRAN-fastcluster 
-Requires:         R-CRAN-splitTools 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-jsonlite 
 
 %description
-A cross-validated minimal-optimal feature selection algorithm. It utilises
-popularity counting, hierarchical clustering with feature dissimilarity
-measures, and prefiltering with all-relevant feature selection method to
-obtain the minimal-optimal set of features.
+Implements column lineage visualizations using 'React Flow' for 'dplyr'
+and 'dbplyr' pipelines. Provides a tidyverse-style interface for tracking
+data transformations through pipeline operations.
 
 %prep
 %setup -q -c -n %{packname}

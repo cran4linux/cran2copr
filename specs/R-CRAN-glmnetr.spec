@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  glmnetr
-%global packver   0.6-3
+%global packver   0.6-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.3
+Version:          0.6.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nested Cross Validation for the Relaxed Lasso and Other Machine Learning Models
 
@@ -21,9 +21,12 @@ BuildRequires:    R-CRAN-glmnet
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-xgboost 
-BuildRequires:    R-CRAN-smoof 
-BuildRequires:    R-CRAN-mlrMBO 
-BuildRequires:    R-CRAN-ParamHelpers 
+BuildRequires:    R-CRAN-lgr 
+BuildRequires:    R-CRAN-paradox 
+BuildRequires:    R-CRAN-bbotk 
+BuildRequires:    R-CRAN-mlr3mbo 
+BuildRequires:    R-CRAN-DiceKriging 
+BuildRequires:    R-CRAN-pROC 
 BuildRequires:    R-CRAN-randomForestSRC 
 BuildRequires:    R-CRAN-rpart 
 BuildRequires:    R-CRAN-torch 
@@ -32,9 +35,12 @@ Requires:         R-CRAN-glmnet
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-xgboost 
-Requires:         R-CRAN-smoof 
-Requires:         R-CRAN-mlrMBO 
-Requires:         R-CRAN-ParamHelpers 
+Requires:         R-CRAN-lgr 
+Requires:         R-CRAN-paradox 
+Requires:         R-CRAN-bbotk 
+Requires:         R-CRAN-mlr3mbo 
+Requires:         R-CRAN-DiceKriging 
+Requires:         R-CRAN-pROC 
 Requires:         R-CRAN-randomForestSRC 
 Requires:         R-CRAN-rpart 
 Requires:         R-CRAN-torch 

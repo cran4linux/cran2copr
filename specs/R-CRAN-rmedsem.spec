@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rmedsem
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Mediation Analysis for SEMs
 
@@ -20,14 +20,10 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-lavaan 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-lavaan 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
 Requires:         R-stats 
 
 %description
@@ -36,9 +32,13 @@ with 'lavaan', 'blavaan', 'cSEM', or 'modsem'. Implements the Baron and
 Kenny (1986) <doi:10.1037/0022-3514.51.6.1173> and Zhao, Lynch & Chen
 (2010) <doi:10.1086/651257> approaches to determine the presence and type
 of mediation. Supports covariance-based SEM, partial least squares SEM,
-Bayesian SEM, and moderated mediation models. Reports indirect effects
-with standard errors from Sobel, Delta, Monte-Carlo, and bootstrap
-methods, along with effect size measures (RIT, RID).
+Bayesian SEM, and moderated mediation and mediated moderation models.
+Tests indirect effects with the Sobel, Delta, Monte-Carlo, and bootstrap
+methods or, for Bayesian models, with posterior summaries and equal-tailed
+or highest density credible intervals. Reports the effect size measures
+RIT, RID, and Upsilon of Lachowicz, Preacher and Kelley (2018)
+<doi:10.1037/met0000165>. Results can be summarized, extracted with
+standard methods such as summary(), coef() and confint(), and plotted.
 
 %prep
 %setup -q -c -n %{packname}

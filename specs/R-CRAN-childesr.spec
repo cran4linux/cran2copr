@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  childesr
-%global packver   0.2.3
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Accessing the 'CHILDES' Database
 
@@ -13,23 +14,19 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.4
+Requires:         R-core >= 4.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dbplyr >= 2.1
+BuildRequires:    R-CRAN-jsonlite >= 2.0
 BuildRequires:    R-CRAN-magrittr >= 2.0
-BuildRequires:    R-CRAN-jsonlite >= 1.7
-BuildRequires:    R-CRAN-DBI >= 1.1
-BuildRequires:    R-CRAN-dplyr >= 1.0
-BuildRequires:    R-CRAN-purrr >= 0.3
-BuildRequires:    R-CRAN-RMySQL >= 0.10.21
-Requires:         R-CRAN-dbplyr >= 2.1
+BuildRequires:    R-CRAN-dplyr >= 1.2
+BuildRequires:    R-CRAN-rlang >= 1.1
+BuildRequires:    R-CRAN-purrr >= 1.0
+Requires:         R-CRAN-jsonlite >= 2.0
 Requires:         R-CRAN-magrittr >= 2.0
-Requires:         R-CRAN-jsonlite >= 1.7
-Requires:         R-CRAN-DBI >= 1.1
-Requires:         R-CRAN-dplyr >= 1.0
-Requires:         R-CRAN-purrr >= 0.3
-Requires:         R-CRAN-RMySQL >= 0.10.21
+Requires:         R-CRAN-dplyr >= 1.2
+Requires:         R-CRAN-rlang >= 1.1
+Requires:         R-CRAN-purrr >= 1.0
 
 %description
 Tools for connecting to 'CHILDES', an open repository for transcripts of

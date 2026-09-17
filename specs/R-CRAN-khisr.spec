@@ -1,44 +1,58 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dawaR
-%global packver   0.3.4
+%global packname  khisr
+%global packver   1.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          1.0.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          An API Wrapper for 'DAWA' - 'The Danish Address Web API'
+Summary:          An R Client to Retrieve Data from DHIS2
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-memoise >= 2.0.0
+BuildRequires:    R-CRAN-httr2 >= 1.1.0
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-tidyRSS 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-memoise >= 2.0.0
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-httr2 >= 1.1.0
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-tidyRSS 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-curl 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
+Requires:         R-CRAN-withr 
 
 %description
-Functions for interacting with all sections of the official 'Danish
-Address Web API' (also known as 'DAWA') <https://api.dataforsyningen.dk>.
-The development of this package is completely independent from the
-government agency, Klimadatastyrelsen, who maintains the API.
+Provides a user-friendly interface for interacting with the District
+Health Information Software 2 ('DHIS2', <https://dhis2.org>) instance. It
+streamlines data retrieval, empowering researchers, analysts, and
+healthcare professionals to obtain and utilize data efficiently.
 
 %prep
 %setup -q -c -n %{packname}

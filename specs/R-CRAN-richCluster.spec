@@ -1,49 +1,57 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rwa
-%global packver   1.0.0
+%global packname  richCluster
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Perform a Relative Weights Analysis
+Summary:          Fast, Robust Clustering Algorithms for Gene Enrichment Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.14
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-heatmaply 
+BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-networkD3 
+BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-viridis 
+Requires:         R-CRAN-Rcpp >= 1.0.14
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-fields 
+Requires:         R-CRAN-heatmaply 
+Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-networkD3 
+Requires:         R-CRAN-plotly 
 Requires:         R-stats 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-purrr 
-Requires:         R-utils 
+Requires:         R-CRAN-viridis 
 
 %description
-Perform a Relative Weights Analysis (RWA) (a.k.a. Key Drivers Analysis) as
-per the method described in Tonidandel & LeBreton (2015)
-<DOI:10.1007/s10869-014-9351-z>, with its original roots in Johnson (2000)
-<DOI:10.1207/S15327906MBR3501_1>. In essence, RWA decomposes the total
-variance predicted in a regression model into weights that accurately
-reflect the proportional contribution of the predictor variables, which
-addresses the issue of multi-collinearity. In typical scenarios, RWA
-returns similar results to Shapley regression, but with a significant
-advantage on computational performance.
+Clusters functionally related biological terms from gene set enrichment
+results. Terms are compared by the overlap of their gene sets using
+Cohen's kappa, the Jaccard index, or the Dice coefficient, and the
+resulting similarity matrix is grouped either by agglomerative
+hierarchical clustering with single, complete, average, or Ward linkage,
+or by the seed-and-merge procedure of the 'DAVID' functional
+classification tool. The distance and clustering routines are written in
+'C++' for speed. The methods are described in Huang et al. (2007)
+<doi:10.1186/gb-2007-8-9-r183>, Ward (1963)
+<doi:10.1080/01621459.1963.10500845>, Cohen (1960)
+<doi:10.1177/001316446002000104>, and Jaccard (1912)
+<doi:10.1111/j.1469-8137.1912.tb05611.x>.
 
 %prep
 %setup -q -c -n %{packname}
