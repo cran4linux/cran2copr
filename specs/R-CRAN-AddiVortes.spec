@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  AddiVortes
-%global packver   0.6.9
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.9
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          (Bayesian) Additive Voronoi Tessellations
 
@@ -16,22 +16,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-pbapply >= 1.6
-BuildRequires:    R-parallel 
-Requires:         R-CRAN-pbapply >= 1.6
-Requires:         R-parallel 
 
 %description
 Implements the Bayesian Additive Voronoi Tessellation model for
-non-parametric regression and machine learning as introduced in Stone and
-Gosling (2025) <doi:10.1080/10618600.2024.2414104>. This package provides
-a flexible alternative to BART (Bayesian Additive Regression Trees) using
-Voronoi tessellations instead of trees. Users can fit Bayesian regression
-models (estimating the associated posterior distributions and make
-predictions. It is particularly useful for spatial data analysis, machine
-learning regression, complex function approximation and Bayesian modeling
-where the underlying structure is unknown. The method is well-suited to
-capturing spatial patterns and non-linear relationships.
+non-parametric regression, classification and machine learning as
+introduced in Stone and Gosling (2025)
+<doi:10.1080/10618600.2024.2414104>. This package provides a flexible
+alternative to BART (Bayesian Additive Regression Trees) using Voronoi
+tessellations instead of trees. Users can fit Bayesian regression and
+probit classification models, estimate the associated posterior
+distributions and make predictions. It is particularly useful for spatial
+data analysis, machine learning, complex function approximation and
+Bayesian modelling where the underlying structure is unknown.
 
 %prep
 %setup -q -c -n %{packname}

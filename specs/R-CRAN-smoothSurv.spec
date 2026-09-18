@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  smoothSurv
-%global packver   2.6
+%global packver   2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6
+Version:          2.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Survival Regression with Smoothed Error Distribution
 
@@ -28,7 +28,11 @@ Contains, as a main contribution, a function to fit a regression model
 with possibly right, left or interval censored observations and with the
 error distribution expressed as a mixture of G-splines. Core part of the
 computation is done in compiled 'C++' written using the 'Scythe'
-Statistical Library Version 0.3.
+Statistical Library Version 0.3. The methods implemented in the package
+have been published in Komárek, Lesaffe and Hilton (2005, J. of Comp. and
+Graph. Stat.) <doi:10.1198/106186005X63734> and Lesaffre, Komárek and
+Declerck (2005, Stat. Methods in Med. Res.)
+<doi:10.1191/0962280205sm417oa>.
 
 %prep
 %setup -q -c -n %{packname}

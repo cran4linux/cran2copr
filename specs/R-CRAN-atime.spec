@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  atime
-%global packver   2026.4.2
+%global packver   2026.9.17
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2026.4.2
+Version:          2026.9.17
 Release:          1%{?dist}%{?buildtag}
 Summary:          Asymptotic Timing
 
@@ -20,14 +20,14 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-bench 
 BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-git2r 
+BuildRequires:    R-CRAN-gert 
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
 BuildRequires:    R-grDevices 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-bench 
 Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-git2r 
+Requires:         R-CRAN-gert 
 Requires:         R-utils 
 Requires:         R-stats 
 Requires:         R-grDevices 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rdistance
-%global packver   4.4.3
+%global packver   4.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.4.3
+Version:          4.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Density and Abundance from Distance-Sampling Surveys
 
@@ -19,6 +19,7 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-units 
 BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-crayon 
@@ -31,8 +32,11 @@ BuildRequires:    R-CRAN-tidyselect
 BuildRequires:    R-CRAN-dfoptim 
 BuildRequires:    R-CRAN-expint 
 BuildRequires:    R-CRAN-multidplyr 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-OSCARS 
 Requires:         R-CRAN-units 
 Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-crayon 
@@ -45,6 +49,8 @@ Requires:         R-CRAN-tidyselect
 Requires:         R-CRAN-dfoptim 
 Requires:         R-CRAN-expint 
 Requires:         R-CRAN-multidplyr 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-OSCARS 
 
 %description
 Distance-sampling (<doi:10.1007/978-3-319-19219-2>) is a field survey and

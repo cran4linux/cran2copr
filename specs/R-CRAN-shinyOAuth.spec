@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shinyOAuth
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Provider-Agnostic OAuth Authentication for 'shiny' Applications
+Summary:          OIDC Authentication and OAuth Authorization for 'shiny' Applications
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -31,6 +31,7 @@ BuildRequires:    R-CRAN-jsonlite >= 1.0
 BuildRequires:    R-CRAN-htmltools >= 0.5.0
 BuildRequires:    R-CRAN-S7 >= 0.2.0
 BuildRequires:    R-CRAN-otel >= 0.2.0
+BuildRequires:    R-CRAN-curl 
 Requires:         R-CRAN-cli >= 3.0.0
 Requires:         R-CRAN-openssl >= 2.0.0
 Requires:         R-CRAN-R6 >= 2.0
@@ -45,16 +46,17 @@ Requires:         R-CRAN-jsonlite >= 1.0
 Requires:         R-CRAN-htmltools >= 0.5.0
 Requires:         R-CRAN-S7 >= 0.2.0
 Requires:         R-CRAN-otel >= 0.2.0
+Requires:         R-CRAN-curl 
 
 %description
-Provides a simple, configurable, provider-agnostic 'OAuth 2.0' and 'OpenID
-Connect' (OIDC) authentication framework for 'shiny' applications using
+Provides a simple, configurable framework for 'OpenID Connect' (OIDC)
+authentication and 'OAuth 2.0' authorization in 'shiny' applications using
 'S7' classes. Defines providers, clients, and tokens, as well as various
 supporting functions and a 'shiny' module. Features include cross-site
 request forgery (CSRF) protection, state encryption, 'Proof Key for Code
 Exchange' (PKCE) handling, validation of OIDC identity tokens (nonces,
-signatures, claims), automatic user info retrieval, asynchronous flows,
-and hooks for audit logging.
+signatures, claims), automatic user info retrieval for OIDC and supported
+'OAuth' providers, asynchronous flows, and hooks for audit logging.
 
 %prep
 %setup -q -c -n %{packname}

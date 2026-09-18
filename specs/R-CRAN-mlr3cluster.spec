@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlr3cluster
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cluster Extension for 'mlr3'
 
@@ -19,22 +19,26 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-R6 >= 2.4.1
 BuildRequires:    R-CRAN-checkmate >= 2.0.0
-BuildRequires:    R-CRAN-mlr3 >= 1.5.0
+BuildRequires:    R-CRAN-mlr3 >= 1.6.0
 BuildRequires:    R-CRAN-backports >= 1.5.0
 BuildRequires:    R-CRAN-data.table >= 1.15.0
 BuildRequires:    R-CRAN-paradox >= 1.0.1
 BuildRequires:    R-CRAN-mlr3misc >= 0.21.0
 BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-R6 >= 2.4.1
 Requires:         R-CRAN-checkmate >= 2.0.0
-Requires:         R-CRAN-mlr3 >= 1.5.0
+Requires:         R-CRAN-mlr3 >= 1.6.0
 Requires:         R-CRAN-backports >= 1.5.0
 Requires:         R-CRAN-data.table >= 1.15.0
 Requires:         R-CRAN-paradox >= 1.0.1
 Requires:         R-CRAN-mlr3misc >= 0.21.0
 Requires:         R-CRAN-cluster 
+Requires:         R-graphics 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Extends the 'mlr3' package with cluster analysis.

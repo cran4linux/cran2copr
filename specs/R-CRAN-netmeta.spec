@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  netmeta
-%global packver   3.6-1
+%global packver   3.7-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.6.1
+Version:          3.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Network Meta-Analysis using Frequentist Methods
 
@@ -33,6 +33,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-reshape2 
 Requires:         R-CRAN-meta >= 8.5.0
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-metafor 
@@ -49,6 +50,7 @@ Requires:         R-methods
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-reshape2 
 
 %description
 A comprehensive set of functions providing frequentist methods for network
@@ -80,8 +82,9 @@ treatment rankings ('poset') and Hasse diagram for 'poset' (Carlsen &
 Bruggemann, 2014) <doi:10.1002/cem.2569>; (Rücker & Schwarzer, 2017)
 <doi:10.1002/jrsm.1270>; - contribution matrix as described in
 Papakonstantinou et al. (2018) <doi:10.12688/f1000research.14770.3> and
-Davies et al. (2022) <doi:10.1002/sim.9346>; - network meta-regression
-with a single continuous or binary covariate (Kwarteng et al., 2026)
+Davies et al. (2022) <doi:10.1002/sim.9346>; - path-based approach for
+detecting and assessing inconsistency; - network meta-regression with a
+single continuous or binary covariate (Kwarteng et al., 2026)
 <doi:10.21203/rs.3.rs-8235913/v1>; - subgroup network meta-analysis.
 
 %prep

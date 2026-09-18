@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tinyshinyserver
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tiny 'shiny' Server - Lightweight Multi-App 'shiny' Proxy
 
@@ -22,7 +22,8 @@ BuildRequires:    R-CRAN-shiny
 BuildRequires:    R-CRAN-callr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-later 
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-promises 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-httpuv 
 BuildRequires:    R-CRAN-websocket 
@@ -36,7 +37,8 @@ Requires:         R-CRAN-shiny
 Requires:         R-CRAN-callr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-later 
-Requires:         R-CRAN-httr 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-promises 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-httpuv 
 Requires:         R-CRAN-websocket 

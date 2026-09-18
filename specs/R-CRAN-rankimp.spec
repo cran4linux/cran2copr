@@ -1,32 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mathml
-%global packver   1.9
+%global packname  rankimp
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Translate R Expressions to 'MathML' and 'LaTeX'/'MathJax'
+Summary:          Consensus Ranking of Variable Importance with Uncertainty
 
-License:          FreeBSD
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3
-Requires:         R-core >= 4.3
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rolog >= 0.9.14
-BuildRequires:    R-CRAN-xfun >= 0.49
-BuildRequires:    R-CRAN-knitr 
-Requires:         R-CRAN-rolog >= 0.9.14
-Requires:         R-CRAN-xfun >= 0.49
-Requires:         R-CRAN-knitr 
+BuildRequires:    R-CRAN-ConsRank 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-ConsRank 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-utils 
 
 %description
-Translate R expressions to 'MathML' or 'MathJax'/'LaTeX' so that they can
-be rendered in R markdown documents and shiny apps.
+Variable importance rankings depend on the method, the random seed and the
+resample used to compute them. This package treats every source of
+importance as a judge expressing a ranking over the predictors, and
+synthesises those rankings into a Kemeny median ranking with ties.
+Uncertainty about the consensus is quantified through bootstrap rank
+confidence sets, top-k probabilities and clustering of disagreeing judges.
 
 %prep
 %setup -q -c -n %{packname}

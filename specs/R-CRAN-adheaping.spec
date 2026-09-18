@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  adheaping
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Characteristic-Function De-Heaping Density Estimation
 
@@ -27,10 +27,10 @@ convolution with a box followed by lattice sampling, so the density is
 recovered by deconvolving the known box and tapering against a data-driven
 noise floor. Provides a box-deconvolution de-heaping estimator, a
 superposition variant, and a single combined estimator selected by a
-band-capacity gate; blind grid, heaped-fraction, and mixed-grain readers;
-and a spectral higher-order comb detector. Faithful base-R replicas of the
-Heitjan-Rubin multiple-imputation and measurement-error deconvolution
-methods are included for comparison, and the 'Kernelheaping' stochastic
+band-capacity gate; grid, heaped-fraction, and mixed-grain readers; and a
+spectral higher-order comb detector. Base-R replicas of the Heitjan-Rubin
+multiple-imputation and measurement-error deconvolution methods are
+included for comparison, and the 'Kernelheaping' stochastic
 expectation-maximization estimator is used when installed.
 
 %prep

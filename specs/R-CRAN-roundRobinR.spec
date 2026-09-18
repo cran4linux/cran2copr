@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  roundRobinR
-%global packver   1.0.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Manipulate and Analyze Round Robin Dyadic Data
 
@@ -19,9 +19,11 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-nlme >= 3.1.150
 BuildRequires:    R-CRAN-data.table >= 1.14.0
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-nlme >= 3.1.150
 Requires:         R-CRAN-data.table >= 1.14.0
+Requires:         R-CRAN-Matrix 
 Requires:         R-stats 
 
 %description

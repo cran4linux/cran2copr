@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  migraph
-%global packver   1.7.0
+%global packver   1.7.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.0
+Version:          1.7.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Inferential Methods for Multimodal and Other Networks
 
@@ -17,10 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-manynet >= 2.3.1
-BuildRequires:    R-CRAN-autograph >= 1.2.2
+BuildRequires:    R-CRAN-manynet >= 2.3.4
+BuildRequires:    R-CRAN-autograph >= 1.2.3
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-netrics >= 0.4.0
+BuildRequires:    R-CRAN-netrics >= 1.0.3
 BuildRequires:    R-CRAN-ergm 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-furrr 
@@ -28,10 +28,10 @@ BuildRequires:    R-CRAN-generics
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-learnr 
 BuildRequires:    R-CRAN-purrr 
-Requires:         R-CRAN-manynet >= 2.3.1
-Requires:         R-CRAN-autograph >= 1.2.2
+Requires:         R-CRAN-manynet >= 2.3.4
+Requires:         R-CRAN-autograph >= 1.2.3
 Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-netrics >= 0.4.0
+Requires:         R-CRAN-netrics >= 1.0.3
 Requires:         R-CRAN-ergm 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-furrr 

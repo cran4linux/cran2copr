@@ -1,33 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rolog
-%global packver   0.9.28
+%global packname  rgrpc
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.28
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Query 'SWI'-'Prolog' from R
+Summary:          Asynchronous 'gRPC' Client and Server Runtime
 
-License:          FreeBSD
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
-BuildRequires:    R-CRAN-rswipl >= 10.1.5
-BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-Rcpp >= 1.0.7
 Requires:         R-methods 
-Requires:         R-utils 
 
 %description
-This R package connects to SWI-Prolog, <https://www.swi-prolog.org/>, so
-that R can send deterministic and non-deterministic queries to prolog
-(consult, query/submit, once, findall).
+A first-class asynchronous 'gRPC' <https://grpc.io/> runtime built on the
+generic asynchronous 'C++' API ('GenericStub', 'AsyncGenericService')
+<https://grpc.github.io/grpc/cpp/>. Requests and responses cross the
+native boundary as method names plus opaque byte buffers; 'RProtoBuf'
+supplies and consumes the bytes, so schemas are loaded at runtime and no
+generated service stubs are required. Native completion threads never call
+the R API: completions are queued natively and delivered in batches on the
+R main thread. Complements 'RProtoBuf' rather than replacing it. Links
+against the system 'gRPC' library for 'C++'.
 
 %prep
 %setup -q -c -n %{packname}

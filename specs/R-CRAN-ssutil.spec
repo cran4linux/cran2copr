@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ssutil
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sample Size Calculation Tools
 
@@ -21,14 +21,12 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-gsDesign 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-tibble 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-gsDesign 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-tibble 
 

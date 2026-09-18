@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shinyreprex
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reproducible Code for 'Shiny' Objects
 
@@ -18,13 +18,17 @@ BuildRequires:    R-devel >= 4.3.0
 Requires:         R-core >= 4.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-S7 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-constructive 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-renv 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-styler 
 Requires:         R-CRAN-S7 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-constructive 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-renv 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-styler 
 

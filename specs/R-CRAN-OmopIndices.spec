@@ -1,39 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  competitiontoolbox
-%global packver   0.7.4
+%global packname  OmopIndices
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Graphical User Interface for Antitrust and Trade Practitioners
+Summary:          Patient-Level Indices from the OMOP Common Data Model
 
-License:          CC0
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-antitrust >= 0.99.33
-BuildRequires:    R-CRAN-trade >= 0.8.6
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-rhandsontable 
-BuildRequires:    R-CRAN-bslib 
-BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-antitrust >= 0.99.33
-Requires:         R-CRAN-trade >= 0.8.6
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-rhandsontable 
-Requires:         R-CRAN-bslib 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-omopgenerics >= 1.4.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-clock 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-PatientProfiles 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-omopgenerics >= 1.4.0
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-clock 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-PatientProfiles 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
 
 %description
-A graphical user interface for simulating the effects of mergers, tariffs,
-and quotas under an assortment of different economic models. The interface
-is powered by the 'Shiny' web application framework from 'RStudio'.
+Provides tools to derive standardised, reproducible patient-level indices
+and covariates from Observational Medical Outcomes Partnership (OMOP)
+Common Data Model (CDM) databases. Functions calculate comorbidity and
+frailty scores, including the Charlson Comorbidity Index, Electronic
+Frailty Index, and Hospital Frailty Risk Score, as well as body mass
+index, polypharmacy, ethnicity, location, and socioeconomic status
+measures.
 
 %prep
 %setup -q -c -n %{packname}

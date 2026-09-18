@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidyEmoji
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Discover, Count, Categorise, Score, Translate and Relate Emoji in Text
 
@@ -14,24 +14,24 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-emoji >= 16.0.0
+BuildRequires:    R-CRAN-tidyr >= 1.3.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-emoji 
-BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-lifecycle >= 1.0.3
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-emoji >= 16.0.0
+Requires:         R-CRAN-tidyr >= 1.3.0
 Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-emoji 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-lifecycle >= 1.0.3
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
 
 %description
@@ -46,11 +46,15 @@ lists and n-grams), measures where and how densely emoji are used, and
 builds document-by-emoji feature tables for machine learning, with
 grapheme-aware detection (so skin-tone and multi-person sequences stay
 intact), returning tidy data frames that slot straight into a 'tidyverse'
-workflow. The bundled emoji sentiment lexicon is from the Emoji Sentiment
-Ranking of Kralj Novak et al. (2015) <doi:10.1371/journal.pone.0144296>,
-released under CC BY-SA 4.0; the emotion lexicon is from EmoTag1200 of
-Shoeb & de Melo (2020) <https://aclanthology.org/2020.emnlp-main.720/>,
-released under the MIT licence.
+workflow. It also quantifies how much annotators disagreed about an emoji
+(interpretation risk), extracts the words around each emoji, tracks emoji
+use over time, measures text-emoji sentiment mismatch, and applies
+explicit emoji-preprocessing policies for language-model pipelines. The
+bundled emoji sentiment lexicon is from the Emoji Sentiment Ranking of
+Kralj Novak et al. (2015) <doi:10.1371/journal.pone.0144296>, released
+under CC BY-SA 4.0; the emotion lexicon is from EmoTag1200 of Shoeb & de
+Melo (2020) <https://aclanthology.org/2020.emnlp-main.720/>, released
+under the MIT licence.
 
 %prep
 %setup -q -c -n %{packname}

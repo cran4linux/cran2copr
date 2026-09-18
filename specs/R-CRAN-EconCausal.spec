@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EconCausal
-%global packver   1.0.2
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Causal Analysis for Macroeconomic Time Series (ECM-MARS, BSTS, Bayesian GLM-AR(1))
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -23,12 +23,14 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-bsts 
-BuildRequires:    R-CRAN-BoomSpikeSlab 
 BuildRequires:    R-CRAN-tseries 
 BuildRequires:    R-CRAN-urca 
 BuildRequires:    R-CRAN-vars 
+BuildRequires:    R-CRAN-earth 
+BuildRequires:    R-CRAN-lmtest 
+BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-CRAN-progressr 
+BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-magrittr 
@@ -41,12 +43,14 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-bsts 
-Requires:         R-CRAN-BoomSpikeSlab 
 Requires:         R-CRAN-tseries 
 Requires:         R-CRAN-urca 
 Requires:         R-CRAN-vars 
+Requires:         R-CRAN-earth 
+Requires:         R-CRAN-lmtest 
+Requires:         R-CRAN-sandwich 
 Requires:         R-CRAN-progressr 
+Requires:         R-CRAN-future 
 Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-magrittr 
