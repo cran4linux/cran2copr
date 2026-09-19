@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  evbsreg
-%global packver   1.0.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Local Influence Diagnostics for the Extreme-Value Birnbaum-Saunders Regression Model
 
@@ -33,9 +33,15 @@ estimation, conformal normal curvature diagnostics under three
 perturbation schemes (case-weight, response variable, and explanatory
 variable), randomized quantile residuals with simulation envelope, Monte
 Carlo simulation utilities, and publication-quality density and diagnostic
-plots. The methods are described in Ospina, Lima, Barros, and Macedo
-(2026, submitted) and are applied to monthly maximum wind gust data from
-Itajai, Brazil.
+plots. Version 1.1.0 adds the density, distribution and quantile
+functions, the finite upper endpoint, return levels and expected
+shortfall, block bootstrap standard errors for serially dependent series,
+local influence diagnostics for the generalized extreme-value regression
+model, and a GAMLSS family allowing the tail-shape parameter to depend on
+covariates. Version 1.2.0 adds a prospective control chart for endpoint
+identifiability. The methods are described in Ospina, Lima, Barros, and
+Macedo (2026, submitted) and are applied to monthly maximum wind gust data
+from Itajai, Brazil.
 
 %prep
 %setup -q -c -n %{packname}

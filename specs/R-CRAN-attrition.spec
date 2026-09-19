@@ -1,28 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  clogitL1
-%global packver   1.6
+%global packname  attrition
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fitting Exact Conditional Logistic Regression with Lasso and Elastic Net Penalties
+Summary:          Addressing Nonignorable Attrition with Double Sampling and Bounds
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.10.2
-Requires:         R-CRAN-Rcpp >= 0.10.2
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-generics 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-tibble 
 
 %description
-Tools for the fitting and cross validation of exact conditional logistic
-regression models with lasso and elastic net penalties. Uses cyclic
-coordinate descent and warm starts to compute the entire path efficiently.
+Implements the double-sampling bounds estimator of Coppock, Gerber, Green,
+and Kern (2017) <doi:10.1017/pan.2016.6> for randomized experiments with
+nonignorable missing outcomes. Provides worst-case (Manski) bounds,
+double-sampling bounds with analytic variance and Imbens-Manski confidence
+intervals, Lee (2009) <doi:10.1111/j.1467-937X.2009.00536.x> trimming
+bounds with analytic and bootstrap standard errors, covariate adjustment
+via poststratification, and a sensitivity analysis for violations of the
+outcome stability assumption.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,37 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  funbootband
-%global packver   0.3.0
+%global packname  fibermargin
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simultaneous Prediction and Confidence Bands for Functional Data
+Summary:          Categorical Mask and Spatial Label Refinement
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-stats 
+BuildRequires:    R-parallel 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-stats 
+Requires:         R-parallel 
 
 %description
-Computes simultaneous prediction and confidence bands for densely sampled
-functional data on a common grid. The calibration builds on the functional
-bootstrap approach of Lenhoff et al. (1999)
-<doi:10.1016/S0966-6362(98)00043-5>; hierarchical measurement designs are
-motivated by Koska et al. (2023) <doi:10.1016/j.jbiomech.2023.111506>.
-Independent curves are resampled individually. Clustered data use an
-intact-subject bootstrap with equal subject weighting, and the clustered
-prediction target is one future curve from a new subject. Curves are
-represented by finite Fourier series, and an 'Rcpp' backend performs the
-bootstrap calibration.
+Implements 'FiberMargin', a deterministic training-free operator for
+repairing categorical masks and spatial labels from coordinates and labels
+alone. Its primary multiclass operator uses rotated space-filling-curve
+charts and two-sided class enclosure at one fixed geometric transport
+range. A class-balanced, isolation-protected chart-disagreement rule
+provides pointwise repair decisions and audit scores. An auxiliary
+nearest-neighbour ballot handles binary masks. The 'C++' engine supports
+two- and three-dimensional coordinates, removes constant axes
+independently within each specimen, and reuses one deterministic CPU
+worker budget without nested process pools. Reproducible mask corruptions,
+planar and volumetric simulators, damage-aware evaluation, and compact
+licensed human dorsolateral prefrontal cortex and colorectal cancer
+benchmarks support assessment.
 
 %prep
 %setup -q -c -n %{packname}

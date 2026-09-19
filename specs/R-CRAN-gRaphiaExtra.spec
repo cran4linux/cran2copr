@@ -1,50 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ltertools
-%global packver   2.1.1
+%global packname  gRaphiaExtra
+%global packver   0.26.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          0.26.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools Developed by the Long Term Ecological Research Community
+Summary:          An R Package for Integrating 'Seurat' Objects into 'gRaphia'
 
-License:          BSD_3_clause + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.4.2.0
+Requires:         R-core >= 4.4.2.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-supportR 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-generics 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readxl 
 Requires:         R-stats 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-supportR 
-Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
 
 %description
-Set of the data science tools created by various members of the Long Term
-Ecological Research (LTER) community. These functions were initially
-written largely as standalone operations and have later been aggregated
-into this package.
+Utilising graph-based network analysis frameworks, 'Graphia'
+<https://graphia.app/> is a powerful open source visual analytics
+application developed to aid the interpretation of large and complex
+datasets. For more details, see article by Freeman et al. (2022)
+<doi:10.1371/journal.pcbi.1010310>. 'gRaphia' is an extension of the
+'Graphia' application within the R environment, providing tools for
+network analysis and visualisation. 'gRaphiaExtra' provides additional
+functionality specifically designed for single-cell RNA-sequencing data,
+enabling users to seamlessly integrate and utilise existing 'Seurat'
+analysis outputs in 'gRaphia'. The package also provides supplementary
+functions to support and enhance the 'gRaphia' analysis framework.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  taxify
-%global packver   0.5.0
+%global packver   0.5.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Offline Taxonomic Name Matching Against Darwin Core Backbones
 
@@ -17,14 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-vectra >= 0.12.4
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-vectra 
+Requires:         R-CRAN-vectra >= 0.12.4
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-vectra 
 
 %description
 Match taxonomic names against locally stored Darwin Core backbone

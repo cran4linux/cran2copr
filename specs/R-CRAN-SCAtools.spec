@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  morseDR
-%global packver   0.1.3
+%global packname  SCAtools
+%global packver   0.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.4.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Inference of Binary, Count and Continuous Data in Toxicology
+Summary:          Direction-Aware Sufficiency Condition Analysis
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,29 +17,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rjags 
+BuildRequires:    R-CRAN-NCA >= 5.0.2
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-stats 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
-Requires:         R-methods 
-Requires:         R-CRAN-rjags 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-NCA >= 5.0.2
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Advanced methods for a valuable quantitative environmental risk assessment
-using Bayesian inference of several type of toxicological data. 'binary'
-(e.g., survival, mobility), 'count' (e.g., reproduction) and 'continuous'
-(e.g., growth as length, weight).  Estimation procedures can be used
-without a deep knowledge of their underlying probabilistic model or
-inference methods. Rather, they were designed to behave as well as
-possible without requiring a user to provide values for some obscure
-parameters. That said, models can also be used as a first step to tailor
-new models for more specific situations.
+Provides a direction-aware interface for analysing bivariate sufficiency
+statements from empty-space frontier patterns. Logical sufficiency
+directions (high or low levels of a condition and outcome) are kept
+separate from the physical location of the empty corner in the scatter
+plot. Computation is delegated to version 5 of the 'NCA' package based on
+Dul (2016) <doi:10.1177/1094428115584005>, using the contraposition
+between necessity and sufficiency. Threshold tables are computed in actual
+units and converted by this package, so percentage, percentile and
+standard-deviation scales follow one stated reporting convention in every
+sufficiency direction. Includes tidy summaries, threshold rules, plots,
+random-data generation, permutation tests, and power analysis. An ordinary
+least-squares line can be drawn beside the frontier as a central-tendency
+reference; it is an average-effect summary and never a component of a
+sufficiency claim. An empty-space pattern alone does not establish
+causality or deterministic sufficiency.
 
 %prep
 %setup -q -c -n %{packname}

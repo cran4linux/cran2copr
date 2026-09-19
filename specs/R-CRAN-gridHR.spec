@@ -1,28 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  clogitL1
-%global packver   1.6
+%global packname  gridHR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fitting Exact Conditional Logistic Regression with Lasso and Elastic Net Penalties
+Summary:          Grid-Based Home-Range Analysis and Radial Space-Use Profiles
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.10.2
-Requires:         R-CRAN-Rcpp >= 0.10.2
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-sf 
 
 %description
-Tools for the fitting and cross validation of exact conditional logistic
-regression models with lasso and elastic net penalties. Uses cyclic
-coordinate descent and warm starts to compute the entire path efficiently.
+Tools for estimating and exploring animal home ranges from geographical
+locations using regular spatial grids of square or hexagonal cells; see
+Ford and Krumme (1979) <doi:10.1016/0022-5193(79)90366-7>. The package
+includes grid-based home-range estimation across different cell sizes,
+analyses of the relationship between grid-cell size and home-range area
+and spatial connectivity, and rarefaction analyses to evaluate how
+home-range estimates change with increasing numbers of locations. It also
+introduces a novel radial approach for characterizing the internal
+organization of space use by quantifying how space-use intensity changes
+with increasing distance from the centre toward the periphery of the home
+range.
 
 %prep
 %setup -q -c -n %{packname}

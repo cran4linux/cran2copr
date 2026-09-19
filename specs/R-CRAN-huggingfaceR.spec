@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  huggingfaceR
-%global packver   2.2.0
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          2.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access 'Hugging Face' Models and Datasets
 
@@ -50,7 +50,8 @@ tasks from tidy 'R' workflows without installing 'Python' by default.
 Results are returned as data frames or simple 'R' objects so they can be
 composed with 'dplyr', 'tidyr', and related tooling. Helpers also support
 Hub search, file download, provider discovery, and guarded uploads for
-authenticated workflows.
+authenticated workflows. Optional local embeddings and text classification
+use 'Python' through 'reticulate'.
 
 %prep
 %setup -q -c -n %{packname}

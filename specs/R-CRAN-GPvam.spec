@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GPvam
-%global packver   3.2-0
+%global packver   3.3-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.0
+Version:          3.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Maximum Likelihood Estimation of Multiple Membership Mixed Models Used in Value-Added Modeling
 
@@ -43,11 +43,13 @@ Requires:         R-CRAN-patchwork
 Requires:         R-CRAN-MASS 
 
 %description
-An EM algorithm, Karl et al. (2013) <doi:10.1016/j.csda.2012.10.004>, is
-used to estimate the generalized, variable, and complete persistence
-models, Mariano et al. (2010) <doi:10.3102/1076998609346967>. These are
-multiple-membership linear mixed models with teachers modeled as "G-side"
-effects and students modeled with either "G-side" or "R-side" effects.
+An EM algorithm, Karl et al. (2013) <doi:10.1016/j.csda.2012.10.004>,
+estimates generalized, reduced generalized, variable, complete, and zero
+persistence models by maximum likelihood or restricted maximum likelihood
+(the default). These are multiple-membership linear mixed models with
+teachers modeled as "G-side" effects and students modeled with either
+"G-side" or "R-side" effects; see Mariano et al. (2010)
+<doi:10.3102/1076998609346967>.
 
 %prep
 %setup -q -c -n %{packname}

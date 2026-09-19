@@ -1,28 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  clogitL1
-%global packver   1.6
+%global packname  ggrank
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fitting Exact Conditional Logistic Regression with Lasso and Elastic Net Penalties
+Summary:          Visualise Changes in Rankings with 'ggplot2'
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.10.2
-Requires:         R-CRAN-Rcpp >= 0.10.2
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
 
 %description
-Tools for the fitting and cross validation of exact conditional logistic
-regression models with lasso and elastic net penalties. Uses cyclic
-coordinate descent and warm starts to compute the entire path efficiently.
+Calculates, inspects, tabulates, and visualises changes in rankings across
+two to four ordered states. Creates 'ggplot2'-based rank-transition charts
+that retain categories entering or leaving a selected top-rank boundary.
+Supports ranks calculated from numeric values as well as authoritative
+ranks supplied without values.
 
 %prep
 %setup -q -c -n %{packname}

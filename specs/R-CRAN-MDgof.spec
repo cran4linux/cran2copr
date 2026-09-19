@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MDgof
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Various Methods for the Goodness-of-Fit Problem in D>1 Dimensions
 
@@ -16,6 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
+BuildRequires:    R-CRAN-MD2sample >= 1.4.0
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
@@ -26,7 +27,7 @@ BuildRequires:    R-CRAN-FNN
 BuildRequires:    R-CRAN-copula 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-MD2sample 
+Requires:         R-CRAN-MD2sample >= 1.4.0
 Requires:         R-CRAN-Rcpp 
 Requires:         R-parallel 
 Requires:         R-stats 
@@ -37,22 +38,18 @@ Requires:         R-CRAN-FNN
 Requires:         R-CRAN-copula 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-MD2sample 
 
 %description
-The routine gof_test() in this package runs the goodness-of-fit test using
-various test statistic for multivariate data. Models under the null
-hypothesis can either be simple or allow for parameter estimation. p
-values are found via the parametric bootstrap (simulation). The routine
-gof_test_adjusted_pvalues() runs several tests and then finds a p value
-adjusted for simultaneous inference. The routine gof_power() allows the
-estimation of the power of the tests. hybrid_test() and hybrid_power() do
-the same by first generating a Monte Carlo data set under the null
-hypothesis and then running a number of two-sample methods. The routine
-run.studies() allows a user to quickly study the power of a new method and
-how it compares to those included in the package via a large number of
-case studies. For details of the methods and references see the included
-vignettes.
+Provides multivariate goodness-of-fit testing with a common interface for
+several test statistics. Null models may be simple or include parameter
+estimation, with p-values obtained by parametric bootstrap simulation. The
+function gof_test_adjusted_pvalue() combines several tests and computes a
+p-value adjusted for simultaneous inference. The function gof_power()
+estimates test power. The functions hybrid_test() and hybrid_power() use
+Monte Carlo samples under the null together with two-sample procedures.
+The function run.studies() supports systematic power comparisons of
+user-supplied and included methods across case studies. See the included
+vignettes for method details and references.
 
 %prep
 %setup -q -c -n %{packname}

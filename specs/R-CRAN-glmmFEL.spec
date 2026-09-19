@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  glmmFEL
-%global packver   1.0.5
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Linear Mixed Models via Fully Exponential Laplace in EM
 
@@ -18,26 +18,24 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-numDeriv 
 Requires:         R-stats 
 Requires:         R-methods 
 
 %description
 Fit generalized linear mixed models (GLMMs) with normal random effects
 using first-order Laplace, fully exponential Laplace (FEL) with mean-only
-corrections, and FEL with mean and covariance corrections in the E-step of
-an expectation-maximization (EM) algorithm. The current development
-version provides a matrix-based interface (y, X, Z) and supports binary
-logit and probit, and Poisson log-link models. An EM framework is used to
-update fixed effects, random effects, and a single variance component
-tau^2 for G = tau^2 I, with staged approximations (Laplace -> FEL
-mean-only -> FEL full) for efficiency and stability. A pseudo-likelihood
-engine glmmFEL_pl() implements the working-response / working-weights
-linearization approach of Wolfinger and O'Connell (1993)
+corrections, and FEL with mean and variance-diagonal corrections in the
+E-step of an expectation-maximization (EM) algorithm. The current
+development version provides a matrix-based interface (y, X, Z) and
+supports binary logit and probit, and Poisson log-link models. An EM
+framework is used to update fixed effects, random effects, and a single
+variance component tau^2 for G = tau^2 I, with staged approximations
+(Laplace -> FEL mean-only -> FEL full) for efficiency and stability. A
+pseudo-likelihood engine glmmFEL_pl() implements the working-response /
+working-weights linearization approach of Wolfinger and O'Connell (1993)
 <doi:10.1080/00949659308811554>, and is adapted from the implementation
 used in the 'RealVAMS' package (Broatch, Green, and Karl (2018))
 <doi:10.32614/RJ-2018-033>. The FEL implementation follows Karl, Yang, and

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HeatStressR
-%global packver   2.2.1
+%global packver   2.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.1
+Version:          2.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate Heat Stress Indices
 
@@ -20,13 +20,9 @@ BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-doParallel 
 Requires:         R-stats 
 Requires:         R-CRAN-assertthat 
 Requires:         R-parallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-doParallel 
 
 %description
 Calculates heat-stress indices from meteorological observations, including

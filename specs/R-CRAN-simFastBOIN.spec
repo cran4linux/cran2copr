@@ -1,45 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  simFastBOIN
-%global packver   1.3.2
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Bayesian Optimal Interval Design for Phase I Dose-Finding Trials
+Summary:          Fast Simulation of Bayesian Optimal Interval Designs for Phase I Trials
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-kableExtra 
-BuildRequires:    R-CRAN-Iso 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
 BuildRequires:    R-stats 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-kableExtra 
-Requires:         R-CRAN-Iso 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-Rcpp >= 1.0.0
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Conducting Bayesian Optimal Interval (BOIN) design for phase I
-dose-finding trials. 'simFastBOIN' provides functions for pre-computing
-decision tables, conducting trial simulations, and evaluating operating
-characteristics. The package uses vectorized operations and the
-Iso::pava() function for isotonic regression to achieve efficient
-performance while maintaining full compatibility with BOIN methodology.
-Version 1.3.2 adds p_saf and p_tox parameters for customizable safety and
-toxicity thresholds. Version 1.3.1 fixes Date field. Version 1.2.1 adds
-comprehensive 'roxygen2' documentation and enhanced print formatting with
-flexible table output options. Version 1.2.0 integrated C-based PAVA for
-isotonic regression. Version 1.1.0 introduced conservative MTD selection
-(boundMTD) and flexible early stopping rules (n_earlystop_rule). Methods
-are described in Liu and Yuan (2015) <doi:10.1111/rssc.12089>.
+Design and evaluate phase I dose-finding trials that use the Bayesian
+optimal interval (BOIN) design of Liu and Yuan (2015)
+<doi:10.1111/rssc.12089>. Functions are provided to tabulate the decision
+boundaries, to simulate trials, to estimate the dose-toxicity curve under
+a monotonicity constraint and to select the maximum tolerated dose. The
+simulation engine is written in C++ and draws one random variate per
+patient in enrollment order, which reproduces the reference implementation
+in the 'BOIN' package trial by trial for a given seed. The traditional 3+3
+design is provided as a comparator, with operating characteristics
+obtained in closed form rather than by simulation.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ksamplesLTRC
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          K-Sample Tests for Truncated and/or Censored Data
 
@@ -19,15 +19,14 @@ Requires:         R-core
 BuildArch:        noarch
 
 %description
-Tools for the nonparametric analysis and comparison of distributions under
-left truncation and right censoring. The package includes simulation
-routines for truncated and/or censored survival data, nonparametric
-distribution comparison methods based on Kolmogorov-Smirnov-type and
-Cramér-von Mises-type statistics, and bootstrap routines for p-value
-approximation. For methodological details, see Lago, de Uña-Álvarez and
-Pardo-Fernández (2025) <doi:10.1007/s11749-024-00948-4> and Lago,
-Pardo-Fernández and de Uña-Álvarez (2026)
-<doi:10.1007/s10985-026-09713-1>.
+Nonparametric analysis and comparison of distributions under left
+truncation and right censoring. The package includes simulation routines
+for truncated and/or censored survival data, nonparametric distribution
+comparison methods based on Kolmogorov-Smirnov-type and Cramér-von
+Mises-type statistics, and bootstrap routines for p-value approximation.
+For methodological details, see Lago, de Uña-Álvarez and Pardo-Fernández
+(2025) <doi:10.1007/s11749-024-00948-4> and Lago, Pardo-Fernández and de
+Uña-Álvarez (2026) <doi:10.1007/s10985-026-09713-1>.
 
 %prep
 %setup -q -c -n %{packname}

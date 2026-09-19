@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dyads
-%global packver   1.2.1
+%global packver   1.2.22.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.2.22.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dyadic Network Analysis
 
@@ -20,25 +20,25 @@ BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-CholWishart 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-RcppZiggurat 
 BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-dplyr 
 Requires:         R-stats 
 Requires:         R-CRAN-CholWishart 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-RcppZiggurat 
 Requires:         R-CRAN-Rfast 
 Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-dplyr 
 
 %description
-Contains functions for the MCMC simulation of dyadic network models j2
-(Zijlstra, 2017, <doi:10.1080/0022250X.2017.1387858>) and p2 (Van Duijn,
-Snijders & Zijlstra, 2004, <doi: 10.1046/j.0039-0402.2003.00258.x>), the
-multilevel p2 model (Zijlstra, Van Duijn & Snijders (2009) <doi:
-10.1348/000711007X255336>), and the bidirectional (multilevel) counterpart
-of the the multilevel p2 model as described in Zijlstra, Van Duijn &
-Snijders (2009) <doi: 10.1348/000711007X255336>, the (multilevel) b2
-model.
+Contains functions for the MCMC simulation of (multilevel) dyadic network
+models j2 (Zijlstra, 2017, <doi:10.1080/0022250X.2017.1387858>) and p2
+(Van Duijn, Snijders & Zijlstra, 2004, <doi:
+10.1046/j.0039-0402.2003.00258.x>), the multilevel p2 model (Zijlstra, Van
+Duijn & Snijders (2009) <doi: 10.1348/000711007X255336>), and the
+bidirectional (multilevel) counterpart of the the multilevel p2 model as
+described in Zijlstra, Van Duijn & Snijders (2009) <doi:
+10.1348/000711007X255336>, the (multilevel) b2 model.
 
 %prep
 %setup -q -c -n %{packname}

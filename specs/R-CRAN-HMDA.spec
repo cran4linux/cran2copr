@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HMDA
-%global packver   0.3.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Holistic Multimodel Domain Analysis for Exploratory Machine Learning
 
@@ -22,7 +22,7 @@ BuildRequires:    R-CRAN-ggplot2 >= 3.4.2
 BuildRequires:    R-CRAN-h2o >= 3.34.0.0
 BuildRequires:    R-CRAN-psych >= 2.4.6
 BuildRequires:    R-CRAN-gridExtra >= 2.3
-BuildRequires:    R-CRAN-reshape2 >= 1.4.5
+BuildRequires:    R-CRAN-reshape2 >= 1.4.4
 BuildRequires:    R-CRAN-dplyr >= 1.1.4
 BuildRequires:    R-CRAN-splitTools >= 1.0.1
 BuildRequires:    R-CRAN-shapley >= 0.7
@@ -33,7 +33,7 @@ Requires:         R-CRAN-ggplot2 >= 3.4.2
 Requires:         R-CRAN-h2o >= 3.34.0.0
 Requires:         R-CRAN-psych >= 2.4.6
 Requires:         R-CRAN-gridExtra >= 2.3
-Requires:         R-CRAN-reshape2 >= 1.4.5
+Requires:         R-CRAN-reshape2 >= 1.4.4
 Requires:         R-CRAN-dplyr >= 1.1.4
 Requires:         R-CRAN-splitTools >= 1.0.1
 Requires:         R-CRAN-shapley >= 0.7
