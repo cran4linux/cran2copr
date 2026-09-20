@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  datacommons
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Client for the 'Google Data Commons API V2'
 
@@ -20,9 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-lifecycle 
 
 %description
 Access the 'Google Data Commons API V2'

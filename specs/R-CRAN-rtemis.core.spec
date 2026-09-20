@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rtemis.core
-%global packver   0.3.1
+%global packver   0.4.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Core Utilities for the 'rtemis' Ecosystem
 
-License:          GPL (>= 3)
+License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 

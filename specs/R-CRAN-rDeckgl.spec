@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rDeckgl
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Bindings to 'Deck.gl'
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-shiny >= 1.7.0
 BuildRequires:    R-CRAN-htmlwidgets >= 1.5.4
 BuildRequires:    R-CRAN-duckdb >= 1.4.0
 BuildRequires:    R-CRAN-DBI >= 1.1.0
+BuildRequires:    R-CRAN-htmltools >= 0.5.0
 BuildRequires:    R-CRAN-base64enc >= 0.1.3
 BuildRequires:    R-stats 
 Requires:         R-CRAN-yaml >= 2.3.0
@@ -33,6 +34,7 @@ Requires:         R-CRAN-shiny >= 1.7.0
 Requires:         R-CRAN-htmlwidgets >= 1.5.4
 Requires:         R-CRAN-duckdb >= 1.4.0
 Requires:         R-CRAN-DBI >= 1.1.0
+Requires:         R-CRAN-htmltools >= 0.5.0
 Requires:         R-CRAN-base64enc >= 0.1.3
 Requires:         R-stats 
 

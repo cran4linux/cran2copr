@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geobr
-%global packver   2.0.1
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download Official Spatial Data Sets of Brazil
 
@@ -14,20 +14,19 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-curl >= 5.0.0
 BuildRequires:    R-CRAN-arrow >= 20.0.0
+BuildRequires:    R-CRAN-duckdb >= 1.5.0
 BuildRequires:    R-CRAN-duckspatial >= 1.1.0
 BuildRequires:    R-CRAN-sf >= 0.9.3
 BuildRequires:    R-CRAN-dplyr >= 0.8.3
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-duckdb 
 BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-nanoarrow 
@@ -37,15 +36,14 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-utils 
 Requires:         R-CRAN-curl >= 5.0.0
 Requires:         R-CRAN-arrow >= 20.0.0
+Requires:         R-CRAN-duckdb >= 1.5.0
 Requires:         R-CRAN-duckspatial >= 1.1.0
 Requires:         R-CRAN-sf >= 0.9.3
 Requires:         R-CRAN-dplyr >= 0.8.3
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-duckdb 
 Requires:         R-CRAN-fs 
-Requires:         R-CRAN-glue 
 Requires:         R-CRAN-httr2 
 Requires:         R-methods 
 Requires:         R-CRAN-nanoarrow 
