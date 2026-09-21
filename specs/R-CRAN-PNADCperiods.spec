@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PNADCperiods
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Identify Reference Periods in Brazil's PNADC Survey Data
 
@@ -17,14 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-curl >= 5.0.0
 BuildRequires:    R-CRAN-checkmate >= 2.0.0
 BuildRequires:    R-CRAN-lubridate >= 1.9.4
+BuildRequires:    R-CRAN-jsonlite >= 1.8.0
 BuildRequires:    R-CRAN-data.table >= 1.14.0
-BuildRequires:    R-CRAN-sidrar >= 0.2.9
+Requires:         R-CRAN-curl >= 5.0.0
 Requires:         R-CRAN-checkmate >= 2.0.0
 Requires:         R-CRAN-lubridate >= 1.9.4
+Requires:         R-CRAN-jsonlite >= 1.8.0
 Requires:         R-CRAN-data.table >= 1.14.0
-Requires:         R-CRAN-sidrar >= 0.2.9
 
 %description
 Identifies reference periods (months, fortnights, and weeks) in Brazil's
@@ -46,8 +48,8 @@ smoothing to produce survey weights calibrated to SIDRA (Sistema IBGE de
 Recuperacao Automatica) population totals. Also includes a SIDRA
 mensalization module that converts 86+ official rolling quarter series
 from the IBGE SIDRA API (Application Programming Interface) into exact
-monthly estimates, without requiring access to microdata. Hecksher (2020)
-<https://repositorio.ipea.gov.br/handle/11058/9859>.
+monthly estimates, without requiring access to microdata. Hecksher and
+Barbosa (2026) <https://osf.io/preprints/socarxiv/fra5u_v1>.
 
 %prep
 %setup -q -c -n %{packname}

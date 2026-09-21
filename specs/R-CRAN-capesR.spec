@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  capesR
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access to CAPES Data
 
@@ -34,7 +34,7 @@ Requires:         R-utils
 Provides simplified access to the data from the Catalog of Theses and
 Dissertations of the Brazilian Coordination for the Improvement of Higher
 Education Personnel (CAPES, <https://catalogodeteses.capes.gov.br>) for
-the years 1987 through 2022. The dataset includes variables such as Higher
+the years 1987 through 2024. The dataset includes variables such as Higher
 Education Institution (institution), Area of Concentration (area),
 Graduate Program Name (program_name), Type of Work (type), Language of
 Work (language), Author Identification (author), Abstract (abstract),

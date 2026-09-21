@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  huxtable
-%global packver   6.0.1
+%global packver   6.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.0.1
+Version:          6.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easily Create and Style Tables for LaTeX, HTML and Other Formats
 

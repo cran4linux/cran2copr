@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RprobitB
-%global packver   1.2.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Probit Choice Modeling
 
@@ -16,62 +16,48 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-oeli >= 0.7.5
+BuildRequires:    R-CRAN-oeli >= 0.7.8
+BuildRequires:    R-CRAN-choicedata >= 0.2.0
+BuildRequires:    R-CRAN-bayesplot 
+BuildRequires:    R-CRAN-bridgesampling 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-doSNOW 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mixtools 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-plotROC 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-loo 
+BuildRequires:    R-CRAN-posterior 
+BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-viridis 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-testthat 
-Requires:         R-CRAN-oeli >= 0.7.5
+Requires:         R-CRAN-oeli >= 0.7.8
+Requires:         R-CRAN-choicedata >= 0.2.0
+Requires:         R-CRAN-bayesplot 
+Requires:         R-CRAN-bridgesampling 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-doSNOW 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-graphics 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mixtools 
-Requires:         R-parallel 
-Requires:         R-CRAN-plotROC 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-Formula 
+Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-loo 
+Requires:         R-CRAN-posterior 
+Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-viridis 
 
 %description
-Bayes estimation of probit choice models in cross-sectional and panel
-settings. The package can analyze binary, multivariate, ordered, and
-ranked choices, as well as heterogeneity of choice behavior among
-deciders. The main functionality includes model fitting via Gibbs
-sampling, tools for convergence diagnostic, choice data simulation,
-in-sample and out-of-sample choice prediction, and model selection using
-information criteria and Bayes factors. The latent class model extension
-facilitates preference-based decider classification, where the number of
-latent classes can be inferred via the Dirichlet process or a weight-based
-updating heuristic. This allows for flexible modeling of choice behavior
-without the need to impose structural constraints. For a reference on the
-method, see Oelschlaeger and Bauer (2021)
+Fits Bayesian probit models for binary, multinomial, ordered, and ranked
+choices in cross-sectional and panel data. Correlated or uncorrelated
+normal and log-normal random coefficients, finite mixtures, sparse finite
+mixtures, and Dirichlet process mixtures describe preference
+heterogeneity. Multiple Gibbs chains produce posterior draws for
+diagnostics and choice prediction. Empirical model data can be supplied as
+a data frame or simulated from the requested specification. For an
+overarching treatment of the methodology, see Oelschlaeger (2026)
+<https://pub.uni-bielefeld.de/record/3014719>. The latent-class model is
+described in Oelschlaeger and Bauer (2021)
 <https://trid.trb.org/view/1759753>.
 
 %prep

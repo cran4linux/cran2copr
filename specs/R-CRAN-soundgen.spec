@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  soundgen
-%global packver   2.9.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9.0
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sound Synthesis and Acoustic Analysis
 
@@ -17,49 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-stats >= 4.0.0
-BuildRequires:    R-CRAN-seewave >= 2.1.6
+BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-tuneR 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-dtw 
-BuildRequires:    R-CRAN-phonTools 
 BuildRequires:    R-CRAN-signal 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinyjs 
-BuildRequires:    R-CRAN-bslib 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-nonlinearTseries 
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-stats >= 4.0.0
-Requires:         R-CRAN-seewave >= 2.1.6
+BuildRequires:    R-CRAN-phonTools 
+Requires:         R-stats 
 Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-utils 
 Requires:         R-CRAN-tuneR 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-dtw 
-Requires:         R-CRAN-phonTools 
 Requires:         R-CRAN-signal 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinyjs 
-Requires:         R-CRAN-bslib 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-nonlinearTseries 
-Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-phonTools 
 
 %description
-Performs parametric synthesis of sounds with harmonic and noise components
-such as animal vocalizations or human voice. Also offers tools for audio
-manipulation and acoustic analysis, including pitch tracking, spectral
-analysis, audio segmentation, pitch and formant shifting, etc. Includes
-four interactive web apps for synthesizing and annotating audio, manually
-correcting pitch contours, and measuring formant frequencies. Reference:
-Anikin (2019) <doi:10.3758/s13428-018-1095-7>.
+Parametric source-filter synthesis of harmonic-noise signals, such as
+animal vocalizations and human voice, with control over pitch, formants,
+noise, amplitude modulation, nonlinear phenomena, and morphing. General
+signal processing tools for audio analysis and manipulation: pitch
+tracking, formant and vocal tract length estimation, reassigned and
+auditory spectrograms, modulation spectra and psychoacoustic roughness,
+self-similarity and surprisal, audio segmentation, pitch and formant
+shifting, etc. Includes four interactive web apps for audio synthesis,
+annotation, formant analysis, and manually correcting pitch contours.
+Reference: Anikin (2019) <doi:10.3758/s13428-018-1095-7>.
 
 %prep
 %setup -q -c -n %{packname}

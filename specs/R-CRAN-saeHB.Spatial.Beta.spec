@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  saeHB.Spatial.Beta
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Small Area Estimation Hierarchical Bayes for Spatial Beta Model
 
@@ -17,14 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rjags 
+BuildRequires:    R-CRAN-runjags 
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-stats 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-spdep 
-Requires:         R-CRAN-rjags 
+Requires:         R-CRAN-runjags 
 Requires:         R-CRAN-coda 
 Requires:         R-stats 
 Requires:         R-grDevices 
@@ -37,22 +37,22 @@ Provides several functions and datasets for area-level Small Area
 Estimation using the Hierarchical Bayesian (HB) method. Model-based
 estimators are designed for variables of interest that follow a Beta
 distribution (proportions bounded between 0 and 1). The package supports
-both non-spatial models and spatial models based on the Simultaneous
-Autoregressive (SAR) and Leroux Conditional Autoregressive (CAR)
-structures, with optional survey design effect (DEFF) adjustments. In
-addition, it provides utility functions for constructing spatial weights
-matrices and performing spatial autocorrelation diagnostics. The 'rjags'
-package is used to obtain posterior estimates via Markov Chain Monte Carlo
-(MCMC). For references, see Rao and Molina (2015)
-<doi:10.1002/9781118735855>, Liu (2009)
-<https://api.drum.lib.umd.edu/server/api/core/bitstreams/cb8e2cbf-441e-4f0f-b4b3-6182f3cf24de/content>,
-Liu et al. (2014)
+both non-spatial and spatial models based on Simultaneous Autoregressive
+(SAR) and Leroux Conditional Autoregressive (CAR) structures for
+area-level random effects, with optional survey design effect (DEFF)
+adjustments for sampling variances. In addition, it provides utility
+functions for constructing spatial weights matrices and performing spatial
+autocorrelation diagnostics. The 'runjags' package is used to obtain
+posterior estimates via Markov Chain Monte Carlo (MCMC) with parallel
+computing capabilities. For references, see Rao and Molina (2015)
+<doi:10.1002/9781118735855>, Liu et al. (2014)
 <https://www150.statcan.gc.ca/n1/pub/12-001-x/2014001/article/14030-eng.pdf>,
 Kubacki and Jedrzejczak (2016) <doi:10.59170/stattrans-2016-022>, Leroux
 et al. (2000) <doi:10.1007/978-1-4612-1284-3_4>, Chung and Datta (2020)
 <https://www.census.gov/content/dam/Census/library/working-papers/2020/adrm/RRS2020-07.pdf>,
-Anselin (1988) <doi:10.1007/978-94-015-7799-1>, and Anselin and Morrison
-(2019)
+Figueroa-Zúñiga et al. (2013) <doi:10.1016/j.csda.2012.12.002>, Denwood
+(2016) <doi:10.18637/jss.v071.i09>, Anselin (1988)
+<doi:10.1007/978-94-015-7799-1>, and Anselin and Morrison (2019)
 <https://spatialanalysis.github.io/lab_tutorials/Spatial_Weights_as_Distance_Functions.html>.
 
 %prep

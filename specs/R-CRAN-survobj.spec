@@ -1,21 +1,21 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  survobj
-%global packver   3.1.1
+%global packver   3.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.1
+Version:          3.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Objects to Simulate Survival Times
+Summary:          Simulate Parametric and Semi-Parametric Survival Times with Object-Oriented Design
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
@@ -27,10 +27,15 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-survival 
 
 %description
-Generate objects that simulate survival times. Random values for the
-distributions are generated using the method described by Bender (2003)
-<https://epub.ub.uni-muenchen.de/id/eprint/1716> and Leemis (1987) in
-Operations Research, 35(6), 892–894.
+Simulate parametric and semi-parametric survival times through a
+consistent, reusable interface for each distribution, using an
+object-oriented design. Supported distributions include Exponential,
+Weibull, Gompertz, Log-Logistic, Log-Normal, and Piecewise Exponential.
+Random variates can be generated under Proportional Hazards, Accelerated
+Failure Time, and Extended Hazards models, as well as under renewal and
+non-homogeneous Poisson recurrent event processes, following the methods
+described by Bender (2003) <doi:10.5282/UBM/EPUB.1716> and Leemis (1987)
+in Operations Research, 35(6), 892-894.
 
 %prep
 %setup -q -c -n %{packname}

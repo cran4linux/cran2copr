@@ -1,71 +1,64 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PUMP
-%global packver   1.0.5
+%global packname  isotracer
+%global packver   1.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.1.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Power Under Multiplicity Project
+Summary:          Isotopic Tracer Analysis Using MCMC
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-rstan >= 2.26.0
+BuildRequires:    R-CRAN-StanHeaders >= 2.26.0
+BuildRequires:    R-CRAN-BH >= 1.72.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.4
+BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.7.0
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggthemes 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-latex2exp 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-pillar 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-randomizr 
-BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-rstantools 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-RcppParallel 
+BuildRequires:    R-CRAN-rstantools
+Requires:         R-CRAN-rstan >= 2.26.0
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggthemes 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-latex2exp 
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-parallel 
+Requires:         R-CRAN-pillar 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-randomizr 
-Requires:         R-CRAN-readr 
+Requires:         R-CRAN-Rcpp >= 1.0.4
 Requires:         R-CRAN-rlang 
-Requires:         R-stats 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-rstantools 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-rstantools
 
 %description
-Estimates power, minimum detectable effect size (MDES) and sample size
-requirements. The context is multilevel randomized experiments with
-multiple outcomes. The estimation takes into account the use of multiple
-testing procedures. Development of this package was supported by a grant
-from the Institute of Education Sciences (R305D170030). For a full package
-description, including a detailed technical appendix, see
-<doi:10.18637/jss.v108.i06>.
+Implements Bayesian models to analyze data from tracer addition
+experiments. The implemented method was originally described in the
+article "A New Method to Reconstruct Quantitative Food Webs and Nutrient
+Flows from Isotope Tracer Addition Experiments" by López-Sepulcre et al.
+(2020) <doi:10.1086/708546>.
 
 %prep
 %setup -q -c -n %{packname}

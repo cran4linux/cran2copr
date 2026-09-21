@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  clinDR
-%global packver   2.5.2
+%global packver   2.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.2
+Version:          2.5.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulation and Analysis Tools for Clinical Dose Response Modeling
 
@@ -34,6 +34,7 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-waiter 
+BuildRequires:    R-CRAN-officer 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-rstan >= 2.17.3
 Requires:         R-CRAN-shiny 
@@ -52,6 +53,7 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-waiter 
+Requires:         R-CRAN-officer 
 Requires:         R-CRAN-rstantools
 
 %description

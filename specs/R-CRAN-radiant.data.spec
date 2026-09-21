@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  radiant.data
-%global packver   1.6.8
+%global packver   1.6.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.8
+Version:          1.6.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Menu for Radiant: Business Analytics using R and Shiny
 
