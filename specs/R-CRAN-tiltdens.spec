@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  daoh
-%global packver   0.2.6
+%global packname  tiltdens
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Days Alive and Out of Hospital (DAOH) Calculation
+Summary:          Tilted and Data-Sharpened Nonparametric Density Estimation
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,19 +17,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-data.table >= 1.14.0
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-data.table >= 1.14.0
-Requires:         R-CRAN-scales 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-quadprog 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-CRAN-quadprog 
 
 %description
-Calculates Days Alive and Out of Hospital (DAOH) from administrative
-admission/discharge/mortality data using three algorithms (nights, days,
-exact) and three death-handling approaches (midday, midnight, zero).
-Includes tools for comparing methods (Bland-Altman, ICC,
-reclassification), and plotting.
+High-order nonparametric density estimators built by perturbing a
+conventional kernel estimator, either by re-weighting the observations
+("tilting") or by moving them ("data sharpening"). The perturbation is
+chosen so that the estimator inherits the fast convergence rate of an
+infinite-order kernel estimator, such as the sinc or trapezoidal flat-top
+estimator, while remaining a proper non-negative density without the
+oscillatory tails those estimators suffer from. Two criteria are provided:
+minimising the L2 distance to an infinite-order comparator, following
+Doosti and Hall (2016) <doi:10.1111/rssb.12112>, and minimising a
+cross-validation criterion that needs no comparator and is much faster,
+following Doosti, Hall and Mateu (2018) <doi:10.1016/j.jspi.2017.12.003>.
 
 %prep
 %setup -q -c -n %{packname}

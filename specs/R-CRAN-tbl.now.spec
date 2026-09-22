@@ -1,48 +1,66 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sensortowerR
-%global packver   2.0.0
+%global packname  tbl.now
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tidy Pipelines for the 'Sensor Tower' API
+Summary:          Tidy Data and Workflow Layer for Epidemic Nowcasting
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr2 >= 1.2.0
-BuildRequires:    R-CRAN-dplyr >= 1.1.1
-BuildRequires:    R-CRAN-purrr >= 1.0.0
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-openssl 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-pillar 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-S7 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-httr2 >= 1.2.0
-Requires:         R-CRAN-dplyr >= 1.1.1
-Requires:         R-CRAN-purrr >= 1.0.0
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-generics 
+Requires:         R-grid 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-openssl 
+Requires:         R-methods 
+Requires:         R-CRAN-pillar 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-S7 
+Requires:         R-CRAN-scales 
+Requires:         R-stats 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-utils 
 
 %description
-Retrieves mobile app intelligence from the 'Sensor Tower' API
-<https://app.sensortower.com/api/docs/app_analysis>. Composes discovery,
-metadata, rankings, sales, audience and specialist estimates through
-ordinary data frames with explicit identifiers, units and error handling.
+Defines tidy data structures and package-agnostic workflows for
+epidemiological nowcasting. The 'tbl_now' class records event, report, and
+revision dates alongside strata, covariates, censoring, and
+reporting-delay metadata while remaining compatible with 'dplyr'. Tools
+support validation, manipulation, diagnostics, visualization, format
+conversion, retrospective evaluation, and multiple modelling engines. The
+'tbl_nowcast' class standardizes probabilistic predictions for plotting,
+scoring, comparison, and ensembling.
 
 %prep
 %setup -q -c -n %{packname}

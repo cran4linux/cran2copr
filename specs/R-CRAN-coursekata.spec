@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  coursekata
-%global packver   0.20.1
+%global packver   0.21.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.20.1
+Version:          0.21.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Packages and Functions for 'CourseKata' Courses
 
@@ -17,35 +17,35 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.5.2
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.2
 BuildRequires:    R-CRAN-cli >= 3.2.0
 BuildRequires:    R-CRAN-supernova >= 2.5.1
 BuildRequires:    R-CRAN-glue >= 1.6.2
 BuildRequires:    R-CRAN-mosaic >= 1.10.2
 BuildRequires:    R-CRAN-lifecycle >= 1.0.3
 BuildRequires:    R-CRAN-rlang >= 1.0.2
+BuildRequires:    R-CRAN-ggformula >= 1.0.0
 BuildRequires:    R-CRAN-dslabs >= 0.7.4
 BuildRequires:    R-CRAN-lsr >= 0.5.2
 BuildRequires:    R-CRAN-vctrs >= 0.4.1
 BuildRequires:    R-CRAN-purrr >= 0.3.4
-BuildRequires:    R-CRAN-ggformula >= 0.12.0
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-Metrics 
 BuildRequires:    R-CRAN-palmerpenguins 
 BuildRequires:    R-CRAN-remotes 
 BuildRequires:    R-CRAN-viridisLite 
-Requires:         R-CRAN-ggplot2 >= 3.5.2
+Requires:         R-CRAN-ggplot2 >= 4.0.2
 Requires:         R-CRAN-cli >= 3.2.0
 Requires:         R-CRAN-supernova >= 2.5.1
 Requires:         R-CRAN-glue >= 1.6.2
 Requires:         R-CRAN-mosaic >= 1.10.2
 Requires:         R-CRAN-lifecycle >= 1.0.3
 Requires:         R-CRAN-rlang >= 1.0.2
+Requires:         R-CRAN-ggformula >= 1.0.0
 Requires:         R-CRAN-dslabs >= 0.7.4
 Requires:         R-CRAN-lsr >= 0.5.2
 Requires:         R-CRAN-vctrs >= 0.4.1
 Requires:         R-CRAN-purrr >= 0.3.4
-Requires:         R-CRAN-ggformula >= 0.12.0
 Requires:         R-grid 
 Requires:         R-CRAN-Metrics 
 Requires:         R-CRAN-palmerpenguins 

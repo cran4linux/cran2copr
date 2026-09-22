@@ -1,35 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  daoh
-%global packver   0.2.6
+%global packname  tradeIndices
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Days Alive and Out of Hospital (DAOH) Calculation
+Summary:          International Trade Intensity, Openness and Diversification Measures
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-data.table >= 1.14.0
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-data.table >= 1.14.0
-Requires:         R-CRAN-scales 
 
 %description
-Calculates Days Alive and Out of Hospital (DAOH) from administrative
-admission/discharge/mortality data using three algorithms (nights, days,
-exact) and three death-handling approaches (midday, midnight, zero).
-Includes tools for comparing methods (Bland-Altman, ICC,
-reclassification), and plotting.
+Calculates commonly used indicators for empirical international trade
+analysis from user-supplied data. Measures include trade openness,
+bilateral export and import intensity, the Herfindahl-Hirschman
+concentration index, normalized and entropy-based diversification,
+structural diversification relative to a benchmark, export similarity,
+trade complementarity, revealed comparative advantage, and intra-industry
+trade. Functions are vectorized where appropriate, validate economically
+meaningful inputs, and require no external data service. The definition of
+trade openness follows the World Bank indicator metadata
+<https://data.worldbank.org/indicator/NE.TRD.GNFS.ZS>. Methodological
+background for several trade indicators is provided by the World Bank's
+World Integrated Trade Solution
+<https://wits.worldbank.org/wits/wits/witshelp/Content/Utilities/e1.trade_indicators.htm>
+and the World Trade Organization (2012, ISBN:9789287038128).
 
 %prep
 %setup -q -c -n %{packname}

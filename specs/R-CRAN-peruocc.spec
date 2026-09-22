@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  shinygenui
-%global packver   0.2.0
+%global packname  peruocc
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generative UI for 'shiny'
+Summary:          Query and Standardize Biodiversity Occurrences in Peru
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,40 +17,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shinychat >= 0.5.0
-BuildRequires:    R-CRAN-ellmer >= 0.4.1
-BuildRequires:    R-CRAN-bslib 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-geoperu 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-whisker 
-Requires:         R-CRAN-shinychat >= 0.5.0
-Requires:         R-CRAN-ellmer >= 0.4.1
-Requires:         R-CRAN-bslib 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rgbif 
+BuildRequires:    R-CRAN-rinat 
+BuildRequires:    R-CRAN-sf 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-geoperu 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-shiny 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-whisker 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rgbif 
+Requires:         R-CRAN-rinat 
+Requires:         R-CRAN-sf 
 
 %description
-Build interactive user interfaces for 'shiny' applications through a
-conversation with a large language model (LLM). Developers choose a set of
-reusable components, and the model arranges and updates those components
-as the user describes what they need. Each component's inputs are checked
-before it is shown, and the model supplies data rather than executable
-code. Applications can also save and replay the sequence of interface
-changes without contacting a model. For background on generative user
-interfaces, see Leviathan et al. (2026) <doi:10.48550/arXiv.2604.09577>.
+Facilitates the retrieval, spatial validation, and integration of flora
+and fauna occurrence records across administrative units (districts and
+provinces) in Peru. Retrieves official boundary geometries via 'geoperu',
+queries and consolidates observations from the Global Biodiversity
+Information Facility (GBIF, <https://www.gbif.org/>) and 'iNaturalist'
+(<https://www.inaturalist.org/>), and standardizes attributes into a
+unified Darwin Core aligned structure. Designed for biodiversity
+assessments and spatial workflows within user-defined areas of interest.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,47 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pretestcad
-%global packver   1.2.0
+%global packname  summarisebig
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pretest Probability for Coronary Artery Disease
+Summary:          Grouped Summaries for Large 'arrow' Datasets
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-furrr >= 0.4.0
+BuildRequires:    R-CRAN-arrow 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-future.mirai 
+BuildRequires:    R-CRAN-futurize 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-cli 
+Requires:         R-CRAN-furrr >= 0.4.0
+Requires:         R-CRAN-arrow 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-future.mirai 
+Requires:         R-CRAN-futurize 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
 
 %description
-An application to calculate a patient's pretest probability (PTP) for
-obstructive Coronary Artery Disease (CAD) from a collection of guidelines
-or studies. Guidelines usually comes from the American Heart Association
-(AHA), American College of Cardiology (ACC) or European Society of
-Cardiology (ESC). Examples of PTP scores that comes from studies are the
-2020 Winther et al. basic, Risk Factor-weighted Clinical Likelihood
-(RF-CL) and Coronary Artery Calcium Score-weighted Clinical Likelihood
-(CACS-CL) models <doi:10.1016/j.jacc.2020.09.585>, 2019 Reeh et al. basic
-and clinical models <doi:10.1093/eurheartj/ehy806> and 2017 Fordyce et al.
-PROMISE Minimal-Risk Tool <doi:10.1001/jamacardio.2016.5501>.  As
-diagnosis of CAD involves a costly and invasive coronary angiography
-procedure for patients, having a reliable PTP for CAD helps doctors to
-make better decisions during patient management.  This ensures high risk
-patients can be diagnosed and treated early for CAD while avoiding
-unnecessary testing for low risk patients.
+Provides a 'dplyr'-like interface for grouped summaries on large 'arrow'
+datasets. Complete summaries are attempted in 'arrow' first. When a result
+can be reconstructed from 'arrow'-computable sufficient statistics, an
+explicit MapReduce-style reduction and 'R' finalization strategy is
+available. For arbitrary 'R' functions that require raw group
+observations, complete groups are materialized in bounded chunks, with
+optional parallel execution and shared-memory processing. The MapReduce
+strategy follows the programming model described by Dean and Ghemawat
+(2008) <doi:10.1145/1327452.1327492>.
 
 %prep
 %setup -q -c -n %{packname}

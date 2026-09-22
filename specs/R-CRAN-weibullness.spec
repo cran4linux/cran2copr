@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  weibullness
-%global packver   1.24.1
+%global packver   2.26.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.24.1
+Version:          2.26.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Goodness-of-Fit Test for Weibull Distribution (Weibullness)
 
@@ -19,10 +19,8 @@ Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-methods 
 Requires:         R-graphics 
 Requires:         R-stats 
-Requires:         R-methods 
 
 %description
 Conducts a goodness-of-fit test for the Weibull distribution (referred to
@@ -35,8 +33,7 @@ parameter estimations. For more details, see Park (2017)
 <doi:10.23055/ijietap.2017.24.4.2848>, Park (2018)
 <doi:10.1155/2018/6056975>, and Park (2023) <doi:10.3390/math11143156>.
 This work was supported by the National Research Foundation of Korea (NRF)
-grants funded by the Korea government (MSIT) (No. 2022R1A2C1091319,
-RS-2023-00242528).
+grants funded by the Korea government (No. 2022R1A2C1091319).
 
 %prep
 %setup -q -c -n %{packname}

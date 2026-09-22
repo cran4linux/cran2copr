@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  NonCompart
-%global packver   0.8.3
+%global packver   0.8.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.3
+Version:          0.8.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Noncompartmental Analysis for Pharmacokinetic Data
 
@@ -33,17 +33,18 @@ Conduct a noncompartmental analysis with industrial strength. Some
 features are 1) Use of CDISC SDTM terms 2) Automatic or manual slope
 selection 3) Supporting both 'linear-up linear-down' and 'linear-up
 log-down' method 4) Interval(partial) AUCs with 'linear' or 'log'
-interpolation method 5) Installation/Operational Qualification (IQ/OQ)
-reports in pdf. After installation, qualify the package in your own
-environment: run IQNCA() for Installation Qualification and OQNCA() for
-Operational Qualification. Run writeMD5NCA() once after installation so
-the IQ file-integrity check passes. To approve a report, sign it digitally
-in Adobe Acrobat Reader (generate with sigField=TRUE, or run
-addSigFieldNCA(), to add click-to-sign fields), instead of printing and
-scanning; or use signPDFNCA()/verifyPDFNCA() for a scriptable signature. *
-Reference: Gabrielsson J, Weiner D. Pharmacokinetic and Pharmacodynamic
-Data Analysis - Concepts and Applications. 5th ed. 2016.
-(ISBN:9198299107).
+interpolation method 5) Steady-state analysis over the dosing interval
+(AUCTAU, CAVG, CL and Vz from AUCTAU) 6) Installation/Operational
+Qualification (IQ/OQ) reports in pdf. After installation, qualify the
+package in your own environment: run IQNCA() for Installation
+Qualification and OQNCA() for Operational Qualification. Run writeMD5NCA()
+once after installation so the IQ file-integrity check passes. To approve
+a report, sign it digitally in Adobe Acrobat Reader (generate with
+sigField=TRUE, or run addSigFieldNCA(), to add click-to-sign fields),
+instead of printing and scanning; or use signPDFNCA()/verifyPDFNCA() for a
+scriptable signature. * Reference: Gabrielsson J, Weiner D.
+Pharmacokinetic and Pharmacodynamic Data Analysis - Concepts and
+Applications. 5th ed. 2016. (ISBN:9198299107).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,35 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  daoh
-%global packver   0.2.6
+%global packname  CausalLoopAnalytics
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Days Alive and Out of Hospital (DAOH) Calculation
+Summary:          Data-Driven Causal Loop and Feedback Network Analysis
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-data.table >= 1.14.0
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-data.table >= 1.14.0
-Requires:         R-CRAN-scales 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
-Calculates Days Alive and Out of Hospital (DAOH) from administrative
-admission/discharge/mortality data using three algorithms (nights, days,
-exact) and three death-handling approaches (midday, midnight, zero).
-Includes tools for comparing methods (Bland-Altman, ICC,
-reclassification), and plotting.
+Provides tools for constructing signed causal-loop models, discovering
+directed causal relationships from time-series data using Granger-style
+tests, identifying and classifying reinforcing and balancing feedback
+loops, quantifying loop strength, assessing loop stability by bootstrap
+resampling, calculating network centrality and leverage-point scores,
+comparing causal-loop models, and producing publication-ready base R
+visualizations and summaries. The package is domain-agnostic and can be
+used in human medicine, veterinary medicine, agriculture, epidemiology,
+ecology, public health, and One Health. Methods are based on Granger
+(1969) <doi:10.2307/1912791> and Efron (1979)
+<doi:10.1214/aos/1176344552>.
 
 %prep
 %setup -q -c -n %{packname}

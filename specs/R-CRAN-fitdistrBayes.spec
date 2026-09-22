@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fitdistrBayes
-%global packver   0.2.3
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Objective Bayesian Distribution Fitting
 
@@ -27,7 +27,12 @@ moment conditions are checked before computation when registered or
 supplied. Exact simulation, marginalization, slice sampling, adaptive
 Metropolis, and user-supplied posterior samplers share a common interface
 for summaries, diagnostics, prediction, and pointwise log-likelihood
-evaluation. The reference-prior framework follows Bernardo (1979)
+evaluation. A separate interface fits independently right-censored
+observations using the registered complete-data priors, observed-data
+likelihood sampling or data augmentation, with sufficient
+posterior-propriety checks. Optional post-processing provides WAIC,
+PSIS-LOO, and DIC for observed-data likelihoods. The reference-prior
+framework follows Bernardo (1979)
 <doi:10.1111/j.2517-6161.1979.tb01066.x>.
 
 %prep

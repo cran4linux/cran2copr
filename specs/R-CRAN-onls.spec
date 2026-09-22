@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  onls
-%global packver   0.1-4
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Orthogonal Nonlinear Least-Squares Regression
 
@@ -18,10 +18,12 @@ BuildRequires:    R-devel >= 2.13.0
 Requires:         R-core >= 2.13.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-minpack.lm 
+BuildRequires:    R-CRAN-rgl 
 Requires:         R-CRAN-minpack.lm 
+Requires:         R-CRAN-rgl 
 
 %description
-Fits two-dimensional data by means of orthogonal nonlinear least-squares
+Fits n-dimensional data by means of orthogonal nonlinear least-squares
 using Levenberg-Marquardt minimization and provides functionality for fit
 diagnostics and plotting. Delivers the same results as the 'ODRPACK'
 Fortran implementation described in Boggs et al. (1989)

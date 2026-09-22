@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GREENREG
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tool for Statistical and Environmental Analysis
 
@@ -34,7 +34,12 @@ Lineal Simple'), Multiple Linear Regression (RLM, from the Spanish
 series analysis through Autoregressive Integrated Moving Average (ARIMA)
 models. Designed to support teaching at the Universidad Autónoma Chapingo,
 it facilitates results interpretation and assumption validation through
-automatic graphical diagnostics. Methods for regression and time series
+automatic graphical diagnostics. Developed as part of an undergraduate
+thesis at the Universidad Autónoma Chapingo, under the supervision of Dr.
+Julio César Buendía Espinoza (thesis advisor), with the participation of
+the thesis committee: Diego Ernesto Lira González (secretary), Israel
+Lerma Serna (member), Juan Uriel Avelar Roblero (alternate), and Elisa del
+Carmen Martínez Ochoa (alternate). Methods for regression and time series
 are based on Montgomery et al. (2021, ISBN:978-1119570141) and Box &
 Jenkins (1970, ISBN:978-0816211043).
 

@@ -1,35 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  daoh
-%global packver   0.2.6
+%global packname  ValCurvaR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Days Alive and Out of Hospital (DAOH) Calculation
+Summary:          Validation of Analytical Calibration Curves
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-data.table >= 1.14.0
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-data.table >= 1.14.0
-Requires:         R-CRAN-scales 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-lmtest 
+BuildRequires:    R-CRAN-nortest 
+BuildRequires:    R-CRAN-outliers 
+BuildRequires:    R-stats 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-lmtest 
+Requires:         R-CRAN-nortest 
+Requires:         R-CRAN-outliers 
+Requires:         R-stats 
 
 %description
-Calculates Days Alive and Out of Hospital (DAOH) from administrative
-admission/discharge/mortality data using three algorithms (nights, days,
-exact) and three death-handling approaches (midday, midnight, zero).
-Includes tools for comparing methods (Bland-Altman, ICC,
-reclassification), and plotting.
+Provides transparent tools for fitting and evaluating analytical
+calibration curves. Ordinary and weighted least squares fits are
+supported, together with lack-of-fit, heteroscedasticity and influence
+diagnostics, back-calculation, prediction uncertainty and
+publication-ready base graphics. The workflow is designed to support
+validation studies rather than rely on a single goodness-of-fit statistic.
+Methods follow Magnusson and Ornemark (2014)
+<https://www.eurachem.org/images/stories/Guides/pdf/MV_guide_2nd_ed_EN.pdf>
+and International Council for Harmonisation (2023)
+<https://database.ich.org/sites/default/files/ICH_Q2%%28R2%%29_Guideline_2023_1130_ErrorCorrection_2025.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

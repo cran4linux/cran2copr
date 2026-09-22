@@ -1,35 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  daoh
-%global packver   0.2.6
+%global packname  ASMap
+%global packver   1.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Days Alive and Out of Hospital (DAOH) Calculation
+Summary:          Linkage Map Construction using the MSTmap Algorithm
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-data.table >= 1.14.0
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-data.table >= 1.14.0
-Requires:         R-CRAN-scales 
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
+BuildRequires:    R-CRAN-qtl 
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-gtools 
+Requires:         R-CRAN-qtl 
+Requires:         R-CRAN-lattice 
+Requires:         R-CRAN-fields 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-gtools 
 
 %description
-Calculates Days Alive and Out of Hospital (DAOH) from administrative
-admission/discharge/mortality data using three algorithms (nights, days,
-exact) and three death-handling approaches (midday, midnight, zero).
-Includes tools for comparing methods (Bland-Altman, ICC,
-reclassification), and plotting.
+Functions for Accurate and Speedy linkage map construction, manipulation
+and diagnosis of Doubled Haploid, Backcross and Recombinant Inbred 'R/qtl'
+objects. This includes extremely fast linkage map clustering and optimal
+marker ordering using 'MSTmap' (see Wu et al.,2008).
 
 %prep
 %setup -q -c -n %{packname}

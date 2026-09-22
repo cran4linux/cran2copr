@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  shinygenui
-%global packver   0.2.0
+%global packname  exposureEM
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generative UI for 'shiny'
+Summary:          Combined-Exposure Models by EM and Marquardt Optimization
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,40 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shinychat >= 0.5.0
-BuildRequires:    R-CRAN-ellmer >= 0.4.1
-BuildRequires:    R-CRAN-bslib 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-whisker 
-Requires:         R-CRAN-shinychat >= 0.5.0
-Requires:         R-CRAN-ellmer >= 0.4.1
-Requires:         R-CRAN-bslib 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-shiny 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-whisker 
 
 %description
-Build interactive user interfaces for 'shiny' applications through a
-conversation with a large language model (LLM). Developers choose a set of
-reusable components, and the model arranges and updates those components
-as the user describes what they need. Each component's inputs are checked
-before it is shown, and the model supplies data rather than executable
-code. Applications can also save and replay the sequence of interface
-changes without contacting a model. For background on generative user
-interfaces, see Leviathan et al. (2026) <doi:10.48550/arXiv.2604.09577>.
+Fits general two-component combined-exposure models for binary event
+histories when the event setting is not observed. The observed binary
+event is represented as the union of two latent component-specific binary
+events. Known exposure proportions enter as offsets. Parameters can be
+estimated by expectation-maximization, direct Marquardt-damped
+Newton-Raphson maximization of the observed likelihood, or a hybrid that
+uses several expectation-maximization iterations before direct
+optimization. Uncertainty is estimated with Louis' formula for the
+expectation-maximization estimator and the inverse observed Hessian for
+direct and hybrid fits. Complementary log-log, logit, and log component
+links are available for all three estimation methods.
 
 %prep
 %setup -q -c -n %{packname}

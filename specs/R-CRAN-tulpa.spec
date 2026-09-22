@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tulpa
-%global packver   0.2.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Template Unified Latent Process Architecture for Bayesian Hierarchical Models
+Summary:          Templated Unified Library for Posterior Approximation in Bayesian Hierarchical Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,7 +20,6 @@ BuildRequires:    R-CRAN-Rcpp >= 1.0.12
 BuildRequires:    R-CRAN-tulpaMesh >= 0.1.3
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-stats 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
@@ -32,7 +31,6 @@ Requires:         R-CRAN-Rcpp >= 1.0.12
 Requires:         R-CRAN-tulpaMesh >= 0.1.3
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-generics 
-Requires:         R-CRAN-lifecycle 
 Requires:         R-stats 
 Requires:         R-tools 
 Requires:         R-utils 

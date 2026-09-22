@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pretestcad
-%global packver   1.2.0
+%global packname  gtstats
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pretest Probability for Coronary Artery Disease
+Summary:          Beginner-Friendly Statistics and Publication-Ready Tables
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,31 +17,35 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-cli 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-gt 
+BuildRequires:    R-CRAN-flextable 
+BuildRequires:    R-CRAN-officer 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-gt 
+Requires:         R-CRAN-flextable 
+Requires:         R-CRAN-officer 
+Requires:         R-stats 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-tidyselect 
 
 %description
-An application to calculate a patient's pretest probability (PTP) for
-obstructive Coronary Artery Disease (CAD) from a collection of guidelines
-or studies. Guidelines usually comes from the American Heart Association
-(AHA), American College of Cardiology (ACC) or European Society of
-Cardiology (ESC). Examples of PTP scores that comes from studies are the
-2020 Winther et al. basic, Risk Factor-weighted Clinical Likelihood
-(RF-CL) and Coronary Artery Calcium Score-weighted Clinical Likelihood
-(CACS-CL) models <doi:10.1016/j.jacc.2020.09.585>, 2019 Reeh et al. basic
-and clinical models <doi:10.1093/eurheartj/ehy806> and 2017 Fordyce et al.
-PROMISE Minimal-Risk Tool <doi:10.1001/jamacardio.2016.5501>.  As
-diagnosis of CAD involves a costly and invasive coronary angiography
-procedure for patients, having a reliable PTP for CAD helps doctors to
-make better decisions during patient management.  This ensures high risk
-patients can be diagnosed and treated early for CAD while avoiding
-unnecessary testing for low risk patients.
+Provides beginner-friendly functions for common descriptive and
+inferential statistical analyses, together with tools for creating
+publication-ready tables. The package includes data description, summary
+statistics, distribution assessment, group comparisons, effect sizes,
+correlations, proportions and rates with confidence intervals, crosstabs
+for epidemiological measures, plots, and modular table-building workflows.
+Statistical methods include unequal-variance comparisons described by
+Welch (1947) <doi:10.1093/biomet/34.1-2.28>, score confidence intervals
+described by Wilson (1927) <doi:10.1080/01621459.1927.10502953>, and
+robust variance assessment described by Brown and Forsythe (1974)
+<doi:10.1080/01621459.1974.10482955>.
 
 %prep
 %setup -q -c -n %{packname}

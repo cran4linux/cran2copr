@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  shinygenui
-%global packver   0.2.0
+%global packname  nlcs
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generative UI for 'shiny'
+Summary:          N-LCS: Normative Latent Cognitive Structure
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,40 +17,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shinychat >= 0.5.0
-BuildRequires:    R-CRAN-ellmer >= 0.4.1
-BuildRequires:    R-CRAN-bslib 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-EFAtools 
+BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-whisker 
-Requires:         R-CRAN-shinychat >= 0.5.0
-Requires:         R-CRAN-ellmer >= 0.4.1
-Requires:         R-CRAN-bslib 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-EFAtools 
+Requires:         R-CRAN-psych 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-whisker 
 
 %description
-Build interactive user interfaces for 'shiny' applications through a
-conversation with a large language model (LLM). Developers choose a set of
-reusable components, and the model arranges and updates those components
-as the user describes what they need. Each component's inputs are checked
-before it is shown, and the model supplies data rather than executable
-code. Applications can also save and replay the sequence of interface
-changes without contacting a model. For background on generative user
-interfaces, see Leviathan et al. (2026) <doi:10.48550/arXiv.2604.09577>.
+Provides functions to construct a normative latent cognitive structure
+(N-LCS) from cognitive test data standardized to healthy controls, and to
+compute cognitive deviation magnitude (CDM) and cognitive deviation angle
+(CDA). Methods are described in Chen (2026)
+<doi:10.1080/23279095.2026.2691088>.
 
 %prep
 %setup -q -c -n %{packname}

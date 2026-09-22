@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rmet
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download and Read Brazilian Meteorological Data from INMET
 
@@ -18,16 +18,19 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-CRAN-curl 
+Requires:         R-CRAN-jsonlite 
 
 %description
 Automates the download and processing of historical weather data from the
-Brazilian National Institute of Meteorology (INMET). It resolves
-formatting inconsistencies in raw CSV files across different years,
-removes structural artifacts, standardizes column names, converts
-timestamps to local Brazilian time zones, and outputs tidy data frames
-ready for analysis. Data are retrieved from
-<https://portal.inmet.gov.br/dadoshistoricos>.
+Brazilian National Institute of Meteorology (INMET). It provides a cached
+catalogue of automatic stations, resumable and validated downloads, and
+parsers for formatting inconsistencies in raw CSV files across different
+years. It removes structural artifacts, standardizes column names, parses
+timestamps, and returns data frames ready for analysis. Data are retrieved
+from <https://portal.inmet.gov.br/dadoshistoricos> and
+<https://apitempo.inmet.gov.br/estacoes/T>.
 
 %prep
 %setup -q -c -n %{packname}

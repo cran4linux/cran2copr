@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PAMmisc
-%global packver   1.13.0
+%global packver   1.14.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.13.0
+Version:          1.14.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Miscellaneous Functions for Passive Acoustic Analysis
 
@@ -20,7 +20,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-tuneR 
 BuildRequires:    R-CRAN-seewave 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-RcppRoll 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-PamBinaries 
 BuildRequires:    R-CRAN-RSQLite 
 BuildRequires:    R-CRAN-lubridate 
@@ -41,7 +41,7 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-tuneR 
 Requires:         R-CRAN-seewave 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-RcppRoll 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-PamBinaries 
 Requires:         R-CRAN-RSQLite 
 Requires:         R-CRAN-lubridate 

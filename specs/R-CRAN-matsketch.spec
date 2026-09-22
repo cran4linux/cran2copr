@@ -1,42 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SteppedPower
-%global packver   0.4.0
+%global packname  matsketch
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Power Calculation for Stepped Wedge Designs
+Summary:          Randomized Matrix Computations from Few Entries and Products
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-Rfast 
+Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-Tools for power and sample size calculation as well as design diagnostics
-for longitudinal mixed model settings, with a focus on stepped wedge
-designs. All calculations are oracle estimates i.e. assume random effect
-variances to be known (or guessed) in advance. The method is introduced in
-Hussey and Hughes (2007) <doi:10.1016/j.cct.2006.05.007>, extensions are
-discussed in Li et al. (2020) <doi:10.1177/0962280220932962>.
+Implements recent randomized algorithms that answer questions about a
+large positive-semidefinite matrix while touching only a small part of it.
+Randomly pivoted Cholesky builds a low-rank approximation from a few rows
+of a kernel matrix (Chen, Epperly, Tropp and Webber (2025)
+<doi:10.1002/cpa.22234>), with an accelerated variant based on rejection
+sampling (Epperly, Tropp and Webber (2025) <doi:10.1137/24m1699048>). The
+XTrace, XNysTrace and XDiag estimators recover the trace and diagonal of a
+matrix that is available only through matrix-vector products (Epperly,
+Tropp and Webber (2024) <doi:10.1137/23m1548323>), alongside the Hutch++
+estimator of Meyer, Musco, Musco and Woodruff (2021)
+<doi:10.1137/1.9781611976496.16>. Randomized Nystrom preconditioning
+speeds up the conjugate gradient method for regularized linear systems
+(Frangella, Tropp and Udell (2023) <doi:10.1137/21m1466244>). These pieces
+are combined to fit restricted maximum likelihood variance-component
+models on genomic relationship matrices without forming or factorizing the
+covariance matrix.
 
 %prep
 %setup -q -c -n %{packname}

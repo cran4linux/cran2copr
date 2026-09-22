@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SCCDdesign
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Construction of Screening Designs for Mixed Level Continuous and Categorical Factors
 
@@ -19,18 +19,26 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-AlgDesign 
+BuildRequires:    R-CRAN-leaps 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-AlgDesign 
+Requires:         R-CRAN-leaps 
+Requires:         R-stats 
 
 %description
-Provides functions for constructing screening designs for experiments
-involving three-level continuous and two-level categorical factors. The
-package implements three methods proposed by Jones, B., Lekivetz, R.,
-Majumdar, D. and Nachtsheim, C. (2025) <doi:10.1080/00401706.2024.2362149>
-for generating efficient screening designs for even run sizes. It also
-includes functions for constructing conference matrices using Paley Type I
-and Type II constructions, as well as construction of pseudo conference
-matrices by coordinate exchange algorithm given by Jones, B. and
+Constructs screening designs for experiments involving continuous and
+categorical factors with multiple levels. The package implements methods
+for constructing mixed-level screening designs, involving factors with
+more than two levels. It also evaluates the statistical performance of
+screening designs throughdev power to identify active effects and Type I
+error rates. The package implements three methods proposed by Jones, B.,
+Lekivetz, R., Majumdar, D. and Nachtsheim, C. (2025)
+<doi:10.1080/00401706.2024.2362149> for generating efficient screening
+designs involving three-level continuous and two-level categorical factors
+for even run sizes. It also includes Paley Type I and Type II
+constructions for conference matrices and pseudo conference matrices
+obtained using the coordinate exchange algorithm by Jones, B. and
 Nachtsheim, C. J. (2011) <doi:10.1080/00224065.2011.11917841> which are
 used in the development of these screening designs.
 

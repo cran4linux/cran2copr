@@ -1,35 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  daoh
-%global packver   0.2.6
+%global packname  raddr
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Days Alive and Out of Hospital (DAOH) Calculation
+Summary:          Show What an IP Address Literal Means Under Every Standard
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-data.table >= 1.14.0
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-data.table >= 1.14.0
-Requires:         R-CRAN-scales 
+BuildRequires:    R-CRAN-rlang >= 1.1.7
+BuildRequires:    R-CRAN-vctrs >= 0.7.0
+Requires:         R-CRAN-rlang >= 1.1.7
+Requires:         R-CRAN-vctrs >= 0.7.0
 
 %description
-Calculates Days Alive and Out of Hospital (DAOH) from administrative
-admission/discharge/mortality data using three algorithms (nights, days,
-exact) and three death-handling approaches (midday, midnight, zero).
-Includes tools for comparing methods (Bland-Altman, ICC,
-reclassification), and plotting.
+Standards and implementations disagree about what an IP address literal
+means: the string "0177.0.0.1" is rejected by the dotted-quad grammar,
+read as 127.0.0.1 by browsers, and read as 177.0.0.1 by some 'inet_pton'
+implementations. Most libraries pick one reading and discard the rest.
+This package reports them all, alongside the reason codes that explain
+each one, and classifies parsed values against the IANA special-purpose
+address registries. It is pure R, performs no network access, and returns
+facts rather than allow or deny verdicts.
 
 %prep
 %setup -q -c -n %{packname}

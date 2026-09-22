@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PatientLevelPrediction
-%global packver   6.6.0
+%global packver   6.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.6.0
+Version:          6.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Develop Clinical Prediction Models Using the Common Data Model
 
@@ -14,15 +14,16 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-DatabaseConnector >= 6.0.0
+BuildRequires:    R-CRAN-FeatureExtraction >= 3.7.0
 BuildRequires:    R-CRAN-Cyclops >= 3.0.0
-BuildRequires:    R-CRAN-FeatureExtraction >= 3.0.0
-BuildRequires:    R-CRAN-ParallelLogger >= 2.0.0
-BuildRequires:    R-CRAN-SqlRender >= 1.1.3
-BuildRequires:    R-CRAN-Andromeda 
+BuildRequires:    R-CRAN-dbplyr >= 2.4.0
+BuildRequires:    R-CRAN-ParallelLogger >= 2.0.2
+BuildRequires:    R-CRAN-SqlRender >= 1.18.0
+BuildRequires:    R-CRAN-Andromeda >= 1.0.0
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-Matrix 
@@ -33,11 +34,12 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-DatabaseConnector >= 6.0.0
+Requires:         R-CRAN-FeatureExtraction >= 3.7.0
 Requires:         R-CRAN-Cyclops >= 3.0.0
-Requires:         R-CRAN-FeatureExtraction >= 3.0.0
-Requires:         R-CRAN-ParallelLogger >= 2.0.0
-Requires:         R-CRAN-SqlRender >= 1.1.3
-Requires:         R-CRAN-Andromeda 
+Requires:         R-CRAN-dbplyr >= 2.4.0
+Requires:         R-CRAN-ParallelLogger >= 2.0.2
+Requires:         R-CRAN-SqlRender >= 1.18.0
+Requires:         R-CRAN-Andromeda >= 1.0.0
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-Matrix 

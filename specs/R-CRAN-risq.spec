@@ -1,35 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  daoh
-%global packver   0.2.6
+%global packname  risq
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Days Alive and Out of Hospital (DAOH) Calculation
+Summary:          Representativity Indicators for Survey Quality
 
-License:          MIT + file LICENSE
+License:          EUPL-1.2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-data.table >= 1.14.0
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-data.table >= 1.14.0
-Requires:         R-CRAN-scales 
 
 %description
-Calculates Days Alive and Out of Hospital (DAOH) from administrative
-admission/discharge/mortality data using three algorithms (nights, days,
-exact) and three death-handling approaches (midday, midnight, zero).
-Includes tools for comparing methods (Bland-Altman, ICC,
-reclassification), and plotting.
+Calculate representativity indicators for survey quality based on survey
+data and response models. Use partial indicators to analyse the impact of
+individual variables and categories. Monitor changes in representativity
+during data collection. Improve representativity through adaptive survey
+design. Supports both R-indicators and coefficients of variation. See also
+Schouten, Cobben, Bethlehem (2009)
+<https://api.semanticscholar.org/CorpusID:33654901>, Shlomo, Skinner,
+Schouten (2012) <doi:10.1016/j.jspi.2011.07.008> and Schouten, Shlomo
+(2017) <doi:10.1111/insr.12159>.
 
 %prep
 %setup -q -c -n %{packname}

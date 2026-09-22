@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EDE
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extinction Date Estimation from Sighting Records
 
@@ -22,17 +22,20 @@ BuildArch:        noarch
 Estimates the historic date of extinction of a species from a time-ordered
 record of sighting events. Given a table of sighting counts per year,
 computes extinction date estimators from the sighting-record literature:
-optimal linear estimation under a record-value model (Roberts & Solow,
-2003), nonparametric and sighting-effort-weighted persistence tests
-(Solow, 1993; Solow, 2005), a sighting-rate persistence test comparable
-across records with different observation periods (McInerny, Roberts, Davy
-& Cribb, 2006), a classical confidence interval on the end of a temporal
-range (Strauss & Sadler, 1989), a truncation-point extrapolation (Robson &
-Whitlock, 1964), and a combinatorial persistence test based on
-inclusion-exclusion over sighting-gap occupancy (Burgman, Grimson &
-Ferson, 1995). Every estimator is built on a single validated input object
-and returns a common result class with, where defined, a point estimate, a
-confidence interval, or a full persistence-probability curve.
+optimal linear estimation and its Weibull extreme-value persistence test
+(Roberts & Solow, 2003; Solow, 2005), constant-rate and declining-rate
+persistence tests (Solow, 1993), a sighting-rate persistence test
+comparable across records with different observation periods (McInerny,
+Roberts, Davy & Cribb, 2006), a classical confidence interval on the end
+of a temporal range (Strauss & Sadler, 1989), a truncation-point
+extrapolation (Robson & Whitlock, 1964), and a combinatorial persistence
+test based on inclusion-exclusion over sighting-gap occupancy (Burgman,
+Grimson & Ferson, 1995). Also implements a nonparametric endpoint test
+(Solow & Roberts, 2003), a sighting-interval trend index (Jarić &
+Ebenhard, 2010), and reliability-adjusted inference for uncertain records
+(Jarić & Roberts, 2014). Every estimator is built on a validated input
+object and returns a common result class with, where defined, a point
+estimate, a confidence interval, or a full p-value curve.
 
 %prep
 %setup -q -c -n %{packname}

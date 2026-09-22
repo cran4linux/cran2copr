@@ -1,35 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  daoh
-%global packver   0.2.6
+%global packname  spaci
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Days Alive and Out of Hospital (DAOH) Calculation
+Summary:          Causal Effect Estimation Under Spatial Confounding and Interference
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-data.table >= 1.14.0
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-data.table >= 1.14.0
-Requires:         R-CRAN-scales 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Calculates Days Alive and Out of Hospital (DAOH) from administrative
-admission/discharge/mortality data using three algorithms (nights, days,
-exact) and three death-handling approaches (midday, midnight, zero).
-Includes tools for comparing methods (Bland-Altman, ICC,
-reclassification), and plotting.
+Implements the distance-adjusted propensity score with interference
+(iDAPS) and recoverU+ methods for estimating the average treatment effect
+on the treated (ATT) from spatial observational data in the presence of
+both spatial confounding and spatial interference. iDAPS matches units on
+a data-driven composite of propensity-score distance, spatial proximity
+and neighbourhood-exposure distance. recoverU+ is a doubly robust
+estimator that augments the propensity-score and control-outcome models
+with a partially recovered spatial confounder and a neighbourhood-exposure
+term. The package also provides the naive propensity score, DAPS and
+recoverU comparators, and a simulator for the spatial
+confounding/interference data-generating process.
 
 %prep
 %setup -q -c -n %{packname}
