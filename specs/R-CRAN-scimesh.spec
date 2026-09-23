@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scimesh
-%global packver   0.3.4
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Headless Publication-Quality 3D Mesh Rendering Engine
 
@@ -25,11 +25,12 @@ R bindings. Renders triangle meshes to publication-quality images entirely
 on the CPU, requiring no display server or graphics hardware. Features
 multi-light Blinn-Phong shading, screen-space ambient occlusion,
 anti-aliasing, depth fog, transparency, wireframe rendering, texture
-mapping, and procedural geometry generation. Supports standard mesh file
-formats with PNG and PPM output. Works on high-performance computing
-clusters, headless servers, containers, and continuous integration
-pipelines, making it suitable for scientific visualization across
-neuro-imaging, molecular structures, and general 3D graphics.
+mapping, screen-space lines and text labels, and procedural geometry
+generation. Supports standard mesh file formats with PNG and PPM output.
+Works on high-performance computing clusters, headless servers,
+containers, and continuous integration pipelines, making it suitable for
+scientific visualization across neuro-imaging, molecular structures, and
+general 3D graphics.
 
 %prep
 %setup -q -c -n %{packname}

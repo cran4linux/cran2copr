@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Colossus
-%global packver   1.5.1
+%global packver   1.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          1.6.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          "Risk Model Regression and Analysis with Complex Non-Linear Models"
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-parallel 
@@ -29,6 +29,8 @@ BuildRequires:    R-CRAN-processx
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-RcppEigen 
 BuildRequires:    R-CRAN-testthat 
 Requires:         R-CRAN-Rcpp 
@@ -44,10 +46,12 @@ Requires:         R-CRAN-processx
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-withr 
 
 %description
-Performs survival analysis using general non-linear models. Risk models
-can be the sum or product of terms. Each term is the product of
+Performs risk analysis using general non-linear models. Risk models can be
+the sum or product of terms. Each term is the product of
 exponential/linear functions of covariates. Additionally sub-terms can be
 defined as a sum of exponential, linear threshold, and step functions. Cox
 Proportional hazards

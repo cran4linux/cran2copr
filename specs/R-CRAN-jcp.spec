@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  jcp
-%global packver   1.2
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Joint Change Point Detection
 
@@ -23,7 +24,7 @@ in univariate sequences. Performs a statistical test of the null
 hypothesis of the absence of change points. In case of rejection performs
 an algorithm for change point detection. Reference - Bivariate change
 point detection - joint detection of changes in expectation and variance,
-Scandinavian Journal of Statistics, DOI 10.1111/sjos.12547.
+Scandinavian Journal of Statistics, <doi:10.1111/sjos.12547>.
 
 %prep
 %setup -q -c -n %{packname}

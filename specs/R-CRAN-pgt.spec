@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pgt
-%global packver   0.6.1
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Envelopment Analysis for Pollution-Generating Technologies
 
@@ -35,11 +35,11 @@ intersection technology of Murty, Russell and Levkoff (2012)
 <doi:10.1016/j.jeem.2012.02.005>, the materials-balance cost model of
 Coelli, Lauwers and Van Huylenbroeck (2007)
 <doi:10.1007/s11123-007-0052-8> and a weak-disposability reference model,
-with an enforced materials-balance identity, a pre-estimation feasibility
-audit, metafrontier decompositions, bad-output shadow prices, marginal
-abatement cost curves, a cross-axiom comparison harness, a global
-Malmquist-Luenberger productivity index and subsampling inference.
-Estimators are solved with 'lpSolveAPI'.
+with a pre-estimation audit of every materials-balance account,
+metafrontier decompositions, bad-output shadow prices, marginal abatement
+cost curves, a cross-axiom comparison harness, a global
+Malmquist-Luenberger productivity index and subsampling sensitivity
+intervals. Estimators are solved with 'lpSolveAPI'.
 
 %prep
 %setup -q -c -n %{packname}

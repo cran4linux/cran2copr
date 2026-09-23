@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geocodebr
-%global packver   0.6.4
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.4
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Geolocalização De Endereços Brasileiros (Geocoding Brazilian Addresses)
 
@@ -18,9 +18,10 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-arrow >= 15.0.1
-BuildRequires:    R-CRAN-duckspatial >= 1.0.0
+BuildRequires:    R-CRAN-duckdb >= 1.5.5
+BuildRequires:    R-CRAN-duckspatial >= 1.2.1
 BuildRequires:    R-CRAN-httr2 >= 1.0.0
-BuildRequires:    R-CRAN-enderecobr >= 0.5.0
+BuildRequires:    R-CRAN-enderecobr >= 0.6.1
 BuildRequires:    R-CRAN-nanoarrow >= 0.3.0.1
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-callr 
@@ -28,7 +29,6 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-duckdb 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-h3r 
@@ -39,9 +39,10 @@ BuildRequires:    R-CRAN-sf
 BuildRequires:    R-CRAN-sfheaders 
 BuildRequires:    R-tools 
 Requires:         R-CRAN-arrow >= 15.0.1
-Requires:         R-CRAN-duckspatial >= 1.0.0
+Requires:         R-CRAN-duckdb >= 1.5.5
+Requires:         R-CRAN-duckspatial >= 1.2.1
 Requires:         R-CRAN-httr2 >= 1.0.0
-Requires:         R-CRAN-enderecobr >= 0.5.0
+Requires:         R-CRAN-enderecobr >= 0.6.1
 Requires:         R-CRAN-nanoarrow >= 0.3.0.1
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-callr 
@@ -49,7 +50,6 @@ Requires:         R-CRAN-cli
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-duckdb 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-h3r 

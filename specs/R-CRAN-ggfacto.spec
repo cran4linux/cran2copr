@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggfacto
-%global packver   0.3.2
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Graphs for Correspondence Analysis
 
@@ -14,53 +14,60 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
+BuildRequires:    R-grDevices >= 4.0.0
+BuildRequires:    R-graphics >= 4.0.0
+BuildRequires:    R-stats >= 4.0.0
 BuildRequires:    R-CRAN-tibble >= 3.0.0
+BuildRequires:    R-CRAN-tabxplor >= 2.0.1
 BuildRequires:    R-CRAN-FactoMineR >= 2.0
 BuildRequires:    R-CRAN-withr >= 2.0.0
-BuildRequires:    R-CRAN-gridExtra >= 2.0
 BuildRequires:    R-CRAN-magrittr >= 1.5.0
-BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-data.table >= 1.12.0
+BuildRequires:    R-CRAN-fastcluster >= 1.2.3
 BuildRequires:    R-CRAN-tidyselect >= 1.1.0
-BuildRequires:    R-CRAN-tabxplor >= 1.1.0
+BuildRequires:    R-CRAN-scales >= 1.1.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-ggiraph >= 0.9.6
 BuildRequires:    R-CRAN-ggrepel >= 0.9.0
-BuildRequires:    R-CRAN-ggiraph >= 0.8.2
+BuildRequires:    R-CRAN-htmltools >= 0.5.0
 BuildRequires:    R-CRAN-forcats >= 0.5.0
-BuildRequires:    R-CRAN-rlang >= 0.4.0
-BuildRequires:    R-CRAN-ggforce >= 0.4.0
+BuildRequires:    R-CRAN-gdtools >= 0.5.0
+BuildRequires:    R-CRAN-rlang >= 0.4.10
 BuildRequires:    R-CRAN-purrr >= 0.3.0
 BuildRequires:    R-CRAN-vctrs >= 0.3.0
-Requires:         R-CRAN-ggplot2 >= 3.0.0
+Requires:         R-CRAN-ggplot2 >= 4.0.0
+Requires:         R-grDevices >= 4.0.0
+Requires:         R-graphics >= 4.0.0
+Requires:         R-stats >= 4.0.0
 Requires:         R-CRAN-tibble >= 3.0.0
+Requires:         R-CRAN-tabxplor >= 2.0.1
 Requires:         R-CRAN-FactoMineR >= 2.0
 Requires:         R-CRAN-withr >= 2.0.0
-Requires:         R-CRAN-gridExtra >= 2.0
 Requires:         R-CRAN-magrittr >= 1.5.0
-Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-data.table >= 1.12.0
+Requires:         R-CRAN-fastcluster >= 1.2.3
 Requires:         R-CRAN-tidyselect >= 1.1.0
-Requires:         R-CRAN-tabxplor >= 1.1.0
+Requires:         R-CRAN-scales >= 1.1.0
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
+Requires:         R-CRAN-ggiraph >= 0.9.6
 Requires:         R-CRAN-ggrepel >= 0.9.0
-Requires:         R-CRAN-ggiraph >= 0.8.2
+Requires:         R-CRAN-htmltools >= 0.5.0
 Requires:         R-CRAN-forcats >= 0.5.0
-Requires:         R-CRAN-rlang >= 0.4.0
-Requires:         R-CRAN-ggforce >= 0.4.0
+Requires:         R-CRAN-gdtools >= 0.5.0
+Requires:         R-CRAN-rlang >= 0.4.10
 Requires:         R-CRAN-purrr >= 0.3.0
 Requires:         R-CRAN-vctrs >= 0.3.0
 
 %description
-Readable, complete and pretty graphs for correspondence analysis made with
+Readable, complete and pretty graphs for multiple correspondence analysis,
+correspondence analysis and principal component analysis made with
 'FactoMineR'. They can be rendered as interactive 'HTML' plots, showing
-useful informations at mouse hover. The interest is not mainly visual but
-statistical: it helps the reader to keep in mind the data contained in the
+useful information at mouse hover. The interest is not mainly visual but
+statistical. It helps the reader to keep in mind the data contained in the
 cross-table or Burt table while reading the correspondence analysis, thus
 preventing over-interpretation. Most graphs are made with 'ggplot2', which
 means that you can use the + syntax to manually add as many graphical

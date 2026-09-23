@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  OptOTrials
-%global packver   1.0.3
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimal Two-Stage Designs for Ordered Categorical Outcomes
 
@@ -22,17 +22,15 @@ Requires:         R-stats
 
 %description
 Functions to design and simulate optimal two-stage randomized controlled
-trials (RCTs) with ordered categorical outcomes, supporting rank-based
-tests and group-sequential decision rules. Methods build on classical and
-modern rank tests and two-stage/Group-Sequential designs, e.g., Park
-(2025) <doi: 10.1371/journal.pone.0318211>. The functions 'rule()', 'op()'
+trials (RCTs) with ordered categorical outcomes, using rank-based tests
+and interim decision rules for futility and superiority, following Park
+(2025) <doi:10.1371/journal.pone.0318211>. The functions 'rule()', 'op()'
 and 'design_table()' provide a single entry point for constructing
 designs, evaluating their operating characteristics, and tabulating
-several designs at once. The earlier functions, one for each combination
-of test statistic and stopping rule, are retained and still return the
-same values, but they are deprecated: each warns and names its
-replacement, and they will be removed in the next version. Please see the
-package reference manual and the vignette for details.
+several designs at once. The separate functions provided for each
+combination of test statistic and stopping rule up to version 1.0.2 were
+deprecated in 1.0.3 and are removed here. Please see the package reference
+manual and the vignette for details.
 
 %prep
 %setup -q -c -n %{packname}

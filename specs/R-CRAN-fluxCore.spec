@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fluxCore
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Probabilistic Simulation of Single-Entity Systems in Irregular Time
 
@@ -24,13 +24,13 @@ Requires:         R-CRAN-R6
 A foundation for probabilistic simulation of single-entity systems in
 which events occur at irregular times and each event updates only a small,
 sparse subset of the entity's state. Models are assembled from a declared
-schema and a 'ModelBundle' of callback functions (event proposal, state
-transition, stopping rule) and run through a single validated entry point,
-'load_model()'. Supports competing event processes, schema-declared
-decision points with user-supplied policies, typed parameter draws for
-representing uncertainty, and optional trajectory recording for auditing
-simulated decisions. Designed to be domain agnostic: this package contains
-no model of any particular system, only the scaffolding for building one.
+schema and a bundle of callback functions for event proposal, state
+transition, and stopping, with their contracts validated before
+simulation. Supports competing event processes, schema-declared decision
+points with user-supplied policies, typed parameter draws for representing
+uncertainty, and optional trajectory recording for auditing simulated
+decisions. Designed to be domain agnostic: this package contains no model
+of any particular system, only the scaffolding for building one.
 
 %prep
 %setup -q -c -n %{packname}

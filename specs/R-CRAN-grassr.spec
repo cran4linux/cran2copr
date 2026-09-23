@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  grassr
-%global packver   0.7.4
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.4
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Context-Conditioned Reporting for Binary Rater Reliability
 
@@ -21,6 +21,7 @@ BuildRequires:    R-stats
 Requires:         R-stats 
 
 %description
+The name abbreviates "Guide for Rater Agreement under Structural Skew".
 Generates a Report Card for rater reliability on binary outcomes from an N
 x k subject-by-rater rating matrix, on both the inter-rater and
 intra-rater axes. Each panel coefficient is positioned on a

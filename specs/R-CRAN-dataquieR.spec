@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dataquieR
-%global packver   2.8.9
+%global packver   2.8.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8.9
+Version:          2.8.15
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Quality in Epidemiological Research
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
 BuildRequires:    R-CRAN-patchwork >= 1.3.0
@@ -23,20 +23,21 @@ BuildRequires:    R-CRAN-dplyr >= 1.0.2
 BuildRequires:    R-CRAN-emmeans 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-parallelMap 
-BuildRequires:    R-CRAN-R.devices 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-robustbase 
-BuildRequires:    R-CRAN-qmrparser 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-rio 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-units 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-nnet 
+BuildRequires:    R-grid 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-hms 
 Requires:         R-CRAN-ggplot2 >= 3.5.0
 Requires:         R-CRAN-patchwork >= 1.3.0
@@ -44,20 +45,21 @@ Requires:         R-CRAN-dplyr >= 1.0.2
 Requires:         R-CRAN-emmeans 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-parallelMap 
-Requires:         R-CRAN-R.devices 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-robustbase 
-Requires:         R-CRAN-qmrparser 
 Requires:         R-utils 
 Requires:         R-CRAN-rio 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-withr 
 Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-units 
 Requires:         R-methods 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-nnet 
+Requires:         R-grid 
+Requires:         R-grDevices 
+Requires:         R-parallel 
+Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-hms 
 
 %description

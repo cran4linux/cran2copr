@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  NetSimR
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Actuarial Functions for Non-Life Insurance Modelling
 
@@ -49,14 +49,14 @@ distributions. Includes mean, probability density function (pdf),
 cumulative probability function (cdf) and inverse cumulative probability
 function for Sliced LogNormal-Pareto and Sliced Gamma-Pareto
 distributions. Includes calculating pure IBNR exposure with LogNormal and
-Gamma distribution for reporting delay. Includes three 'shiny' tools, one
-to simulate insurance claims applying reinsurance structures, fit
-generalised linear models and fit claims frequency or severity
-distributions. Methods used in the package refer to Free for All by
-Yiannis Parizas (2023) <https://www.theactuary.com/2023/03/02/free-all>;
-Escaping the triangle by Yiannis Parizas (2019)
+Gamma distribution for reporting delay. Includes three 'shiny' tools: a
+claims simulator with reinsurance structures, a generalised linear model
+fitting tool, and a claims frequency and severity distribution fitting
+tool. Methods used in the package refer to Free for All by Yiannis Parizas
+(2023) <https://www.theactuary.com/2023/03/02/free-all>; Escaping the
+triangle by Yiannis Parizas (2019)
 <https://www.theactuary.com/features/2019/06/2019/06/05/escaping-triangle>;
-Take to excess by Yiannis Parizas (2019)
+Taken to excess by Yiannis Parizas (2019)
 <https://www.theactuary.com/features/2019/03/2019/03/06/taken-excess>.
 
 %prep

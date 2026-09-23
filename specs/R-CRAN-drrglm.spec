@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  drrglm
-%global packver   0.3.2
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Doubly Regularized Matrix-Variate Regression
 
@@ -31,10 +31,8 @@ The doubly regularized matrix-variate regression solves a
 low-rank-plus-sparse structure for matrix-variate generalized linear
 models through a weighted combination of nuclear-norm and L1-norm. The
 methodology implemented by this package is described in the paper "Doubly
-Regularized Matrix-Variate Regression", which has been tentatively
-accepted for publication but does not yet have a DOI or URL. A formal
-citation will be added in a future update once the final publication
-details are available.
+Regularized Matrix-Variate Regression". See Xu, Luo and Jiang
+<doi:10.1080/10618600.2026.2702534>.
 
 %prep
 %setup -q -c -n %{packname}

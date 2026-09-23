@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  risk.assessr
-%global packver   4.1.2
+%global packver   4.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.2
+Version:          4.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Assessing Package Risk Metrics
 
@@ -31,6 +31,7 @@ BuildRequires:    R-CRAN-rcmdcheck
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-jsonlite 
@@ -51,6 +52,7 @@ Requires:         R-CRAN-rcmdcheck
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-tidyr 
+Requires:         R-tools 
 Requires:         R-utils 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-jsonlite 

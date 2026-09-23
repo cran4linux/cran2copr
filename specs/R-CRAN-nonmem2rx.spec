@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nonmem2rx
-%global packver   0.1.9
+%global packver   0.1.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.1.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Converts 'NONMEM' Models to 'rxode2'
 
@@ -14,9 +14,9 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-rxode2 > 2.0.13
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-rxode2 >= 5.1.5
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-dparser 
@@ -27,12 +27,11 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-qs2 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggforce 
 BuildRequires:    R-CRAN-crayon 
-Requires:         R-CRAN-rxode2 > 2.0.13
+Requires:         R-CRAN-rxode2 >= 5.1.5
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-dparser 
@@ -43,7 +42,6 @@ Requires:         R-CRAN-cli
 Requires:         R-tools 
 Requires:         R-utils 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-qs2 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggforce 

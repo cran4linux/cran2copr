@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  csdm
-%global packver   1.0.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cross-Sectional Dependence Models
 
@@ -17,10 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-generics 
+Requires:         R-CRAN-tibble 
 
 %description
 Provides estimators and utilities for large panel-data models with

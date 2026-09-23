@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Quartet
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Comparison of Phylogenetic Trees Using Quartet and Split Measures
 
@@ -14,31 +14,32 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildRequires:    R-CRAN-TreeTools >= 1.4.0
 BuildRequires:    R-CRAN-Ternary >= 1.0
 BuildRequires:    R-CRAN-Rdpack >= 0.7
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-PlotTools 
-BuildRequires:    R-CRAN-viridisLite 
 BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-TreeTools >= 1.4.0
 Requires:         R-CRAN-Ternary >= 1.0
 Requires:         R-CRAN-Rdpack >= 0.7
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-PlotTools 
-Requires:         R-CRAN-viridisLite 
 
 %description
 Calculates the number of four-taxon subtrees consistent with a pair of
 cladograms, calculating the symmetric quartet distance of Bandelt & Dress
 (1986), Reconstructing the shape of a tree from observed dissimilarity
-data, Advances in Applied Mathematics, 7, 309-343
-<doi:10.1016/0196-8858(86)90038-2>, and using the tqDist algorithm of Sand
-et al. (2014), tqDist: a library for computing the quartet and triplet
-distances between binary or general trees, Bioinformatics, 30, 2079–2080
-<doi:10.1093/bioinformatics/btu157> for pairs of binary trees.
+data, Advances in Applied Mathematics <doi:10.1016/0196-8858(86)90038-2>,
+using the tqDist algorithm of Sand et al. (2014), tqDist: a library for
+computing the quartet and triplet distances between binary or general
+trees, Bioinformatics <doi:10.1093/bioinformatics/btu157> for pairs of
+binary trees; calculating the rooted triplet distance using the CPDT
+algorithm of Jansson & Rajaby (2017), A more practical algorithm for the
+rooted triplet distance, Journal of Computational Biology
+<doi:10.1089/cmb.2016.0185>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GMTM
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Gaussian Mixture Text Models for Topic Analysis
+Summary:          Gaussian Mixture Topic Models
 
 License:          Apache License (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,20 +18,20 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-quanteda >= 4.0.0
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.7.600.1.0
+BuildRequires:    R-CRAN-wordvector >= 0.6.4
 BuildRequires:    R-CRAN-proxyC 
-BuildRequires:    R-CRAN-wordvector 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-testthat 
 Requires:         R-CRAN-quanteda >= 4.0.0
+Requires:         R-CRAN-wordvector >= 0.6.4
 Requires:         R-CRAN-proxyC 
-Requires:         R-CRAN-wordvector 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-RcppArmadillo >= 0.7.600.1.0
 
 %description
-Gaussian mixture models and k-means for topic analysis of dense document
-vectors. The underlying clustering functions rely on the Armadillo
-library.
+Gaussian mixture models (GMM) and k-means for topic analysis of dense
+document vectors. The underlying clustering functions rely on the
+Armadillo library (Sanderson & Curtin, 2017)
+<doi:10.1109/ICSPCS.2017.8270510>.
 
 %prep
 %setup -q -c -n %{packname}
