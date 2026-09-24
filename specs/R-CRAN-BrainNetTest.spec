@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BrainNetTest
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hypothesis Testing for Populations of Brain Networks
 
@@ -19,23 +19,25 @@ Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-igraph 
 Requires:         R-stats 
 Requires:         R-graphics 
+Requires:         R-utils 
 Requires:         R-CRAN-igraph 
 
 %description
 Non-parametric hypothesis testing for populations of brain networks
 represented as graphs, following the L1-distance ANOVA framework of
-Fraiman and Fraiman (2018) <doi:10.1038/s41598-018-21688-0>. The package
+Fraiman and Fraiman (2018) <doi:10.1038/s41598-018-23152-5>. The package
 builds on this nonparametric graph-comparison framework, extending it with
 procedures for edge-level inference and identification of the specific
 connections driving group differences. In particular, it provides
 utilities to compute central (mean) graphs, pairwise Manhattan distances
-between adjacency matrices, the group test statistic T, and a fast
-permutation procedure to identify the critical edges that drive
-between-group differences. Helper functions to generate synthetic
-community-structured graphs and to visualise brain networks with
+between adjacency matrices, the group test statistic T and its permutation
+p-value, and a fast permutation procedure to identify the critical edges
+that drive between-group differences. Helper functions to generate
+synthetic community-structured graphs and to visualise brain networks with
 communities are also included.
 
 %prep

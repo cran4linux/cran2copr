@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nonprobsvy
-%global packver   0.2.3
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Inference Based on Non-Probability Samples
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.12
 BuildRequires:    R-CRAN-survey 
+BuildRequires:    R-CRAN-doRNG 
 BuildRequires:    R-CRAN-maxLik 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-Matrix 
@@ -32,6 +33,7 @@ BuildRequires:    R-CRAN-formula.tools
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.12
 Requires:         R-CRAN-survey 
+Requires:         R-CRAN-doRNG 
 Requires:         R-CRAN-maxLik 
 Requires:         R-stats 
 Requires:         R-CRAN-Matrix 
@@ -57,7 +59,7 @@ et al. (2021)
 and Wu (2022)
 <https://www150.statcan.gc.ca/n1/pub/12-001-x/2022002/article/00002-eng.htm>.
 For details on the package and its functionalities see
-<doi:10.48550/arXiv.2504.04255>.
+<doi:10.18637/jss.v117.i02>.
 
 %prep
 %setup -q -c -n %{packname}

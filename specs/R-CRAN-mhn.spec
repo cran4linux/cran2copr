@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mhn
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Modified Half-Normal Distribution
 
@@ -18,19 +18,18 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildRequires:    R-CRAN-BH >= 1.78.0.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-stats 
 Requires:         R-CRAN-Rcpp >= 1.0.7
-Requires:         R-stats 
 
 %description
 Provides density, distribution, quantile, and random generation functions
-for the Modified Half-Normal (MHN) distribution, along with moments, mode,
-and the Fox-Wright Psi function used as the normalizing constant. The MHN
-distribution arises as a conditional posterior in Bayesian MCMC and
-generalizes the half-normal, truncated normal, and square-root gamma
-distributions. Implements efficient sampling via the Sun, Kong & Pal
-(2023) <doi:10.1080/03610926.2021.1934700> algorithms and the Gao & Wang
-(2025) <doi:10.1080/03610918.2025.2524551> RTDR method.
+for the Modified Half-Normal (MHN) distribution, along with moments and
+mode; the Fox-Wright Psi normalizing constant is evaluated internally. The
+MHN distribution arises as a conditional posterior in Bayesian Markov
+chain Monte Carlo and generalizes the half-normal, truncated normal, and
+square-root gamma distributions. Implements efficient sampling via the
+Sun, Kong & Pal (2023) <doi:10.1080/03610926.2021.1934700> algorithms and
+the Gao & Wang (2025) <doi:10.1080/03610918.2025.2524551> relaxed
+transformed density rejection method.
 
 %prep
 %setup -q -c -n %{packname}

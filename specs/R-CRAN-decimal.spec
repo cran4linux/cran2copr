@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  decimal
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exact Arbitrary-Precision Decimal Vectors
 
@@ -29,9 +29,9 @@ Requires:         R-CRAN-withr
 Arbitrary-precision vectors with an exact decimal representation, avoiding
 the rounding surprises of binary floating point. Built on the 'mpdecimal'
 C library, arithmetic is governed by an explicit decimal context
-controlling precision, rounding, and signalling, and vectors integrate
-with 'vctrs' for use in data frames, 'tibble' objects, summaries, and
-common numeric workflows. Missing values, signed zeros, infinities, and
+controlling precision, rounding, and signaling, and vectors integrate with
+'vctrs' for use in data frames, 'tibble' objects, summaries, and common
+numeric workflows. Missing values, signed zeros, infinities, and
 not-a-number values are supported throughout. The arithmetic model follows
 Cowlishaw (2009) "General Decimal Arithmetic"
 <https://speleotrove.com/decimal/decarith.html>.

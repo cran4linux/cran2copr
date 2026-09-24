@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  greenR
-%global packver   0.0.1.7
+%global packver   0.0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1.7
+Version:          0.0.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Green Index Quantification, Analysis and Visualization
 
@@ -20,11 +20,8 @@ BuildRequires:    R-CRAN-arrow
 BuildRequires:    R-CRAN-classInt 
 BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-duckdb 
 BuildRequires:    R-CRAN-elevatr 
 BuildRequires:    R-CRAN-exactextractr 
 BuildRequires:    R-CRAN-ggplot2 
@@ -47,7 +44,6 @@ BuildRequires:    R-CRAN-osrm
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-Rcpp 
@@ -64,17 +60,15 @@ BuildRequires:    R-CRAN-SuperpixelImageSegmentation
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyterra 
+BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-units 
 BuildRequires:    R-CRAN-viridisLite 
 Requires:         R-CRAN-arrow 
 Requires:         R-CRAN-classInt 
 Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-curl 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-DT 
-Requires:         R-CRAN-duckdb 
 Requires:         R-CRAN-elevatr 
 Requires:         R-CRAN-exactextractr 
 Requires:         R-CRAN-ggplot2 
@@ -97,7 +91,6 @@ Requires:         R-CRAN-osrm
 Requires:         R-parallel 
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-progress 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-Rcpp 
@@ -114,6 +107,7 @@ Requires:         R-CRAN-SuperpixelImageSegmentation
 Requires:         R-CRAN-terra 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyterra 
+Requires:         R-tools 
 Requires:         R-CRAN-units 
 Requires:         R-CRAN-viridisLite 
 

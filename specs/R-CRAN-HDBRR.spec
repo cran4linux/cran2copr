@@ -1,42 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  comorbidPGS
-%global packver   1.0.0
+%global packname  HDBRR
+%global packver   1.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Assessing Predisposition Between Phenotypes using Polygenic Scores
+Summary:          High Dimensional Bayesian Ridge Regression without MCMC
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-nnet 
+BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-ivreg 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-nnet 
+BuildRequires:    R-CRAN-bigparallelr 
+BuildRequires:    R-CRAN-bigstatsr 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-numDeriv 
 Requires:         R-parallel 
-Requires:         R-CRAN-ivreg 
+Requires:         R-CRAN-bigparallelr 
+Requires:         R-CRAN-bigstatsr 
+Requires:         R-graphics 
+Requires:         R-stats 
 
 %description
-Using polygenic scores (PGS, or PRS/GRS for binary outcomes), this package
-allows to investigate shared predisposition between different conditions,
-and do fast association analysis, export plots and views of the PGS
-distribution using 'ggplot2' object.
+Implements Bayesian ridge regression for high-dimensional data without
+using Markov chain Monte Carlo (MCMC). Posterior computations are
+performed using singular value decomposition (SVD) or QR decomposition.
+The package also provides variable selection and prediction methods.
 
 %prep
 %setup -q -c -n %{packname}

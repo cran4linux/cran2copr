@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  iglm
-%global packver   1.2.5
+%global packver   1.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.5
+Version:          1.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regression under Interference in Connected Populations
 
@@ -43,7 +43,7 @@ Requires:         R-CRAN-ragg
 An implementation of generalized linear models (GLMs) for studying
 relationships among attributes in connected populations, where responses
 of connected units can be dependent, as introduced by Fritz et al. (2025)
-<doi:10.1080/01621459.2025.2565851>. 'igml' extends GLMs for independent
+<doi:10.1080/01621459.2025.2565851>. 'iglm' extends GLMs for independent
 responses to dependent responses and can be used for studying spillover in
 connected populations and other network-mediated phenomena.
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  autosync
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Automerge' Sync Server and Client
 
@@ -17,16 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.4
 Requires:         R-core >= 4.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nanonext >= 1.8.1
 BuildRequires:    R-CRAN-secretbase >= 1.3.0
 BuildRequires:    R-CRAN-httr2 >= 1.2.3
+BuildRequires:    R-CRAN-nanonext >= 1.10.3
 BuildRequires:    R-CRAN-automerge >= 0.4.0
 BuildRequires:    R-CRAN-jose 
 BuildRequires:    R-CRAN-later 
 BuildRequires:    R-CRAN-promises 
-Requires:         R-CRAN-nanonext >= 1.8.1
 Requires:         R-CRAN-secretbase >= 1.3.0
 Requires:         R-CRAN-httr2 >= 1.2.3
+Requires:         R-CRAN-nanonext >= 1.10.3
 Requires:         R-CRAN-automerge >= 0.4.0
 Requires:         R-CRAN-jose 
 Requires:         R-CRAN-later 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rfair
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Assess the FAIRness of Research Data Objects and Software
 
@@ -17,20 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-httr2 >= 1.1.0
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-mime 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringdist 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-httr2 >= 1.1.0
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-digest 
-Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-mime 
+Requires:         R-parallel 
 Requires:         R-CRAN-rvest 
 Requires:         R-stats 
 Requires:         R-CRAN-stringdist 

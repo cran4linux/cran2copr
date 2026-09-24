@@ -1,51 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CCI
-%global packver   0.3.7
+%global packname  mwcsr
+%global packver   0.1.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.7
+Version:          0.1.13
 Release:          1%{?dist}%{?buildtag}
-Summary:          Computational Test for Conditional Independence
+Summary:          Solvers for Maximum Weight Connected Subgraph Problem and Its Variants
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
+Recommends:       R-java
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-CRAN-xgboost 
-BuildRequires:    R-CRAN-ranger 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-e1071 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-kknn 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-caret 
-Requires:         R-CRAN-xgboost 
-Requires:         R-CRAN-ranger 
-Requires:         R-stats 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-e1071 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-kknn 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-methods 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Tool for performing computational testing for conditional independence
-between variables in a dataset. 'CCI' implements permutation in
-combination with Monte Carlo Cross-Validation in generating null
-distributions and test statistics. For more details see Computational Test
-for Conditional Independence (2024) <doi:10.3390/a17080323>.
+Algorithms for solving various Maximum Weight Connected Subgraph Problems,
+including variants with budget constraints, cardinality constraints,
+weighted edges and signals. The package represents an R interface to
+high-efficient solvers based on relax-and-cut approach (Álvarez-Miranda
+E., Sinnl M. (2017) <doi:10.1016/j.cor.2017.05.015>) mixed-integer
+programming (Loboda A., Artyomov M., and Sergushichev A. (2016)
+<doi:10.1007/978-3-319-43681-4_17>) and simulated annealing.
 
 %prep
 %setup -q -c -n %{packname}

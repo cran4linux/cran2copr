@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dfeR
-%global packver   1.0.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Common Department for Education Analysis Tasks
 
@@ -14,38 +14,46 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-arrow 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-emoji 
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-renv 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rstudio.prefs 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-usethis 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-arrow 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-emoji 
-Requires:         R-CRAN-httr 
+Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-renv 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rstudio.prefs 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-usethis 
 Requires:         R-utils 
 Requires:         R-CRAN-withr 
 
 %description
-Preferred methods for common analytical tasks that are undertaken across
-the Department, including number formatting, project templates and curated
-reference data.
+Provides preferred methods for common analytical tasks undertaken across
+the Department for Education in England, including number formatting,
+project templates and curated reference data.
 
 %prep
 %setup -q -c -n %{packname}
