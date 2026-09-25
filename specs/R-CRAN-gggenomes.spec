@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gggenomes
-%global packver   1.1.3
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Grammar of Graphics for Comparative Genomics
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-readr >= 2.0.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tibble 
@@ -30,16 +31,17 @@ BuildRequires:    R-grid
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-snakecase 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-ggplot2 >= 3.5.0
 Requires:         R-CRAN-readr >= 2.0.0
 Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-vctrs 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tibble 
@@ -48,11 +50,11 @@ Requires:         R-grid
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-snakecase 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-scales 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-colorspace 
 Requires:         R-methods 
 Requires:         R-utils 
+Requires:         R-stats 
 
 %description
 An extension of 'ggplot2' for creating complex genomic maps. It builds on

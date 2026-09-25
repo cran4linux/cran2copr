@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rtemis.llm
-%global packver   0.8.1
+%global packver   0.8.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.8.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Large Language Models and Agentic AI
 
@@ -17,19 +17,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-jsonvalidate >= 1.5.0
+BuildRequires:    R-CRAN-rtemis.core >= 0.4.6
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-rtemis.core 
 BuildRequires:    R-CRAN-S7 
-Requires:         R-CRAN-cli 
+Requires:         R-CRAN-jsonvalidate >= 1.5.0
+Requires:         R-CRAN-rtemis.core >= 0.4.6
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-rtemis.core 
 Requires:         R-CRAN-S7 
 
 %description
@@ -40,7 +40,9 @@ tool use. Supports 'Ollama' <https://docs.ollama.com/api>,
 'OpenAI'-compatible
 <https://developers.openai.com/api/reference/overview>, and
 'Anthropic'-compatible
-<https://platform.claude.com/docs/en/api/getting-started> endpoints.
+<https://platform.claude.com/docs/en/api/getting-started> endpoints. Runs
+Apple's on-device 'Foundation Models' through the 'rtemis-afm' bridge
+<https://github.com/rtemis-org/rtemis-afm>.
 
 %prep
 %setup -q -c -n %{packname}

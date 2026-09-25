@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  microeco
-%global packver   2.3.0
+%global packver   2.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          2.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Microbial Community Ecology Data Analysis
 
@@ -33,6 +33,7 @@ BuildRequires:    R-grid
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-ggplot2 >= 3.5.0
 Requires:         R-CRAN-igraph >= 2.0.0
 Requires:         R-CRAN-R6 
@@ -49,13 +50,15 @@ Requires:         R-grid
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-withr 
 
 %description
 A series of data analysis approaches for microbiome data based on the R6
-class. The classes are designed for data preprocessing, taxa abundance
-plotting, alpha diversity analysis, beta diversity analysis, differential
-abundance test, null model analysis, network analysis, machine learning,
-environmental data analysis and functional analysis.
+class. The classes are designed for data preprocessing, niche analysis,
+taxonomic abundance plot, alpha diversity analysis, beta diversity
+analysis, differential abundance test, null model analysis, network
+analysis, machine learning, environmental data analysis, functional
+redundancy analysis, metabolites analysis, etc.
 
 %prep
 %setup -q -c -n %{packname}

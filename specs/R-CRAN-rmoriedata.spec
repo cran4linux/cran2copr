@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rmoriedata
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Integrated Datasets for the 'rmorie' Package
 
@@ -16,15 +16,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.3.0
 Requires:         R-core >= 4.3.0
-BuildRequires:    R-CRAN-rmoriebricklayer >= 0.2.1
+BuildRequires:    R-CRAN-rmoriebricklayer >= 0.4.0
 BuildRequires:    R-stats 
-Requires:         R-CRAN-rmoriebricklayer >= 0.2.1
+Requires:         R-CRAN-rmoriebricklayer >= 0.4.0
 Requires:         R-stats 
 
 %description
 Integrated open data fixtures used by the 'rmorie' package for examples,
-vignettes, and tests. Split out so 'rmorie' itself stays within the 'CRAN'
-package-size soft cap. Contains snapshots of publicly available datasets
+vignettes, and tests. Contains snapshots of publicly available datasets
 from open-data portals built on the Comprehensive Knowledge Archive
 Network ('CKAN', <https://ckan.org/>), 'Socrata'
 (<https://dev.socrata.com/>), and 'Opendatasoft'

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  canpumf
-%global packver   0.5.2
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parse StatCan PUMF Files
 
@@ -19,7 +19,6 @@ Requires:         R-core >= 4.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-haven >= 2.5.0
 BuildRequires:    R-CRAN-duckdb >= 1.5.2
-BuildRequires:    R-CRAN-duckplyr >= 1.2.1
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-stringr 
@@ -28,13 +27,14 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-dbplyr 
 BuildRequires:    R-CRAN-zip 
 Requires:         R-CRAN-haven >= 2.5.0
 Requires:         R-CRAN-duckdb >= 1.5.2
-Requires:         R-CRAN-duckplyr >= 1.2.1
 Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-stringr 
@@ -43,6 +43,8 @@ Requires:         R-utils
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-httr 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-dbplyr 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  prioritizr
-%global packver   8.1.0
+%global packver   9.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          8.1.0
+Version:          9.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Systematic Conservation Prioritization in R
 
@@ -16,12 +16,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-ape >= 5.6.1
-BuildRequires:    R-CRAN-raster >= 3.6.11
 BuildRequires:    R-CRAN-cli >= 3.6.0
 BuildRequires:    R-CRAN-R6 >= 2.5.1
 BuildRequires:    R-CRAN-withr >= 2.3.0
-BuildRequires:    R-CRAN-igraph >= 2.0.3
 BuildRequires:    R-CRAN-magrittr >= 2.0.1
 BuildRequires:    R-CRAN-tibble >= 2.0.0
 BuildRequires:    R-CRAN-terra >= 1.8.54
@@ -37,12 +34,9 @@ BuildRequires:    R-CRAN-RcppArmadillo >= 0.10.7.3.0
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
-Requires:         R-CRAN-ape >= 5.6.1
-Requires:         R-CRAN-raster >= 3.6.11
 Requires:         R-CRAN-cli >= 3.6.0
 Requires:         R-CRAN-R6 >= 2.5.1
 Requires:         R-CRAN-withr >= 2.3.0
-Requires:         R-CRAN-igraph >= 2.0.3
 Requires:         R-CRAN-magrittr >= 2.0.1
 Requires:         R-CRAN-tibble >= 2.0.0
 Requires:         R-CRAN-terra >= 1.8.54

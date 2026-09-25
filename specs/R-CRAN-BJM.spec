@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BJM
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Backward Joint Model for the Dynamic Prediction of Both Time-to-Event and Longitudinal Outcomes
 
@@ -22,11 +22,13 @@ BuildRequires:    R-CRAN-nlme
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-parallel 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-Matrix 
+Requires:         R-parallel 
 
 %description
 Provides tools to fit joint models of multivariate longitudinal data and

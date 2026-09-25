@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  oompaBase
-%global packver   3.2.11
+%global packver   3.2.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.11
+Version:          3.2.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Class Unions, Matrix Operations, and Color Schemes for OOMPA
 
@@ -34,7 +34,7 @@ tools in the OOMPA (Object-Oriented Microarray and Proteomics Analysis)
 project to be defined and loaded. It also includes vectorized operations
 for row-by-row means, variances, and t-tests. Finally, it provides new
 color schemes. Details on the packages in the OOMPA project can be found
-at <http://oompa.r-forge.r-project.org/>.
+at <http://silicovore.com/OOMPA/index.html>.
 
 %prep
 %setup -q -c -n %{packname}

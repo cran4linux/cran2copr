@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  AI4OfficialStats
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Audit Statistical Fidelity of AI-Mediated Official Statistics
 
@@ -34,17 +34,27 @@ properties of official statistics. Structured reference statistics and
 machine-generated claims can be compared using non-compensatory
 critical-error rules, weakest-link and geometric fidelity summaries,
 provenance graphs, and portable SHA-256 proof bundles. The package
-provides bounded connectors for official statistical services and an
-extensible HTTPS JSON API registry. Prompt perturbation, statistical
-red-team generation, minimal-pair tests, and benchmark data support
-reproducible evaluation of generative, retrieval-augmented, and agentic
-statistical systems. An embedded alignment layer maps claim-level controls
-to relevant activities of the Generic Statistical Business Process Model
-(GSBPM) 5.2, including Analyse, Disseminate, Evaluate, Quality Management,
-and Metadata Management. The GSBPM alignment follows United Nations
-Economic Commission for Europe (2025) "Generic Statistical Business
-Process Model (GSBPM) version 5.2"
-<https://unece.org/statistics/gsbpm-v5.2>.
+provides bounded connectors for official statistical services, an easy
+schema-detection and file-import layer for arbitrary official
+organisations, extensible provider registries, and a search-first natural-
+language verification layer that classifies statistical claims, selects
+suitable official sources, retrieves candidate evidence, matches
+statistical dimensions, and compares claimed values. If no reference year
+is stated, verification uses the latest available matching official
+observation and discloses the resolved year. Source attribution is
+optional: automatic routing can choose suitable providers when none is
+named, while explicitly named supported sources are respected by default.
+Automatic catalogue-to-observation verification is implemented for the
+World Bank, WHO, the United Nations Statistics Division Sustainable
+Development Goals service, and the European Commission statistical
+service, while other providers remain available through bounded direct
+connectors or generic official-data import. Prompt perturbation,
+statistical red-team generation, minimal-pair tests, and benchmark data
+support reproducible evaluation of generative, retrieval-augmented, and
+agentic statistical systems. An embedded alignment layer maps claim-level
+controls to relevant activities of the Generic Statistical Business
+Process Model (GSBPM) 5.2, including Analyse, Disseminate, Evaluate,
+Quality Management, and Metadata Management.
 
 %prep
 %setup -q -c -n %{packname}

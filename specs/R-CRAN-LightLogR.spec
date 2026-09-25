@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LightLogR
-%global packver   0.10.3
+%global packver   0.10.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.3
+Version:          0.10.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Process Data from Wearable Light Loggers and Optical Radiation Dosimeters
 
@@ -17,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.3
 Requires:         R-core >= 4.3
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr >= 1.2.0
+BuildRequires:    R-CRAN-ggtext >= 0.2.0
 BuildRequires:    R-CRAN-circular 
 BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggsci 
-BuildRequires:    R-CRAN-ggtext 
 BuildRequires:    R-CRAN-gt 
 BuildRequires:    R-CRAN-gtExtras 
 BuildRequires:    R-CRAN-hms 
@@ -38,12 +38,12 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-suntools 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr >= 1.2.0
+Requires:         R-CRAN-ggtext >= 0.2.0
 Requires:         R-CRAN-circular 
 Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggsci 
-Requires:         R-CRAN-ggtext 
 Requires:         R-CRAN-gt 
 Requires:         R-CRAN-gtExtras 
 Requires:         R-CRAN-hms 

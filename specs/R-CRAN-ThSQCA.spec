@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ThSQCA
-%global packver   2.0.6
+%global packver   2.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.6
+Version:          2.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Threshold-Sweep QCA
 
@@ -22,22 +22,23 @@ Requires:         R-CRAN-QCA
 
 %description
 Provides threshold sweep methods for Qualitative Comparative Analysis
-(QCA). Implements Condition Threshold Sweep-Single (CTS-S), Condition
-Threshold Sweep-Multiple (CTS-M), Outcome Threshold Sweep (OTS), and Dual
-Threshold Sweep (DTS) for systematic exploration of threshold calibration
-effects on crisp-set QCA results. These methods extend traditional
-robustness approaches by treating threshold variation as an exploratory
-tool for discovering causal structures. Also provides Fiss (2011)
-<doi:10.5465/amj.2011.60263120> core/peripheral condition classification
-via compute_fiss_core() and generate_fiss_chart(), enabling four-symbol
-configuration charts that distinguish core conditions (present in both
-parsimonious and intermediate solutions) from peripheral conditions
-(intermediate only). Built on top of the 'QCA' package by Dusa (2019)
-<doi:10.1007/978-3-319-75668-4>, with function arguments following 'QCA'
-conventions. Based on set-theoretic methods by Ragin (2008)
-<doi:10.7208/chicago/9780226702797.001.0001> and established robustness
-protocols by Oana and Schneider (2024) <doi:10.1177/00491241211036158>.
-This package supersedes 'TSQCA'; see the NEWS file for migration guidance.
+(QCA). Implements Condition Threshold Sweep (CTS, for one or several
+conditions), Outcome Threshold Sweep (OTS), and Dual Threshold Sweep (DTS)
+for systematic exploration of threshold calibration effects on crisp-set
+QCA results. These methods extend traditional robustness approaches by
+treating threshold variation as an explicit analytical dimension and
+recording the sufficiency solution obtained at each threshold setting.
+Also provides Fiss (2011) <doi:10.5465/amj.2011.60263120> core/peripheral
+condition classification via compute_fiss_core() and
+generate_fiss_chart(), enabling four-symbol configuration charts that
+distinguish core conditions (present in both parsimonious and intermediate
+solutions) from peripheral conditions (intermediate only). Built on top of
+the 'QCA' package by Dusa (2019) <doi:10.1007/978-3-319-75668-4>, with
+function arguments following 'QCA' conventions. Based on set-theoretic
+methods by Ragin (2008) <doi:10.7208/chicago/9780226702797.001.0001> and
+established robustness protocols by Oana and Schneider (2024)
+<doi:10.1177/00491241211036158>. This package supersedes 'TSQCA'; see the
+NEWS file for migration guidance.
 
 %prep
 %setup -q -c -n %{packname}

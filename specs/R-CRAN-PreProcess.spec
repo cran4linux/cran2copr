@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PreProcess
-%global packver   3.1.9
+%global packver   3.1.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.9
+Version:          3.1.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Basic Functions for Pre-Processing Microarrays
 
@@ -29,7 +29,7 @@ Requires:         R-stats
 %description
 Provides classes to pre-process microarray gene expression data as part of
 the OOMPA collection of packages described at
-<http://oompa.r-forge.r-project.org/>.
+<http://silicovore.com/OOMPA/index.html>.
 
 %prep
 %setup -q -c -n %{packname}

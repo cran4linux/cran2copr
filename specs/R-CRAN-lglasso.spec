@@ -1,35 +1,42 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  lglasso
-%global packver   0.1.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Longitudinal Graphical Lasso
+Summary:          Graphical Lasso for Longitudinal Data
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-CVXR 
 BuildRequires:    R-CRAN-glasso 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-fake 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-CVXR 
 Requires:         R-CRAN-glasso 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-fake 
+Requires:         R-stats 
 
 %description
-For high-dimensional correlated observations, this package carries out the
-L_1 penalized maximum likelihood estimation of the precision matrix
-(network) and the correlation parameters. The correlated data can be
-longitudinal data (may be irregularly spaced) with dampening correlation
-or clustered data with uniform correlation. For the details of the
-algorithms, please see the paper Jie Zhou et al. Identifying Microbial
-Interaction Networks Based on Irregularly Spaced Longitudinal 16S rRNA
-sequence data <doi:10.1101/2021.11.26.470159>.
+Estimate treatment-specific precision matrices (networks) from
+longitudinal high-dimensional normal data. The corresponding random
+effects are also estimated. It is motivated by the analysis of omics data
+in clinical trials where the longitudinal omics data becomes increasingly
+common. It includes both one-stage models (without treatment) and
+two-stage models (with one treatment). For details of the algorithms,
+please check the materials on its GitHub repo. If you have any questions,
+feel free to contact the maintainers through the email below.
 
 %prep
 %setup -q -c -n %{packname}

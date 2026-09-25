@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  netmem
-%global packver   1.0-3
+%global packver   1.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Social Network Measures using Matrices
 
@@ -17,24 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-Matrix 
 Requires:         R-stats 
 
 %description
 Provides measures to describe and manipulate one-mode, two-mode,
 multiplex, and multilevel networks using matrix algebra. Implements
-functions for network centrality, cohesive subgroups, structural holes,
-similarity measures, path distances, signed networks, and random network
-generation. Supports ego-centric and whole-network analyses, including
-dyadic and triadic census, structural balance, and bipartite projections.
-Key references: Bonacich (1972) <doi:10.1080/0022250X.1972.9989806>,
-Breiger (1974) <doi:10.2307/2576011>, Kivelä et al. (2014)
-<doi:10.1093/comnet/cnu016>, Espinosa-Rada et al. (2024)
-<doi:10.1016/j.socnet.2023.11.008>.
+functions for network centrality, cohesive subgroups, communities,
+structural holes, roles and positions, similarity measures, path
+distances, signed networks, segregation, social influence, and random
+network generation. Supports ego-centric and whole-network analyses,
+including dyadic and triadic censuses, structural balance, bipartite
+projections, measures with overlapping group memberships, Q-analysis,
+neighbourhood-inclusion dominance, main path analysis of citation
+networks, and permutation tests for networks. Key references: Bonacich
+(1972) <doi:10.1080/0022250X.1972.9989806>, Breiger (1974)
+<doi:10.2307/2576011>, Kivela et al. (2014) <doi:10.1093/comnet/cnu016>,
+Espinosa-Rada et al. (2024) <doi:10.1016/j.socnet.2023.11.008>, Schoch and
+Brandes (2016) <doi:10.1017/S0956792516000401>, Traag et al. (2019)
+<doi:10.1038/s41598-019-41695-z>, Everett and Borgatti (2026)
+<doi:10.1016/j.socnet.2025.12.001>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SLGP
-%global packver   1.1.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Logistic Gaussian Process for Field Density Estimation
 
@@ -26,7 +26,6 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-DiceDesign 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mvnfast 
-BuildRequires:    R-CRAN-GoFKernel 
 BuildRequires:    R-CRAN-rstantools 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-RcppParallel >= 5.0.1
@@ -36,7 +35,6 @@ Requires:         R-stats
 Requires:         R-CRAN-DiceDesign 
 Requires:         R-methods 
 Requires:         R-CRAN-mvnfast 
-Requires:         R-CRAN-GoFKernel 
 Requires:         R-CRAN-rstantools 
 Requires:         R-CRAN-rstantools
 

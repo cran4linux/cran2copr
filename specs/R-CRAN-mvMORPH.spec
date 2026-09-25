@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mvMORPH
-%global packver   1.2.1
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Comparative Tools for Fitting Evolutionary Models to Morphometric Data
 
@@ -27,6 +27,8 @@ BuildRequires:    R-graphics
 BuildRequires:    R-CRAN-glassoFast 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-pbmcapply 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-grDevices 
 Requires:         R-CRAN-phytools 
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-corpcor 
@@ -38,16 +40,19 @@ Requires:         R-graphics
 Requires:         R-CRAN-glassoFast 
 Requires:         R-parallel 
 Requires:         R-CRAN-pbmcapply 
+Requires:         R-CRAN-pbapply 
+Requires:         R-grDevices 
 
 %description
 Fits multivariate (Brownian Motion, Early Burst, ACDC, Ornstein-Uhlenbeck
 and Shifts) models of continuous traits evolution on trees and time
 series. 'mvMORPH' also proposes high-dimensional multivariate comparative
 tools (linear models using Generalized Least Squares and multivariate
-tests) based on penalized likelihood.  See Clavel et al. (2015)
-<DOI:10.1111/2041-210X.12420>, Clavel et al. (2019)
-<DOI:10.1093/sysbio/syy045>, and Clavel & Morlon (2020)
-<DOI:10.1093/sysbio/syaa010>.
+tests) based on penalized likelihood and Empirical Bayes approaches.  See
+Clavel et al. (2015) <DOI:10.1111/2041-210X.12420>, Clavel et al. (2019)
+<DOI:10.1093/sysbio/syy045>, Clavel & Morlon (2020)
+<DOI:10.1093/sysbio/syaa010>, and Montoya et al. (2026)
+<DOI:10.1093/sysbio/syag051>.
 
 %prep
 %setup -q -c -n %{packname}

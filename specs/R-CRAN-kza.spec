@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  kza
-%global packver   4.2.0
+%global packver   4.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.0
+Version:          4.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Kolmogorov-Zurbenko Adaptive Filters
 
@@ -19,8 +19,10 @@ BuildRequires:    R-devel
 Requires:         R-core
 
 %description
-Time Series Analysis including break detection, spectral analysis, KZ
-Fourier Transforms.
+Time series analysis including break detection, spectral analysis, and
+Kolmogorov-Zurbenko Fourier transforms, following Zurbenko et al. (1996)
+<doi:10.1175/1520-0442(1996)009%%3C3548:DDITSO%%3E2.0.CO;2> and Yang and
+Zurbenko (2010) <doi:10.1002/wics.71>.
 
 %prep
 %setup -q -c -n %{packname}

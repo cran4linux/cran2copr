@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eurostat
-%global packver   4.0.0
+%global packver   4.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.0
+Version:          4.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Eurostat Open Data
 
@@ -17,9 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table >= 1.14.8
+BuildRequires:    R-CRAN-data.table >= 1.18.2.1
+BuildRequires:    R-CRAN-httr2 >= 1.1.2
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-httr2 >= 0.2.3
 BuildRequires:    R-CRAN-classInt 
 BuildRequires:    R-CRAN-countrycode 
 BuildRequires:    R-CRAN-curl 
@@ -28,18 +28,18 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-ISOweek 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-RefManageR 
 BuildRequires:    R-CRAN-regions 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-data.table >= 1.14.8
+Requires:         R-CRAN-data.table >= 1.18.2.1
+Requires:         R-CRAN-httr2 >= 1.1.2
 Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-httr2 >= 0.2.3
 Requires:         R-CRAN-classInt 
 Requires:         R-CRAN-countrycode 
 Requires:         R-CRAN-curl 
@@ -48,12 +48,12 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-ISOweek 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-R.utils 
 Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-RefManageR 
 Requires:         R-CRAN-regions 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-xml2 

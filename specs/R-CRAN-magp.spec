@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  magp
-%global packver   0.8.0
+%global packver   0.12.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.12.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mapping-Based Additive Gaussian Process Models
 
@@ -18,9 +18,11 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-nloptr 
+Requires:         R-parallel 
 Requires:         R-stats 
 
 %description
@@ -32,8 +34,15 @@ the number of components. Both models support parameter estimation, point
 prediction, and plug-in predictive uncertainty. Input checks validate the
 sequence data and apply consistent scaling to the quantitative inputs.
 Computationally intensive covariance and gradient calculations are
-implemented in C++ with 'Rcpp'. The model was introduced by Xiao et al.
-(2024) <doi:10.1080/01621459.2022.2123335>.
+implemented in C++ with 'Rcpp'. Initial-design functions combine a
+space-filling Latin hypercube with sequence permutations. The sequence
+portion can be generated randomly or optimized with simulated annealing or
+space-filling threshold accepting. Expected improvement can be optimized
+over both parts of the input, and a sequential interface supports Bayesian
+optimization of an expensive user-supplied objective. An integrated
+workflow can generate the initial design, evaluate the objective, and
+continue the sequential search in one call. The model was introduced by
+Xiao et al. (2024) <doi:10.1080/01621459.2022.2123335>.
 
 %prep
 %setup -q -c -n %{packname}

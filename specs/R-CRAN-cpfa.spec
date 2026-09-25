@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cpfa
-%global packver   1.3.2
+%global packver   1.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Classification with Parallel Factor Analysis
 
@@ -17,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.3.0
 Requires:         R-core >= 4.3.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-glmnet >= 5.0
 BuildRequires:    R-CRAN-multiway 
-BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-CRAN-randomForest 
 BuildRequires:    R-CRAN-nnet 
@@ -28,8 +28,8 @@ BuildRequires:    R-CRAN-foreach
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-doRNG 
 BuildRequires:    R-CRAN-clue 
+Requires:         R-CRAN-glmnet >= 5.0
 Requires:         R-CRAN-multiway 
-Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-e1071 
 Requires:         R-CRAN-randomForest 
 Requires:         R-CRAN-nnet 
