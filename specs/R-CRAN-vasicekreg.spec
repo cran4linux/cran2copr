@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vasicekreg
-%global packver   1.1.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Regression Modeling Using Vasicek Distribution
+Summary:          Vasicek-Type Distributions and Regression Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,29 +18,41 @@ BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-gamlss 
 BuildRequires:    R-CRAN-gamlss.dist 
 BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-statmod 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
+Requires:         R-utils 
 Requires:         R-CRAN-gamlss 
 Requires:         R-CRAN-gamlss.dist 
 Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-statmod 
 
 %description
 Provides density, cumulative distribution, quantile, and random generation
-functions for Vasicek distributions with standard normal and standard
-logistic kernels. The normal-kernel distribution is parameterized by
-either its mean or a fixed quantile, whereas the logistic-kernel
-distribution uses a fixed-quantile parameterization. Zero-adjusted,
-one-adjusted, and zero-and-one-adjusted extensions of the normal-kernel
-mean parameterization are also provided for responses that include
-boundary values. The corresponding 'NVASIM', 'NVASIQ', 'LVASIQ',
+functions for Vasicek-type distributions with standard normal, standard
+logistic, and standard hyperbolic-secant kernels. The normal-kernel
+distribution is parameterized by either its mean or a fixed quantile,
+whereas the logistic- and hyperbolic-secant-kernel distributions use
+fixed-quantile parameterizations. Zero-augmented, one-augmented, and
+zero-and-one-augmented extensions of the normal-kernel mean
+parameterization are also provided for responses that include boundary
+values. The corresponding 'NVASIM', 'NVASIQ', 'LVASIQ', 'HVASIQ',
 'ZANVASIM', 'OANVASIM', and 'ZOANVASIM' families are available for fitting
-Generalized Additive Models for Location, Scale and Shape, as introduced
-by Rigby and Stasinopoulos (2005, <doi:10.1111/j.1467-9876.2005.00510.x>).
-Some functions are written in 'C++' using 'Rcpp', developed by
-Eddelbuettel and Francois (2011, <doi:10.18637/jss.v040.i08>).
+Generalized Additive Models for Location, Scale and Shape (GAMLSS), as
+introduced by Rigby and Stasinopoulos (2005,
+<doi:10.1111/j.1467-9876.2005.00510.x>). Two-part random-intercept
+regression models for zero-augmented longitudinal responses are included
+with either a beta or a normal-kernel Vasicek positive component,
+extending the framework of Chen and Li (2016,
+<doi:10.1093/bioinformatics/btw308>). Some functions are written in 'C++'
+using 'Rcpp', developed by Eddelbuettel and Francois (2011,
+<doi:10.18637/jss.v040.i08>).
 
 %prep
 %setup -q -c -n %{packname}

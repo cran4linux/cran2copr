@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rcmdr
-%global packver   2.14.1
+%global packver   2.15.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.14.1
+Version:          2.15.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Commander
 
@@ -29,9 +29,10 @@ BuildRequires:    R-methods
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-splines 
-BuildRequires:    R-tcltk 
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-TeachingDemos 
+BuildRequires:    R-tcltk 
 BuildRequires:    R-tools 
 Requires:         R-CRAN-effects >= 4.0.3
 Requires:         R-CRAN-car >= 3.1.0
@@ -44,9 +45,10 @@ Requires:         R-methods
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-splines 
-Requires:         R-tcltk 
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-TeachingDemos 
+Requires:         R-tcltk 
 Requires:         R-tools 
 
 %description

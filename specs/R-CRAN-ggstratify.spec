@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggstratify
-%global packver   0.0.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Stratified Descriptive Figures with a Point-and-Click GUI
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-survey >= 4.5
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-survival >= 3.2.0
 BuildRequires:    R-CRAN-checkmate >= 2.1.0
@@ -28,6 +29,7 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-CRAN-ragg 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-survey >= 4.5
 Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-survival >= 3.2.0
 Requires:         R-CRAN-checkmate >= 2.1.0
@@ -51,11 +53,23 @@ behind it, on the figure and on each of its panels; strata that contain
 none are listed rather than dropped, and rows with a missing value in a
 layer variable are excluded and counted. A continuous variable can be
 categorized into quantile groups, equal-width bins or user-supplied cut
-points and then used as a layer; the figure types follow those offered by
-the 'ggplotgui' package and add the line plot for change over time, an
-optional LOWESS smoother, and the Kaplan-Meier curve estimated by
-'survival', with an optional number-at-risk table. Columns are described
-as they are typed, so convert each to the type you mean first. Figures are
+points, a variable of any type can be turned into whether it is missing or
+observed, so that the rows a layer would exclude become a stratum of their
+own, and a date or date-time variable can be read at a chosen resolution,
+either as a calendar period or as a position in the yearly cycle such as
+the month or the season; any of them can then be used as a layer. The
+figure types follow those offered by the 'ggplotgui' package and add the
+line plot for change over time, an optional LOWESS smoother, and the
+Kaplan-Meier curve estimated by 'survival', with an optional
+number-at-risk table. An error bar can show a standard error or a
+confidence interval, the latter from the t distribution for a mean and
+from the Clopper-Pearson or Wilson method for a proportion, and the points
+can be joined by a line computed from the same summary, which is how a
+trend over time is read. A survey weight can be set: the figure is then
+drawn from the weighted data, every count is reported both as rows and as
+the sum of the weights, and error bars and confidence bands are
+design-based estimates from the 'survey' package. Columns are described as
+they are typed, so convert each to the type you mean first. Figures are
 written as PNG or SVG, and the application prints the 'ggplot2' code
 behind the figure on screen, so that a description can be repeated, shared
 or accounted for later. Everything runs locally, with no network access

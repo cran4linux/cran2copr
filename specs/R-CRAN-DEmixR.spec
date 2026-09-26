@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DEmixR
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit Two-Component Normal and Lognormal Mixture Models
 
@@ -14,23 +14,30 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-DEoptim >= 2.0.0
 BuildRequires:    R-CRAN-pbapply >= 1.0.0
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-DEoptim >= 2.0.0
 Requires:         R-CRAN-pbapply >= 1.0.0
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Fits, bootstraps, and evaluates two-component normal and lognormal mixture
-models. Parameters are estimated by combining differential-evolution
-global optimization, as implemented in the 'DEoptim' package (Mullen,
-Ardia, Gil, Windover and Cline, 2011) <doi:10.18637/jss.v040.i06>, with a
-local 'L-BFGS-B' refinement step via optim(). Also provides preliminary
-diagnostic plots, automatic normal-versus-lognormal model selection by
-information criteria, and parametric or nonparametric bootstrap confidence
-intervals for the fitted parameters.
+models. Parameters are searched within data-derived bounds by
+differential-evolution global optimization, as implemented in the
+'DEoptim' package (Mullen, Ardia, Gil, Windover and Cline, 2011)
+<doi:10.18637/jss.v040.i06>, followed by a local 'L-BFGS-B' refinement
+step via optim(). Also provides preliminary diagnostic plots, diagnostic
+plots for fitted mixtures, automatic normal-versus-lognormal model
+selection by the Bayesian or Akaike information criterion, and parametric
+or nonparametric bootstrap confidence intervals for the fitted parameters.
 
 %prep
 %setup -q -c -n %{packname}

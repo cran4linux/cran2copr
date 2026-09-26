@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dsge
-%global packver   1.0.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dynamic Stochastic General Equilibrium Models
 
@@ -30,15 +30,21 @@ Requires:         R-CRAN-numDeriv
 Specify, solve, and estimate dynamic stochastic general equilibrium (DSGE)
 models by maximum likelihood and Bayesian methods. Supports both linear
 models via an equation-based formula interface and nonlinear models via
-string-based equations with first-order perturbation (linearization around
-deterministic steady state). Solution uses the method of undetermined
-coefficients (Klein, 2000 <doi:10.1016/S0165-1889(99)00045-7>). Likelihood
-evaluated via the Kalman filter. Bayesian estimation uses adaptive
-Random-Walk Metropolis-Hastings with prior specification. Additional tools
-include Kalman smoothing, historical shock decomposition, local
-identification diagnostics, parameter sensitivity analysis, second-order
-perturbation, occasionally binding constraints, impulse-response
-functions, forecasting, and robust standard errors.
+string-based equations with perturbation up to third order (Schmitt-Grohe
+and Uribe, 2004 <doi:10.1016/S0165-1889(03)00043-5>). Solution uses the
+method of undetermined coefficients (Klein, 2000
+<doi:10.1016/S0165-1889(99)00045-7>). Likelihood evaluated via the Kalman
+filter or a bootstrap particle filter (Gordon et al., 1993). Bayesian
+estimation uses adaptive Random-Walk Metropolis-Hastings or Particle
+Marginal Metropolis-Hastings (Andrieu et al., 2010
+<doi:10.1111/j.1467-9868.2009.00736.x>) with parallel chain support.
+Additional tools include Bayes factor model comparison with Kass-Raftery
+evidence scales, Ramsey optimal policy via linear-quadratic regulator,
+nonlinear perfect foresight via stacked-time Newton (Juillard et al.,
+1998), Kalman smoothing, historical shock decomposition, local
+identification diagnostics, parameter sensitivity analysis, occasionally
+binding constraints, impulse-response functions, forecasting, and robust
+standard errors.
 
 %prep
 %setup -q -c -n %{packname}

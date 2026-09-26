@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spareg
-%global packver   1.1.1
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sparse Projected Averaged Regression
 
@@ -38,9 +38,7 @@ techniques for fitting ensembles of predictive generalized linear models
 to high-dimensional data. Designed for extensibility, the package
 implements key techniques as S3 classes with user-friendly constructors,
 enabling easy integration and development of new procedures for
-high-dimensional applications. For more details see Parzer et al (2024a)
-<doi:10.48550/arXiv.2312.00130> and Parzer et al (2024b)
-<doi:10.48550/arXiv.2410.00971>.
+high-dimensional applications.
 
 %prep
 %setup -q -c -n %{packname}

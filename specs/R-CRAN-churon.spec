@@ -1,39 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dtlog
-%global packver   0.2.0
+%global packname  churon
+%global packver   0.1.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.12
 Release:          1%{?dist}%{?buildtag}
-Summary:          Logging for 'data.table' Operations
+Summary:          'ONNX Runtime' Integration
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table >= 1.16.0
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-data.table >= 1.16.0
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-digest 
+Requires:         R-CRAN-digest 
 
 %description
-Provides feedback about 'data.table' operations. 'dtlog' redefines the
-subsetting method for data tables as well as several functions exported by
-'data.table' so that each operation prints a short message describing what
-it did: how many rows were removed, which columns were added, updated or
-dropped, how many groups an aggregation produced, and so on. The
-operations themselves are left untouched, including modification by
-reference. It also provides dttable(), which describes the variables a
-single data table holds and passes every other call on to base::table()
-unchanged. Inspired by the 'tidylog' package.
+Provides high-performance R bindings for 'ONNX Runtime'
+<https://onnxruntime.ai/>, enabling efficient machine learning model
+inference. Written in 'Rust' for memory safety and speed, the package
+supports cross-platform model execution with multiple execution providers.
+Includes comprehensive error handling and validation, with bundled MNIST
+example model for immediate testing and prototyping. Designed for
+production use with support for macOS (arm64), Linux (x64/arm64), and
+Windows (x64). Runtime libraries are downloaded on explicit request from
+<https://github.com/microsoft/onnxruntime/releases>.
 
 %prep
 %setup -q -c -n %{packname}

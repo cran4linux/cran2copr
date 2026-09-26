@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  landgraph
-%global packver   0.0.1
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Graphs and Covariance for Landscape Genetics
 
@@ -28,8 +28,7 @@ distance from biallelic or multiallelic data (the Yang-style
 normalized-dosage covariance and the Dyer-style multivariate covariance);
 and antisymmetric per-edge directional covariate builders (the gradient of
 a scalar potential, and the projection of a vector flow field). Used by
-'terradish' (symmetric resistance) and 'dragonflow' (asymmetric gene
-flow). No compiled code.
+'terradish' (symmetric resistance). No compiled code.
 
 %prep
 %setup -q -c -n %{packname}

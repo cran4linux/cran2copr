@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  foresty
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Forest Plots and Subgroup Effects from Fitted Regression Models
 
@@ -48,16 +48,16 @@ beside it share one scale, in a layout that can follow a journal's house
 style. The same results go to a self-contained HTML page holding the
 subgroup estimates, the joint test and the coefficient table. The 'car'
 package computes the linear combinations and their tests. Models fitted by
-stats::glm(), stats::lm(), the 'survival' package, the 'lme4' package and
-the 'geepack' package are supported, as is any fit supplying coef() and
-vcov(). Ordinal outcomes are supported through the 'MASS' package and
-nominal ones through the 'nnet' package, where the figure carries one row
-per level of the outcome and the interaction is tested jointly across the
-equations. Fits from the 'rms' package are refused, naming the function
-that fits the same model in their place. The estimation of an exposure
-effect within a level of a modifier, and the test of the difference
-between such estimates, follow Altman and Bland (2003)
-<doi:10.1136/bmj.326.7382.219> and VanderWeele and Knol (2014)
+stats::glm(), stats::lm(), the 'survival' package, the 'lme4' package, the
+'geepack' package and the 'survey' package are supported, as is any fit
+supplying coef() and vcov(). Ordinal outcomes are supported through the
+'MASS' package and nominal ones through the 'nnet' package, where the
+figure carries one row per level of the outcome and the interaction is
+tested jointly across the equations. Fits from the 'rms' package are
+refused, naming the function that fits the same model in their place. The
+estimation of an exposure effect within a level of a modifier, and the
+test of the difference between such estimates, follow Altman and Bland
+(2003) <doi:10.1136/bmj.326.7382.219> and VanderWeele and Knol (2014)
 <doi:10.1515/em-2013-0005>; the reporting of subgroup effects beside the
 interaction test follows Wang et al. (2007) <doi:10.1056/NEJMsr077003>,
 and the figure itself the forest plot described by Lewis and Clarke (2001)

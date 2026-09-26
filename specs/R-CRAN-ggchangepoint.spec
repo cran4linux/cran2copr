@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggchangepoint
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Combines Changepoint Analysis with 'ggplot2'
 
@@ -14,10 +14,10 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
 BuildRequires:    R-CRAN-changepoint 
 BuildRequires:    R-CRAN-changepoint.np 
 BuildRequires:    R-CRAN-dplyr 
@@ -27,8 +27,9 @@ BuildRequires:    R-CRAN-lifecycle
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-ggplot2 >= 3.5.0
 Requires:         R-CRAN-changepoint 
 Requires:         R-CRAN-changepoint.np 
 Requires:         R-CRAN-dplyr 
@@ -38,29 +39,31 @@ Requires:         R-CRAN-lifecycle
 Requires:         R-CRAN-Rdpack 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 
+Requires:         R-tools 
 Requires:         R-utils 
 
 %description
 A unified, tidy, 'ggplot2'-native interface to changepoint detection in R.
 Provides the 'ggcpt' S3 result class with 'broom'-style
 tidy/glance/augment methods, 'autoplot()' (with confidence intervals,
-fitted signals, and multivariate facets), composable geoms
-('geom_changepoint()', 'geom_cpt_segment()', 'geom_cpt_ci()',
-'stat_changepoint()'), and a 'cpt_detect()' dispatcher covering over
-thirty methods with introspection via 'cpt_methods()': penalised/optimal
-partitioning (PELT, BinSeg, SegNeigh, AMOC, FPOP, CROPS penalty paths,
-'fastcpd', change-in-slope via 'cpop'), multiscale and search methods
-(WBS, WBS2, NOT, MOSUM, Isolate-Detect, TGUH, SMUCE/HSMUCE with confidence
-intervals), nonparametric and kernel methods ('changepoint.np', 'ecp',
-'kcpRS', 'CptNonPar', sequential 'cpm', self-normalisation via 'SNSeg'),
-Bayesian methods ('bcp', online 'ocp', 'Rbeast'), high-dimensional and
-multivariate methods ('InspectChangepoint', 'ocd', 'changepoint.geo'),
-regression breaks ('strucchange', 'segmented', 'EnvCpt'), and robust
-detection under drift and autocorrelation ('DeCAFS'). Also includes method
-comparison, batch/panel detection, bootstrap stability diagnostics,
-accuracy metrics, Bayesian posterior and run-length plots, interactive
-rendering, data simulation with canonical test signals, and per-method
-citations.
+significance regions, detector statistics, solution paths, scale space,
+and multivariate facets), composable geoms ('geom_changepoint()',
+'geom_cpt_segment()', 'geom_cpt_ci()', 'geom_cpt_region()',
+'geom_cpt_label()', 'geom_cpt_event()', 'stat_changepoint()'), and a
+'cpt_detect()' dispatcher covering fifty methods with introspection via
+'cpt_methods()': penalised/optimal partitioning, multiscale and search
+methods, nonparametric and kernel methods, Bayesian methods,
+high-dimensional, functional, covariance and network methods, regression
+breaks, seasonal-trend decomposition, the classical single-change tests,
+and robust detection under drift and autocorrelation. Adds inference
+(Narrowest Significance Pursuit regions, a unified 'cpt_confint()',
+post-detection tests), selection of the number of changes, influence and
+sensitivity diagnostics, supervised detection with learned penalties,
+consensus and method recommendation, event annotation and reproducible
+reports, benchmarks against the Turing Change Point Dataset, sequential
+monitoring with detection-delay accounting, power and study design, and an
+extension mechanism ('as_ggcpt()', 'cpt_register_method()') that brings
+external and non-CRAN detectors into the same grammar.
 
 %prep
 %setup -q -c -n %{packname}

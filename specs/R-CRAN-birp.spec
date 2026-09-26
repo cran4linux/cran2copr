@@ -1,39 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dtlog
-%global packver   0.2.0
+%global packname  birp
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Logging for 'data.table' Operations
+Summary:          Testing for Population Trends Using Low-Cost Ecological Count Data
 
-License:          MIT + file LICENSE
+License:          MPL-2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table >= 1.16.0
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-data.table >= 1.16.0
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.12
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-Rcpp >= 1.0.12
+Requires:         R-CRAN-MASS 
 
 %description
-Provides feedback about 'data.table' operations. 'dtlog' redefines the
-subsetting method for data tables as well as several functions exported by
-'data.table' so that each operation prints a short message describing what
-it did: how many rows were removed, which columns were added, updated or
-dropped, how many groups an aggregation produced, and so on. The
-operations themselves are left untouched, including modification by
-reference. It also provides dttable(), which describes the variables a
-single data table holds and passes every other call on to base::table()
-unchanged. Inspired by the 'tidylog' package.
+A Bayesian tool to test for population trends and changes in trends under
+arbitrary designs, including before-after (BA), control-intervention (CI)
+and before-after-control-intervention (BACI) designs commonly used to
+assess conservation impact. It infers changes in trends jointly from data
+obtained with multiple survey methods, as well as from limited and noisy
+data not necessarily collected in standardized ecological surveys.
+Observed counts can be modeled as following either a Poisson or a negative
+binomial model, and both deterministic and stochastic trend models are
+available. For more details on the model see Singer et al. (2025)
+<doi:10.1101/2025.01.08.631844>, and the file 'AUTHORS' for a list of
+copyright holders and contributors.
 
 %prep
 %setup -q -c -n %{packname}

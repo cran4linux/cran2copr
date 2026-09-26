@@ -1,39 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dtlog
-%global packver   0.2.0
+%global packname  adbi
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Logging for 'data.table' Operations
+Summary:          'DBI' Compliant Database Access Using 'ADBC'
 
-License:          MIT + file LICENSE
+License:          LGPL (>= 2.1)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table >= 1.16.0
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-data.table >= 1.16.0
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-DBI >= 1.2.0
+BuildRequires:    R-CRAN-adbcdrivermanager >= 0.8.0
+BuildRequires:    R-CRAN-nanoarrow >= 0.3.0
+BuildRequires:    R-methods 
+Requires:         R-CRAN-DBI >= 1.2.0
+Requires:         R-CRAN-adbcdrivermanager >= 0.8.0
+Requires:         R-CRAN-nanoarrow >= 0.3.0
+Requires:         R-methods 
 
 %description
-Provides feedback about 'data.table' operations. 'dtlog' redefines the
-subsetting method for data tables as well as several functions exported by
-'data.table' so that each operation prints a short message describing what
-it did: how many rows were removed, which columns were added, updated or
-dropped, how many groups an aggregation produced, and so on. The
-operations themselves are left untouched, including modification by
-reference. It also provides dttable(), which describes the variables a
-single data table holds and passes every other call on to base::table()
-unchanged. Inspired by the 'tidylog' package.
+In order to make Arrow Database Connectivity ('ADBC'
+<https://arrow.apache.org/adbc/>) accessible from R, an interface
+compliant with the 'DBI' package is provided, using driver back-ends that
+are implemented in the 'adbcdrivermanager' framework. This enables
+interacting with database systems using the Arrow data format, thereby
+offering an efficient alternative to 'ODBC' for analytical applications.
 
 %prep
 %setup -q -c -n %{packname}

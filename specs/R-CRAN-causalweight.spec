@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  causalweight
-%global packver   1.1.5
+%global packver   1.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
+Version:          1.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation Methods for Causal Inference Based on Inverse Probability Weighting and Doubly Robust Estimation
 
@@ -20,26 +20,32 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ranger 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-np 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-hdm 
-BuildRequires:    R-CRAN-SuperLearner 
+BuildRequires:    R-CRAN-clubSandwich 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-xgboost 
-BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-kernlab 
 BuildRequires:    R-CRAN-fastDummies 
 BuildRequires:    R-CRAN-grf 
 BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-nnls 
 BuildRequires:    R-CRAN-sandwich 
 Requires:         R-CRAN-ranger 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-np 
+Requires:         R-stats 
+Requires:         R-utils 
 Requires:         R-CRAN-hdm 
-Requires:         R-CRAN-SuperLearner 
+Requires:         R-CRAN-clubSandwich 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-xgboost 
-Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-kernlab 
 Requires:         R-CRAN-fastDummies 
 Requires:         R-CRAN-grf 
 Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-nnls 
 Requires:         R-CRAN-sandwich 
 
 %description

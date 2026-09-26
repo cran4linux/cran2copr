@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nlmixr2rpt
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Templated Word and PowerPoint Reporting of 'nlmixr2' Fitting Results
 
@@ -20,11 +20,13 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-nlmixr2extra >= 2.0.7
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-equatags 
 BuildRequires:    R-CRAN-flextable 
 BuildRequires:    R-CRAN-ggforce 
 BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-nlmixr2est 
 BuildRequires:    R-CRAN-onbrand 
@@ -36,11 +38,13 @@ BuildRequires:    R-CRAN-yaml
 Requires:         R-CRAN-nlmixr2extra >= 2.0.7
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-equatags 
 Requires:         R-CRAN-flextable 
 Requires:         R-CRAN-ggforce 
 Requires:         R-CRAN-ggpubr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grDevices 
+Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-nlmixr2est 
 Requires:         R-CRAN-onbrand 

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  doudpackage
-%global packver   2.1.0
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Elegant Table 1 in HTML for Bio-Statistics
+Summary:          Create Elegant Table 1 in HTML/'LaTeX' for Bio-Statistics
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -23,7 +23,6 @@ BuildRequires:    R-methods
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
@@ -32,15 +31,14 @@ Requires:         R-methods
 Requires:         R-parallel 
 Requires:         R-CRAN-purrr 
 Requires:         R-stats 
-Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 
 %description
 Creates the "table one" of bio-medical papers. Fill it with your data and
 the name of the variable which you'll make the group(s) out of and it will
-make univariate, bivariate analysis and parse it into HTML. It also allows
-you to visualize all your data with graphic representation.
+make univariate and bivariate analysis, and parse the result into an HTML
+or 'LaTeX' table ready to paste into a paper.
 
 %prep
 %setup -q -c -n %{packname}

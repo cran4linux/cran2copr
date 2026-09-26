@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  stCEG
-%global packver   0.1.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fully Customizable Chain Event Graphs over Spatial Areas
 
@@ -14,60 +14,34 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-colorspace 
-BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-gtools 
-BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-CRAN-hwep 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-leaflet 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinyWidgets 
-BuildRequires:    R-CRAN-shinycssloaders 
-BuildRequires:    R-CRAN-shinyjqui 
 BuildRequires:    R-CRAN-shinyjs 
-BuildRequires:    R-CRAN-sortable 
-BuildRequires:    R-CRAN-spData 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyverse 
 BuildRequires:    R-CRAN-viridis 
 BuildRequires:    R-CRAN-visNetwork 
 BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-DT 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-colorspace 
-Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-gtools 
-Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-htmlwidgets 
-Requires:         R-CRAN-hwep 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-leaflet 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-scales 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinyWidgets 
-Requires:         R-CRAN-shinycssloaders 
-Requires:         R-CRAN-shinyjqui 
 Requires:         R-CRAN-shinyjs 
-Requires:         R-CRAN-sortable 
-Requires:         R-CRAN-spData 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyverse 
 Requires:         R-CRAN-viridis 
 Requires:         R-CRAN-visNetwork 
 Requires:         R-CRAN-zoo 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  swfscMisc
-%global packver   1.7
+%global packver   1.7.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7
+Version:          1.7.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Miscellaneous Functions for Southwest Fisheries Science Center
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-ggrepel
 BuildRequires:    R-CRAN-HDInterval 
 BuildRequires:    R-CRAN-kknn 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-modeest 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-sf 
@@ -38,7 +37,6 @@ Requires:         R-CRAN-ggrepel
 Requires:         R-CRAN-HDInterval 
 Requires:         R-CRAN-kknn 
 Requires:         R-methods 
-Requires:         R-CRAN-modeest 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-sf 
