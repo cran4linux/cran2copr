@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  plssem
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Complex Partial Least Squares Structural Equation Modeling
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildArch:        noarch
+BuildRequires:    R-CRAN-Rcpp >= 1.1.2
 BuildRequires:    R-CRAN-modsem >= 1.0.21
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
@@ -33,6 +33,8 @@ BuildRequires:    R-CRAN-progressr
 BuildRequires:    R-CRAN-FNN 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-pbivnorm 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.1.2
 Requires:         R-CRAN-modsem >= 1.0.21
 Requires:         R-methods 
 Requires:         R-stats 

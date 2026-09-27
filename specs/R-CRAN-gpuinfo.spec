@@ -1,46 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fsbrain
-%global packver   1.0.0
+%global packname  gpuinfo
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Managing and Visualizing Brain Surface Data
+Summary:          Lightweight Hardware and GPU Compute Detection
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-freesurferformats >= 1.1.0
-BuildRequires:    R-CRAN-pkgfilecache >= 0.4.1
-BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-CRAN-squash 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-viridis 
-BuildRequires:    R-CRAN-magick 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-freesurferformats >= 1.1.0
-Requires:         R-CRAN-pkgfilecache >= 0.4.1
-Requires:         R-CRAN-rgl 
-Requires:         R-CRAN-squash 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-viridis 
-Requires:         R-CRAN-magick 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 
 %description
-Provides high-level access to neuroimaging data from standard software
-packages like 'FreeSurfer' <https://freesurfer.net/> on the level of
-subjects and groups. Load morphometry data, surfaces and brain
-parcellations based on atlases. Mask data using labels, load data for
-specific atlas regions only, and visualize data and statistical results
-directly in 'R'.
+Detects central processing unit and graphics processing unit hardware and
+reports the apparent availability of 'CUDA', 'Metal', 'ROCm', and 'OpenCL'
+compute backends. Detection uses operating-system information, documented
+platform interfaces, and optional command-line utilities, without
+requiring a GPU framework, 'Python', or a vendor software development kit.
+Backend interpretation follows the official 'CUDA'
+<https://docs.nvidia.com/cuda/cuda-driver-api/>, 'Metal'
+<https://developer.apple.com/documentation/metal>, 'ROCm'
+<https://rocm.docs.amd.com/>, and 'OpenCL'
+<https://registry.khronos.org/OpenCL/> documentation. Missing hardware,
+drivers, libraries, and utilities are handled safely.
 
 %prep
 %setup -q -c -n %{packname}

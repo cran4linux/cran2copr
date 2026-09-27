@@ -1,51 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  boiwsa
-%global packver   1.1.5
+%global packname  moire
+%global packver   3.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
+Version:          3.7.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Seasonal Adjustment of Weekly Data
+Summary:          Multiplicity of Infection and Allele Frequency Recovery from Noisy Polyallelic Genetics Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppProgress 
+BuildRequires:    R-CRAN-RcppParallel 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-forecast 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-stats 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RcppProgress 
+Requires:         R-CRAN-RcppParallel 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-forecast 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-patchwork 
-Requires:         R-stats 
 Requires:         R-CRAN-tidyr 
+Requires:         R-stats 
+Requires:         R-parallel 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Perform seasonal adjustment and forecasting of weekly data. The package
-provides a user-friendly interface for computing seasonally adjusted
-estimates and forecasts of weekly time series and includes functions for
-the construction of country-specific prior adjustment variables, as well
-as diagnostic tools to assess the quality of the adjustments. The
-methodology is described in more detail in Ginker (2024)
-<doi:10.13140/RG.2.2.12221.44000>.
+A Markov Chain Monte Carlo (MCMC) based approach to Bayesian estimation of
+individual level multiplicity of infection, within host relatedness, and
+population allele frequencies from polyallelic genetic data. Implements
+the model described in Murphy and Greenhouse (2024)
+<doi:10.1093/bioinformatics/btae619>.
 
 %prep
 %setup -q -c -n %{packname}

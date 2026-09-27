@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  natcpp
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast C++ Primitives for the 'NeuroAnatomy Toolbox'
 
@@ -19,6 +19,7 @@ Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp >= 1.0.6
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RcppEigen 
 BuildRequires:    R-CRAN-RcppThread 
 Requires:         R-CRAN-Rcpp >= 1.0.6
 Requires:         R-CRAN-Matrix 

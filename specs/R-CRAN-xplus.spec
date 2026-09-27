@@ -1,46 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fsbrain
-%global packver   1.0.0
+%global packname  xplus
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Managing and Visualizing Brain Surface Data
+Summary:          Positive and Unlabeled Learning from Unbalanced Cases and Sparse Structures
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-freesurferformats >= 1.1.0
-BuildRequires:    R-CRAN-pkgfilecache >= 0.4.1
-BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-CRAN-squash 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-viridis 
-BuildRequires:    R-CRAN-magick 
+BuildRequires:    R-CRAN-glmnet >= 4.1
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-freesurferformats >= 1.1.0
-Requires:         R-CRAN-pkgfilecache >= 0.4.1
-Requires:         R-CRAN-rgl 
-Requires:         R-CRAN-squash 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-viridis 
-Requires:         R-CRAN-magick 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-glmnet >= 4.1
+Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-utils 
 
 %description
-Provides high-level access to neuroimaging data from standard software
-packages like 'FreeSurfer' <https://freesurfer.net/> on the level of
-subjects and groups. Load morphometry data, surfaces and brain
-parcellations based on atlases. Mask data using labels, load data for
-specific atlas regions only, and visualize data and statistical results
-directly in 'R'.
+Provides PLUS-derived extensions for positive and unlabeled (PU) learning
+from unbalanced cases and sparse structures, based on Zhou et al. (2022)
+<doi:10.1371/journal.pcbi.1009956>. Iteratively relabels unlabeled
+observations via penalised logistic regression and pseudo-label updates,
+then refits a final sparse model. Includes weighted bootstrap sampling,
+convergence diagnostics, prediction, coefficient extraction, and
+assessment utilities.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,46 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fsbrain
-%global packver   1.0.0
+%global packname  bslibdash
+%global packver   0.7.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.7.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Managing and Visualizing Brain Surface Data
+Summary:          'Bootstrap' 5 Dashboard Framework for 'shiny' Apps
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-freesurferformats >= 1.1.0
-BuildRequires:    R-CRAN-pkgfilecache >= 0.4.1
-BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-CRAN-squash 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-viridis 
-BuildRequires:    R-CRAN-magick 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-freesurferformats >= 1.1.0
-Requires:         R-CRAN-pkgfilecache >= 0.4.1
-Requires:         R-CRAN-rgl 
-Requires:         R-CRAN-squash 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-viridis 
-Requires:         R-CRAN-magick 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-shiny >= 1.0.5
+BuildRequires:    R-CRAN-bslib >= 0.6.0
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-bsicons 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-sass 
+Requires:         R-CRAN-shiny >= 1.0.5
+Requires:         R-CRAN-bslib >= 0.6.0
+Requires:         R-utils 
+Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-bsicons 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-sass 
 
 %description
-Provides high-level access to neuroimaging data from standard software
-packages like 'FreeSurfer' <https://freesurfer.net/> on the level of
-subjects and groups. Load morphometry data, surfaces and brain
-parcellations based on atlases. Mask data using labels, load data for
-specific atlas regions only, and visualize data and statistical results
-directly in 'R'.
+Provides a dashboard layer for 'shiny' applications built on 'bslib' and
+'Bootstrap' 5. Includes a dashboard page shell, sidebar navigation, cards,
+value boxes, header drop-down menus and feedback components that inherit
+the active 'bslib' theme and follow 'Bootstrap' design patterns. Function
+names mirror those of the 'shinydashboard' package wherever the underlying
+concepts are shared, allowing existing applications to migrate with
+minimal changes.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  biofetchR
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download, Clean, Classify, Enrich and Export Biodiversity Occurrence Data
 
@@ -61,7 +61,7 @@ user-supplied marine overlays. The package also supports native-range and
 invasive-status evidence workflows using the World Register of Marine
 Species (WoRMS) <https://www.marinespecies.org/>, evidence derived from
 Standardising and Integrating Alien Species (SInAS)
-<https://zenodo.org/records/18220953>, and Global Register of Introduced
+<https://zenodo.org/records/21933976>, and Global Register of Introduced
 and Invasive Species (GRIIS) <https://griis.org/> style species-country
 records. These tools are intended for biodiversity, macroecological and
 invasion-biology analyses where occurrence records need to be processed

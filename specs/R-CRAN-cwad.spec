@@ -1,46 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fsbrain
-%global packver   1.0.0
+%global packname  cwad
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Managing and Visualizing Brain Surface Data
+Summary:          Connectivity-Weighted Allocation and Comparison of Field-Plot Designs
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-freesurferformats >= 1.1.0
-BuildRequires:    R-CRAN-pkgfilecache >= 0.4.1
-BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-CRAN-squash 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-viridis 
-BuildRequires:    R-CRAN-magick 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-freesurferformats >= 1.1.0
-Requires:         R-CRAN-pkgfilecache >= 0.4.1
-Requires:         R-CRAN-rgl 
-Requires:         R-CRAN-squash 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-viridis 
-Requires:         R-CRAN-magick 
-Requires:         R-methods 
 
 %description
-Provides high-level access to neuroimaging data from standard software
-packages like 'FreeSurfer' <https://freesurfer.net/> on the level of
-subjects and groups. Load morphometry data, surfaces and brain
-parcellations based on atlases. Mask data using labels, load data for
-specific atlas regions only, and visualize data and statistical results
-directly in 'R'.
+A reproducible mixed-model toolkit for plant-breeding trial design. It
+evaluates any replication allocation under a known genetic relationship
+(kinship) matrix using one common linear-mixed-model engine on genotype
+means. Crucially, allocation and analysis model are crossed rather than
+confounded: every allocation can be scored both with and without kinship,
+so the precision gain attributable to a design can be separated from the
+gain attributable to the kinship-based analysis adopted alongside it. It
+computes A-optimal, connectivity-aware allocations via rank-1
+Sherman-Morrison updates, and provides Monte-Carlo stress tests for
+outlier shrinkage and for an incorrectly specified kinship matrix, each
+with a matched control arm.
 
 %prep
 %setup -q -c -n %{packname}

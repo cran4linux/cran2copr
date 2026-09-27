@@ -1,46 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fsbrain
-%global packver   1.0.0
+%global packname  eiballots
+%global packver   0.1.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Managing and Visualizing Brain Surface Data
+Summary:          Ballot-Level Microdata and Summaries for Ecological Inference (Florida 2000)
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-freesurferformats >= 1.1.0
-BuildRequires:    R-CRAN-pkgfilecache >= 0.4.1
-BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-CRAN-squash 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-viridis 
-BuildRequires:    R-CRAN-magick 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-freesurferformats >= 1.1.0
-Requires:         R-CRAN-pkgfilecache >= 0.4.1
-Requires:         R-CRAN-rgl 
-Requires:         R-CRAN-squash 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-viridis 
-Requires:         R-CRAN-magick 
-Requires:         R-methods 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Provides high-level access to neuroimaging data from standard software
-packages like 'FreeSurfer' <https://freesurfer.net/> on the level of
-subjects and groups. Load morphometry data, surfaces and brain
-parcellations based on atlases. Mask data using labels, load data for
-specific atlas regions only, and visualize data and statistical results
-directly in 'R'.
+Provides access to ballot-level electoral microdata from the Florida 2000
+general election and tools for computing summaries suitable for ecological
+inference. Includes functions to load data by county or race (election),
+compute marginal distributions at the precinct level, and build joint
+contingency arrays across multiple races for use with ecological inference
+packages. Data files are stored in a remote repository and downloaded on
+demand; local copies are supported via the 'data_dir' option.
+Acknowledgements: We thank Jaime Ventura (ANES, University of Michigan)
+and Dan Keating (The Washington Post) for providing the raw data that
+serve as the starting point for the construction of this package. We also
+acknowledge funding from the Conselleria de Educación, Cultura y
+Universidades (grant CIACIO/2023/031).
 
 %prep
 %setup -q -c -n %{packname}

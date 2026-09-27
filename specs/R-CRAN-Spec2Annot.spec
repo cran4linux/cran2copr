@@ -1,46 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fsbrain
-%global packver   1.0.0
+%global packname  Spec2Annot
+%global packver   1.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.3.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Managing and Visualizing Brain Surface Data
+Summary:          Annotation of Mass Spectra
 
-License:          MIT + file LICENSE
+License:          CeCILL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-freesurferformats >= 1.1.0
-BuildRequires:    R-CRAN-pkgfilecache >= 0.4.1
-BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-CRAN-squash 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-viridis 
-BuildRequires:    R-CRAN-magick 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-freesurferformats >= 1.1.0
-Requires:         R-CRAN-pkgfilecache >= 0.4.1
-Requires:         R-CRAN-rgl 
-Requires:         R-CRAN-squash 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-viridis 
-Requires:         R-CRAN-magick 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-stringr 
 
 %description
-Provides high-level access to neuroimaging data from standard software
-packages like 'FreeSurfer' <https://freesurfer.net/> on the level of
-subjects and groups. Load morphometry data, surfaces and brain
-parcellations based on atlases. Mask data using labels, load data for
-specific atlas regions only, and visualize data and statistical results
-directly in 'R'.
+Provides a comprehensive suite of functions to efficiently annotate mass
+spectra data. Motivated by the need for rapid and accurate chemical
+identification in high-resolution mass spectrometry, it integrates
+built-in chemical databases and high-performance C++ algorithms. Users can
+perform mass-to-charge (m/Z) and retention time searches, determine
+elemental compositions of molecules using heuristic rules, including
+specific isotopes, and annotate MS2 spectra with structural metrics using
+configurable chemistry rules.
 
 %prep
 %setup -q -c -n %{packname}

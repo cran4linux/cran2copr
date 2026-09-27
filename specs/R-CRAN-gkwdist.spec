@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gkwdist
-%global packver   1.1.5
+%global packver   1.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
+Version:          1.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Kumaraswamy Distribution Family
 
@@ -17,13 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-numDeriv 
 
 %description
 Implements the five-parameter Generalized Kumaraswamy ('gkw') distribution

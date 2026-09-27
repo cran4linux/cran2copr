@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BFI
-%global packver   3.1.0
+%global packver   3.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          3.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Federated Inference
 
@@ -26,7 +26,7 @@ obtained from local data sets in the separate centers. In this version of
 the package, the 'BFI' methodology is programmed for linear, logistic and
 survival regression models. For GLMs, see Jonker, Pazira and Coolen (2024)
 <doi:10.1002/sim.10072>; for survival models, see Pazira, Massa, Weijers,
-Coolen and Jonker (2025) <doi:10.48550/arXiv.2404.17464>; and for
+Coolen and Jonker (2026) <doi:10.1080/02664763.2025.2511932>; and for
 heterogeneous populations, see Jonker, Pazira and Coolen (2025)
 <doi:10.1017/rsm.2025.6>.
 

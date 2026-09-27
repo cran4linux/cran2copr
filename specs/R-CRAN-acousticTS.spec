@@ -1,49 +1,57 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RAS
-%global packver   1.1.2
+%global packname  acousticTS
+%global packver   2.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          2.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Regional Association Score for Genome-Wide Association Studies
+Summary:          Physics-Based Models for Acoustic Target Strength
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
+BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-segmented 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-BH 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-grDevices 
 Requires:         R-graphics 
+Requires:         R-methods 
 Requires:         R-parallel 
-Requires:         R-CRAN-segmented 
+Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
 Requires:         R-tools 
 Requires:         R-utils 
 
 %description
-Implements the Regional Association Score (RAS) method for genome-wide
-association studies (GWAS). For each single nucleotide polymorphism (SNP),
-RAS quantifies the strength of association within its surrounding genomic
-region, arranges these regional scores along the chromosome into a signal
-profile, and locates association regions on that profile with one of two
-detectors: the original changepoint detector, or a box-scan region
-detector that also delimits broad plateau-shaped regions. Genotypes can be
-streamed from a chunked on-disk format through compiled code so that peak
-memory no longer grows with chromosome size, and the regional weights can
-be taken from an independent external GWAS (harmonised summary statistics)
-instead of a within-sample split. The method is described in Jiang and
-Zhang (2025) <doi:10.1073/pnas.2419721122>.
+Acoustic target strength (TS) represents the intensity of an echo
+returning from an individual scatterer such as bubbles, fish, or
+zooplankton. TS can be used to convert integrated or volumetric
+backscatter collected from fisheries acoustic surveys into units of number
+density (e.g. animals per m^3), abundance (e.g. number of animals), and
+biomass (e.g. kg). This parameter can also be used to aid in classifying
+backscatter, such as separating likely echoes of large predatory fish
+(e.g. adult cod) from smaller prey (e.g. shrimp). One way to estimate TS
+is to use physics-based models to calculate theoretical TS that comprise
+exact and approximate solutions as well as analytical approaches. The
+models provided can help provide TS estimates over broad statistical
+distributions of model parameters. Applications are described by Lucca et
+al. (2023) <doi:10.1121/10.0022459>, with fisheries-acoustics principles
+from Simmonds and MacLennan (2005) <doi:10.1002/9780470995303>.
 
 %prep
 %setup -q -c -n %{packname}

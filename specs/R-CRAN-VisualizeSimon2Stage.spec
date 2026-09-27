@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  VisualizeSimon2Stage
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualize Simon's Two-Stage Design
 
@@ -14,20 +14,22 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4.0
-Requires:         R-core >= 4.4.0
+BuildRequires:    R-devel >= 4.6
+Requires:         R-core >= 4.6
 BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-flextable 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-officer 
 BuildRequires:    R-CRAN-geomtextpath 
+BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-scales 
 Requires:         R-methods 
 Requires:         R-CRAN-flextable 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-officer 
 Requires:         R-CRAN-geomtextpath 
+Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-scales 
 
 %description

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BayesPostEst
-%global packver   0.4.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generate Postestimation Quantities for Bayesian MCMC Estimation
 
@@ -20,7 +20,6 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-tidyr >= 0.5.1
 BuildRequires:    R-CRAN-dplyr >= 0.5.0
 BuildRequires:    R-CRAN-coda >= 0.13
-BuildRequires:    R-CRAN-carData 
 BuildRequires:    R-CRAN-caTools 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggridges 
@@ -28,16 +27,13 @@ BuildRequires:    R-CRAN-reshape2
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-texreg 
-BuildRequires:    R-CRAN-HDInterval 
 BuildRequires:    R-CRAN-ROCR 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-R2jags 
-BuildRequires:    R-CRAN-rjags 
 Requires:         R-CRAN-tidyr >= 0.5.1
 Requires:         R-CRAN-dplyr >= 0.5.0
 Requires:         R-CRAN-coda >= 0.13
-Requires:         R-CRAN-carData 
 Requires:         R-CRAN-caTools 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggridges 
@@ -45,12 +41,10 @@ Requires:         R-CRAN-reshape2
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-CRAN-texreg 
-Requires:         R-CRAN-HDInterval 
 Requires:         R-CRAN-ROCR 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-R2jags 
-Requires:         R-CRAN-rjags 
 
 %description
 An implementation of functions to generate and plot postestimation

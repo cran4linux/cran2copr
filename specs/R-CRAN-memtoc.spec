@@ -1,46 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fsbrain
-%global packver   1.0.0
+%global packname  memtoc
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Managing and Visualizing Brain Surface Data
+Summary:          'Tictoc'-Style Memory Usage Tracking
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-freesurferformats >= 1.1.0
-BuildRequires:    R-CRAN-pkgfilecache >= 0.4.1
-BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-CRAN-squash 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-viridis 
-BuildRequires:    R-CRAN-magick 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-freesurferformats >= 1.1.0
-Requires:         R-CRAN-pkgfilecache >= 0.4.1
-Requires:         R-CRAN-rgl 
-Requires:         R-CRAN-squash 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-viridis 
-Requires:         R-CRAN-magick 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-callr >= 3.7.0
+BuildRequires:    R-CRAN-cli >= 3.0.0
+BuildRequires:    R-CRAN-ps >= 1.7.0
+Requires:         R-CRAN-callr >= 3.7.0
+Requires:         R-CRAN-cli >= 3.0.0
+Requires:         R-CRAN-ps >= 1.7.0
 
 %description
-Provides high-level access to neuroimaging data from standard software
-packages like 'FreeSurfer' <https://freesurfer.net/> on the level of
-subjects and groups. Load morphometry data, surfaces and brain
-parcellations based on atlases. Mask data using labels, load data for
-specific atlas regions only, and visualize data and statistical results
-directly in 'R'.
+Provides simple start/stop memory tracking functions tic_mem() and
+toc_mem() that can be nested, inspired by the 'tictoc' package. Track RAM
+usage during code execution with support for logging, custom messages,
+nested tracking blocks, and parallel worker monitoring. Features
+continuous background polling to estimate peak memory usage across main
+process and workers. Integrates with the 'future' package ecosystem for
+automatic worker detection. Designed for monitoring memory consumption in
+parallel workflows.
 
 %prep
 %setup -q -c -n %{packname}

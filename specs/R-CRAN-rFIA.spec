@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rFIA
-%global packver   1.1.4
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation of Forest Variables using the FIA Database
 
@@ -56,9 +56,7 @@ facilitates efficient space-time query and data summary, and supports
 common data representations and API design. The package implements
 design-based estimation procedures outlined by Bechtold & Patterson (2005)
 <doi:10.2737/SRS-GTR-80>, and has been validated against estimates and
-sampling errors produced by FIA 'EVALIDator'. Current development is
-focused on the implementation of spatially-enabled model-assisted and
-model-based estimators to improve population, change, and ratio estimates.
+sampling errors produced by FIA 'EVALIDator'.
 
 %prep
 %setup -q -c -n %{packname}

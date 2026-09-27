@@ -1,51 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  boiwsa
-%global packver   1.1.5
+%global packname  fastconley
+%global packver   0.11.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
+Version:          0.11.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Seasonal Adjustment of Weekly Data
+Summary:          Fast Conley Standard Errors for 'lfe' and 'fixest' Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-forecast 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-gridExtra 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-forecast 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-patchwork 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-gridExtra 
 
 %description
-Perform seasonal adjustment and forecasting of weekly data. The package
-provides a user-friendly interface for computing seasonally adjusted
-estimates and forecasts of weekly time series and includes functions for
-the construction of country-specific prior adjustment variables, as well
-as diagnostic tools to assess the quality of the adjustments. The
-methodology is described in more detail in Ginker (2024)
-<doi:10.13140/RG.2.2.12221.44000>.
+Conley (1999) <doi:10.1016/S0304-4076(98)00084-0> spatial
+heteroscedasticity and autocorrelation consistent (HAC) standard errors
+for fixed effects panel and cross-sectional models estimated with felm()
+from the 'lfe' package (ordinary least squares and instrumental variables)
+or with feols(), feglm(), and fepois() from the 'fixest' package.
+Instrumental-variable support is limited to ordinary two-stage least
+squares. Generalized linear model fits use the M-estimation sandwich built
+from the stored scores and inverse Hessian. The spatial path uses score
+accumulation, a three-dimensional cell-grid neighbour search, and
+compressed sparse row neighbour lists instead of dense distance matrices,
+yielding large speedups over the original 'conley' package
+<https://github.com/rbluhm/conley> on big cross-sections and
+high-dimensional regressions.
 
 %prep
 %setup -q -c -n %{packname}
