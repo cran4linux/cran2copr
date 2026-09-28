@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pipeflow
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Interactive Data Analysis Pipelines
 
@@ -18,20 +18,10 @@ BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
 BuildRequires:    R-CRAN-Rcpp >= 1.1.1
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lgr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
 Requires:         R-CRAN-Rcpp >= 1.1.1
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lgr 
-Requires:         R-methods 
-Requires:         R-CRAN-R6 
 Requires:         R-stats 
-Requires:         R-utils 
 
 %description
 A lightweight and intuitive framework for building interactive data

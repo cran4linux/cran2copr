@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  deepSTRAPP
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Test for Differences in Diversification Rates over Time
 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-qpdf >= 1.4.1
 BuildRequires:    R-CRAN-dunn.test >= 1.3.6
 BuildRequires:    R-CRAN-tidyr >= 1.3.1
 BuildRequires:    R-CRAN-scales >= 1.3.0
+BuildRequires:    R-CRAN-rlang >= 1.1.6
 BuildRequires:    R-CRAN-dplyr >= 1.1.4
 BuildRequires:    R-CRAN-cowplot >= 1.1.3
 BuildRequires:    R-CRAN-RColorBrewer >= 1.1.3
@@ -47,6 +48,7 @@ Requires:         R-CRAN-qpdf >= 1.4.1
 Requires:         R-CRAN-dunn.test >= 1.3.6
 Requires:         R-CRAN-tidyr >= 1.3.1
 Requires:         R-CRAN-scales >= 1.3.0
+Requires:         R-CRAN-rlang >= 1.1.6
 Requires:         R-CRAN-dplyr >= 1.1.4
 Requires:         R-CRAN-cowplot >= 1.1.3
 Requires:         R-CRAN-RColorBrewer >= 1.1.3

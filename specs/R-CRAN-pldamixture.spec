@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pldamixture
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Post-Linkage Data Analysis Based on Mixture Modelling
 
@@ -27,18 +27,18 @@ Perform inference in the secondary analysis setting with linked data
 potentially containing mismatch errors. Only the linked data file may be
 accessible and information about the record linkage process may be limited
 or unavailable. Implements the 'General Framework for Regression with
-Mismatched Data' developed by Slawski et al. (2023)
-<doi:10.48550/arXiv.2306.00909>. The framework uses a mixture model for
-pairs of linked records whose two components reflect distributions
-conditional on match status, i.e., correct match or mismatch. Inference is
-based on composite likelihood and the Expectation-Maximization (EM)
-algorithm. The package currently supports Cox Proportional Hazards
-Regression (right-censored data only) and Generalized Linear Regression
-Models (Gaussian, Gamma, Poisson, and Logistic (binary models only)).
-Information about the underlying record linkage process can be
-incorporated into the method if available (e.g., assumed overall mismatch
-rate, safe matches, predictors of match status, or predicted probabilities
-of correct matches).
+Mismatched Data' developed by Slawski et al. (2025)
+<doi:10.1093/jrsssa/qnae083>. The framework uses a mixture model for pairs
+of linked records whose two components reflect distributions conditional
+on match status, i.e., correct match or mismatch. Inference is based on
+composite likelihood and the Expectation-Maximization (EM) algorithm. The
+package currently supports Cox Proportional Hazards Regression
+(right-censored data only) and Generalized Linear Regression Models
+(Gaussian, Gamma, Poisson, and Logistic (binary models only)). Information
+about the underlying record linkage process can be incorporated into the
+method if available (e.g., assumed overall mismatch rate, safe matches,
+predictors of match status, or predicted probabilities of correct
+matches).
 
 %prep
 %setup -q -c -n %{packname}

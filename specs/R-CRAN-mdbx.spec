@@ -1,43 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  shinyreprex
-%global packver   0.3.0
+%global packname  mdbx
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Reproducible Code for 'Shiny' Objects
+Summary:          Bindings to the 'libmdbx' Embedded Key-Value Store
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-S7 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-constructive 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-renv 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-styler 
-Requires:         R-CRAN-S7 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-constructive 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-renv 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-styler 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-cpp11 
 
 %description
-Provides functionality to extract reactive expressions from a 'shiny'
-application and convert them into stand-alone R scripts. This enables
-users to reproduce tables and visualisations outside the interactive UI,
-facilitating integration into static reports or automated workflows
-without requiring access to the original application source code.
+Provides low-level bindings to 'libmdbx', a compact and fast transactional
+key-value store built on memory-mapped files
+(<https://libmdbx.dqdkfa.ru/>). Database environments, transactions, and
+byte-oriented read and write operations are exposed directly. The
+'libmdbx' sources are bundled and compiled into the package, so no system
+library installation is required.
 
 %prep
 %setup -q -c -n %{packname}

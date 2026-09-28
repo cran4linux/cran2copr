@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eidosapi
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Connect to the Taxonomic Services of the Spanish Inventory of Natural Patrimony and Biodiversity
 
@@ -19,13 +19,9 @@ Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-fuzzyjoin 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-fuzzyjoin 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-curl 
 Requires:         R-CRAN-httr 
 
 %description

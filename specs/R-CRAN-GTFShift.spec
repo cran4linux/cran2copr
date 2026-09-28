@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bidser
-%global packver   0.5.2
+%global packname  GTFShift
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Work with 'BIDS' (Brain Imaging Data Structure) Projects
+Summary:          Explore and Analyse General Transit Feed Specification (GTFS) Files with a Focus on Urban Mobility
 
-License:          MIT + file LICENSE
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,40 +17,44 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-data.tree 
+BuildRequires:    R-CRAN-tidytransit 
+BuildRequires:    R-CRAN-gtfstools 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-data.tree 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-osmdata 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-callr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-tidytransit 
+Requires:         R-CRAN-gtfstools 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-osmdata 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-callr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-withr 
 
 %description
-Tools for working with 'BIDS' (Brain Imaging Data Structure) formatted
-neuroimaging datasets. The package provides functionality for reading and
-querying 'BIDS'-compliant projects, creating mock 'BIDS' datasets for
-testing, and extracting preprocessed data from 'fMRIPrep' derivatives. It
-supports searching and filtering 'BIDS' files by various entities such as
-subject, session, task, and run to streamline neuroimaging data workflows.
-See Gorgolewski et al. (2016) <doi:10.1038/sdata.2016.44> for the 'BIDS'
-specification.
+A bundle of methods to harmonize GTFS and OSM data, enabling the
+integration and exploration of different layers of transit data, starting
+with the planned operations (GTFS), but also the infrastructure topology
+(OSM) and real-time information (GTFS-RT).
 
 %prep
 %setup -q -c -n %{packname}

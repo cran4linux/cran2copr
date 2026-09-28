@@ -1,50 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  glcdp
-%global packver   1.1.0
+%global packname  netOP
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Discover, Access, and Import Global Light Commons Data Packages
+Summary:          Network Data Operations and Overlapping Partitions Based Methods for Large Networks
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-irlba 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RSpectra 
 BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-readr 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-irlba 
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RSpectra 
 Requires:         R-CRAN-tibble 
 
 %description
-Discovers Global Light Commons data packages through their registry, opens
-immutable passing revisions, and provides searchable inventories of
-package metadata. Selected metadata and measurement files can be
-downloaded or imported with metadata-defined columns, types, factor
-levels, date-time values, and time zones. 'Git Large File Storage' objects
-are resolved without requiring an external 'Git LFS' installation, and
-imported file groups can be explicitly collected into data suitable for
-personal light exposure analysis workflows. An included 'shiny'
-application supports interactive discovery, inspection, selection,
-preview, and reproducible handoff to 'R'.
+Implements methods for generating, embedding, and clustering random
+networks and for estimating and selecting statistical network models.
+Provides SONNET (Subsampling ON NETwork), a scalable subsampling-based
+divide-and-conquer method for community detection described by
+Chakrabarty, Sengupta and Chen (2025) <doi:10.5705/ss.202022.0108>, and
+NETCROP (NETwork CRoss-validation using Overlapping Partitions), an
+overlapping-partition framework for network cross-validation, model
+selection, and regularization tuning described by Chakrabarty, Sengupta
+and Chen (2026) <doi:10.48550/arXiv.2504.06903>. Also includes spectral
+and latent-space methods, loss functions, and helper functions for
+statistical analysis of network data.
 
 %prep
 %setup -q -c -n %{packname}

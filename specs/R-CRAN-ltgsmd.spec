@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ltgsmd
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Latent True-Score and Target-Population Anchored Geometric SMD
 
@@ -30,9 +30,9 @@ with study x group stratification, denominator-sensitivity profiles, and
 multi-site meta-analytic wrappers. Includes denominator-diagnostic
 reporting, a pluggable reliability estimator interface, and an explicit
 interface for specifying the target reference distribution. Companion
-software to the methodological paper "The Denominator Chooses the
-Estimand: A Target-Population True-Score Framework for Standardized Mean
-Differences" (Nakamura, in press, Psychological Methods).
+software to Nakamura (2026) "The Denominator Chooses the Estimand: A
+Target-Population True-Score Framework for Standardized Mean Differences"
+<doi:10.1037/met0000875>.
 
 %prep
 %setup -q -c -n %{packname}

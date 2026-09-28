@@ -1,33 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  drda
-%global packver   2.0.5
+%global packname  trialdiff
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.5
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dose-Response Data Analysis
+Summary:          Clinical Trial Data-Cut Change Detection and Impact Assessment
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
 
 %description
-Fit logistic functions to observed dose-response continuous data and
-evaluate goodness-of-fit measures. See Malyutina A., Tang J., and Pessia
-A. (2023) <doi:10.18637/jss.v106.i04>.
+A transparent, rule-based framework for detecting changes between
+successive data cuts of clinical trial datasets, classifying those changes
+into clinically meaningful categories, tracing user-defined data lineage,
+and assessing which downstream analyses and outputs may be affected. The
+package is designed to complement existing low-level data frame comparison
+tools by adding clinical-trial-specific classification, lineage and
+impact-assessment layers on top of deterministic comparison. The
+rule-based classification is similar in spirit to the data validation
+infrastructure of van der Loo and de Jonge (2021)
+<doi:10.18637/jss.v097.i10>.
 
 %prep
 %setup -q -c -n %{packname}

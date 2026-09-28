@@ -1,34 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  facilityepimath
-%global packver   0.2.1
+%global packname  datapond
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analyze Mathematical Models of Healthcare Facility Transmission
+Summary:          Query Curated 'DuckDB' Databases Built from Public Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-curl >= 5.0.0
+BuildRequires:    R-CRAN-duckdb >= 1.0.0
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-curl >= 5.0.0
+Requires:         R-CRAN-duckdb >= 1.0.0
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
-Calculate useful quantities for a user-defined differential equation model
-of infectious disease transmission among individuals in a healthcare
-facility. Input rates of transition between states of individuals with and
-without the disease-causing organism, distributions of states at facility
-admission, relative infectivity of transmissible states, and the facility
-length of stay distribution. Calculate the model equilibrium and the basic
-facility reproduction number, as described in Toth et al. (2025)
-<doi:10.1371/journal.pcbi.1013577>.
+Connects to the 'datapond' registry of curated 'DuckDB' databases built
+from public government and research data (immigration courts, campaign
+finance, clinical trials, Medicare, and more). Databases are attached
+remotely over HTTP so only the byte ranges a query touches are
+transferred, or downloaded once for local use. Returns standard 'DBI'
+connections that work with 'dbplyr'.
 
 %prep
 %setup -q -c -n %{packname}

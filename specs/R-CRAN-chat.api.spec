@@ -1,38 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  haplo.stats
-%global packver   1.9.9.1
+%global packname  chat.api
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.9.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Analysis of Haplotypes with Traits and Covariates when Linkage Phase is Ambiguous
+Summary:          Transport-Agnostic Chat Contract
 
-License:          GPL (>= 2)
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4.0
-Requires:         R-core >= 4.4.0
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-arsenal 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-arsenal 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildArch:        noarch
 
 %description
-Routines for the analysis of indirectly measured haplotypes. The
-statistical methods assume that all subjects are unrelated and that
-haplotypes are ambiguous (due to unknown linkage phase of the genetic
-markers). The main functions are: haplo.em(), haplo.glm(), haplo.score(),
-and haplo.power(); all of which have detailed examples in the vignette.
+A transport-agnostic contract for chat-room connectivity: connect, poll,
+and send against one interface, with adapters for 'Matrix'
+<https://spec.matrix.org/>, 'Slack' <https://api.slack.com/>, 'Telegram'
+<https://core.telegram.org/bots/api>, and Internet Relay Chat (IRC). An
+in-memory adapter supports local testing. Capability flags describe
+support for threads, markup dialects, encryption, and per-message
+identity. Platform clients are supplied by optional packages; the core
+interface uses only base R.
 
 %prep
 %setup -q -c -n %{packname}

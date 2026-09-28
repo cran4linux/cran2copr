@@ -1,28 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pwrss
-%global packver   1.2.0
+%global packname  ISPAT3D
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Power, Sample Size, and Detectable Effect Calculations
+Summary:          Spatial Conditional Association Networks in Registered Tumor Volumes
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-gpboost 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-gpboost 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Flexible and comprehensive functions for statistical power, minimum
-required sample size, and minimum detectable effect calculations across a
-wide range of commonly used hypothesis tests in psychological, biomedical,
-and social sciences.
+Fits tumor-zone-specific conditional cell-density networks from registered
+three-dimensional multiplex imaging. An anisotropic Matern-3/2 Gaussian
+process is estimated per variable and zone using a Vecchia likelihood on
+spatially balanced anchors; predictions at all selected cells yield
+residual covariance sufficient statistics. Gaussian maximum likelihood
+then fits a shared-plus-zone factor covariance model. A matched
+section-wise planar fit uses the same selected cells and covariance
+estimator. This extends the spatially informed cell-density analysis of
+Bhadury et al. (2026) <doi:10.1038/s41598-026-35341-8>.
 
 %prep
 %setup -q -c -n %{packname}

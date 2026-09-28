@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  querychat
+%global packname  geoidep
 %global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Filter and Query Data Frames in 'shiny' Using an LLM Chat Interface
+Summary:          Download Geographic Data on Various Topics Provided and Managed by the Spatial Data Infrastructure of Peru
 
-License:          MIT + file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,50 +17,40 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny >= 1.14.0
-BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-ellmer >= 0.5.0
-BuildRequires:    R-CRAN-shinychat >= 0.5.0
-BuildRequires:    R-CRAN-bslib >= 0.11.0
-BuildRequires:    R-CRAN-bsicons 
+BuildRequires:    R-CRAN-httr2 >= 1.0.0
+BuildRequires:    R-CRAN-archive 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-coro 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-promises 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-S7 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-whisker 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-zip 
-Requires:         R-CRAN-shiny >= 1.14.0
-Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-ellmer >= 0.5.0
-Requires:         R-CRAN-shinychat >= 0.5.0
-Requires:         R-CRAN-bslib >= 0.11.0
-Requires:         R-CRAN-bsicons 
+Requires:         R-CRAN-httr2 >= 1.0.0
+Requires:         R-CRAN-archive 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-coro 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-promises 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-S7 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-sf 
+Requires:         R-stats 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-tibble 
 Requires:         R-utils 
-Requires:         R-CRAN-whisker 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-zip 
 
 %description
-Adds an LLM-powered chatbot to your 'shiny' app, that can turn your users'
-natural language questions into 'SQL' queries that run against your data,
-and return the result as a reactive data frame. Use it to drive reactive
-calculations, visualizations, downloads, and more.
+Provides R users with easy access to official cartographic data from Peru
+across a range of topics, including society, transport, environment,
+agriculture, climate, and more.  It also includes data from regional
+government entities and technical-scientific institutions, all managed by
+Peru's Spatial Data Infrastructure.  For more information, please visit:
+<https://www.geoidep.gob.pe/>.
 
 %prep
 %setup -q -c -n %{packname}

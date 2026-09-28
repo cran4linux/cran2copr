@@ -1,37 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bunsen
-%global packver   0.1.1
+%global packname  simPreg
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Marginal Survival Estimation with Covariate Adjustment
+Summary:          Simulate Pregnancy Data with Time-Varying Exposure
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-clustermq 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-stats 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-clustermq 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
 
 %description
-Provides an efficient and robust implementation for estimating marginal
-Hazard Ratio (HR) and Restricted Mean Survival Time (RMST) with covariate
-adjustment using Daniel et al. (2021) <doi:10.1002/bimj.201900297> and
-Karrison et al. (2018) <doi:10.1177/1740774518759281>.
+Simulates pregnancy data in a time-to-event framework, allowing a
+time-varying exposure. Default parameters for gestational length and
+exposure timing are provided but may also be user-specified. Users can
+further specify hazard ratios for spontaneous and non-spontaneous live
+birth and late miscarriage/stillbirth following exposure.
 
 %prep
 %setup -q -c -n %{packname}

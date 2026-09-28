@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  REDCapSync
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Encapsulated 'REDCap' Projects for Synchronized Data Pipelines
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-checkmate
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-hoardr 
+BuildRequires:    R-CRAN-keyring 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-openxlsx2 
 BuildRequires:    R-CRAN-R6 
@@ -36,6 +37,7 @@ Requires:         R-CRAN-checkmate
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-hoardr 
+Requires:         R-CRAN-keyring 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-openxlsx2 
 Requires:         R-CRAN-R6 

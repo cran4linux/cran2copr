@@ -1,39 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  POCRE
-%global packver   0.6.0
+%global __requires_exclude ^libmpi
+%global packname  bgns
+%global packver   0.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.4.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Penalized Orthogonal-Components Regression
+Summary:          Biweight Graph and Network Statistics
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 2.2.0
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-EbayesThresh 
-Requires:         R-CRAN-ggplot2 >= 2.2.0
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-EbayesThresh 
 
 %description
-Penalized orthogonal-components regression (POCRE) is a supervised
-dimension reduction method for high-dimensional data. It sequentially
-constructs orthogonal components (with selected features) which are
-maximally correlated to the response residuals. POCRE can also construct
-common components for multiple responses and thus build up latent-variable
-models.
+Provides memory-efficient biweight midcorrelation and exact bicor-based
+k-nearest-neighbor graph construction for dense and sparse numeric
+matrices. Dense, sparse, and mixed-input paths avoid materializing full
+dense similarity matrices for tidy and k-nearest-neighbor workflows where
+possible. The implementation supports pairwise finite-overlap handling and
+robust correlation-based graph construction for biological expression
+matrices and other high-dimensional numeric data.
 
 %prep
 %setup -q -c -n %{packname}

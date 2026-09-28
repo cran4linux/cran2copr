@@ -1,52 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pould
-%global packver   1.0.2
+%global packname  SIVMethod
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Phased or Unphased Linkage Disequilibrium
+Summary:          Identification, Estimation and Inference Based on Structural Error Projection
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-haplo.stats 
-BuildRequires:    R-CRAN-gap 
+BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-BIGDAWG 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-haplo.stats 
-Requires:         R-CRAN-gap 
+Requires:         R-CRAN-glmnet 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-BIGDAWG 
-Requires:         R-graphics 
-Requires:         R-CRAN-stringr 
 
 %description
-Computes the D', Wn, and conditional asymmetric linkage disequilibrium
-(ALD) measures for pairs of genetic loci. Performs these linkage
-disequilibrium (LD) calculations on phased genotype data recorded using
-Genotype List (GL) String or columnar formats. Alternatively, generates
-expectation-maximization (EM) estimated haplotypes from phased data, or
-performs LD calculations on EM estimated haplotypes. Performs sign tests
-comparing LD values for phased and unphased datasets, and generates
-heat-maps for each LD measure. Described by Osoegawa et al. (2019a)
-<doi:10.1016/j.humimm.2019.01.010>, and Osoegawa et. al. (2019b)
-<doi:10.1016/j.humimm.2019.05.018>.
+Estimation and inference for regression models with endogenous regressors
+using a semiparametric projection approach. Instrumental variables are
+constructed internally from observed regressors by projecting out a space
+of basis functions used to represent the conditional mean of the
+structural error. A least absolute shrinkage and selection operator
+(LASSO) procedure selects basis functions for the projection. Tools are
+provided for simulation studies and empirical applications. The methods
+are based on Dong, Gao, Linton and Peng (2026)
+<doi:10.48550/arXiv.2607.05699>.
 
 %prep
 %setup -q -c -n %{packname}

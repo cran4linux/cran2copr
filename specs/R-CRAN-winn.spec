@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
-%global packname  CausalMBSTS
-%global packver   0.1.1
+%global __requires_exclude ^libmpi
+%global packname  winn
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          MBSTS Models for Causal Inference and Forecasting
+Summary:          White Noise Normalization for Mass Spectrometry Profiling Data
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,24 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-KFAS 
-BuildRequires:    R-CRAN-CholWishart 
-BuildRequires:    R-CRAN-forecast 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-MixMatrix 
-Requires:         R-CRAN-KFAS 
-Requires:         R-CRAN-CholWishart 
-Requires:         R-CRAN-forecast 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-MixMatrix 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-lmtest 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-splines 
+Requires:         R-stats 
+Requires:         R-CRAN-lmtest 
+Requires:         R-CRAN-mgcv 
+Requires:         R-splines 
 
 %description
-Infers the causal effect of an intervention on a multivariate response
-through the use of Multivariate Bayesian Structural Time Series models
-(MBSTS) as described in Menchetti & Bojinov (2020) <arXiv:2006.12269>. The
-package also includes functions for model building and forecasting.
+Provides a decision-guided workflow for correcting technical variability
+in chemical profiling data. Tests for white noise identify measured
+features that need correction while preserving those that already pass.
+The workflow combines robust outlier adjustment, adaptive drift detection,
+change-point segmentation, batch correction, and probabilistic quotient
+normalization in a single pipeline or as modular steps. It supports
+parameter tuning using pooled quality-control samples as well as operation
+for studies without pooled controls.
 
 %prep
 %setup -q -c -n %{packname}

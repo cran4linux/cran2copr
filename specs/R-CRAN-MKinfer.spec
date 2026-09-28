@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MKinfer
-%global packver   1.3
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Inferential Statistics
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-MKdescr 
 BuildRequires:    R-CRAN-boot 
@@ -26,7 +27,10 @@ BuildRequires:    R-CRAN-nlme
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-exactRankTests 
 BuildRequires:    R-CRAN-miceadds 
+BuildRequires:    R-CRAN-hypergeo 
+BuildRequires:    R-parallel 
 Requires:         R-stats 
+Requires:         R-utils 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-MKdescr 
 Requires:         R-CRAN-boot 
@@ -35,13 +39,16 @@ Requires:         R-CRAN-nlme
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-exactRankTests 
 Requires:         R-CRAN-miceadds 
+Requires:         R-CRAN-hypergeo 
+Requires:         R-parallel 
 
 %description
 Computation of various confidence intervals (Altman et al. (2000),
 ISBN:978-0-727-91375-3; Hedderich and Sachs (2018),
 ISBN:978-3-662-56657-2) including bootstrapped versions (Davison and
-Hinkley (1997), ISBN:978-0-511-80284-3) as well as Hsu (Hedderich and
-Sachs (2018), ISBN:978-3-662-56657-2), permutation (Janssen (1997),
+Hinkley (1997), ISBN:978-0-511-80284-3) as well as Xiao (Xiao (2018),
+<doi:10.17654/TS054010021>), Hsu (Hedderich and Sachs (2018),
+ISBN:978-3-662-56657-2), permutation (Janssen (1997),
 <doi:10.1016/S0167-7152(97)00043-6>), bootstrap (Davison and Hinkley
 (1997), ISBN:978-0-511-80284-3), intersection-union (Sozu et al. (2015),
 ISBN:978-3-319-22005-5) and multiple imputation (Barnard and Rubin (1999),

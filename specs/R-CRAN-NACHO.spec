@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  NACHO
-%global packver   2.0.6
+%global packver   2.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.6
+Version:          2.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          NanoString Quality Control Dashboard
 
@@ -14,25 +14,27 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
-BuildRequires:    R-CRAN-shiny >= 1.4.0
-BuildRequires:    R-CRAN-knitr >= 1.25
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
+BuildRequires:    R-CRAN-shiny >= 1.7.4
+BuildRequires:    R-CRAN-scales >= 1.4.0
+BuildRequires:    R-CRAN-knitr >= 1.39
 BuildRequires:    R-CRAN-rmarkdown >= 1.16
-BuildRequires:    R-CRAN-ggrepel >= 0.8.1
+BuildRequires:    R-CRAN-ggrepel >= 0.9.6
+BuildRequires:    R-CRAN-ggforce >= 0.5.0
 BuildRequires:    R-CRAN-shinyWidgets >= 0.4.9
-BuildRequires:    R-CRAN-ggforce >= 0.3.1
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-ggplot2 >= 3.3.0
-Requires:         R-CRAN-shiny >= 1.4.0
-Requires:         R-CRAN-knitr >= 1.25
+Requires:         R-CRAN-ggplot2 >= 4.0.0
+Requires:         R-CRAN-shiny >= 1.7.4
+Requires:         R-CRAN-scales >= 1.4.0
+Requires:         R-CRAN-knitr >= 1.39
 Requires:         R-CRAN-rmarkdown >= 1.16
-Requires:         R-CRAN-ggrepel >= 0.8.1
+Requires:         R-CRAN-ggrepel >= 0.9.6
+Requires:         R-CRAN-ggforce >= 0.5.0
 Requires:         R-CRAN-shinyWidgets >= 0.4.9
-Requires:         R-CRAN-ggforce >= 0.3.1
 Requires:         R-utils 
 Requires:         R-CRAN-data.table 
 
