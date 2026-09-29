@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fqardl
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fourier ARDL Methods: Quantile, Nonlinear, Multi-Threshold & Unit Root Tests
 
@@ -38,12 +38,12 @@ cointegration with partial sum decomposition following Shin, Yu &
 Greenwood-Nimmo (2014) <doi:10.1007/978-1-4899-8008-3_9>; (3)
 Multi-Threshold NARDL (MTNARDL) - multiple regime asymmetry analysis; (4)
 Fourier Unit Root Tests - ADF and KPSS tests with Fourier terms following
-Enders & Lee (2012) <doi:10.1016/j.econlet.2012.05.019> and Becker, Enders
-& Lee (2006) <doi:10.1111/j.1467-9892.2006.00490.x>. Features automatic
+Enders & Lee (2012) <doi:10.1016/j.econlet.2012.04.081> and Becker, Enders
+& Lee (2006) <doi:10.1111/j.1467-9892.2006.00478.x>. Features automatic
 lag and frequency selection, PSS bounds testing following Pesaran, Shin &
 Smith (2001) <doi:10.1002/jae.616>, bootstrap cointegration tests, Wald
 tests for asymmetry, dynamic multiplier computation, and publication-ready
-visualizations. Ported from Stata/Python by Dr. Merwan Roudane.
+visualizations.
 
 %prep
 %setup -q -c -n %{packname}

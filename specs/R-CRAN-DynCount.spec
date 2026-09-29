@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DynCount
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Dynamic Models for Poisson and Binomial Time Series
+Summary:          Bayesian Dynamic Models for Count Time Series
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,25 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-generics 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-utils 
 
 %description
-Fits Bayesian state-space models for non-Gaussian time series using a
-latent log-rate (Poisson) or latent logit (binomial) formulation. The
-latent trajectory follows a first-order random walk or a stationary AR(1)
-process, sampled by Metropolis-within-Gibbs using the implied Gaussian
-Markov random field (GMRF) full conditionals. Four innovation structures
-are supported for the latent increments: constant-variance Gaussian,
-Student-t, a finite scale mixture of normals, and stochastic volatility.
-Both families support time-constant zero inflation. The package provides
-simulation, fitting, forecasting, summary and plotting tools. It
+Fits Bayesian state-space models for count time series using a latent
+log-rate (Poisson), latent logit (binomial) or latent additive-log-ratio
+(multinomial choice counts) formulation. Each latent trajectory follows a
+first-order random walk or a stationary AR(1) process and is sampled by
+Metropolis-within-Gibbs using the implied Gaussian Markov random field
+full conditionals. The latent increments can be Gaussian, Student-t, a
+finite scale mixture of normals, or follow a stochastic volatility
+process, and the Poisson and binomial families support zero inflation. It
 implements and extends the methodology of Zens and Bijak (2026)
 <doi:10.1214/26-AOAS2171>.
 

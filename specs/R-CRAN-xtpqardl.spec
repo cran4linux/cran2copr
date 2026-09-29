@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  xtpqardl
-%global packver   1.0.1
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Panel Quantile Autoregressive Distributed Lag Model
 
@@ -18,8 +18,10 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-quantreg 
 Requires:         R-stats 
+Requires:         R-utils 
 Requires:         R-CRAN-quantreg 
 
 %description
@@ -31,8 +33,8 @@ cointegrating parameters, error correction term speed of adjustment,
 half-life of adjustment, and performs Wald tests for parameter equality
 across quantiles. Based on the econometric frameworks of Pesaran, Shin,
 and Smith (1999) <doi:10.1080/01621459.1999.10474156>, Cho, Kim, and Shin
-(2015) <doi:10.1016/j.jeconom.2015.02.030>, and Bildirici and Kayikci
-(2022) <doi:10.1016/j.energy.2022.124303>.
+(2015) <doi:10.1016/j.jeconom.2015.05.003>, and Bildirici and Kayikci
+(2022).
 
 %prep
 %setup -q -c -n %{packname}

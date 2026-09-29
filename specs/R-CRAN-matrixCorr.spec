@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  matrixCorr
-%global packver   0.12.2
+%global packver   0.12.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.2
+Version:          0.12.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Collection of Correlation, Agreement, and Reliability Estimators
 
@@ -19,6 +19,7 @@ Requires:         R-core >= 4.4.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.5.2
 BuildRequires:    R-CRAN-Matrix >= 1.7.2
 BuildRequires:    R-CRAN-Rcpp >= 1.1.0
+BuildRequires:    R-CRAN-robustbase 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-rlang 
@@ -26,6 +27,7 @@ BuildRequires:    R-CRAN-RcppArmadillo
 Requires:         R-CRAN-ggplot2 >= 3.5.2
 Requires:         R-CRAN-Matrix >= 1.7.2
 Requires:         R-CRAN-Rcpp >= 1.1.0
+Requires:         R-CRAN-robustbase 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-rlang 
@@ -43,8 +45,9 @@ data, repeated-measures correlation, and agreement/reliability analyses
 based on Cohen's kappa, weighted kappa, multi-rater kappa, Gwet's AC1/AC2,
 Krippendorff's alpha, Bland-Altman methods, Lin's concordance correlation
 coefficient, Poisson GLMM concordance for count data, and
-repeated-measures intraclass/concordance correlation. Implemented with
-optimized C++ backends using BLAS/OpenMP and memory-aware symmetric
+repeated-measures intraclass/concordance correlation, including robust
+concordance based on minimum covariance determinant estimates. Implemented
+with optimized C++ backends using BLAS/OpenMP and memory-aware symmetric
 updates, and returns standard R objects with print/summary/plot methods
 plus optional Shiny viewers for matrix inspection. Methods based on Ledoit
 and Wolf (2004) <doi:10.1016/S0047-259X(03)00096-4>; high-dimensional

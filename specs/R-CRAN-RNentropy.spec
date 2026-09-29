@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  RNentropy
-%global packver   1.2.3
+%global packver   1.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Entropy Based Method for the Detection of Significant Variation in Gene Expression Data
 
@@ -23,8 +24,9 @@ identification of genes showing a significant variation of expression
 across multiple conditions. Given expression estimates from any number of
 RNA-Seq samples and conditions it identifies genes or transcripts with a
 significant variation of expression across all the conditions studied,
-together with the samples in which they are over- or under-expressed.
-Zambelli et al. (2018) <doi:10.1093/nar/gky055>.
+together with the samples in which they are over- or under-expressed. It
+also detects genes whose relative isoform usage changes across samples
+(isoform switching). Zambelli et al. (2018) <doi:10.1093/nar/gky055>.
 
 %prep
 %setup -q -c -n %{packname}

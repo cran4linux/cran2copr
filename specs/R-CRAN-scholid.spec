@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scholid
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Scholarly and Academic Identifier Utilities
 
@@ -20,10 +20,10 @@ BuildArch:        noarch
 
 %description
 Detects, normalizes, classifies, and extracts scholarly identifier
-strings. Provides lightweight, dependency-free helpers for twenty
-identifier types, including DOIs, ORCID iDs, ISBNs, ISSNs, arXiv and
-PubMed identifiers, ROR and ISNI, OpenAlex and ADS bibcodes, RRID, ARK,
-SWHID, and selected life-science accessions (UniProt, RefSeq, SRA, GEO,
+strings. Provides lightweight, dependency-free helpers for identifier
+types including DOIs, ORCID iDs, ISBNs, ISSNs, arXiv and PubMed
+identifiers, ROR and ISNI, OpenAlex and ADS bibcodes, RRID, ARK, SWHID,
+and selected life-science accessions (UniProt, RefSeq, SRA, GEO,
 BioProject, and genome assemblies). Functions are vectorized, predictable,
 and suitable as low-level building blocks for other R packages and data
 workflows. Use 'scholid_types()' for the authoritative type list. For

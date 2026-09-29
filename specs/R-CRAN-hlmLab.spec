@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hlmLab
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hierarchical Linear Modeling with Visualization and Decomposition
 
@@ -19,11 +19,15 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-dplyr 
+Requires:         R-grDevices 
+Requires:         R-grid 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-scales 
 Requires:         R-stats 
@@ -37,8 +41,11 @@ ISBN:9781849202015), intraclass correlation (ICC) estimation and design
 effect computation as described in Shrout and Fleiss (1979)
 <doi:10.1037/0033-2909.86.2.420>, and contextual effect decomposition via
 the Mundlak (1978) <doi:10.2307/1913646> specification distinguishing
-within- and between-cluster components. Supports visualization of random
-slopes and cross-level interactions following Hofmann and Gavin (1998)
+within- and between-cluster components, with the uncertainty of the
+contextual contrast obtained from the full fixed-effect covariance matrix.
+Teaching displays cover simulated intraclass correlations, partial pooling
+of cluster means, random-slope heterogeneity, and cross-level interaction
+with an observed Level-2 moderator, following Hofmann and Gavin (1998)
 <doi:10.1177/014920639802400504> and Hamaker and Muthen (2020)
 <doi:10.1037/met0000239>. Multilevel models are estimated using 'lme4'
 (Bates et al., 2015 <doi:10.18637/jss.v067.i01>). An optional 'Shiny'

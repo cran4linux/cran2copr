@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cointsmall
-%global packver   1.0.2
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cointegration Tests with Structural Breaks in Small Samples
 
@@ -26,8 +26,8 @@ sample sizes, following the methodology of Trinh (2022)
 <https://ideas.repec.org/p/ema/worpap/2022-01.html>. Supports models with
 no breaks, breaks in constant only, and breaks in both constant and slope.
 Provides endogenous break date detection using ADF or SSR minimization
-criteria, with small-sample adjusted critical values via response surface
-methodology.
+criteria, with the size-corrected 5%% critical values of the response
+surfaces in Trinh (2022), for up to three regressors.
 
 %prep
 %setup -q -c -n %{packname}

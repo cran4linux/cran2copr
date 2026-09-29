@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DACT
-%global packver   0.1.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Design and Analysis for Clinical Trials
 
@@ -23,12 +23,16 @@ BuildRequires:    R-CRAN-doParallel
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-survival 
 Requires:         R-CRAN-clinfun 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-survival 
 
 %description
 The applications and evaluation of the operating characteristics of many
@@ -40,7 +44,11 @@ cutting-edge statistical solutions in clinical trials. For this reason,
 the software is free for non-commercial scientific research, including but
 not limited to academic researchers and research/teaching institutions.
 Computing codes are available upon request. For more details see P. Gao
-(2024) <doi:10.1080/10543406.2024.2341673>.
+(2024) <doi:10.1080/10543406.2024.2341673>. Gao, P., Zhang, W. (2024)
+<doi:10.1080/10543406.2024.2358796>. P. Gao & Y. Li (2024)
+<doi:10.1080/10543406.2023.2233590>. P. Gao, Y. Li (2024)
+<doi:10.1080/10543406.2024.2342518>. Gao, P., L. Liu, and C. Mehta. (2013)
+<doi:10.1002/sim.5847>.
 
 %prep
 %setup -q -c -n %{packname}

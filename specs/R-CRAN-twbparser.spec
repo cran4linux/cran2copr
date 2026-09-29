@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  twbparser
-%global packver   0.5.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parse 'Tableau' Workbooks into Tidy Data and Dependency Graphs
+Summary:          Parse 'Tableau' Workbooks into Functional Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}

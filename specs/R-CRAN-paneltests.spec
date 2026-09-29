@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  paneltests
-%global packver   1.0.5
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Panel Data Pre-Testing and Diagnostic Suite
 
@@ -32,14 +32,12 @@ assumptions. The package implements: (1) the Hsiao (2014,
 (2) missing-data detection, mechanism testing, and imputation for
 unbalanced panels via xtmispanel(); (3) quantile-regression
 cross-sectional dependence tests (T_tau and T-tilde_tau statistics) of
-Demetrescu, Hosseinkouchack and Rodrigues (2023)
-<doi:10.1016/j.jeconom.2022.09.001> via xtcsdq(); and (4) the panel
-quantile-regression slope homogeneity S-hat and D-hat statistics of
-Galvao, Juhl, Montes-Rojas and Olmo (2017)
-<doi:10.1080/07350015.2015.1054493> via xtqsh(). Together these tests
-address three fundamental pre-testing questions: (i) are slopes
-homogeneous? (ii) is there cross-sectional dependence? and (iii) is the
-panel balanced and is missingness ignorable?
+Demetrescu, Hosseinkouchack and Rodrigues (2023) via xtcsdq(); and (4) the
+panel quantile-regression slope homogeneity S-hat and D-hat statistics of
+Galvao, Juhl, Montes-Rojas and Olmo (2017) <doi:10.1093/jjfinec/nbx016>
+via xtqsh(). Together these tests address three fundamental pre-testing
+questions: (i) are slopes homogeneous? (ii) is there cross-sectional
+dependence? and (iii) is the panel balanced and is missingness ignorable?
 
 %prep
 %setup -q -c -n %{packname}

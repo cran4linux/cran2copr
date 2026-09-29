@@ -1,33 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fastPLS
-%global packver   0.2
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Fast Implementation of Partial Least Square
+Summary:          Fast Partial Least Squares for High-Dimensional Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10.0
-Requires:         R-core >= 2.10.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.17
-BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-devel >= 4.6.0
+Requires:         R-core >= 4.6.0
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.17
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-float 
 Requires:         R-methods 
+Requires:         R-CRAN-float 
 
 %description
-An implementation in 'Rcpp' / 'RcppArmadillo' of Partial Least Square
-algorithms. This package includes other functions to perform the double
-cross-validation and a fast correlation.
+Fast implementations of partial least squares models for high-dimensional
+regression and classification. The 'fastPLS' software provides compiled
+implementations of PLS-SVD, a SIMPLS-family estimator, OPLS and kernel
+PLS, together with truncated singular value decomposition backends,
+discriminant classifiers, cross-validation utilities and optional 'CUDA'
+or Apple 'Metal' acceleration when the required system libraries are
+available. Compact latent prediction and memory-aware numerical routes
+support analyses with large predictor or multivariate-response matrices.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,41 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  permRand
-%global packver   1.0.0
+%global packname  qio
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Permutation Randomization
+Summary:          Read and Write 'Apache Parquet' Files
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-utils 
+Requires:         R-utils 
 
 %description
-Provides randomization using permutation for applications.  To provide a
-Quality Control (QC) check, QC samples can be randomized within strata.  A
-second function allows for the ability to ”switch” samples to meet set
-requirements and perform a certain amount of minimization on these
-switches.  The functions are flexible for users by specifying strata size
-and number of QC samples per strata.  The randomization meets the
-following requirements • QC sample requirements: QC samples not adjacent,
-QC samples from same mother must follow certain patterns. • Matched sample
-sets must be within a single strata, and next to each other.
+Read and write 'Apache Parquet' files. Whole files are read with a single
+call, and larger ones can be opened to inspect their schema and read
+selected columns, row groups, or batches. Built on the bundled C library
+'carquet', with no required R package dependencies.
 
 %prep
 %setup -q -c -n %{packname}

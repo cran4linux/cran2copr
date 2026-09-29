@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rbfmvar
-%global packver   2.0.2
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Residual-Based Fully Modified Vector Autoregression
 
@@ -24,7 +24,7 @@ Requires:         R-CRAN-MASS
 
 %description
 Implements the Residual-Based Fully Modified Vector Autoregression
-(RBFM-VAR) estimator of Chang (2000) <doi:10.1017/S0266466600166071>. The
+(RBFM-VAR) estimator of Chang (2000) <doi:10.1017/S0266466600166058>. The
 RBFM-VAR procedure extends Phillips (1995) FM-VAR to handle any unknown
 mixture of I(0), I(1), and I(2) components without prior knowledge of the
 number or location of unit roots. Provides automatic lag selection via

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  underdisp
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Diagnostics and Models for Underdispersed Count Data
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-VGAM
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-parallel 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
 Requires:         R-CRAN-MASS 
@@ -30,18 +31,27 @@ Requires:         R-CRAN-VGAM
 Requires:         R-graphics 
 Requires:         R-methods 
 Requires:         R-CRAN-numDeriv 
+Requires:         R-parallel 
 
 %description
 Tools for detecting and modeling underdispersion in count data
-(conditional variance below the conditional mean), a phenomenon overlooked
-by the Poisson and negative binomial defaults. Provides a screening
+(conditional variance below the conditional mean), the case the Poisson
+and negative binomial defaults cannot represent. Provides a screening
 diagnostic that benchmarks at-risk dispersion against a zero-truncated
-Poisson; the continuous parameter binomial (CPB) regression and its
-zero-truncated variant, with an interpretable observation-specific bound
-and high-dimensional fixed-effects support; validated bootstrap (for
-coefficients) and profile-likelihood (for the dispersion parameter)
-inference; and quantities of interest including predicted probabilities
-and the implied ceiling. The likelihood is implemented in C++ for speed.
+Poisson, regression-adjusted tests of equidispersion, and a dispersion
+profile that compares the variance-to-mean curves of competing families
+against the data; the continuous parameter binomial (CPB) and generalized
+event count (Katz) regressions with zero-truncated, hurdle, and
+zero-inflated forms and high-dimensional fixed effects with a split-panel
+jackknife bias correction; matched Poisson, negative binomial, COM-Poisson
+(rate- and mean-parameterized), generalized Poisson, gamma-count, and
+double Poisson regressions through the same interface, with frequency
+weights, offsets, and analytic, robust, and cluster-robust standard
+errors; bootstrap and profile-likelihood inference; proper scoring rules,
+rootograms, PIT histograms, and simulation methods; and quantities of
+interest including predicted distributions, the implied ceiling, rate
+ratios, and first differences with an extensive/intensive decomposition.
+The likelihoods are implemented in C++.
 
 %prep
 %setup -q -c -n %{packname}

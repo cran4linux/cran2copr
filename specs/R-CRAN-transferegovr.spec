@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  transferegovr
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access the 'TransfereGov' Open Data APIs
 
@@ -36,13 +36,14 @@ Requires:         R-utils
 Provides a modern interface to the open data application programming
 interfaces of the Brazilian federal government's 'TransfereGov' platform
 (<https://www.gov.br/transferegov/pt-br/ferramentas-gestao/dados-abertos>).
-Covers the special transfers, fund-to-fund transfers, and decentralized
-credit ('TED') modules, which together publish forty-eight tables on
-action plans, programs, budget commitments, financial execution,
-management reports, and payment orders. The APIs are built on 'PostgREST',
-so the package exposes its filtering, column selection, and ordering
-operators directly, and returns tidy tibbles with types taken from the
-published schema. Automatic pagination, request throttling, retries with
+Covers the special transfers, fund-to-fund transfers, partnership
+management, and decentralized credit ('TED') modules, which together
+publish seventy-four tables on action plans, programs, proposals,
+partnerships, budget commitments, credit notes, financial execution,
+management reports, and payment orders. Filters are the services' own
+typed query parameters, validated against the published schema before a
+request is made, and results are returned as tidy tibbles with types taken
+from that schema. Automatic pagination, request throttling, retries with
 exponential backoff, and an optional response cache are included.
 
 %prep

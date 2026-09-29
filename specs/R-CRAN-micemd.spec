@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  micemd
-%global packver   1.10.1
+%global packver   1.11.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.10.1
+Version:          1.11.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiple Imputation by Chained Equations with Multilevel Data
 
@@ -14,13 +14,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.5.0
+Requires:         R-core >= 4.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-mice >= 3.19
 BuildRequires:    R-CRAN-jomo >= 2.6.3
-BuildRequires:    R-CRAN-mice >= 2.42
 BuildRequires:    R-CRAN-mvmeta >= 0.4.7
-BuildRequires:    R-CRAN-GJRM >= 0.2.6.4
+BuildRequires:    R-CRAN-GJRM >= 0.2.6.9
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-graphics 
 BuildRequires:    R-utils 
@@ -35,10 +35,10 @@ BuildRequires:    R-CRAN-abind
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-mixmeta 
 BuildRequires:    R-CRAN-pbivnorm 
+Requires:         R-CRAN-mice >= 3.19
 Requires:         R-CRAN-jomo >= 2.6.3
-Requires:         R-CRAN-mice >= 2.42
 Requires:         R-CRAN-mvmeta >= 0.4.7
-Requires:         R-CRAN-GJRM >= 0.2.6.4
+Requires:         R-CRAN-GJRM >= 0.2.6.9
 Requires:         R-CRAN-Matrix 
 Requires:         R-graphics 
 Requires:         R-utils 

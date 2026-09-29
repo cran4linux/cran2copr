@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  marcxmlr
-%global packver   0.2.1
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Faithful and Scalable MARCXML Parsing
 
@@ -17,13 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-tibble >= 3.0.0
+BuildRequires:    R-CRAN-future >= 1.69.0
 BuildRequires:    R-CRAN-xml2 >= 1.3.0
 BuildRequires:    R-CRAN-purrr >= 1.0.0
+BuildRequires:    R-CRAN-futurize 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-tibble >= 3.0.0
+Requires:         R-CRAN-future >= 1.69.0
 Requires:         R-CRAN-xml2 >= 1.3.0
 Requires:         R-CRAN-purrr >= 1.0.0
+Requires:         R-CRAN-futurize 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  boundedur
-%global packver   1.0.1
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Unit Root Tests for Bounded Time Series
 
@@ -22,7 +22,7 @@ Requires:         R-stats
 
 %description
 Implements unit root tests for bounded time series following Cavaliere and
-Xu (2014) <doi:10.1016/j.jeconom.2013.08.012>. Standard unit root tests
+Xu (2014) <doi:10.1016/j.jeconom.2013.08.026>. Standard unit root tests
 (ADF, Phillips-Perron) have non-standard limiting distributions when the
 time series is bounded. This package provides modified ADF and M-type
 tests (MZ-alpha, MZ-t, MSB) with p-values computed via Monte Carlo

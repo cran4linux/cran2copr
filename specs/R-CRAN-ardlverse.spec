@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ardlverse
-%global packver   2.0.0
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Comprehensive ARDL: Panel, Bootstrap and Fourier Methods
 
@@ -38,13 +38,14 @@ Requires:         R-grDevices
 A unified framework for Autoregressive Distributed Lag (ARDL) modeling and
 cointegration analysis. Implements Panel ARDL with Pooled Mean Group
 (PMG), Mean Group (MG), and Dynamic Fixed Effects (DFE) estimators
-following Pesaran, Shin & Smith (1999) <doi:10.1002/jae.616>. Provides
-bootstrap-based bounds testing per Pesaran, Shin & Smith (2001)
-<doi:10.1002/jae.616>. Includes Quantile Nonlinear ARDL (QNARDL) combining
-distributional and asymmetric effects based on Shin, Yu & Greenwood-Nimmo
-(2014) <doi:10.1007/978-1-4899-8008-3_9>, and Fourier ARDL for modeling
-smooth structural breaks following Enders & Lee (2012)
-<doi:10.1016/j.econlet.2012.05.019>. Features include Augmented ARDL
+following Pesaran, Shin and Smith (1999)
+<doi:10.1080/01621459.1999.10474156>. Provides bootstrap-based bounds
+testing per Pesaran, Shin & Smith (2001) <doi:10.1002/jae.616>. Includes
+Quantile Nonlinear ARDL (QNARDL) combining distributional and asymmetric
+effects based on Shin, Yu & Greenwood-Nimmo (2014)
+<doi:10.1007/978-1-4899-8008-3_9>, and Fourier ARDL for modeling smooth
+structural breaks following Enders & Lee (2012)
+<doi:10.1016/j.econlet.2012.04.081>. Features include Augmented ARDL
 (AARDL) with deferred t and F tests, Multiple-Threshold NARDL for complex
 asymmetries, Rolling/Recursive ARDL for time-varying relationships, and
 Panel NARDL for nonlinear panel cointegration. All methods include

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LSMjml
-%global packver   0.6.0
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fitting Latent Space Item Response Models using Joint Maximum Likelihood Estimation
 
@@ -31,12 +31,13 @@ In Latent Space Item Response Models, subjects and items are embedded in a
 multidimensional Euclidean latent space. As such, interactions among
 persons, items, and person-item combinations can be revealed that are
 unmodelled in more conventional item response theory models. This package
-implements the methods from Molenaar & Jeon (in press) and can be used to
-fit Latent Space Item Response Models to data using joint maximum
-likelihood estimation. The package can handle binary data, ordinal data,
-and data with mixed scales. The package incorporates facilities for data
-simulation, rotation of the latent space, and K-fold cross-validation to
-select the number of dimensions of the latent space.
+implements the methods from Molenaar & Jeon
+(2026)<doi:10.1017/psy.2025.10068> and can be used to fit Latent Space
+Item Response Models to data using joint maximum likelihood estimation.
+The package can handle binary data, ordinal data, and data with mixed
+scales. The package incorporates facilities for data simulation, rotation
+of the latent space, and K-fold cross-validation to select the number of
+dimensions of the latent space.
 
 %prep
 %setup -q -c -n %{packname}

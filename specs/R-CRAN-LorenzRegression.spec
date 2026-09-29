@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LorenzRegression
-%global packver   2.3.1
+%global packver   2.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.1
+Version:          2.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lorenz and Penalized Lorenz Regressions
 
@@ -49,7 +49,9 @@ Inference for the Lorenz and penalized Lorenz regressions. More broadly,
 the package proposes functions to assess inequality and graphically
 represent it. The Lorenz Regression procedure is introduced in Heuchenne
 and Jacquemain (2022) <doi:10.1016/j.csda.2021.107347> and in Jacquemain,
-A., C. Heuchenne, and E. Pircalabelu (2024) <doi:10.1214/23-EJS2200>.
+A., C. Heuchenne, and E. Pircalabelu (2024) <doi:10.1214/23-EJS2200>. The
+implementation is described in Jacquemain and Heuchenne (2026)
+<doi:10.18637/jss.v117.i06>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  quak
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Query 'Azure Data Lake Storage Gen2' with 'DuckDB'
 
@@ -14,22 +14,22 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-duckdb >= 1.5.4
+BuildRequires:    R-CRAN-DBI >= 1.2.0
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-duckdb 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-duckdb >= 1.5.4
+Requires:         R-CRAN-DBI >= 1.2.0
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-curl 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-duckdb 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-rlang 
