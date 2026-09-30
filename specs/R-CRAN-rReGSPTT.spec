@@ -1,46 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rjd3workspace
-%global packver   3.9.0
+%global packname  rReGSPTT
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.9.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Wrangling 'JDemetra+ 3.x' Workspaces
+Summary:          Repetitive Group Acceptance Sampling Inspection Plans for Time Truncated Life Test
 
-License:          EUPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rjd3providers >= 3.9.0
-BuildRequires:    R-CRAN-rjd3toolkit >= 3.9.0
-BuildRequires:    R-CRAN-rjd3tramoseats >= 3.9.0
-BuildRequires:    R-CRAN-rjd3x13 >= 3.9.0
-BuildRequires:    R-CRAN-rJava >= 1.0.6
-BuildRequires:    R-CRAN-rjd3jars >= 0.0.6
-BuildRequires:    R-methods 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-rjd3providers >= 3.9.0
-Requires:         R-CRAN-rjd3toolkit >= 3.9.0
-Requires:         R-CRAN-rjd3tramoseats >= 3.9.0
-Requires:         R-CRAN-rjd3x13 >= 3.9.0
-Requires:         R-CRAN-rJava >= 1.0.6
-Requires:         R-CRAN-rjd3jars >= 0.0.6
-Requires:         R-methods 
-Requires:         R-tools 
-Requires:         R-utils 
 
 %description
-R Interface to 'JDemetra+ 3.x'(<https://github.com/jdemetra>).  It offers
-several functions to manipulate 'JDemetra+' workspaces, which can be read
-by the software and can store several seasonal adjusted series along with
-user-defined calendars or regression variables.
+Designing repetitive group acceptance sampling inspection plans for
+time-truncated life tests. The package uses a distribution-free
+formulation in which the user supplies the failure probability. The
+functions compute operating characteristic probabilities and average
+sample numbers subject to a consumer's risk constraint. The package also
+provides graphical and comparative tools for comparing repetitive group,
+group and single sampling inspection plans. Sherman (1965)
+<doi:10.2307/1266124>; Aslam and Jun (2013)
+<doi:10.1007/s00170-013-4747-x>. Saha et al. (2025)
+<doi:10.1007/s41872-025-00305-w>; Tripathi et al. (2020)
+<doi:10.1080/02664763.2020.1759031>; Tripathi and Aslam (2024)
+<doi:10.1285/i20705948v17n3p636>; Tripathi et al. (2022)
+<doi:10.1007/s40745-020-00267-z>; Saha et al. (2021)
+<doi:10.1080/21681015.2021.1893843>; Tripathi et al. (2023)
+<doi:10.1007/s41872-023-00221-x>.
 
 %prep
 %setup -q -c -n %{packname}

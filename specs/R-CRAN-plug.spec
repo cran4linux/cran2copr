@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  plug
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Secure and Intuitive Access to 'Plug' Interface
 
@@ -14,25 +14,25 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-httr2 >= 1.0.0
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-keyring 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-httr2 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-httr2 >= 1.0.0
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-keyring 
+Requires:         R-CRAN-tibble 
 
 %description
 Provides a secure and user-friendly interface to interact with the 'Plug'
 <https://plugbytpf.com.br> 'API'. It enables developers to store and
-manage tokens securely using the 'keyring' package, retrieve data from
-'API' endpoints with the 'httr2' package, and handle large datasets with
-chunked data fetching. Designed for simplicity and security, the package
-facilitates seamless integration with 'Plug' ecosystem.
+manage credentials and tokens securely using the 'keyring' package, and to
+retrieve data from 'API' endpoints with the 'httr2' package, using 'SQL'
+queries built safely from templates. Designed for simplicity and security,
+the package facilitates seamless integration with the 'Plug' ecosystem.
 
 %prep
 %setup -q -c -n %{packname}

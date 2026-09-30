@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rjd3workspace
-%global packver   3.9.0
+%global packname  fireData
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.9.0
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Wrangling 'JDemetra+ 3.x' Workspaces
+Summary:          Connect to 'Google Firebase'
 
-License:          EUPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,30 +17,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rjd3providers >= 3.9.0
-BuildRequires:    R-CRAN-rjd3toolkit >= 3.9.0
-BuildRequires:    R-CRAN-rjd3tramoseats >= 3.9.0
-BuildRequires:    R-CRAN-rjd3x13 >= 3.9.0
-BuildRequires:    R-CRAN-rJava >= 1.0.6
-BuildRequires:    R-CRAN-rjd3jars >= 0.0.6
-BuildRequires:    R-methods 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-rjd3providers >= 3.9.0
-Requires:         R-CRAN-rjd3toolkit >= 3.9.0
-Requires:         R-CRAN-rjd3tramoseats >= 3.9.0
-Requires:         R-CRAN-rjd3x13 >= 3.9.0
-Requires:         R-CRAN-rJava >= 1.0.6
-Requires:         R-CRAN-rjd3jars >= 0.0.6
-Requires:         R-methods 
-Requires:         R-tools 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-curl >= 5.0.0
+BuildRequires:    R-CRAN-R6 >= 2.5.0
+BuildRequires:    R-CRAN-yaml >= 2.3.0
+BuildRequires:    R-CRAN-openssl >= 2.0.0
+BuildRequires:    R-CRAN-jsonlite >= 1.8.0
+BuildRequires:    R-CRAN-httr >= 1.4.0
+Requires:         R-CRAN-curl >= 5.0.0
+Requires:         R-CRAN-R6 >= 2.5.0
+Requires:         R-CRAN-yaml >= 2.3.0
+Requires:         R-CRAN-openssl >= 2.0.0
+Requires:         R-CRAN-jsonlite >= 1.8.0
+Requires:         R-CRAN-httr >= 1.4.0
 
 %description
-R Interface to 'JDemetra+ 3.x'(<https://github.com/jdemetra>).  It offers
-several functions to manipulate 'JDemetra+' workspaces, which can be read
-by the software and can store several seasonal adjusted series along with
-user-defined calendars or regression variables.
+Provides an interface to 'Google Firebase' services
+<https://firebase.google.com/>, including 'Firebase Realtime Database',
+'Cloud Firestore', 'Firebase Authentication', and 'Cloud Storage for
+Firebase'. Supports interactive use and 'shiny' applications as well as
+automated server-side workflows. Data frames and objects can be stored and
+retrieved, users can be authenticated, and files can be managed through
+the services' application programming interfaces.
 
 %prep
 %setup -q -c -n %{packname}

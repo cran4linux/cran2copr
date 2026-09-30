@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  glmmTMB
-%global packver   1.1.14
+%global packver   1.1.15.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.14
+Version:          1.1.15.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Linear Mixed Models using Template Model Builder
 
@@ -16,10 +16,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-TMB >= 1.9.0
+BuildRequires:    R-CRAN-TMB >= 1.9.23
 BuildRequires:    R-CRAN-lme4 >= 1.1.18.9000
 BuildRequires:    R-CRAN-reformulas >= 0.4.3.1
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RTMB 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-numDeriv 
@@ -27,10 +28,11 @@ BuildRequires:    R-CRAN-mgcv
 BuildRequires:    R-CRAN-pbkrtest 
 BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-TMB >= 1.9.0
+Requires:         R-CRAN-TMB >= 1.9.23
 Requires:         R-CRAN-lme4 >= 1.1.18.9000
 Requires:         R-CRAN-reformulas >= 0.4.3.1
 Requires:         R-methods 
+Requires:         R-CRAN-RTMB 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-numDeriv 

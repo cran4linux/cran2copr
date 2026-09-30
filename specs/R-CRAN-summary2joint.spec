@@ -1,46 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rjd3workspace
-%global packver   3.9.0
+%global packname  summary2joint
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.9.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Wrangling 'JDemetra+ 3.x' Workspaces
+Summary:          Joint Distribution Estimation from Marginal Study Summaries
 
-License:          EUPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-rjd3providers >= 3.9.0
-BuildRequires:    R-CRAN-rjd3toolkit >= 3.9.0
-BuildRequires:    R-CRAN-rjd3tramoseats >= 3.9.0
-BuildRequires:    R-CRAN-rjd3x13 >= 3.9.0
-BuildRequires:    R-CRAN-rJava >= 1.0.6
-BuildRequires:    R-CRAN-rjd3jars >= 0.0.6
-BuildRequires:    R-methods 
-BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-rjd3providers >= 3.9.0
-Requires:         R-CRAN-rjd3toolkit >= 3.9.0
-Requires:         R-CRAN-rjd3tramoseats >= 3.9.0
-Requires:         R-CRAN-rjd3x13 >= 3.9.0
-Requires:         R-CRAN-rJava >= 1.0.6
-Requires:         R-CRAN-rjd3jars >= 0.0.6
-Requires:         R-methods 
-Requires:         R-tools 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-stats 
 Requires:         R-utils 
 
 %description
-R Interface to 'JDemetra+ 3.x'(<https://github.com/jdemetra>).  It offers
-several functions to manipulate 'JDemetra+' workspaces, which can be read
-by the software and can store several seasonal adjusted series along with
-user-defined calendars or regression variables.
+Estimates latent Gaussian joint distributions for normal continuous,
+binary, and ordinal variables using marginal summaries from independent
+studies of a common population. Fits a pairwise Gaussian working criterion
+using exact summary moments, with study-level sandwich uncertainty.
+Supports prespecified independent groups, joint event probabilities, and
+synthetic patient generation. Identification requires repeated joint
+reporting of variable pairs; heterogeneous populations, rare categories,
+and small study collections require caution.
 
 %prep
 %setup -q -c -n %{packname}

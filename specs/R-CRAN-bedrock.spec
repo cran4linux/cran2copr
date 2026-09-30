@@ -1,46 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rjd3workspace
-%global packver   3.9.0
+%global packname  bedrock
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.9.0
+Version:          0.1.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Wrangling 'JDemetra+ 3.x' Workspaces
+Summary:          Base Functions for the 'DescToolsX' Ecosystem
 
-License:          EUPL
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-rjd3providers >= 3.9.0
-BuildRequires:    R-CRAN-rjd3toolkit >= 3.9.0
-BuildRequires:    R-CRAN-rjd3tramoseats >= 3.9.0
-BuildRequires:    R-CRAN-rjd3x13 >= 3.9.0
-BuildRequires:    R-CRAN-rJava >= 1.0.6
-BuildRequires:    R-CRAN-rjd3jars >= 0.0.6
-BuildRequires:    R-methods 
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-expm 
 BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-rjd3providers >= 3.9.0
-Requires:         R-CRAN-rjd3toolkit >= 3.9.0
-Requires:         R-CRAN-rjd3tramoseats >= 3.9.0
-Requires:         R-CRAN-rjd3x13 >= 3.9.0
-Requires:         R-CRAN-rJava >= 1.0.6
-Requires:         R-CRAN-rjd3jars >= 0.0.6
-Requires:         R-methods 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-cli 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-expm 
 Requires:         R-tools 
-Requires:         R-utils 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-cli 
 
 %description
-R Interface to 'JDemetra+ 3.x'(<https://github.com/jdemetra>).  It offers
-several functions to manipulate 'JDemetra+' workspaces, which can be read
-by the software and can store several seasonal adjusted series along with
-user-defined calendars or regression variables.
+Provides the low level utilities on which the 'DescToolsX' ecosystem is
+built. Covered are data manipulation and reshaping, predicates for data
+inspection and validation, vector and string operations, handling of
+labels and metadata, and routines from number theory and combinatorics.
+All functions share a common naming and argument scheme and are
+implemented as S3 generics wherever several input types are meaningful,
+with performance critical parts written in C++. The package is self
+contained and can be used on its own, independently of the higher level
+packages of the suite.
 
 %prep
 %setup -q -c -n %{packname}

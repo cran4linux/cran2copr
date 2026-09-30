@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rjd3workspace
-%global packver   3.9.0
+%global packname  accmv
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.9.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Wrangling 'JDemetra+ 3.x' Workspaces
+Summary:          Inference with Available Complete-Case Missing Values
 
-License:          EUPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,30 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rjd3providers >= 3.9.0
-BuildRequires:    R-CRAN-rjd3toolkit >= 3.9.0
-BuildRequires:    R-CRAN-rjd3tramoseats >= 3.9.0
-BuildRequires:    R-CRAN-rjd3x13 >= 3.9.0
-BuildRequires:    R-CRAN-rJava >= 1.0.6
-BuildRequires:    R-CRAN-rjd3jars >= 0.0.6
-BuildRequires:    R-methods 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-rjd3providers >= 3.9.0
-Requires:         R-CRAN-rjd3toolkit >= 3.9.0
-Requires:         R-CRAN-rjd3tramoseats >= 3.9.0
-Requires:         R-CRAN-rjd3x13 >= 3.9.0
-Requires:         R-CRAN-rJava >= 1.0.6
-Requires:         R-CRAN-rjd3jars >= 0.0.6
-Requires:         R-methods 
-Requires:         R-tools 
-Requires:         R-utils 
 
 %description
-R Interface to 'JDemetra+ 3.x'(<https://github.com/jdemetra>).  It offers
-several functions to manipulate 'JDemetra+' workspaces, which can be read
-by the software and can store several seasonal adjusted series along with
-user-defined calendars or regression variables.
+Implements inverse probability weighted, regression adjustment, and
+multiply robust estimators under the available complete-case missing value
+assumption of Cheng, Chen, Smith, and Zhao (2022)
+<doi:10.48550/arXiv.2207.02289>. Supports one or two primary variables,
+exponential-tilt sensitivity analysis, regression weights, and
+nonparametric bootstrap confidence intervals.
 
 %prep
 %setup -q -c -n %{packname}

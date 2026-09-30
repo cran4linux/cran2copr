@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HotellingEllipse
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hotelling’s T-Squared Statistic and Ellipse
 
@@ -17,35 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-FactoMineR 
-BuildRequires:    R-CRAN-ggforce 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-FactoMineR 
-Requires:         R-CRAN-ggforce 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rgl 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 
 
 %description
 Functions to calculate the Hotelling’s T-squared statistic and
 corresponding confidence ellipses. Provides the semi-axes of the
-Hotelling’s T-squared ellipses at 95%% and 99%% confidence levels. Enables
-users to obtain the coordinates in two or three dimensions at user-defined
-confidence levels, allowing for the construction of 2D or 3D ellipses with
-customized confidence levels. Bro and Smilde (2014)
-<DOI:10.1039/c3ay41907j>. Brereton (2016) <DOI:10.1002/cem.2763>.
+Hotelling’s T-squared ellipses at user-defined confidence levels (95%% and
+99%% by default). Enables users to obtain the coordinates in two or three
+dimensions at user-defined confidence levels, allowing for the
+construction of 2D or 3D ellipses with customized confidence levels. Bro
+and Smilde (2014) <DOI:10.1039/c3ay41907j>. Brereton (2016)
+<DOI:10.1002/cem.2763>.
 
 %prep
 %setup -q -c -n %{packname}

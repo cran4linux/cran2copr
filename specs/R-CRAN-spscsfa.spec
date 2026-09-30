@@ -1,46 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rjd3workspace
-%global packver   3.9.0
+%global packname  spscsfa
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.9.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Wrangling 'JDemetra+ 3.x' Workspaces
+Summary:          Semiparametric Smooth-Coefficient Stochastic Frontier Analysis
 
-License:          EUPL
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rjd3providers >= 3.9.0
-BuildRequires:    R-CRAN-rjd3toolkit >= 3.9.0
-BuildRequires:    R-CRAN-rjd3tramoseats >= 3.9.0
-BuildRequires:    R-CRAN-rjd3x13 >= 3.9.0
-BuildRequires:    R-CRAN-rJava >= 1.0.6
-BuildRequires:    R-CRAN-rjd3jars >= 0.0.6
-BuildRequires:    R-methods 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-rjd3providers >= 3.9.0
-Requires:         R-CRAN-rjd3toolkit >= 3.9.0
-Requires:         R-CRAN-rjd3tramoseats >= 3.9.0
-Requires:         R-CRAN-rjd3x13 >= 3.9.0
-Requires:         R-CRAN-rJava >= 1.0.6
-Requires:         R-CRAN-rjd3jars >= 0.0.6
-Requires:         R-methods 
-Requires:         R-tools 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-CRAN-np 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-Formula 
+Requires:         R-CRAN-np 
+Requires:         R-stats 
 
 %description
-R Interface to 'JDemetra+ 3.x'(<https://github.com/jdemetra>).  It offers
-several functions to manipulate 'JDemetra+' workspaces, which can be read
-by the software and can store several seasonal adjusted series along with
-user-defined calendars or regression variables.
+Provides semiparametric smooth-coefficient stochastic frontier analysis
+following Sun and Kumbhakar (2013) <doi:10.1016/j.econlet.2013.05.001>
+where the coefficients of the parametric part vary smoothly with a set of
+nonparametric variables. Inefficiency term is allowed to depend on a set
+of determinants through heteroskedasticity. Smooth coefficients are
+estimated using nonparametric regression and the remaining frontier
+parameters are estimated by maximum likelihood. Technical efficiency and
+inefficiency are computed using the Battese and Coelli (1988)
+<doi:10.1016/0304-4076(88)90053-X> and Jondrow et al. (1982)
+<doi:10.1016/0304-4076(82)90004-5> methods, respectively. Confidence
+intervals for technical efficiency are computed using the approach of
+Horrace and Schmidt (1996) <doi:10.1007/BF00157044>.
 
 %prep
 %setup -q -c -n %{packname}

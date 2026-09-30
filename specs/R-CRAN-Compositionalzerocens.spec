@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Compositionalzerocens
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modelling Zero Values in Compositional Data Using a Censored Model
 
@@ -21,17 +21,17 @@ BuildRequires:    R-CRAN-Compositional
 BuildRequires:    R-CRAN-far 
 BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-TruncatedNormal 
 Requires:         R-CRAN-Compositional 
 Requires:         R-CRAN-far 
 Requires:         R-CRAN-Rfast 
 Requires:         R-stats 
+Requires:         R-CRAN-TruncatedNormal 
 
 %description
 Modelling structural zeros in compositional data assuming a latent
 Gaussian model, where MLE is performed via the EM algorithm. The relevant
-paper is Tsagris M. (2026). Modelling structural zeros in compositional
-data via a zero-censored multivariate normal model.
-<doi:10.48550/arXiv.2208.13073>.
+paper is Tsagris and Alharbi (2026) <doi:10.48550/arXiv.2208.13073>.
 
 %prep
 %setup -q -c -n %{packname}

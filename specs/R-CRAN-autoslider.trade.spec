@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rjd3workspace
-%global packver   3.9.0
+%global packname  autoslider.trade
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.9.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Wrangling 'JDemetra+ 3.x' Workspaces
+Summary:          Slide Automation for Trading Tables, Listings and Figures
 
-License:          EUPL
+License:          Apache License (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,30 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rjd3providers >= 3.9.0
-BuildRequires:    R-CRAN-rjd3toolkit >= 3.9.0
-BuildRequires:    R-CRAN-rjd3tramoseats >= 3.9.0
-BuildRequires:    R-CRAN-rjd3x13 >= 3.9.0
-BuildRequires:    R-CRAN-rJava >= 1.0.6
-BuildRequires:    R-CRAN-rjd3jars >= 0.0.6
-BuildRequires:    R-methods 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-rjd3providers >= 3.9.0
-Requires:         R-CRAN-rjd3toolkit >= 3.9.0
-Requires:         R-CRAN-rjd3tramoseats >= 3.9.0
-Requires:         R-CRAN-rjd3x13 >= 3.9.0
-Requires:         R-CRAN-rJava >= 1.0.6
-Requires:         R-CRAN-rjd3jars >= 0.0.6
-Requires:         R-methods 
-Requires:         R-tools 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-autoslider.core 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-formatters 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlistings 
+BuildRequires:    R-CRAN-rtables 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-autoslider.core 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-formatters 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlistings 
+Requires:         R-CRAN-rtables 
+Requires:         R-stats 
 
 %description
-R Interface to 'JDemetra+ 3.x'(<https://github.com/jdemetra>).  It offers
-several functions to manipulate 'JDemetra+' workspaces, which can be read
-by the software and can store several seasonal adjusted series along with
-user-defined calendars or regression variables.
+A downstream package of 'autoslider.core' that produces tables, listings
+and figures for finance trading, in the same style as 'autoslider'. Where
+'autoslider.core' automates clinical study outputs, this package automates
+trading outputs from price and trade data: performance tables, equity
+curves and trade listings.
 
 %prep
 %setup -q -c -n %{packname}

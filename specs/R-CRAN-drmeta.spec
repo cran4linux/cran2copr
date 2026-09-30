@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  drmeta
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Design-Indexed Location-Scale Meta-Analysis
 
@@ -37,13 +37,15 @@ estimation, location moderators, the conventional random-effects model as
 a nested special case, exact estimation at the nonnegative scale-gradient
 boundary, design-indexed heterogeneity summaries, scale-attenuation
 measures, prediction of fitted heterogeneity, leave-one-out influence
-diagnostics, and parametric-bootstrap inference for the scale gradient.
-Because the scale-gradient null lies on the boundary of the constrained
-parameter space, standard chi-square likelihood-ratio references do not
-apply (Self and Liang, 1987, <doi:10.1080/01621459.1987.10478472>). The
-general location-scale parent model is described in Viechtbauer and
-Lopez-Lopez (2022, <doi:10.1002/jrsm.1562>). A scale model reweights
-studies and does not adjust the mean for design-linked bias.
+diagnostics, and parametric-bootstrap inference for the scale gradient. A
+grouped scale diagnostic checks whether a monotone curve misses an
+interior peak or trough. Because the scale-gradient null lies on the
+boundary of the constrained parameter space, standard chi-square
+likelihood-ratio references do not apply (Self and Liang, 1987,
+<doi:10.1080/01621459.1987.10478472>). The general location-scale parent
+model is described in Viechtbauer and Lopez-Lopez (2022,
+<doi:10.1002/jrsm.1562>). A scale model reweights studies and does not
+adjust the mean for design-linked bias.
 
 %prep
 %setup -q -c -n %{packname}

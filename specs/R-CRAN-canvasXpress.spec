@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  canvasXpress
-%global packver   1.65.2
+%global packver   1.70.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.65.2
+Version:          1.70.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualization Package for CanvasXpress in R
 
@@ -22,11 +22,13 @@ BuildRequires:    R-CRAN-htmltools
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-htmlwidgets >= 1.0
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Enables creation of visualizations using the CanvasXpress framework in R.

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  quallmer
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Qualitative Analysis with Large Language Models
 
@@ -17,37 +17,39 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ellmer >= 0.4.0
+BuildRequires:    R-CRAN-ellmer >= 0.5.0
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-irr 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-yardstick 
-Requires:         R-CRAN-ellmer >= 0.4.0
+Requires:         R-CRAN-ellmer >= 0.5.0
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-digest 
-Requires:         R-CRAN-irr 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-vctrs 
-Requires:         R-CRAN-yardstick 
 
 %description
 Tools for AI-assisted qualitative data coding using large language models
 ('LLMs') via the 'ellmer' package, supporting providers including
 'OpenAI', 'Anthropic', 'Google', 'Azure', and local models via 'Ollama'.
 Provides a 'codebook'-based workflow for defining coding instructions and
-applying them to texts, images, and other data. Includes built-in
-'codebooks' for common applications such as sentiment analysis and policy
-coding, and functions for creating custom 'codebooks' for specific
-research questions. Supports systematic replication across models and
-settings, computing inter-coder reliability statistics including
+applying them to texts, images, audio recordings, and other data. Includes
+built-in 'codebooks' for common applications such as sentiment analysis
+and policy coding, and functions for creating custom 'codebooks' for
+specific research questions. Supports systematic replication across models
+and settings, computing inter-coder reliability statistics including
 Krippendorff's alpha (Krippendorff 2019, <doi:10.4135/9781071878781>) and
 Fleiss' kappa (Fleiss 1971, <doi:10.1037/h0031619>), as well as
 gold-standard validation metrics including accuracy, precision, recall,
