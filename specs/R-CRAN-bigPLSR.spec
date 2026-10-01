@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bigPLSR
-%global packver   0.7.2
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.2
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Partial Least Squares Regression Models with Big Matrices
 
@@ -41,18 +41,17 @@ some of the techniques featured in the package, Dayal and MacGregor (1997)
 <doi:10.1002/(SICI)1099-128X(199701)11:1%%3C73::AID-CEM435%%3E3.0.CO;2-%%23>,
 Rosipal & Trejo (2001) <https://www.jmlr.org/papers/v2/rosipal01a.html>,
 Tenenhaus, Viennet, and Saporta (2007) <doi:10.1016/j.csda.2007.01.004>,
-Rosipal (2004) <doi:10.1007/978-3-540-45167-9_17>, Rosipal (2019)
-<https://ieeexplore.ieee.org/document/8616346>, Song, Wang, and Bai (2024)
-<doi:10.1016/j.chemolab.2024.105238>. Includes kernel logistic PLS with
-'C++'-accelerated alternating iteratively reweighted least squares (IRLS)
-updates, streamed reproducing kernel Hilbert space (RKHS) solvers with
-reusable centering statistics, and bootstrap diagnostics with graphical
-summaries for coefficients, scores, and cross-validation workflows,
-alongside dedicated plotting utilities for individuals, variables,
-ellipses, and biplots. The streaming backend uses far less memory and
-keeps memory bounded across data sizes. For PLS1, streaming is often fast
-enough while preserving a small memory footprint; for PLS2 it remains
-competitive with a bounded footprint. On small problems that fit
+Rosipal (2004) <doi:10.1007/978-3-540-45167-9_17>, Song, Wang, and Bai
+(2024) <doi:10.1016/j.chemolab.2024.105238>. Includes kernel logistic PLS
+with 'C++'-accelerated alternating iteratively reweighted least squares
+(IRLS) updates, streamed reproducing kernel Hilbert space (RKHS) solvers
+with reusable centering statistics, and bootstrap diagnostics with
+graphical summaries for coefficients, scores, and cross-validation
+workflows, alongside dedicated plotting utilities for individuals,
+variables, ellipses, and biplots. The streaming backend uses far less
+memory and keeps memory bounded across data sizes. For PLS1, streaming is
+often fast enough while preserving a small memory footprint; for PLS2 it
+remains competitive with a bounded footprint. On small problems that fit
 comfortably in RAM (random-access memory), dense in-memory solvers are
 slightly faster; the crossover occurs as n or p grow and the
 Gram/cross-product cost dominates.

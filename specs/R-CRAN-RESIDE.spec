@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RESIDE
-%global packver   0.3.2
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Rapid Easy Synthesis to Inform Data Extraction
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-RDP
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-simstudy 
-BuildRequires:    R-CRAN-matrixcalc 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-bestNormalize 
@@ -32,17 +31,16 @@ Requires:         R-CRAN-RDP
 Requires:         R-methods 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-simstudy 
-Requires:         R-CRAN-matrixcalc 
 
 %description
-Developed to assist researchers with planning analysis, prior to obtaining
-data from Trusted Research Environments (TREs) also known as safe havens.
-With functionality to export and import marginal distributions as well as
-synthesise data, both with and without correlations from these marginal
-distributions. Using a multivariate cumulative distribution (COPULA).
-Additionally the International Stroke Trial (IST) is included as an
-example dataset under ODC-By licence Sandercock et al. (2011)
-<doi:10.7488/ds/104>, Sandercock et al. (2011)
+Assists researchers with planning analysis prior to obtaining data from
+Trusted Research Environments (TREs), also known as safe havens. Marginal
+distributions of one or more related data frames can be exported from a
+TRE and imported elsewhere, where data can be synthesised from them, with
+or without user specified correlations, by sampling from a multivariate
+cumulative distribution (copula). The International Stroke Trial (IST) is
+included as an example dataset under the ODC-By licence, Sandercock et al.
+(2011) <doi:10.7488/ds/104>, Sandercock et al. (2011)
 <doi:10.1186/1745-6215-12-101>.
 
 %prep

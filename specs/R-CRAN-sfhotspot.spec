@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sfhotspot
-%global packver   1.0.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hot-Spot Analysis with Simple Features
 
@@ -14,18 +14,26 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-classInt 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dbscan 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggspatial 
+BuildRequires:    R-CRAN-isoband 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-SpatialKDE 
 BuildRequires:    R-CRAN-spdep 
 BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-classInt 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dbscan 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggspatial 
+Requires:         R-CRAN-isoband 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-SpatialKDE 

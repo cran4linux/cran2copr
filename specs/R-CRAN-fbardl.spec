@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fbardl
-%global packver   1.0.2
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fourier Bootstrap ARDL Cointegration Test
 
@@ -25,13 +25,15 @@ Implements the Fourier Bootstrap Autoregressive Distributed Lag (FBARDL)
 bounds testing approach for cointegration analysis. Combines the Pesaran,
 Shin & Smith (2001) <doi:10.1002/jae.616> ARDL bounds testing framework
 with Fourier terms to capture structural breaks following Yilanci, Bozoklu
-& Gorus (2020) <doi:10.1080/00036846.2019.1686454>, and bootstrap critical
+& Gorus (2020) <doi:10.1016/j.scs.2020.102035>, and bootstrap critical
 values based on McNown, Sam & Goh (2018)
 <doi:10.1080/00036846.2017.1366643> and Bertelli, Vacca & Zoia (2022)
-<doi:10.1016/j.econmod.2022.105987>. Features include automatic lag
-selection via AIC/BIC, optimal Fourier frequency selection by minimum SSR,
-long-run and short-run coefficient estimation, diagnostic tests, and
-dynamic multiplier analysis.
+<doi:10.1016/j.econmod.2022.105987>, with finite-sample bounds test
+critical values from Kripfganz and Schneider (2020)
+<doi:10.1111/obes.12377>. Features include automatic lag selection via
+AIC/BIC, optimal Fourier frequency selection by minimum SSR, long-run and
+short-run coefficient estimation, diagnostic tests, and dynamic multiplier
+analysis.
 
 %prep
 %setup -q -c -n %{packname}

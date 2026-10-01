@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cograph
-%global packver   2.4.4
+%global packver   2.7.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.4
+Version:          2.7.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis and Visualization of Complex Networks
 
@@ -20,14 +20,14 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-grDevices 
 Requires:         R-grid 
-Requires:         R-CRAN-Matrix 
+Requires:         R-parallel 
 Requires:         R-CRAN-R6 
 Requires:         R-stats 
 Requires:         R-utils 

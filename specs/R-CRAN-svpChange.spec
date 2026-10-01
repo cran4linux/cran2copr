@@ -1,50 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mombf
-%global packver   3.4.2
+%global packname  svpChange
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Model Selection with Bayesian Methods and Information Criteria
+Summary:          Smallest Valid Partitioning for Change-Point Detection
 
-License:          GPL (>= 2) | file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.0
-Requires:         R-core >= 2.14.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.16
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-ncvreg 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-intervals 
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-mclust 
-BuildRequires:    R-CRAN-sgd 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.10
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.16
-Requires:         R-methods 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-ncvreg 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-intervals 
-Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-mclust 
-Requires:         R-CRAN-sgd 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-Rcpp >= 1.0.10
+Requires:         R-stats 
 
 %description
-Model selection and averaging for regression and mixtures, inclusing
-Bayesian model selection and information criteria (BIC, EBIC, AIC, GIC).
+Provides methods for detecting multiple change-points and segmenting
+univariate time series using Smallest Valid Partitioning (SVP). SVP
+searches for a partition with the smallest number of segments whose
+segments satisfy a user-defined or built-in validity test. Among
+partitions with the same number of segments, it minimizes a within-segment
+sum-of-squared-errors criterion.
 
 %prep
 %setup -q -c -n %{packname}

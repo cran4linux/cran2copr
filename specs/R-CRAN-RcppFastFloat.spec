@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RcppFastFloat
-%global packver   0.0.5
+%global packver   0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Rcpp' Bindings for the 'fast_float' Header-Only Library for Number Parsing
 
@@ -14,18 +14,18 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-Rcpp 
 
 %description
 Converting ascii text into (floating-point) numeric values is a very
-common problem. The 'fast_float' header-only C++ library by Daniel Lemire
-does it very well and very fast at up to or over to 1 gigabyte per second
-as described in more detail in <doi:10.1002/spe.2984>. 'fast_float' is
-licensed under the Apache 2.0 license and provided here for use by other R
-packages via a simple 'LinkingTo:' statement.
+common problem. The 'fast_float' header-only 'C++' library by Daniel
+Lemire does it very well and very fast at up to or over to 1 gigabyte per
+second as described in more detail in <doi:10.1002/spe.2984>. 'fast_float'
+is licensed under the Apache 2.0 license and provided here for use by
+other R packages via a simple 'LinkingTo:' statement.
 
 %prep
 %setup -q -c -n %{packname}

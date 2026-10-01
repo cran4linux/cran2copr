@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  qadf
-%global packver   1.0.0
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantile Autoregressive Distributed Lag Unit Root Test
 
@@ -28,7 +28,7 @@ test proposed by Koenker and Xiao (2004) <doi:10.1198/016214504000001114>.
 The test examines unit root behaviour across the conditional distribution
 of a time series using quantile regression, providing a richer
 characterisation of persistence than standard ADF tests. Critical values
-follow Hansen (1995) <doi:10.1017/S0266466600009713>. Lag order selection
+follow Hansen (1995) <doi:10.1017/S0266466600009993>. Lag order selection
 is supported via AIC, BIC, or the t-statistic sequential testing approach.
 
 %prep

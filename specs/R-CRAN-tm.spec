@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tm
-%global packver   0.7-19
+%global packver   0.7-20
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.19
+Version:          0.7.20
 Release:          1%{?dist}%{?buildtag}
 Summary:          Text Mining Package
 
@@ -16,8 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-NLP >= 0.2.0
 BuildRequires:    R-CRAN-slam >= 0.1.37
+BuildRequires:    R-CRAN-NLP 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
@@ -26,8 +26,8 @@ BuildRequires:    R-utils
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-NLP >= 0.2.0
 Requires:         R-CRAN-slam >= 0.1.37
+Requires:         R-CRAN-NLP 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-parallel 
 Requires:         R-stats 

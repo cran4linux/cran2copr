@@ -1,30 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fuzzyRankTests
-%global packver   0.5
+%global packname  latexr
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fuzzy Rank Tests and Confidence Intervals
+Summary:          Translate 'LaTeX' Formulas to R Code
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-Requires:         R-stats 
-Requires:         R-graphics 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-R6 >= 2.4.0
+BuildRequires:    R-CRAN-purrr >= 0.3.0
+Requires:         R-CRAN-R6 >= 2.4.0
+Requires:         R-CRAN-purrr >= 0.3.0
 
 %description
-Does fuzzy tests and confidence intervals (following Geyer and Meeden,
-Statistical Science, 2005, <doi:10.1214/088342305000000340>) for sign test
-and Wilcoxon signed rank and rank sum tests.
+Implements a minimal 'LaTeX' parser that translates mathematical formulas
+into R code strings. Supports arithmetic operators, implicit
+multiplication, fractions, Greek letters, common mathematical functions,
+and statistical notation for means, medians, and rolling sums. Input from
+visual formula editors such as 'MathQuill' is normalized automatically,
+and the resulting string can be evaluated with parse() and eval(), or
+converted into an R function with latex2fun(). The implementation follows
+the tree-walking interpreter design of Nystrom (2021)
+<https://craftinginterpreters.com/>.
 
 %prep
 %setup -q -c -n %{packname}

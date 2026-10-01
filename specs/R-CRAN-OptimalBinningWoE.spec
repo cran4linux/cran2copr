@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  OptimalBinningWoE
-%global packver   1.13.5
+%global packver   1.14.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.13.5
+Version:          1.14.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimal Binning and Weight of Evidence Framework for Modeling
 
@@ -24,8 +24,6 @@ BuildRequires:    R-CRAN-dials
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-RcppNumerical 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-recipes 
 Requires:         R-CRAN-rlang 

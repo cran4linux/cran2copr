@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  xtrec
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Panel Unit Root Test Based on Recursive Detrending
 
@@ -22,7 +22,7 @@ Requires:         R-stats
 
 %description
 Implements the recursively detrended panel unit root tests proposed by
-Westerlund (2015) <doi:10.1016/j.jeconom.2014.09.013>. Two variants are
+Westerlund (2015) <doi:10.1016/j.jeconom.2014.06.015>. Two variants are
 provided: the basic t-REC test assuming iid errors, and the robust t-RREC
 test that accounts for serial correlation, cross-sectional dependence, and
 heteroskedasticity via defactoring and BIC-selected lag augmentation. Both

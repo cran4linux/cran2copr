@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  caustests
-%global packver   1.1.1
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiple Granger Causality Tests for Time Series and Panel Data
 
@@ -34,7 +34,7 @@ Causality in Quantiles (Cheng et al., 2021)
 <doi:10.1007/s12076-020-00263-0>. For panel data: Panel Fourier
 Toda-Yamamoto (Yilanci and Gorus, 2020) <doi:10.1007/s11356-020-10092-9>
 and Panel Quantile Causality tests (Wang and Nguyen, 2022)
-<doi:10.1080/1331677X.2021.1952089>, as well as Group-Mean and Pooled
+<doi:10.1080/1331677X.2021.1948436>, as well as Group-Mean and Pooled
 Fully Modified OLS estimators for panel cointegrating polynomial
 regressions (Wagner and Reichold, 2023)
 <doi:10.1080/07474938.2023.2178141>. All tests include bootstrap inference

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  confoundvis
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualization Tools for Sensitivity Analysis of Unmeasured Confounding
 
@@ -20,26 +20,27 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-graphics 
+BuildRequires:    R-grid 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-rlang 
 Requires:         R-graphics 
+Requires:         R-grid 
 Requires:         R-stats 
 
 %description
-Provides visualization tools for sensitivity analysis to unmeasured
-confounding in observational studies. Includes contour-based sensitivity
-plots, robustness curves, and benchmark-oriented graphics that help
-researchers assess how strong omitted confounding would need to be to
-attenuate, invalidate, or reverse estimated effects. Supports
-regression-based sensitivity analysis frameworks, including impact
-threshold approaches (Frank, 2000, <doi:10.1177/0049124100029002001>),
-partial R-squared methods (Cinelli and Hazlett, 2020,
-<doi:10.1111/rssb.12348>), and E-value style metrics (VanderWeele and
-Ding, 2017, <doi:10.7326/M16-2607>). Emphasizes clear, interpretable, and
-publication-ready graphical summaries for transparent reporting of causal
-sensitivity analyses across the social, behavioral, health, and
-educational sciences.
+Visualization and reporting tools for sensitivity analysis to unmeasured
+confounding in observational studies. A common 'confoundsens' object
+stores a sensitivity path (the treatment effect as a function of
+hypothetical confounder strength) regardless of the framework that
+produced it, so the same robustness curves, contour plots, covariate
+benchmark ("sensitivity Love") plots, and plain-language reports can be
+drawn for impact threshold analysis (Frank, 2000,
+<doi:10.1177/0049124100029002001>), partial R-squared omitted-variable
+bias analysis (Cinelli and Hazlett, 2020, <doi:10.1111/rssb.12348>), and
+E-values (VanderWeele and Ding, 2017, <doi:10.7326/M16-2607>). Paths can
+be computed directly from fitted linear models or converted from results
+produced by the 'sensemakr', 'konfound', and 'EValue' packages.
 
 %prep
 %setup -q -c -n %{packname}

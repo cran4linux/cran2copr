@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  priorsense
-%global packver   1.2.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Prior Diagnostics and Sensitivity Analysis
 
@@ -17,26 +17,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
-BuildRequires:    R-grDevices >= 3.6.2
-BuildRequires:    R-CRAN-ggdist >= 3.3.2
-BuildRequires:    R-CRAN-tibble >= 3.2.1
-BuildRequires:    R-CRAN-checkmate >= 2.3.1
-BuildRequires:    R-CRAN-posterior >= 1.6.0
-BuildRequires:    R-CRAN-matrixStats >= 1.3.0
-BuildRequires:    R-CRAN-rlang >= 1.1.4
-BuildRequires:    R-CRAN-ggh4x >= 0.2.5
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.3
+BuildRequires:    R-CRAN-cli >= 3.6.6
+BuildRequires:    R-CRAN-ggdist >= 3.3.3
+BuildRequires:    R-CRAN-tibble >= 3.3.1
+BuildRequires:    R-CRAN-checkmate >= 2.3.4
+BuildRequires:    R-CRAN-posterior >= 1.7.0
+BuildRequires:    R-CRAN-matrixStats >= 1.5.0
+BuildRequires:    R-CRAN-rlang >= 1.3.0
+BuildRequires:    R-CRAN-ggh4x >= 0.3.1
+BuildRequires:    R-grDevices 
+BuildRequires:    R-grid 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 >= 4.0.0
-Requires:         R-grDevices >= 3.6.2
-Requires:         R-CRAN-ggdist >= 3.3.2
-Requires:         R-CRAN-tibble >= 3.2.1
-Requires:         R-CRAN-checkmate >= 2.3.1
-Requires:         R-CRAN-posterior >= 1.6.0
-Requires:         R-CRAN-matrixStats >= 1.3.0
-Requires:         R-CRAN-rlang >= 1.1.4
-Requires:         R-CRAN-ggh4x >= 0.2.5
+Requires:         R-CRAN-ggplot2 >= 4.0.3
+Requires:         R-CRAN-cli >= 3.6.6
+Requires:         R-CRAN-ggdist >= 3.3.3
+Requires:         R-CRAN-tibble >= 3.3.1
+Requires:         R-CRAN-checkmate >= 2.3.4
+Requires:         R-CRAN-posterior >= 1.7.0
+Requires:         R-CRAN-matrixStats >= 1.5.0
+Requires:         R-CRAN-rlang >= 1.3.0
+Requires:         R-CRAN-ggh4x >= 0.3.1
+Requires:         R-grDevices 
+Requires:         R-grid 
 Requires:         R-stats 
 Requires:         R-utils 
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PublicationBiasBenchmark
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Benchmark for Publication Bias Correction Methods
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-callr 
 BuildRequires:    R-CRAN-metafor 
 BuildRequires:    R-CRAN-osfr 
 BuildRequires:    R-CRAN-MASS 
@@ -27,9 +28,15 @@ BuildRequires:    R-CRAN-sandwich
 BuildRequires:    R-CRAN-clubSandwich 
 BuildRequires:    R-CRAN-lmtest 
 BuildRequires:    R-CRAN-puniform 
-BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-MAIVE 
+BuildRequires:    R-CRAN-phacking 
+BuildRequires:    R-CRAN-robumeta 
+BuildRequires:    R-CRAN-publipha 
+BuildRequires:    R-CRAN-rstan 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-rstantools
 Requires:         R-stats 
+Requires:         R-CRAN-callr 
 Requires:         R-CRAN-metafor 
 Requires:         R-CRAN-osfr 
 Requires:         R-CRAN-MASS 
@@ -39,8 +46,13 @@ Requires:         R-CRAN-sandwich
 Requires:         R-CRAN-clubSandwich 
 Requires:         R-CRAN-lmtest 
 Requires:         R-CRAN-puniform 
-Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-MAIVE 
+Requires:         R-CRAN-phacking 
+Requires:         R-CRAN-robumeta 
+Requires:         R-CRAN-publipha 
+Requires:         R-CRAN-rstan 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-rstantools
 
 %description
 Implements a unified interface for benchmarking meta-analytic publication

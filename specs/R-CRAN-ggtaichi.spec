@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggtaichi
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Taichi-Diagram Visualization for Two Data Sources
 
@@ -22,11 +22,17 @@ BuildRequires:    R-CRAN-ggnewscale >= 0.4.5
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-grid 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-farver 
 Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-ggnewscale >= 0.4.5
 Requires:         R-CRAN-rlang 
 Requires:         R-grid 
 Requires:         R-grDevices 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-farver 
 
 %description
 A data visualization design that compares two (usually on a par with each

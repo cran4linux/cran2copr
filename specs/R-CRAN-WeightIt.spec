@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  WeightIt
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Weighting for Covariate Balance in Observational Studies
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cobalt >= 4.6.1
+BuildRequires:    R-CRAN-cobalt >= 5.0.0
 BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
 BuildRequires:    R-CRAN-cli >= 3.6.5
 BuildRequires:    R-CRAN-rlang >= 1.1.0
@@ -26,7 +26,7 @@ BuildRequires:    R-CRAN-sandwich
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-cobalt >= 4.6.1
+Requires:         R-CRAN-cobalt >= 5.0.0
 Requires:         R-CRAN-ggplot2 >= 4.0.0
 Requires:         R-CRAN-cli >= 3.6.5
 Requires:         R-CRAN-rlang >= 1.1.0

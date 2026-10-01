@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  forestploter
-%global packver   1.1.4
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create a Flexible Forest Plot
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gridExtra 
@@ -26,8 +26,9 @@ Requires:         R-CRAN-gtable
 
 %description
 Create a forest plot based on the layout of the data. Confidence intervals
-in multiple columns by groups can be done easily. Editing the plot,
-inserting/adding text, applying a theme to the plot, and much more.
+in multiple columns by groups can be done easily. The plot is built step
+by step with the pipe, adding the axis, the labels and a style, editing
+the plot, inserting/adding text, and much more.
 
 %prep
 %setup -q -c -n %{packname}

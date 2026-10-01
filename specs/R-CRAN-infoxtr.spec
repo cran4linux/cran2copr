@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  infoxtr
-%global packver   0.2
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Information-Theoretic Measures for Revealing Variable Interactions
 
@@ -34,8 +34,9 @@ variables from Kraskov et al. (2004) <doi:10.1103/PhysRevE.69.066138>,
 knockoff conditional mutual information described in Zhang & Chen (2025)
 <doi:10.1126/sciadv.adu6464>, synergistic-unique-redundant decomposition
 introduced by Martinez-Sanchez et al. (2024)
-<doi:10.1038/s41467-024-53373-4>, allowing detection of complex and
-diverse relationships among variables.
+<doi:10.1038/s41467-024-53373-4>, and information imbalance gain following
+Del Tatto et al. (2024) <doi:10.1073/pnas.2317256121>, allowing detection
+of complex and diverse relationships among variables.
 
 %prep
 %setup -q -c -n %{packname}
