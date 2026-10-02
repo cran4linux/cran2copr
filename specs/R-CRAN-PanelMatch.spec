@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PanelMatch
-%global packver   3.1.3
+%global packver   3.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.3
+Version:          3.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Matching Methods for Causal Inference with Time-Series Cross-Sectional Data
 
@@ -44,7 +44,7 @@ Requires:         R-methods
 %description
 Implements a set of methodological tools that enable researchers to apply
 matching methods to time-series cross-sectional data. Imai, Kim, and Wang
-(2023) <http://web.mit.edu/insong/www/pdf/tscs.pdf> proposes a
+(2023) <https://web.mit.edu/insong/www/pdf/tscs.pdf> proposes a
 nonparametric generalization of the difference-in-differences estimator,
 which does not rely on the linearity assumption as often done in practice.
 Researchers first select a method of matching each treated observation for

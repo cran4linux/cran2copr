@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mgwrsar
-%global packver   1.3.2
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          GWR, Mixed GWR with Spatial Autocorrelation and Multiscale GWR/GTWR (Top-Down Scale Approaches)
 
@@ -35,7 +35,6 @@ BuildRequires:    R-CRAN-mboost
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-SMUT 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-RhpcBLASctl 
 BuildRequires:    R-CRAN-magrittr 
@@ -61,7 +60,6 @@ Requires:         R-CRAN-mboost
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-caret 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-SMUT 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-RhpcBLASctl 
 Requires:         R-CRAN-magrittr 

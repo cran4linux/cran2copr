@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggfortify
-%global packver   0.4.23
+%global packver   0.4.24
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.23
+Version:          0.4.24
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Visualization Tools for Statistical Analysis Results
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-scales
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-ggplot2 >= 2.0.0
 Requires:         R-CRAN-dplyr >= 0.3
 Requires:         R-methods 
@@ -37,6 +38,7 @@ Requires:         R-CRAN-scales
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
+Requires:         R-utils 
 
 %description
 Unified plotting tools for statistics commonly used, such as GLM, time

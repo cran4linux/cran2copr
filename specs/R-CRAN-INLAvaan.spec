@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  INLAvaan
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Approximate Bayesian Latent Variable Analysis
 
@@ -17,14 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lavaan >= 0.6.19
+BuildRequires:    R-CRAN-lavaan >= 0.7.2
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-lavaan >= 0.6.19
+Requires:         R-CRAN-lavaan >= 0.7.2
 Requires:         R-CRAN-cli 
 Requires:         R-graphics 
 Requires:         R-methods 

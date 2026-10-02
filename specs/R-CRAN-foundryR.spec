@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  foundryR
-%global packver   0.1.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Frame Workflows for 'Microsoft Foundry'
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr2 >= 1.0.0
+BuildRequires:    R-CRAN-httr2 >= 1.1.1
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-digest 
@@ -29,7 +29,7 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-httr2 >= 1.0.0
+Requires:         R-CRAN-httr2 >= 1.1.1
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-digest 
@@ -43,12 +43,12 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-tibble 
 
 %description
-Work with 'Microsoft Azure AI Foundry' from data-frame-oriented 'R'
-workflows. Provides data-frame-returning helpers for 'Azure AI Content
-Safety', 'Azure OpenAI' Responses API calls, strict structured extraction,
-vector representations, files, batch jobs, audio, media, and chat
-completions. Supports research annotation, safety gates, semantic search,
-and 'tidymodels' recipes. Helps teams keep model workflows inside their
+Work with 'Microsoft Foundry' from data-frame-oriented 'R' workflows.
+Provides data-frame-returning helpers for 'Azure AI Content Safety',
+'Azure OpenAI' Responses API calls, strict structured extraction, vector
+representations, files, batch jobs, audio, media, and chat completions.
+Supports research annotation, safety gates, semantic search, and
+'tidymodels' recipes. Helps teams keep model workflows inside their
 'Azure' environment while preserving analyzable outputs. See the Microsoft
 Foundry REST API documentation
 <https://learn.microsoft.com/rest/api/microsoft-foundry/> and Azure AI

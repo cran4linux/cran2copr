@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  realestatebr
-%global packver   1.0.1
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Import Brazilian Real Estate Data into R
 
@@ -19,11 +19,12 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-GetBCBData 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rbcb 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-rlang 
@@ -37,11 +38,12 @@ BuildRequires:    R-CRAN-yaml
 BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-GetBCBData 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rbcb 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-rlang 
@@ -56,10 +58,16 @@ Requires:         R-CRAN-zoo
 
 %description
 Provides access to Brazilian real estate market data from multiple
-official sources: the Central Bank of Brazil (BCB), the Brazilian
-Association of Real Estate Developers (ABRAINC), the Brazilian Association
-of Real Estate Credit and Savings Entities (ABECIP), the Getulio Vargas
-Foundation (FGV), and the Bank for International Settlements (BIS).
+official sources: the Central Bank of Brazil (BCB)
+<https://www.bcb.gov.br/>, the Brazilian Association of Real Estate
+Developers (ABRAINC) <https://abrainc.org.br/>, the Brazilian Association
+of Real Estate Credit and Savings Entities (ABECIP)
+<https://www.abecip.org.br/>, the Getulio Vargas Foundation (FGV)
+<https://portalibre.fgv.br/>, and the Bank for International Settlements
+(BIS) <https://www.bis.org/>, as well as Brazil's Federal Revenue Service
+<https://www.gov.br/receitafederal/pt-br/>, the Brazilian Institute of
+Geography and Statistics (IBGE) <https://www.ibge.gov.br/>, and the
+Ministry of Cities <https://www.gov.br/cidades/pt-br/>.
 
 %prep
 %setup -q -c -n %{packname}

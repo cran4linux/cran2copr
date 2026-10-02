@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RXKCD
-%global packver   2.0.1
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Get XKCD Comic from R
 
@@ -25,7 +25,7 @@ BuildRequires:    R-graphics
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-duckdb 
-BuildRequires:    R-CRAN-text2vec 
+BuildRequires:    R-CRAN-Matrix 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jpeg 
@@ -34,12 +34,12 @@ Requires:         R-graphics
 Requires:         R-utils 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-duckdb 
-Requires:         R-CRAN-text2vec 
+Requires:         R-CRAN-Matrix 
 
 %description
 Visualize your favorite XKCD comic strip directly from R. Includes
 full-text search with BM25 ranking and semantic similarity search via
-local 'GloVe' embeddings, powered by a local 'DuckDB' cache.
+latent semantic analysis, powered by a local 'DuckDB' cache.
 
 %prep
 %setup -q -c -n %{packname}

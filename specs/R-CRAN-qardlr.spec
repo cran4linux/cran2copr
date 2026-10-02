@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  qardlr
-%global packver   1.0.1
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantile Autoregressive Distributed Lag Model
 
@@ -26,7 +26,7 @@ Requires:         R-CRAN-MASS
 
 %description
 Implements the Quantile Autoregressive Distributed Lag (QARDL) model of
-Cho, Kim and Shin (2015) <doi:10.1016/j.jeconom.2015.01.003>. Estimates
+Cho, Kim and Shin (2015) <doi:10.1016/j.jeconom.2015.05.003>. Estimates
 quantile-specific long-run (beta), short-run autoregressive (phi), and
 impact (gamma) parameters. Features include BIC-based automatic lag
 selection, Error Correction Model (ECM) parameterization, Wald tests for

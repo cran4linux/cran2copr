@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  xtfifevd
-%global packver   1.0.2
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Panel Fixed Effects Filtered and Variance Decomposition Estimation
 
@@ -18,9 +18,9 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-utils 
 Requires:         R-stats 
-Requires:         R-CRAN-MASS 
+Requires:         R-utils 
 
 %description
 Implements fixed effects estimators for time-invariant variables in panel
@@ -28,9 +28,9 @@ data models. Provides three estimation methods: FEVD (Fixed Effects Vector
 Decomposition) from Plumper and Troeger (2007) <doi:10.1093/pan/mpm002>,
 and FEF (Fixed Effects Filtered) and FEF-IV (instrumental variables
 variant) from Pesaran and Zhou (2018) <doi:10.1080/07474938.2016.1222225>.
-All methods use the correct Pesaran-Zhou variance estimators that account
-for generated regressor uncertainty, avoiding the size distortions
-documented in the literature.
+All methods use the Pesaran and Zhou variance estimators, which account
+for generated regressor uncertainty, and report the full covariance matrix
+of the time-varying, time-invariant and intercept coefficients.
 
 %prep
 %setup -q -c -n %{packname}

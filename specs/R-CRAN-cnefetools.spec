@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cnefetools
-%global packver   0.2.5
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access and Analysis of Brazilian CNEFE Address Data
 
@@ -14,41 +14,43 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 3.6.0
+BuildRequires:    R-CRAN-geobr >= 2.0.0
+BuildRequires:    R-CRAN-duckspatial >= 1.0.0
 BuildRequires:    R-CRAN-arrow 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-geobr 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-h3jsr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-duckdb 
-BuildRequires:    R-CRAN-duckspatial 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-piggyback 
+BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-cli >= 3.6.0
+Requires:         R-CRAN-geobr >= 2.0.0
+Requires:         R-CRAN-duckspatial >= 1.0.0
 Requires:         R-CRAN-arrow 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-geobr 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-h3jsr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-duckdb 
-Requires:         R-CRAN-duckspatial 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-piggyback 
+Requires:         R-CRAN-withr 
 
 %description
 Download, cache and read municipality-level address data from the Cadastro

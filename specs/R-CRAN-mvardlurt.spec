@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mvardlurt
-%global packver   1.0.2
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate ARDL Unit Root Test
 
@@ -28,13 +28,16 @@ Requires:         R-utils
 
 %description
 Implements the multivariate autoregressive distributed lag (ARDL) unit
-root test proposed by Sam, McNown, Goh, and Goh (2024)
-<doi:10.1080/03796205.2024.2439101>. The test augments the standard ADF
-regression with lagged levels of a covariate to improve power when
-cointegration exists. Bootstrap critical values ensure correct size
-regardless of nuisance parameters. Provides automatic lag selection via
-AIC/BIC, diagnostic tests, and comprehensive inference tables following
-the four-case framework.
+root test of Sam, McNown, Goh and Goh (2025)
+<doi:10.1080/03796205.2024.2439101>. The test augments the ADF regression
+with the lagged level, the current difference and lagged differences of
+one or more covariates so that cointegration between the series under test
+and the covariates is taken into account. The t statistic on the lagged
+level of the series and the joint F statistic on the lagged levels of the
+covariates are bootstrapped with the respective null imposed (residual
+bootstrap), giving critical values and p-values. Provides automatic lag
+selection via AIC or BIC, diagnostic plots, and the four-case
+classification of the order of integration of the series.
 
 %prep
 %setup -q -c -n %{packname}

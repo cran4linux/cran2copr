@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  minter
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Effect Sizes for Meta-Analysis of Interactions from Factorial Experiments
 
@@ -17,8 +17,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate 
-Requires:         R-CRAN-checkmate 
 
 %description
 Compute effect sizes and their sampling variances from factorial

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  countryatlas
-%global packver   2.0.1
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Join World Bank Data, Country Codes and Maps on the ISO Spine
 
@@ -17,23 +17,35 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cachem 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-countrycode 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-WDI 
+Requires:         R-CRAN-cachem 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-countrycode 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-grDevices 
 Requires:         R-CRAN-memoise 
+Requires:         R-parallel 
 Requires:         R-CRAN-rlang 
+Requires:         R-stats 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
+Requires:         R-tools 
+Requires:         R-utils 
 Requires:         R-CRAN-WDI 
 
 %description
@@ -49,9 +61,13 @@ and currencies); adds analysis helpers (per-capita, regional roll-ups,
 ranking, inequality and convergence statistics); and turns one hand-drawn
 choropleth into a full vocabulary of projected, area-honest maps (binned
 and quantile choropleths, proportional-symbol, spike, bivariate,
-cartogram, tile-grid, flow, small-multiple, animated, globe and
-interactive), and can hand its curated, ISO-reconciled tables to 'ggsql'
-for database-side spatial rendering. Heavy spatial dependencies stay
+value-by-alpha, cartogram, tile-grid, flow, small-multiple, animated,
+globe and interactive), and can hand its curated, ISO-reconciled tables to
+'ggsql' for database-side spatial rendering. Honesty is treated as a
+feature rather than a slogan: classification methods can be compared side
+by side, missing data can be hatched rather than greyed, coverage and
+provenance travel with the plot, and the distortion each projection
+introduces can be measured and drawn. Heavy spatial dependencies stay
 optional, and a bundled offline snapshot lets every example, test and
 vignette run without the network.
 

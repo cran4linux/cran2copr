@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  clusterIV
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Clustered Jackknife Instrumental Variables Estimation
+Summary:          Clustered Instrumental Variables Estimation and Inference
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,18 +21,14 @@ BuildRequires:    R-stats
 Requires:         R-stats 
 
 %description
-Tools for instrumental variables estimation and inference under clustered
-errors with many instruments. The current release provides the
+Implements instrumental variables estimation and inference for one
+endogenous regressor and one-way clustered errors. Includes the
 cluster-jackknife IV estimator (CJIVE) of Frandsen, Leslie and McIntyre
-(2025) <doi:10.1162/rest.a.263> for a single endogenous regressor in a
-just-identified design, with cluster-robust inference: each observation's
-first-stage value is fitted leaving out its entire cluster, which removes
-the many-instrument bias that survives clustering. The leave-cluster-out
-fits use an exact Woodbury block update -- one factorisation of the
-instrument Gram matrix plus a small solve per cluster -- so the estimator
-scales to large samples. A companion 'iv_compare()' reports ordinary least
-squares, two-stage least squares, the observation-level jackknife and
-CJIVE on a common cluster-robust standard error.
+(2025) <doi:10.1162/rest.a.263> and the cluster-jackknife Anderson-Rubin
+and score tests of Ligtenberg (2025) <doi:10.48550/arXiv.2306.08559>,
+which are robust to weak and many instruments. Supports multiple excluded
+instruments, covariates, precision weights, and high-dimensional fixed
+effects.
 
 %prep
 %setup -q -c -n %{packname}

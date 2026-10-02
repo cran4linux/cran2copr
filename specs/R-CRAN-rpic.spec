@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rpic
-%global packver   0.6.2
+%global packver   0.11.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          0.11.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          The 'pic' Graphics Language Rendered to SVG, PNG and PDF
 

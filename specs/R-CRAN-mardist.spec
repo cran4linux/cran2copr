@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mardist
-%global packver   1.0.1
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculation of Maritime Distances
 
@@ -27,8 +27,18 @@ Requires:         R-CRAN-leaflet
 Requires:         R-CRAN-igraph 
 
 %description
-Tools and utilities for calculating distances and visualising maritime
-routes.
+Tools for calculating and visualizing maritime distances and routes
+between geographic points. At its core, it implements a fast Haversine
+formula implemented in data.table to compute great circle distances across
+sea regions (i.e. avoiding land mass). The package builds a spatial
+network graph from port and cluster coordinates and uses a shortest path
+algorithm to identify optimal maritime routes between origin-destination
+pairs. For visualization, the package exports maps displaying individual
+routes, multi-destination networks, or continuous routes through specified
+waypoints. Utility functions identify the nearest network nodes to
+arbitrary coordinates and handle the antimeridian discontinuities common
+in Pacific maritime mapping. The package is particularly suited for
+analyzing shipping lanes, trade routes, and vessel trajectory data.
 
 %prep
 %setup -q -c -n %{packname}

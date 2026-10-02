@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  trendseries
-%global packver   1.4.0
+%global packver   1.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extract Trends from Time Series
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tsbox 
+BuildRequires:    R-CRAN-vctrs 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dlm 
 Requires:         R-CRAN-hpfilter 
@@ -37,12 +38,15 @@ Requires:         R-CRAN-rlang
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tsbox 
+Requires:         R-CRAN-vctrs 
 
 %description
 Provides a unified interface to extract trends, cycles, and seasonal
 components from monthly and quarterly time series using established
-econometric filters and smoothing methods, with frequency-aware defaults
-for common economic frequencies.
+filters and smoothers from econometrics and signal extraction, with
+frequency-aware defaults for common economic frequencies. Rolling and
+year-to-date aggregations are also available, including the compounded
+accumulation of rates of change.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  xtcspqardl
-%global packver   1.0.2
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cross-Sectionally Augmented Panel Quantile ARDL
 
@@ -30,9 +30,9 @@ dependence. The package handles unobserved common factors through
 cross-sectional averages following Pesaran (2006)
 <doi:10.1111/j.1468-0262.2006.00692.x> and Chudik and Pesaran (2015)
 <doi:10.1016/j.jeconom.2015.03.007>. Quantile regression for dynamic
-panels follows Harding, Lamarche, and Pesaran (2018)
-<doi:10.1016/j.jeconom.2018.07.010>. The ARDL approach to cointegration
-testing is based on Pesaran, Shin, and Smith (2001) <doi:10.1002/jae.616>.
+panels follows Harding, Lamarche, and Pesaran (2020)
+<doi:10.1002/jae.2753>. The ARDL approach to cointegration testing is
+based on Pesaran, Shin, and Smith (2001) <doi:10.1002/jae.616>.
 
 %prep
 %setup -q -c -n %{packname}

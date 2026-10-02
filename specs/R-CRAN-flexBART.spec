@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  flexBART
-%global packver   2.0.3
+%global packver   2.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          2.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          A More Flexible BART Model
 
@@ -35,7 +35,7 @@ supports fitting heteroscedastic BART models, in which both the mean and
 log-variance are approximated with separate regression tree ensembles. A
 formula interface allows for different splitting variables to be used in
 each ensemble. For more details see Deshpande (2025)
-<doi:10.1080/10618600.2024.2431072> and Deshpande et al. (2024)
+<doi:10.1080/10618600.2024.2431072> and Deshpande et al. (2026)
 <doi:10.1214/24-BA1470>.
 
 %prep

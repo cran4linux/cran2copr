@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  causalreg
-%global packver   0.1.2
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Causal Generalized Linear Models
 
@@ -16,9 +16,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
 BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-mgcv 
+Requires:         R-parallel 
+Requires:         R-CRAN-Rcpp 
 
 %description
 An implementation of methods for causal discovery in a structural causal

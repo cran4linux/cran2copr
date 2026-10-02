@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rmpw
-%global packver   0.0.6
+%global packver   0.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          0.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Causal Mediation Analysis Using Weighting Approach
 
@@ -14,13 +14,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-boot 
 Requires:         R-CRAN-gtools 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-boot 
 
 %description
 We implement causal mediation analysis using the methods proposed by Hong

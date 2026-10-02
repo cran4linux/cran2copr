@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  midasINLA
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial MIDAS Models Using INLA
 
@@ -25,11 +25,12 @@ Requires:         R-CRAN-Matrix
 Requires:         R-stats 
 
 %description
-Provides tools for fitting spatial Mixed Data Sampling (MIDAS) regression
-models using Integrated Nested Laplace Approximation (INLA). The package
-is designed for settings where responses and explanatory variables are
-observed at different temporal frequencies and supports both constant and
-spatially varying regression coefficients.
+Provides tools for fitting spatial Mixed-Data Sampling (MIDAS) regression
+models using Integrated Nested Laplace Approximation (INLA) (Rue et al.,
+2009) <doi:10.1111/j.1467-9868.2008.00700.x>. The package is designed for
+settings where responses and explanatory variables are observed at
+different temporal frequencies and supports both constant and spatially
+varying regression coefficients.
 
 %prep
 %setup -q -c -n %{packname}

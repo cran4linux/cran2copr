@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SVARtca
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Transmission Channel Analysis in Structural VAR Models
 
@@ -27,12 +27,12 @@ Requires:         R-CRAN-rlang
 %description
 Implements Transmission Channel Analysis (TCA) for structural vector
 autoregressive (SVAR) models following the methodology of Wegner, Lieb,
-and Smeekes (2025) <doi:10.48550/arXiv.2405.18987>. TCA decomposes impulse
-response functions (IRFs) into contributions from distinct transmission
-channels using a systems form representation and directed acyclic graph
-(DAG) path analysis. Supports overlapping channels, exhaustive 3-way and
-4-way decompositions via inclusion-exclusion principle. This is a parallel
-R implementation of the 'tca-matlab-toolbox'
+Smeekes and Wilms (2025) <doi:10.48550/arXiv.2405.18987>. TCA decomposes
+impulse response functions (IRFs) into contributions from distinct
+transmission channels using a systems form representation and directed
+acyclic graph (DAG) path analysis. Supports overlapping channels,
+exhaustive 3-way and 4-way decompositions via inclusion-exclusion
+principle. This is a parallel R implementation of the 'tca-matlab-toolbox'
 (<https://github.com/enweg/tca-matlab-toolbox>).
 
 %prep

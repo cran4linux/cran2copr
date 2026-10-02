@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hatemicoint
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hatemi-J Cointegration Test with Two Unknown Regime Shifts
 
@@ -27,7 +27,11 @@ relationship. The test provides three test statistics: ADF* (Augmented
 Dickey-Fuller), Zt* (Phillips-Perron Z_t), and Za* (Phillips-Perron
 Z_alpha), along with endogenously determined break dates. Critical values
 are based on simulations from Hatemi-J (2008)
-<doi:10.1007/s00181-007-0175-9>.
+<doi:10.1007/s00181-007-0175-9>. The long-run variance in the Phillips
+statistics is estimated by default with a prewhitened quadratic spectral
+kernel and the automatic bandwidth of Andrews (1991)
+<doi:10.2307/2938229>, following Andrews and Monahan (1992)
+<doi:10.2307/2951574>.
 
 %prep
 %setup -q -c -n %{packname}

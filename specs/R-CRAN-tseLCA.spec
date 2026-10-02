@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tseLCA
-%global packver   1.1.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Three-Step Estimation for Latent Class Analysis
 
@@ -17,31 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-multilevLCA 
 BuildRequires:    R-CRAN-cli 
-Requires:         R-CRAN-multilevLCA 
+BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-CRAN-multilevLCA 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-Formula 
+Requires:         R-CRAN-multilevLCA 
 
 %description
-Implements BCH (Bolck-Croon-Hagenaars) <doi:10.1093/pan/mph001> and ML
-(Vermunt's maximum likelihood) <doi:10.1093/pan/mpq025> approaches for
-three-step estimation of latent class models with covariates and distal
-outcomes, following Bakk, Tekle & Vermunt (2013)
-<doi:10.1177/0081175012470644>, Bakk, Oberski & Vermunt (2014)
-<https://www.jstor.org/stable/24573086>, and Bakk & Kuha (2018)
-<doi:10.1007/s11336-017-9592-7>. Built on 'multilevLCA' (Lyrvall et al.,
-2025) <doi:10.1080/00273171.2025.2473935> for Step-1 measurement model
-estimation, this package extends it with support for Gaussian, Poisson,
-and binomial distal outcome families. Unlike 'poLCA', which relies on
-one-step estimation and cannot accommodate a measurement model from a
-different sample, this package uses a stepwise approach to prevent the
-structural model from influencing latent class formation. Implements
-correct sandwich variance estimation that propagates measurement
-uncertainty from the first-step through classification-error correction in
-the final step (Bakk, Oberski & Vermunt, 2014). Supports polytomous items
-and missing data in the measurement model with full information maximum
-likelihood. A data-generating process replicating the Bakk & Kuha (2018)
-simulation study is included.
+Bias-adjusted three-step estimation of latent class models with covariates
+and distal outcomes. The latent class measurement model is estimated
+first, with 'multilevLCA' (Lyrvall et al., 2025)
+<doi:10.1080/00273171.2025.2473935>, and held fixed; observations are then
+classified; and the classes are related to covariates and distal outcomes
+with the maximum likelihood correction of Vermunt (2010)
+<doi:10.1093/pan/mpq025> and Bakk, Tekle and Vermunt (2013)
+<doi:10.1177/0081175012470644>, or the correction of Bolck, Croon and
+Hagenaars (2004) <doi:10.1093/pan/mph001>. Standard errors account for the
+uncertainty of the measurement model (Bakk, Oberski and Vermunt, 2014)
+<doi:10.1093/pan/mpu003>. Includes class enumeration, modal and
+proportional class assignment, covariate formulas, Gaussian, Poisson,
+binomial, and multinomial distal outcomes, the two-step estimator of Bakk
+and Kuha (2018) <doi:10.1007/s11336-017-9592-7>, measurement models
+applied to new samples, and full-information maximum likelihood for
+missing indicators, standard methods for fitted models, and a
+data-generating process replicating the simulation design of Bakk and Kuha
+(2018).
 
 %prep
 %setup -q -c -n %{packname}

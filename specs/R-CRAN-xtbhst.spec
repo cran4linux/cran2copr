@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  xtbhst
-%global packver   1.0.2
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bootstrap Slope Heterogeneity Test for Panel Data
 
@@ -25,13 +25,14 @@ Requires:         R-graphics
 Requires:         R-grDevices 
 
 %description
-Implements the bootstrap slope heterogeneity test for panel data based on
-Blomquist and Westerlund (2015) <doi:10.1007/s00181-015-0978-z>. Tests the
+Implements the bootstrap slope heterogeneity test for panel data of
+Blomquist and Westerlund (2016) <doi:10.1007/s00181-015-0978-z>. Tests the
 null hypothesis that slope coefficients are homogeneous across
-cross-sectional units. Provides both standard and adjusted Delta
-statistics with bootstrap p-values. Supports partialling out of control
-variables and cross-sectional averages for dealing with cross-sectional
-dependence.
+cross-sectional units using a block bootstrap of the Swamy-type statistic,
+with the unit-specific variance estimator of the paper or that of Pesaran
+and Yamagata (2008) <doi:10.1016/j.jeconom.2007.05.010>, whose Delta and
+adjusted Delta statistics are reported with asymptotic p-values. Supports
+partialling out of control variables and cross-sectional averages.
 
 %prep
 %setup -q -c -n %{packname}

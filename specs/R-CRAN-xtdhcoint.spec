@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  xtdhcoint
-%global packver   1.0.1
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Durbin-Hausman Panel Cointegration Tests
 
@@ -22,7 +22,7 @@ Requires:         R-stats
 
 %description
 Implements the Durbin-Hausman panel cointegration tests of Westerlund
-(2008) <doi:10.1002/jae.963>. The tests are robust to cross-sectional
+(2008) <doi:10.1002/jae.967>. The tests are robust to cross-sectional
 dependence through common factor extraction using principal components.
 Provides both group-mean (DHg) and panel (DHp) test statistics with
 automatic factor number selection via information criteria.

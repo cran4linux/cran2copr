@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  raptools
-%global packver   1.23.0
+%global packver   1.24.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.23.0
+Version:          1.24.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Risk Assessment Plot and Reclassification Metrics
 
@@ -45,7 +45,7 @@ include Integrated Discrimination Improvement (IDI), Net Reclassification
 Improvement (NRI), and difference in Area Under the Curves (AUCs), Brier
 scores and Brier skill. Plots include Risk Assessment Plots, Decision
 curves and Calibration plots. Methods are described in Pickering and Endre
-(2012) <doi:10.1373/clinchem.2011.167965> and Pencina et al. (2008)
+(2012) <doi:10.2215/CJN.09590911> and Pencina et al. (2008)
 <doi:10.1002/sim.2929>.
 
 %prep

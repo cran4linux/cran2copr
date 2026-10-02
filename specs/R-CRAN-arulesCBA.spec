@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  arulesCBA
-%global packver   1.2.9
+%global packver   1.2.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.9
+Version:          1.2.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Classification Based on Association Rules
 
@@ -17,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 Recommends:       R-java
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-glmnet >= 3.0.0
+BuildRequires:    R-CRAN-glmnet >= 3.0
 BuildRequires:    R-CRAN-arules >= 1.7.4
 BuildRequires:    R-CRAN-Matrix >= 1.4.0
 BuildRequires:    R-CRAN-discretization >= 1.0.1
 BuildRequires:    R-methods 
-Requires:         R-CRAN-glmnet >= 3.0.0
+Requires:         R-CRAN-glmnet >= 3.0
 Requires:         R-CRAN-arules >= 1.7.4
 Requires:         R-CRAN-Matrix >= 1.4.0
 Requires:         R-CRAN-discretization >= 1.0.1

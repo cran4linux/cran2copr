@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  faunabr
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Explore Catálogo Taxônomico da Fauna do Brasil Database
 
@@ -19,16 +19,16 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-stats >= 4.2.3
 BuildRequires:    R-utils >= 4.2.3
-BuildRequires:    R-CRAN-XML >= 3.99.0.14
 BuildRequires:    R-CRAN-terra >= 1.7.39
 BuildRequires:    R-CRAN-httr >= 1.4.6
 BuildRequires:    R-CRAN-data.table >= 1.14.8
+BuildRequires:    R-tools 
 Requires:         R-stats >= 4.2.3
 Requires:         R-utils >= 4.2.3
-Requires:         R-CRAN-XML >= 3.99.0.14
 Requires:         R-CRAN-terra >= 1.7.39
 Requires:         R-CRAN-httr >= 1.4.6
 Requires:         R-CRAN-data.table >= 1.14.8
+Requires:         R-tools 
 
 %description
 A collection of functions designed to retrieve, filter and spatialize data

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spicy
-%global packver   0.12.0
+%global packver   0.13.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.0
+Version:          0.13.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Descriptive Statistics, Summary Tables, and Data Management Tools
+Summary:          Publication-Ready Tables for Descriptive Statistics and Regression Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,21 +17,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-sandwich >= 3.1.2
 BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-labelled 
-BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-sandwich >= 3.1.2
 Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-labelled 
-Requires:         R-CRAN-sandwich 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
@@ -39,17 +39,19 @@ Requires:         R-CRAN-tidyselect
 Requires:         R-utils 
 
 %description
-Provides tabulation, descriptive-summary, and variable-inspection tools
-for applied data analysis. Frequency tables and cross-tabulations with
-contingency-table association measures (Cramer's V, Phi, Goodman-Kruskal
-Gamma, Kendall's Tau-b, Somers' D, and others); categorical and continuous
-summary tables; regression coefficient tables for one or more 'lm' or
-'glm' fits side by side; and outcome-by-group comparison tables from
-linear models with optional additive covariate adjustment. All table
-outputs follow APA conventions and expose 'broom'-compatible 'tidy()' /
-'glance()' methods for downstream pipelines. Helpers cover interactive
-codebooks, variable-label extraction, clipboard export, and row-wise
-descriptive summaries.
+Provides publication-ready tables for descriptive statistics and
+regression models: frequency tables and cross-tabulations with association
+measures (Cramer's V, Kendall's Tau-b, and others), categorical and
+continuous summary tables, by group or from a complex survey design, and
+regression tables for one or more models side by side, across more than
+thirty model classes from mixed-effects to survival and Bayesian, with
+robust standard errors, average marginal effects, and univariable
+screening. Tables follow APA conventions by default, can switch to named
+journal styles such as JAMA, NEJM, or The Lancet, and render identically
+in the console and in 'gt', 'tinytable', 'flextable', 'Word', 'Excel', or
+the clipboard. Declared missing values in labelled data are honored and
+disclosed throughout the descriptive tables. Helpers cover codebooks,
+variable inspection, and row-wise summaries.
 
 %prep
 %setup -q -c -n %{packname}

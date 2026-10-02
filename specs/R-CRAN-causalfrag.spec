@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  causalfrag
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cross-Framework Causal Fragility Index
+Summary:          Cross-Framework Sensitivity Analysis with an OLS Crosswalk
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -27,18 +27,19 @@ Requires:         R-CRAN-glue >= 1.6.0
 Requires:         R-CRAN-rlang >= 1.0.0
 
 %description
-Provides a unified workflow for running, classifying, visualizing, and
-interpreting sensitivity analyses for unmeasured confounding across
-multiple causal frameworks. Introduces the Causal Fragility Index (CFI), a
-single 0-100 composite score that integrates evidence from the partial
-R-squared robustness value approach (Cinelli and Hazlett, 2020,
-<doi:10.1111/rssb.12348>), E-value metrics (VanderWeele and Ding, 2017,
-<doi:10.7326/M16-2607>), and the Impact Threshold for a Confounding
-Variable (Frank, 2000, <doi:10.1177/0049124100029002001>) into one
-interpretable measure of robustness. The package also provides
-template-based plain-language narrative interpretation and
-publication-ready reporting, with optional integration with the
-'confoundvis' package for sensitivity plots.
+Runs, classifies, interprets and reports sensitivity analyses for
+unmeasured confounding across the partial R-squared robustness value
+approach (Cinelli and Hazlett, 2020, <doi:10.1111/rssb.12348>), E-values
+(VanderWeele and Ding, 2017, <doi:10.7326/M16-2607>), and the impact
+threshold for a confounding variable and robustness of inference to
+replacement (Frank, 2000, <doi:10.1177/0049124100029002001>; Frank,
+Maroulis, Duong and Kelcey, 2013, <doi:10.3102/0162373713493129>). An
+ordinary least squares crosswalk reports the robustness values, impact
+threshold and replacement percentage computed from the focal t statistic
+and residual degrees of freedom, makes explicit that their agreement is
+largely fixed by that shared input, and flags the boundary band in which
+they disagree. Template-based plain-language reports are included, with
+optional integration with the 'confoundvis' package for plots.
 
 %prep
 %setup -q -c -n %{packname}

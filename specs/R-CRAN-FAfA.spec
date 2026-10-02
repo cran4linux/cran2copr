@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FAfA
-%global packver   1.4
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          1.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Factor Analysis for All
 
@@ -72,19 +72,31 @@ Requires:         R-utils
 Provides a comprehensive Shiny-based graphical user interface for
 conducting a wide range of factor analysis procedures. 'FAfA' (Factor
 Analysis for All) guides users through data uploading, assumption checking
-(descriptives, collinearity, multivariate normality, outliers), data
-wrangling (variable exclusion, data splitting), factor retention analysis
-(e.g., Parallel Analysis, Hull method, EGA), Exploratory Factor Analysis
-(EFA) with various rotation and extraction methods, internal split-sample
-EFA replication analysis, Confirmatory Factor Analysis (CFA) for model
-testing, Reliability Analysis (e.g., Cronbach's Alpha, McDonald's Omega),
-Measurement Invariance testing across groups, and item weighting
-techniques. The application leverages established R packages such as
-'lavaan' and 'psych' to perform these analyses, offering an accessible
-platform for researchers and students. Results are presented in
-user-friendly tables and plots, with options for downloading outputs.
-Analysis projects can be saved and restored, and reproducible R, HTML, and
-PDF workflow reports can be generated.
+(descriptive statistics, collinearity, multivariate normality, outliers),
+data wrangling (variable exclusion, data splitting), exploratory factor
+analysis (EFA) with various rotation and extraction methods, confirmatory
+factor analysis (CFA), reliability analysis (e.g., Cronbach's Alpha,
+McDonald's Omega), and measurement invariance testing across groups.
+Factor retention methods include parallel analysis following Horn (1965)
+<doi:10.1007/BF02289447>, optimized parallel analysis following Timmerman
+and Lorenzo-Seva (2011) <doi:10.1037/a0023353>, permutation parallel
+analysis for categorical variables following Lubbe (2019)
+<doi:10.1037/met0000171>, the Hull method following Lorenzo-Seva et al.
+(2011) <doi:10.1080/00273171.2011.564527>, minimum average partial
+criteria following Velicer (1976) <doi:10.1007/BF02293557> and O'Connor
+(2000) <doi:10.3758/BF03200807>, and the empirical Kaiser criterion
+following Braeken and van Assen (2017) <doi:10.1037/met0000074>.
+Exploratory graph analysis follows Golino and Epskamp (2017)
+<doi:10.1371/journal.pone.0174035>, with bootstrap stability assessment
+following Christensen and Golino (2021) <doi:10.3390/psych3030032>.
+Internal split-sample EFA replication follows Osborne and Fitzpatrick
+(2012) <doi:10.7275/h0bd-4d11>. Model-specific dynamic fit index cutoffs
+for CFA follow McNeish and Wolf (2023) <doi:10.1037/met0000425>. Item
+weighting follows Kılıç (2026) <doi:10.3758/s13428-026-03095-w>. Analyses
+use established R packages such as 'lavaan' and 'psych'. Results are
+presented in tables and plots with downloadable outputs. Analysis projects
+can be saved and restored, and reproducible R, HTML, and PDF workflow
+reports can be generated.
 
 %prep
 %setup -q -c -n %{packname}

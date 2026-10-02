@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  devianLM
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Detecting Extremal Values in a Normal Linear Model
 
@@ -25,10 +25,14 @@ Provides a method to detect values poorly explained by a Gaussian linear
 model. The procedure is based on the maximum of the absolute value of the
 studentized residuals, which is a parameter-free statistic. This approach
 generalizes several procedures used to detect abnormal values during
-longitudinal monitoring of biological markers. For methodological details,
-see: Berthelot G., Saulière G., Dedecker J. (2025). "DEViaN-LM An R
-Package for Detecting Abnormal Values in the Gaussian Linear Model". HAL
-Id: hal-05230549. <https://hal.science/hal-05230549>.
+longitudinal monitoring of biological markers. Methodological details are
+provided in Berthelot G., Saulière G., and Dedecker J. (2025), "DEViaN-LM
+An R Package for Detecting Abnormal Values in the Gaussian Linear Model",
+HAL Id: hal-05230549, <https://hal.science/hal-05230549>, and in Berthelot
+G., Gelein B., Meinadier E., Orhant E., and Dedecker J. (2026), "A guide
+to z-score-based methods, with illustrations from biological data sets",
+The Journal of Sport and Exercise Science 10, 54–70,
+<doi:10.36905/jses.2026.01.06>.
 
 %prep
 %setup -q -c -n %{packname}

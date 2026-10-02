@@ -1,35 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  genderapi
-%global packver   1.0.3
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Client for 'GenderAPI.io'
+Summary:          Official 'GenderAPI.io' V2 Client
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-curl >= 5.0.0
 BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-curl >= 5.0.0
 Requires:         R-CRAN-jsonlite 
+Requires:         R-utils 
 
 %description
-Provides an interface to the 'GenderAPI.io' web service
-(<https://www.genderapi.io>) for determining gender from personal names,
-email addresses, or social media usernames. Functions are available to
-submit single or batch queries and retrieve additional information such as
-accuracy scores and country-specific gender predictions. This package
-simplifies integration of 'GenderAPI.io' into R workflows for data
-cleaning, user profiling, and analytics tasks.
+Official 'GenderAPI.io' V2 client for R. Provides an interface to the
+'GenderAPI.io' V2 web service <https://www.genderapi.io/api-documentation>
+that infers gender from personal names, email addresses and usernames,
+runs batches of up to 50 items, reads credit usage and validates phone
+numbers. Responses are returned as parsed lists with all fields kept,
+including unknown results, confidence metadata, billing status and batch
+summaries; errors are raised as structured conditions. Requests are never
+retried and redirects are never followed. Results are inferences, not
+verified identity, and can be unknown.
 
 %prep
 %setup -q -c -n %{packname}
