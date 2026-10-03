@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rlmstudio
-%global packver   0.2.2
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access and Control LM Studio
 
@@ -29,10 +29,11 @@ Requires:         R-CRAN-processx
 Requires:         R-utils 
 
 %description
-A community-maintained 'R' wrapper for the 'LM Studio' command line
-interface and API. Provides functions to manage the local daemon and
-server, download and load models, and interact with Large Language Models
-(LLMs).
+Run local Large Language Models (LLMs) over many texts from 'R' without
+sending data to a third party. A community-maintained wrapper for the 'LM
+Studio' command line interface and API that provides functions to manage
+the local daemon and server, download and load models, and score, label,
+or generate text at scale.
 
 %prep
 %setup -q -c -n %{packname}

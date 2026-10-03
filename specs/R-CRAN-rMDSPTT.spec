@@ -1,38 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  msma
-%global packver   4.0
+%global packname  rMDSPTT
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multiblock Sparse Multivariable Analysis
+Summary:          Multiple Dependent State Sampling Inspection Plan for Time Truncated Life Test
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
 
 %description
-Several functions can be used to analyze multiblock multivariable data. If
-the input is a single matrix, then principal components analysis (PCA) is
-implemented. If the input is a list of matrices, then multiblock PCA is
-implemented. If the input is two matrices, for exploratory and objective
-variables, then partial least squares (PLS) analysis is implemented. If
-the input is two lists of matrices, for exploratory and objective
-variables, then multiblock PLS analysis is implemented. Additionally, if
-an extra outcome variable is specified, then a supervised version of the
-methods above is implemented. For each method, sparse modeling is also
-incorporated. Functions for selecting the number of components and
-regularized parameters are also provided. Version 4.0 adds opt-in
-supervised sparse soft-structured principal component analysis,
-reconstruction, and repeated split reconstruction-based parameter
-selection while preserving the default Version 3.2 computational paths.
+Provides functions for designing multiple dependent state sampling
+inspection plans for time-truncated life tests. The package determines the
+minimum sample size required to satisfy a specified consumer's risk
+constraint and evaluates the probability of acceptance under different
+quality and termination ratios. Users can directly provide failure
+probabilities, allowing the sampling plan to be applied to different
+lifetime distributions without requiring distribution-specific functions.
+Provide operating characteristic analysis, sample size analysis, and
+graphical comparison with single sampling inspection plans. Aslam et al.
+(2016) <doi:10.1080/08982112.2015.1068331>; Rao et al. (2020)
+<doi:10.1080/25742558.2020.1857915>; Balamurali et al. (2017)
+<doi:10.1080/07474946.2016.1275459>; Saha et al. (2021)
+<doi:10.1080/21681015.2021.1893843>; Tripathi et al. (2020)
+<doi:10.1007/s40745-020-00267-z>; Tripathi et al. (2023)
+<doi:10.1007/s41872-023-00221-x>.
 
 %prep
 %setup -q -c -n %{packname}

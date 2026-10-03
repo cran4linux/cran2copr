@@ -1,38 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  msma
-%global packver   4.0
+%global packname  yaleBraille
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multiblock Sparse Multivariable Analysis
+Summary:          Generate Braille-Enabled Graphics
 
-License:          GPL (>= 2)
+License:          LGPL (>= 2.1)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-sysfonts 
+BuildRequires:    R-CRAN-showtext 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-CRAN-sysfonts 
+Requires:         R-CRAN-showtext 
 
 %description
-Several functions can be used to analyze multiblock multivariable data. If
-the input is a single matrix, then principal components analysis (PCA) is
-implemented. If the input is a list of matrices, then multiblock PCA is
-implemented. If the input is two matrices, for exploratory and objective
-variables, then partial least squares (PLS) analysis is implemented. If
-the input is two lists of matrices, for exploratory and objective
-variables, then multiblock PLS analysis is implemented. Additionally, if
-an extra outcome variable is specified, then a supervised version of the
-methods above is implemented. For each method, sparse modeling is also
-incorporated. Functions for selecting the number of components and
-regularized parameters are also provided. Version 4.0 adds opt-in
-supervised sparse soft-structured principal component analysis,
-reconstruction, and repeated split reconstruction-based parameter
-selection while preserving the default Version 3.2 computational paths.
+Provides tools for rendering and visualizing Braille patterns in R, using
+the liblouis translation library. For more information see
+<https://github.com/wininger/yaleBraille>.
 
 %prep
 %setup -q -c -n %{packname}

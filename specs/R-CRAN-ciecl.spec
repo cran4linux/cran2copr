@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ciecl
-%global packver   0.9.6
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          International Classification of Diseases 'ICD-10'/'ICD-11' for Chile
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli >= 3.6.0
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-RSQLite 
 BuildRequires:    R-CRAN-stringdist 
@@ -25,6 +26,10 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-httr2 
+Requires:         R-CRAN-cli >= 3.6.0
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-RSQLite 
 Requires:         R-CRAN-stringdist 
@@ -33,6 +38,9 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-tibble 
 Requires:         R-tools 
 Requires:         R-utils 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-httr2 
 
 %description
 Tools for working with the International Classification of Diseases

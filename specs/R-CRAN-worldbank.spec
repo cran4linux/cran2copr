@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  worldbank
-%global packver   0.10.0
+%global packver   0.11.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.0
+Version:          0.11.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Client for the 'World Bank' APIs
 
@@ -20,14 +20,17 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-httr2 >= 1.1.0
 BuildRequires:    R-stats 
 BuildRequires:    R-tools 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-httr2 >= 1.1.0
 Requires:         R-stats 
 Requires:         R-tools 
+Requires:         R-utils 
 
 %description
 Download and search data from the 'World Bank' APIs, including the
 'Indicators' API, the 'Poverty and Inequality Platform (PIP)' API, the
-'Finances One' API, and the 'Projects' API. See
+'Finances One' API, the 'Projects' API, and the 'Documents & Reports' API.
+See
 <https://datahelpdesk.worldbank.org/knowledgebase/articles/889386-developer-information-overview>
 for further details.
 

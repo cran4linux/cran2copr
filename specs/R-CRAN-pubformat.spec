@@ -1,38 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  msma
-%global packver   4.0
+%global packname  pubformat
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multiblock Sparse Multivariable Analysis
+Summary:          Publication-Ready Formatting for Statistical Results
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
 
 %description
-Several functions can be used to analyze multiblock multivariable data. If
-the input is a single matrix, then principal components analysis (PCA) is
-implemented. If the input is a list of matrices, then multiblock PCA is
-implemented. If the input is two matrices, for exploratory and objective
-variables, then partial least squares (PLS) analysis is implemented. If
-the input is two lists of matrices, for exploratory and objective
-variables, then multiblock PLS analysis is implemented. Additionally, if
-an extra outcome variable is specified, then a supervised version of the
-methods above is implemented. For each method, sparse modeling is also
-incorporated. Functions for selecting the number of components and
-regularized parameters are also provided. Version 4.0 adds opt-in
-supervised sparse soft-structured principal component analysis,
-reconstruction, and repeated split reconstruction-based parameter
-selection while preserving the default Version 3.2 computational paths.
+Provides tools for converting statistical results into consistent,
+publication-ready character output. Current functionality includes
+formatting p-values, confidence intervals, and correlation coefficients
+using publication-friendly conventions. The package emphasizes consistent
+reporting while preserving the underlying statistical results and
+statistical decision-making.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  StreamCatTools
-%global packver   0.11.0
+%global packver   0.12.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.0
+Version:          0.12.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'StreamCatTools'
+Summary:          Tools for Working with 'StreamCat' and 'LakeCat' Data
 
-License:          CC0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -19,7 +19,7 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-curl >= 6.0.0
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-nhdplusTools 
+BuildRequires:    R-CRAN-hydrogeofetch 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-ggpattern 
@@ -27,9 +27,13 @@ BuildRequires:    R-CRAN-patchwork
 BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-tigris 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-curl >= 6.0.0
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-nhdplusTools 
+Requires:         R-CRAN-hydrogeofetch 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-ggpattern 
@@ -37,6 +41,10 @@ Requires:         R-CRAN-patchwork
 Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-tigris 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 
 %description
 Tools for using the 'StreamCat' and 'LakeCat' API and interacting with the

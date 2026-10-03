@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BayesBrainMap
-%global packver   0.2.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate Brain Networks and Connectivity with Population-Derived Priors
 
@@ -17,8 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fMRItools >= 0.7.1
-BuildRequires:    R-CRAN-fMRIscrub >= 0.14.5
+BuildRequires:    R-CRAN-fMRItools >= 0.8.0
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-Matrix 
@@ -28,8 +27,7 @@ BuildRequires:    R-CRAN-pesel
 BuildRequires:    R-CRAN-SQUAREM 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-fMRItools >= 0.7.1
-Requires:         R-CRAN-fMRIscrub >= 0.14.5
+Requires:         R-CRAN-fMRItools >= 0.8.0
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-Matrix 

@@ -1,38 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  msma
-%global packver   4.0
+%global packname  rolog
+%global packver   0.9.29
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0
+Version:          0.9.29
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multiblock Sparse Multivariable Analysis
+Summary:          Query 'SWI'-'Prolog' from R
 
-License:          GPL (>= 2)
+License:          FreeBSD
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildArch:        noarch
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
+BuildRequires:    R-CRAN-rswipl >= 10.1.5
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-methods 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-Rcpp >= 1.0.7
+Requires:         R-methods 
+Requires:         R-utils 
 
 %description
-Several functions can be used to analyze multiblock multivariable data. If
-the input is a single matrix, then principal components analysis (PCA) is
-implemented. If the input is a list of matrices, then multiblock PCA is
-implemented. If the input is two matrices, for exploratory and objective
-variables, then partial least squares (PLS) analysis is implemented. If
-the input is two lists of matrices, for exploratory and objective
-variables, then multiblock PLS analysis is implemented. Additionally, if
-an extra outcome variable is specified, then a supervised version of the
-methods above is implemented. For each method, sparse modeling is also
-incorporated. Functions for selecting the number of components and
-regularized parameters are also provided. Version 4.0 adds opt-in
-supervised sparse soft-structured principal component analysis,
-reconstruction, and repeated split reconstruction-based parameter
-selection while preserving the default Version 3.2 computational paths.
+This R package connects to SWI-Prolog, <https://www.swi-prolog.org/>, so
+that R can send deterministic and non-deterministic queries to prolog
+(consult, query/submit, once, findall).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pvaluefunctions
-%global packver   1.6.3
+%global packver   1.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.3
+Version:          1.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Creates and Plots P-Value Functions, S-Value Functions, Confidence Distributions and Confidence Densities
 
@@ -17,18 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
+BuildRequires:    R-CRAN-cli >= 3.0.0
 BuildRequires:    R-CRAN-pracma >= 2.3.3
 BuildRequires:    R-CRAN-gsl >= 2.1.7.1
-BuildRequires:    R-CRAN-scales >= 1.1.1
+BuildRequires:    R-CRAN-scales >= 1.3.0
+BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-zipfR >= 0.6.70
+BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-utils 
+Requires:         R-CRAN-ggplot2 >= 3.5.0
+Requires:         R-CRAN-cli >= 3.0.0
 Requires:         R-CRAN-pracma >= 2.3.3
 Requires:         R-CRAN-gsl >= 2.1.7.1
-Requires:         R-CRAN-scales >= 1.1.1
+Requires:         R-CRAN-scales >= 1.3.0
+Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-zipfR >= 0.6.70
+Requires:         R-grDevices 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Contains functions to compute and plot confidence distributions,

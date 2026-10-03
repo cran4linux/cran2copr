@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dawaR
-%global packver   0.3.4
+%global packname  UlavalSSD
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          An API Wrapper for 'DAWA' - 'The Danish Address Web API'
+Summary:          Quebec Data and Tools for Introductory Data Science
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,28 +17,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-memoise >= 2.0.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-tidyRSS 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-memoise >= 2.0.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-tidyRSS 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-curl 
-Requires:         R-utils 
 
 %description
-Functions for interacting with all sections of the official 'Danish
-Address Web API' (also known as 'DAWA') <https://api.dataforsyningen.dk>.
-The development of this package is completely independent from the
-government agency, Klimadatastyrelsen, who maintains the API.
+Historical weather observations and food-establishment conviction records
+from Quebec for teaching data import, missing values, exploratory analysis
+and reproducible reporting. Includes bilingual prompts and feedback for a
+penguin data-cleaning exercise, and an optional static R code-style
+diagnostic based on 'lintr', as described by Hester and others (2025)
+<doi:10.21105/joss.07240>. Data are distributed as fixed teaching
+snapshots and require no network access during use.
 
 %prep
 %setup -q -c -n %{packname}

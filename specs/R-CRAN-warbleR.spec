@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  warbleR
-%global packver   1.1.37
+%global packver   1.1.38
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.37
+Version:          1.1.38
 Release:          1%{?dist}%{?buildtag}
 Summary:          Streamline Bioacoustic Analysis
 
@@ -16,7 +16,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-testthat >= 3.0.0
 BuildRequires:    R-CRAN-seewave >= 2.0.1
 BuildRequires:    R-CRAN-tuneR 
 BuildRequires:    R-CRAN-NatureSounds 
@@ -27,8 +26,6 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-CRAN-monitoR 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-CRAN-rjson 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
@@ -38,7 +35,6 @@ BuildRequires:    R-CRAN-bioacoustics
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-curl 
-Requires:         R-CRAN-testthat >= 3.0.0
 Requires:         R-CRAN-seewave >= 2.0.1
 Requires:         R-CRAN-tuneR 
 Requires:         R-CRAN-NatureSounds 
@@ -49,8 +45,6 @@ Requires:         R-grDevices
 Requires:         R-CRAN-monitoR 
 Requires:         R-parallel 
 Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-RCurl 
-Requires:         R-CRAN-rjson 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-methods 
@@ -65,11 +59,11 @@ Requires:         R-CRAN-curl
 Functions aiming to facilitate the analysis of the structure of animal
 acoustic signals in 'R'. 'warbleR' makes use of the basic sound analysis
 tools from the packages 'tuneR' and 'seewave', and offers new tools for
-exploring and quantifying acoustic signal structure. The package allows to
-organize and manipulate multiple sound files, create spectrograms of
-complete recordings or individual signals in different formats, run
+exploring and quantifying acoustic signal structure. The package allows
+users to organize and manipulate multiple sound files, create spectrograms
+of complete recordings or individual signals in different formats, run
 several measures of acoustic structure, and characterize different
-structural levels in acoustic signals (Araya-Salas et al 2016
+structural levels in acoustic signals (Araya-Salas and Smith-Vidaurre 2017
 <doi:10.1111/2041-210X.12624>).
 
 %prep

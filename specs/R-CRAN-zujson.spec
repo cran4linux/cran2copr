@@ -1,38 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  msma
-%global packver   4.0
+%global packname  zujson
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multiblock Sparse Multivariable Analysis
+Summary:          Lightweight JSON Parsing and Serialization
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildArch:        noarch
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-utils 
+Requires:         R-utils 
 
 %description
-Several functions can be used to analyze multiblock multivariable data. If
-the input is a single matrix, then principal components analysis (PCA) is
-implemented. If the input is a list of matrices, then multiblock PCA is
-implemented. If the input is two matrices, for exploratory and objective
-variables, then partial least squares (PLS) analysis is implemented. If
-the input is two lists of matrices, for exploratory and objective
-variables, then multiblock PLS analysis is implemented. Additionally, if
-an extra outcome variable is specified, then a supervised version of the
-methods above is implemented. For each method, sparse modeling is also
-incorporated. Functions for selecting the number of components and
-regularized parameters are also provided. Version 4.0 adds opt-in
-supervised sparse soft-structured principal component analysis,
-reconstruction, and repeated split reconstruction-based parameter
-selection while preserving the default Version 3.2 computational paths.
+Converts between JSON text and ordinary R vectors and lists through a
+small, predictable set of functions, backed by vendored 'yyjson'
+<https://github.com/ibireme/yyjson> and requiring no system JSON library.
+Parsing accepts character, raw and file input and reports failures through
+structured conditions; serialization writes UTF-8 bytes suitable for use
+directly as an HTTP request body. The type mapping is deliberately narrow
+and fully documented, so what goes in and what comes out are both
+predictable.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FRCI
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fuzzy & Randomized Confidence Intervals
 
@@ -31,8 +31,8 @@ Requires:         R-graphics
 Requires:         R-stats 
 
 %description
-Contains the methods proposed by Geyer and Meeden
-(2005)<doi:10.1214/088342305000000340> and Trigo et al. (2025)
+Contains the methods proposed by Geyer and Meeden (2005)
+<doi:10.1214/088342305000000340> and Trigo et al. (2025)
 <doi:10.47749/T/UNICAMP.2025.1500297> to construct fuzzy confidence
 intervals. Compute and plot the fuzzy membership functions of the methods,
 and the expected length compared with the infimum.

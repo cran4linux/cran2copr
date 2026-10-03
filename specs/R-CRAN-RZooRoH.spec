@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RZooRoH
-%global packver   0.4.1
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Partitioning of Individual Autozygosity into Multiple Homozygous-by-Descent Classes
 
@@ -38,14 +38,21 @@ inbreeding coefficient). HBD segments and autozygosity are assigned to
 multiple HBD classes with a model-based approach relying on a mixture of
 exponential distributions. The rate of the exponential distribution is
 distinct for each HBD class and defines the expected length of the HBD
-segments. These HBD classes are therefore related to the age of the
-segments (longer segments and smaller rates for recent autozygosity /
-recent common ancestor). The functions allow to estimate the parameters of
-the model (rates of the exponential distributions, mixing proportions), to
+segments. This rate is called the "rate of coancestry change". The HBD
+classes are therefore related to the age of the segments (longer segments
+and smaller rates for recent autozygosity / recent common ancestor). The
+functions allow to estimate the parameters of the model (rates of the
+exponential distributions called also rates of coancestry change; mixing
+proportions related to the inbreeding rate per layer or generation), to
 estimate global and local autozygosity probabilities and to identify HBD
-segments with the Viterbi decoding. The method is fully described in Druet
-and Gautier (2017) <doi:10.1111/mec.14324> and Druet and Gautier (2022)
-<doi:10.1016/j.tpb.2022.03.001>.
+segments with the Viterbi decoding. Functions also allow to compute
+identity-by-descent (IBD) between pairs of haplotypes, to estimate kinship
+between pairs of individuals and to predict inbreeding in the future
+progeny of a genotyped couple. The current model is fully described in
+Druet and Gautier (2022) <doi:10.1016/j.tpb.2022.03.001>. The model and
+its properties were originally presented in Druet and Gautier (2017)
+<doi:10.1111/mec.14324>. Extension to IBD and kinship analyses is
+described in Forneris et al. (2025) <doi:10.1111/1755-0998.14068>.
 
 %prep
 %setup -q -c -n %{packname}

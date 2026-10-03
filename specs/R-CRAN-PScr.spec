@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PScr
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation for the Power Series Cure Rate Model
 
@@ -27,14 +27,15 @@ Requires:         R-CRAN-pracma
 Requires:         R-CRAN-VGAM 
 
 %description
-Provide estimation for particular cases of the power series cure rate
-model <doi:10.1080/03610918.2011.639971>. For the distribution of the
-concurrent causes the alternative models are the Poisson, logarithmic,
-negative binomial and Bernoulli (which are includes in the original work),
-the polylogarithm model <doi:10.1080/00949655.2018.1451850> and the
-Flory-Schulz <doi:10.3390/math10244643>. The estimation procedure is based
-on the EM algorithm discussed in <doi:10.1080/03610918.2016.1202276>. For
-the distribution of the time-to-event the alternative models are slash
+Provides estimation and simulation tools for particular cases of the power
+series cure rate model <doi:10.1080/03610918.2011.639971>. For the
+distribution of the concurrent causes the alternative models are the
+Poisson, logarithmic, negative binomial and Bernoulli (which are includes
+in the original work), the polylogarithm model
+<doi:10.1080/00949655.2018.1451850> and the Flory-Schulz
+<doi:10.3390/math10244643>. The estimation procedure is based on the EM
+algorithm discussed in <doi:10.1080/03610918.2016.1202276>. For the
+distribution of the time-to-event the alternative models are slash
 half-normal, Weibull, gamma and Birnbaum-Saunders distributions.
 
 %prep

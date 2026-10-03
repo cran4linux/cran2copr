@@ -1,49 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  waou
+%global packname  famnesia
 %global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Weighting All of Us
+Summary:          Anonymising Familias Files
 
-License:          AGPL (>= 3)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.4
+Requires:         R-core >= 4.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-mice 
-BuildRequires:    R-CRAN-nonprobsvy 
-BuildRequires:    R-CRAN-survey 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-purrr 
-Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-stats 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-mice 
-Requires:         R-CRAN-nonprobsvy 
-Requires:         R-CRAN-survey 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-purrr 
+BuildRequires:    R-CRAN-shiny >= 1.9.0
+BuildRequires:    R-CRAN-pedprobr >= 1.1.1
+BuildRequires:    R-CRAN-pedFamilias >= 0.2.6
+BuildRequires:    R-CRAN-bslib >= 0.11.0
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-pedmut 
+BuildRequires:    R-CRAN-pedtools 
+BuildRequires:    R-CRAN-shinyjs 
+Requires:         R-CRAN-shiny >= 1.9.0
+Requires:         R-CRAN-pedprobr >= 1.1.1
+Requires:         R-CRAN-pedFamilias >= 0.2.6
+Requires:         R-CRAN-bslib >= 0.11.0
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-pedmut 
+Requires:         R-CRAN-pedtools 
+Requires:         R-CRAN-shinyjs 
 
 %description
-Utilities for using a probability sample to reweight prevalence estimates
-calculated from the All of Us research program. Weighted estimates will
-still not be representative of the general U.S. population. However, they
-will provide an early indication for how unweighted estimates may be
-biased by the sampling bias in the All of Us sample.
+A 'shiny' application for anonymising files exported from the 'Familias'
+software for forensic kinship analysis (Egeland et al. (2000)
+<doi:10.1016/s0379-0738(00)00147-x>). Pedigrees, marker data, allele
+frequencies and mutation models can be masked or modified, with options
+for preserving likelihood ratios exactly. The application is built on the
+'pedsuite' packages for pedigree analysis.
 
 %prep
 %setup -q -c -n %{packname}

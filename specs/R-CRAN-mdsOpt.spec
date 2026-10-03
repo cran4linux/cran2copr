@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mdsOpt
-%global packver   0.7-7
+%global packver   0.8-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.7
+Version:          0.8.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Searching for Optimal MDS Procedure for Metric and Interval-Valued Data
+Summary:          Searching for Optimal MDS Procedure for Metric, Nonmetric and Interval-Valued Data
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,7 +16,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
-BuildArch:        noarch
 BuildRequires:    R-CRAN-smacof 
 BuildRequires:    R-CRAN-clusterSim 
 BuildRequires:    R-CRAN-symbolicDA 
@@ -40,9 +39,13 @@ interval-valued data by varying all combinations of normalization and
 optimization methods.Selecting the optimal MDS procedure for statistical
 data referring to the evaluation of tourist attractiveness of Lower
 Silesian counties. (Borg, I., Groenen, P.J.F., Mair, P. (2013)
-<doi:10.1007/978-3-642-31848-1>, Walesiak, M. (2016)
+<doi:10.1007/978-3-642-31848-1>, Dehnel, G., Walesiak, M. (2019)
+<doi:10.21307/stattrans-2019-014>, Walesiak, M. (2016)
 <doi:10.15611/ekt.2016.2.01>, Walesiak, M. (2017)
-<doi:10.15611/ekt.2017.3.01>).
+<doi:10.15611/ekt.2017.3.01>), Walesiak, M., Dehnel, G. (2020)
+<doi:10.3390/su12187664>, Walesiak, M., Dehnel, G., Dudek, A. (2025)
+<doi:10.15611/aoe.2025.1.12>, Walesiak, M., Dehnel, G. (2026)
+<doi:10.1371/journal.pone.0333545>.
 
 %prep
 %setup -q -c -n %{packname}

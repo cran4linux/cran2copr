@@ -1,38 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  msma
-%global packver   4.0
+%global packname  PDRobust
+%global packver   0.3.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0
+Version:          0.3.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multiblock Sparse Multivariable Analysis
+Summary:          Robust Longitudinal Effects Under Truncation by Death
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-CRAN-rootSolve 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-quantreg 
+Requires:         R-CRAN-rootSolve 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Several functions can be used to analyze multiblock multivariable data. If
-the input is a single matrix, then principal components analysis (PCA) is
-implemented. If the input is a list of matrices, then multiblock PCA is
-implemented. If the input is two matrices, for exploratory and objective
-variables, then partial least squares (PLS) analysis is implemented. If
-the input is two lists of matrices, for exploratory and objective
-variables, then multiblock PLS analysis is implemented. Additionally, if
-an extra outcome variable is specified, then a supervised version of the
-methods above is implemented. For each method, sparse modeling is also
-incorporated. Functions for selecting the number of components and
-regularized parameters are also provided. Version 4.0 adds opt-in
-supervised sparse soft-structured principal component analysis,
-reconstruction, and repeated split reconstruction-based parameter
-selection while preserving the default Version 3.2 computational paths.
+Implements principal-stratification methods for estimating time-specific
+and pooled heterogeneous treatment effects in longitudinal studies where
+outcomes may be truncated by death. Supports continuous and binary
+outcomes, explicit data validation and standardization, and
+covariate-dependent treatment effects. Fits propensity-score,
+principal-score, and outcome models and provides subject-level bootstrap
+inference, covariate-balance diagnostics, principal-stratum summaries,
+treatment-group-specific survival odds ratios, and outcome-noise
+sensitivity analysis. Methodological background is provided in
+<doi:10.48550/arXiv.2608.06654>.
 
 %prep
 %setup -q -c -n %{packname}

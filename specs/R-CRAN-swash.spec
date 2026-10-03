@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  swash
-%global packver   2.0.2
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Health Geography Toolbox for Model-Based Analysis of Infections Panel Data
 
@@ -22,12 +22,14 @@ BuildRequires:    R-CRAN-sf
 BuildRequires:    R-CRAN-spdep 
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-strucchange 
+BuildRequires:    R-CRAN-sfdep 
 BuildRequires:    R-methods 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-spdep 
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-strucchange 
+Requires:         R-CRAN-sfdep 
 Requires:         R-methods 
 
 %description
@@ -39,7 +41,8 @@ Single Epidemic Wave and corresponding functions for bootstrap confidence
 intervals, country comparison, and visualization of results. Differences
 in epidemic growth between regions may be analysed using logistic growth
 models, exponential growth models, Hawkes processes and breakpoint
-analyses. All functionalities are accessed by the class "infpan" for
+analyses. Cluster and hotspot analyses can be conducted using neighborhood
+matrices. All functionalities are accessed by the class "infpan" for
 infections panel data defined in this package, which is built from a
 data.frame provided by the user.
 

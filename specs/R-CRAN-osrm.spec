@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  osrm
-%global packver   5.0.0
+%global packver   6.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.0.0
+Version:          6.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface Between R and the OpenStreetMap-Based Routing Service OSRM
 
@@ -32,7 +32,7 @@ Requires:         R-CRAN-sf
 
 %description
 An interface between R and the 'OSRM' API. 'OSRM' is a routing service
-based on 'OpenStreetMap' data. See <http://project-osrm.org/> for more
+based on 'OpenStreetMap' data. See <https://project-osrm.org/> for more
 information. This package enables the computation of routes, trips,
 isochrones and travel distances matrices (travel time and kilometric
 distance).
