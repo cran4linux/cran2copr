@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  serrsBayes
-%global packver   0.5-0
+%global packver   0.6-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Modelling of Raman Spectroscopy
 
@@ -30,14 +31,15 @@ Requires:         R-methods
 %description
 Sequential Monte Carlo (SMC) algorithms for fitting a generalised additive
 mixed model (GAMM) to surface-enhanced resonance Raman spectroscopy
-(SERRS), using the method of Moores et al. (2016) <arXiv:1604.07299>.
-Multivariate observations of SERRS are highly collinear and lend
-themselves to a reduced-rank representation. The GAMM separates the SERRS
-signal into three components: a sequence of Lorentzian, Gaussian, or
-pseudo-Voigt peaks; a smoothly-varying baseline; and additive white noise.
-The parameters of each component of the model are estimated iteratively
-using SMC. The posterior distributions of the parameters given the
-observed spectra are represented as a population of weighted particles.
+(SERRS), using the method of Moores et al. (2026)
+<doi:10.48550/arXiv.1604.07299>. Multivariate observations of SERRS are
+highly collinear and lend themselves to a reduced-rank representation. The
+GAMM separates the SERRS signal into three components: a sequence of
+Lorentzian, Gaussian, or pseudo-Voigt peaks; a smoothly-varying baseline;
+and additive white noise. The parameters of each component of the model
+are estimated iteratively using SMC. The posterior distributions of the
+parameters given the observed spectra are represented as a population of
+weighted particles.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,6 +49,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

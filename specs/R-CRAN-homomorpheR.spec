@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  homomorpheR
-%global packver   0.3
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Homomorphic Computations in R
 
@@ -14,19 +14,29 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-S7 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-gmp 
+BuildRequires:    R-CRAN-openfhe.R 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-sodium 
-Requires:         R-CRAN-R6 
+Requires:         R-CRAN-S7 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-gmp 
+Requires:         R-CRAN-openfhe.R 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-sodium 
 
 %description
-Homomorphic computations in R for privacy-preserving applications.
-Currently only the Paillier Scheme is implemented.
+Privacy-preserving statistics across sites that never share their data,
+using fully homomorphic encryption through the 'openfhe.R' interface to
+OpenFHE (CKKS, BFV, BGV), with n-of-n threshold key generation so that no
+single party can decrypt. Ships master/worker primitives that let ordinary
+R modeling code run across sites, and a frozen implementation of the
+Paillier additive scheme kept for backward compatibility.
 
 %prep
 %setup -q -c -n %{packname}

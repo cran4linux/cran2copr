@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fmrihrf
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hemodynamic Response Functions for fMRI Data Analysis
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-splines 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-purrr
 Requires:         R-stats 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-splines 

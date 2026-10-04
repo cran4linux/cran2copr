@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Seurat
-%global packver   5.5.1
+%global packver   5.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.5.1
+Version:          5.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Single Cell Genomics
 
@@ -23,8 +23,8 @@ BuildRequires:    R-CRAN-Matrix >= 1.5.0
 BuildRequires:    R-CRAN-scattermore >= 1.2
 BuildRequires:    R-CRAN-Rcpp >= 1.0.7
 BuildRequires:    R-CRAN-sctransform >= 0.4.1
+BuildRequires:    R-CRAN-uwot >= 0.2.4
 BuildRequires:    R-CRAN-generics >= 0.1.3
-BuildRequires:    R-CRAN-uwot >= 0.1.10
 BuildRequires:    R-CRAN-RcppAnnoy >= 0.0.18
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-cluster 
@@ -71,6 +71,7 @@ BuildRequires:    R-tools
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppEigen 
 BuildRequires:    R-CRAN-RcppProgress 
+BuildRequires:    R-CRAN-RcppThread 
 Requires:         R-CRAN-SeuratObject >= 5.0.2
 Requires:         R-CRAN-plotly >= 4.9.0
 Requires:         R-CRAN-ggplot2 >= 3.3.0
@@ -78,8 +79,8 @@ Requires:         R-CRAN-Matrix >= 1.5.0
 Requires:         R-CRAN-scattermore >= 1.2
 Requires:         R-CRAN-Rcpp >= 1.0.7
 Requires:         R-CRAN-sctransform >= 0.4.1
+Requires:         R-CRAN-uwot >= 0.2.4
 Requires:         R-CRAN-generics >= 0.1.3
-Requires:         R-CRAN-uwot >= 0.1.10
 Requires:         R-CRAN-RcppAnnoy >= 0.0.18
 Requires:         R-methods 
 Requires:         R-CRAN-cluster 

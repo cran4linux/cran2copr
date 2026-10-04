@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fancycut
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Fancy Version of 'base::cut'
+Summary:          A Fancy Version of base::cut()
 
 License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,9 +19,10 @@ Requires:         R-core
 BuildArch:        noarch
 
 %description
-Provides the function fancycut() which is like cut() except you can mix
-left open and right open intervals with point values, intervals that are
-closed on both ends and intervals that are open on both ends.
+Provides two functions fancycut() and wafflecut(), which essentially do
+the same thing, with slightly different syntax. These function allow for
+turning a numeric vector into a factor, like cut(). However, unlike cut()
+they give the user more control over how to specify the intervals.
 
 %prep
 %setup -q -c -n %{packname}

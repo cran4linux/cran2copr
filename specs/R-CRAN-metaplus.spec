@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  metaplus
-%global packver   1.0-8
+%global packver   1.0-10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          1.0.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Meta-Analysis and Meta-Regression
 
@@ -25,10 +25,10 @@ BuildRequires:    R-CRAN-numDeriv
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-CRAN-fastGHQuad 
 BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-Rfast 
-BuildRequires:    R-parallel 
 Requires:         R-CRAN-bbmle 
 Requires:         R-CRAN-metafor 
 Requires:         R-CRAN-boot 
@@ -37,10 +37,10 @@ Requires:         R-CRAN-numDeriv
 Requires:         R-CRAN-MASS 
 Requires:         R-graphics 
 Requires:         R-stats 
+Requires:         R-parallel 
+Requires:         R-CRAN-Rfast 
 Requires:         R-CRAN-fastGHQuad 
 Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-Rfast 
-Requires:         R-parallel 
 
 %description
 Performs meta-analysis and meta-regression using standard and robust
