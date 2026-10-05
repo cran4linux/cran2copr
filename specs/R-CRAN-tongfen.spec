@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tongfen
-%global packver   0.3.8
+%global packver   0.3.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.8
+Version:          0.3.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Make Data Based on Different Geographies Comparable
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-tidyr >= 1.0
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-tibble 
@@ -25,9 +25,11 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-nanoparquet 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-dplyr >= 1.0
+Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-tidyr >= 1.0
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-tibble 
@@ -35,6 +37,8 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-readr 
+Requires:         R-CRAN-nanoparquet 
+Requires:         R-tools 
 Requires:         R-utils 
 Requires:         R-CRAN-lifecycle 
 

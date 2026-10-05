@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  yaleBraille
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generate Braille-Enabled Graphics
 
@@ -29,7 +29,7 @@ Requires:         R-CRAN-showtext
 
 %description
 Provides tools for rendering and visualizing Braille patterns in R, using
-the liblouis translation library. For more information see
+the 'liblouis' translation library. For more information see
 <https://github.com/wininger/yaleBraille>.
 
 %prep

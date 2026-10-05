@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vital
-%global packver   2.0.3
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Analysis Tools for Mortality, Fertility, Migration and Population Data
 
@@ -18,7 +18,8 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-HMDHFDplus >= 2.0.8
-BuildRequires:    R-CRAN-fabletools >= 0.3.3
+BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-CRAN-fabletools >= 0.7.0
 BuildRequires:    R-CRAN-cobs 
 BuildRequires:    R-CRAN-distributional 
 BuildRequires:    R-CRAN-dplyr 
@@ -28,7 +29,7 @@ BuildRequires:    R-CRAN-mgcv
 BuildRequires:    R-CRAN-MortalityLaws 
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-StMoMo 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
@@ -36,7 +37,8 @@ BuildRequires:    R-CRAN-tidyselect
 BuildRequires:    R-CRAN-tsibble 
 BuildRequires:    R-CRAN-vctrs 
 Requires:         R-CRAN-HMDHFDplus >= 2.0.8
-Requires:         R-CRAN-fabletools >= 0.3.3
+Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-CRAN-fabletools >= 0.7.0
 Requires:         R-CRAN-cobs 
 Requires:         R-CRAN-distributional 
 Requires:         R-CRAN-dplyr 
@@ -46,7 +48,7 @@ Requires:         R-CRAN-mgcv
 Requires:         R-CRAN-MortalityLaws 
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-StMoMo 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 

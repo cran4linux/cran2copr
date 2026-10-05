@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dunn.test
-%global packver   1.4.1
+%global packver   1.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          1.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dunn's Test of Multiple Comparisons Using Rank Sums
 
@@ -18,9 +18,7 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scrutiny 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scrutiny 
 
 %description
 Computes Dunn's test (1964) for stochastic superiority and reports the

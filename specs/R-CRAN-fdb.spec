@@ -1,52 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  erplots
+%global packname  fdb
 %global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Model-Agnostic Exposure-Response Plots
+Summary:          Frequentist Dynamic Borrowing for Hybrid-Control Survival Trials
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
-BuildRequires:    R-CRAN-patchwork >= 1.3.2
-BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-ggplot2 >= 4.0.0
-Requires:         R-CRAN-patchwork >= 1.3.2
-Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scales 
-Requires:         R-stats 
+BuildRequires:    R-stats 
+BuildRequires:    R-parallel 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-survival 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-withr 
+Requires:         R-stats 
+Requires:         R-parallel 
+Requires:         R-utils 
 
 %description
-Provides a fluent mini-language for building exposure-response plots
-(model curves/ribbons, quantile-binned summaries, data strips, and grouped
-distribution panels) from observed data and a fitted exposure-response
-model. Designed to be model-agnostic: any model object that implements the
-er_predict() generic (and, optionally, er_simulate() and er_summary()) can
-be visualised.
+Implements a class of likelihood-informed frequentist dynamic borrowing
+methods for hybrid-control survival trials based on penalized Cox partial
+likelihood estimation. Implements four likelihood-informed penalty
+structures (precision-weighted L1, smoothed integrated-gate,
+information-adaptive minimax concave penalty (MCP), and
+likelihood-ratio-weighted L1), together with the adaptive lasso borrowing
+approach of Li et al. (2023, <doi:10.1002/bimj.202100406>). Provides
+conditional model-based standard errors and local plug-in sandwich
+variance approximations, with smoothed penalties. Tools for design-stage
+lambda calibration via simulation, including a two-stage coarse-fine grid
+search, drift-level early stopping, and per-method tuning under both
+inference types, are also provided. A simulation harness for evaluating
+type I error and statistical power across population drift scenarios is
+included.
 
 %prep
 %setup -q -c -n %{packname}

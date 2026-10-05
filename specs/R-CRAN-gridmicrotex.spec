@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gridmicrotex
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Native 'LaTeX' Math Rendering for Grid Graphics
 
@@ -16,19 +16,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
+BuildRequires:    R-CRAN-systemfonts >= 1.2.0
 BuildRequires:    R-CRAN-commonmark 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-systemfonts 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-systemfonts >= 1.2.0
 Requires:         R-CRAN-commonmark 
 Requires:         R-grDevices 
 Requires:         R-grid 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-systemfonts 
 Requires:         R-tools 
 Requires:         R-utils 
 Requires:         R-CRAN-xml2 

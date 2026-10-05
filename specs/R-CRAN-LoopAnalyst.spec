@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LoopAnalyst
-%global packver   1.2-7
+%global packver   1.2-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.7
+Version:          1.2.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Collection of Tools to Conduct Levins' Loop Analysis
 
@@ -18,7 +18,9 @@ BuildRequires:    R-devel >= 1.8.0
 Requires:         R-core >= 1.8.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-rlang 
 
 %description
 Performs Levins' loop analysis of qualitatively-specified complex causal

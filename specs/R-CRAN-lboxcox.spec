@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lboxcox
-%global packver   1.2
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Implementation of Logistic Box-Cox Regression
 
@@ -14,27 +14,33 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.50
-Requires:         R-core >= 3.50
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-survey 
 BuildRequires:    R-CRAN-maxLik 
+BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-survey 
 Requires:         R-CRAN-maxLik 
+Requires:         R-CRAN-caret 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-R.utils 
+Requires:         R-stats 
 
 %description
-Implements a logistic box-cox model. This model is fully described in
-Xing, L. et al. (2021) <doi:10.1002/cjs.11587>.
+Implements a logistic Box-Cox model that adds a shape parameter to a
+routine logistic regression model to flexibly estimate the shape and
+strength of the relationship between a binary outcome and a continuous
+predictor, adjusting for covariates and survey weights. This model is
+fully described in Xing, L. et al. (2021) <doi:10.1002/cjs.11587>. This
+version extends the original 'lboxcox' package (1.1) with numerically
+stabilized likelihood/gradient calculations, vectorized data
+preprocessing, and a bootstrap-ensemble estimator.
 
 %prep
 %setup -q -c -n %{packname}

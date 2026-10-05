@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  depCensoring
-%global packver   0.1.10
+%global packver   0.1.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.10
+Version:          0.1.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Methods for Survival Data with Dependent Censoring
 
@@ -29,9 +29,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-EnvStats 
 BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-rafalib 
 BuildRequires:    R-CRAN-rvinecopulib 
-BuildRequires:    R-CRAN-matrixcalc 
 BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-copula 
@@ -50,9 +48,7 @@ Requires:         R-methods
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-EnvStats 
 Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-rafalib 
 Requires:         R-CRAN-rvinecopulib 
-Requires:         R-CRAN-matrixcalc 
 Requires:         R-CRAN-nloptr 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-copula 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gmwmx2
-%global packver   0.0.5
+%global packver   0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate Functional and Stochastic Parameters of Linear Models with Correlated Residuals and Missing Data
 
@@ -37,15 +37,15 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-longmemo 
 
 %description
-Implements the Generalized Method of Wavelet Moments with Exogenous Inputs
-estimator (GMWMX) presented in Voirol, L., Xu, H., Zhang, Y., Insolia, L.,
-Molinari, R. and Guerrier, S. (2024) <doi:10.48550/arXiv.2409.05160>. The
-GMWMX estimator allows to estimate functional and stochastic parameters of
-linear models with correlated residuals in presence of missing data. The
-'gmwmx2' package provides functions to load and plot Global Navigation
-Satellite System (GNSS) data from the Nevada Geodetic Laboratory and
-functions to estimate linear model model with correlated residuals in
-presence of missing data.
+Implements the Wavelet Moment Regression (WAMORE) inference framework
+presented in Voirol, L., Xu, H., Zhang, Y., Insolia, L., Molinari, R. and
+Guerrier, S. (2026) <doi:10.48550/arXiv.2607.16264>. Provides
+computationally efficient estimation of functional and stochastic
+parameters of linear models with correlated residuals, including settings
+with missing data. Includes functions to download and plot Global
+Navigation Satellite System (GNSS) position time series from the Nevada
+Geodetic Laboratory and estimate tectonic velocities and crustal uplift
+using composite stochastic models.
 
 %prep
 %setup -q -c -n %{packname}

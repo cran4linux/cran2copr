@@ -1,28 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  listenv
-%global packver   1.1.0
+%global packname  geomorphR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Environments Behaving (Almost) as Lists
+Summary:          Geometric Features for Building Footprints in Sf Objects
 
-License:          Apache License (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.2
-Requires:         R-core >= 3.1.2
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-progressr 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-progressr 
 
 %description
-List environments are environments that have list-like properties.  For
-instance, the elements of a list environment are ordered and can be
-accessed and iterated over using index subsetting, e.g. 'x <- listenv(a =
-1, b = 2); for (i in seq_along(x)) x[[i]] <- x[[i]] ^ 2; y <- as.list(x)'.
+Extracts reproducible geometric and urban-morphology descriptors from
+polygon and multipart polygon building footprints stored as sf objects.
+Methods include area, perimeter, compactness, shape, bounding-box,
+topology, convexity, and orientation measures, together with optional
+building-height, floor-count, gross-floor-area, floor-space-index,
+coverage, volume, and floor-height metrics derived from explicitly named
+attribute columns. The resulting sf objects preserve the source attributes
+and geometry for spatial analysis, visualization, and downstream
+statistical or machine-learning workflows, with optional future-based
+parallel processing for larger datasets.
 
 %prep
 %setup -q -c -n %{packname}

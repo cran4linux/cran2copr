@@ -1,52 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  erplots
+%global packname  AlphaSDM
 %global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Model-Agnostic Exposure-Response Plots
+Summary:          Species Distribution Models on 'AlphaEarth' Satellite Embeddings
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
-BuildRequires:    R-CRAN-patchwork >= 1.3.2
-BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-reticulate >= 1.41
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-ggplot2 >= 4.0.0
-Requires:         R-CRAN-patchwork >= 1.3.2
-Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scales 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-reticulate >= 1.41
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-sf 
 Requires:         R-stats 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-withr 
+Requires:         R-utils 
 
 %description
-Provides a fluent mini-language for building exposure-response plots
-(model curves/ribbons, quantile-binned summaries, data strips, and grouped
-distribution panels) from observed data and a fitted exposure-response
-model. Designed to be model-agnostic: any model object that implements the
-er_predict() generic (and, optionally, er_simulate() and er_summary()) can
-be visualised.
+Fits species distribution models and maps habitat suitability at up to 10
+m resolution from occurrence records alone, using the 'AlphaEarth'
+Foundations satellite embeddings (Brown et al. 2025)
+<doi:10.48550/arXiv.2507.22291>. The embeddings, 64 values per pixel per
+year from a geospatial foundation model, replace environmental layers, so
+none need to be sourced or aligned. Provides tools to format occurrence
+records, place pseudo-absences, train and evaluate an ensemble of machine
+learning models, and export habitat-suitability rasters. Sampling, model
+training and prediction all run on 'Google Earth Engine', which requires a
+free account for noncommercial use.
 
 %prep
 %setup -q -c -n %{packname}

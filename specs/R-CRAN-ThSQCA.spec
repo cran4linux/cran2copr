@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ThSQCA
-%global packver   2.0.8
+%global packver   2.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.8
+Version:          2.0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Threshold-Sweep QCA
 
@@ -38,7 +38,9 @@ Built on top of the 'QCA' package by Dusa (2019)
 conventions. Based on set-theoretic methods by Ragin (2008)
 <doi:10.7208/chicago/9780226702797.001.0001> and established robustness
 protocols by Oana and Schneider (2024) <doi:10.1177/00491241211036158>.
-This package supersedes 'TSQCA'; see the NEWS file for migration guidance.
+The threshold-sweep framework is described in Toyoda (2026)
+<doi:10.1007/s11135-026-03092-3>. This package supersedes 'TSQCA'; see the
+NEWS file for migration guidance.
 
 %prep
 %setup -q -c -n %{packname}

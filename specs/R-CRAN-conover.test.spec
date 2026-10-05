@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  conover.test
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Conover-Iman Test of Multiple Comparisons Using Rank Sums
 
@@ -18,9 +18,7 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scrutiny 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scrutiny 
 
 %description
 Computes the Conover-Iman test (1979) for stochastic superiority and
