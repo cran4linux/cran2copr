@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  exmort
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          All-Cause and Excess Mortality Calculator
 
@@ -87,8 +87,8 @@ or typhoons); the app fits one or more statistical baseline models
 regression, zero-inflated Poisson regression, ARIMA (autoregressive
 integrated moving average) and SARIMA (seasonal ARIMA) models, GAM
 (generalized additive model) splines, and the model of Karlinsky and Kobak
-(2021) <doi:10.7554/eLife.69336>) on a user-defined baseline period,
-projects the expected deaths into the post-baseline period, and reports
+(2021) <doi:10.7554/eLife.69336>) using periods outside the supplied
+events, estimates expected deaths across the observed series, and reports
 excess deaths, P-scores (excess deaths as a percentage of expected deaths)
 and confidence limits with tables, plots and downloadable reports. Launch
 the application with run_app().

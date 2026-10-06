@@ -1,26 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hobbs
-%global packver   0.4.5
+%global packname  AgroMetIndices
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          High Dimensional Bayesian Omnibus Sampler
+Summary:          Agrometeorological Indices for Daily, Monthly, and Seasonal Time Scales
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
 
 %description
-Enables high dimensional statistical modeling using Bayesian inference and
-provides a probabilistic programming language for high dimensional
-problems. See Kleinsasser (2026) <doi:10.5281/zenodo.22309216>.
+Provides methods for calculating agrometeorological indices from daily
+weather data at daily, monthly, and user-defined seasonal time scales. The
+package includes temperature, rainfall, growing degree days, heat and cold
+stress, wet and dry spells, extreme rainfall, and seasonal completeness
+indices, along with functions for meteorological data quality assessment
+and crop-season definition. For method details see <doi:10.1002/wcc.147>
+and <doi:10.1038/s41598-026-55293-3>.
 
 %prep
 %setup -q -c -n %{packname}

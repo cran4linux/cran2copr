@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  morph
-%global packver   1.1.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          3D Segmentation of Voxels into Morphologic Classes
 
@@ -27,11 +27,18 @@ Requires:         R-CRAN-igraph
 Requires:         R-CRAN-stringr 
 
 %description
-Automatically segments a 3D array of voxels into mutually exclusive
-morphological elements. This package extends existing work for segmenting
-2D binary raster data. A paper documenting this approach has been accepted
-for publication in the journal Landscape Ecology. Detailed references will
-be updated here once those are known.
+Automatically segments a 3D array that represents a volume of binary
+voxels into mutually exclusive morphological elements. This package
+extends existing work for segmenting 2D binary raster data. A paper
+documenting this approach has been published in the journal Landscape
+Ecology: Remmel, T.K. (2022) <doi:10.1007/s10980-021-01384-7>. The output
+is a cartridge (list object) that maintains the input array, the
+segmentation results in array format, and a summary table. Plotting
+functionality is provided to produce interactive visual outputs from the
+produced results cartridge, allowing custom plotting to be performed
+separately from the segmentation, which speeds-up processing. While the
+old functions persist, they are being phased out and will eventually be
+replaced with the new runmorph3d() and plotmorph3d() functions.
 
 %prep
 %setup -q -c -n %{packname}

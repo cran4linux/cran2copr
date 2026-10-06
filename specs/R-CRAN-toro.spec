@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  toro
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interactive & Customisable Maps using the 'MapLibre GL JS' Library
+Summary:          High-Performance Interactive Mapping
 
 License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,29 +17,35 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.5.0
 Requires:         R-core >= 4.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-geojsonsf 
 BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-geojsonsf 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-sf 
-Requires:         R-CRAN-htmlwidgets 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-geojsonsf 
+BuildRequires:    R-CRAN-shiny 
 Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-geojsonsf 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-sf 
+Requires:         R-CRAN-shiny 
 
 %description
-Create interactive maps that can keep up with complex visualisations and
-large datasets, with this useful interface to the 'MapLibre GL JS'
-(<https://maplibre.org/maplibre-gl-js/docs/>) library. Users can create
-maps directly in the console, or as an HTML widget within 'Shiny' web
-applications, and render spatial data quickly with many customisable
-options (clusters, custom icons, map layers, and backgrounds). The goal of
-the package is to make it easier to interpret and explore large spatial
-datasets within the context of a 'Shiny' dashboard, without having long
-loading times waiting for a map to update with new data.
+Interactive spatial visualisations are a cornerstone for exploring and
+communicating complexity, and are commonly embedded into reports or
+interactive dashboards. However, as the amount of data grows, so do the
+demands on functionality, especially for technical and scientific data. To
+bridge this gap and create a mapping package that is high performing, a
+modern approach is needed that draws from best software engineering
+practices. Toro provides bindings to 'MapLibre GL JS', an open-source
+'JavaScript'/'TypeScript' library for rendering interactive maps in the
+browser, built from the ground up for responsiveness and scale, by the
+MapLibre Organization (2020) <https://github.com/MapLibre>. This
+connection allows users to create interactive maps that can easily be
+integrated into both 'Quarto' and the 'R Shiny' dashboard framework. Toro
+thereby enables spatial visualisation and exploration of data that might
+otherwise be too limited, too slow, or too hard to scale using more
+traditional interactive mapping tools such as 'leaflet'.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mintyr
-%global packver   0.1.3
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          High-Performance Phenotypic Data Pipelines for Breeding
+Summary:          Grouped and Nested Data Pipelines Built on 'data.table'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,28 +20,25 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-rsample 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-writexl 
 Requires:         R-CRAN-data.table 
 Requires:         R-parallel 
 Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-rsample 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-writexl 
 
 %description
-A streamlined toolkit specifically designed for genomic selection and
-quantitative genetics in animal breeding. It provides high-performance
-data manipulation backed by 'data.table', focusing on multi-breed and
-multi-trait nested grouping operations. Features include zero-copy data
-importing, automated cross-validation splitting, and robust tools to
-generate and batch-export formatted phenotypic files required by various
-breeding software (e.g., 'ASReml-R', 'HIBLUP', 'DMU'), heavily optimizing
-iterative variance component analysis and large-scale evaluation
-pipelines.
+A toolkit for grouped and nested data pipelines built on 'data.table':
+import many Excel / CSV files (including multi-row headers) into one
+table, reshape and nest data by trait and group, run reproducible
+(stratified) k-fold cross-validation inside every group, summarise groups
+with report-ready descriptive statistics, and write each piece back to its
+own file or sheet. Developed for animal breeding, where it prepares
+phenotypic files for 'ASReml-R', 'HIBLUP' or 'DMU', but useful for any
+multi-group, multi-variable analysis.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlim
-%global packver   0.3.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Single and Multiple Imputation with Automated Machine Learning
 
@@ -17,18 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl >= 4.3.2
-BuildRequires:    R-CRAN-h2o >= 3.34.0.0
 BuildRequires:    R-CRAN-md.log >= 0.2.0
+BuildRequires:    R-CRAN-readstata13 >= 0.11.0
 BuildRequires:    R-CRAN-mice 
 BuildRequires:    R-CRAN-missRanger 
 BuildRequires:    R-CRAN-memuse 
-Requires:         R-CRAN-curl >= 4.3.2
-Requires:         R-CRAN-h2o >= 3.34.0.0
+BuildRequires:    R-CRAN-mlr3 
+BuildRequires:    R-CRAN-mlr3pipelines 
+BuildRequires:    R-CRAN-mlr3tuning 
+BuildRequires:    R-CRAN-paradox 
 Requires:         R-CRAN-md.log >= 0.2.0
+Requires:         R-CRAN-readstata13 >= 0.11.0
 Requires:         R-CRAN-mice 
 Requires:         R-CRAN-missRanger 
 Requires:         R-CRAN-memuse 
+Requires:         R-CRAN-mlr3 
+Requires:         R-CRAN-mlr3pipelines 
+Requires:         R-CRAN-mlr3tuning 
+Requires:         R-CRAN-paradox 
 
 %description
 Machine learning algorithms have been used for performing single missing

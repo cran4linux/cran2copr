@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MANOVA.RM
-%global packver   0.5.4
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Resampling-Based Analysis of Multivariate Data and Repeated Measures Designs
 
@@ -27,6 +27,7 @@ BuildRequires:    R-parallel
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-ellipse 
 BuildRequires:    R-CRAN-multcomp 
+BuildRequires:    R-CRAN-mvtnorm 
 Requires:         R-CRAN-MASS >= 7.3.51
 Requires:         R-CRAN-plotrix >= 3.5.12
 Requires:         R-CRAN-plyr >= 1.8.4
@@ -37,6 +38,7 @@ Requires:         R-parallel
 Requires:         R-methods 
 Requires:         R-CRAN-ellipse 
 Requires:         R-CRAN-multcomp 
+Requires:         R-CRAN-mvtnorm 
 
 %description
 Implemented are various tests for semi-parametric repeated measures and

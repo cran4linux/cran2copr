@@ -1,26 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hobbs
-%global packver   0.4.5
+%global packname  xbioclim
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.5
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          High Dimensional Bayesian Omnibus Sampler
+Summary:          Bioclimatic Variables from Monthly Climate Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-methods 
+Requires:         R-CRAN-Rcpp >= 1.0.0
+Requires:         R-methods 
 
 %description
-Enables high dimensional statistical modeling using Bayesian inference and
-provides a probabilistic programming language for high dimensional
-problems. See Kleinsasser (2026) <doi:10.5281/zenodo.22309216>.
+Computes the 19 standard bioclimatic variables (BIO01-BIO19) from monthly
+climate data. The variable set was originally proposed by Nix (1986,
+ISBN:978-0-644-04887-3) for the BIOCLIM modelling system and is also
+distributed with the CHELSA climatologies (Karger et al., 2017
+<doi:10.1038/sdata.2017.122>). Provides both individual variable functions
+and a unified interface to compute all 19 variables at once. Designed as
+an R implementation of the 'xbioclim' C++ library (Robles Fernandez, 2026
+<https://github.com/alrobles/xbioclimcpp>). Supports single-pixel vectors
+and block-based raster processing via 'terra' for memory-efficient
+handling of large spatial datasets. Includes helpers to transform
+ERA5-Land hourly reanalysis data (Muñoz-Sabater et al., 2021
+<doi:10.5194/essd-13-4349-2021>) into monthly climate inputs.
 
 %prep
 %setup -q -c -n %{packname}

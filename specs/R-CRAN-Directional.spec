@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Directional
-%global packver   7.8
+%global packver   7.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.8
+Version:          7.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Collection of Functions for Directional Data Analysis
 
@@ -75,7 +75,7 @@ Papastamoulis P. and Kato S. (2025). "Directional data analysis: spherical
 Cauchy or Poisson kernel-based distribution". Statistics and Computing,
 35:51. <doi:10.1007/s11222-025-10583-0>. h) Alzeley O. and Tsagris (2026).
 "On the generalized circular projected Cauchy distribution". Mathematics,
-14(11): 1934.  <doi:10.3390/math14111934>.
+14(11): 1934. <doi:10.3390/math14111934>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,21 +1,21 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  icesAdvice
-%global packver   2.1.2
+%global packname  CORAtool
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions Related to ICES Advice
+Summary:          Combinational Regularity Analysis
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
@@ -25,9 +25,22 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-A collection of functions that facilitate computational steps related to
-advice for fisheries management, according to ICES guidelines. These
-include methods for calculating reference points and model diagnostics.
+Searches configurational data for causes that are each an insufficient but
+non-redundant part of an unnecessary but sufficient (INUS) condition for
+their effect, so that cause-effect relations are marked by conjunctivity
+and disjunctivity. The method, Combinational Regularity Analysis (CORA),
+borrows its Boolean minimisation algorithms from switching circuit
+analysis. Truth tables are minimised either with the classical
+Quine-McCluskey algorithm over positive and don't care terms or with
+McCluskey's modified algorithm over positive and negative terms, and the
+resulting prime implicant charts are solved with Petrick's method.
+Multi-value conditions and structures with simple as well as complex
+effects are supported, together with a configurational data-mining search
+and two-level logic diagrams. The package is an R port of the 'Python'
+packages 'CORA' and 'LOGIGRAM' described in Sebechlebská, Mkrtchyan and
+Thiem (2023) <doi:10.21105/joss.05019>; it computes in plain R and
+requires no 'Python' installation. It is an independent implementation and
+is not endorsed by the authors of the original packages.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,49 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Westerlund
-%global packver   0.1.4
+%global packname  rtprep
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Panel Cointegration Tests Based on Westerlund (2007)
+Summary:          Screening, Trimming, and Aggregating Response Time Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-stats 
 Requires:         R-graphics 
-Requires:         R-grDevices 
+Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-tidyr 
 
 %description
-Implements a functional approximation of the four panel cointegration
-tests developed by Westerlund (2007)
-<doi:10.1111/j.1468-0084.2007.00477.x>. The tests are based on structural
-rather than residual dynamics and allow for heterogeneity in both the
-long-run cointegrating relationship and the short-run dynamics. The
-package includes logic for automated lag and lead selection via AIC/BIC,
-Bartlett kernel long-run variance estimation, and a bootstrap procedure to
-handle cross-sectional dependence. It also includes a bootstrapping
-distribution visualization function for diagnostic purposes.
+A uniform interface to common response time preprocessing decisions that
+precede analysing aggregated response times or fitting an evidence
+accumulation model. Screening rules from different preprocessing routines
+-- absolute cutoffs, standard deviation and median absolute deviation
+criteria, recursive moving criteria, and model-based mixture flagging --
+all return the same per-trial object, so that consequences of a
+preprocessing choice can be compared rather than assumed. The package also
+provides aggregation into EZ-diffusion summary statistics, diagnostics
+reporting what each rule removed and where rules disagree. Finally,
+generators for response time data with contaminants of known type are
+provided, so that a chosen pipeline can be tested against ground truth.
+Screening criteria follow Van Selst and Jolicoeur (1994)
+<doi:10.1080/14640749408401131>, the contaminant mixture Ratcliff and
+Tuerlinckx (2002) <doi:10.3758/BF03196302>, and the EZ-diffusion equations
+Wagenmakers, van der Maas and Grasman (2007) <doi:10.3758/BF03194023>.
 
 %prep
 %setup -q -c -n %{packname}

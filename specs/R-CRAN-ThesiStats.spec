@@ -1,61 +1,67 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  funresMech
+%global packname  ThesiStats
 %global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mechanistic Functional Response Analysis
+Summary:          Statistical Tools for Quantitative Theses
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
+BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-DEoptim 
+BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-gtable 
+BuildRequires:    R-CRAN-lavaan 
+BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinyBS 
-BuildRequires:    R-CRAN-shinythemes 
+BuildRequires:    R-CRAN-semTools 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringdist 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-DEoptim 
+Requires:         R-CRAN-broom 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-magrittr 
-Requires:         R-parallel 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-grid 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-gtable 
+Requires:         R-CRAN-lavaan 
+Requires:         R-CRAN-psych 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinyBS 
-Requires:         R-CRAN-shinythemes 
+Requires:         R-CRAN-semTools 
 Requires:         R-stats 
+Requires:         R-CRAN-stringdist 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
 
 %description
-Implements the mechanistic functional response model proposed by Okuyama
-(2012) <doi:10.1016/j.biocontrol.2011.10.008> for host-parasitoid systems.
-Provides tools for model fitting, likelihood profiling, stochastic
-simulation, and visualization of parasitism distributions. The stochastic
-simulation engine is implemented in C++ via 'Rcpp'. Includes an
-interactive 'shiny' application for complete analysis workflows, built
-with 'plotly' for interactive graphics and 'rmarkdown' for reproducible
-reports.
+Provides helpers for the analyses that quantitative theses in the social
+and behavioral sciences repeat: renaming and scoring items, recoding
+Likert responses, cleaning sociodemographic variables written in Spanish
+(age, academic term, degree and university), descriptive statistics,
+univariate and multivariate normality checks, omega reliability from
+ordinal confirmatory factor models, correlation matrices in table format,
+and two-group or several-group comparisons with effect sizes.
 
 %prep
 %setup -q -c -n %{packname}

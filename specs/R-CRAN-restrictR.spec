@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  restrictR
-%global packver   0.1.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Composable Runtime Contracts for R
+Summary:          Composable Runtime Contracts
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,10 +20,10 @@ BuildArch:        noarch
 
 %description
 Build reusable validators from small building blocks using the base pipe
-operator. Define runtime contracts once with 'restrict()' and enforce them
+operator. Define runtime contracts once with restrict() and enforce them
 anywhere in code. Validators compose naturally, support dependent rules
-via formulas, and produce clear, path-aware error messages. No DSL, no
-operator overloading, just idiomatic R.
+via formulas, and produce clear, path-aware error messages. No
+domain-specific language, no operator overloading, just idiomatic R.
 
 %prep
 %setup -q -c -n %{packname}

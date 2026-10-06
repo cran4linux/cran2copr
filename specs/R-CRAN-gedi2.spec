@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gedi2
-%global packver   2.3.4
+%global packver   2.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.4
+Version:          2.3.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Gene Expression Decomposition and Integration
 
@@ -41,9 +41,10 @@ R wrappers to enable analysis of large-scale single-cell datasets. The
 package supports multiple data modalities including count matrices, paired
 data (splicing, RNA velocity, CITE-seq), and binary indicators. It
 implements a latent variable model with block coordinate descent
-optimization for dimensionality reduction and batch effect correction.
-Core algorithms are described in Madrigal et al. (2024)
-<doi:10.1038/s41467-024-50963-0>.
+optimization for dimensionality reduction and batch effect correction. The
+method is described in Mikaeili Namini et al. (2026)
+<doi:10.1093/bioinformatics/btag334>, building on the original GEDI model
+of Madrigal et al. (2024) <doi:10.1038/s41467-024-50963-0>.
 
 %prep
 %setup -q -c -n %{packname}

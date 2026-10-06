@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ItemRest
-%global packver   0.2.5
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automated Item Removal Strategies for Exploratory Factor Analysis
 
@@ -17,24 +17,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-clue 
+BuildRequires:    R-CRAN-GPArotation 
 BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-qgraph 
 BuildRequires:    R-stats 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-clue 
+Requires:         R-CRAN-GPArotation 
 Requires:         R-CRAN-gtools 
 Requires:         R-CRAN-psych 
 Requires:         R-CRAN-qgraph 
 Requires:         R-stats 
+Requires:         R-tools 
 Requires:         R-utils 
 
 %description
-Automates the identification and comparative evaluation of item-removal
-strategies in exploratory factor analysis, producing transparent summaries
-(explained variance, loading ranges, reliability) to support comfortable,
-reproducible decisions. The criteria are based on best practices and
-established heuristics (e.g., Costello & Osborne (2005)
-<doi:10.7275/jyj1-4868>, Howard (2016)
+Identifies candidate item sets through threshold-driven iterative removal
+searches in exploratory factor analysis. Provides a no-removal baseline,
+numerical diagnostics, factor reliability, holdout evaluation, and
+bootstrap search stability to support transparent screening and documented
+content review rather than automatic measurement decisions. The loading
+criteria are based on best practices and established heuristics (e.g.,
+Costello & Osborne (2005) <doi:10.7275/jyj1-4868>, Howard (2016)
 <doi:10.1080/10447318.2015.1087664>). Includes flexible thresholds for
 factor loadings (min_loading) and cross-loading differences
 (loading_diff).

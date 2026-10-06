@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fishboot
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bootstrap-Based Methods for the Study of Fish Stocks and Aquatic Populations
 
@@ -27,6 +27,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-ks 
 BuildRequires:    R-CRAN-TropFishR 
 BuildRequires:    R-CRAN-fishmethods 
+BuildRequires:    R-CRAN-cli 
 Requires:         R-CRAN-doParallel 
 Requires:         R-parallel 
 Requires:         R-CRAN-foreach 
@@ -37,14 +38,16 @@ Requires:         R-utils
 Requires:         R-CRAN-ks 
 Requires:         R-CRAN-TropFishR 
 Requires:         R-CRAN-fishmethods 
+Requires:         R-CRAN-cli 
 
 %description
 A suite of bootstrap-based models and tools for analyzing fish stocks and
 aquatic populations. Designed for ecologists and fisheries scientists, it
 supports data from length-frequency distributions, tag-and-recapture
 studies, and hard structure readings (e.g., otoliths). See Schwamborn et
-al., 2019 for background. The package includes functions for bootstrapped
-fitting of growth curves and plotting.
+al., 2019 <doi:10.1016/j.ecolmodel.2018.12.001> for background. The
+package includes functions for bootstrapped fitting of growth curves and
+plotting.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hawkinR
-%global packver   2.0.1
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to the 'Hawkin Dynamics' Force Platform API
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-rlang >= 1.1.1
 BuildRequires:    R-CRAN-httr2 >= 1.0.1
 BuildRequires:    R-CRAN-dplyr >= 0.7.4
 BuildRequires:    R-CRAN-logger >= 0.3.0
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-S7 
 BuildRequires:    R-CRAN-keyring 
 BuildRequires:    R-stats 
@@ -41,6 +42,7 @@ Requires:         R-CRAN-rlang >= 1.1.1
 Requires:         R-CRAN-httr2 >= 1.0.1
 Requires:         R-CRAN-dplyr >= 0.7.4
 Requires:         R-CRAN-logger >= 0.3.0
+Requires:         R-utils 
 Requires:         R-CRAN-S7 
 Requires:         R-CRAN-keyring 
 Requires:         R-stats 

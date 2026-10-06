@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  odiffr
-%global packver   0.5.1
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Pixel-by-Pixel Image Comparison Using 'odiff'
 
@@ -17,15 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-grid 
 BuildRequires:    R-tools 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-grid 
 Requires:         R-tools 
 
 %description
-R bindings to 'odiff', a blazing-fast pixel-by-pixel image comparison tool
-<https://github.com/dmtrKovalenko/odiff>. Supports PNG, JPEG, WEBP, and
-TIFF with configurable thresholds, antialiasing detection, and region
-ignoring. Requires system installation of 'odiff'. Ideal for visual
-regression testing in automated workflows.
+R bindings to 'odiff', a fast SIMD pixel-by-pixel image comparison tool
+<https://github.com/dmtrKovalenko/odiff>. Compares PNG, JPEG, WEBP, TIFF
+and BMP images, plots and PDF pages with configurable thresholds,
+antialiasing detection and ignore regions. Provides 'testthat'
+expectations and snapshot testing (including for 'shinytest2'
+screenshots), batch and directory comparison, HTML, Markdown and JUnit
+reports, baseline approval and audit records. Requires the 'odiff' binary,
+which can be downloaded with install_odiff().
 
 %prep
 %setup -q -c -n %{packname}

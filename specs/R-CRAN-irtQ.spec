@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  irtQ
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Unidimensional Item Response Theory Modeling
 
@@ -32,7 +32,6 @@ BuildRequires:    R-CRAN-gridExtra
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-Rfast 
-BuildRequires:    R-CRAN-mirt 
 Requires:         R-stats 
 Requires:         R-CRAN-statmod 
 Requires:         R-utils 
@@ -48,17 +47,19 @@ Requires:         R-CRAN-gridExtra
 Requires:         R-parallel 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-Rfast 
-Requires:         R-CRAN-mirt 
 
 %description
 Fit unidimensional item response theory (IRT) models to test data, which
 includes both dichotomous and polytomous items, calibrate pretest item
 parameters, estimate examinees' abilities, and examine the IRT model-data
 fit on item-level in different ways as well as provide useful functions
-related to IRT analyses such as IRT model-data fit evaluation and
-differential item functioning analysis. The bring.flexmirt() and
+related to IRT analyses such as differential item functioning analysis. In
+addition, the package provides a set of classical test theory functions
+for computing item- and test-level statistics (e.g., item difficulty,
+item-total correlation, and coefficient alpha) and for scoring and
+analyzing selected-response item data. The bring.flexmirt() and
 write.flexmirt() functions were written by modifying the read.flexmirt()
-function (Pritikin & Falk (2022) <doi:10.1177/0146621620929431>). The
+function (Pritikin & Falk (2020) <doi:10.1177/0146621620929431>). The
 bring.bilog() and bring.parscale() functions were written by modifying the
 read.bilog() and read.parscale() functions, respectively (Weeks (2010)
 <doi:10.18637/jss.v035.i12>). The bisection() function was written by

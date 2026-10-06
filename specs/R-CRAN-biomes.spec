@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  biomes
-%global packver   0.9.4
+%global packver   0.9.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.4
+Version:          0.9.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reproducible Occurrence-to-Biome Classification Using 31 Global Biome Schemes
 
@@ -37,15 +37,14 @@ Requires:         R-CRAN-tidyterra
 Requires:         R-utils 
 
 %description
-Reproducibly classifies occurrence records into biome classes using 31
-published global terrestrial biome schemes compiled by Fischer and
-colleagues (2022) <doi:10.1111/geb.13574>, provided as harmonised raster
-layers at 10x10 km resolution globally. Includes functions to choose the
-most suitable biome scheme for a dataset by a data-driven ranking, to
-classify occurrence records, and to tabulate and visualise the result.
-Works with user-provided occurrences or a taxon name, in which case
-occurrences are downloaded from GBIF (<https://www.gbif.org>) and cleaned
-automatically.
+Reproducibly classifies occurrence records into biomes using 31 published
+global biome schemes compiled by Fischer and colleagues (2022)
+<doi:10.1111/geb.13574>, provided as harmonised raster layers at 10x10 km
+resolution globally. Includes functions to choose the most suitable biome
+scheme for a dataset by a data-driven ranking, to classify occurrence
+records, and to tabulate and visualise the result. Works with
+user-provided occurrences or a taxon name, in which case occurrences are
+downloaded from GBIF (<https://www.gbif.org>) and cleaned automatically.
 
 %prep
 %setup -q -c -n %{packname}

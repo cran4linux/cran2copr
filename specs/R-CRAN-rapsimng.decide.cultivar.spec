@@ -1,49 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Westerlund
-%global packver   0.1.4
+%global packname  rapsimng.decide.cultivar
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Panel Cointegration Tests Based on Westerlund (2007)
+Summary:          Analyse APSIM Next Generation Simulation Outputs for Cultivar Comparison
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-utils 
-Requires:         R-CRAN-scales 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-rapsimng.decide.core 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-rapsimng.decide.core 
 
 %description
-Implements a functional approximation of the four panel cointegration
-tests developed by Westerlund (2007)
-<doi:10.1111/j.1468-0084.2007.00477.x>. The tests are based on structural
-rather than residual dynamics and allow for heterogeneity in both the
-long-run cointegrating relationship and the short-run dynamics. The
-package includes logic for automated lag and lead selection via AIC/BIC,
-Bartlett kernel long-run variance estimation, and a bootstrap procedure to
-handle cross-sectional dependence. It also includes a bootstrapping
-distribution visualization function for diagnostic purposes.
+Provides functions to analyse Agricultural Production Systems sIMulator
+('APSIM') Next Generation simulation outputs to support cultivar-level
+comparison under specified environments and management assumptions. The
+package focuses on transparent, reproducible summarisation of model
+outputs such as yield, phenology timing, and stress exposure, without
+performing 'APSIM' simulations, interpreting user intent, or making
+normative recommendations.
 
 %prep
 %setup -q -c -n %{packname}

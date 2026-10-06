@@ -1,26 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hobbs
-%global packver   0.4.5
+%global packname  xyt
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          High Dimensional Bayesian Omnibus Sampler
+Summary:          Extract Raster Time Series Values at Points in Space and Time
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-terra >= 1.7.0
+Requires:         R-CRAN-terra >= 1.7.0
 
 %description
-Enables high dimensional statistical modeling using Bayesian inference and
-provides a probabilistic programming language for high dimensional
-problems. See Kleinsasser (2026) <doi:10.5281/zenodo.22309216>.
+Extract values from a time series of rasters at points that each carry
+their own date-time. The series is described by a reader function rather
+than by data held in memory, so only the time slices actually needed are
+read. Values are taken from the slice nearest in time, or interpolated
+linearly between the two slices that bracket each point. Derived from the
+extract() method of package 'raadtools'.
 
 %prep
 %setup -q -c -n %{packname}

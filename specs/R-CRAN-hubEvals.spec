@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hubEvals
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Scoring and Evaluating Hubverse Model Outputs
 
@@ -17,14 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-scoringutils >= 2.2.0
+BuildRequires:    R-CRAN-scoringutils >= 2.3.0
 BuildRequires:    R-CRAN-hubUtils >= 1.2.0
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-scoringutils >= 2.2.0
+Requires:         R-CRAN-scoringutils >= 2.3.0
 Requires:         R-CRAN-hubUtils >= 1.2.0
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 

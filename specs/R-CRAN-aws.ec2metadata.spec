@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bcRP
-%global packver   1.0.2
+%global packname  aws.ec2metadata
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access 'BCRPDATA' API
+Summary:          Get EC2 Instance Metadata
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,19 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-yyjsonr 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-yyjsonr 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Search and access more than ten thousand datasets included in 'BCRPDATA'
-(see <https://estadisticas.bcrp.gob.pe/estadisticas/series/ayuda/bcrpdata>
-for more information).
+Retrieve Amazon EC2 instance metadata from within the running instance.
 
 %prep
 %setup -q -c -n %{packname}

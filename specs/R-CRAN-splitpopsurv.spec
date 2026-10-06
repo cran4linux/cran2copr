@@ -1,49 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Westerlund
-%global packver   0.1.4
+%global packname  splitpopsurv
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Panel Cointegration Tests Based on Westerlund (2007)
+Summary:          Split-Population (Cure / Mover-Stayer) Survival Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-maxLik 
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-maxLik 
 Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-utils 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-tidyr 
 
 %description
-Implements a functional approximation of the four panel cointegration
-tests developed by Westerlund (2007)
-<doi:10.1111/j.1468-0084.2007.00477.x>. The tests are based on structural
-rather than residual dynamics and allow for heterogeneity in both the
-long-run cointegrating relationship and the short-run dynamics. The
-package includes logic for automated lag and lead selection via AIC/BIC,
-Bartlett kernel long-run variance estimation, and a bootstrap procedure to
-handle cross-sectional dependence. It also includes a bootstrapping
-distribution visualization function for diagnostic purposes.
+Maximum-likelihood estimation of split-population (cure / mover-stayer)
+survival models: an accelerated failure-time regression for event timing
+among "movers", combined with a logistic regression on the probability of
+belonging to the immune "stayer" population. Five baseline timing
+distributions are provided -- log-logistic, Weibull, log-normal, gamma,
+and the generalized gamma that nests the other four -- following Schmidt &
+Witte (1989, Journal of Econometrics) and Yamaguchi (1992, 1998,
+Sociological Methodology). This is an R translation of a set of 'Stata' ml
+programs, with the log-likelihood corrected to match the published model
+and verified by simulation against known parameters.
 
 %prep
 %setup -q -c -n %{packname}
