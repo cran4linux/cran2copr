@@ -1,42 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  starsExtra
-%global packver   0.2.9
+%global packname  ambs
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Miscellaneous Functions for Working with 'stars' Rasters
+Summary:          Bayesian Alpha-Mixture Survival Models
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-stars 
-BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-nngeo 
-BuildRequires:    R-CRAN-units 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-stars 
-Requires:         R-methods 
-Requires:         R-parallel 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-nngeo 
-Requires:         R-CRAN-units 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Miscellaneous functions for working with 'stars' objects, mainly
-single-band rasters. Currently includes functions for: (1) focal
-filtering, (2) detrending of Digital Elevation Models, (3) calculating
-flow length, (4) calculating the Convergence Index, (5) calculating
-topographic aspect and topographic slope.
+Implements Bayesian estimation for alpha-mixture survival models with
+right-censored data. Weibull-Weibull, Gamma-Weibull, and
+Lognormal-Lognormal component specifications are supported, with all
+component parameters treated as unknown. The package provides
+identifiability handling, adaptive Markov chain Monte Carlo sampling,
+convergence diagnostics, model comparison criteria, and posterior
+survival, hazard, and density estimation. The methodology extends the
+framework described by Luan et al. (2026) <doi:10.3390/math14101772>.
+Danish Ezwan, David Goldberg, and Ting Huang contributed equally to the
+package.
 
 %prep
 %setup -q -c -n %{packname}

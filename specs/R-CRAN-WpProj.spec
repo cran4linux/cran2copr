@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  WpProj
-%global packver   0.2.3
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linear p-Wasserstein Projections
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildRequires:    R-CRAN-approxOT >= 1.2
+BuildRequires:    R-CRAN-doFuture >= 1.0.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.0
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-oem 
@@ -27,14 +28,14 @@ BuildRequires:    R-CRAN-ROI.plugin.lpsolve
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-rqPen 
 BuildRequires:    R-CRAN-quantreg 
-BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-doRNG 
+BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-slam 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-BH 
 BuildRequires:    R-CRAN-RcppCGAL 
@@ -42,6 +43,7 @@ BuildRequires:    R-CRAN-RcppEigen
 BuildRequires:    R-CRAN-RcppProgress 
 BuildRequires:    R-CRAN-RSpectra 
 Requires:         R-CRAN-approxOT >= 1.2
+Requires:         R-CRAN-doFuture >= 1.0.0
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-oem 
 Requires:         R-CRAN-Rcpp >= 1.0.0
@@ -52,14 +54,14 @@ Requires:         R-CRAN-ROI.plugin.lpsolve
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-rqPen 
 Requires:         R-CRAN-quantreg 
-Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-doRNG 
+Requires:         R-CRAN-future 
 Requires:         R-CRAN-dplyr 
 Requires:         R-stats 
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
 Requires:         R-CRAN-slam 
+Requires:         R-utils 
 Requires:         R-CRAN-lifecycle 
 
 %description

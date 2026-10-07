@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DataQualityDashboard
-%global packver   2.8.9
+%global packver   2.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8.9
+Version:          2.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Execute and View Data Quality Checks on OMOP CDM Database
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Compositionalcln
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modelling Compositional Data with Zero Values
 
@@ -17,15 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-mziln 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-rangen 
 BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-stats 
+Requires:         R-CRAN-cluster 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-CRAN-mziln 
+Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-rangen 
 Requires:         R-CRAN-Rfast 
 Requires:         R-stats 

@@ -1,42 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  starsExtra
-%global packver   0.2.9
+%global packname  BayesRE
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Miscellaneous Functions for Working with 'stars' Rasters
+Summary:          Bayesian Multiple Linear Regression Estimation for Crop Yield
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-stars 
-BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-nngeo 
-BuildRequires:    R-CRAN-units 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-stars 
-Requires:         R-methods 
-Requires:         R-parallel 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-nngeo 
-Requires:         R-CRAN-units 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rstan 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-bayesplot 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-rstantools
+Requires:         R-CRAN-rstan 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-bayesplot 
+Requires:         R-stats 
+Requires:         R-CRAN-rstantools
 
 %description
-Miscellaneous functions for working with 'stars' objects, mainly
-single-band rasters. Currently includes functions for: (1) focal
-filtering, (2) detrending of Digital Elevation Models, (3) calculating
-flow length, (4) calculating the Convergence Index, (5) calculating
-topographic aspect and topographic slope.
+Implements Bayesian multiple linear regression models for estimating crop
+yield response to climatic variables. Posterior predictions and regional
+sensitivity coefficients are returned and can be visualised with built-in
+plotting utilities. Methods are based on Stan (Carpenter et al. (2017)
+<doi:10.18637/jss.v076.i01>) and Bayesian workflow described in Gelman et
+al. (2013, ISBN:9781439840955).
 
 %prep
 %setup -q -c -n %{packname}

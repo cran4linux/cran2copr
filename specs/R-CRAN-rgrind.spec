@@ -1,42 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  starsExtra
-%global packver   0.2.9
+%global packname  rgrind
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Miscellaneous Functions for Working with 'stars' Rasters
+Summary:          Gamified Algorithmic and Data Wrangling Challenges for R
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-stars 
-BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-nngeo 
-BuildRequires:    R-CRAN-units 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-stars 
-Requires:         R-methods 
-Requires:         R-parallel 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-nngeo 
-Requires:         R-CRAN-units 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+Requires:         R-CRAN-cli 
 
 %description
-Miscellaneous functions for working with 'stars' objects, mainly
-single-band rasters. Currently includes functions for: (1) focal
-filtering, (2) detrending of Digital Elevation Models, (3) calculating
-flow length, (4) calculating the Convergence Index, (5) calculating
-topographic aspect and topographic slope.
+An in-console, gamified learning and practice engine for R. Solve
+algorithmic and data-wrangling challenges directly in the R console, get
+instant styled feedback with worked explanations, and track your progress
+locally with a solving streak, attempt history, and an activity heatmap.
 
 %prep
 %setup -q -c -n %{packname}

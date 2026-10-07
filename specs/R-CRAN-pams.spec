@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pams
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Profile Analysis via Multidimensional Scaling
 
@@ -33,9 +33,9 @@ confidence intervals for individual core profile coordinates are
 estimated, enabling significance testing of coordinates that is not
 available in other profile analysis methods such as cluster profile
 analysis or latent profile analysis. Person-level weights, R-squared
-values, and correlations with core profiles are also estimated, allowing
-individual profiles to be interpreted in terms of the core profile
-structure. PAMS can be applied to both cross-sectional data and
+values, and partial correlations with core profiles are also estimated,
+allowing individual profiles to be interpreted in terms of the core
+profile structure. PAMS can be applied to both cross-sectional data and
 longitudinal data, where core trajectory profiles describe how response
 patterns change over time. Methods are described in Kim and Kim (2024)
 <doi:10.20982/tqmp.20.3.p230>, de Leeuw and Mair (2009)

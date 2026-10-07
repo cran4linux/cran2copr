@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  beautils
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Field Planning and Biostatistics Utilities
 
@@ -16,7 +16,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildArch:        noarch
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-FielDHub 
@@ -24,11 +23,9 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-qrencoder 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-uuid 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-FielDHub 
@@ -36,21 +33,20 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-glue 
 Requires:         R-grid 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-qrencoder 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-uuid 
 
 %description
-Provides a collection of utility functions for biostatistics, agricultural
-trial planning, and experimental design. Key features include generating
-experimental designs (like Latin Square, Alpha-Lattice by Patterson and
-Williams (1976) <doi:10.2307/2335087>, and Factorial), fieldbook creation,
-layout sketching, QR code-based label generation, and descriptive
-statistical tools to easily handle most common descriptive statistics for
-quantitative variables as described by Field, A., Miles, J., & Field, Z.
-(2012, ISBN:978-1-4462-0045-2).
+A toolkit for agricultural trial planning, experimental design, and
+applied biostatistics. Supports generating field designs such as Latin
+Square, Alpha-Lattice (Patterson and Williams, 1976
+<doi:10.2307/2335087>), and Factorial layouts, with automatic fieldbook
+creation and layout sketching. Includes a built-in QR Code engine (powered
+by the 'Nayuki' C library <https://github.com/nayuki/QR-Code-generator>)
+for generating printable plot labels in PDF. Also provides descriptive
+statistics utilities for quantitative variables following Field, Miles,
+and Field (2012, ISBN:978-1-4462-0045-2).
 
 %prep
 %setup -q -c -n %{packname}

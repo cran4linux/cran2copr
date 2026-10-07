@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  neuroim2
-%global packver   0.13.0
+%global packver   0.19.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.13.0
+Version:          0.19.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Structures for Brain Imaging Data
 
@@ -34,6 +34,7 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-purrr 
@@ -53,6 +54,7 @@ Requires:         R-CRAN-cli
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-magrittr 
 Requires:         R-grid 
+Requires:         R-CRAN-patchwork 
 
 %description
 A collection of data structures and methods for handling volumetric brain

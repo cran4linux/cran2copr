@@ -1,42 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  starsExtra
-%global packver   0.2.9
+%global packname  IncAAM
+%global packver   1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.9
+Version:          1.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Miscellaneous Functions for Working with 'stars' Rasters
+Summary:          Bayesian Age-at-Maturity Analysis from Increment-Width Growth Series
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-stars 
-BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-nngeo 
-BuildRequires:    R-CRAN-units 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-stars 
-Requires:         R-methods 
-Requires:         R-parallel 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-nngeo 
-Requires:         R-CRAN-units 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-posterior 
+BuildRequires:    R-CRAN-minpack.lm 
+BuildRequires:    R-CRAN-brms 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-posterior 
+Requires:         R-CRAN-minpack.lm 
+Requires:         R-CRAN-brms 
 
 %description
-Miscellaneous functions for working with 'stars' objects, mainly
-single-band rasters. Currently includes functions for: (1) focal
-filtering, (2) detrending of Digital Elevation Models, (3) calculating
-flow length, (4) calculating the Convergence Index, (5) calculating
-topographic aspect and topographic slope.
+Bayesian hierarchical nonlinear mixed-effects analysis for estimating age
+at sexual maturity from annual increment-width growth series. The method
+estimates age at maturity using tangent-ratio and jerk approaches and
+provides a posterior threshold-crossing ogive with an estimated A50.
+Methodological details and applications are described in Campana,
+Smoliński, Morrongiello and Black (2026, in press).
 
 %prep
 %setup -q -c -n %{packname}

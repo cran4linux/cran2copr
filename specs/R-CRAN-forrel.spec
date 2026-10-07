@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  forrel
-%global packver   1.9.0
+%global packver   1.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.0
+Version:          1.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Forensic Pedigree Analysis and Relatedness Inference
 
@@ -38,7 +38,9 @@ collection of packages for pedigree analysis, further described in the
 book 'Pedigree Analysis in R' (Vigeland, 2021, ISBN:9780128244302).
 Several functions deal specifically with power analysis in missing person
 cases, implementing methods described in Vigeland et al. (2020)
-<doi:10.1016/j.fsigen.2020.102376>. Data import from the 'Familias'
+<doi:10.1016/j.fsigen.2020.102376>. Methods for checking pairwise
+relationships are described in Egeland and Vigeland (2025)
+<doi:10.1016/j.fsigen.2025.103270>. Data exchange with the 'Familias'
 software (Egeland et al. (2000) <doi:10.1016/S0379-0738(00)00147-X>) is
 supported through the 'pedFamilias' package.
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  metrosp
-%global packver   1.2.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          São Paulo Metro Passenger Demand Data
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-jsonlite 
@@ -29,11 +29,13 @@ Requires:         R-utils
 %description
 Provides passenger demand data for the São Paulo metro system, covering
 2012 to 2026. Datasets include monthly passenger entries and transported
-counts by line, average weekday station entries, daily station entries,
-and spatial geometries for metro and commuter train lines and stations.
-The bundled datasets are a fixed snapshot, so analyses stay reproducible
-and examples run offline; more recent data is published separately as the
-upstream sources are updated.
+counts by line, average weekday passengers transported by station, daily
+station entries, and spatial geometries for metro and commuter train lines
+and stations. The bundled datasets are a fixed snapshot, so analyses stay
+reproducible and examples run offline. More recent data is published to
+'GitHub' releases as the upstream sources are updated, and
+read_metro_demand() downloads, caches, and reads it, optionally pinned to
+a dated monthly batch.
 
 %prep
 %setup -q -c -n %{packname}

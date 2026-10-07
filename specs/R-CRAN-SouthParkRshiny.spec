@@ -1,42 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SouthParkRshiny
-%global packver   1.0.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data and 'Shiny' Application for the Show 'SouthPark'
+Summary:          Data and 'Shiny' Application for the Tv Show 'SouthPark'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-shiny >= 1.8.0
+BuildRequires:    R-CRAN-bslib >= 0.9.0
 BuildRequires:    R-CRAN-golem >= 0.4.1
 BuildRequires:    R-CRAN-config >= 0.3.2
 BuildRequires:    R-CRAN-box 
-BuildRequires:    R-CRAN-bslib 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-kableExtra 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-shinydashboard 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-ggimage 
+BuildRequires:    R-CRAN-ggraph 
+BuildRequires:    R-CRAN-ggtext 
 Requires:         R-CRAN-shiny >= 1.8.0
+Requires:         R-CRAN-bslib >= 0.9.0
 Requires:         R-CRAN-golem >= 0.4.1
 Requires:         R-CRAN-config >= 0.3.2
 Requires:         R-CRAN-box 
-Requires:         R-CRAN-bslib 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggpubr 
 Requires:         R-CRAN-kableExtra 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-shinydashboard 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-ggimage 
+Requires:         R-CRAN-ggraph 
+Requires:         R-CRAN-ggtext 
 
 %description
 Ratings, votes, swear words and sentiments are analysed for the show

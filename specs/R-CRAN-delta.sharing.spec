@@ -1,42 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  starsExtra
-%global packver   0.2.9
+%global packname  delta.sharing
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.9
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Miscellaneous Functions for Working with 'stars' Rasters
+Summary:          Client for the Delta Sharing Protocol
 
-License:          MIT + file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-stars 
-BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-nngeo 
-BuildRequires:    R-CRAN-units 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-stars 
-Requires:         R-methods 
-Requires:         R-parallel 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-nngeo 
-Requires:         R-CRAN-units 
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
+BuildRequires:    R-CRAN-cli >= 3.0.0
+BuildRequires:    R-CRAN-httr2 >= 1.2.0
+BuildRequires:    R-CRAN-rlang >= 1.2.0
+BuildRequires:    R-CRAN-purrr >= 1.0.0
+BuildRequires:    R-CRAN-nanoarrow >= 0.8.0
+BuildRequires:    R-CRAN-arrow 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-jose 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-openssl 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-cli >= 3.0.0
+Requires:         R-CRAN-httr2 >= 1.2.0
+Requires:         R-CRAN-rlang >= 1.2.0
+Requires:         R-CRAN-purrr >= 1.0.0
+Requires:         R-CRAN-nanoarrow >= 0.8.0
+Requires:         R-CRAN-arrow 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-jose 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-openssl 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-tibble 
 
 %description
-Miscellaneous functions for working with 'stars' objects, mainly
-single-band rasters. Currently includes functions for: (1) focal
-filtering, (2) detrending of Digital Elevation Models, (3) calculating
-flow length, (4) calculating the Convergence Index, (5) calculating
-topographic aspect and topographic slope.
+Connects R to 'Delta Sharing' servers for share discovery, table metadata,
+snapshot reads, and change data feed reads.
 
 %prep
 %setup -q -c -n %{packname}

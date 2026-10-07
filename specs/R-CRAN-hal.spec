@@ -1,42 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  starsExtra
-%global packver   0.2.9
+%global packname  hal
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.9
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Miscellaneous Functions for Working with 'stars' Rasters
+Summary:          Agentic Coding Assistants
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-stars 
-BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-nngeo 
-BuildRequires:    R-CRAN-units 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-stars 
-Requires:         R-methods 
-Requires:         R-parallel 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-nngeo 
-Requires:         R-CRAN-units 
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-processx 
+BuildRequires:    R-CRAN-R6 
+Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-processx 
+Requires:         R-CRAN-R6 
 
 %description
-Miscellaneous functions for working with 'stars' objects, mainly
-single-band rasters. Currently includes functions for: (1) focal
-filtering, (2) detrending of Digital Elevation Models, (3) calculating
-flow length, (4) calculating the Convergence Index, (5) calculating
-topographic aspect and topographic slope.
+A native R interface to agentic coding assistants. Talks directly to local
+command line interfaces ('GitHub Copilot', 'Anthropic' 'Claude Code') over
+standard input/output and to a local 'vscode.lm' bridge inside 'Positron',
+providing multi-model chat, tool calling, and in-session R evaluation.
+Supports a single stateful hal() session as well as disposable hal_ask() /
+hal_do() pipeline verbs, plot capture so models can see graphics, verified
+data transforms, and user-defined tools.
 
 %prep
 %setup -q -c -n %{packname}

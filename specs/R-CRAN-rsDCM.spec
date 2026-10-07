@@ -1,42 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  starsExtra
-%global packver   0.2.9
+%global packname  rsDCM
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Miscellaneous Functions for Working with 'stars' Rasters
+Summary:          Robust and Sparse Dynamic Causal Modelling for Functional MRI
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-stars 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-expm 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-nngeo 
-BuildRequires:    R-CRAN-units 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-stars 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-expm 
+Requires:         R-CRAN-MASS 
 Requires:         R-methods 
-Requires:         R-parallel 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-nngeo 
-Requires:         R-CRAN-units 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Miscellaneous functions for working with 'stars' objects, mainly
-single-band rasters. Currently includes functions for: (1) focal
-filtering, (2) detrending of Digital Elevation Models, (3) calculating
-flow length, (4) calculating the Convergence Index, (5) calculating
-topographic aspect and topographic slope.
+Provides a robust and sparse method for group-level Dynamic Causal
+Modelling (DCM) of functional magnetic resonance imaging (fMRI) data:
+Student-t weighting of subjects for robustness, combined with a nonlocal
+product-moment (pMOM) spike-and-slab prior for sparse selection of
+group-level effects (<doi:10.48550/arXiv.2609.06379>). The package also
+provides an R implementation of single-subject DCM for fMRI using
+variational Laplace inversion (Friston et al., 2003
+<doi:10.1016/S1053-8119(03)00202-7>), including the bilinear neural state
+equation and the Buxton-Friston hemodynamic response model, ported from
+the 'SPM25' (version 25.01.02) toolbox for 'MATLAB'.
 
 %prep
 %setup -q -c -n %{packname}

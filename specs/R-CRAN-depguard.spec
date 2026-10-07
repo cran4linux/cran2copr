@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  depguard
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Manifest-Based Dependency Conflict Detection for Sandboxed R Sessions
+Summary:          Manifest-Based Dependency Conflict Detection for Sandboxed and Desktop R Sessions
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,24 +17,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-stats 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-sessioninfo 
-BuildRequires:    R-CRAN-cli 
+Requires:         R-CRAN-cli 
+Requires:         R-stats 
 Requires:         R-tools 
 Requires:         R-utils 
-Requires:         R-CRAN-sessioninfo 
-Requires:         R-CRAN-cli 
 
 %description
-Provides lightweight, manifest-based checking of R package dependencies
-(including transitive dependencies) against the currently installed
-environment, without requiring a full project lockfile. Designed for
-sandboxed or ephemeral notebook environments (e.g. Kaggle, Colab, Binder)
-where 'renv'-style lockfile ownership is impractical. Includes session
-snapshot/diff tools (building on 'sessioninfo') to detect when an install
-silently changes the version of a package that is already loaded, and
-optional single-package version rollback.
+Lightweight, offline-first checking of R package dependencies against the
+currently installed environment, without requiring a full project
+lockfile. Verifies a declared manifest of package versions, including
+version constraints declared by transitive dependencies, reports
+session-level snapshot differences (including stale versions still loaded
+in a running session), detects packages shadowed by another library, and
+offers single-package version rollback. Designed for hosted notebooks
+(e.g. Kaggle, Colab, Binder) where 'renv'-style lockfile ownership is
+impractical, and equally usable on a normal desktop.
 
 %prep
 %setup -q -c -n %{packname}

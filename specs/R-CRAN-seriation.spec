@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  seriation
-%global packver   1.5.8
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.8
+Version:          1.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Infrastructure for Ordering Objects Using Seriation
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.0
-Requires:         R-core >= 2.14.0
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildRequires:    R-CRAN-ca 
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-colorspace 
@@ -28,7 +28,6 @@ BuildRequires:    R-CRAN-qap
 BuildRequires:    R-CRAN-registry 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-TSP 
-BuildRequires:    R-CRAN-vegan 
 Requires:         R-CRAN-ca 
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-colorspace 
@@ -41,7 +40,6 @@ Requires:         R-CRAN-qap
 Requires:         R-CRAN-registry 
 Requires:         R-stats 
 Requires:         R-CRAN-TSP 
-Requires:         R-CRAN-vegan 
 
 %description
 Infrastructure for ordering objects with an implementation of several

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  easyRasch2
-%global packver   1.3.1
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Psychometric Analysis with Rasch Measurement Theory
 
@@ -45,12 +45,12 @@ thresholds, and invariance across subgroups -- together with item fit,
 targeting, reliability, category functioning, and descriptive
 item-response plots. A distinguishing feature is the use of
 simulation-based critical values to replace rule-of-thumb cutoffs for
-conditional infit mean-square, Yen's Q3 local-dependence statistic, the
-largest residual-PCA eigenvalue, ordinal CFA fit indices, and
-partial-gamma DIF and local-dependence coefficients, optionally augmented
-with multiplicity-corrected bootstrap p-values. Outputs are knitr::kable()
-tables and 'ggplot2' figures suitable for direct inclusion in 'Quarto' and
-'R Markdown' reports.
+conditional infit mean-square, item-rest-score gamma, Yen's Q3
+local-dependence statistic, the largest residual-PCA eigenvalue, ordinal
+CFA fit indices, and partial-gamma DIF and local-dependence coefficients,
+optionally augmented with multiplicity-corrected bootstrap p-values.
+Outputs are knitr::kable() tables and 'ggplot2' figures suitable for
+direct inclusion in 'Quarto' and 'R Markdown' reports.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EMGCR
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fit a Mixture Cure Rate Model with Custom Link Function
+Summary:          Mixture Cure Rate Models with Flexible Link Functions via the EM Algorithm
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,32 +17,35 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-actuar 
 BuildRequires:    R-CRAN-flexsurv 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-Formula 
-Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-actuar 
 Requires:         R-CRAN-flexsurv 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
-Tools to fit Mixture Cure Rate models via the Expectation-Maximization
-(EM) algorithm, allowing for flexible link functions in the cure component
-and various survival distributions in the latency part. The package
-supports user-specified link functions, includes methods for parameter
-estimation and model diagnostics, and provides residual analysis tailored
-for cure models. The classical theory methods used are described in
-Berkson, J. and Gage, R. P. (1952) <doi:10.2307/2281318>, Dempster, A. P.,
-Laird, N. M. and Rubin, D. B. (1977)
-<https://www.jstor.org/stable/2984875>, Bazán, J., Torres-Avilés, F.,
-Suzuki, A. and Louzada, F. (2017)<doi:10.1002/asmb.2215>.
+Fits mixture cure rate models by the Expectation-Maximization (EM)
+algorithm. The incidence component (the probability of being uncured)
+accepts the logit, probit, cauchit, power logit and reversed power logit
+link functions, and the latency component accepts the exponential,
+Rayleigh, Weibull, log-normal, log-logistic and inverse Gaussian
+distributions. The package provides parameter estimates with standard
+errors, simulation of data from the model, and diagnostic tools based on
+residuals and simulated envelopes. The methods build on Berkson and Gage
+(1952) <doi:10.2307/2281318>, Dempster, Laird and Rubin (1977)
+<doi:10.1111/j.2517-6161.1977.tb01600.x> and Bazán, Torres-Avilés, Suzuki
+and Louzada (2017) <doi:10.1002/asmb.2215>.
 
 %prep
 %setup -q -c -n %{packname}
