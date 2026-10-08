@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  palaeoSig
-%global packver   2.1-4
+%global packver   2.1-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.4
+Version:          2.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Significance Tests for Palaeoenvironmental Reconstructions
 
@@ -25,7 +25,6 @@ BuildRequires:    R-CRAN-mgcv
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-assertr 
 BuildRequires:    R-CRAN-vegan 
@@ -40,7 +39,6 @@ Requires:         R-CRAN-mgcv
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-assertr 
 Requires:         R-CRAN-vegan 

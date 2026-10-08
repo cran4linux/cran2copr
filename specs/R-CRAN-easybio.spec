@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  easybio
-%global packver   1.2.3
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Comprehensive Single-Cell Annotation and Transcriptomic Analysis Toolkit
 
@@ -21,21 +21,23 @@ BuildRequires:    R-CRAN-data.table >= 1.15.0
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-data.table >= 1.15.0
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-xml2 
 
 %description
 Provides a comprehensive toolkit for single-cell annotation with the
-'CellMarker2.0' database (see Xia Li, Peng Wang, Yunpeng Zhang (2023)
-<doi: 10.1093/nar/gkac947>). Streamlines biological label assignment in
-single-cell RNA-seq data and facilitates transcriptomic analysis,
-including preparation of TCGA<https://portal.gdc.cancer.gov/> and
+'CellMarker 3.0' database <https://bio-bigdata.hrbmu.edu.cn/CellMarker/>.
+Streamlines biological label assignment in single-cell RNA-seq data and
+facilitates transcriptomic analysis, including preparation of
+TCGA<https://portal.gdc.cancer.gov/> and
 GEO<https://www.ncbi.nlm.nih.gov/geo/> datasets, differential expression
 analysis and visualization of enrichment analysis results. Additional
 utility functions support various bioinformatics workflows. See Wei Cui

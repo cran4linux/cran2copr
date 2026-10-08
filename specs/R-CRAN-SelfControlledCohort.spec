@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SelfControlledCohort
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Self-Controlled Cohort Population-Level Estimation
 
@@ -30,6 +30,7 @@ BuildRequires:    R-CRAN-readr
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-CohortGenerator 
 Requires:         R-CRAN-DatabaseConnector >= 5.0.0
 Requires:         R-CRAN-SqlRender >= 1.4.3
 Requires:         R-CRAN-ParallelLogger 
@@ -43,6 +44,7 @@ Requires:         R-CRAN-readr
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-cli 
 Requires:         R-stats 
+Requires:         R-CRAN-CohortGenerator 
 
 %description
 Estimates incidence rate ratios by comparing time exposed with time

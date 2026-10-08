@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MortalityLaws
-%global packver   2.2.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parametric Mortality Models, Life Tables and HMD
 
@@ -14,25 +14,17 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 4.5.0
+Requires:         R-core >= 4.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RCurl >= 1.95
-BuildRequires:    R-CRAN-httr >= 1.4.5
-BuildRequires:    R-CRAN-pbapply >= 1.3.4
-BuildRequires:    R-CRAN-rvest >= 1.0.3
-BuildRequires:    R-CRAN-tidyr >= 0.8.1
-BuildRequires:    R-methods 
-Requires:         R-CRAN-RCurl >= 1.95
-Requires:         R-CRAN-httr >= 1.4.5
-Requires:         R-CRAN-pbapply >= 1.3.4
-Requires:         R-CRAN-rvest >= 1.0.3
-Requires:         R-CRAN-tidyr >= 0.8.1
-Requires:         R-methods 
+BuildRequires:    R-CRAN-pbapply >= 1.7.4
+BuildRequires:    R-CRAN-httr >= 1.4.8
+Requires:         R-CRAN-pbapply >= 1.7.4
+Requires:         R-CRAN-httr >= 1.4.8
 
 %description
 Fit the most popular human mortality 'laws', and construct full and
-abridge life tables given various input indices. A mortality law is a
+abridged life tables given various input indices. A mortality law is a
 parametric function that describes the dying-out process of individuals in
 a population during a significant portion of their life spans. For a
 comprehensive review of the most important mortality laws see Tabeau

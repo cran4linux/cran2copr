@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  measureR
-%global packver   0.0.3
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Educational and Psychological Measurement
 
@@ -25,6 +25,8 @@ BuildRequires:    R-CRAN-DT
 BuildRequires:    R-CRAN-flextable 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-kableExtra 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-lavaan 
@@ -32,6 +34,7 @@ BuildRequires:    R-CRAN-magick
 BuildRequires:    R-CRAN-irr 
 BuildRequires:    R-CRAN-mirt 
 BuildRequires:    R-CRAN-officer 
+BuildRequires:    R-CRAN-pdftools 
 BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-readr 
@@ -51,6 +54,7 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyverse 
 BuildRequires:    R-CRAN-viridisLite 
+BuildRequires:    R-CRAN-writexl 
 Requires:         R-CRAN-colourpicker 
 Requires:         R-CRAN-CTT 
 Requires:         R-CRAN-data.table 
@@ -59,6 +63,8 @@ Requires:         R-CRAN-DT
 Requires:         R-CRAN-flextable 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-haven 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-kableExtra 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-lavaan 
@@ -66,6 +72,7 @@ Requires:         R-CRAN-magick
 Requires:         R-CRAN-irr 
 Requires:         R-CRAN-mirt 
 Requires:         R-CRAN-officer 
+Requires:         R-CRAN-pdftools 
 Requires:         R-CRAN-psych 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-readr 
@@ -85,6 +92,7 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyverse 
 Requires:         R-CRAN-viridisLite 
+Requires:         R-CRAN-writexl 
 
 %description
 'Provides an interactive toolkit for educational and psychological

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  phontrast
-%global packver   2.4.1
+%global packver   2.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.1
+Version:          2.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Contrast and Separation Metrics for Phonological Categories
 
@@ -44,9 +44,12 @@ Jensen-Shannon divergence and distance (Lin, 1991) <doi:10.1109/18.61115>,
 the Pillai-Bartlett trace, Bhattacharyya distance and affinity,
 Mahalanobis distance, and proportional overlap -- globally or by group on
 a common separation-oriented scale, with bootstrap confidence intervals.
-Also provides utilities for preparing estimates for downstream modelling
-such as generalized additive models and mixed-effects models. Formerly
-released as 'phonJSD'.
+rank_contrasts() implements a measurement protocol for ranking speakers'
+contrasts by Jensen-Shannon distance and checking the ranking against
+Pillai, with sample-size licensing and a bandwidth-sensitivity check. Also
+provides utilities for preparing estimates for downstream modelling such
+as generalized additive models and mixed-effects models. Formerly released
+as 'phonJSD'.
 
 %prep
 %setup -q -c -n %{packname}

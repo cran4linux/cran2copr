@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  commons
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          AI Agents for Data Analysis
 
@@ -34,7 +34,6 @@ BuildRequires:    R-CRAN-htmltools
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-later 
-BuildRequires:    R-CRAN-magick 
 BuildRequires:    R-CRAN-processx 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-ragg 
@@ -61,7 +60,6 @@ Requires:         R-CRAN-htmltools
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-later 
-Requires:         R-CRAN-magick 
 Requires:         R-CRAN-processx 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-ragg 

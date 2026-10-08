@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ResIN
-%global packver   2.3.1
+%global packver   2.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.1
+Version:          2.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Conduct Response Item Network (ResIN) Analysis with Social Response Data
 
@@ -35,6 +35,7 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-doSNOW 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-tidygraph 
+BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-network 
 Requires:         R-CRAN-ggplot2 >= 3.4.4
 Requires:         R-CRAN-ggraph >= 2.2.0
@@ -54,6 +55,7 @@ Requires:         R-parallel
 Requires:         R-CRAN-doSNOW 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-tidygraph 
+Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-network 
 
 %description

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  footBayes
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fitting Bayesian and MLE Football Models
 
@@ -51,18 +51,25 @@ Requires:         R-CRAN-rstantools
 %description
 This is the first package allowing for the estimation, visualization and
 prediction of the most well-known football models: double Poisson,
-bivariate Poisson, Skellam, student_t, diagonal-inflated bivariate
-Poisson, and zero-inflated Skellam. It supports both maximum likelihood
-estimation (MLE, for 'static' models only) and Bayesian inference. For
-Bayesian methods, it incorporates several techniques: MCMC sampling with
-Hamiltonian Monte Carlo, variational inference using either the Pathfinder
-algorithm or Automatic Differentiation Variational Inference (ADVI), and
-the Laplace approximation. The package compiles all the 'CmdStan' models
-once during installation using the 'instantiate' package. The model
-construction relies on the most well-known football references, such as
-Dixon and Coles (1997) <doi:10.1111/1467-9876.00065>, Karlis and Ntzoufras
-(2003) <doi:10.1111/1467-9884.00366> and Egidi, Pauli and Torelli (2018)
-<doi:10.1177/1471082X18798414>.
+bivariate Poisson, Dixon-Coles, negative binomial, Skellam, student_t,
+diagonal-inflated bivariate Poisson, and zero-inflated Skellam. It
+supports both maximum likelihood estimation (MLE, for 'static' models
+only) and Bayesian inference. Team abilities can be static or dynamic over
+weeks or seasons, with alternative specifications of the evolution
+variance: a common variance (Owen, 2011), variance inflation after the
+summer break (Koopman and Lit, 2015) <doi:10.1111/rssa.12042>, and
+weighted dynamic models with commensurate priors (Macrì-Demartino, Egidi
+and Torelli, 2026) <doi:10.1093/jrsssc/qlag032>. Historical team strengths
+can be estimated through a Bayesian Bradley-Terry-Davidson model and used
+as a covariate. For Bayesian methods, it incorporates several techniques:
+MCMC sampling with Hamiltonian Monte Carlo, variational inference using
+either the Pathfinder algorithm or Automatic Differentiation Variational
+Inference (ADVI), and the Laplace approximation. The package compiles all
+the 'CmdStan' models once during installation using the 'instantiate'
+package. The model construction relies on the most well-known football
+references, such as Dixon and Coles (1997) <doi:10.1111/1467-9876.00065>,
+Karlis and Ntzoufras (2003) <doi:10.1111/1467-9884.00366> and Egidi, Pauli
+and Torelli (2018) <doi:10.1177/1471082X18798414>.
 
 %prep
 %setup -q -c -n %{packname}

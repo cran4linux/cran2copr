@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gtheoryr
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simple Generalizability Theory for Crossed and Nested Designs
 
@@ -21,9 +21,14 @@ BuildArch:        noarch
 %description
 Provides a small, beginner-friendly interface for estimating variance
 components in simple generalizability theory designs. The package
-currently supports a fully crossed persons-by-items design and a simple
-items-within-person nested design, along with design-study summaries for
-relative and absolute decisions.
+currently supports a fully crossed persons-by-items design, generic
+balanced crossed designs with one or more additional facets such as
+raters, occasions, or forms, and a simple items-within-person nested
+design, along with design-study summaries for relative and absolute
+decisions. Includes data diagnostics, measurement error intervals, design
+comparison and cost planning, sensitivity analysis, Gaussian simulation
+and parametric bootstrap uncertainty estimates for balanced crossed
+designs.
 
 %prep
 %setup -q -c -n %{packname}

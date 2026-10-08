@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ProduceR
-%global packver   1.3
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Concise and Efficient Tools for Everyday Statistical Production
 
@@ -20,9 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-glue 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-glue 
 
 %description
 A set of concise and efficient tools for statistical production. Can also
@@ -30,10 +32,11 @@ be used for data management. In statistical production, you deal with
 complex data and need to control your process at each step of your work.
 Concise functions are very helpful, because you do not hesitate to use
 them. The following functions are included in the package. 'dup' checks
-duplicates. 'miss' checks missing values. 'tac' computes contingency table
-of all columns. 'toc' compares two tables, spotting significant
-deviations. 'chi2_find' compares columns within a data.frame, spotting
-related categories of (a more complex function).
+duplicates. 'miss' checks missing values. 'sums' computes sums of all
+numeric columns. 'tac' computes contingency table of all columns. 'toc'
+compares two tables, spotting significant deviations. 'chi2_find' compares
+columns within a data.frame, spotting related categories of (a more
+complex function).
 
 %prep
 %setup -q -c -n %{packname}

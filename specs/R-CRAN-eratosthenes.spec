@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eratosthenes
-%global packver   1.0.2
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Archaeological Synchronism
 
@@ -37,7 +37,9 @@ Gibbs sampler with consistent batch means to assess convergence. Features
 reporting on Monte Carlo standard errors, as well as tools for rule-based
 estimation of dates of production and use of artifact types, aligning and
 checking relative sequences, and evaluating the impact of the omission of
-relative/absolute events upon one another.
+relative/absolute events upon one another. Collins-Elliott (2026)
+"eratosthenes: Synchronizing archaeological chronologies with a focus on
+artifact types" <doi:10.21105/joss.09260>.
 
 %prep
 %setup -q -c -n %{packname}

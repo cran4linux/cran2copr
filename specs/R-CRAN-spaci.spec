@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spaci
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Causal Effect Estimation Under Spatial Confounding and Interference
 
@@ -30,8 +30,8 @@ and neighbourhood-exposure distance. recoverU+ is a doubly robust
 estimator that augments the propensity-score and control-outcome models
 with a partially recovered spatial confounder and a neighbourhood-exposure
 term. The package also provides the naive propensity score, DAPS and
-recoverU comparators, and a simulator for the spatial
-confounding/interference data-generating process.
+recoverU comparators, a simulator for the spatial confounding/interference
+data-generating process and spatial inference tools.
 
 %prep
 %setup -q -c -n %{packname}

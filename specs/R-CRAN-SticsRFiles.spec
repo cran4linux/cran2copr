@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SticsRFiles
-%global packver   1.7.0
+%global packver   1.7.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.0
+Version:          1.7.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read and Modify STICS Input/Output Files
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-curl
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
@@ -45,6 +46,7 @@ Requires:         R-CRAN-curl
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-httr 
 Requires:         R-CRAN-lubridate 
 Requires:         R-methods 
 Requires:         R-parallel 

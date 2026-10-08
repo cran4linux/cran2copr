@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  randomLCA
-%global packver   1.1-4
+%global packver   1.1-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Random Effects Latent Class Analysis
 
@@ -22,18 +22,12 @@ BuildRequires:    R-CRAN-fastGHQuad
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-doRNG 
-BuildRequires:    R-CRAN-foreach 
 Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-fastGHQuad 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-Rfast 
 Requires:         R-parallel 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-doRNG 
-Requires:         R-CRAN-foreach 
 
 %description
 Fits standard and random effects latent class models. The single level

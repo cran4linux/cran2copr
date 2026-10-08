@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SeqExpMatch
-%global packver   0.1.1
+%global packver   0.1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sequential Experimental Design via Matching on-the-Fly with Estimation and Testing
 
@@ -27,19 +27,26 @@ Requires:         R-CRAN-doParallel
 Requires:         R-stats 
 
 %description
-Generates the following sequential two-arm experimental designs: (1)
-completely randomized (Bernoulli) (2) balanced completely randomized (3)
-Efron's (1971) Biased Coin (4) Atkinson's (1982) Covariate-Adjusted Biased
-Coin (5) Kapelner and Krieger's (2014) Covariate-Adjusted Matching on the
-Fly (6) Kapelner and Krieger's (2021) CARA Matching on the Fly with
-Differential Covariate Weights (7) Kapelner and Krieger's (2021) CARA
-Matching on the Fly with Differential Covariate Weights (Stepwise) and
-also provides the following types of inference: (1) estimation (with both
-Z-style estimators and OLS estimators), (2) frequentist testing (via
-asymptotic distribution results and via employing the nonparameteric
-randomization test) and (3) frequentist confidence intervals (only under
-the superpopulation sampling assumption currently). Details can be found
-in Kapelner and Krieger (2021) <doi:10.1111/biom.13561>.
+DEPRECATED. This package is deprecated and no longer maintained; all of
+its functionality has been superseded by the 'EDI' package, which provides
+faster, more general, and actively maintained implementations of the same
+sequential designs and inference procedures. Please migrate to 'EDI'. This
+package previously generated the following sequential two-arm experimental
+designs: (1) completely randomized (Bernoulli) (2) balanced completely
+randomized (3) Efron's (1971) Biased Coin (4) Atkinson's (1982)
+Covariate-Adjusted Biased Coin (5) Kapelner and Krieger's (2014)
+Covariate-Adjusted Matching on the Fly (6) Kapelner and Krieger's (2021)
+CARA Matching on the Fly with Differential Covariate Weights (7) Kapelner
+and Krieger's (2021) CARA Matching on the Fly with Differential Covariate
+Weights (Stepwise) and also provides the following types of inference: (1)
+estimation (with both Z-style estimators and OLS estimators), (2)
+frequentist testing (via asymptotic distribution results and via employing
+the nonparameteric randomization test) and (3) frequentist confidence
+intervals (only under the superpopulation sampling assumption currently).
+Details can be found in Kapelner and Krieger (2021)
+<doi:10.1111/biom.13561>. The 'EDI' package is on CRAN at
+<https://CRAN.R-project.org/package=EDI> and on GitHub at
+<https://github.com/kapelner/EDI>.
 
 %prep
 %setup -q -c -n %{packname}
