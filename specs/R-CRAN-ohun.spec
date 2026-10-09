@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ohun
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimizing Acoustic Signal Detection
 
@@ -18,7 +18,8 @@ BuildRequires:    R-devel >= 3.2.1
 Requires:         R-core >= 3.2.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-seewave >= 2.0.1
-BuildRequires:    R-CRAN-warbleR >= 1.1.32
+BuildRequires:    R-CRAN-warbleR >= 1.1.34
+BuildRequires:    R-CRAN-Rraven >= 1.0.16
 BuildRequires:    R-CRAN-tuneR 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-methods 
@@ -31,7 +32,8 @@ BuildRequires:    R-CRAN-igraph
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-seewave >= 2.0.1
-Requires:         R-CRAN-warbleR >= 1.1.32
+Requires:         R-CRAN-warbleR >= 1.1.34
+Requires:         R-CRAN-Rraven >= 1.0.16
 Requires:         R-CRAN-tuneR 
 Requires:         R-CRAN-cli 
 Requires:         R-methods 

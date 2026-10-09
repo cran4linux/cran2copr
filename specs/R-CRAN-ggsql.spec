@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggsql
-%global packver   0.3.3
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Grammar of Graphics for SQL
 
@@ -18,19 +18,23 @@ BuildRequires:    R-devel >= 4.2
 Requires:         R-core >= 4.2
 BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-nanoarrow 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-yaml 
 Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-digest 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-nanoarrow 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-yaml 

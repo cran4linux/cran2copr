@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  joinpointR
-%global packver   1.1.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Tools for Joinpoint Regression Models
 
@@ -14,46 +14,43 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-segmented 
-BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-flextable 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-officer 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-cols4all 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-segmented 
-Requires:         R-CRAN-scales 
 Requires:         R-CRAN-flextable 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-grDevices 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
 Requires:         R-stats 
-Requires:         R-CRAN-officer 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-cols4all 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
 
 %description
 Provides tools to fit joinpoint regression models with a log-linear
-specification by levels of a categorical variable. The package acts as a
-wrapper around the 'segmented' package, facilitating model fitting,
-selection, and interpretation. It includes functions to estimate the
-Annual Percent Change (APC) and the Average Annual Percent Change (AAPC),
-along with their 95%% confidence intervals, and to generate formatted
-summary tables and plots of results.
+specification by levels of one or two categorical variable(s) using the
+grid-search method. It includes functions to estimate the Annual Percent
+Change (APC) and the Average Annual Percent Change (AAPC), along with
+their 95%% confidence intervals, and to generate formatted summary tables
+and plots of results.
 
 %prep
 %setup -q -c -n %{packname}

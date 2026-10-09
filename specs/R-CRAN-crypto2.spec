@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  crypto2
-%global packver   2.0.5
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.5
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Crypto Currency Data from 'CoinMarketCap' without 'API'
+Summary:          Download Crypto Currency Data from 'CoinMarketCap' and 'CoinGecko'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -29,6 +29,7 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-httr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
@@ -41,12 +42,18 @@ Requires:         R-CRAN-cli
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-httr 
 
 %description
 Retrieves crypto currency information and historical prices as well as
 information on the exchanges they are listed on. Historical data contains
-daily open, high, low and close values for all crypto currencies. All data
-is scraped from <https://coinmarketcap.com> via their 'web-api'.
+daily open, high, low and close values for all crypto currencies. The
+package draws on two complementary sources: 'CoinMarketCap'
+<https://coinmarketcap.com> (primary, via the 'crypto_*' functions) and
+'CoinGecko' <https://www.coingecko.com> (secondary, via the 'cg_*'
+functions). Both sources are queried without an 'API' key; the two
+function families return tibbles with identical column conventions so
+downstream pipelines work on either source.
 
 %prep
 %setup -q -c -n %{packname}

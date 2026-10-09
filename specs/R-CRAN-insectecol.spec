@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  insectecol
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Insect Ecology Data Analysis Toolkit
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-openxlsx
 BuildRequires:    R-CRAN-ragg 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-sysfonts 
+BuildRequires:    R-CRAN-systemfonts 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-showtext 
 BuildRequires:    R-CRAN-tidyr 
@@ -37,6 +38,7 @@ Requires:         R-CRAN-openxlsx
 Requires:         R-CRAN-ragg 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-sysfonts 
+Requires:         R-CRAN-systemfonts 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-showtext 
 Requires:         R-CRAN-tidyr 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lavaan
-%global packver   0.7-2
+%global packver   0.7-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.2
+Version:          0.7.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Latent Variable Analysis
 
@@ -18,20 +18,24 @@ BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
 BuildRequires:    R-methods 
+BuildRequires:    R-parallel 
 BuildRequires:    R-stats4 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-mnormt 
 BuildRequires:    R-CRAN-pbivnorm 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-quadprog 
 Requires:         R-methods 
+Requires:         R-parallel 
 Requires:         R-stats4 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-mnormt 
 Requires:         R-CRAN-pbivnorm 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rfPermute
-%global packver   2.5.5
+%global packver   2.5.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.5
+Version:          2.5.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate Permutation p-Values for Random Forest Importance Metrics
 
@@ -28,6 +28,7 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-pROC 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
@@ -43,6 +44,7 @@ Requires:         R-grDevices
 Requires:         R-CRAN-gridExtra 
 Requires:         R-methods 
 Requires:         R-parallel 
+Requires:         R-CRAN-pROC 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scales 
 Requires:         R-stats 

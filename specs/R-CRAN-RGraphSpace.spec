@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RGraphSpace
-%global packver   1.5.2
+%global packver   1.5.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
+Version:          1.5.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Lightweight Interface Between 'igraph' and 'ggplot2' Graphics
+Summary:          Rendering Graphs as Coherent Spatial Objects in 'ggplot2'
 
 License:          Artistic-2.0
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,30 +18,30 @@ BuildRequires:    R-devel >= 4.5
 Requires:         R-core >= 4.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 4.0
+BuildRequires:    R-CRAN-igraph >= 2.1.0
 BuildRequires:    R-methods 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-tidygraph 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-ggrastr 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-ggrastr 
+BuildRequires:    R-CRAN-gtable 
+BuildRequires:    R-grid 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-ggplot2 >= 4.0
+Requires:         R-CRAN-igraph >= 2.1.0
 Requires:         R-methods 
-Requires:         R-grDevices 
-Requires:         R-grid 
-Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-tidygraph 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-ggrastr 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-sf 
 Requires:         R-stats 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-ggrastr 
+Requires:         R-CRAN-gtable 
+Requires:         R-grid 
+Requires:         R-grDevices 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-lifecycle 
 
 %description
@@ -53,6 +53,9 @@ demand, supporting high-dimensional data without expanding node tables.
 Spatial alignment is available at the pixel level, with node coordinates
 anchored to pixel centers through a half-pixel offset, enabling precise
 node positioning over external reference frames such as images and maps.
+Core functionality builds on 'igraph', 'ggplot2', and 'tidygraph';
+optional geometry and large raster-background images use 'sf' and 'terra'
+when installed.
 
 %prep
 %setup -q -c -n %{packname}

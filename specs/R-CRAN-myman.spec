@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  myman
-%global packver   0.1.0
+%global packver   0.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Draw from Sequence of 'My Man' Posts by Kevin Kruse
 
@@ -35,10 +35,16 @@ fifth wave ran on August 30, 2026, beginning with
 sixth wave started September 4, 2026, with
 <https://bsky.app/profile/kevinmkruse.bsky.social/post/3muparqtdkk2w>. A
 seventh wave started September 12, 2026, with
-<https://bsky.app/profile/kevinmkruse.bsky.social/post/3mvdol6xu5k2s>.
-All of the over fourteen hundred posts from these series start with 'My
-man ...' and make for excellent input to a 'fortunes'-like package. So
-this small package obliges and offers a random draw each time its myman()
+<https://bsky.app/profile/kevinmkruse.bsky.social/post/3mvdol6xu5k2s>.  An
+eighth wave started September 16, 2026, with
+<https://bsky.app/profile/kevinmkruse.bsky.social/post/3mvnmq23nw22y>. A
+ninth wave started October 1, 2026 with
+<https://bsky.app/profile/kevinmkruse.bsky.social/post/3mwtx2jztkk2g>. A
+tenth wave started October 4, 2026, with
+<https://bsky.app/profile/kevinmkruse.bsky.social/post/3mx333hlmdc2o>. All
+of the over seventeen hundred posts from these series start with 'My man
+...' and make for excellent input to a 'fortunes'-like package. So this
+small package obliges and offers a random draw each time its myman()
 function is called.  The overall package structure follows package
 'fortunes', and 'atrrr' was used to (bulk-)retrieve posts. Neither package
 is required to run this package to display random selections.

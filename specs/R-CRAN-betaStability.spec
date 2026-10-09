@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  betaStability
-%global packver   0.0.4
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantify the Compositional Stability of Each Community Based on a Single Sampling Event
 
@@ -14,26 +14,30 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-BBmisc 
+BuildRequires:    R-CRAN-elevatr 
 BuildRequires:    R-CRAN-gdm 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-usedist 
 BuildRequires:    R-CRAN-vegan 
 BuildRequires:    R-CRAN-xgboost 
 Requires:         R-CRAN-BBmisc 
+Requires:         R-CRAN-elevatr 
 Requires:         R-CRAN-gdm 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-raster 
 Requires:         R-CRAN-reshape2 
 Requires:         R-stats 
 Requires:         R-CRAN-usedist 

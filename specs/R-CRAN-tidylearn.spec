@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidylearn
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Unified Tidy Interface to R's Machine Learning Ecosystem
 
@@ -14,17 +14,17 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-tibble >= 3.0.0
 BuildRequires:    R-CRAN-cluster >= 2.1.0
 BuildRequires:    R-CRAN-smacof >= 2.1.0
 BuildRequires:    R-CRAN-dbscan >= 1.1.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-rlang >= 0.4.0
+BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-purrr >= 0.3.0
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-parallel 
@@ -39,14 +39,14 @@ BuildRequires:    R-CRAN-rsample
 BuildRequires:    R-CRAN-ROCR 
 BuildRequires:    R-CRAN-yardstick 
 BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-tibble >= 3.0.0
 Requires:         R-CRAN-cluster >= 2.1.0
 Requires:         R-CRAN-smacof >= 2.1.0
 Requires:         R-CRAN-dbscan >= 1.1.0
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-rlang >= 0.4.0
+Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-purrr >= 0.3.0
 Requires:         R-CRAN-magrittr 
 Requires:         R-parallel 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lakefetch
-%global packver   0.1.3
+%global packver   0.1.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate Fetch and Wave Exposure for Lake Sampling Points
 

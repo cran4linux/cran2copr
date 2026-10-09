@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FastSurvival
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Survival Analysis and Simulation for Clinical Trials
 
@@ -43,8 +43,12 @@ test (maxcombo_fast()), the robust modestly-weighted log-rank test
 (rmw_fast()), the weighted Kaplan-Meier (Pepe-Fleming) test (wkm_fast()),
 the average hazard with survival weight (ahsw_fast()), and the
 Kalbfleisch-Prentice average hazard ratio (ahr_fast()). The simulation
-layer generates individual patient data (simdata_fast()), performs interim
-or sequential analyses (analysis_fast()), and aggregates operating
+layer generates individual patient data (simdata_fast()), determines the
+calendar time of each analysis from combined event and calendar-time rules
+(cutoff_fast()), performs interim or sequential analyses
+(analysis_fast()), compares several experimental arms with a shared
+control (pairwise_fast()), applies treatment switching at progression or
+after an interim analysis (switch_fast()), and aggregates operating
 characteristics (simsummary_fast()). A visualization layer assembles
 design-stage scenarios (gen_scenario_fast()) and builds analysis-stage
 Kaplan-Meier curves (kmcurve_fast()), each with plot and print methods.

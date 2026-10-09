@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scTenifoldNet
-%global packver   1.4
+%global packver   1.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          1.4.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Construct and Compare scGRN from Single-Cell Transcriptomic Data
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
+BuildArch:        noarch
 BuildRequires:    R-CRAN-RSpectra 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
@@ -24,11 +24,9 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-furrr 
-BuildRequires:    R-CRAN-future 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-ps 
 BuildRequires:    R-CRAN-RhpcBLASctl 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-RSpectra 
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
@@ -36,8 +34,8 @@ Requires:         R-stats
 Requires:         R-utils 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-furrr 
-Requires:         R-CRAN-future 
+Requires:         R-parallel 
+Requires:         R-CRAN-ps 
 Requires:         R-CRAN-RhpcBLASctl 
 
 %description

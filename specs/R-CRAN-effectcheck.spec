@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  effectcheck
-%global packver   0.2.3
+%global packver   0.7.17
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.7.17
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Consistency Checker for Published Research Results
 
@@ -22,8 +22,6 @@ BuildRequires:    R-CRAN-stringi
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-logger 
 BuildRequires:    R-graphics 
@@ -34,8 +32,6 @@ Requires:         R-CRAN-stringi
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-logger 
 Requires:         R-graphics 
@@ -44,18 +40,19 @@ Requires:         R-utils
 
 %description
 A conservative, assumption-aware statistical consistency checker for
-published research results. Parses test statistics, effect sizes, and
-confidence intervals from text, PDF, HTML, and Word documents across
-multiple citation styles including American Psychological Association
-(APA), Harvard, Frontiers, PLOS ONE, Scientific Reports, Nature Human
-Behaviour, PeerJ, eLife, PNAS, and others. Recomputes effect sizes using
-all plausible variants when design is ambiguous, and validates internal
-consistency. Supports t-tests, F-tests/ANOVA, correlations, chi-square,
-z-tests, regression, and nonparametric tests. Provides
-'statcheck'-compatible API functions for batch processing of files and
-directories. Explicitly tracks all assumptions and uncertainty in output.
-Detects decision errors (significance reversals) similar to 'statcheck'.
-Note: this package is under active development and results should be
+already-extracted research-results text. Parses test statistics, effect
+sizes, and confidence intervals across multiple citation styles including
+American Psychological Association (APA), Harvard, Frontiers, PLOS ONE,
+Scientific Reports, Nature Human Behaviour, PeerJ, eLife, PNAS, and
+others. Recomputes effect sizes using all plausible variants when design
+is ambiguous, and validates internal consistency. Supports t-tests,
+F-tests/ANOVA, correlations, chi-square, z-tests, regression, and
+nonparametric tests. Explicitly tracks all assumptions and uncertainty in
+output. Detects decision errors (significance reversals) similar to
+'statcheck'. From v0.4.0 file extraction is no longer part of the package
+— pair with an external extractor (e.g., 'docpluck' at
+<https://docpluck.app>) and pass the resulting text to check_text(). Note:
+this package is under active development and results should be
 independently verified. Use is at the sole responsibility of the user.
 Contributions and verification reports are welcome.
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pdp
-%global packver   0.8.3
+%global packver   0.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.3
+Version:          0.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Partial Dependence Plots
 
@@ -16,26 +16,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-rlang >= 0.3.0
-BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tinyplot 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-rlang >= 0.3.0
-Requires:         R-CRAN-foreach 
+Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-lattice 
 Requires:         R-methods 
 Requires:         R-stats 
+Requires:         R-CRAN-tinyplot 
 Requires:         R-utils 
 
 %description
 A general framework for constructing partial dependence (i.e., marginal
-effect) plots from various types machine learning models in R.
+effect) plots from various types of machine learning models in R.
 
 %prep
 %setup -q -c -n %{packname}

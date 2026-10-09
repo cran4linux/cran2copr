@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hypergeo
-%global packver   1.2-14
+%global packver   1.2-15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.14
+Version:          1.2.15
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Gauss Hypergeometric Function
 
@@ -16,12 +16,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
-BuildArch:        noarch
 BuildRequires:    R-CRAN-elliptic >= 1.3.5
 BuildRequires:    R-CRAN-contfrac >= 1.1.9
+BuildRequires:    R-CRAN-Rcpp >= 0.12.3
 BuildRequires:    R-CRAN-deSolve 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-elliptic >= 1.3.5
 Requires:         R-CRAN-contfrac >= 1.1.9
+Requires:         R-CRAN-Rcpp >= 0.12.3
 Requires:         R-CRAN-deSolve 
 
 %description
