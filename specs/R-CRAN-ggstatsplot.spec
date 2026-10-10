@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggstatsplot
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          'ggplot2' Based Plots with Statistical Details
 
@@ -21,10 +21,10 @@ BuildRequires:    R-CRAN-ggplot2 >= 4.0.3
 BuildRequires:    R-CRAN-statsExpressions >= 2.1.1
 BuildRequires:    R-CRAN-glue >= 1.8.1
 BuildRequires:    R-CRAN-paletteer >= 1.7.0
-BuildRequires:    R-CRAN-insight >= 1.5.2
+BuildRequires:    R-CRAN-insight >= 1.5.4
+BuildRequires:    R-CRAN-datawizard >= 1.4.0
 BuildRequires:    R-CRAN-patchwork >= 1.3.2
 BuildRequires:    R-CRAN-tidyr >= 1.3.2
-BuildRequires:    R-CRAN-datawizard >= 1.3.1
 BuildRequires:    R-CRAN-rlang >= 1.3.0
 BuildRequires:    R-CRAN-purrr >= 1.2.2
 BuildRequires:    R-CRAN-dplyr >= 1.2.1
@@ -34,17 +34,17 @@ BuildRequires:    R-CRAN-correlation >= 0.8.8
 BuildRequires:    R-CRAN-ggsignif >= 0.6.4
 BuildRequires:    R-CRAN-ggside >= 0.4.1
 BuildRequires:    R-CRAN-ggcorrplot >= 0.3.0
-BuildRequires:    R-CRAN-parameters >= 0.29.2
-BuildRequires:    R-CRAN-performance >= 0.17.1
+BuildRequires:    R-CRAN-parameters >= 0.29.3
+BuildRequires:    R-CRAN-performance >= 0.18.2
 BuildRequires:    R-utils 
 Requires:         R-CRAN-ggplot2 >= 4.0.3
 Requires:         R-CRAN-statsExpressions >= 2.1.1
 Requires:         R-CRAN-glue >= 1.8.1
 Requires:         R-CRAN-paletteer >= 1.7.0
-Requires:         R-CRAN-insight >= 1.5.2
+Requires:         R-CRAN-insight >= 1.5.4
+Requires:         R-CRAN-datawizard >= 1.4.0
 Requires:         R-CRAN-patchwork >= 1.3.2
 Requires:         R-CRAN-tidyr >= 1.3.2
-Requires:         R-CRAN-datawizard >= 1.3.1
 Requires:         R-CRAN-rlang >= 1.3.0
 Requires:         R-CRAN-purrr >= 1.2.2
 Requires:         R-CRAN-dplyr >= 1.2.1
@@ -54,8 +54,8 @@ Requires:         R-CRAN-correlation >= 0.8.8
 Requires:         R-CRAN-ggsignif >= 0.6.4
 Requires:         R-CRAN-ggside >= 0.4.1
 Requires:         R-CRAN-ggcorrplot >= 0.3.0
-Requires:         R-CRAN-parameters >= 0.29.2
-Requires:         R-CRAN-performance >= 0.17.1
+Requires:         R-CRAN-parameters >= 0.29.3
+Requires:         R-CRAN-performance >= 0.18.2
 Requires:         R-utils 
 
 %description
@@ -68,7 +68,7 @@ Currently, it supports the most common types of statistical approaches and
 tests: parametric, nonparametric, robust, and Bayesian versions of
 t-test/ANOVA, correlation analyses, contingency table analysis,
 meta-analysis, and regression analyses. References: Patil (2021)
-<doi:10.21105/joss.03236>.
+<doi:10.21105/joss.03167>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FuzzyClass
-%global packver   0.1.7
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fuzzy and Non-Fuzzy Classifiers
 
@@ -18,38 +18,22 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-caTools 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-CRAN-EnvStats 
-BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rootSolve 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-trapezoid 
 Requires:         R-CRAN-caTools 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-e1071 
 Requires:         R-CRAN-EnvStats 
-Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-mvtnorm 
-Requires:         R-parallel 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rootSolve 
 Requires:         R-stats 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-trapezoid 
 
 %description

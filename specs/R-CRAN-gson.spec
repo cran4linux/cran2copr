@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gson
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Base Class and Methods for 'gson' Format
 
@@ -20,22 +20,24 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-yulab.utils >= 0.0.7
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-yulab.utils >= 0.0.7
 Requires:         R-CRAN-jsonlite 
 Requires:         R-methods 
-Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-utils 
 
 %description
 Provides a lightweight container and exchange format for gene set
-collections. It stores gene set membership, names, gene identifiers,
-species, versions, and source metadata, with utilities for reading,
-writing, validating, and converting gene set data for enrichment analysis
-and related workflows.
+collections. A 'GSON' object stores which genes belong to which gene set,
+together with gene set and gene names, the identifier types in use,
+species, versions and source metadata. A collection can be built from data
+frames, read from and written to the 'gson' JavaScript Object Notation
+(JSON) format and the 'GMT' format, subset by gene set, merged across
+sources, validated, and resolved to the web addresses of the databases it
+comes from, so that a collection gathered by one package can be analysed
+by another.
 
 %prep
 %setup -q -c -n %{packname}

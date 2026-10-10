@@ -1,44 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tidydr
-%global packver   0.0.7
+%global packname  haplo.stats
+%global packver   1.9.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          1.9.9.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Unify Dimensionality Reduction Results
+Summary:          Statistical Analysis of Haplotypes with Traits and Covariates when Linkage Phase is Ambiguous
 
-License:          Artistic-2.0
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-ggfun 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-ggfun 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grid 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-arsenal 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-graphics 
+Requires:         R-CRAN-arsenal 
+Requires:         R-CRAN-MASS 
 
 %description
-Dimensionality reduction is widely used in many domains for analyzing and
-visualizing high-dimensional data. 'tidydr' provides uniform output and is
-compatible with multiple methods, including 'prcomp', 'cmdscale', 'Rtsne',
-'umap' and 'metaMDS'. Any function returning a numeric matrix can also be
-used. The unified result can be visualized directly with 'ggplot2', and
-several methods can be run and compared in a single call.
+Routines for the analysis of indirectly measured haplotypes. The
+statistical methods assume that all subjects are unrelated and that
+haplotypes are ambiguous (due to unknown linkage phase of the genetic
+markers). The main functions are: haplo.em(), haplo.glm(), haplo.score(),
+and haplo.power(); all of which have detailed examples in the vignette.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CommonDataModel
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          OMOP CDM DDL and Documentation Generator
 
@@ -14,24 +14,16 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-DatabaseConnector 
 BuildRequires:    R-CRAN-SqlRender 
-BuildRequires:    R-CRAN-rJava 
-BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-readr 
 Requires:         R-CRAN-DatabaseConnector 
 Requires:         R-CRAN-SqlRender 
-Requires:         R-CRAN-rJava 
-Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-readr 
 
 %description

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scTenifoldKnk
-%global packver   1.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          In-Silico Knockout Experiments from Single-Cell Gene Regulatory Networks
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-scTenifoldNet >= 1.4
+BuildRequires:    R-CRAN-scTenifoldNet >= 1.4.3
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
@@ -27,7 +27,8 @@ BuildRequires:    R-CRAN-enrichR
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-grDevices 
-Requires:         R-CRAN-scTenifoldNet >= 1.4
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-scTenifoldNet >= 1.4.3
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 Requires:         R-stats 
@@ -37,6 +38,7 @@ Requires:         R-CRAN-enrichR
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-reshape2 
 Requires:         R-grDevices 
+Requires:         R-graphics 
 
 %description
 A workflow based on 'scTenifoldNet' to perform in-silico knockout
@@ -47,7 +49,10 @@ from the adjacency matrix of the WT scGRN by setting the gene’s outdegree
 edges to zero. Then, it compares the knocked out scGRN with the WT scGRN
 to identify differentially regulated genes, called virtual-knockout
 perturbed genes, which are used to assess the impact of the gene knockout
-and reveal the gene’s function in the analyzed cells.
+and reveal the gene’s function in the analyzed cells. It also predicts the
+direction (up or down) of the response of each gene from the WT
+expression, and reads all knockouts of a network from a single heat
+kernel, which makes transcriptome-wide knockout screens practical.
 
 %prep
 %setup -q -c -n %{packname}

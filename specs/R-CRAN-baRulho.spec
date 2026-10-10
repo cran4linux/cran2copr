@@ -1,54 +1,60 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  EZFragility
-%global packver   2.1.1
+%global packname  baRulho
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Compute Neural Fragility for Ictal iEEG Time Series
+Summary:          Quantifying (Animal) Sound Degradation
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.2.1
+Requires:         R-core >= 3.2.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-Epoch 
+BuildRequires:    R-CRAN-warbleR >= 1.1.32
+BuildRequires:    R-CRAN-ohun >= 1.0.2
+BuildRequires:    R-utils 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-seewave 
+BuildRequires:    R-CRAN-tuneR 
+BuildRequires:    R-CRAN-fftw 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-viridis 
-BuildRequires:    R-CRAN-ggtext 
-BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-Sim.DiffProc 
+BuildRequires:    R-CRAN-png 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-ramify 
-BuildRequires:    R-CRAN-reshape2 
-Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-Epoch 
+Requires:         R-CRAN-warbleR >= 1.1.32
+Requires:         R-CRAN-ohun >= 1.0.2
+Requires:         R-utils 
 Requires:         R-stats 
+Requires:         R-CRAN-seewave 
+Requires:         R-CRAN-tuneR 
+Requires:         R-CRAN-fftw 
 Requires:         R-methods 
 Requires:         R-CRAN-viridis 
-Requires:         R-CRAN-ggtext 
-Requires:         R-CRAN-glue 
+Requires:         R-CRAN-Sim.DiffProc 
+Requires:         R-CRAN-png 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-ramify 
-Requires:         R-CRAN-reshape2 
 
 %description
-Provides tools to compute the neural fragility matrix from intracranial
-electrocorticographic (iEEG) recordings, enabling the analysis of brain
-dynamics during seizures. The package implements the method described by
-Li et al. (2017) <doi:10.23919/ACC.2017.7963378> and includes functions
-for data preprocessing ('Epoch'), fragility computation ('calcAdjFrag'),
-and visualization.
+Intended to facilitate acoustic analysis of (animal) sound propagation
+experiments, which typically aim to quantify changes in signal structure
+when transmitted in a given habitat by broadcasting and re-recording
+animal sounds at increasing distances. The package offers a workflow with
+functions to prepare the data set for analysis as well as to calculate and
+visualize several degradation metrics, including blur ratio,
+signal-to-noise ratio, excess attenuation and envelope correlation among
+others (Dabelsteen et al 1993 <doi:10.1121/1.406682>).
 
 %prep
 %setup -q -c -n %{packname}

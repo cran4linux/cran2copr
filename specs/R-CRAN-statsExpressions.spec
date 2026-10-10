@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  statsExpressions
-%global packver   2.1.1
+%global packver   2.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          2.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Dataframes and Expressions with Statistical Details
 
@@ -18,13 +18,13 @@ BuildRequires:    R-devel >= 4.5.0
 Requires:         R-core >= 4.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-withr >= 3.0.3
-BuildRequires:    R-CRAN-rstantools >= 2.7.0
+BuildRequires:    R-CRAN-rstantools >= 2.7.1
 BuildRequires:    R-CRAN-PMCMRplus >= 1.9.12
 BuildRequires:    R-CRAN-glue >= 1.8.1
-BuildRequires:    R-CRAN-insight >= 1.5.2
+BuildRequires:    R-CRAN-insight >= 1.5.4
 BuildRequires:    R-CRAN-afex >= 1.5.1
+BuildRequires:    R-CRAN-datawizard >= 1.4.0
 BuildRequires:    R-CRAN-tidyr >= 1.3.2
-BuildRequires:    R-CRAN-datawizard >= 1.3.1
 BuildRequires:    R-CRAN-rlang >= 1.3.0
 BuildRequires:    R-CRAN-purrr >= 1.2.2
 BuildRequires:    R-CRAN-dplyr >= 1.2.1
@@ -32,18 +32,18 @@ BuildRequires:    R-CRAN-WRS2 >= 1.1.7
 BuildRequires:    R-CRAN-effectsize >= 1.0.3
 BuildRequires:    R-CRAN-BayesFactor >= 0.9.12.4.8
 BuildRequires:    R-CRAN-correlation >= 0.8.8
-BuildRequires:    R-CRAN-parameters >= 0.29.2
-BuildRequires:    R-CRAN-bayestestR >= 0.18.1
-BuildRequires:    R-CRAN-performance >= 0.17.1
+BuildRequires:    R-CRAN-parameters >= 0.29.3
+BuildRequires:    R-CRAN-bayestestR >= 0.19.0
+BuildRequires:    R-CRAN-performance >= 0.18.2
 BuildRequires:    R-stats 
 Requires:         R-CRAN-withr >= 3.0.3
-Requires:         R-CRAN-rstantools >= 2.7.0
+Requires:         R-CRAN-rstantools >= 2.7.1
 Requires:         R-CRAN-PMCMRplus >= 1.9.12
 Requires:         R-CRAN-glue >= 1.8.1
-Requires:         R-CRAN-insight >= 1.5.2
+Requires:         R-CRAN-insight >= 1.5.4
 Requires:         R-CRAN-afex >= 1.5.1
+Requires:         R-CRAN-datawizard >= 1.4.0
 Requires:         R-CRAN-tidyr >= 1.3.2
-Requires:         R-CRAN-datawizard >= 1.3.1
 Requires:         R-CRAN-rlang >= 1.3.0
 Requires:         R-CRAN-purrr >= 1.2.2
 Requires:         R-CRAN-dplyr >= 1.2.1
@@ -51,9 +51,9 @@ Requires:         R-CRAN-WRS2 >= 1.1.7
 Requires:         R-CRAN-effectsize >= 1.0.3
 Requires:         R-CRAN-BayesFactor >= 0.9.12.4.8
 Requires:         R-CRAN-correlation >= 0.8.8
-Requires:         R-CRAN-parameters >= 0.29.2
-Requires:         R-CRAN-bayestestR >= 0.18.1
-Requires:         R-CRAN-performance >= 0.17.1
+Requires:         R-CRAN-parameters >= 0.29.3
+Requires:         R-CRAN-bayestestR >= 0.19.0
+Requires:         R-CRAN-performance >= 0.18.2
 Requires:         R-stats 
 
 %description

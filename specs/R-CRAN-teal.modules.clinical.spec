@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  teal.modules.clinical
-%global packver   0.13.0
+%global packver   0.14.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.13.0
+Version:          0.14.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'teal' Modules for Standard Clinical Outputs
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-shiny >= 1.8.1
 BuildRequires:    R-CRAN-scales >= 1.4.0
 BuildRequires:    R-CRAN-vistime >= 1.2.3
 BuildRequires:    R-CRAN-teal >= 1.2.0
+BuildRequires:    R-CRAN-tidyselect >= 1.2.0
 BuildRequires:    R-CRAN-shinyjs >= 1.10.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.5
 BuildRequires:    R-CRAN-tern >= 0.9.9
@@ -40,12 +41,13 @@ BuildRequires:    R-CRAN-formatters >= 0.5.11
 BuildRequires:    R-CRAN-shinyWidgets >= 0.5.1
 BuildRequires:    R-CRAN-teal.widgets >= 0.5.0
 BuildRequires:    R-CRAN-teal.logger >= 0.4.0
-BuildRequires:    R-CRAN-tern.mmrm >= 0.3.3
+BuildRequires:    R-CRAN-tern.mmrm >= 0.3.4
 BuildRequires:    R-CRAN-rlistings >= 0.2.12
 BuildRequires:    R-CRAN-lifecycle >= 0.2.0
 BuildRequires:    R-CRAN-DT >= 0.13
 BuildRequires:    R-CRAN-tern.gee >= 0.1.5
 BuildRequires:    R-CRAN-shinyvalidate >= 0.1.3
+BuildRequires:    R-CRAN-teal.picks >= 0.1.0
 BuildRequires:    R-grid 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
@@ -56,6 +58,7 @@ Requires:         R-CRAN-shiny >= 1.8.1
 Requires:         R-CRAN-scales >= 1.4.0
 Requires:         R-CRAN-vistime >= 1.2.3
 Requires:         R-CRAN-teal >= 1.2.0
+Requires:         R-CRAN-tidyselect >= 1.2.0
 Requires:         R-CRAN-shinyjs >= 1.10.0
 Requires:         R-CRAN-dplyr >= 1.0.5
 Requires:         R-CRAN-tern >= 0.9.9
@@ -72,12 +75,13 @@ Requires:         R-CRAN-formatters >= 0.5.11
 Requires:         R-CRAN-shinyWidgets >= 0.5.1
 Requires:         R-CRAN-teal.widgets >= 0.5.0
 Requires:         R-CRAN-teal.logger >= 0.4.0
-Requires:         R-CRAN-tern.mmrm >= 0.3.3
+Requires:         R-CRAN-tern.mmrm >= 0.3.4
 Requires:         R-CRAN-rlistings >= 0.2.12
 Requires:         R-CRAN-lifecycle >= 0.2.0
 Requires:         R-CRAN-DT >= 0.13
 Requires:         R-CRAN-tern.gee >= 0.1.5
 Requires:         R-CRAN-shinyvalidate >= 0.1.3
+Requires:         R-CRAN-teal.picks >= 0.1.0
 Requires:         R-grid 
 Requires:         R-stats 
 Requires:         R-utils 

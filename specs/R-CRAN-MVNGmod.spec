@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MVNGmod
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Matrix-Variate Non-Gaussian Linear Regression Models
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-truncnorm
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-matrixcalc 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-numDeriv 
 Requires:         R-CRAN-Bessel 
 Requires:         R-CRAN-clusterGeneration 
 Requires:         R-CRAN-DistributionUtils 
@@ -35,6 +36,7 @@ Requires:         R-CRAN-truncnorm
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-matrixcalc 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-numDeriv 
 
 %description
 Fits matrix-variate variance-gamma (MVVG) and matrix-variate

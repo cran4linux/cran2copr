@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  controlcharts
-%global packver   0.0.19
+%global packver   0.0.23
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.19
+Version:          0.0.23
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interactive Plotting for Funnel Plots and Statistical Process Control Charts
+Summary:          Interactive Plotting for Funnel, Sigma, and Statistical Process Control Charts
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -22,19 +22,20 @@ BuildRequires:    R-CRAN-htmltools
 BuildRequires:    R-CRAN-crosstalk 
 BuildRequires:    R-CRAN-QuickJSR 
 BuildRequires:    R-CRAN-jsutils 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-crosstalk 
 Requires:         R-CRAN-QuickJSR 
 Requires:         R-CRAN-jsutils 
+Requires:         R-CRAN-rlang 
 
 %description
-Generate fully interactive and dynamic funnel plots and statistical
-process control ('SPC') charts. All data manipulation, calculation, and
-plotting is done in 'JavaScript', allowing for completely dynamic charts
-without the need for a Shiny server. For more details see Spiegelhalter
-(2004) <doi:10.1002/sim.1970> and Pfadt & Wheeler (1995)
-<doi:10.1901/jaba.1995.28-349>.
+Generate interactive funnel plots, multi-indicator sigma charts, and
+statistical process control ('SPC') charts. Chart calculation and plotting
+use JavaScript, allowing dynamic charts without a Shiny server. For more
+details see Spiegelhalter (2004) <doi:10.1002/sim.1970> and Pfadt &
+Wheeler (1995) <doi:10.1901/jaba.1995.28-349>.
 
 %prep
 %setup -q -c -n %{packname}

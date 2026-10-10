@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  restatapi
-%global packver   0.25.0
+%global packver   0.30.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.25.0
+Version:          0.30.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Search and Retrieve Data from Eurostat Database
 
@@ -18,10 +18,10 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-rjson 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-rjson 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-xml2 
 
 %description

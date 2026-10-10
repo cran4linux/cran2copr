@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  teal.picks
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dataset and Variable Picker and Merge Module for 'teal' Applications
 
@@ -17,36 +17,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bsicons 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-logger 
+BuildRequires:    R-CRAN-checkmate >= 2.3.0
+BuildRequires:    R-CRAN-shiny >= 1.8.1
+BuildRequires:    R-CRAN-teal >= 1.2.1
+BuildRequires:    R-CRAN-tidyselect >= 1.2.1
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-yaml >= 1.1.0
+BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-CRAN-teal.data >= 0.8.1
+BuildRequires:    R-CRAN-teal.code >= 0.7.2
+BuildRequires:    R-CRAN-htmltools >= 0.5.8
+BuildRequires:    R-CRAN-shinyWidgets >= 0.5.1
+BuildRequires:    R-CRAN-teal.logger >= 0.4.2
+BuildRequires:    R-CRAN-logger >= 0.4.1
+BuildRequires:    R-CRAN-bsicons >= 0.1.2
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinyWidgets 
-BuildRequires:    R-CRAN-teal 
-BuildRequires:    R-CRAN-teal.code 
-BuildRequires:    R-CRAN-teal.data 
-BuildRequires:    R-CRAN-teal.logger 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-bsicons 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-logger 
+Requires:         R-CRAN-checkmate >= 2.3.0
+Requires:         R-CRAN-shiny >= 1.8.1
+Requires:         R-CRAN-teal >= 1.2.1
+Requires:         R-CRAN-tidyselect >= 1.2.1
+Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-yaml >= 1.1.0
+Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-CRAN-teal.data >= 0.8.1
+Requires:         R-CRAN-teal.code >= 0.7.2
+Requires:         R-CRAN-htmltools >= 0.5.8
+Requires:         R-CRAN-shinyWidgets >= 0.5.1
+Requires:         R-CRAN-teal.logger >= 0.4.2
+Requires:         R-CRAN-logger >= 0.4.1
+Requires:         R-CRAN-bsicons >= 0.1.2
 Requires:         R-methods 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinyWidgets 
-Requires:         R-CRAN-teal 
-Requires:         R-CRAN-teal.code 
-Requires:         R-CRAN-teal.data 
-Requires:         R-CRAN-teal.logger 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-yaml 
 
 %description
 Allows users to interactively select datasets, variables, and values

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SelectionTools
-%global packver   26.4
+%global packver   26.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          26.4
+Version:          26.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulation and Data Analysis for Plant Breeders
 

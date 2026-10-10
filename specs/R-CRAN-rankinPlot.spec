@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rankinPlot
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Convenient Plotting for the Modified Rankin Scale and Other Ordinal Outcome Data
 
@@ -14,19 +14,31 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3
+BuildRequires:    R-CRAN-ggplot2 >= 4.0
 BuildRequires:    R-CRAN-scales >= 1.2
-Requires:         R-CRAN-ggplot2 >= 3.3
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-ggplot2 >= 4.0
 Requires:         R-CRAN-scales >= 1.2
+Requires:         R-CRAN-rlang 
+Requires:         R-grDevices 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-lifecycle 
 
 %description
 Provides convenient tools for visualising ordinal outcome data following
-the "Grotta Bar" approach pioneered by The National Institute of
-Neurological Disorders and Stroke rt-PA Stroke Study Group (1995)
-<doi:10.1056/NEJM199512143332401>.
+conventions within stroke research literature. It currently supports the
+"Grotta Bar" approach pioneered by The National Institute of Neurological
+Disorders and Stroke rt-PA Stroke Study Group (1995)
+<doi:10.1056/NEJM199512143332401> and Probability-Probability plots for
+visualising Desirability of Outcome Ranking (DOOR) scales with large
+numbers of categories proposed by Johns et al. (2026)
+<doi:10.1177/17474930261475853>.
 
 %prep
 %setup -q -c -n %{packname}

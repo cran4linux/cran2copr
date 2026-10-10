@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SimtablR
-%global packver   1.2.0
+%global packver   3.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          3.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easy Publication-Ready Tables and Regression Analysis
 
@@ -18,29 +18,28 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-flextable 
-BuildRequires:    R-CRAN-lmtest 
-BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-flextable 
-Requires:         R-CRAN-lmtest 
-Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-generics 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-sandwich 
 Requires:         R-stats 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 Requires:         R-utils 
 
 %description
 Streamlines the creation of descriptive frequency tables ('Table 1'),
 diagnostic test accuracy evaluations (sensitivity, specificity, predictive
-values), and multi-outcome regression summaries. Features automatic
-tables, prevalence and odds ratio calculations, and seamless integration
+values), and multi-outcome regression summaries.  Features a grammar for
+publication-ready epidemiological tables built on design-aware effect
+measures, prevalence and odds ratio calculations, and seamless integration
 with 'flextable' for exporting results to 'Microsoft Word' and
 'PowerPoint'.
 

@@ -1,30 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bgev
-%global packver   0.2
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bimodal GEV Distribution with Location Parameter
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.15.0
+Requires:         R-core >= 2.15.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-EnvStats 
-BuildRequires:    R-CRAN-DEoptim 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-nleqslv 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-numDeriv 
 Requires:         R-CRAN-EnvStats 
-Requires:         R-CRAN-DEoptim 
 Requires:         R-stats 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-nleqslv 
+Requires:         R-graphics 
+Requires:         R-CRAN-numDeriv 
 
 %description
 Density, distribution function, quantile function random generation and
