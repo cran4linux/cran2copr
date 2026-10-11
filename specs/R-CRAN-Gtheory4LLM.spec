@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Gtheory4LLM
-%global packver   0.2.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalizability Theory for LLM Subjective Tasks
 
@@ -45,13 +45,15 @@ and replication allocations using observed Gaussian or explicitly
 requested latent binary and ordinal reliability, with random or fixed
 facets after Brennan (2001). Gaussian fits report asymptotic Wald standard
 errors for their variance components and delta-method intervals for the
-coefficients; discrete fits report point estimates only. Scalar nominal
-reliability and joint Gaussian-discrete fitting are not implemented.
-Includes three publicly archived LLM annotation datasets covering
-hate-speech, mental-health, and drug-review tasks. Discrete fitting is
-limited to small models; the preflight report describes supported designs
-and computational limits. Generalizability coefficients follow the
-variance-decomposition framework of Brennan (2001)
+coefficients; discrete fits report point estimates only. Provides
+fixed-layout Gaussian batch projections, bounded cost-aware allocation
+comparisons, and Gaussian simulation-based pilot precision planning.
+Scalar nominal reliability and joint Gaussian-discrete fitting are not
+implemented. Includes three publicly archived LLM annotation datasets
+covering hate-speech, mental-health, and drug-review tasks. Discrete
+fitting is limited to small models; the preflight report describes
+supported designs and computational limits. Generalizability coefficients
+follow the variance-decomposition framework of Brennan (2001)
 <doi:10.1007/978-1-4757-3456-0>.
 
 %prep

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  essential8
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reproducible Cardiovascular Health Metric Scoring
 
@@ -22,10 +22,10 @@ Requires:         R-CRAN-cli >= 3.6.0
 
 %description
 Provides a reproducible R implementation of the American Heart Association
-Life's Essential 8 cardiovascular health scoring framework for complete
-adult records from people aged 20 years or older. Calculates the eight
-component scores and their unweighted composite score using the 2022 adult
-definition described by Lloyd-Jones et al. (2022)
+Life's Essential 8 cardiovascular health scoring framework for adult
+records from people aged 20 years or older. Calculates the eight component
+scores and their unweighted composite score from available component data
+using the 2022 adult definition described by Lloyd-Jones et al. (2022)
 <doi:10.1161/CIR.0000000000001078>.
 
 %prep

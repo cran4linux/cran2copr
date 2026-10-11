@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bioregion
-%global packver   1.4.0
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Comparison of Bioregionalization Methods
 
@@ -41,6 +41,7 @@ BuildRequires:    R-CRAN-sf
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-vegan 
 BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-apcluster 
@@ -67,6 +68,7 @@ Requires:         R-CRAN-sf
 Requires:         R-stats 
 Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
+Requires:         R-CRAN-vegan 
 
 %description
 The main purpose of this package is to propose a transparent

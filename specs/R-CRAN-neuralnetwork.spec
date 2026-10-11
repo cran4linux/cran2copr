@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  neuralnetwork
-%global packver   0.1.1
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Compact Multilayer Perceptrons
 
@@ -22,16 +22,17 @@ Requires:         R-CRAN-Rcpp
 %description
 A small multilayer perceptron implementation for 'R'. It supports
 regression and classification, multiple hidden layers, mini-batch
-training, Adam, SGD, momentum, Nesterov, RPROP, GRPROP and L-BFGS
-optimizers, dropout, L2 regularization, early stopping, convergence
-thresholds, gradient clipping, sample and class weights, callback hooks,
-target scaling and robust Huber loss for regression, 'Rcpp' forward-pass
-kernels, formula interfaces, model evaluation with balanced classification
-metrics, cross-validation, compact tuning, permutation importance, model
-persistence helpers, and 'S3' prediction methods. Methods follow
-Rumelhart, Hinton and Williams (1986) <doi:10.1038/323533a0>, with
-optimizers including Riedmiller and Braun (1993)
-<doi:10.1109/ICNN.1993.298623>, Nocedal (1980)
+training, adaptive moment estimation, stochastic gradient descent,
+momentum, Nesterov acceleration, resilient backpropagation and
+limited-memory quasi-Newton optimization, dropout, squared-weight
+regularization, early stopping, convergence thresholds, gradient clipping,
+sample and class weights, callback hooks, target scaling and robust Huber
+loss for regression, 'Rcpp' forward-pass kernels, formula interfaces,
+model evaluation with balanced classification metrics, cross-validation,
+compact tuning, permutation importance, model persistence helpers, and
+standard prediction methods. Methods follow Rumelhart, Hinton and Williams
+(1986) <doi:10.1038/323533a0>, with optimizers including Riedmiller and
+Braun (1993) <doi:10.1109/ICNN.1993.298623>, Nocedal (1980)
 <doi:10.1090/S0025-5718-1980-0572855-7>, and Kingma and Ba (2014)
 <doi:10.48550/arXiv.1412.6980>.
 

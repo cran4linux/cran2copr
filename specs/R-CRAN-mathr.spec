@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mathr
-%global packver   0.1.3
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Scientific Computation Using R
 
@@ -22,7 +22,8 @@ BuildArch:        noarch
 A collection of undergraduate level mathematical routines for quantitative
 work, covering calculus, distribution functions, random variate
 generation, linear algebra, differential equations and optimization, sized
-for one semester.
+for one semester. The package is best studied with its source open: every
+routine is short and written to be read.
 
 %prep
 %setup -q -c -n %{packname}

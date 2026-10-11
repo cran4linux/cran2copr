@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ardlverse
-%global packver   2.0.3
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Comprehensive ARDL: Panel, Bootstrap and Fourier Methods
 
@@ -39,18 +39,21 @@ A unified framework for Autoregressive Distributed Lag (ARDL) modeling and
 cointegration analysis. Implements Panel ARDL with Pooled Mean Group
 (PMG), Mean Group (MG), and Dynamic Fixed Effects (DFE) estimators
 following Pesaran, Shin and Smith (1999)
-<doi:10.1080/01621459.1999.10474156>. Provides bootstrap-based bounds
-testing per Pesaran, Shin & Smith (2001) <doi:10.1002/jae.616>. Includes
-Quantile Nonlinear ARDL (QNARDL) combining distributional and asymmetric
-effects based on Shin, Yu & Greenwood-Nimmo (2014)
-<doi:10.1007/978-1-4899-8008-3_9>, and Fourier ARDL for modeling smooth
-structural breaks following Enders & Lee (2012)
-<doi:10.1016/j.econlet.2012.04.081>. Features include Augmented ARDL
-(AARDL) with deferred t and F tests, Multiple-Threshold NARDL for complex
-asymmetries, Rolling/Recursive ARDL for time-varying relationships, and
-Panel NARDL for nonlinear panel cointegration. All methods include
-comprehensive diagnostics, publication-ready outputs, and visualization
-tools.
+<doi:10.1080/01621459.1999.10474156>. Provides the bounds test of Pesaran,
+Shin and Smith (2001) <doi:10.1002/jae.616> with the critical values of
+Kripfganz and Schneider (2020) <doi:10.1111/obes.12377> and with recursive
+bootstrap critical values following Bertelli, Vacca and Zoia (2022)
+<doi:10.1016/j.econmod.2022.105987> and McNown, Sam and Goh (2018)
+<doi:10.1080/00036846.2017.1366643>. Includes Quantile Nonlinear ARDL
+(QNARDL) combining distributional and asymmetric effects based on Shin, Yu
+and Greenwood-Nimmo (2014) <doi:10.1007/978-1-4899-8008-3_9>, Fourier ARDL
+for modeling smooth structural breaks following Enders and Lee (2012)
+<doi:10.1016/j.econlet.2012.04.081>, and Fourier (bootstrap) nonlinear
+ARDL. Features include Augmented ARDL (AARDL) with deferred t and F tests,
+Multiple-Threshold NARDL for complex asymmetries, Rolling/Recursive ARDL
+for time-varying relationships, and Panel NARDL for nonlinear panel
+cointegration. All methods include comprehensive diagnostics,
+publication-ready outputs, and visualization tools.
 
 %prep
 %setup -q -c -n %{packname}

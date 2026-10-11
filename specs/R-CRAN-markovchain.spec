@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  markovchain
-%global packver   1.1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easy Handling Discrete Time Markov Chains
 
@@ -41,12 +41,16 @@ Requires:         R-stats
 Requires:         R-grDevices 
 
 %description
-Functions and S4 methods to create and manage discrete time Markov chains
-more easily. In addition functions to perform statistical (fitting and
-drawing random variates) and probabilistic (analysis of their structural
-proprieties) analysis are provided. See Spedicato (2017)
-<doi:10.32614/RJ-2017-036>. Some functions for continuous times Markov
-chains depend on the suggested ctmcd package.
+Description: Functions and S4 classes to create, manage and analyse
+discrete time Markov chains. Includes probabilistic analysis of chain
+structure (state classification, hitting times, stationary distributions,
+spectral and mixing diagnostics), statistical inference (maximum
+likelihood and Bayesian estimation, tests of the Markov property,
+homogeneity, stationarity and order, simulation), higher-order and
+multivariate chains, state aggregation, and import/export to JSON, YAML
+and CSV. Basic support for continuous time Markov chains is also provided;
+some of these functions depend on the suggested 'ctmcd' package. See
+Spedicato (2017) <doi:10.32614/RJ-2017-036>.
 
 %prep
 %setup -q -c -n %{packname}

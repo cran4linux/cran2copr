@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MultiSpline
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spline-Based Nonlinear Modeling for Multilevel and Longitudinal Data
 
@@ -38,14 +38,17 @@ nonlinear relationships in single-level, multilevel, and longitudinal
 regression models. Flexible functional forms are supported using natural
 cubic splines ('splines'), B-splines ('splines'), and GAM smooths
 ('mgcv'). Supports two-way and nested clustering via 'lme4', automatic
-knot selection by AIC or BIC, multilevel R-squared decomposition
-(Nakagawa-Schielzeth marginal and conditional R-squared with
-level-specific variance partitioning), a postestimation suite returning
-first and second derivatives with confidence bands, turning points and
-inflection regions, and a model comparison workflow contrasting linear,
-polynomial, and spline fits by AIC, BIC, and likelihood-ratio tests.
-Cluster heterogeneity in nonlinear effects is supported via random-slope
-spline terms.
+knot selection by AIC or BIC, multilevel R-squared decomposition (marginal
+and conditional R-squared of Nakagawa and Schielzeth (2013)
+<doi:10.1111/j.2041-210x.2012.00261.x>, extended to random slopes as in
+Johnson (2014) <doi:10.1111/2041-210X.12225>, with level-specific variance
+partitioning), a postestimation suite returning first and second
+derivatives with confidence bands, turning points and inflection regions,
+and a model comparison workflow contrasting linear, polynomial, and spline
+fits by AIC, BIC, and likelihood-ratio tests. Cluster heterogeneity in
+nonlinear effects is supported via random-slope spline terms. Any 'lme4'
+random-effects structure can be supplied, and population-averaged
+(marginal) curves are available for generalized linear mixed models.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wrappedtools
-%global packver   0.9.9
+%global packver   0.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.9
+Version:          0.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Useful Wrappers Around Commonly Used Functions
 
@@ -38,6 +38,7 @@ BuildRequires:    R-CRAN-rlist
 BuildRequires:    R-CRAN-DescTools 
 BuildRequires:    R-CRAN-flextable 
 BuildRequires:    R-CRAN-nortest 
+BuildRequires:    R-CRAN-readr 
 Requires:         R-stats 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-knitr 
@@ -59,16 +60,18 @@ Requires:         R-CRAN-rlist
 Requires:         R-CRAN-DescTools 
 Requires:         R-CRAN-flextable 
 Requires:         R-CRAN-nortest 
+Requires:         R-CRAN-readr 
 
 %description
 The main functionalities of 'wrappedtools' are: adding backticks to
 variable names; rounding to desired precision with special case for
-p-values; selecting columns based on pattern and storing their position,
-name, and backticked name; computing and formatting of descriptive
-statistics (e.g. mean±SD), comparing groups and creating publication-ready
-tables with descriptive statistics and p-values; creating specialized
-plots for correlation matrices. Functions were mainly written for my own
-daily work or teaching, but may be of use to others as well.
+p-values; selecting columns based on pattern and/or class and storing
+their position, name, and backticked name; computing and formatting of
+descriptive statistics (e.g. mean±SD), comparing groups and creating
+publication-ready tables with descriptive statistics and p-values;
+creating specialized plots for correlation matrices. Functions were mainly
+written for my own daily work or teaching, but may be of use to others as
+well.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  iSTATS
-%global packver   1.7
+%global packver   1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7
+Version:          1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Graphical Interface to Perform STOCSY Analyses on NMR Data
 
@@ -19,33 +19,31 @@ Requires:         R-core >= 3.6
 BuildArch:        noarch
 BuildRequires:    R-CRAN-gtools >= 3.8.1
 BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
-BuildRequires:    R-CRAN-Cairo >= 1.5
-BuildRequires:    R-CRAN-shiny >= 1.0.2
+BuildRequires:    R-CRAN-shiny >= 1.6.0
 BuildRequires:    R-CRAN-shinyBS >= 0.61
 BuildRequires:    R-CRAN-shinyWidgets >= 0.4.3
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-gtools >= 3.8.1
 Requires:         R-CRAN-ggplot2 >= 3.0.0
-Requires:         R-CRAN-Cairo >= 1.5
-Requires:         R-CRAN-shiny >= 1.0.2
+Requires:         R-CRAN-shiny >= 1.6.0
 Requires:         R-CRAN-shinyBS >= 0.61
 Requires:         R-CRAN-shinyWidgets >= 0.4.3
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-readr 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Launches a 'shiny' based application for Nuclear Magnetic Resonance
-(NMR)data importation and Statistical TOtal Correlation SpectroscopY
-(STOCSY) analyses in a full interactive approach. The theoretical
-background and applications of STOCSY method could be found at Cloarec,
-O., Dumas, M. E., Craig, A., Barton, R. H., Trygg, J., Hudson, J.,
-Blancher, C., Gauguier, D., Lindon, J. C., Holmes, E. & Nicholson, J.
-(2005) <doi:10.1021/ac048630x>.
+Launches a 'shiny' based application for Nuclear Magnetic Resonance (NMR)
+data importation and Statistical TOtal Correlation SpectroscopY (STOCSY)
+analyses in a full interactive approach. The theoretical background and
+applications of the STOCSY method are described by Cloarec, O., Dumas, M.
+E., Craig, A., Barton, R. H., Trygg, J., Hudson, J., Blancher, C.,
+Gauguier, D., Lindon, J. C., Holmes, E. & Nicholson, J. (2005)
+<doi:10.1021/ac048630x>. Spectral alignment follows the interval
+correlation optimized shifting method of Savorani, F., Tomasi, G. &
+Engelsen, S. B. (2010) <doi:10.1016/j.jmr.2009.11.012>.
 
 %prep
 %setup -q -c -n %{packname}

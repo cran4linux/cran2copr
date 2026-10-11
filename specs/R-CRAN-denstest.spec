@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  denstest
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Density Equality Testing
 
@@ -29,8 +29,8 @@ referred to as DET (Density Equality Testing) in this package for clarity.
 FDET compares groups of densities based on their global shape using
 Fourier transforms, while MDET tests for differences in distributional
 moments. All methods are described in Anarat, Krutmann and Schwender
-(2025), "Testing for Differences in Extrinsic Skin Aging Based on Density
-Functions" (Submitted).
+(2026), "Testing for Differences in Extrinsic Skin Aging Based on Density
+Functions" (Under revision).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bayprior
-%global packver   0.3.2
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Prior Elicitation and Diagnostics for Clinical Trials
+Summary:          Bayesian Prior Elicitation, Diagnostics, and Regulatory Reporting
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -54,15 +54,21 @@ Requires:         R-stats
 A toolkit for constructing, validating, and justifying Bayesian priors in
 clinical trial settings. Implements expert elicitation via quantile
 matching, the roulette method, and moment matching across six distribution
-families, linear and logarithmic expert pooling, prior-data conflict
-diagnostics including the Box p-value, surprise index, information
-divergence, and Mahalanobis distance, sensitivity analyses with tornado
-and influence heatmap plots, sceptical, robust, and power priors, and
-automated prior justification reports. Includes a fully modular 'Shiny'
-application for interactive use. Methods based on O'Hagan et al. (2006,
-ISBN:9780470029886), Box (1980) <doi:10.2307/2982063>, Oakley and O'Hagan
-(2010) <https://tonyohagan.co.uk/shelf/>, Schmidli et al. (2014)
-<doi:10.1111/biom.12242>, Ibrahim and Chen (2000)
+families, linear and logarithmic expert pooling, meta-analytic-predictive
+(MAP) priors derived from historical trials, prior-data conflict
+diagnostics including the Box p-value (with an exact prior predictive
+option for selected prior and data combinations), an exploratory surprisal
+(S-value) companion to it, surprise index, information divergence, and
+Mahalanobis distance, sensitivity analyses with tornado and influence
+heatmap plots, sceptical, robust, and power priors, and automated prior
+justification reports. Includes a fully modular 'Shiny' application for
+interactive use. Methods based on O'Hagan et al. (2006,
+ISBN:9780470029886), Box (1980) <doi:10.2307/2982063>, Greenland (2023)
+<doi:10.1111/sjos.12625>, Oakley and O'Hagan (2010)
+<https://tonyohagan.co.uk/shelf/>, Schmidli et al. (2014)
+<doi:10.1111/biom.12242>, Neuenschwander et al. (2010)
+<doi:10.1177/1740774509356002>, Roever et al. (2021)
+<doi:10.1002/jrsm.1475>, Ibrahim and Chen (2000)
 <doi:10.1214/ss/1009212673>, Spiegelhalter et al. (1994)
 <doi:10.2307/2983527>.
 
