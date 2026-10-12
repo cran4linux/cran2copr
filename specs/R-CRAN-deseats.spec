@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  deseats
-%global packver   1.1.2
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data-Driven Locally Weighted Regression for Trend and Seasonality in TS
 
@@ -60,9 +60,10 @@ equidistant short-memory time series. The approach is a combination /
 extension of the algorithms by Feng (2013)
 <doi:10.1080/02664763.2012.740626> and Feng, Y., Gries, T., and Fritz, M.
 (2020) <doi:10.1080/10485252.2020.1759598> and a brief description of this
-new method is provided in the package documentation. Furthermore, the
-package allows its users to apply the base model of the Berlin procedure,
-version 4.1, as described in Speth (2004)
+new method is provided in the package documentation and in more detail in
+Schulz (2026) <doi:10.32614/RJ-2026-025>. Furthermore, the package allows
+its users to apply the base model of the Berlin procedure, version 4.1, as
+described in Speth (2004)
 <https://www.destatis.de/DE/Methoden/Saisonbereinigung/BV41-methodenbericht-Heft3_2004.pdf?__blob=publicationFile>.
 Permission to include this procedure was kindly provided by the Federal
 Statistical Office of Germany.

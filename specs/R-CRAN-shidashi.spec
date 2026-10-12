@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shidashi
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Shiny Dashboard Template Modular System with Chat Bot Support
 
@@ -21,7 +21,7 @@ BuildRequires:    R-CRAN-shiny >= 1.7.0
 BuildRequires:    R-CRAN-formatR >= 1.11
 BuildRequires:    R-CRAN-fastmap >= 1.1.0
 BuildRequires:    R-CRAN-digest >= 0.6.27
-BuildRequires:    R-CRAN-ellmer >= 0.4.0
+BuildRequires:    R-CRAN-ellmer >= 0.5.0
 BuildRequires:    R-utils 
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-bslib 
@@ -30,12 +30,15 @@ BuildRequires:    R-CRAN-S7
 BuildRequires:    R-CRAN-shinychat 
 BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-later 
+BuildRequires:    R-CRAN-promises 
 Requires:         R-CRAN-shiny >= 1.7.0
 Requires:         R-CRAN-formatR >= 1.11
 Requires:         R-CRAN-fastmap >= 1.1.0
 Requires:         R-CRAN-digest >= 0.6.27
-Requires:         R-CRAN-ellmer >= 0.4.0
+Requires:         R-CRAN-ellmer >= 0.5.0
 Requires:         R-utils 
 Requires:         R-tools 
 Requires:         R-CRAN-bslib 
@@ -44,7 +47,10 @@ Requires:         R-CRAN-S7
 Requires:         R-CRAN-shinychat 
 Requires:         R-CRAN-yaml 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-later 
+Requires:         R-CRAN-promises 
 
 %description
 A template dashboard system with AI agent integrated. Comes with default

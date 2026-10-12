@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rolleigen
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Rolling Eigenanalysis
 
@@ -32,10 +32,10 @@ principal component analysis (Pearson, 1901,
 and principal component regression (Massy, 1965,
 <doi:10.1080/01621459.1965.10480787>) over rolling and expanding windows.
 For each window, the eigenvalues and eigenvectors are computed from the
-covariance matrix and, optionally, ordered from largest to smallest to
-summarize the directions of greatest variation in the data. A subset of
-leading components is then used to fit a regression that mitigates
-collinearity in the explanatory variables. Use cases include
+covariance matrix and, optionally, ordered from the largest to smallest
+eigenvalue to summarize the directions of greatest variation in the data.
+A subset of leading components is then used to fit a regression that
+mitigates collinearity in the explanatory variables.  Use cases include
 dimensionality reduction, factor extraction, and regression on collinear
 explanatory variables. The package supports rolling and expanding windows,
 weights, and handling of missing values via the min_obs, complete_obs, and

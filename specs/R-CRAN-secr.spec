@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  secr
-%global packver   5.4.3
+%global packver   5.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.4.3
+Version:          5.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatially Explicit Capture-Recapture
 
@@ -19,9 +19,9 @@ Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-RcppParallel >= 5.1.1
 BuildRequires:    R-CRAN-raster >= 3.5.15
 BuildRequires:    R-CRAN-terra >= 1.5.12
+BuildRequires:    R-CRAN-secrfunc >= 1.1.2
 BuildRequires:    R-CRAN-Rcpp >= 0.12.14
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-secrfunc 
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
@@ -39,9 +39,9 @@ BuildRequires:    R-CRAN-BH
 Requires:         R-CRAN-RcppParallel >= 5.1.1
 Requires:         R-CRAN-raster >= 3.5.15
 Requires:         R-CRAN-terra >= 1.5.12
+Requires:         R-CRAN-secrfunc >= 1.1.2
 Requires:         R-CRAN-Rcpp >= 0.12.14
 Requires:         R-methods 
-Requires:         R-CRAN-secrfunc 
 Requires:         R-CRAN-abind 
 Requires:         R-graphics 
 Requires:         R-grDevices 

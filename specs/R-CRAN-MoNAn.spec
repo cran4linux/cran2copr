@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MoNAn
-%global packver   1.1.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mobility Network Analysis
 
@@ -16,11 +16,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.2
 Requires:         R-core >= 4.2
-BuildArch:        noarch
 BuildRequires:    R-CRAN-snowfall >= 1.84.6.2
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-snowfall >= 1.84.6.2
 Requires:         R-methods 
+Requires:         R-CRAN-Rcpp 
 
 %description
 Implements the method to analyse weighted mobility networks or
@@ -30,7 +31,9 @@ to analyse the structure of mobility, incorporating exogenous predictors
 pertaining to individuals and locations known from classical mobility
 analyses, as well as modelling emergent mobility patterns akin to
 structural patterns known from the statistical analysis of social
-networks.
+networks. Version 2 runs the simulations in 'C++' (using 'Rcpp') and,
+besides stochastic approximation (Robbins-Monro), can estimate parameters
+with Geyer-Thompson MCMC maximum likelihood estimation.
 
 %prep
 %setup -q -c -n %{packname}

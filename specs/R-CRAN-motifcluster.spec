@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  motifcluster
-%global packver   0.2.3
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Motif-Based Spectral Clustering of Weighted Directed Networks
 
@@ -29,7 +29,7 @@ Tools for spectral clustering of weighted directed networks using motif
 adjacency matrices. Methods perform well on large and sparse networks, and
 random sampling methods for generating weighted directed networks are also
 provided. Based on methodology detailed in Underwood, Elliott and
-Cucuringu (2020) <arXiv:2004.01293>.
+Cucuringu (2020) <doi:10.48550/arXiv.2004.01293>.
 
 %prep
 %setup -q -c -n %{packname}

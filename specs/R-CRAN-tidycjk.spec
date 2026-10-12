@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidycjk
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Tools for Chinese, Japanese and Korean Text
 
@@ -31,22 +31,31 @@ A tidy toolkit for text that is written in Chinese, Japanese or Korean.
 Most text tooling in R assumes that words are separated by whitespace,
 which CJK writing does not use, so ordinary summaries of a text column
 either treat a sentence as one undifferentiated blob or split it into
-isolated characters. Word segmentation is therefore a pluggable engine
-that the caller names explicitly rather than a bundled dictionary, because
-where a word ends is a fact about a language and not about Unicode.
-'tidycjk' classifies characters by Unicode block, reports which script and
-which language a text is written in, measures how much of a text is CJK,
-and turns those measurements into tibbles that slot straight into a
+isolated characters. Word segmentation is a pluggable engine, with
+dictionary-based segmentation for Chinese and Japanese supplied through
+'ICU' and further engines registrable by the caller, because where a word
+ends is a fact about a language and not about Unicode. 'tidycjk'
+classifies characters by Unicode block, reports which script and which
+language a text is written in, measures how much of a text is CJK, and
+turns those measurements into tibbles that slot straight into a
 'tidyverse' workflow. It also measures display width in terminal columns,
-pads and truncates to a width rather than to a character count, and
+pads, truncates and wraps to a width rather than to a character count, and
 normalises fullwidth and halfwidth forms surgically -- including composing
-halfwidth katakana voiced marks into single code points -- without the
-collateral damage of a full 'NFKC' pass. Language detection deliberately
-returns NA rather than guessing when a text is written in Han characters
-only, because Japanese written without kana cannot be distinguished from
-Chinese by script alone. Everything is derived from the Unicode
-specification; the package makes no network requests and needs no compiled
-code of its own.
+halfwidth katakana voiced marks into single code points -- while offering
+the Unicode normalisation forms separately for when a full 'NFKC' fold is
+what is wanted. Romanisation, conversion between simplified and
+traditional Han, conversion between the two kana syllabaries, and
+decomposition of Hangul syllables into jamo are provided on the same
+vectorised contract. Sentence segmentation, character n-grams, punctuation
+removal by Unicode category and locale-aware ordering cover the
+preprocessing that generic tooling gets wrong on CJK, where the sentence
+terminators are ideographic, a code point sort is not an alphabetical one,
+and the POSIX punctuation class is resolved by the C library rather than
+by Unicode. Language detection deliberately returns NA rather than
+guessing when a text is written in Han characters only, because Japanese
+written without kana cannot be distinguished from Chinese by script alone.
+Everything is derived from the Unicode specification; the package makes no
+network requests and needs no compiled code of its own.
 
 %prep
 %setup -q -c -n %{packname}

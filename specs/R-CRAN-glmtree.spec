@@ -1,49 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RegDDM
-%global packver   1.1
+%global packname  glmtree
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Linear Regression with DDM
+Summary:          Logistic Regression Trees
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rstan 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rtdists 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-graphics 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-partykit 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-rstantools
-Requires:         R-CRAN-rstan 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rtdists 
-Requires:         R-CRAN-rlang 
+Requires:         R-graphics 
+Requires:         R-methods 
+Requires:         R-CRAN-partykit 
 Requires:         R-stats 
-Requires:         R-CRAN-rstantools
 
 %description
-Drift-Diffusion Model (DDM) has been widely used to model binary
-decision-making tasks, and many research studies the relationship between
-DDM parameters and other characteristics of the subject. This package uses
-'RStan' to perform generalized liner regression analysis over DDM
-parameters via a single Bayesian Hierarchical model. Compared to
-estimating DDM parameters followed by a separate regression model,
-'RegDDM' reduces bias and improves statistical power.
+A logistic regression tree is a decision tree with logistic regressions at
+its leaves. A particular stochastic expectation maximization algorithm is
+used to draw a few good trees, that are then assessed via the user's
+criterion of choice among BIC / AIC / test set Gini. The formal
+development is given in a PhD chapter, see Ehrhardt (2019)
+<https://github.com/adimajo/manuscrit_these/releases/>.
 
 %prep
 %setup -q -c -n %{packname}

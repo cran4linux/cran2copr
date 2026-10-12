@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  umx
-%global packver   4.65.0
+%global packver   4.80.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.65.0
+Version:          4.80.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Structural Equation Modeling and Twin Modeling in R
 
@@ -67,11 +67,16 @@ Requires:         R-CRAN-xtable
 Requires:         R-CRAN-zoo 
 
 %description
-Quickly create, run, and report structural equation models, and twin
-models. See '?umx' for help, and umx_open_CRAN_page("umx") for NEWS.
+Quickly create, run, and report structural equation and twin models. See
+'?umx' for help, and umx_open_CRAN_page("umx") for NEWS. Citations are: *
 Timothy C. Bates, Michael C. Neale, Hermine H. Maes, (2019). umx: A
 library for Structural Equation and Twin Modelling in R. Twin Research and
-Human Genetics, 22, 27-41. <doi:10.1017/thg.2019.2>.
+Human Genetics, 22, 27-41. <doi:10.1017/thg.2019.2>. * Luis F.S.
+Castro-de-Araujo, Nathan A. Gillespie, Michael C. Neale, and Timothy
+Charles Bates (2026). umx version 4.5: Extending Twin and Path-Based SEM
+in R with CLPM, MR-DoC, Definition Variables, Onyx Integration, and
+Censored Distributions. Twin Research and Human Genetics, 1-6.
+<doi:10.1017/thg.2026.10056>.
 
 %prep
 %setup -q -c -n %{packname}

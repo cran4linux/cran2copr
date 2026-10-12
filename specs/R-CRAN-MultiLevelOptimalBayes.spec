@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MultiLevelOptimalBayes
-%global packver   0.0.4.0
+%global packver   0.1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4.0
+Version:          0.1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regularized Bayesian Estimator for Two-Level Latent Variable Models
 
@@ -17,8 +17,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pracma 
-Requires:         R-CRAN-pracma 
 
 %description
 Implements a regularized Bayesian estimator that optimizes the estimation

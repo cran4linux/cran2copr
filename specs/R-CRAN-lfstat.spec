@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lfstat
-%global packver   0.9.13
+%global packver   0.9.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.13
+Version:          0.9.15
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculation of Low Flow Statistics for Daily Stream Flow Data
 

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  swash
-%global packver   3.0.0
+%global packver   3.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Health Geography Toolbox for Model-Based Analysis of Infections Panel Data
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -37,14 +37,17 @@ Within epidemic outbreaks, infections grow and decline differently between
 regions, and the velocity of spatial spread differs between countries. The
 swash library offers a set of model-based analyses for these topics.
 Spread velocity may be analysed with the Swash-Backwash Model for the
-Single Epidemic Wave and corresponding functions for bootstrap confidence
-intervals, country comparison, and visualization of results. Differences
-in epidemic growth between regions may be analysed using logistic growth
-models, exponential growth models, Hawkes processes and breakpoint
-analyses. Cluster and hotspot analyses can be conducted using neighborhood
-matrices. All functionalities are accessed by the class "infpan" for
-infections panel data defined in this package, which is built from a
-data.frame provided by the user.
+Single Epidemic Wave by Cliff and Haggett (2006)
+<doi:10.1007/s10109-006-0027-8> and corresponding functions for bootstrap
+confidence intervals, country comparison, and visualization of results.
+Differences in epidemic growth between regions may be analysed using
+logistic growth models, exponential growth models, Hawkes processes and
+breakpoint analyses. Cluster and hotspot analyses can be conducted using
+neighborhood matrices. See Wieland (2020) <doi:10.18335/region.v7i2.324>
+for an application of some of the mentioned analysis methods. All
+functionalities are accessed by the class "infpan" for infections panel
+data defined in this package, which is built from a data.frame provided by
+the user.
 
 %prep
 %setup -q -c -n %{packname}
