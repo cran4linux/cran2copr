@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggtime
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Grammar of Graphics and Plot Helpers for Time Series Visualization
 
@@ -17,7 +17,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lubridate >= 1.7.1
 BuildRequires:    R-CRAN-mixtime >= 0.3.0
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grid 
@@ -34,7 +33,6 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-vecvec 
 BuildRequires:    R-CRAN-S7 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-lubridate >= 1.7.1
 Requires:         R-CRAN-mixtime >= 0.3.0
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grid 

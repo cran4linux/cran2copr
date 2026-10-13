@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FVDDPpkg
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Implement Fleming-Viot-Dependent Dirichlet Processes
 
@@ -32,7 +32,8 @@ methodologies presented in Ascolani, Lijoi and Ruggiero (2021)
 <doi:10.1214/20-BA1206> and Ascolani, Lijoi and Ruggiero (2023)
 <doi:10.3150/22-BEJ1504> that make it possible to study the process at the
 time of data collection or to predict its evolution in future or in the
-past.
+past. The package itself is described in Ascolani, Damato and Ruggiero
+(2024) <doi:10.1089/cmb.2024.0600>.
 
 %prep
 %setup -q -c -n %{packname}

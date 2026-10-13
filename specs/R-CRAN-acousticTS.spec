@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  acousticTS
-%global packver   2.0.6
+%global packver   2.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.6
+Version:          2.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Physics-Based Models for Acoustic Target Strength
 
@@ -27,6 +27,7 @@ BuildRequires:    R-tools
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-BH 
 BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-testthat 
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-methods 

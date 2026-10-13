@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  visualpred
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualization 2D of Binary Classification Models
 
@@ -25,12 +25,12 @@ BuildRequires:    R-CRAN-gbm
 BuildRequires:    R-CRAN-randomForest 
 BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-mltools 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-MBA 
 BuildRequires:    R-CRAN-pROC 
 BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-MASS >= 7.3.51.4
 Requires:         R-CRAN-nnet >= 7.3.12
 Requires:         R-CRAN-ggplot2 >= 3.3.0
@@ -39,12 +39,12 @@ Requires:         R-CRAN-gbm
 Requires:         R-CRAN-randomForest 
 Requires:         R-CRAN-e1071 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-mltools 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-MBA 
 Requires:         R-CRAN-pROC 
 Requires:         R-CRAN-ggrepel 
+Requires:         R-stats 
 
 %description
 Visual contour and 2D point and contour plots for binary classification

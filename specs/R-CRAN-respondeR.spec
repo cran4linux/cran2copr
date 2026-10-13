@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  respondeR
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Imputing Responder Proportions from Continuous Outcomes
 
@@ -17,8 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Express meta-analyses of continuous trial outcomes in terms of responder
@@ -28,13 +34,18 @@ change, standard deviation and sample size per arm across studies,
 respondeR estimates the proportion of patients who cross a minimal
 important difference (MID) threshold under a parametric model for the
 change scores, and contrasts the arms as a risk difference, risk ratio,
-odds ratio or number needed to treat. It provides median, unweighted-mean,
-weighted-mean and per-study (fixed- or random-effects) pooling, the
-standardized-mean-difference to odds-ratio bridge of Anzures-Cabrera,
-Sarpatwari and Higgins (2011) <doi:10.1002/sim.4298>, a threshold-free
-common-language effect size, and a point-and-click 'Shiny' application.
-The estimation methods were evaluated in a simulation study by
-Sofi-Mahmudi (2024) <https://hdl.handle.net/11375/30210>.
+odds ratio or number needed to treat. It provides per-study (fixed- or
+random-effects) pooling with exact tail probabilities, a pooled-summary
+method anchored on the within-study mean difference, median and
+unweighted-mean summaries, the standardized-mean-difference to odds-ratio
+bridge of Anzures-Cabrera, Sarpatwari and Higgins (2011)
+<doi:10.1002/sim.4298>, a threshold-free common-language effect size,
+results across a range of thresholds, GRADE summary-of-findings rows,
+change-score standard deviation imputation, shared-control handling for
+multi-arm trials, and a point-and-click 'Shiny' application. It can also
+read a continuous meta-analysis already fitted with 'meta' or 'metafor'
+and convert it to responder risks. The framework follows the simulation
+study of Sofi-Mahmudi (2024) <https://hdl.handle.net/11375/30210>.
 
 %prep
 %setup -q -c -n %{packname}

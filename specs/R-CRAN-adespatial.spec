@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  adespatial
-%global packver   0.3-29
+%global packver   0.3-30
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.29
+Version:          0.3.30
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Multiscale Spatial Analysis
 
@@ -16,6 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-vegan >= 2.6.4
 BuildRequires:    R-CRAN-ade4 >= 1.7.13
 BuildRequires:    R-CRAN-adegraphics 
 BuildRequires:    R-CRAN-adephylo 
@@ -29,7 +30,7 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-vegan 
+Requires:         R-CRAN-vegan >= 2.6.4
 Requires:         R-CRAN-ade4 >= 1.7.13
 Requires:         R-CRAN-adegraphics 
 Requires:         R-CRAN-adephylo 
@@ -43,7 +44,6 @@ Requires:         R-CRAN-MASS
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-vegan 
 
 %description
 Tools for the multiscale spatial analysis of multivariate data. Several

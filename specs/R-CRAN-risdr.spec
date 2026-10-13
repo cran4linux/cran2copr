@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  risdr
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regularised and Information-Theoretic Sufficient Dimension Reduction
 
@@ -22,22 +22,27 @@ BuildRequires:    R-graphics
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-nnet 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-utils 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-nnet 
 
 %description
 Implements covariance-stabilised sufficient dimension reduction for
-continuous responses with information-theoretic structural dimension
-selection. Supported methods include sliced inverse regression, sliced
-average variance estimation, directional regression, and principal Hessian
-directions. Sample, ridge, Oracle Approximating Shrinkage, Ledoit-Wolf,
-and Maximum Entropy Covariance (MEC) estimators are provided alongside
-prediction, resampling, simulation, and diagnostic utilities. The
-sufficient dimension reduction methods build on Li (1991)
-<doi:10.1080/01621459.1991.10475035>, Li (1992)
+continuous responses, with an additional sparse engine for continuous,
+categorical, and right-censored survival responses and
+information-theoretic structural dimension selection. Supported methods
+include sliced inverse regression, sliced average variance estimation,
+directional regression, and principal Hessian directions. Sample, ridge,
+Oracle Approximating Shrinkage, Ledoit-Wolf, and Maximum Entropy
+Covariance (MEC) estimators are provided alongside prediction, resampling,
+simulation, and diagnostic utilities. The sufficient dimension reduction
+methods build on Li (1991) <doi:10.1080/01621459.1991.10475035>, Li (1992)
 <doi:10.1080/01621459.1992.10476258>, and Li and Wang (2007)
 <doi:10.1198/016214507000000536>. Covariance shrinkage follows Olorede and
 Yahya (2019) <doi:10.48550/arXiv.1909.13017>, Ledoit and Wolf (2004)

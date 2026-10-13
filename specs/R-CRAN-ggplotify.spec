@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggplotify
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Convert Plot to 'grob' or 'ggplot' Object
+Summary:          Convert Almost Any Plot to a 'grob' or 'ggplot' Object
 
 License:          Artistic-2.0
 URL:              https://cran.r-project.org/package=%{packname}
@@ -23,6 +23,7 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gridGraphics 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-yulab.utils 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-graphics 
@@ -30,15 +31,18 @@ Requires:         R-grDevices
 Requires:         R-grid 
 Requires:         R-CRAN-gridGraphics 
 Requires:         R-CRAN-rlang 
+Requires:         R-utils 
 Requires:         R-CRAN-yulab.utils 
 
 %description
-Convert plot function call (using expression or formula) to 'grob' or
-'ggplot' object that compatible to the 'grid' and 'ggplot2' ecosystem.
-With this package, we are able to e.g. using 'cowplot' to align plots
-produced by 'base' graphics, 'ComplexHeatmap', 'eulerr', 'grid',
-'lattice', 'magick', 'pheatmap', 'vcd' etc. by converting them to 'ggplot'
-objects.
+Convert a plot to a 'grob' or a 'ggplot' object so that it joins the
+'grid' and 'ggplot2' ecosystem. The input can be a plot call written as a
+formula or an expression, a function that draws to a graphics device, a
+graphic object produced by another package, or a plot captured by
+'grDevices::recordPlot'. Output of 'base' graphics is redrawn with
+'gridGraphics', so plots from different graphics systems can be arranged,
+aligned, annotated and inset with packages such as 'aplot' and
+'patchwork'.
 
 %prep
 %setup -q -c -n %{packname}

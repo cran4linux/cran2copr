@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Eunomia
-%global packver   2.1.0
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Standard Dataset Manager for Observational Medical Outcomes Partnership Common Data Model Sample Datasets
 
@@ -17,18 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-CommonDataModel >= 1.1.0
+BuildRequires:    R-CRAN-arrow 
+BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-RSQLite 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-arrow 
-BuildRequires:    R-CRAN-CommonDataModel 
+Requires:         R-CRAN-CommonDataModel >= 1.1.0
+Requires:         R-CRAN-arrow 
+Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-RSQLite 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-arrow 
-Requires:         R-CRAN-CommonDataModel 
 
 %description
 Facilitates access to sample datasets from the 'EunomiaDatasets'

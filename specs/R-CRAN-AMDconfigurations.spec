@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  AMDconfigurations
-%global packver   0.1.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Geometric Analysis of Configurations in High-Dimensional Spaces
 
@@ -17,27 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-e1071 >= 1.7.17
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-e1071 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-e1071 >= 1.7.17
+Requires:         R-grDevices 
+Requires:         R-graphics 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Tools for analysing the geometry of configurations in high-dimensional
-spaces using the Average Membership Degree (AMD) framework and synthetic
-configuration generation. The package supports a domain-agnostic approach
-to studying the shape, dispersion, and internal structure of point clouds,
-with applications across biological and ecological datasets, including
-those derived from deep-time records. The AMD framework builds on the idea
-that strongly coupled systems may occupy a limited set of recurrent
-regimes in state space, producing high-occupancy regions separated by
-sparsely populated transitional configurations. The package focuses on
-detecting these concentration patterns and quantifying their geometric
-definition without assuming any underlying dynamical model. It provides
-AMD curve computation, cluster assignment, and sigma-equivalent
-estimation, together with S3 methods for plotting, printing, and
-summarising AMD and sigma-equivalent objects. Mendoza (2025)
-<https://mmendoza1967.github.io/AMDconfigurations/>.
+Computes Average Membership Degree (AMD) from soft-membership matrices and
+constructs AMD curves across candidate configuration counts. The current
+curve backend uses repeated fuzzy c-means fits while keeping the AMD
+definition, membership estimation, curve construction, and final
+assignment as separate operations. Fitted memberships, convergence
+diagnostics, preprocessing transformations, seeds, row maps, and
+process-level reproducibility links are retained. The package reports
+numerical curve features but leaves their scientific interpretation to an
+explicitly justified analysis. The method was introduced by Mendoza and
+Araújo (2022) <doi:10.1111/ecog.06289>.
 
 %prep
 %setup -q -c -n %{packname}

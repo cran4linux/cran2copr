@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eplusr
-%global packver   0.17.0
+%global packver   0.18.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.17.0
+Version:          0.18.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Toolkit for Using Whole Building Simulation Program 'EnergyPlus'
 
@@ -14,30 +14,30 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-processx >= 3.2.0
 BuildRequires:    R-CRAN-cli >= 3.0.0
 BuildRequires:    R-CRAN-callr >= 2.0.4
 BuildRequires:    R-CRAN-checkmate >= 2.0.0
+BuildRequires:    R-CRAN-duckdb >= 1.5.0
 BuildRequires:    R-CRAN-data.table >= 1.14.6
 BuildRequires:    R-CRAN-S7 >= 0.2.1
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-RSQLite 
 BuildRequires:    R-CRAN-stringi 
 Requires:         R-CRAN-processx >= 3.2.0
 Requires:         R-CRAN-cli >= 3.0.0
 Requires:         R-CRAN-callr >= 2.0.4
 Requires:         R-CRAN-checkmate >= 2.0.0
+Requires:         R-CRAN-duckdb >= 1.5.0
 Requires:         R-CRAN-data.table >= 1.14.6
 Requires:         R-CRAN-S7 >= 0.2.1
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-RSQLite 
 Requires:         R-CRAN-stringi 
 
 %description

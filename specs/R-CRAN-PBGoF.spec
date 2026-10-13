@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PBGoF
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parametric Bootstrap Tests for the Skew-Normal Distribution
+Summary:          Goodness-of-Fit Tests for Skew-Normal and Skew-t Models
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -23,11 +23,10 @@ Requires:         R-methods
 Requires:         R-CRAN-sn 
 
 %description
-Provides goodness-of-fit tests for the skew-normal distribution with
-estimated parameters. Implements Kolmogorov-Smirnov and Cramér-von Mises
-tests using parametric bootstrap or precomputed simulation quantiles,
-together with robust parameter estimation procedures. Package methods and
-documentation are described by Li and Khang (2026)
+Provides precomputed-quantile goodness-of-fit tests for skew-normal
+distributions, parametric-bootstrap tests for skew-normal and skew-t
+distributions, robust fitting, and graphical diagnostics. Package methods
+and documentation are described by Li, Xu, and Khang (2026)
 <https://github.com/Divo-Lee/PBGoF>.
 
 %prep

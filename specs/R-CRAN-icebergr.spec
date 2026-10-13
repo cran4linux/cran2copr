@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  icebergr
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read and Write 'Apache Iceberg' Tables
 
@@ -25,21 +25,19 @@ Requires:         R-CRAN-tibble
 
 %description
 A native client for 'Apache Iceberg', the open table format used by
-'Snowflake', 'Databricks', 'BigQuery', 'AWS' and 'Dremio'. R has otherwise
-been able to read 'Iceberg' tables only by routing through 'DuckDB' as an
-intermediary, which rules out writes, snapshot management and catalog
-integration. This package talks to 'Iceberg' directly: it connects to REST
-and 'AWS Glue' catalogs, lists namespaces and tables, reads the schema and
-partition specification of a table, scans data with predicates and
-projections pushed down, travels back through snapshot history, and
-appends new data. 'Apache Arrow' is the interchange layer throughout, so
-scan results arrive in R without a serialisation round trip. Built on
-'iceberg-rust', the Apache-governed 'Rust' implementation, via 'extendr'.
-Supports table spec versions 1 and 2; see the 'README' for the full matrix
-of supported and unsupported features. This is a community package, not
-affiliated with or endorsed by The Apache Software Foundation; 'Apache',
-'Apache Iceberg' and 'Iceberg' are trademarks of The Apache Software
-Foundation.
+'Snowflake', 'Databricks', 'BigQuery', 'AWS' and 'Dremio'. Rather than
+reaching 'Iceberg' through a query engine such as 'DuckDB', this package
+talks to it directly: it connects to REST and 'AWS Glue' catalogs, lists
+namespaces and tables, reads the schema and partition specification of a
+table, scans data with predicates and projections pushed down, travels
+back through snapshot history, and appends new data. 'Apache Arrow' is the
+interchange layer throughout, so scan results arrive in R without a
+serialisation round trip. Built on 'iceberg-rust', the Apache-governed
+'Rust' implementation, via 'extendr'. Supports table spec versions 1 and
+2; see the 'README' for the full matrix of supported and unsupported
+features. This is a community package, not affiliated with or endorsed by
+The Apache Software Foundation; 'Apache', 'Apache Iceberg' and 'Iceberg'
+are trademarks of The Apache Software Foundation.
 
 %prep
 %setup -q -c -n %{packname}

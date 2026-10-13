@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  muiTreeView
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'MUI X Tree View' for 'shiny' Apps and 'Quarto'
 
@@ -14,18 +14,25 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-shiny.react >= 0.4.0
+BuildRequires:    R-CRAN-muiMaterial >= 0.2.1
 BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-shiny.react >= 0.4.0
+Requires:         R-CRAN-muiMaterial >= 0.2.1
 Requires:         R-CRAN-htmltools 
+Requires:         R-utils 
 
 %description
-Give access to 'MUI X Tree View' components, which lets users navigate
-hierarchical lists of data with nested levels that can be expanded and
-collapsed.
+Wraps the 'MUI X Tree View' React components
+<https://mui.com/x/react-tree-view/> for use in 'shiny' applications and
+'quarto' documents, letting users navigate hierarchical data with nested
+levels that can be expanded and collapsed. Bundles the MIT-licensed
+community edition of the '@mui/x-tree-view' JavaScript library (the
+commercial 'Pro' tier is not included).
 
 %prep
 %setup -q -c -n %{packname}

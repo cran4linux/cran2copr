@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  multiscape
-%global packver   1.0.7
+%global packver   1.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          1.4.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multi-Objective Spatial Planning
+Summary:          Multi-Action, Multi-Objective Spatial Planning
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -31,6 +31,8 @@ BuildRequires:    R-CRAN-exactextractr
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-moocore 
 BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-assertthat >= 0.2.0
 Requires:         R-CRAN-Matrix 
@@ -46,6 +48,8 @@ Requires:         R-CRAN-exactextractr
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-terra 
 Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-moocore 
 
 %description
 Provides a modular framework for exact multi-objective spatial planning

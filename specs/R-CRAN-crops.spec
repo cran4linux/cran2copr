@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  crops
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Changepoints for a Range of Penalties (CROPS)
 
@@ -18,24 +18,14 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-sets 
-BuildRequires:    R-CRAN-reshape 
-BuildRequires:    R-CRAN-tidyverse 
 BuildRequires:    R-CRAN-memoise 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-Rdpack 
 Requires:         R-CRAN-sets 
-Requires:         R-CRAN-reshape 
-Requires:         R-CRAN-tidyverse 
 Requires:         R-CRAN-memoise 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
-Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-Rdpack 
 
 %description
