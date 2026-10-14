@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pgt
-%global packver   0.7.0
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Envelopment Analysis for Pollution-Generating Technologies
 
@@ -29,13 +29,14 @@ Requires:         R-CRAN-lpSolveAPI
 %description
 Nonparametric efficiency analysis for pollution-generating technologies
 under the materials-balance principle. Implements the weak-G-disposability
-model of Rodseth (2025) <doi:10.1007/s11123-025-00768-0> and its
-factorially determined multi-output representation, the by-production
-intersection technology of Murty, Russell and Levkoff (2012)
-<doi:10.1016/j.jeem.2012.02.005>, the materials-balance cost model of
-Coelli, Lauwers and Van Huylenbroeck (2007)
-<doi:10.1007/s11123-007-0052-8> and a weak-disposability reference model,
-with a pre-estimation audit of every materials-balance account,
+technology of Hampf and Rodseth (2015) <doi:10.1016/j.eneco.2015.04.001>,
+scored by the minimal-emission programme of Rodseth (2025)
+<doi:10.1007/s11123-025-00768-0> with its directional representation and
+five-component decomposition, the by-production intersection technology of
+Murty, Russell and Levkoff (2012) <doi:10.1016/j.jeem.2012.02.005>, the
+materials-balance cost model of Coelli, Lauwers and Van Huylenbroeck
+(2007) <doi:10.1007/s11123-007-0052-8> and a weak-disposability reference
+model, with a pre-estimation audit of every materials-balance account,
 metafrontier decompositions, bad-output shadow prices, marginal abatement
 cost curves, a cross-axiom comparison harness, a global
 Malmquist-Luenberger productivity index and subsampling sensitivity

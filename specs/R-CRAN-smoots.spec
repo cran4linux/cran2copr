@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  smoots
-%global packver   1.1.4
+%global packver   1.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonparametric Estimation of the Trend and Its Derivatives in TS
 
@@ -46,7 +46,9 @@ built-in as a comparison. With version 1.1.0, a linearity test for the
 trend function, forecasting methods and backtesting approaches are
 implemented as well. The smoothing methods of the package are described in
 Feng, Y., Gries, T., and Fritz, M. (2020)
-<doi:10.1080/10485252.2020.1759598>.
+<doi:10.1080/10485252.2020.1759598>. The software itself is introduced in
+Feng, Y., Gries, T., Letmathe, S., and Schulz, D. (2022)
+<doi:10.32614/RJ-2022-017>.
 
 %prep
 %setup -q -c -n %{packname}

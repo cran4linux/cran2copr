@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DTEAssurance
-%global packver   1.1.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Assurance Methods for Clinical Trials with a Delayed Treatment Effect
 
@@ -14,31 +14,25 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-SHELF 
-BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-nleqslv 
 BuildRequires:    R-CRAN-nph 
 BuildRequires:    R-CRAN-nphRCT 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rjags 
 BuildRequires:    R-CRAN-rpact 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-future.apply 
 Requires:         R-CRAN-SHELF 
-Requires:         R-CRAN-shiny 
 Requires:         R-stats 
 Requires:         R-CRAN-survival 
-Requires:         R-CRAN-nleqslv 
 Requires:         R-CRAN-nph 
 Requires:         R-CRAN-nphRCT 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rjags 
 Requires:         R-CRAN-rpact 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rlang 

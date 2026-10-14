@@ -1,28 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  later2
-%global packver   0.1
+%global packname  sds
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utilities for Scheduling Functions to Execute Later with Event Loops
+Summary:          Spatial Data Sources
 
-License:          Apache License 2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-cpp4r 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dsn >= 0.1.0
+BuildRequires:    R-CRAN-countrycode 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-dsn >= 0.1.0
+Requires:         R-CRAN-countrycode 
+Requires:         R-CRAN-tibble 
 
 %description
-Executes arbitrary R or C functions some time after the current time,
-after the R execution stack has emptied. The functions are scheduled in an
-event loop. This is a derived work from the 'later' package aiming to
-reduce the number of dependencies.
+Descriptions of spatial data sources that can be read directly with or
+without download. Most sources are readable by 'GDAL' software. There are
+functions for imagery, elevation, and a variety of easily accessible data
+streams including image tile servers, links to online files, and
+geographic data services.
 
 %prep
 %setup -q -c -n %{packname}

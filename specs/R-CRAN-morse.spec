@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  morse
-%global packver   3.3.5
+%global packver   3.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.5
+Version:          3.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modelling Reproduction and Survival Data in Ecotoxicology
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-ggplot2 >= 2.1.0
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-deSolve 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-epitools 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
@@ -38,7 +37,6 @@ Requires:         R-CRAN-ggplot2 >= 2.1.0
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-deSolve 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-epitools 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-grid 

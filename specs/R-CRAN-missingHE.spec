@@ -1,21 +1,21 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  missingHE
-%global packver   1.6.1
+%global packver   1.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.1
+Version:          1.6.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Missing Outcome Data in Health Economic Evaluation
+Summary:          Missing Cost Effectiveness Models
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-ggmcmc 
@@ -41,16 +41,12 @@ Requires:         R-CRAN-coda
 Requires:         R-CRAN-mcmcr 
 
 %description
-Contains a suite of functions for health economic evaluations with missing
-outcome data. The package can fit different types of statistical models
-under a fully Bayesian approach using the software 'JAGS' (which should be
-installed locally and which is loaded in 'missingHE' via the 'R' package
-'R2jags'). Three classes of models can be fitted under a variety of
-missing data assumptions: selection models, pattern mixture models and
-hurdle models. In addition to model fitting, 'missingHE' provides a set of
-specialised functions to assess model convergence and fit, and to
-summarise the statistical and economic results using different types of
-measures and graphs. The methods implemented are described in Mason (2018)
+Performs Bayesian cost-effectiveness analysis with missing outcome data.
+Three classes of models can be fitted under a variety of missing data
+assumptions: selection models, pattern mixture models and hurdle models.
+The package allows to assess model convergence and summarise the
+statistical and economic results using different types of measures and
+graphs. The methods implemented are described in Mason (2018)
 <doi:10.1002/hec.3793>, Molenberghs (2000)
 <doi:10.1007/978-1-4419-0300-6_18> and Gabrio (2019)
 <doi:10.1002/sim.8045>.

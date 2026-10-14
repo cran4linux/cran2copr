@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  oystermapR
-%global packver   1.5.0
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Predict and Map Oyster Growth Suitability from Environmental Data
 
@@ -34,17 +34,17 @@ Requires:         R-utils
 
 %description
 Predicts spatial suitability for oyster growth from environmental survey
-data using Analytic Hierarchy Process (AHP) weighted scoring. Users supply
-sensor data from Acoustic Doppler Current Profilers (ADCP),
-Conductivity-Temperature-Depth (CTD) sensors, bathymetric sonar, and
-sidescan sonar, specify a target species, and receive per-location
-suitability scores, a five-band 'GeoTIFF' heatmap for 'QGIS', contour
-lines, and a formatted PDF or HTML report. Supports seventeen species
-across global aquaculture regions, including Ostrea edulis, Magallana
-gigas, Crassostrea virginica, Crassostrea hongkongensis, and thirteen
-further species; see list_species(). Includes ocean acidification scoring
-via in-house aragonite saturation state (Omega_arag) calculation using
-Lueker et al. (2000) <doi:10.1016/S0304-4203(00)00022-0> and Mucci (1983)
+data using rank-reciprocal weighted scoring. Users supply sensor data from
+Acoustic Doppler Current Profilers (ADCP), Conductivity-Temperature-Depth
+(CTD) sensors, bathymetric sonar, and sidescan sonar, specify a target
+species, and receive per-location suitability scores, a five-band
+'GeoTIFF' heatmap for 'QGIS', contour lines, and a formatted PDF or HTML
+report. Supports seventeen species across global aquaculture regions,
+including Ostrea edulis, Magallana gigas, Crassostrea virginica,
+Crassostrea hongkongensis, and thirteen further species; see
+list_species(). Includes ocean acidification scoring via in-house
+aragonite saturation state (Omega_arag) calculation using Lueker et al.
+(2000) <doi:10.1016/S0304-4203(00)00022-0> and Mucci (1983)
 <doi:10.1357/002224083788520153> equilibrium constants (no external
 dependencies), variable impact diagnostics (variable_impact()), fine-scale
 habitat area analysis for restoration reporting in m2 with contiguous
@@ -57,8 +57,16 @@ modules, Harmful Algal Bloom (HAB) risk and anthropogenic disturbance
 scoring with optional live International Council for the Exploration of
 the Sea (ICES) data integration, hybrid larval dispersal connectivity
 scoring (union-find Gaussian kernel plus optional 'OpenDrift' or Finite
-Volume Community Ocean Model ('FVCOM') connectivity matrix), and batch
-multi-species comparison.
+Volume Community Ocean Model ('FVCOM') connectivity matrix), batch
+multi-species comparison, and evidence-weighted scoring in which each
+variable's weight is its published rank multiplied by the measured
+reliability and realised spread of that layer, with the fraction of the
+species' evidence base the survey observed reported alongside the score
+rather than normalised away, and lineage-specific tolerance profiles for
+related populations, in which thinly sampled lineages borrow strength from
+relatives across a genetic distance matrix only where tolerance is shown
+to track relatedness, with inverse mapping of where each lineage is more
+likely to occur and which source population suits a site.
 
 %prep
 %setup -q -c -n %{packname}

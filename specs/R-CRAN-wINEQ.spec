@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wINEQ
-%global packver   1.2.2
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Inequality Measures for Weighted Data
 
@@ -26,11 +26,11 @@ Requires:         R-stats
 
 %description
 Computes inequality measures of a given variable taking into account
-weights. Suitable for ratio, interval and ordered scale. Includes Gini,
-Theil, Leti index, Palma ratio, 20:20 ratio, Allison and Foster index,
-Jenkins index, Cowell and Flechaire index, Abul Naga and Yalcin index,
-Apouey index, Blair and Lacy index. Bootstrap provides distribution of
-inequality measures enabling significance tests.
+weights. Suitable for ratio, interval and ordered scale. Includes measures
+developed by Gini, Theil, Leti, Palma ratio, 20:20 ratio, Allison and
+Foster, Jenkins, Cowell and Flechaire, Abul Naga and Yalcin, Apouey, Blair
+and Lacy. Bootstrap provides distribution of inequality measures enabling
+significance tests.
 
 %prep
 %setup -q -c -n %{packname}

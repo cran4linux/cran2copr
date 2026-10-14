@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  statMatchLCM
-%global packver   1.2
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Matching Using Latent Class Models
 
@@ -23,17 +23,19 @@ Requires:         R-CRAN-nnet
 Requires:         R-CRAN-StatMatch 
 
 %description
-Tools for statistical matching based on latent class models. The package
-implements statistical matching procedures based on latent class models.
-It allows researchers to perform data integration when no unique
-identifiers are available by modeling the joint distribution of variables
-through latent categorical structures. The package supports estimation of
-latent class models, probabilistic matching between donor and recipient
-data sets, and generation of synthetic linked data under uncertainty. It
-is particularly useful in survey research and data fusion applications
-where combining information from multiple sources is required while
-preserving statistical properties and accounting for measurement error and
-missing data mechanisms.
+Provides a revised framework (1.2->2.0) for statistical matching of
+categorical data based on latent class models, including multiple
+imputation, predictive modeling, nearest-neighbour hot-deck matching, and
+probabilistic assignment of categorical target variables. It allows
+researchers to perform data integration when no unique identifiers are
+available by modeling the joint distribution of variables through latent
+categorical structures. The package supports estimation of latent class
+models, probabilistic matching between donor and recipient data sets, and
+generation of synthetic linked data under uncertainty. It is particularly
+useful in survey research and data fusion applications where combining
+information from multiple sources is required while preserving statistical
+properties and accounting for measurement error and missing data
+mechanisms.
 
 %prep
 %setup -q -c -n %{packname}

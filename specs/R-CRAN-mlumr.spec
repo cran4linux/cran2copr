@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlumr
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multilevel Unanchored Meta-Regression for Indirect Treatment Comparisons
 
@@ -17,38 +17,45 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-survival >= 3.1.0
 BuildRequires:    R-CRAN-rstantools >= 2.3.0
 BuildRequires:    R-CRAN-rstan >= 2.26.0
 BuildRequires:    R-CRAN-StanHeaders >= 2.26.0
 BuildRequires:    R-CRAN-BH >= 1.66.0
+BuildRequires:    R-CRAN-splines2 >= 0.4.1
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.0
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-randtoolbox 
-BuildRequires:    R-CRAN-copula 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-RcppParallel >= 5.0.1
+Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-survival >= 3.1.0
 Requires:         R-CRAN-rstantools >= 2.3.0
 Requires:         R-CRAN-rstan >= 2.26.0
+Requires:         R-CRAN-splines2 >= 0.4.1
 Requires:         R-CRAN-Rcpp >= 0.12.0
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-CRAN-randtoolbox 
-Requires:         R-CRAN-copula 
 Requires:         R-CRAN-rstantools
 
 %description
 Bayesian multilevel unanchored meta-regression (ML-UMR) for indirect
 treatment comparisons using individual patient data (IPD) and aggregate
 data (AgD). Implements shared prognostic factor assumption (SPFA) and
-relaxed SPFA models for binary, continuous, and count outcomes via 'Stan'.
-Also provides simulated treatment comparison (STC) via parametric
-G-computation and naive unadjusted benchmarks. ML-UMR is an adaptation of
-the ML-NMR methodology (Phillippo et al. 2020, <doi:10.1111/rssa.12579>)
-implemented in the 'multinma' package (GPL-3) to the unanchored two-trial
-case; the public API deliberately mirrors multinma's so users can move
-between ML-NMR and ML-UMR with the same workflow.
+relaxed SPFA models for binary, continuous, count, and time-to-event
+(survival) outcomes via 'Stan', including parametric and flexible M-spline
+survival baselines. Also provides a one-arm simulated treatment comparison
+(STC) via comparator-population G-computation and naive unadjusted
+benchmarks. ML-UMR is an adaptation of the ML-NMR methodology (Phillippo
+et al. 2020, <doi:10.1111/rssa.12579>) implemented in the 'multinma'
+package (GPL-3) to the unanchored two-trial case. The public API uses
+familiar names for data setup, integration and effect summaries, but
+ML-NMR and ML-UMR specifications and fitted objects are not
+interchangeable because their evidence structures and models differ.
 
 %prep
 %setup -q -c -n %{packname}

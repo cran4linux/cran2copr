@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  checktor
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extra CRAN Submission Checks
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.5.0
+Requires:         R-core >= 4.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 3.0.0
 BuildRequires:    R-utils 
@@ -34,7 +34,7 @@ Requires:         R-CRAN-xmlparsedata
 Provides automated checks for common Comprehensive R Archive Network
 (CRAN) submission issues that are not caught by standard 'R CMD check'.
 Consolidates ad-hoc requirements that CRAN reviewers enforce but standard
-checks do not surface, helping 'R' package maintainers identify and fix
+checks do not surface, helping R package maintainers identify and fix
 issues before submission to reduce rejection rates. Covers code-pattern
 issues, DESCRIPTION-field formatting, documentation problems, and general
 package structure concerns.

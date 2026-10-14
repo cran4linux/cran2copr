@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  CoRpower
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Power Calculations for Assessing Correlates of Risk in Clinical Efficacy Trials
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,9 +18,7 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-osDesign 
 Requires:         R-CRAN-survival 
-Requires:         R-CRAN-osDesign 
 
 %description
 Calculates power for assessment of intermediate biomarker responses as
@@ -46,16 +45,17 @@ function can initially be used for calculating additional requisite design
 parameters pertaining to the target population of active treatment
 recipients observed to be at risk at the biomarker sampling timepoint.
 Subsequently, the power calculation employs an inverse probability
-weighted logistic regression model fitted by the tps() function in the
-'osDesign' package. Power results as well as the relationship between the
-correlate of risk effect size and treatment efficacy can be visualized
-using various plotting functions. To link power calculations for detecting
-a correlate of risk and a correlate of treatment efficacy, a baseline
-immunogenicity predictor (BIP) can be simulated according to a specified
-classification rule (for dichotomous or trichotomous BIPs) or correlation
-with the biomarker response (for continuous BIPs), then outputted along
-with biomarker response data under assignment to treatment, and clinical
-endpoint data for both treatment and placebo groups.
+weighted logistic regression model fitted by the tps() function adapted
+from the 'osDesign' package. Power results as well as the relationship
+between the correlate of risk effect size and treatment efficacy can be
+visualized using various plotting functions. To link power calculations
+for detecting a correlate of risk and a correlate of treatment efficacy, a
+baseline immunogenicity predictor (BIP) can be simulated according to a
+specified classification rule (for dichotomous or trichotomous BIPs) or
+correlation with the biomarker response (for continuous BIPs), then
+outputted along with biomarker response data under assignment to
+treatment, and clinical endpoint data for both treatment and placebo
+groups.
 
 %prep
 %setup -q -c -n %{packname}
@@ -65,6 +65,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

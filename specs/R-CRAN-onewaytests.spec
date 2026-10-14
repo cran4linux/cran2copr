@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  onewaytests
-%global packver   3.1
+%global packver   3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1
+Version:          3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          One-Way Tests in Independent Groups Designs
 
@@ -35,22 +35,23 @@ Requires:         R-utils
 Requires:         R-CRAN-wesanderson 
 
 %description
-Performs one-way tests in independent groups designs including
-homoscedastic and heteroscedastic tests. These are one-way analysis of
-variance (ANOVA), Welch's heteroscedastic F test, Welch's heteroscedastic
-F test with trimmed means and Winsorized variances, Brown-Forsythe test,
-Alexander-Govern test, James second order test, Kruskal-Wallis test,
-Scott-Smith test, Box F test, Johansen F test, Generalized tests
-equivalent to Parametric Bootstrap and Fiducial tests, Alvandi's F test,
-Alvandi's generalized p-value, approximate F test, B square test, Cochran
-test, Weerahandi's generalized F test, modified Brown-Forsythe test,
-adjusted Welch's heteroscedastic F test, Welch-Aspin test, Permutation F
-test. The package performs pairwise comparisons and graphical approaches.
-Also, the package includes Student's t test, Welch's t test and
-Mann-Whitney U test for two samples. Moreover, it assesses variance
-homogeneity and normality of data in each group via tests and plots (Dag
-et al., 2018,
-<https://journal.r-project.org/archive/2018/RJ-2018-022/RJ-2018-022.pdf>).
+Performs one-way tests for independent groups designs under
+homoscedasticity and heteroscedasticity. The tests described by Dag et al.
+(2018) <doi:10.32614/RJ-2018-022> include one-way analysis of variance
+(ANOVA), Welch's heteroscedastic F test, Welch's heteroscedastic F test
+with trimmed means and Winsorized variances, Brown-Forsythe test,
+Alexander-Govern test, James second-order test, and Kruskal-Wallis test.
+Additional tests described by Kasikci et al. (2026)
+<doi:10.32614/RJ-2026-014> include Scott-Smith test, Box F test, Johansen
+F test, generalized tests equivalent to parametric bootstrap and fiducial
+tests, Alvandi's F test, Alvandi's generalized p-value, approximate F
+test, B square test, Cochran test, Weerahandi's generalized F test,
+modified Brown-Forsythe test, adjusted Welch's heteroscedastic F test,
+Welch-Aspin test, and permutation F test. The package also provides
+pairwise comparisons and graphical methods, as well as Student's t test,
+Welch's t test, and Mann-Whitney U test for two independent samples. It
+assesses variance homogeneity and within-group normality using tests and
+plots.
 
 %prep
 %setup -q -c -n %{packname}

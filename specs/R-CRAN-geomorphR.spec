@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geomorphR
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Geometric Features for Building Footprints in Sf Objects
+Summary:          Geometric Features and Footprint Comparison for 'sf' Objects
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -30,15 +30,18 @@ Requires:         R-CRAN-progressr
 
 %description
 Extracts reproducible geometric and urban-morphology descriptors from
-polygon and multipart polygon building footprints stored as sf objects.
-Methods include area, perimeter, compactness, shape, bounding-box,
-topology, convexity, and orientation measures, together with optional
-building-height, floor-count, gross-floor-area, floor-space-index,
-coverage, volume, and floor-height metrics derived from explicitly named
-attribute columns. The resulting sf objects preserve the source attributes
-and geometry for spatial analysis, visualization, and downstream
-statistical or machine-learning workflows, with optional future-based
-parallel processing for larger datasets.
+polygon and multipart polygon building footprints stored as 'sf' objects,
+including area, perimeter, compactness, shape, topology, convexity,
+orientation, and optional building-height and floor-area metrics. Compares
+polygon footprints across periods using the intersection-over-union
+(Jaccard) index (Jaccard, 1912) <doi:10.1111/j.1469-8137.1912.tb05611.x>
+to identify new constructions, potential demolitions, and footprint
+changes. Supports vector file formats readable by 'sf', including
+Shapefiles and GeoPackage (GPKG) vector files with named layers, optional
+boundary clipping, and reprojection to a common coordinate reference
+system. Returned 'sf' objects preserve source attributes and geometry for
+spatial analysis and downstream workflows, with optional parallel
+processing using 'future' for larger feature-extraction jobs.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HierPortfolios
-%global packver   1.0.2
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hierarchical Risk Clustering Portfolio Allocation Strategies
 
@@ -19,8 +19,10 @@ Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-fastcluster 
 BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-CVXR 
 Requires:         R-CRAN-fastcluster 
 Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-CVXR 
 
 %description
 Machine learning hierarchical risk clustering portfolio allocation
@@ -32,6 +34,7 @@ clustering-based asset allocation (Raffinot, 2017) <DOI:
 Risk Parity Algorithm with Cluster-based Capital Allocation (Pfitzingera
 and Katzke, 2019)
 <https://www.ekon.sun.ac.za/wpapers/2019/wp142019/wp142019.pdf>.
+Hierarchical Risk Budgeting (Koumou, 2024) <DOI: 10.3905/jfds.2024.1.156>.
 
 %prep
 %setup -q -c -n %{packname}

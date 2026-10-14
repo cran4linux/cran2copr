@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  reportr
-%global packver   1.3.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A General Message and Error Reporting System
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ore 
 Requires:         R-CRAN-ore 
@@ -25,7 +25,10 @@ Provides a system for reporting messages, which provides certain useful
 features over the standard R system, such as the incorporation of output
 consolidation, message filtering, assertions, expression substitution,
 automatic generation of stack traces for debugging, and conditional
-reporting based on the current "output level".
+reporting based on the current "output level". Messages are signalled as
+classed R conditions, so that calling code can decide how serious a
+situation is, rather than the function which detects it having to be told
+in advance.
 
 %prep
 %setup -q -c -n %{packname}

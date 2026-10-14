@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rxode2
-%global packver   5.1.7.1
+%global packver   5.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.1.7.1
+Version:          5.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Facilities for Simulating from ODE-Based Models
 
@@ -17,16 +17,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-StanHeaders >= 2.21.0.7
+BuildRequires:    R-CRAN-rxode2ll >= 2.0.18
 BuildRequires:    R-CRAN-cli >= 2.0.0
-BuildRequires:    R-CRAN-dparser >= 1.3.1.12
+BuildRequires:    R-CRAN-dparser >= 1.3.1.14
 BuildRequires:    R-CRAN-data.table >= 1.12.4
 BuildRequires:    R-CRAN-lotri >= 1.0.4
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.300.2.0
 BuildRequires:    R-CRAN-PreciseSums >= 0.7
-BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.9.2
 BuildRequires:    R-CRAN-Rcpp >= 0.12.3
-BuildRequires:    R-CRAN-RcppParallel 
+BuildRequires:    R-CRAN-rxode2lincmt >= 0.1.0
 BuildRequires:    R-CRAN-backports 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-inline 
@@ -38,19 +37,19 @@ BuildRequires:    R-CRAN-sys
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-qs2 
-BuildRequires:    R-CRAN-rxode2ll 
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-sitmo 
 BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-rxode2ll >= 2.0.18
 Requires:         R-CRAN-cli >= 2.0.0
-Requires:         R-CRAN-dparser >= 1.3.1.12
+Requires:         R-CRAN-dparser >= 1.3.1.14
 Requires:         R-CRAN-data.table >= 1.12.4
 Requires:         R-CRAN-lotri >= 1.0.4
 Requires:         R-CRAN-PreciseSums >= 0.7
 Requires:         R-CRAN-Rcpp >= 0.12.3
-Requires:         R-CRAN-RcppParallel 
+Requires:         R-CRAN-rxode2lincmt >= 0.1.0
 Requires:         R-CRAN-backports 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-inline 
@@ -62,7 +61,6 @@ Requires:         R-CRAN-sys
 Requires:         R-tools 
 Requires:         R-utils 
 Requires:         R-CRAN-qs2 
-Requires:         R-CRAN-rxode2ll 
 Requires:         R-CRAN-vctrs 
 Requires:         R-stats 
 

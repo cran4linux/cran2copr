@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  umx
-%global packver   4.80.0
+%global packver   4.80.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.80.0
+Version:          4.80.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Structural Equation Modeling and Twin Modeling in R
 
@@ -28,7 +28,6 @@ BuildRequires:    R-CRAN-lavaan
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-MuMIn 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-openxlsx 
@@ -52,7 +51,6 @@ Requires:         R-CRAN-lavaan
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
-Requires:         R-CRAN-MuMIn 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-openxlsx 

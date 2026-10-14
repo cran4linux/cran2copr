@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tsfknn
-%global packver   0.6.0
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Time Series Forecasting Using Nearest Neighbors
 
@@ -32,9 +32,9 @@ Allows forecasting time series using nearest neighbors regression
 Francisco Martinez, Maria P. Frias, Maria D. Perez-Godoy and Antonio J.
 Rivera (2019) <doi:10.1007/s10462-017-9593-z>. When the forecasting
 horizon is higher than 1, two multi-step ahead forecasting strategies can
-be used. The model built is autoregressive, that is, it is only based on
-the observations of the time series. The nearest neighbors used in a
-prediction can be consulted and plotted.
+be used. The model built is univariate and autoregressive, that is, it is
+only based on the observations of the time series. The nearest neighbors
+used in a prediction can be consulted and plotted.
 
 %prep
 %setup -q -c -n %{packname}

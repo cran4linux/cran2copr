@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rEMM
-%global packver   1.2.1
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extensible Markov Model for Modelling Temporal Relationships Between Clusters
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -38,12 +38,12 @@ Requires:         R-CRAN-igraph
 
 %description
 Implements TRACDS (Temporal Relationships between Clusters for Data
-Streams), a generalization of Extensible Markov Model (EMM). TRACDS adds a
-temporal or order model to data stream clustering by superimposing a
-dynamically adapting Markov Chain. Also provides an implementation of EMM
-(TRACDS on top of tNN data stream clustering). Development of this package
-was supported in part by NSF IIS-0948893 and R21HG005912 from the National
-Human Genome Research Institute. Hahsler and Dunham (2010)
+Streams), a generalization of the Extensible Markov Model (EMM). TRACDS
+adds a temporal or order model to data stream clustering by superimposing
+a dynamically adapting Markov Chain. It also provides an implementation of
+EMM (TRACDS on top of tNN data stream clustering). Development of this
+package was supported in part by NSF IIS-0948893 and R21HG005912 from the
+National Human Genome Research Institute. Hahsler and Dunham (2010)
 <doi:10.18637/jss.v035.i05>.
 
 %prep

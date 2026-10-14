@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  torchvision
-%global packver   0.9.0
+%global packver   0.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Models, Datasets and Transformations for Images
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli >= 3.6.3
 BuildRequires:    R-CRAN-torch >= 0.5.0
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-rlang 
@@ -29,9 +30,9 @@ BuildRequires:    R-CRAN-png
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-zeallot 
+Requires:         R-CRAN-cli >= 3.6.3
 Requires:         R-CRAN-torch >= 0.5.0
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-rlang 
@@ -44,7 +45,6 @@ Requires:         R-CRAN-png
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-withr 
-Requires:         R-CRAN-cli 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-zeallot 
 

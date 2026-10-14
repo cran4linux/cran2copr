@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  junco
-%global packver   0.1.6
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Common Tables and Listings Used in Clinical Trials
 
@@ -19,17 +19,16 @@ Requires:         R-core >= 4.4
 BuildArch:        noarch
 BuildRequires:    R-CRAN-checkmate >= 2.1.0
 BuildRequires:    R-CRAN-rbmi >= 1.6.0
+BuildRequires:    R-CRAN-tern >= 0.9.13
 BuildRequires:    R-CRAN-flextable >= 0.9.11
-BuildRequires:    R-CRAN-tern >= 0.9.10
 BuildRequires:    R-CRAN-vcdExtra >= 0.8.7
-BuildRequires:    R-CRAN-rtables >= 0.6.16
-BuildRequires:    R-CRAN-formatters >= 0.5.12
+BuildRequires:    R-CRAN-rtables >= 0.6.17
+BuildRequires:    R-CRAN-formatters >= 0.5.13
 BuildRequires:    R-CRAN-rlistings >= 0.2.13
 BuildRequires:    R-CRAN-tidytlg >= 0.12.0
-BuildRequires:    R-CRAN-rtables.officer >= 0.1.0
+BuildRequires:    R-CRAN-rtables.officer >= 0.1.2
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-survival 
@@ -37,24 +36,22 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-emmeans 
 BuildRequires:    R-CRAN-mmrm 
-BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-officer 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-assertthat 
 Requires:         R-CRAN-checkmate >= 2.1.0
 Requires:         R-CRAN-rbmi >= 1.6.0
+Requires:         R-CRAN-tern >= 0.9.13
 Requires:         R-CRAN-flextable >= 0.9.11
-Requires:         R-CRAN-tern >= 0.9.10
 Requires:         R-CRAN-vcdExtra >= 0.8.7
-Requires:         R-CRAN-rtables >= 0.6.16
-Requires:         R-CRAN-formatters >= 0.5.12
+Requires:         R-CRAN-rtables >= 0.6.17
+Requires:         R-CRAN-formatters >= 0.5.13
 Requires:         R-CRAN-rlistings >= 0.2.13
 Requires:         R-CRAN-tidytlg >= 0.12.0
-Requires:         R-CRAN-rtables.officer >= 0.1.0
+Requires:         R-CRAN-rtables.officer >= 0.1.2
 Requires:         R-CRAN-broom 
 Requires:         R-methods 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-generics 
 Requires:         R-stats 
 Requires:         R-CRAN-survival 
@@ -62,11 +59,10 @@ Requires:         R-CRAN-tibble
 Requires:         R-utils 
 Requires:         R-CRAN-emmeans 
 Requires:         R-CRAN-mmrm 
-Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-officer 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-assertthat 
 
 %description
 Structure and formatting requirements for clinical trial table and listing

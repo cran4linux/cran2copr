@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cepiweek
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Continuous Epidemiological Week Indexing for Time-Series Analysis
 
@@ -22,12 +22,13 @@ Requires:         R-CRAN-lubridate
 
 %description
 Provides a simple algorithm to generate a continuous epidemiological week
-index from date variables in a dataframe. Weeks are computed as sequential
-7-day intervals starting from the earliest observed date. They do not
-reset at calendar year boundaries and are not ISO 8601 nor MMWR calendar
-weeks. The approach is intended for epidemiological modeling and
-time-series analysis where temporal continuity is required. The generated
-weeks are sequential and do not reset at calendar year boundaries.
+index from date variables in a data frame. Weeks are computed as
+sequential 7-day intervals aligned to Mondays, starting from the earliest
+observed date or from a user-supplied start date. They do not reset at
+calendar year boundaries and are not ISO 8601 nor MMWR calendar weeks.
+Missing or non-convertible dates are returned as NA instead of stopping
+the computation. The approach is intended for epidemiological modeling and
+time-series analysis where temporal continuity is required.
 
 %prep
 %setup -q -c -n %{packname}

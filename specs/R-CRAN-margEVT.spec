@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  margEVT
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regularized Point Processes and Stochastic Marginalization for Extremes
 
@@ -17,22 +17,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-vars 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-parallel 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-vars 
 
 %description
 Implements a non-stationary extreme value analysis framework by coupling a
-covariate-driven Non-Homogeneous Poisson Process (NHPP) with Elastic-Net
-regularization and analytical gradients. Provides methods for estimating
-conditional return levels and unconditional (marginalized) return levels
-via parametric stochastic integration over stable Vector Autoregressive
-VAR(p) or univariate autoregressive covariate trajectories, or
-non-parametric annual-block resampling. Supports block-specific penalty
-controls, operational active-set thresholds, conditional parametric
+covariate-driven non-homogeneous Poisson process (NHPP) with (adaptive)
+elastic-net regularization and analytical gradients. Provides methods for
+estimating conditional return levels and unconditional (marginalized)
+return levels via parametric stochastic integration over stable vector
+autoregressive VAR(p) covariate trajectories, or non-parametric
+annual-block resampling. Supports block-specific penalty controls, BIC
+selection along a regularization path, Karush-Kuhn-Tucker convergence
+checks, time-rescaling residual diagnostics, conditional parametric
 bootstrap inference, and walk-forward assessment.
 
 %prep
