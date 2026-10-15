@@ -406,7 +406,7 @@ pkg_exceptions <- function(tpl, pkg, path) {
   # other
   if (pkg %in% c("adapr", "taber"))
     unlink(file.path(path, "data"))
-  if (pkg %in% c("x13binary"))
+  if (pkg %in% c("renv", "x13binary"))
     dir.create(file.path(path, "src"))
 
   tpl

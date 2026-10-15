@@ -16,7 +16,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
 BuildRequires:    R-utils 
 Requires:         R-utils 
 
