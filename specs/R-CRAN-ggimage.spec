@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggimage
-%global packver   0.3.6
+%global packver   0.3.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.6
+Version:          0.3.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Use Image in 'ggplot2'
+Summary:          Use Images in 'ggplot2'
 
 License:          Artistic-2.0
 URL:              https://cran.r-project.org/package=%{packname}
@@ -30,6 +30,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
@@ -47,6 +48,7 @@ Requires:         R-methods
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scales 
+Requires:         R-stats 
 Requires:         R-CRAN-tibble 
 Requires:         R-tools 
 Requires:         R-utils 
@@ -54,7 +56,10 @@ Requires:         R-CRAN-withr
 
 %description
 Supports image files and graphic objects to be visualized in 'ggplot2'
-graphic system.
+graphic system. Images can be drawn at data points, used as the background
+of a plot, or embedded as a sub-plot, and can be read from local files or
+downloaded from remote services such as 'Pokemon', 'PhyloPic', and emoji
+and icon collections. An interactive geom is provided for 'HTML' output.
 
 %prep
 %setup -q -c -n %{packname}

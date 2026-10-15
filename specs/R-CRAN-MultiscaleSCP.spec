@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MultiscaleSCP
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiscale Systematic Conservation Planning Across Nested H3 Grids
 
@@ -16,15 +16,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.2
 Requires:         R-core >= 4.2
-BuildArch:        noarch
+BuildRequires:    R-CRAN-prioritizr >= 9.0.1
 BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-units 
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-prioritizr 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-exactextractr 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-cli 
@@ -32,14 +33,16 @@ BuildRequires:    R-CRAN-R6
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-h3jsr 
 BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-prioritizr >= 9.0.1
 Requires:         R-CRAN-sf 
+Requires:         R-CRAN-units 
 Requires:         R-CRAN-terra 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
-Requires:         R-CRAN-prioritizr 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-exactextractr 
 Requires:         R-stats 
 Requires:         R-CRAN-cli 
@@ -56,9 +59,13 @@ H3 hierarchical hexagonal grid system (Uber Technologies (2024)
 conservation problems across nested H3 resolutions with
 resolution-specific features, costs, and management attributes, including
 cross-scale connectivity penalties derived from parent-child
-relationships. Also includes utilities to evaluate solutions using
-multiscale-aware diagnostics and to post-process optimization outputs into
-alternative area-targeted conservation scenarios.
+relationships. Includes a multiscale minimum-set objective that allows
+planning units at different resolutions to contribute toward feature
+representation targets while accounting for overlapping costs and feature
+amounts across nested planning units. Also includes utilities to evaluate
+solutions using multiscale-aware diagnostics and to post-process
+optimization outputs into alternative area-targeted conservation
+scenarios.
 
 %prep
 %setup -q -c -n %{packname}

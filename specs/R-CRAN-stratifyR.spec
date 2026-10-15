@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  stratifyR
-%global packver   2.0-1
+%global packver   2.0-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimal Stratification of Univariate Populations
 
@@ -44,18 +44,19 @@ distribution, selected automatically by AIC from a set of continuous
 families (normal, log-normal, gamma, Weibull, exponential, Cauchy,
 uniform, Pareto, triangular and right-triangular), and the optimum
 boundaries are obtained by minimising the Neyman objective. Version 2.0
-keeps the original globally optimal Dynamic Programming (DP) solver of
-Reddy and Khan (2020) as the default and adds two faster derivative-free
-alternatives for interactive and large-scale use: a multi-start 'COBYLA'
-solver and a two-phase 'global' solver that couples 'DIRECT-L' with
-'COBYLA' refinement.  It also provides cost-constrained allocation with
-unequal per-stratum costs, a design-efficiency comparison
-(compare_designs), two- and three-dimensional and interactive
-visualisations, solution-quality diagnostics (a Cauchy-Schwarz optimality
-gap and KKT first-order residuals for the derivative-free solvers) and a
-self-contained 'shiny' application, while remaining backward compatible
-with the strata.data() and strata.distr() interface of version 1.x.  The
-methodology follows Khan et al. (2008)
+keeps the Dynamic Programming (DP) solver of Reddy and Khan (2020), which
+is globally optimal for the fitted distribution, as the default.  It adds
+two fast derivative-free solvers, a multi-start 'COBYLA' solver and a
+two-phase global solver that couples 'DIRECT-L' with 'BOBYQA' refinement,
+and an exact solver that runs dynamic programming on the sorted data and
+returns the partition with the smallest empirical Neyman cost.  It also
+provides cost-constrained allocation with unequal per-stratum costs, a
+design-efficiency comparison (compare_designs), two- and three-dimensional
+and interactive visualisations, solution-quality diagnostics (a
+Cauchy-Schwarz optimality gap and KKT first-order residuals for the
+derivative-free solvers) and a self-contained 'shiny' application, while
+remaining backward compatible with the strata.data() and strata.distr()
+interface of version 1.x.  The methodology follows Khan et al. (2008)
 <https://www150.statcan.gc.ca/n1/pub/12-001-x/2008002/article/10761-eng.pdf>,
 Reddy and Khan (2018) <doi:10.1111/anzs.12244> and Reddy and Khan (2020)
 <doi:10.1111/anzs.12301>.

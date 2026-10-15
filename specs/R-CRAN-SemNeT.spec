@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SemNeT
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Methods and Measures for Semantic Network Analysis
 
@@ -45,9 +45,9 @@ Requires:         R-CRAN-effects
 Implements several functions for the analysis of semantic networks
 including different network estimation algorithms, partial node
 bootstrapping (Kenett, Anaki, & Faust, 2014
-<doi:10.3389/fnhum.2014.00407>), random walk simulation (Kenett &
-Austerweil, 2016), and a function to compute global network measures.
-Significance tests and plotting features are also implemented.
+<doi:10.3389/fnhum.2014.00407>), random walk simulation, and a function to
+compute global network measures. Significance tests, including permutation
+testing, and plotting features are also implemented.
 
 %prep
 %setup -q -c -n %{packname}

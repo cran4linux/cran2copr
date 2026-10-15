@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bild
-%global packver   1.2-1
+%global packver   1.3-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Package for BInary Longitudinal Data
 
@@ -16,23 +16,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
-BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-utils 
-Requires:         R-methods 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-generics 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-utils 
+Requires:         R-methods 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-generics 
 
 %description
 Performs logistic regression for binary longitudinal data, allowing for
 serial dependence among observations from a given individual and a random
 intercept term. Estimation is via maximization of the exact likelihood of
 a suitably defined model. Missing values and unbalanced data are allowed,
-with some restrictions. M. Helena Goncalves et al.(2007) <DOI:
+with some restrictions. M. Helena Goncalves et al. (2012) <DOI:
 10.18637/jss.v046.i09>.
 
 %prep

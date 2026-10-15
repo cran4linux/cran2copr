@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  WaterBalanceR
-%global packver   0.1.21
+%global packver   0.1.22
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.21
+Version:          0.1.22
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate High Resolution Water Balance of Starch Potatoes
 
@@ -30,7 +30,6 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-RSelenium 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-sp 
@@ -38,13 +37,14 @@ BuildRequires:    R-CRAN-geosphere
 BuildRequires:    R-CRAN-RCurl 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-openeo 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RSelenium 
+BuildRequires:    R-CRAN-openeo 
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-sf 
@@ -59,7 +59,6 @@ Requires:         R-utils
 Requires:         R-CRAN-terra 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-RSelenium 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-sp 
@@ -67,13 +66,14 @@ Requires:         R-CRAN-geosphere
 Requires:         R-CRAN-RCurl 
 Requires:         R-grDevices 
 Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-openeo 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-scales 
 Requires:         R-methods 
+Requires:         R-CRAN-RSelenium 
+Requires:         R-CRAN-openeo 
 Requires:         R-CRAN-rlang 
 
 %description

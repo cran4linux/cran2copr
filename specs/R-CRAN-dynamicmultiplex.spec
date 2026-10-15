@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dynamicmultiplex
-%global packver   1.3.1
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Community Detection for Evolving Multiplex Networks
+Summary:          Tracking Communities in Changing Temporal Networks
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -25,16 +25,20 @@ Requires:         R-CRAN-clue
 Requires:         R-CRAN-rlang 
 
 %description
-Multiplex temporal community detection with customizable interlayer
-coupling. Runs Louvain or Leiden community detection on each network layer
-and constructs interlayer ties using Jaccard similarity, overlap
-coefficient, node-strength weighted variants, or direct node identity
-links, and also provides a two-stage snapshot-and-match tracker that
-aligns independently detected per-layer communities across time with the
-Hungarian assignment algorithm. Supports user-specified layer connectivity
-via the layer_links argument, enabling adjacent-only temporal coupling
-that avoids the long-range pooling problem in standard multislice
-approaches.
+Tools for temporal networks that change over time, where nodes enter and
+leave, groups form, split, merge and dissolve, and periods differ in size.
+The temporal fitters track nodes and communities across periods. A
+community keeps one identifier while it persists, and a newly formed group
+receives a new one. Two-stage fitters run Louvain or Leiden community
+detection in each period and link communities in linked periods by Jaccard
+similarity, the overlap coefficient or node-strength weighted variants.
+The 'layer_links' argument sets which periods are directly linked,
+adjacent periods only by default. By default all periods are fitted
+jointly, so later periods can change earlier labels, and tracking =
+'filtered' prevents this. Multislice modularity (Mucha et al. 2010)
+<doi:10.1126/science.1184819> and Hungarian matching are included as
+comparison methods, and a bootstrap stability score helps choose between
+the two-stage and multislice approaches.
 
 %prep
 %setup -q -c -n %{packname}

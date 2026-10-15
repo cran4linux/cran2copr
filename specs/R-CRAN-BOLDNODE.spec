@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BOLDNODE
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Search and Explore BOLD Data Packages Efficiently
 
@@ -17,20 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-duckdb >= 1.5.5
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-dbplyr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-duckdb 
 BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-duckdb >= 1.5.5
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-dbplyr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-duckdb 
 Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-sf 

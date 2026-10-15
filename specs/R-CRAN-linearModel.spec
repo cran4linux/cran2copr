@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  linearModel
-%global packver   1.0.2
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linear Model Functions
 
@@ -18,8 +19,10 @@ Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-methods 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-methods 
 
 %description
 Functions to access and test results from a linear model.

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gkrreg
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Gaussian Kernel Robust Regression (GKRReg)
 
@@ -35,13 +35,16 @@ proposed by De Carvalho, Lima Neto and Ferreira (2017)
 iteratively using the Gaussian kernel so that poorly-fitted observations
 (outliers, leverage points) receive small weights, yielding resistance to
 Y-space outliers, X-space outliers and leverage points. Convergence is
-guaranteed by Propositions 4.1 and 4.2 of the original paper. Three
+guaranteed by Propositions 4.1 and 4.2 of the original paper. Four
 estimators for the kernel width hyper-parameter are provided (S1: Caputo,
-S2: pairwise median, S3: residual variance). Inference is provided via an
-analytic sandwich variance estimator (default) or via bootstrap
-(percentile, normal and BCa intervals with p-values) through gkrr_boot().
-Six real datasets from the robust regression literature are included to
-facilitate reproducible comparisons.
+S2: pairwise median, S3: residual variance, S4: corrected Akaike
+bandwidth), together with a data-driven selection rule. Inference is
+provided by a sandwich variance estimator with a family of
+heteroskedasticity-consistent finite-sample corrections adapted to the
+weighted leverage of the method, or by a pairs bootstrap that re-estimates
+the kernel width on each replicate (percentile, normal and bias-corrected
+accelerated intervals with p-values). Six real datasets from the robust
+regression literature are included to facilitate reproducible comparisons.
 
 %prep
 %setup -q -c -n %{packname}

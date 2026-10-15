@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FastSurvival
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Survival Analysis and Simulation for Clinical Trials
 
@@ -16,16 +16,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-dqrng >= 0.4.0
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-dqrng 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-CRAN-dqrng >= 0.4.0
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-stats 
-Requires:         R-CRAN-dqrng 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-mvtnorm 
 
@@ -42,22 +42,24 @@ mean survival time (wmst_fast()), milestone survival comparison
 test (maxcombo_fast()), the robust modestly-weighted log-rank test
 (rmw_fast()), the weighted Kaplan-Meier (Pepe-Fleming) test (wkm_fast()),
 the average hazard with survival weight (ahsw_fast()), and the
-Kalbfleisch-Prentice average hazard ratio (ahr_fast()). The simulation
-layer generates individual patient data (simdata_fast()), determines the
-calendar time of each analysis from combined event and calendar-time rules
-(cutoff_fast()), performs interim or sequential analyses
-(analysis_fast()), compares several experimental arms with a shared
-control (pairwise_fast()), applies treatment switching at progression or
-after an interim analysis (switch_fast()), and aggregates operating
-characteristics (simsummary_fast()). A visualization layer assembles
-design-stage scenarios (gen_scenario_fast()) and builds analysis-stage
-Kaplan-Meier curves (kmcurve_fast()), each with plot and print methods.
-All functions are designed for repeated evaluation inside large simulation
-loops, such as adaptive sample-size re-estimation, probability-of-success
+Kalbfleisch-Prentice average hazard ratio (ahr_fast()). Besides vectors,
+these functions accept a model formula with a data frame, and their
+results can be returned as data frames. The simulation layer generates
+individual patient data (simdata_fast()), determines the calendar time of
+each analysis from combined event and calendar-time rules (cutoff_fast()),
+performs interim or sequential analyses (analysis_fast()), compares
+several experimental arms with a shared control (pairwise_fast()), applies
+treatment switching at progression or after an interim analysis
+(switch_fast()), and aggregates operating characteristics
+(simsummary_fast()). A visualization layer assembles design-stage
+scenarios (gen_scenario_fast()) and builds analysis-stage Kaplan-Meier
+curves (kmcurve_fast()), each with plot and print methods. All functions
+are designed for repeated evaluation inside large simulation loops, such
+as adaptive sample-size re-estimation, probability-of-success
 calculations, and regional consistency evaluation in multi-regional
 trials. Core computations are implemented in 'C++' via 'Rcpp' for maximum
 performance. Methodological background is described in Collett (2014,
-ISBN:9780429196294).
+ISBN:9781439856789).
 
 %prep
 %setup -q -c -n %{packname}

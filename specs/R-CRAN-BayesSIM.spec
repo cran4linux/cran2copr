@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BayesSIM
-%global packver   1.0.4
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Integrated Interface of Bayesian Single Index Models using 'nimble'
 
@@ -18,7 +18,7 @@ BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-nimble 
-BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-posterior 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
@@ -27,8 +27,10 @@ BuildRequires:    R-CRAN-patchwork
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-loo 
+BuildRequires:    R-CRAN-coda 
 Requires:         R-CRAN-nimble 
-Requires:         R-CRAN-coda 
+Requires:         R-CRAN-posterior 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-MASS 
 Requires:         R-methods 
@@ -37,6 +39,8 @@ Requires:         R-CRAN-patchwork
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-loo 
+Requires:         R-CRAN-coda 
 
 %description
 Provides tools for fitting Bayesian single index models with flexible

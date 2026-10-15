@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  matrixprofiler
-%global packver   0.1.10
+%global packver   0.1.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.10
+Version:          0.1.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Matrix Profile for R
 
@@ -16,12 +16,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
-BuildRequires:    R-CRAN-RcppParallel >= 5.1.5
 BuildRequires:    R-CRAN-RcppThread >= 2.1.3
 BuildRequires:    R-CRAN-checkmate >= 2.1.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.9
-BuildRequires:    R-CRAN-RcppProgress >= 0.4.2
-Requires:         R-CRAN-RcppParallel >= 5.1.5
 Requires:         R-CRAN-checkmate >= 2.1.0
 Requires:         R-CRAN-Rcpp >= 1.0.9
 

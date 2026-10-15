@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  plantmix
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Genetic Study of Plant Mixtures
 
@@ -46,7 +46,7 @@ such as those based on general and specific mixing abilities (GMA-SMA) as
 well as direct and social breeding values (DBV-SBV), also known as direct
 and indirect genetic effects (DGE-IGE). More details in Forst et al (2019,
 <doi:10.1016/j.fcr.2019.107571>) for GMA-SMA models, and Salomon et al
-(2026, <doi:10.64898/2026.03.27.714849>) for DBV-SBV models. The package
+(2026, <doi:10.1093/genetics/iyag177>) for DBV-SBV models. The package
 also provides functions to optimize experimental designs, simulate data
 sets and compute interaction indices.
 

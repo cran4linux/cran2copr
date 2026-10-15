@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  acR
-%global packver   0.3.4
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Content Analysis in R: Integrated Qualitative (LLMs) and Quantitative Pipeline
 
@@ -24,10 +24,12 @@ BuildRequires:    R-CRAN-irr
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-yaml 
 Requires:         R-CRAN-cli 
@@ -37,10 +39,12 @@ Requires:         R-CRAN-irr
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
+Requires:         R-stats 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
+Requires:         R-utils 
 Requires:         R-CRAN-withr 
 Requires:         R-CRAN-yaml 
 

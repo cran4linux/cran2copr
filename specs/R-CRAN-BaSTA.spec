@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BaSTA
-%global packver   2.0.2
+%global packver   2.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          2.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Age-Specific Bayesian Survival Trajectory Analysis from Incomplete Census or Capture-Recapture/Recovery Data
 
@@ -21,12 +21,13 @@ BuildRequires:    R-CRAN-snowfall >= 1.84.6.2
 Requires:         R-CRAN-snowfall >= 1.84.6.2
 
 %description
-Estimates survival and mortality with covariates from census or
-capture-recapture/recovery data in a Bayesian framework when many
-individuals are of unknown age. It includes tools for data checking, model
-diagnostics and outputs such as life-tables and plots, as described in
-Colchero, Jones, and Rebke (2012) <doi:10.1111/j.2041-210X.2012.00186.x>
-and Colchero et al. (2021) <doi:10.1038/s41467-021-23894-3>.
+Estimates survival and mortality with covariates and random effects from
+census or capture-recapture/recovery data in a Bayesian framework when
+many individuals are of unknown age. It includes tools for data checking,
+model diagnostics and outputs such as life-tables and plots, as described
+in Colchero, Jones, and Rebke (2012)
+<doi:10.1111/j.2041-210X.2012.00186.x> and Colchero et al. (2021)
+<doi:10.1038/s41467-021-23894-3>.
 
 %prep
 %setup -q -c -n %{packname}

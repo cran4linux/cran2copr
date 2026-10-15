@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PeerPerformance
-%global packver   2.4.0
+%global packver   2.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.0
+Version:          2.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Luck-Corrected Peer Performance Analysis in R
 
@@ -41,8 +41,7 @@ factor-model alphas, Sharpe ratios, or modified Sharpe ratios, the latter
 using the equality test of Ardia and Boudt (2015)
 <doi:10.1016/j.frl.2015.02.008>. Funds can be screened within a universe
 or against a separate peer group, over rolling windows, and results come
-with bootstrap confidence intervals, summary, plot, and tidy data frame
-methods.
+with peer-bootstrap intervals, summary, plot, and tidy data frame methods.
 
 %prep
 %setup -q -c -n %{packname}
