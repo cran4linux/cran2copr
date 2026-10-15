@@ -45,7 +45,7 @@ machine learning algorithm (H2O AutoML).
 
 %prep
 %setup -q -c -n %{packname}
-cp %{SOURCE1} %{packname}/inst/java
+
 # fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
@@ -59,7 +59,7 @@ find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} 
 %build
 
 %install
-
+export H2O_JAR_PATH=%{SOURCE1}
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)

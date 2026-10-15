@@ -348,7 +348,6 @@ pkg_exceptions <- function(tpl, pkg, path) {
       "sed -i 's/\"runitVirtualClassTest.r\")}/\"runitVirtualClassTest.r\"/g'",
       "%{packname}/man/checkFuncs.Rd"),
     rgeolocate = "echo \"PKG_LIBS += -lrt\" >> %{packname}/src/Makevars.in",
-    h2o = "cp %{SOURCE1} %{packname}/inst/java",
     RcppCGAL = "tar xf %{SOURCE1} -C %{packname}/inst */include --strip-components=1",
     nws=,OpenMx=,irace=,configr=,goldi=,RWebLogo=,rSymPy=,ndl=,scrobbler=,
     chromoR=,SoilR=,dynwrap=,RcppRedis=,protViz=,PRISMA=,rgee=,tcltk2=paste(
@@ -391,6 +390,7 @@ pkg_exceptions <- function(tpl, pkg, path) {
     npsp=,robeth=,robustbase=,rootSolve=,sequoia=,subplex=,VGAM=paste(
       "test $(gcc -dumpversion) -ge 10 && mkdir -p ~/.R &&",
       "echo \"FFLAGS=$(R CMD config FFLAGS) -fallow-argument-mismatch\" > ~/.R/Makevars"),
+    h2o = "export H2O_JAR_PATH=%{SOURCE1}",
     rPython = "export RPYTHON_PYTHON_VERSION=3",
     RcppParallel = "export TBB_AUTODETECT=TRUE\n",
     Rmpi=,pbdMPI=,pbdSLAP=,bigGP =
