@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gt
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easily Create Presentation-Ready Display Tables
 
@@ -26,17 +26,18 @@ BuildRequires:    R-CRAN-htmlwidgets >= 1.6.4
 BuildRequires:    R-CRAN-xml2 >= 1.3.6
 BuildRequires:    R-CRAN-scales >= 1.3.0
 BuildRequires:    R-CRAN-tidyselect >= 1.2.1
+BuildRequires:    R-CRAN-dplyr >= 1.2.0
 BuildRequires:    R-CRAN-markdown >= 1.13
-BuildRequires:    R-CRAN-dplyr >= 1.1.4
 BuildRequires:    R-CRAN-rlang >= 1.1.4
 BuildRequires:    R-CRAN-bitops >= 1.0.7
+BuildRequires:    R-CRAN-vctrs >= 0.7.0
 BuildRequires:    R-CRAN-htmltools >= 0.5.8.1
 BuildRequires:    R-CRAN-sass >= 0.4.9
 BuildRequires:    R-CRAN-reactable >= 0.4.4
 BuildRequires:    R-CRAN-bigD >= 0.2
 BuildRequires:    R-CRAN-base64enc >= 0.1.3
 BuildRequires:    R-CRAN-juicyjuice >= 0.1.0
-BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-grDevices 
 Requires:         R-CRAN-cli >= 3.6.3
 Requires:         R-CRAN-magrittr >= 2.0.3
 Requires:         R-CRAN-commonmark >= 1.9.1
@@ -46,17 +47,18 @@ Requires:         R-CRAN-htmlwidgets >= 1.6.4
 Requires:         R-CRAN-xml2 >= 1.3.6
 Requires:         R-CRAN-scales >= 1.3.0
 Requires:         R-CRAN-tidyselect >= 1.2.1
+Requires:         R-CRAN-dplyr >= 1.2.0
 Requires:         R-CRAN-markdown >= 1.13
-Requires:         R-CRAN-dplyr >= 1.1.4
 Requires:         R-CRAN-rlang >= 1.1.4
 Requires:         R-CRAN-bitops >= 1.0.7
+Requires:         R-CRAN-vctrs >= 0.7.0
 Requires:         R-CRAN-htmltools >= 0.5.8.1
 Requires:         R-CRAN-sass >= 0.4.9
 Requires:         R-CRAN-reactable >= 0.4.4
 Requires:         R-CRAN-bigD >= 0.2
 Requires:         R-CRAN-base64enc >= 0.1.3
 Requires:         R-CRAN-juicyjuice >= 0.1.0
-Requires:         R-CRAN-vctrs 
+Requires:         R-grDevices 
 
 %description
 Build display tables from tabular data with an easy-to-use set of

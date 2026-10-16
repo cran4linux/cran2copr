@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shinyGovstyle
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Custom Gov Style Inputs for Shiny
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-bslib >= 0.9.0
 BuildRequires:    R-CRAN-shiny >= 0.14
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-jsonlite 
@@ -28,6 +29,7 @@ BuildRequires:    R-CRAN-readr
 BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-writexl 
+Requires:         R-CRAN-bslib >= 0.9.0
 Requires:         R-CRAN-shiny >= 0.14
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-jsonlite 
@@ -41,9 +43,8 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-writexl 
 
 %description
-Collection of 'shiny' application styling that are based on the GOV.UK
-Design System. See <https://design-system.service.gov.uk/components/> for
-details.
+Provides 'shiny' components styled using the GOV.UK Design System. See
+<https://design-system.service.gov.uk/components/> for component guidance.
 
 %prep
 %setup -q -c -n %{packname}

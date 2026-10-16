@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggsem
-%global packver   1.0.0.1
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive Structural Equation Modeling (SEM) and Multi-Group Path Diagrams
 
@@ -21,10 +21,13 @@ BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
 BuildRequires:    R-CRAN-semPlot >= 1.1.7
 BuildRequires:    R-CRAN-lavaan >= 0.6.21
 BuildRequires:    R-CRAN-blavaan 
+BuildRequires:    R-CRAN-colourpicker 
 BuildRequires:    R-CRAN-DiagrammeRsvg 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-network 
 BuildRequires:    R-CRAN-purrr 
@@ -32,6 +35,8 @@ BuildRequires:    R-CRAN-qgraph
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-Rtsne 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-CRAN-smplot2 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
@@ -42,10 +47,13 @@ Requires:         R-CRAN-ggplot2 >= 4.0.0
 Requires:         R-CRAN-semPlot >= 1.1.7
 Requires:         R-CRAN-lavaan >= 0.6.21
 Requires:         R-CRAN-blavaan 
+Requires:         R-CRAN-colourpicker 
 Requires:         R-CRAN-DiagrammeRsvg 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-DT 
 Requires:         R-grDevices 
 Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-memoise 
 Requires:         R-methods 
 Requires:         R-CRAN-network 
 Requires:         R-CRAN-purrr 
@@ -53,6 +61,8 @@ Requires:         R-CRAN-qgraph
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-Rtsne 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinyjs 
 Requires:         R-CRAN-smplot2 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 

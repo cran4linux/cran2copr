@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  farr
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data and Code for Empirical Research in Accounting
 
@@ -41,9 +41,12 @@ Requires:         R-CRAN-lubridate
 Requires:         R-CRAN-rpart 
 
 %description
-Handy functions and data to support the course book 'Empirical Research in
-Accounting: Tools and Methods' (1st ed.). Chapman and Hall/CRC.
-<doi:10.1201/9781003456230> and <https://iangow.github.io/far_book/>.
+Data sets and functions for empirical accounting research, including
+event-return calculations, panel-data simulations, classification
+performance measures, and 'Parquet' file workflows using 'DuckDB'.
+Supports methods described in "Empirical Research in Accounting: Tools and
+Methods" (2024) <doi:10.1201/9781003456230>. The online companion is
+available at <https://iangow.github.io/far_book/>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DNNSIM
-%global packver   0.1.1
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Single-Index Neural Network for Skewed Heavy-Tailed Data
 
@@ -28,8 +28,8 @@ Requires:         R-CRAN-reticulate >= 1.37.0
 Provides a deep neural network model with a monotonic increasing single
 index function tailored for periodontal disease studies. The residuals are
 assumed to follow a skewed T distribution, a skewed normal distribution,
-or a normal distribution. More details can be found at Liu, Huang, and Bai
-(2024) <doi:10.1016/j.csda.2024.108012>.
+or a normal distribution. More details can be found at Liu, Wang, Bai and
+Bandyopadhyay (2026) <doi:10.1093/biostatistics/kxag040>.
 
 %prep
 %setup -q -c -n %{packname}

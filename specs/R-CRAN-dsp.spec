@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dsp
-%global packver   1.6.0
+%global packver   1.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dynamic Shrinkage Process and Change Point Detection
 
@@ -79,8 +79,8 @@ unequally spaced data. Some support for heteroscedastic errors, outlier
 detection, and change point estimation. Methods in this package are
 described in Kowal et al. (2019) <doi:10.1111/rssb.12325>, Wu et al.
 (2024) <doi:10.1080/07350015.2024.2362269>, Schafer and Matteson (2024)
-<doi:10.1080/00401706.2024.2407316>, and Cho and Matteson (2024)
-<doi:10.48550/arXiv.2408.11315>.
+<doi:10.1080/00401706.2024.2407316>, and Cho and Matteson (2026)
+<doi:10.1080/07350015.2025.2602846>.
 
 %prep
 %setup -q -c -n %{packname}

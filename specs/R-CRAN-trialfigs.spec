@@ -1,43 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mcmcderive
-%global packver   0.1.2
+%global packname  trialfigs
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Derive MCMC Parameters
+Summary:          Efficacy and Safety Graphics for Clinical Review Packages
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-chk 
-BuildRequires:    R-CRAN-extras 
-BuildRequires:    R-CRAN-mcmcr 
-BuildRequires:    R-CRAN-nlist 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-universals 
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-chk 
-Requires:         R-CRAN-extras 
-Requires:         R-CRAN-mcmcr 
-Requires:         R-CRAN-nlist 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-universals 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-withr 
 
 %description
-Generates derived parameter(s) from Monte Carlo Markov Chain (MCMC)
-samples using R code. This allows Bayesian models to be fitted without the
-inclusion of derived parameters which add unnecessary clutter and slow
-model fitting. For more information on MCMC samples see Brooks et al.
-(2011) <isbn:978-1-4200-7941-8>.
+Builds submission-style efficacy and safety figures used in clinical
+review packages, with one simulator for each therapeutic area. Oncology
+figures include Kaplan-Meier curves, RECIST waterfalls, swimmer plots and
+spider plots. Cardiovascular, endocrine, immunology, infectious disease
+and neuroscience figures include time-to-event curves, mean change from
+baseline and responder rates. Shared safety figures include an
+adverse-event dot plot, an eDISH liver plot, a laboratory shift plot and
+an exposure plot. Reference lines follow RECIST 1.1 and the FDA
+drug-induced liver injury guidance. This is not an FDA product and does
+not guarantee regulatory acceptance.
 
 %prep
 %setup -q -c -n %{packname}

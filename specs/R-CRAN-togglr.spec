@@ -1,33 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  togglr
-%global packver   0.2.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Toggl.com' Api for 'Rstudio'
+Summary:          Client for the 'Toggl Track' API
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-jsonlite >= 1.7.0
+BuildRequires:    R-CRAN-lubridate >= 1.7.0
+BuildRequires:    R-CRAN-httr >= 1.4.0
+BuildRequires:    R-CRAN-filelock >= 1.0.2
+BuildRequires:    R-CRAN-cachem >= 1.0.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-cachem 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-getPass 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-keyring 
-BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-openssl 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-parsedate 
 BuildRequires:    R-CRAN-prettyunits 
 BuildRequires:    R-CRAN-purrr 
@@ -35,17 +36,18 @@ BuildRequires:    R-CRAN-rappdirs
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-jsonlite >= 1.7.0
+Requires:         R-CRAN-lubridate >= 1.7.0
+Requires:         R-CRAN-httr >= 1.4.0
+Requires:         R-CRAN-filelock >= 1.0.2
+Requires:         R-CRAN-cachem >= 1.0.0
+Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-cachem 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-getPass 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-keyring 
-Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-openssl 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-parsedate 
 Requires:         R-CRAN-prettyunits 
 Requires:         R-CRAN-purrr 
@@ -55,7 +57,11 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-Use the <https://toggl.com> time tracker api through R.
+Read and write time entries, projects and clients of the 'Toggl Track'
+time tracker <https://toggl.com> from R, and download its reports. Reads
+never return silently truncated or empty results: HTTP errors are raised,
+the hourly quota and rate limits are respected, and paginated reports are
+checked for completeness.
 
 %prep
 %setup -q -c -n %{packname}

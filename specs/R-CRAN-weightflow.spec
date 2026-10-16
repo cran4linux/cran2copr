@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  weightflow
-%global packver   1.3.0
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Declarative Recipes for Staged Survey Weighting with Recipe-Aware Replicate Variances
+Summary:          Weighting Probability and Non-Probability Survey Samples with Recipe-Aware Replicate Variances
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -28,24 +28,28 @@ Requires:         R-parallel
 
 %description
 Builds survey analysis weights by declaring the whole weighting process as
-an ordered recipe of explicit adjustments, estimated in a single call.
-Steps cover within-cluster selection, subsampling for two-phase designs,
-nonresponse by weighting classes or response-propensity models (optionally
-machine-learning, with cross-fitting), calibration to known totals
-following Deville and Sarndal (1992) <doi:10.2307/2290268>, optionally
-model-assisted, non-probability samples by pseudo-weighting, mass
-imputation and doubly robust estimators, and range-restricted trimming.
-Rotating and pure panels add panel-selection probabilities, attrition,
-longitudinal weights, gross flows and composite estimation. Variances come
-from a recipe-aware bootstrap and jackknife that resample or delete
-primary sampling units and re-apply the entire cascade on each replicate,
-following Rao and Wu (1988) <doi:10.1080/01621459.1988.10478591>; panel
-replicates are coordinated across waves, so the sample overlap enters the
-variance of a net change as covariance, and two-phase variances split into
-first- and second-phase components (V = V1 + V2). A self-contained HTML
-report documents each step, and the weights bridge to the 'survey' and
-'srvyr' packages. The methods, and the simulation evidence behind the
-variance estimators, are described in Ferreira (2026)
+an ordered recipe of explicit adjustments, estimated in a single call:
+unknown eligibility, within-cluster selection, two-phase subsampling,
+nonresponse by weighting classes or response-propensity models,
+calibration and trimming. Calibration to known totals runs on linear,
+raking or logit distances, bounded, ridge-penalized, model-assisted or
+integrative with one weight per cluster; a calibrated trim bounds the
+weights while keeping the control totals exact. Non-probability samples
+are weighted against a probability reference sample by pseudo-weighting,
+mass imputation and doubly robust estimators that calibrate a single
+weight on the fitted values of several working models and on the
+population totals of the auxiliaries at once, so one multipurpose weight
+serves many variables. Variances come from a recipe-aware bootstrap and
+jackknife that re-apply the entire cascade on each replicate, so every
+adjustment is inside the variance instead of being treated as fixed;
+across panel waves the replicates are coordinated by carrying forward the
+selection multiplicities of the sampling units, so the sample overlap
+enters the variance of a net change as covariance. Rotating and pure
+panels add attrition, longitudinal weights, gross flows and composite
+estimation, a self-contained HTML report documents each step, and the
+weights bridge to the 'survey' and 'srvyr' packages, which are optional:
+the package itself runs on base R. The methods, and the simulation
+evidence behind the variance estimators, are described in Ferreira (2026)
 <doi:10.1177/18747655261484262>.
 
 %prep
