@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ModalCens
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parametric Modal Regression with Right Censoring
 
@@ -25,8 +25,8 @@ Requires:         R-graphics
 %description
 Implements parametric modal regression for continuous positive
 distributions of the exponential family and beyond (e.g., Log-Logistic,
-Birnbaum-Saunders) under right censoring. Provides functions to link the
-conditional mode to a linear predictor using alternative
+Birnbaum-Saunders, Log-t) under right censoring. Provides functions to
+link the conditional mode to a linear predictor using alternative
 parameterizations. Includes maximum likelihood estimation via numerical
 optimization, asymptotic inference based on the observed Fisher
 information matrix, and model diagnostics using randomized quantile

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  babelmixr2
-%global packver   0.1.11
+%global packver   0.1.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.11
+Version:          0.1.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Use 'nlmixr2' to Interact with Open Source and Commercial Software
 
@@ -16,8 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-nlmixr2est >= 4.1.0
-BuildRequires:    R-CRAN-rxode2 >= 4.1.0
+BuildRequires:    R-CRAN-nlmixr2est >= 6.2.0
+BuildRequires:    R-CRAN-rxode2 >= 5.1.8
 BuildRequires:    R-CRAN-nonmem2rx >= 0.1.5
 BuildRequires:    R-CRAN-monolix2rx >= 0.0.3
 BuildRequires:    R-CRAN-checkmate 
@@ -29,13 +29,12 @@ BuildRequires:    R-CRAN-nlmixr2extra
 BuildRequires:    R-CRAN-nlmixr2plot 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-qs2 
 BuildRequires:    R-CRAN-rex 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-nlmixr2est >= 4.1.0
-Requires:         R-CRAN-rxode2 >= 4.1.0
+Requires:         R-CRAN-nlmixr2est >= 6.2.0
+Requires:         R-CRAN-rxode2 >= 5.1.8
 Requires:         R-CRAN-nonmem2rx >= 0.1.5
 Requires:         R-CRAN-monolix2rx >= 0.0.3
 Requires:         R-CRAN-checkmate 
@@ -47,15 +46,15 @@ Requires:         R-CRAN-nlmixr2extra
 Requires:         R-CRAN-nlmixr2plot 
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
-Requires:         R-CRAN-qs2 
 Requires:         R-CRAN-rex 
 
 %description
 Run other estimation and simulation software via the 'nlmixr2' (Fidler et
 al (2019) <doi:10.1002/psp4.12445>) interface including 'PKNCA', 'NONMEM'
-and 'Monolix'. While not required, you can get/install the
-'lixoftConnectors' package in the 'Monolix' installation, as described at
-the following url
+and 'Monolix'. It also converts 'nlmixr2'/'rxode2' models to 'PopED'
+optimal design databases (Fidler et al (2024) <doi:10.70534/XUMG6226>).
+While not required, you can get/install the 'lixoftConnectors' package in
+the 'Monolix' installation, as described at the following url
 <https://monolixsuite.slp-software.com/r-functions/2024R1/installation-and-initialization>.
 When 'lixoftConnectors' is available, 'Monolix' can be run directly
 instead of setting up command line usage.

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  qountstat
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Analysis of Count Data and Quantal Data
 
@@ -17,7 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-multcomp 
+Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-multcomp 
 
 %description
@@ -25,14 +27,17 @@ Methods for statistical analysis of count data and quantal data. For the
 analysis of count data an implementation of the Closure Principle
 Computational Approach Test ("CPCAT") is provided (Lehmann, R et al.
 (2016) <doi:10.1007/s00477-015-1079-4>), as well as an implementation of a
-"Dunnett GLM" approach using a Quasi-Poisson regression (Hothorn, L,
-Kluxen, F (2020) <doi:10.1101/2020.01.15.907881>). For the analysis of
-quantal data an implementation of the Closure Principle
-Fisher–Freeman–Halton test ("CPFISH") is provided (Lehmann, R et al.
-(2018) <doi:10.1007/s00477-017-1392-1>). P-values and no/lowest observed
+"Dunnett GLM" approach using either a Quasi-Poisson, a negative binomial
+or a Poisson regression (Hothorn, L, Kluxen, F (2020)
+<doi:10.1101/2020.01.15.907881>). For the analysis of quantal data an
+implementation of the Closure Principle Fisher–Freeman–Halton test
+("CPFISH") is provided (Lehmann, R et al. (2018)
+<doi:10.1007/s00477-017-1392-1>). P-values and no/lowest observed
 (adverse) effect concentration values are calculated. All implemented
 methods include further functions to evaluate the power and the minimum
-detectable difference using a bootstrapping approach.
+detectable difference using a bootstrapping approach. A model-agnostic,
+simulation-calibrated diagnostic for overdispersion in grouped count data
+is provided to support the choice between the implemented methods.
 
 %prep
 %setup -q -c -n %{packname}

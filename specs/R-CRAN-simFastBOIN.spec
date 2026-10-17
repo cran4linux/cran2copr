@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  simFastBOIN
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Simulation of Bayesian Optimal Interval Designs for Phase I Trials
 
@@ -17,9 +17,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-CRAN-Iso 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-Rcpp >= 1.0.0
+Requires:         R-CRAN-Iso 
 Requires:         R-stats 
 Requires:         R-utils 
 
@@ -33,7 +35,18 @@ simulation engine is written in C++ and draws one random variate per
 patient in enrollment order, which reproduces the reference implementation
 in the 'BOIN' package trial by trial for a given seed. The traditional 3+3
 design is provided as a comparator, with operating characteristics
-obtained in closed form rather than by simulation.
+obtained in closed form rather than by simulation. For toxicity that is
+observed late, the time-to-event BOIN design is provided with the two
+estimators of Yuan and colleagues (2018)
+<doi:10.1158/1078-0432.CCR-18-0246> and Lin and Yuan (2020)
+<doi:10.1093/biostatistics/kxz007>. Patients who arrive while the dose
+escalation waits can be backfilled to lower doses with the designs of Zhao
+and colleagues (2024) <doi:10.1158/1078-0432.CCR-23-2585> and Chen and
+colleagues (2026) <doi:10.1007/s43441-026-00994-0>, the latter with the
+suspension rules of Chen and colleagues (2025)
+<doi:10.1158/1078-0432.CCR-24-3669>. Trials of two drugs given together
+are handled by the drug-combination design of Lin and Yin (2017)
+<doi:10.1177/0962280215594494>.
 
 %prep
 %setup -q -c -n %{packname}

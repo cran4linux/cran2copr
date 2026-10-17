@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  trafficCAR
-%global packver   0.1.1
+%global packname  actiplot
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian CAR Models for Road-Segment Traffic
+Summary:          Plotting Minute-Level Activity Data
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,34 +17,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-units 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-posterior 
+BuildRequires:    R-CRAN-actibase >= 0.6.0
 BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-Matrix 
-Requires:         R-methods 
-Requires:         R-CRAN-units 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-posterior 
+BuildRequires:    R-CRAN-hms 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-actibase >= 0.6.0
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-hms 
+Requires:         R-CRAN-rlang 
 
 %description
-Tools for simulating and modeling traffic flow on road networks using
-spatial conditional autoregressive (CAR) models. The package represents
-road systems as graphs derived from 'OpenStreetMap' data
-<https://www.openstreetmap.org/> and supports network-based spatial
-dependence, basic preprocessing, and visualization for spatial traffic
-analysis.
+Provides 'ggplot2' plots for minute-level activity data, including step
+counts and activity counts. Time series can be displayed over the full
+recording period or aligned by time of day and faceted into one row per
+date.  Includes example activity data described by Chadwell et al. (2019)
+<doi:10.1038/s41597-019-0211-6>.
 
 %prep
 %setup -q -c -n %{packname}

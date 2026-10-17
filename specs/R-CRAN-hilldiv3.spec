@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hilldiv3
-%global packver   3.0.0
+%global packver   3.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Integral Analysis of Diversity Based on Hill Numbers
 
@@ -40,11 +40,12 @@ of operational taxonomic units (OTUs), amplicon sequence variants (ASVs)
 or metagenome-assembled genomes (MAGs)) based on Hill numbers, in a
 unified framework for neutral, phylogenetic and functional diversity
 measurement, diversity partitioning, (dis)similarity measurement,
-diversity profiles, evenness and redundancy. The statistical framework
-encompasses richness, Shannon and Simpson diversity, Faith's phylogenetic
-diversity (PD), Rao's quadratic entropy and Sorensen- and UniFrac-type
-dissimilarities, all grounded in a single Hill-number framework. Methods
-are described in Jost (2007) <doi:10.1890/06-1736.1>, Chao et al. (2010)
+diversity profiles, evenness, redundancy and attribution of Hill power-sum
+weight to taxa and sets. The statistical framework encompasses richness,
+Shannon and Simpson diversity, Faith's phylogenetic diversity (PD), Rao's
+quadratic entropy and Sorensen- and UniFrac-type dissimilarities, all
+grounded in a single Hill-number framework. Methods are described in Jost
+(2007) <doi:10.1890/06-1736.1>, Chao et al. (2010)
 <doi:10.1098/rstb.2010.0272>, Chiu et al. (2014) <doi:10.1890/12-0960.1>
 and reviewed in Alberdi & Gilbert (2019) <doi:10.1111/1755-0998.13014>.
 Optional import adapters interoperate with the Bioconductor packages

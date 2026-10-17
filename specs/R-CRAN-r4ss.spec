@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  r4ss
-%global packver   1.44.0
+%global packver   1.44.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.44.0
+Version:          1.44.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Code for Stock Synthesis
+Summary:          Compatibility Notice for Stock Synthesis Tools
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,32 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-corpcor 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-kableExtra 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-corpcor 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-kableExtra 
 
 %description
-A collection of R functions for use with Stock Synthesis, a fisheries
-stock assessment modeling platform written in ADMB by Dr. Richard D.
-Methot at the NOAA Northwest Fisheries Science Center. The functions
-include tools for summarizing and plotting results, manipulating files,
-visualizing model parameterizations, and various other common stock
-assessment tasks. This version of '{r4ss}' is compatible with Stock
-Synthesis versions 3.24 through 3.30 (specifically version 3.30.19.01,
-from April 2022).
+Provides a compatibility notice for users of the 'r4ss' Stock Synthesis
+tools. Active development and current releases are available from GitHub
+<https://github.com/r4ss/r4ss>. This package supplies the canonical
+repository location and migration guidance.
 
 %prep
 %setup -q -c -n %{packname}

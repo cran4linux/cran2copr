@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  simET
-%global packver   1.0.3
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Simulation of Evapotranspiration of Field Crops and Soil Water Balance
 
@@ -44,8 +44,8 @@ evapotranspiration research and reference crop evapotranspiration, and
 offers three models to simulate crop evapotranspiration and soil water
 balance in the field, including single crop coefficient and dual crop
 coefficient, as well as the Shuttleworth-Wallace model. These calculations
-main refer to Allen et al.(1998, ISBN:92-5-104219-5), Teh (2006,
-ISBN:1-58-112-998-X), and Liu et al.(2006)
+mainly refer to Allen et al. (1998, ISBN:92-5-104219-5), Teh (2006,
+ISBN:1-58-112-998-X), and Liu et al. (2006)
 <doi:10.1016/j.agwat.2006.01.018>.
 
 %prep

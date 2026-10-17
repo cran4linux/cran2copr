@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lt
-%global packver   0.4
+%global packver   0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lightweight Tables via JSON Specs and JavaScript
 
@@ -17,15 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-xfun >= 0.60
-Requires:         R-CRAN-xfun >= 0.60
+BuildRequires:    R-CRAN-xfun >= 0.62
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-xfun >= 0.62
+Requires:         R-grDevices 
 
 %description
 A lightweight grammar of tables. Build a table by declaring a JSON spec
 (titles, spanners, row groups, footnotes, formatting functions, etc.); a
 tiny vanilla JavaScript runtime builds the HTML table from the spec on
-page load. No 'sass', no 'V8', no 'htmlwidgets' — just base R and 'xfun'
-('htmltools' is used only for the optional Shiny binding).
+page load. Cells can hold inline plots (error bars, dot plots, mini line
+and bar charts) drawn as SVG in the browser from the numbers alone. Tables
+can optionally be made interactive (sorting, searching, filtering,
+pagination, column hiding, expandable row detail, and CSV download) via a
+separate extension loaded only when requested. No 'sass', no 'V8', no
+'htmlwidgets' — just base R and 'xfun' ('htmltools' is used only for the
+optional Shiny binding and for embedding tables in other HTML output).
 
 %prep
 %setup -q -c -n %{packname}

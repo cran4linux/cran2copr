@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PFIM
-%global packver   8.0
+%global packver   8.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          8.0
+Version:          8.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Population Fisher Information Matrix
 
-License:          GPL-3 | file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -20,12 +20,12 @@ BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
 BuildRequires:    R-CRAN-S7 >= 0.2.0
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-Deriv 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-deSolve 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-kableExtra 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-scales 
@@ -40,12 +40,12 @@ Requires:         R-CRAN-ggplot2 >= 3.5.0
 Requires:         R-CRAN-S7 >= 0.2.0
 Requires:         R-utils 
 Requires:         R-CRAN-Deriv 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-methods 
 Requires:         R-CRAN-deSolve 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-kableExtra 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-scales 
@@ -58,9 +58,10 @@ Requires:         R-grDevices
 
 %description
 Evaluate or optimize designs for nonlinear mixed effects models using the
-Fisher Information matrix. Supports population, individual, and Bayesian
-'FIMs', covariates, inter-occasion variability, and D-optimal search
-('Fedorov-Wynn', multiplicative, simplex, 'PSO', 'PGBO').
+Fisher Information matrix; see <doi:10.1093/biomet/84.2.429> and
+<doi:10.1016/S0169-2607(00)00117-6>. Supports population, individual, and
+Bayesian 'FIMs', covariates, inter-occasion variability, and D-optimal
+search ('Fedorov-Wynn', multiplicative, simplex, 'PSO', 'PGBO').
 
 %prep
 %setup -q -c -n %{packname}

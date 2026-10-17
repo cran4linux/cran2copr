@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  theRefdate
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simple and Fast Date Manipulation on Character Strings in Format 'DD.MM.YYYY'
+Summary:          Simple and Fast Date Manipulation on Character Strings
 
 License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,9 +20,12 @@ BuildArch:        noarch
 
 %description
 Provides simple and fast date manipulation functions operating on
-character strings in the format 'DD.MM.YYYY'. Functions include extraction
-of day, month, and year components, computation of differences between two
-dates, and addition or subtraction of months.
+character strings in one of three formats: 'DD.MM.YYYY' (default),
+'YYYY-MM-DD' or 'YYYYMMDD'. The format is chosen once per R session.
+Functions include extraction of day, month, and year components,
+computation of differences between two dates, and addition or subtraction
+of months. "DD" is ignored in the calculations, therefore a date like
+31.02.2026 is a valid in- or output. That's why it is so fast.
 
 %prep
 %setup -q -c -n %{packname}

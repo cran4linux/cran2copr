@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tramnet
-%global packver   0.0-991
+%global packver   0.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.991
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Penalized Transformation Models
 
@@ -14,43 +14,51 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-CVXR >= 1.8
 BuildRequires:    R-CRAN-tram >= 1.4
-BuildRequires:    R-CRAN-mlrMBO >= 1.1.2
+BuildRequires:    R-CRAN-mlr3mbo >= 1.2.0
+BuildRequires:    R-CRAN-bbotk >= 1.0.0
+BuildRequires:    R-CRAN-paradox >= 1.0.0
 BuildRequires:    R-CRAN-mlt 
 BuildRequires:    R-CRAN-basefun 
 BuildRequires:    R-CRAN-sandwich 
-BuildRequires:    R-CRAN-ParamHelpers 
 BuildRequires:    R-CRAN-lhs 
-BuildRequires:    R-CRAN-mlr 
-BuildRequires:    R-CRAN-smoof 
 BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-mlr3 
+BuildRequires:    R-CRAN-mlr3learners 
+BuildRequires:    R-CRAN-lgr 
 Requires:         R-CRAN-CVXR >= 1.8
 Requires:         R-CRAN-tram >= 1.4
-Requires:         R-CRAN-mlrMBO >= 1.1.2
+Requires:         R-CRAN-mlr3mbo >= 1.2.0
+Requires:         R-CRAN-bbotk >= 1.0.0
+Requires:         R-CRAN-paradox >= 1.0.0
 Requires:         R-CRAN-mlt 
 Requires:         R-CRAN-basefun 
 Requires:         R-CRAN-sandwich 
-Requires:         R-CRAN-ParamHelpers 
 Requires:         R-CRAN-lhs 
-Requires:         R-CRAN-mlr 
-Requires:         R-CRAN-smoof 
 Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-mlr3 
+Requires:         R-CRAN-mlr3learners 
+Requires:         R-CRAN-lgr 
 
 %description
 Partially penalized versions of specific transformation models implemented
 in package 'mlt'. Available models include a fully parametric version of
-the Cox model, other parametric survival models (Weibull, etc.), models
-for binary and ordered categorical variables, normal and
-transformed-normal (Box-Cox type) linear models, and continuous outcome
-logistic regression. Hyperparameter tuning is facilitated through
-model-based optimization functionalities from package 'mlrMBO'. The
-accompanying vignette describes the methodology used in 'tramnet' in
-detail. Transformation models and model-based optimization are described
-in Hothorn et al. (2019) <doi:10.1111/sjos.12291> and Bischl et al. (2016)
+the Cox model, other parametric survival models (Weibull, etc.), normal
+and transformed-normal (Box-Cox type) linear models, and continuous
+outcome logistic regression. Models can be specified via a formula
+interface. Hyperparameter tuning is facilitated through model-based
+optimization functionalities from package 'mlr3mbo'. The accompanying
+vignette describes the methodology used in 'tramnet' in detail.
+Transformation models and model-based optimization are described in
+Hothorn et al. (2019) <doi:10.1111/sjos.12291> and Bischl et al. (2017)
 <doi:10.48550/arXiv.1703.03373>, respectively.
 
 %prep

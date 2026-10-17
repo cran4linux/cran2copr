@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SCCS
-%global packver   1.7
+%global packver   1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7
+Version:          1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Self-Controlled Case Series Method
 
@@ -36,9 +36,9 @@ associations between time-varying exposures such as vaccines or other
 drugs or non drug exposures and an adverse event can be fitted. Detailed
 information on the self-controlled case series method and its extensions
 with more examples can be found in Farrington, P., Whitaker, H., and
-Ghebremichael Weldeselassie, Y. (2018, ISBN: 978-1-4987-8159-6.
+Ghebremichael-Weldeselassie, Y. (2018, ISBN: 978-1-4987-8159-6.
 Self-controlled Case Series studies: A modelling Guide with R. Boca Raton:
-Chapman & Hall/CRC Press) and <https://sccs-studies.info/index.html>.
+Chapman & Hall/CRC Press) and <https://sccs-studies.info>.
 
 %prep
 %setup -q -c -n %{packname}

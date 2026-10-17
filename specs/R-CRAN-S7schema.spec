@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  S7schema
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'S7' Framework for Schema-Validated YAML Configuration
 
@@ -18,22 +18,24 @@ BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-yaml >= 2.3.8
+BuildRequires:    R-CRAN-QuickJSR >= 1.3.1
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-S7 
 BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-V8 
 Requires:         R-CRAN-yaml >= 2.3.8
+Requires:         R-CRAN-QuickJSR >= 1.3.1
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-S7 
 Requires:         R-tools 
-Requires:         R-CRAN-V8 
 
 %description
 Provides a generic framework for working with YAML (YAML Ain't Markup
 Language) configuration files. Uses 'ajv' (Another JSON Schema Validator)
-via 'V8' to validate configurations against JSON Schema definitions.
+via 'QuickJSR' to validate configurations against JSON Schema definitions.
 Configuration objects inherit from 'S7' classes and base lists, supporting
 downstream extension through custom classes and methods.
 

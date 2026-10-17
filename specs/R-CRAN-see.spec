@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  see
-%global packver   0.14.2
+%global packver   0.15.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.14.2
+Version:          0.15.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model Visualisation Toolbox for 'easystats' and 'ggplot2'
 
@@ -18,27 +18,27 @@ BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 4.0.3
-BuildRequires:    R-CRAN-insight >= 1.5.3
+BuildRequires:    R-CRAN-insight >= 1.5.4
+BuildRequires:    R-CRAN-datawizard >= 1.4.0
 BuildRequires:    R-CRAN-patchwork >= 1.3.2
-BuildRequires:    R-CRAN-datawizard >= 1.3.1
 BuildRequires:    R-CRAN-effectsize >= 1.0.3
 BuildRequires:    R-CRAN-correlation >= 0.8.8
-BuildRequires:    R-CRAN-parameters >= 0.29.2
-BuildRequires:    R-CRAN-bayestestR >= 0.18.1
-BuildRequires:    R-CRAN-performance >= 0.18.0
+BuildRequires:    R-CRAN-parameters >= 0.29.3
+BuildRequires:    R-CRAN-bayestestR >= 0.19.0
+BuildRequires:    R-CRAN-performance >= 0.18.2
 BuildRequires:    R-CRAN-modelbased >= 0.17.0
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-ggplot2 >= 4.0.3
-Requires:         R-CRAN-insight >= 1.5.3
+Requires:         R-CRAN-insight >= 1.5.4
+Requires:         R-CRAN-datawizard >= 1.4.0
 Requires:         R-CRAN-patchwork >= 1.3.2
-Requires:         R-CRAN-datawizard >= 1.3.1
 Requires:         R-CRAN-effectsize >= 1.0.3
 Requires:         R-CRAN-correlation >= 0.8.8
-Requires:         R-CRAN-parameters >= 0.29.2
-Requires:         R-CRAN-bayestestR >= 0.18.1
-Requires:         R-CRAN-performance >= 0.18.0
+Requires:         R-CRAN-parameters >= 0.29.3
+Requires:         R-CRAN-bayestestR >= 0.19.0
+Requires:         R-CRAN-performance >= 0.18.2
 Requires:         R-CRAN-modelbased >= 0.17.0
 Requires:         R-graphics 
 Requires:         R-grDevices 

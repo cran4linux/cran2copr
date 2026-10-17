@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EpiModel
-%global packver   2.6.2
+%global packver   2.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.2
+Version:          2.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mathematical Modeling of Infectious Disease Dynamics
 
@@ -19,11 +19,12 @@ Requires:         R-core >= 4.1
 BuildRequires:    R-CRAN-ergm >= 4.7.1
 BuildRequires:    R-CRAN-tergm >= 4.2.1
 BuildRequires:    R-CRAN-statnet.common >= 4.10.0
+BuildRequires:    R-CRAN-future >= 1.40.0
 BuildRequires:    R-CRAN-deSolve >= 1.21
 BuildRequires:    R-CRAN-network >= 1.18.1
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-networkLite >= 1.0.5
 BuildRequires:    R-CRAN-networkDynamic >= 0.11.3
-BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
@@ -37,17 +38,17 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-ergm >= 4.7.1
 Requires:         R-CRAN-tergm >= 4.2.1
 Requires:         R-CRAN-statnet.common >= 4.10.0
+Requires:         R-CRAN-future >= 1.40.0
 Requires:         R-CRAN-deSolve >= 1.21
 Requires:         R-CRAN-network >= 1.18.1
+Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-networkLite >= 1.0.5
 Requires:         R-CRAN-networkDynamic >= 0.11.3
-Requires:         R-CRAN-future 
 Requires:         R-CRAN-future.apply 
 Requires:         R-graphics 
 Requires:         R-grDevices 
@@ -61,8 +62,8 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-tibble 
 Requires:         R-methods 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-coda 
+Requires:         R-CRAN-Rcpp 
 
 %description
 Tools for simulating mathematical models of infectious disease dynamics.

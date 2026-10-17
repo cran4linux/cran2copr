@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SemNetCleaner
-%global packver   1.3.7
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.7
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Automated Cleaning Tool for Semantic and Linguistic Data
 
@@ -14,33 +14,27 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.0.1
+Requires:         R-core >= 4.0.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-SemNetDictionaries >= 0.1.8
-BuildRequires:    R-CRAN-foreign 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-R.matlab 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-SemNetDictionaries >= 0.3.0
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-hunspell 
+BuildRequires:    R-CRAN-phonics 
+BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-searcher 
-BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-stringdist 
-BuildRequires:    R-tcltk 
-Requires:         R-CRAN-SemNetDictionaries >= 0.1.8
-Requires:         R-CRAN-foreign 
-Requires:         R-parallel 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-R.matlab 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-SemNetDictionaries >= 0.3.0
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-hunspell 
+Requires:         R-CRAN-phonics 
+Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-searcher 
-Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-stringdist 
-Requires:         R-tcltk 
 
 %description
 Implements several functions that automates the cleaning and

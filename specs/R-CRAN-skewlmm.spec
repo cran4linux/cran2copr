@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  skewlmm
-%global packver   1.1.3
+%global packver   1.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Scale Mixture of Skew-Normal Linear Mixed Models
 
@@ -17,40 +17,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.4
 Requires:         R-core >= 4.4
 BuildArch:        noarch
+BuildRequires:    R-CRAN-future >= 1.40.0
+BuildRequires:    R-CRAN-purrr >= 1.0.0
 BuildRequires:    R-CRAN-optimParallel 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-haven 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-furrr 
 BuildRequires:    R-CRAN-matrixcalc 
 BuildRequires:    R-CRAN-moments 
 BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-MomTrunc 
-BuildRequires:    R-CRAN-TruncatedNormal 
+Requires:         R-CRAN-future >= 1.40.0
+Requires:         R-CRAN-purrr >= 1.0.0
 Requires:         R-CRAN-optimParallel 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-CRAN-future 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-haven 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-furrr 
 Requires:         R-CRAN-matrixcalc 
 Requires:         R-CRAN-moments 
 Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-MomTrunc 
-Requires:         R-CRAN-TruncatedNormal 
 
 %description
 It fits scale mixture of skew-normal linear mixed models using either an

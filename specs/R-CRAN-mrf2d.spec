@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mrf2d
-%global packver   1.0
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Markov Random Field Models for Image Analysis
 
