@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  emhawkes
-%global packver   0.9.8
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.8
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exponential Multivariate Hawkes Model
 
@@ -16,20 +16,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
-BuildArch:        noarch
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-maxLik 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-stats 
 Requires:         R-methods 
-Requires:         R-CRAN-maxLik 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-stats 
 
 %description
-Simulate and fitting exponential multivariate Hawkes model. This package
-simulates a multivariate Hawkes model, introduced by Hawkes (1971)
-<doi:10.2307/2334319>, with an exponential kernel and fits the parameters
-from the data. Models with the constant parameters, as well as complex
-dependent structures, can also be simulated and estimated. The estimation
-is based on the maximum likelihood method, introduced by introduced by
-Ozaki (1979) <doi:10.1007/BF02480272>, with 'maxLik' package.
+Simulate and fit multivariate Hawkes models with exponential kernels,
+introduced by Hawkes (1971) <doi:10.2307/2334319>. Includes marked,
+state-dependent, and multi-kernel specifications. Parameter estimation
+uses maximum likelihood, following Ozaki (1979) <doi:10.1007/BF02480272>,
+through the optional 'maxLik' package or the optimization functions
+supplied with R.
 
 %prep
 %setup -q -c -n %{packname}

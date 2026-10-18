@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  teems
-%global packver   0.1.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Trade and Environment Equilibrium Modeling System
 
@@ -19,9 +19,12 @@ Requires:         R-core >= 4.3.0
 BuildRequires:    R-CRAN-cli >= 3.4.0
 BuildRequires:    R-CRAN-tibble >= 3.0.0
 BuildRequires:    R-CRAN-R6 >= 2.4.0
+BuildRequires:    R-CRAN-jsonlite >= 1.8.0
 BuildRequires:    R-CRAN-data.table >= 1.15.0
 BuildRequires:    R-CRAN-purrr >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
@@ -29,9 +32,12 @@ BuildRequires:    R-CRAN-cpp11
 Requires:         R-CRAN-cli >= 3.4.0
 Requires:         R-CRAN-tibble >= 3.0.0
 Requires:         R-CRAN-R6 >= 2.4.0
+Requires:         R-CRAN-jsonlite >= 1.8.0
 Requires:         R-CRAN-data.table >= 1.15.0
 Requires:         R-CRAN-purrr >= 1.0.0
 Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-stats 
 Requires:         R-tools 
 Requires:         R-utils 

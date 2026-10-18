@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ascent
-%global packver   0.1.1
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multi-Layer Decomposition of Functional Community Restructuring
 
@@ -14,31 +14,34 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-vegan 
 BuildRequires:    R-CRAN-geometry 
+BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-vegan 
 Requires:         R-CRAN-geometry 
+Requires:         R-CRAN-withr 
 
 %description
 Implements the 'ASC-CFD' (Assemblage Shift Characterization - Community
 Functional Dynamics) framework for decomposing functional community
 restructuring into positional (centroid displacement), dispersive
 (functional dispersion), and boundary (convex hull volume) components.
-Provides hierarchical null models (structural, quantitative, identity) to
-evaluate statistical significance and species-level leverage analysis to
-identify taxa driving functional shifts. Supports both temporal (paired)
-and spatial (pairwise) comparisons.
+Tests each component against two null models: a sampling null model
+(individuals or replicates reassigned between communities) and a
+stratified trait-permutation null model, with a single global test when
+many communities are compared. Functional entities (species with similar
+traits) help detect replacement among similar species, and species-level
+leverage identifies the taxa driving functional shifts. Supports both
+temporal (paired) and spatial (pairwise) comparisons.
 
 %prep
 %setup -q -c -n %{packname}

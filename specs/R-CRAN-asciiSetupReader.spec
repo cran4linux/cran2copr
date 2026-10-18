@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  asciiSetupReader
-%global packver   2.5.3
+%global packver   2.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.3
+Version:          2.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reads Fixed-Width ASCII Data Files (.txt or .dat) that Have Accompanying Setup Files (.sps or .sas)
 
@@ -14,27 +14,23 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-vroom >= 1.1.0
 BuildRequires:    R-CRAN-rstudioapi >= 0.5
 BuildRequires:    R-CRAN-shiny >= 0.13
 BuildRequires:    R-CRAN-miniUI >= 0.1.1
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-haven 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-vroom 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-vroom >= 1.1.0
 Requires:         R-CRAN-rstudioapi >= 0.5
 Requires:         R-CRAN-shiny >= 0.13
 Requires:         R-CRAN-miniUI >= 0.1.1
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-haven 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-vroom 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-zoo 
 
 %description
 Lets you open a fixed-width ASCII file (.txt or .dat) that has an

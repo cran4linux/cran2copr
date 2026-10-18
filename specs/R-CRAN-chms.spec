@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  chms
-%global packver   7.1
+%global packver   7.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.1
+Version:          7.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Accelerometer Processing Methods for Cycle 7 of the CHMS
 
@@ -27,7 +27,6 @@ BuildRequires:    R-CRAN-jsonlite
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-mirai 
-BuildRequires:    R-CRAN-mori 
 BuildRequires:    R-CRAN-parallelly 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-R6 
@@ -49,7 +48,6 @@ Requires:         R-CRAN-jsonlite
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-mirai 
-Requires:         R-CRAN-mori 
 Requires:         R-CRAN-parallelly 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-R6 

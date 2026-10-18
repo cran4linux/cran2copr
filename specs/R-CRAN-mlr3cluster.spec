@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlr3cluster
-%global packver   0.6.0
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cluster Extension for 'mlr3'
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-paradox >= 1.0.1
 BuildRequires:    R-CRAN-mlr3misc >= 0.21.0
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-graphics 
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-R6 >= 2.4.1
@@ -37,6 +38,7 @@ Requires:         R-CRAN-paradox >= 1.0.1
 Requires:         R-CRAN-mlr3misc >= 0.21.0
 Requires:         R-CRAN-cluster 
 Requires:         R-graphics 
+Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-utils 
 

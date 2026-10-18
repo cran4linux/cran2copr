@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tikatuwq
-%global packver   0.10.0
+%global packver   0.11.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.0
+Version:          0.11.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Water Quality Assessment and Environmental Compliance in Brazil
 
@@ -52,7 +52,10 @@ Requires:         R-tools
 Tools to import, clean, validate, and analyze freshwater quality data in
 Brazil. Implements water quality indices including the Water Quality Index
 ('WQI'/'IQA') using the weighted geometric mean following 'CETESB'
-methodology, the Trophic State Index ('TSI'/'IET') after Carlson (1977)
+methodology, an independent engine reproducing the 'IQA' of the Minas
+Gerais water agency 'IGAM' (a documented reproduction, not endorsed by the
+agency), paired comparison of 'IQA' engines with compare_iqa(), the
+Trophic State Index ('TSI'/'IET') after Carlson (1977)
 <doi:10.4319/lo.1977.22.2.0361> and Lamparelli (2004)
 <https://teses.usp.br/teses/disponiveis/41/41134/tde-20032006-075813/publico/TeseLamparelli2004.pdf>,
 and the National Sanitation Foundation Water Quality Index ('NSF WQI',

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  readxl
-%global packver   1.5.0.1
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0.1
+Version:          1.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read Excel Files
 
@@ -14,22 +14,28 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 BuildRequires:    R-CRAN-tibble >= 2.0.1
 BuildRequires:    R-CRAN-cpp11 >= 0.5.5
 BuildRequires:    R-CRAN-cellranger 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-progress 
 Requires:         R-CRAN-tibble >= 2.0.1
 Requires:         R-CRAN-cellranger 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-rlang 
 Requires:         R-utils 
 
 %description
 Import excel files into R. Supports '.xls' via the embedded 'libxls' C
 library <https://github.com/libxls/libxls> and '.xlsx' via the embedded
 'RapidXML' C++ library <https://rapidxml.sourceforge.net/>.  Works on
-Windows, Mac and Linux without external dependencies.
+Windows, Mac and Linux without external dependencies. Reading of
+password-encrypted '.xlsx' files is supported via the embedded
+'tiny-AES-c' C library <https://github.com/kokke/tiny-AES-c>.
 
 %prep
 %setup -q -c -n %{packname}

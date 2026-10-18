@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Ruido
-%global packver   1.1.1
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Soundscape Spectral Metrics
 
@@ -16,15 +16,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.3.0
 Requires:         R-core >= 4.3.0
-BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-tuneR 
-BuildRequires:    R-CRAN-signal 
+BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-nortest 
 BuildRequires:    R-CRAN-wav 
 Requires:         R-methods 
 Requires:         R-CRAN-tuneR 
-Requires:         R-CRAN-signal 
+Requires:         R-CRAN-matrixStats 
 Requires:         R-CRAN-nortest 
 Requires:         R-CRAN-wav 
 

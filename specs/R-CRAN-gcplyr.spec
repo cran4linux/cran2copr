@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gcplyr
-%global packver   1.12.0
+%global packver   1.13.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.12.0
+Version:          1.13.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Wrangle and Analyze Growth Curve Data
 
@@ -31,14 +31,18 @@ Requires:         R-tools
 Requires:         R-utils 
 
 %description
-Easy wrangling and model-free analysis of microbial growth curve data, as
-commonly output by plate readers. Tools for reshaping common plate reader
-outputs into 'tidy' formats and merging them with design information,
-making data easy to work with using 'gcplyr' and other packages. Also
-streamlines common growth curve processing steps, like smoothing and
-calculating derivatives, and facilitates model-free characterization and
-analysis of growth data. See methods at
-<https://mikeblazanin.github.io/gcplyr/>.
+Easy importing, wrangling, and model-free analysis of microbial growth
+curve data, as commonly output by plate readers. Tools for flexibly
+importing all the common data formats output by plate readers and
+reshaping them into 'tidy' formats for analyses. Tools for importing
+experimental designs from files or generating them in R and merging design
+information with density data, making it easy to analyze with 'gcplyr' and
+'tidyverse' or 'dplyr' functions, and to plot with 'ggplot2'. Streamlines
+extracting parameters like growth rate/doubling time, maximum density
+(carrying capacity), lag time, area under the curve, diauxic shifts,
+extinction, and more without fitting an equation for growth to your data.
+Has several methods to deal with noise in growth curve data. See methods
+at <https://mikeblazanin.github.io/gcplyr/>.
 
 %prep
 %setup -q -c -n %{packname}

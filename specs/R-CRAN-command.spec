@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  command
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Process Command Line Arguments
 
@@ -25,9 +25,11 @@ Requires:         R-methods
 Requires:         R-tools 
 
 %description
-Process command line arguments, allowing scripts to behave like functions,
-with well-defined inputs and outputs. Helps make data analysis workflows
-more modular, and therefore more transparent, flexible, and reliable.
+Process command line arguments. Processing includes checking, naming, and
+coercing to numeric, date, or logical. By capturing assumptions about
+inputs and outputs, the 'command' package can provide scripts with well
+defined interfaces, leading to safer, more modular data analysis
+pipelines.
 
 %prep
 %setup -q -c -n %{packname}

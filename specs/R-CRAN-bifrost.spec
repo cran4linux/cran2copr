@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bifrost
-%global packver   0.2.0
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Branch-Level Inference Framework for Recognizing Optimal Shifts in Traits
 
@@ -21,10 +21,11 @@ BuildRequires:    R-CRAN-cli >= 3.6.0
 BuildRequires:    R-CRAN-phytools >= 2.0.3
 BuildRequires:    R-CRAN-future >= 1.49.0
 BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-corpcor 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-future.apply 
-BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-progressr 
+BuildRequires:    R-CRAN-RhpcBLASctl 
 BuildRequires:    R-CRAN-plotrix 
 BuildRequires:    R-CRAN-RRphylo 
 BuildRequires:    R-grDevices 
@@ -39,10 +40,11 @@ Requires:         R-CRAN-cli >= 3.6.0
 Requires:         R-CRAN-phytools >= 2.0.3
 Requires:         R-CRAN-future >= 1.49.0
 Requires:         R-CRAN-ape 
+Requires:         R-CRAN-corpcor 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-future.apply 
-Requires:         R-parallel 
 Requires:         R-CRAN-progressr 
+Requires:         R-CRAN-RhpcBLASctl 
 Requires:         R-CRAN-plotrix 
 Requires:         R-CRAN-RRphylo 
 Requires:         R-grDevices 

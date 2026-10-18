@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  arsenal
-%global packver   3.7.1
+%global packver   3.7.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.7.1
+Version:          3.7.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Arsenal of 'R' Functions for Large-Scale Statistical Summaries
 
