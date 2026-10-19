@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  codriver
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Context-Aware AI Assistant for 'RStudio'
 
@@ -34,7 +34,8 @@ Requires:         R-CRAN-rlang
 A context-aware AI assistant for 'RStudio' that works directly in the
 source editor without switching context or opening a separate chat window.
 Reads the cursor position and selection to automatically choose the right
-action - generate, complete, continue, edit, or comment. Supports
+action - generate, complete, continue, edit, or comment. Results are
+presented as ghost text or an in-place diff suggestion. Supports
 configuration of multiple large language model providers and can be
 invoked via the keyboard shortcut or Addins menu.
 

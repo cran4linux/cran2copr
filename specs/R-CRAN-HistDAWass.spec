@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HistDAWass
-%global packver   1.0.8
+%global packver   1.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          1.0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Histogram-Valued Data Analysis
 
@@ -16,11 +16,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.1
 Requires:         R-core >= 3.1
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-methods 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-class 
 BuildRequires:    R-CRAN-FactoMineR 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggridges 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-histogram 
@@ -29,11 +29,11 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-methods 
 Requires:         R-graphics 
 Requires:         R-CRAN-class 
 Requires:         R-CRAN-FactoMineR 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggridges 
 Requires:         R-grid 
 Requires:         R-CRAN-histogram 

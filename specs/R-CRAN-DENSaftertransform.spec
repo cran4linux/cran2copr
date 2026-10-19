@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DENSaftertransform
-%global packver   0.1
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimating Density after Logarithmic or Power Transformation of Data
 
@@ -19,14 +19,22 @@ Requires:         R-core
 BuildArch:        noarch
 
 %description
-Functions for computing: (1) the adaptive normal PI estimate for data
-after the logarithmic transformation; (2) single-bandwidth PI density
-estimate for data after the logarithmic transformation; (3) single
-bandwidth PI estimate for data after the power transformation. See the
-articles: (1) Savchuk, O. (2026, under review). Density estimation for
-log-transformed data; (2) Savchuk, O., Schick A. (2013). Density
-estimation for power transformations. Journal of Nonparametric Statistics,
-25(3), 545-559 <doi:10.1080/10485252.2013.811788>.
+Functions for computing: (1) the adaptive normal plug-in(PI) density
+estimate for data after the logarithmic transformation; (2) the adaptive
+log-normal PI density estimate for data after the power transformation
+with an exponent ranging from zero to one; (3) the single-bandwidth PI
+density estimate for data after the logarithmic transformation; (4) the
+single-bandwidth PI density estimate for data after the power
+transformation; (5) the data-driven bandwidth for the single-bandwidth PI
+estimator for data after the logarithmic transformation; (6) the
+rule-of-thumb bandwidth for the single-bandwidth PI estimator for data
+after the power transformation. For details, see the articles: (1)
+Savchuk, O. (2026) (submitted). Adaptive log-normal plug-in density
+estimator for power transformations. (2) Savchuk, O. (2026). Density
+estimation for log-transformed data. Computational Statistics, 41(98)
+<doi:10.1007/s00180-026-01766-y>. (3) Savchuk, O., Schick A. (2013).
+Density estimation for power transformations. Journal of Nonparametric
+Statistics, 25(3), 545-559 <doi:10.1080/10485252.2013.811788>.
 
 %prep
 %setup -q -c -n %{packname}

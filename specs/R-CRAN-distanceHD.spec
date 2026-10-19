@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  distanceHD
-%global packver   1.2
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Distance Metrics for High-Dimensional Clustering
 
@@ -18,7 +18,11 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-MASS 
+Requires:         R-graphics 
+Requires:         R-stats 
 
 %description
 We provide three distance metrics for measuring the separation between two
@@ -30,7 +34,10 @@ covariance matrix is invertible. The third metric is the maximal data
 piling distance, which computes the orthogonal distance between the affine
 spaces spanned by each class. These three distances are asymptotically
 interconnected and are applicable in tasks such as discrimination,
-clustering, and outlier detection in high-dimensional settings.
+clustering, and outlier detection in high-dimensional settings. The
+package also provides a distance-based outlier detection procedure for
+high-dimensional, low-sample-size data, as described in Ahn, Lee and Lee
+(2018).
 
 %prep
 %setup -q -c -n %{packname}

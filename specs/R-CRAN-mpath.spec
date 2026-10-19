@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mpath
-%global packver   0.4-2.27
+%global packver   0.4-2.28
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2.27
+Version:          0.4.2.28
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regularized Linear Models
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-pscl
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-bst 
 BuildRequires:    R-CRAN-WeightSVM 
 Requires:         R-methods 
@@ -32,6 +33,7 @@ Requires:         R-CRAN-pscl
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doParallel 
+Requires:         R-parallel 
 Requires:         R-CRAN-bst 
 Requires:         R-CRAN-WeightSVM 
 

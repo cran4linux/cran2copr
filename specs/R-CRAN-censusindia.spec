@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  censusindia
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Census of India Data, 1901-2011, with Boundaries and Projections
 
@@ -39,13 +39,13 @@ Requires:         R-utils
 %description
 Tables from every decennial Census of India from 1901 to 2011: population
 time series, Primary Census Abstracts at state, district and sub-district
-level, mother tongue tables, and Scheduled Caste and Scheduled Tribe
-populations, together with Ministry of Health and Family Welfare
-population projections to 2036. Historical series are drawn from Jolad and
-Singh (2026) <doi:10.7910/DVN/ON8CP8>. Census variables can be returned
-with state or district boundaries of the matching census year attached for
-mapping. Boundary files and the largest village-level tables are
-downloaded on first use and cached locally.
+level, mother tongue tables, Scheduled Caste and Scheduled Tribe
+populations, and the 1931 caste tables by religion, together with Ministry
+of Health and Family Welfare population projections to 2036. Historical
+series are drawn from Jolad and Singh (2026) <doi:10.7910/DVN/ON8CP8>.
+Census variables can be returned with state or district boundaries of the
+matching census year attached for mapping. Boundary files and the largest
+village-level tables are downloaded on first use and cached locally.
 
 %prep
 %setup -q -c -n %{packname}

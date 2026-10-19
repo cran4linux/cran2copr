@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  myman
-%global packver   0.10.0
+%global packver   0.12.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.0
+Version:          0.12.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Draw from Sequence of 'My Man' Posts by Kevin Kruse
 
@@ -23,31 +23,15 @@ Starting on the afternoon of July 17, 2026, Kevin Kruse fired off an
 astonishing array of 'BlueSky' replies to an initial post of his featuring
 a certain government figure:
 <https://bsky.app/profile/did:plc:cnpe7qvcyjrhm6w7w7e4atur/post/3mqum4mxsuk2g>.
-This lasted a week and generated nearly seven hundred posts. A second wave
-started on August 12, 2026, with this post:
-<https://bsky.app/profile/kevinmkruse.bsky.social/post/3mstvbjpagc2a>. A
-third wave started on August 17, 2026, with
-<https://bsky.app/profile/kevinmkruse.bsky.social/post/3mtcpiw7gi22j>.  A
-fourth wave started on August 27, 2026, with
-<https://bsky.app/profile/kevinmkruse.bsky.social/post/3mu3pugs2yk2f>. A
-fifth wave ran on August 30, 2026, beginning with
-<https://bsky.app/profile/kevinmkruse.bsky.social/post/3mudbzy5ksk25>.  A
-sixth wave started September 4, 2026, with
-<https://bsky.app/profile/kevinmkruse.bsky.social/post/3muparqtdkk2w>. A
-seventh wave started September 12, 2026, with
-<https://bsky.app/profile/kevinmkruse.bsky.social/post/3mvdol6xu5k2s>.  An
-eighth wave started September 16, 2026, with
-<https://bsky.app/profile/kevinmkruse.bsky.social/post/3mvnmq23nw22y>. A
-ninth wave started October 1, 2026 with
-<https://bsky.app/profile/kevinmkruse.bsky.social/post/3mwtx2jztkk2g>. A
-tenth wave started October 4, 2026, with
-<https://bsky.app/profile/kevinmkruse.bsky.social/post/3mx333hlmdc2o>. All
-of the over seventeen hundred posts from these series start with 'My man
-...' and make for excellent input to a 'fortunes'-like package. So this
-small package obliges and offers a random draw each time its myman()
-function is called.  The overall package structure follows package
-'fortunes', and 'atrrr' was used to (bulk-)retrieve posts. Neither package
-is required to run this package to display random selections.
+This lasted a week and generated nearly seven hundred posts. Over the next
+few weeks, several more waves followed, each taking aim at a different
+prominent figure. All of the by now over two thousand posts from these
+series start with 'My man ...' and make for excellent input to a
+'fortunes'-like function. So this small package obliges and offers a
+random draw each time its myman() function is called.  The overall package
+structure follows package 'fortunes', and 'atrrr' was used to
+(bulk-)retrieve posts. Neither package is required to run this package to
+display random selections.
 
 %prep
 %setup -q -c -n %{packname}

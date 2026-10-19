@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ROI.plugin.coinclp
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          'COIN-OR' 'Clp' Plugin for the 'R' Optimization Infrastructure
 
-License:          EPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -18,22 +18,22 @@ BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ROI >= 1.0.0
-BuildRequires:    R-CRAN-coinclp >= 0.1.0
+BuildRequires:    R-CRAN-coinclp >= 0.1.2
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-slam 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-ROI >= 1.0.0
-Requires:         R-CRAN-coinclp >= 0.1.0
+Requires:         R-CRAN-coinclp >= 0.1.2
 Requires:         R-methods 
 Requires:         R-CRAN-slam 
 Requires:         R-stats 
 
 %description
-Registers the 'COIN-OR' 'Clp' linear programming solver, through the
-'coinclp' package, with the 'R' Optimization Infrastructure ('ROI').
-Linear programs with continuous variables are then solved by ROI_solve(op,
-solver = "coinclp"), keeping sparse constraint matrices sparse all the way
-to the solver, and returning dual values, reduced costs and row activities
+Registers the 'COIN-OR' 'Clp' linear programming solver with 'ROI', the
+'R' Optimization Infrastructure, through the 'coinclp' package. Linear
+programs with continuous variables are then solved by 'ROI' with the
+'coinclp' solver, keeping sparse constraint matrices sparse all the way to
+the solver, and returning dual values, reduced costs and row activities
 alongside the primal solution.
 
 %prep
