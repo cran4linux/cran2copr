@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Docovt
-%global packver   0.6
+%global packver   0.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6
+Version:          0.6.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Distributed Online Covariance Matrix Tests
 
@@ -39,7 +39,7 @@ where data is dispersed across multiple nodes or sources. This package is
 ideal for researchers and practitioners working with high-dimensional
 data, providing a flexible and efficient framework for covariance matrix
 estimation and hypothesis testing. The philosophy of 'Docovt' is described
-in Guo G.(2025) <doi:10.1016/j.physa.2024.130308>.
+in Guo G. (2025) <doi:10.1016/j.physa.2024.130308>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BayesFBHborrow
-%global packver   2.0.14
+%global packver   2.0.20
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.14
+Version:          2.0.20
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Dynamic Borrowing with Flexible Baseline Hazard Function
 
@@ -31,6 +31,10 @@ BuildRequires:    R-CRAN-survival
 BuildRequires:    R-CRAN-survminer 
 BuildRequires:    R-CRAN-extraDistr 
 BuildRequires:    R-CRAN-bayestestR 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-parallelly 
+BuildRequires:    R-CRAN-progressr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-invgamma 
@@ -45,6 +49,10 @@ Requires:         R-CRAN-survival
 Requires:         R-CRAN-survminer 
 Requires:         R-CRAN-extraDistr 
 Requires:         R-CRAN-bayestestR 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-parallelly 
+Requires:         R-CRAN-progressr 
 
 %description
 Allows Bayesian borrowing from a historical dataset for time-to- event

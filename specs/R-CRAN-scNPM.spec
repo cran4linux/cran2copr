@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scNPM
-%global packver   1.0.6
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Single-Cell Network Propensity Matching
 
@@ -43,11 +43,12 @@ from single-cell expression data. A latent Gaussian mixture and probit
 observation mechanism represent cellular heterogeneity and zero
 observations. Protein interaction information supplies edge-specific prior
 weights, while network propensity matching links cell clusters across
-conditions and guides adaptation. Staged inference freezes stable
-matching, disables feedback, and retains baseline-model samples for
-posterior group and directional differential edge selection. Functions
-assess balance, record criterion diagnostics, and visualize
-within-condition and differential networks.
+conditions and guides adaptation. Staged inference fixes correspondence
+after adaptation, disables adaptation feedback, and jointly models matched
+network edges with a four-state spike-and-slab prior for posterior group
+and directional differential edge selection. Functions assess balance,
+record criterion diagnostics, and visualize within-condition and
+differential networks.
 
 %prep
 %setup -q -c -n %{packname}

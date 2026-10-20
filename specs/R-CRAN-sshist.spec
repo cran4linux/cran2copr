@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sshist
-%global packver   0.2.4
+%global packver   0.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimal Density Estimation via Shimazaki-Shinomoto Method
 
@@ -16,10 +16,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
+Requires:         R-CRAN-boot 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-Rcpp 
@@ -27,7 +29,7 @@ Requires:         R-stats
 
 %description
 Implements the Shimazaki-Shinomoto method for optimizing the bin width of
-histograms and the bandwidth of kernel density estimators. The framework
+histograms and the bandwidth of kernel density estimators.  The framework
 minimizes the expected Mean Integrated Squared Error (MISE) and supports
 both 1D and 2D distributions, fixed and locally adaptive estimators,
 bootstrap confidence intervals, and 'OpenMP'-accelerated 'C++' 'backends'.

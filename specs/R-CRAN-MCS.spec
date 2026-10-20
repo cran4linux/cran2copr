@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MCS
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model Confidence Set Procedure
 
@@ -18,10 +18,15 @@ BuildRequires:    R-devel >= 3.0.1
 Requires:         R-core >= 3.0.1
 BuildArch:        noarch
 BuildRequires:    R-methods 
+BuildRequires:    R-stats 
 Requires:         R-methods 
+Requires:         R-stats 
 
 %description
-Perform the Model Confidence Set procedure of Hansen et.al (2011).
+Implements the Model Confidence Set procedure of Hansen, Lunde and Nason
+(2011) <doi:10.3982/ECTA5771> using bootstrap tests of equal predictive
+ability. Includes loss functions for level, volatility and quantile
+forecasts.
 
 %prep
 %setup -q -c -n %{packname}

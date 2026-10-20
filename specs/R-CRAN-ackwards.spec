@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ackwards
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bass-Ackwards Hierarchical Structural Analysis
 
@@ -35,11 +35,14 @@ Implements Goldberg's (2006) <doi:10.1016/j.jrp.2006.01.001> bass-ackwards
 method and modern descendants for hierarchical structural analysis.
 Extracts solutions from 1 to k factors using principal component analysis
 (PCA), exploratory factor analysis (EFA), or exploratory structural
-equation modeling (ESEM) engines, then characterizes the hierarchy via
-between-level factor-score correlations computed via exact linear algebra
-(Waller, 2007, <doi:10.1016/j.jrp.2006.08.005>) or materialized scores.
-Includes the Forbes (2023) <doi:10.1037/met0000546> extension for
-redundancy pruning and all-levels cross-correlations.
+equation modeling (ESEM) engines. It then describes the hierarchy through
+the correlations between the factor scores of different levels. It
+computes them with linear algebra from the scoring weights and the
+correlation matrix the fit uses, so they are exact for that matrix. Waller
+(2007) <doi:10.1016/j.jrp.2006.08.005> showed, for principal components,
+that these correlations follow from the correlation matrix alone. Includes
+the Forbes (2023) <doi:10.1037/met0000546> extension for redundancy
+pruning and all-levels cross-correlations.
 
 %prep
 %setup -q -c -n %{packname}

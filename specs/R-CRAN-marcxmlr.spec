@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  marcxmlr
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Faithful and Scalable MARCXML Parsing
+Summary:          Efficient MARCXML Processing and Record Querying
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -36,10 +36,13 @@ Parses Machine-Readable Cataloging ('MARC 21') XML
 <https://www.loc.gov/standards/marcxml/> into a canonical tidy long
 representation while preserving leaders, control fields, data fields,
 indicators, repeated fields, repeated subfields, and source order.
-Provides in-memory reading, bounded-memory conversion to 'Parquet', and
-reconstruction of MARCXML from canonical data. Supports structural
-diagnostics for in-memory and 'Arrow'-backed representations, optional
-recovery from malformed MARC records, and local parallel processing.
+Provides in-memory reading, batched conversion to 'Parquet', and
+reconstruction of MARCXML from canonical data. Supports MARC-aware
+selection of complete records before materialisation using native XML
+prefiltering, and after materialisation on canonical tables and 'Arrow'
+datasets. Includes structural diagnostics for in-memory and 'Arrow'-backed
+representations, optional recovery from malformed MARC records, and local
+parallel processing.
 
 %prep
 %setup -q -c -n %{packname}

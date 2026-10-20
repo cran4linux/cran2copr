@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FastJM
-%global packver   1.7.1
+%global packver   1.7.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.1
+Version:          1.7.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Semi-Parametric Joint Modeling of Longitudinal and Survival Data
 
@@ -18,14 +18,14 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.7
 BuildRequires:    R-CRAN-rlang >= 0.4.11
-BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-statmod 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-pec 
 BuildRequires:    R-CRAN-future 
@@ -37,14 +37,14 @@ BuildRequires:    R-CRAN-ggpubr
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp >= 1.0.7
 Requires:         R-CRAN-rlang >= 0.4.11
-Requires:         R-CRAN-survival 
+Requires:         R-CRAN-dplyr 
 Requires:         R-utils 
+Requires:         R-stats 
+Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-survival 
 Requires:         R-CRAN-statmod 
 Requires:         R-CRAN-magrittr 
-Requires:         R-stats 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-caret 
 Requires:         R-CRAN-pec 
 Requires:         R-CRAN-future 
@@ -58,7 +58,7 @@ Requires:         R-CRAN-ggpubr
 Implements scalable joint models for large-scale competing risks
 time-to-event data with one or multiple longitudinal biomarkers using the
 efficient algorithms developed by Li et al. (2022)
-<doi:10.1155/2022/1362913> and <doi:10.48550/arXiv.2506.12741>. The
+<doi:10.1155/2022/1362913> and <doi:10.1214/26-AOAS2218>. The
 time-to-event process is modeled using a cause-specific Cox proportional
 hazards model with time-fixed covariates, while longitudinal biomarkers
 are modeled using linear mixed-effects models. The association between the

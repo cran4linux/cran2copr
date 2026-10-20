@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LLMR
-%global packver   0.8.11
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.11
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface for Large Language Model APIs in R
 
@@ -17,10 +17,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-curl >= 5.0.0
+BuildRequires:    R-CRAN-processx >= 3.8.0
 BuildRequires:    R-CRAN-cli >= 3.6.0
 BuildRequires:    R-CRAN-glue >= 1.6.0
-BuildRequires:    R-CRAN-httr2 >= 1.0.0
-BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-httr2 >= 1.1.1
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
@@ -35,10 +36,11 @@ BuildRequires:    R-CRAN-jsonlite
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-curl >= 5.0.0
+Requires:         R-CRAN-processx >= 3.8.0
 Requires:         R-CRAN-cli >= 3.6.0
 Requires:         R-CRAN-glue >= 1.6.0
-Requires:         R-CRAN-httr2 >= 1.0.0
-Requires:         R-CRAN-curl 
+Requires:         R-CRAN-httr2 >= 1.1.1
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
@@ -59,6 +61,8 @@ One interface to many large language model providers: a single
 configuration object and a single calling function serve chat and
 embedding models alike, so research code does not change when the provider
 does. The same calls scale to multi-model and multi-condition studies.
+Small open models can also run on the user's computer through 'llama.cpp',
+downloaded only on request, with access to next-token probabilities.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  accelmissing
-%global packver   2.2
+%global packver   2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2
+Version:          2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Missing Value Imputation for Accelerometer Data
 
@@ -19,8 +19,16 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-mice 
 BuildRequires:    R-CRAN-pscl 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-mice 
 Requires:         R-CRAN-pscl 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 We present a statistical method for imputing missing values in

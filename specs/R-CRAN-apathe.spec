@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  apathe
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          American Psychological Association Thesis Templates for R Markdown
 
@@ -17,11 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-bibtex >= 0.5.1
 BuildRequires:    R-CRAN-rmdfiltr >= 0.1.5
 BuildRequires:    R-CRAN-papaja >= 0.1.3
 BuildRequires:    R-CRAN-bookdown 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-assertthat 
+Requires:         R-CRAN-bibtex >= 0.5.1
 Requires:         R-CRAN-rmdfiltr >= 0.1.5
 Requires:         R-CRAN-papaja >= 0.1.3
 Requires:         R-CRAN-bookdown 

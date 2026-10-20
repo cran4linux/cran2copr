@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  krippendorffsalpha
-%global packver   2.0
+%global packver   2.0-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          2.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Measuring Agreement Using Krippendorff's Alpha Coefficient
 
@@ -21,7 +21,7 @@ BuildArch:        noarch
 %description
 Provides tools for applying Krippendorff's Alpha methodology
 <DOI:10.1080/19312450709336664>. Both the customary methodology and
-Hughes' methodology <DOI:10.48550/arXiv.2210.13265> are supported, the
+Hughes' methodology <DOI:10.1016/j.jspi.2024.106170> are supported, the
 former being preferred for larger datasets, the latter for smaller
 datasets. The framework supports common and user-defined distance
 functions, and can accommodate any number of units, any number of coders,

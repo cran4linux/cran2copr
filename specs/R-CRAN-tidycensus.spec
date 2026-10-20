@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidycensus
-%global packver   1.8.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Load US Census Boundary and Attribute Data as 'tidyverse' and 'sf'-Ready Data Frames
 
@@ -17,32 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-tigris >= 2.3.0
+BuildRequires:    R-CRAN-readr >= 2.0.0
 BuildRequires:    R-CRAN-jsonlite >= 1.5.0
+BuildRequires:    R-CRAN-httr2 >= 1.1.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-tigris 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-units 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-tigris >= 2.3.0
+Requires:         R-CRAN-readr >= 2.0.0
 Requires:         R-CRAN-jsonlite >= 1.5.0
+Requires:         R-CRAN-httr2 >= 1.1.0
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-httr 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-tigris 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-readr 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-units 
 Requires:         R-utils 

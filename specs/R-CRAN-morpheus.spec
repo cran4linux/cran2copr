@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  morpheus
-%global packver   1.0-5
+%global packver   1.0-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate Parameters of Mixtures of Logistic Regressions
 
@@ -20,17 +20,19 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-CRAN-jointDiag 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-jointDiag 
 Requires:         R-methods 
 Requires:         R-CRAN-pracma 
+Requires:         R-utils 
 
 %description
 Mixture of logistic regressions parameters (H)estimation with (U)spectral
 methods. The main methods take d-dimensional inputs and a vector of binary
 outputs, and return parameters according to the GLMs mixture model
 (General Linear Model). For more details see chapter 3 in the PhD thesis
-of Mor-Absa Loum: <https://theses.fr/s156435>, available here
+of Mor-Absa Loum: <https://theses.fr/2018SACLS299>, available here
 <https://theses.hal.science/tel-01877796/document>.
 
 %prep

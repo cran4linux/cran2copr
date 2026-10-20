@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  NGLVieweR
-%global packver   1.4.0
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive 3D Visualization of Molecular Structures
 
@@ -17,10 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-shiny 
+Requires:         R-grDevices 
 Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-magrittr 
 Requires:         R-tools 
@@ -28,7 +30,7 @@ Requires:         R-CRAN-shiny
 
 %description
 Provides an 'htmlwidgets' <https://www.htmlwidgets.org/> interface to
-'NGL.js' <http://nglviewer.org/ngl/api/>. 'NGLvieweR' can be used to
+'NGL.js' <https://nglviewer.org/ngl/api/>. 'NGLVieweR' can be used to
 visualize and interact with protein databank ('PDB') and structural files
 in R and Shiny applications. It includes a set of API functions to
 manipulate the viewer after creation in Shiny.

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  betafunctions
-%global packver   1.9.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Working with Two- And Four-Parameter Beta Probability Distributions and Psychometric Analysis of Classifications
+Summary:          Two- And Four-Parameter Beta Distributions and Classification Accuracy and Consistency
 
 License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,26 +17,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+Requires:         R-graphics 
+Requires:         R-stats 
 
 %description
-Package providing a number of functions for working with Two- and
-Four-parameter Beta and closely related distributions (i.e., the Gamma-
-Binomial-, and Beta-Binomial distributions). Includes, among other things:
-- d/p/q/r functions for Four-Parameter Beta distributions and Generalized
-"Binomial" (continuous) distributions, and d/p/r- functions for Beta-
-Binomial distributions. - d/p/q/r functions for Two- and Four-Parameter
-Beta distributions parameterized in terms of their means and variances
-rather than their shape-parameters. - Moment generating functions for
-Binomial distributions, Beta-Binomial distributions, and observed value
-distributions. - Functions for estimating classification accuracy and
-consistency, making use of the Classical Test-Theory based 'Livingston and
-Lewis' (L&L) and 'Hanson and Brennan' approaches. A shiny app is
-available, providing a GUI for the L&L approach when used for binary
-classifications. For url to the app, see documentation for the LL.CA()
-function. Livingston and Lewis (1995)
-<doi:10.1111/j.1745-3984.1995.tb00462.x>. Lord (1965)
-<doi:10.1007/BF02289490>. Hanson (1991)
-<https://files.eric.ed.gov/fulltext/ED344945.pdf>.
+Functions for working with two- and four-parameter Beta distributions and
+the closely related Beta-Binomial distribution, and for estimating the
+accuracy and consistency of test-based classifications. Includes d/p/q/r
+functions for four-parameter Beta distributions, including
+parameterization by mean and variance; d/p/r functions for Beta-Binomial
+distributions and for Lord's two-term approximation to the compound
+Binomial distribution; moments of Beta, Binomial, Beta-Binomial, and
+observed-score distributions; and method-of-moments fitting of two- and
+four-parameter Beta true-score distributions. Classification accuracy and
+consistency can be estimated with the 'Livingston and Lewis' approach
+(Livingston and Lewis, 1995 <doi:10.1111/j.1745-3984.1995.tb00462.x>), the
+'Hanson and Brennan' approach based on Lord's strong true-score theory
+(Lord, 1965 <doi:10.1007/BF02289490>; Hanson, 1991
+<https://files.eric.ed.gov/fulltext/ED344945.pdf>), and the multinomial
+and compound multinomial approach (Lee, 2007
+<doi:10.1177/0146621606294206>; Lee, Brennan, and Wan, 2009
+<doi:10.1177/0146621608321759>), for two or more categories, with ROC
+analysis, model-fit tests, and examinee- or score-level results.
 
 %prep
 %setup -q -c -n %{packname}

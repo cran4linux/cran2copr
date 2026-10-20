@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TDIagree
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Assessment of Agreement using the Total Deviation Index
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-plotfunctions
 BuildRequires:    R-CRAN-katex 
 BuildRequires:    R-CRAN-furniture 
 BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-knitr 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-gt 
 Requires:         R-CRAN-multcomp 
@@ -35,6 +36,7 @@ Requires:         R-CRAN-plotfunctions
 Requires:         R-CRAN-katex 
 Requires:         R-CRAN-furniture 
 Requires:         R-graphics 
+Requires:         R-CRAN-knitr 
 
 %description
 The total deviation index (TDI) is an unscaled statistical measure used to
@@ -42,9 +44,9 @@ evaluate the deviation between paired quantitative measurements when
 assessing the extent of agreement between different raters. It describes a
 boundary such that a large specified proportion of the differences in
 paired measurements are within the boundary (Lin, 2000)
-<https://pubmed.ncbi.nlm.nih.gov/10641028/>. This R package implements
-some methodologies existing in the literature for TDI estimation and
-inference in the case of two raters.
+<doi:10.1002/(SICI)1097-0258(20000130)19:2%%3C255::AID-SIM293%%3E3.0.CO;2-8>.
+This R package implements some methodologies existing in the literature
+for TDI estimation and inference in the case of two raters.
 
 %prep
 %setup -q -c -n %{packname}
