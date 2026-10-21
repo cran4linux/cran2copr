@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BFS
-%global packver   0.7.2
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.2
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Get Data from the Swiss Federal Statistical Office
 
@@ -14,40 +14,40 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-magrittr >= 2.0.0
+BuildRequires:    R-CRAN-httr2 >= 1.0.0
+BuildRequires:    R-CRAN-purrr >= 1.0.0
+BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-pxweb 
-BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-zip 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-magrittr >= 2.0.0
+Requires:         R-CRAN-httr2 >= 1.0.0
+Requires:         R-CRAN-purrr >= 1.0.0
+Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-pxweb 
-Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-zip 
 Requires:         R-CRAN-fs 
 Requires:         R-tools 
 Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tidyr 
 
 %description

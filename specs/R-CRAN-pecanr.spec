@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pecanr
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Partial Eta-Squared for Crossed, Nested, and Mixed Linear Mixed Models
 
@@ -29,17 +29,16 @@ mixed (crossed-and-nested) random effects structures with any number of
 grouping factors. Mixed designs handle cases where grouping factors are
 simultaneously crossed with some variables and nested within others (e.g.,
 photos nested within models, but both crossed with participants). Factor
-predictors are supported directly, and a single factor-level (omnibus)
-effect size can be obtained for a multi-level factor or multi-df
-interaction. Random slope variances are translated to the outcome scale
-using a variance decomposition approach, correctly accounting for
-predictor scaling and interaction terms. Both general and operative effect
-sizes are provided, with optional parametric bootstrap confidence
-intervals. For correlated predictors, per-predictor effect sizes use
-unique (semipartial) variance by default. Methods are based on Correll,
-Mellinger, McClelland, and Judd (2020) <doi:10.1016/j.tics.2019.12.009>,
-Correll, Mellinger, and Pedersen (2022) <doi:10.3758/s13428-021-01687-2>,
-and Rights and Sterba (2019) <doi:10.1037/met0000184>.
+predictors are supported directly. Random slope variances are translated
+to the outcome scale using a variance decomposition approach, correctly
+accounting for predictor scaling and interaction terms. Both general and
+operative effect sizes are provided, with optional parametric bootstrap
+confidence intervals. For correlated predictors, per-predictor effect
+sizes use unique (semipartial) variance by default. Methods are based on
+Correll, Mellinger, McClelland, and Judd (2020)
+<doi:10.1016/j.tics.2019.12.009>, Correll, Mellinger, and Pedersen (2022)
+<doi:10.3758/s13428-021-01687-2>, and Rights and Sterba (2019)
+<doi:10.1037/met0000184>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  oeli
-%global packver   0.7.8
+%global packver   0.7.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.8
+Version:          0.7.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Some Utilities for Developing Data Science Software
 
@@ -24,9 +24,7 @@ BuildRequires:    R-CRAN-cubature
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-future.apply 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-hexSticker 
 BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-SimMultiCorrData 
@@ -44,9 +42,7 @@ Requires:         R-CRAN-cubature
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-future.apply 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-hexSticker 
 Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-Rcpp >= 1.1.1

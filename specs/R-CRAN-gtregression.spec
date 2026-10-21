@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gtregression
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Creating Publication-Ready Regression Tables
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-scales >= 1.3.0
+BuildRequires:    R-CRAN-gt >= 0.6.0
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-risks 
 BuildRequires:    R-CRAN-purrr 
@@ -32,13 +33,17 @@ BuildRequires:    R-CRAN-sandwich
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-broom.helpers 
-BuildRequires:    R-CRAN-gt 
 BuildRequires:    R-CRAN-officer 
 BuildRequires:    R-CRAN-flextable 
 BuildRequires:    R-CRAN-forestploter 
 BuildRequires:    R-CRAN-logistf 
 BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-cmprsk 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-ordinal 
+BuildRequires:    R-CRAN-nnet 
 Requires:         R-CRAN-scales >= 1.3.0
+Requires:         R-CRAN-gt >= 0.6.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-risks 
 Requires:         R-CRAN-purrr 
@@ -53,29 +58,36 @@ Requires:         R-CRAN-sandwich
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-broom.helpers 
-Requires:         R-CRAN-gt 
 Requires:         R-CRAN-officer 
 Requires:         R-CRAN-flextable 
 Requires:         R-CRAN-forestploter 
 Requires:         R-CRAN-logistf 
 Requires:         R-CRAN-survival 
+Requires:         R-CRAN-cmprsk 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-ordinal 
+Requires:         R-CRAN-nnet 
 
 %description
-Simplifies regression modeling in R by integrating multiple modeling and
-summarization tools into a cohesive, user-friendly interface. Designed to
-be accessible for researchers, particularly those in Low- and
-Middle-Income Countries (LMIC). Built upon widely accepted statistical
-methods, including logistic regression (Hosmer et al. 2013,
-ISBN:9781118548429), log-binomial regression (Spiegelman and Hertzmark
-2005 <doi:10.1093/aje/kwi188>), Firth penalized logistic regression (Firth
-1993 <doi:10.1093/biomet/80.1.27>), Poisson and robust Poisson regression
-(Zou 2004 <doi:10.1093/aje/kwh090>), negative binomial regression (Hilbe
-2011, ISBN:9780521179515), Cox proportional hazards regression, parametric
-survival regression, causal mediation analysis, and linear regression
-(Kutner et al. 2005, ISBN:9780071122214). Leverages multiple dependencies
-to ensure high-quality output and generate reproducible, publication-ready
-tables in alignment with best practices in epidemiology and applied
-statistics.
+Simplifies regression modelling in R by integrating modelling,
+diagnostics, visualisation, and summary tools into a cohesive,
+user-friendly interface. Designed to be accessible for researchers,
+particularly those in Low- and Middle-Income Countries (LMIC). Supports
+logistic, linear, count, matched case-control, ordinal, multinomial,
+multilevel, Cox, parametric survival, and competing-risk regression, and
+absolute risk differences with the number needed to treat. Built upon
+widely accepted statistical methods, including logistic regression (Hosmer
+et al. 2013, ISBN:9781118548429), log-binomial regression (Spiegelman and
+Hertzmark 2005 <doi:10.1093/aje/kwi188>), Firth penalized logistic
+regression (Firth 1993 <doi:10.1093/biomet/80.1.27>), Poisson and robust
+Poisson regression (Zou 2004 <doi:10.1093/aje/kwh090>), negative binomial
+regression (Hilbe 2011, ISBN:9780521179515), Cox proportional hazards
+regression, parametric survival regression, causal mediation analysis,
+risk differences (Miettinen and Nurminen 1985
+<doi:10.1002/sim.4780040211>), and linear regression (Kutner et al. 2005,
+ISBN:9780071122214). Leverages multiple dependencies to ensure
+high-quality output and generate reproducible, publication-ready tables in
+alignment with best practices in epidemiology and applied statistics.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  actimetrics
-%global packver   0.4.0
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Metrics Actigraphy and Activity Analysis
 
@@ -18,24 +18,28 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-walking >= 0.8.0
+BuildRequires:    R-CRAN-actigraph.sleepr >= 0.3.1
 BuildRequires:    R-CRAN-actibase 
 BuildRequires:    R-CRAN-actiread 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-methods 
 Requires:         R-CRAN-walking >= 0.8.0
+Requires:         R-CRAN-actigraph.sleepr >= 0.3.1
 Requires:         R-CRAN-actibase 
 Requires:         R-CRAN-actiread 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 

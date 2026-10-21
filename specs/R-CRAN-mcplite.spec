@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mcplite
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lightweight Stdio MCP Server for R
 
@@ -18,10 +18,10 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-nanonext >= 1.6.0
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-jsonlite >= 0.9.16
 BuildRequires:    R-CRAN-otel 
 Requires:         R-CRAN-nanonext >= 1.6.0
-Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-jsonlite >= 0.9.16
 Requires:         R-CRAN-otel 
 
 %description

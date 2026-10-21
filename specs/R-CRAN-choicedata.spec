@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  choicedata
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Working with Choice Data
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-optimizeR >= 1.2.1
-BuildRequires:    R-CRAN-oeli >= 0.7.8
+BuildRequires:    R-CRAN-oeli >= 0.7.9
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
@@ -30,7 +30,7 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-optimizeR >= 1.2.1
-Requires:         R-CRAN-oeli >= 0.7.8
+Requires:         R-CRAN-oeli >= 0.7.9
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BsplineQuantRegGui
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive 'Shiny' Interface for 'BsplineQuantReg'
 
@@ -14,10 +14,10 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.6.0
-Requires:         R-core >= 4.6.0
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-BsplineQuantReg >= 0.2.5
+BuildRequires:    R-CRAN-BsplineQuantReg >= 0.2.2
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-CRAN-DT 
@@ -26,7 +26,7 @@ BuildRequires:    R-CRAN-png
 BuildRequires:    R-CRAN-shinythemes 
 BuildRequires:    R-CRAN-colourpicker 
 BuildRequires:    R-CRAN-ECOSolveR 
-Requires:         R-CRAN-BsplineQuantReg >= 0.2.5
+Requires:         R-CRAN-BsplineQuantReg >= 0.2.2
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinyjs 
 Requires:         R-CRAN-DT 
@@ -43,13 +43,14 @@ constraints, based on the method described in Abbes (2025). Almost all
 parameters of the main function 'quantile_spline()' can be tuned. Features
 include interactive knot placement, per-region constraint specification,
 'CSV' data import, direct demo access, reproducible R code generation, and
-solver selection. The version 0.2.2 handles knots multiplicity, Bspline
-basis visualisation, mean-square regression, pp form visualisation under
-human readable form, in local or canonical bases, The GUI provides two
-modes, basic (compatible with 'BsplineQuantReg' >= 0.2.2) and advanced
-(requires 'BsplineQuantReg' >= 0.2.5 for stable multiplicity features).
-This GUI an improved version of the 'Python Tk' version of
-'BsplineQuantRegPy'.
+solver selection. From version 0.2.2 it handles knots multiplicity,
+Bspline basis visualisation, mean-square regression, pp form visualisation
+under human readable form, in local or canonical bases, The version 0.2.3
+allows regression with spline of any degree, with constraints implemented
+for degrees 0 to 5. The GUI provides two modes, basic (compatible with
+'BsplineQuantReg' >= 0.2.2) and advanced (requires 'BsplineQuantReg' >=
+0.2.6 for stable multiplicity features). This GUI is an R (improved)
+version of the 'Python Tk' version of 'BsplineQuantRegPy'.
 
 %prep
 %setup -q -c -n %{packname}

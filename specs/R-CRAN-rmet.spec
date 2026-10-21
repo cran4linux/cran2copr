@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rmet
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download and Read Brazilian Meteorological Data from INMET
 
@@ -17,19 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-curl >= 4.0
 BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-curl 
+Requires:         R-CRAN-curl >= 4.0
 Requires:         R-CRAN-jsonlite 
 
 %description
-Automates the download and processing of historical weather data from the
-Brazilian National Institute of Meteorology (INMET). It provides a cached
-catalogue of automatic stations, resumable and validated downloads, and
-parsers for formatting inconsistencies in raw CSV files across different
-years. It removes structural artifacts, standardizes column names, parses
-timestamps, and returns data frames ready for analysis. Data are retrieved
-from <https://portal.inmet.gov.br/dadoshistoricos> and
+Automates the download and processing of historical hourly weather data
+from automatic stations of the Brazilian National Institute of Meteorology
+(INMET). It provides the official station catalogue with an offline
+snapshot and nearest-station search, validated and resumable downloads
+that detect updated archives, and a fast parser for the formatting and
+encoding inconsistencies of raw CSV files across years. It returns
+analysis-ready data frames with standardized column names and UTC
+timestamps. It flags implausible values with transparent quality-control
+checks, reports data completeness, and builds daily summaries in each
+station's local time with explicit rules for incomplete days. Data are
+retrieved from <https://portal.inmet.gov.br/dadoshistoricos> and
 <https://apitempo.inmet.gov.br/estacoes/T>.
 
 %prep

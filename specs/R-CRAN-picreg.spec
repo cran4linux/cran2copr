@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  picreg
-%global packver   0.1.4
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Variable Selection using the Pivotal Information Criterion
 
@@ -20,18 +20,12 @@ BuildRequires:    R-CRAN-Rcpp >= 1.0.10
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.10
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-parallel 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-Matrix 
 
 %description

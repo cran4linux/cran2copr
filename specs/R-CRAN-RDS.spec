@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RDS
-%global packver   0.9-10
+%global packver   0.9-11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.10
+Version:          0.9.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Respondent-Driven Sampling
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.5.1
-Requires:         R-core >= 2.5.1
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-ggplot2 >= 2.0.0
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-gridExtra 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-Hmisc
 BuildRequires:    R-CRAN-statnet.common 
 BuildRequires:    R-CRAN-ergm 
 BuildRequires:    R-CRAN-isotone 
+BuildRequires:    R-parallel 
 Requires:         R-CRAN-ggplot2 >= 2.0.0
 Requires:         R-methods 
 Requires:         R-CRAN-gridExtra 
@@ -40,6 +41,7 @@ Requires:         R-CRAN-Hmisc
 Requires:         R-CRAN-statnet.common 
 Requires:         R-CRAN-ergm 
 Requires:         R-CRAN-isotone 
+Requires:         R-parallel 
 
 %description
 Provides functionality for carrying out estimation with data collected

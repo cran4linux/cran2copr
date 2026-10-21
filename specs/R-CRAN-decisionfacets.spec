@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  decisionfacets
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Decision Accuracy and Consistency for Rater-Mediated Exams
 
@@ -32,8 +32,11 @@ under the observed, an average-severity and a random rater panel, under an
 explicit decision rule (raw total, fair average or measure), and splits
 expected misclassification into measurement error and rater assignment,
 extending item response theory classification accuracy (Lee, 2010,
-<doi:10.1111/j.1745-3984.2009.00096.x>) to rater effects. Models can be
-fitted with 'TAM' or a built-in joint maximum likelihood estimator.
+<doi:10.1111/j.1745-3984.2009.00096.x>) to rater effects. Supports panels
+in which every rater scores every task and designs in which each case is
+scored by a different examiner, with rating categories or continuous
+scores such as 0-100 (through a linear many-facet model). Models can be
+fitted with 'TAM' or built-in estimators.
 
 %prep
 %setup -q -c -n %{packname}

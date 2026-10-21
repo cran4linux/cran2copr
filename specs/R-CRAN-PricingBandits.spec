@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PricingBandits
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multi-Armed Bandit Approaches to Pricing Experiments
 
@@ -36,15 +36,15 @@ Requires:         R-CRAN-R.utils
 
 %description
 Implements multi-armed bandit approaches for pricing experiments with an
-unknown demand curve, as developed in Weaver, Kumar, and Jain,
+unknown demand curve, as developed in Weaver, Kumar, and Jain (2025)
 "Nonparametric Pricing Bandits Leveraging Informational Externalities to
 Learn the Demand Curve" <doi:10.1287/mksc.2022.0247>. Includes Upper
 Confidence Bound (UCB) and Thompson Sampling (TS) baselines, Gaussian
-process variants ('GP-UCB', 'GP-TS'), monotonic Gaussian process variants
-that constrain demand to be weakly decreasing in price, and
-heterogeneous-noise extensions. The willingness-to-pay distribution is
-fully user-specified via a vector of consumer valuations, so any demand
-environment can be simulated or replayed.
+process variants (GP-UCB, GP-TS), monotonic Gaussian process variants that
+constrain demand to be weakly decreasing in price, and heterogeneous-noise
+extensions. The willingness-to-pay distribution is fully user-specified
+via a vector of consumer valuations, so any demand environment can be
+simulated or replayed.
 
 %prep
 %setup -q -c -n %{packname}

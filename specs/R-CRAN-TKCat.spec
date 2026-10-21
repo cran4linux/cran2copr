@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TKCat
-%global packver   1.2.3
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tailored Knowledge Catalog
 
@@ -30,6 +30,7 @@ BuildRequires:    R-CRAN-shiny
 BuildRequires:    R-CRAN-shinydashboard 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-httpuv 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-markdown 
@@ -53,6 +54,7 @@ Requires:         R-CRAN-shiny
 Requires:         R-CRAN-shinydashboard 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-httpuv 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-markdown 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rcrisp
-%global packver   0.3.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automate the Delineation of Urban River Spaces
 
@@ -19,6 +19,7 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-sf >= 0.9.0
 BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dbscan 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-lwgeom 
@@ -35,6 +36,7 @@ BuildRequires:    R-CRAN-units
 BuildRequires:    R-CRAN-visor 
 Requires:         R-CRAN-sf >= 0.9.0
 Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dbscan 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-lwgeom 

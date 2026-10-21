@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nflplotR
-%global packver   1.7.0
+%global packver   1.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.0
+Version:          1.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          NFL Logo Plots in 'ggplot2' and 'gt'
 
@@ -23,7 +23,7 @@ BuildRequires:    R-CRAN-magick >= 2.7.3
 BuildRequires:    R-CRAN-memoise >= 2.0.0
 BuildRequires:    R-CRAN-nflreadr >= 1.5.0
 BuildRequires:    R-CRAN-data.table >= 1.14.0
-BuildRequires:    R-CRAN-ggpath >= 1.1.0
+BuildRequires:    R-CRAN-ggpath >= 1.1.2
 BuildRequires:    R-CRAN-scales >= 1.1.0
 BuildRequires:    R-CRAN-cachem >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 1.0.0
@@ -37,7 +37,7 @@ Requires:         R-CRAN-magick >= 2.7.3
 Requires:         R-CRAN-memoise >= 2.0.0
 Requires:         R-CRAN-nflreadr >= 1.5.0
 Requires:         R-CRAN-data.table >= 1.14.0
-Requires:         R-CRAN-ggpath >= 1.1.0
+Requires:         R-CRAN-ggpath >= 1.1.2
 Requires:         R-CRAN-scales >= 1.1.0
 Requires:         R-CRAN-cachem >= 1.0.0
 Requires:         R-CRAN-rlang >= 1.0.0

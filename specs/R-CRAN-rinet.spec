@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rinet
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Clinical Reference Interval Estimation with Reference Interval Network (RINet)
 
@@ -17,8 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-reticulate 
-Requires:         R-CRAN-reticulate 
+BuildRequires:    R-CRAN-torch 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-torch 
+Requires:         R-stats 
 
 %description
 Predicts statistics of a reference distribution from a mixture of raw

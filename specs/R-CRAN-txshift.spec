@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  txshift
-%global packver   0.3.8
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.8
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient Estimation of the Causal Effects of Stochastic Interventions
 
@@ -16,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-hal9001 >= 0.4.1
-BuildRequires:    R-CRAN-haldensify >= 0.2.1
+BuildRequires:    R-CRAN-hal9001 >= 0.4.6
+BuildRequires:    R-CRAN-haldensify >= 0.2.3
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-data.table 
@@ -28,8 +29,8 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-latex2exp 
 BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-hal9001 >= 0.4.1
-Requires:         R-CRAN-haldensify >= 0.2.1
+Requires:         R-CRAN-hal9001 >= 0.4.6
+Requires:         R-CRAN-haldensify >= 0.2.3
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-data.table 
@@ -59,7 +60,7 @@ and DC Benkeser (2020) <doi:10.1111/biom.13375>. The software package
 implementation is described in NS Hejazi and DC Benkeser (2020)
 <doi:10.21105/joss.02447>. Estimation of nuisance parameters may be
 enhanced through the Super Learner ensemble model in 'sl3', available for
-download from GitHub using 'remotes::install_github("tlverse/sl3")'.
+download from <https://tlverse.r-universe.dev> or from GitHub.
 
 %prep
 %setup -q -c -n %{packname}
