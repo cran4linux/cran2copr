@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rdracor
-%global packver   1.0.6
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access to the 'DraCor' API
 
@@ -25,8 +25,8 @@ BuildRequires:    R-CRAN-stringr >= 1.4.1
 BuildRequires:    R-CRAN-igraph >= 1.2.4.1
 BuildRequires:    R-CRAN-xml2 >= 1.2.2
 BuildRequires:    R-CRAN-tidyr >= 1.2.1
-BuildRequires:    R-CRAN-data.table >= 1.12.2
-BuildRequires:    R-CRAN-purrr >= 0.3.5
+BuildRequires:    R-CRAN-data.table >= 1.13.0
+BuildRequires:    R-CRAN-purrr >= 1.0.0
 BuildRequires:    R-utils 
 Requires:         R-CRAN-tibble >= 3.1.8
 Requires:         R-CRAN-Rdpack >= 2.4
@@ -36,8 +36,8 @@ Requires:         R-CRAN-stringr >= 1.4.1
 Requires:         R-CRAN-igraph >= 1.2.4.1
 Requires:         R-CRAN-xml2 >= 1.2.2
 Requires:         R-CRAN-tidyr >= 1.2.1
-Requires:         R-CRAN-data.table >= 1.12.2
-Requires:         R-CRAN-purrr >= 0.3.5
+Requires:         R-CRAN-data.table >= 1.13.0
+Requires:         R-CRAN-purrr >= 1.0.0
 Requires:         R-utils 
 
 %description

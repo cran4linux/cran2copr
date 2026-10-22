@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FuzzyClass
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fuzzy and Non-Fuzzy Classifiers
 
@@ -14,9 +14,11 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli >= 3.4.0
+BuildRequires:    R-CRAN-R6 >= 2.5.0
 BuildRequires:    R-CRAN-caTools 
 BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-CRAN-EnvStats 
@@ -26,6 +28,8 @@ BuildRequires:    R-CRAN-Rdpack
 BuildRequires:    R-CRAN-rootSolve 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-trapezoid 
+Requires:         R-CRAN-cli >= 3.4.0
+Requires:         R-CRAN-R6 >= 2.5.0
 Requires:         R-CRAN-caTools 
 Requires:         R-CRAN-e1071 
 Requires:         R-CRAN-EnvStats 
@@ -46,7 +50,9 @@ Geoprocessing (LEAPIG)' at 'Federal University of Paraiba, Brazil'. They
 considered some statistical distributions and their papers were published
 in the scientific literature, as for instance, the Gaussian classifier
 using fuzzy parameters, proposed by 'Moraes, Ferreira and Machado' (2021)
-<doi:10.1007/s40815-020-00936-4>.
+<doi:10.1007/s40815-020-00936-4>. The classifiers are implemented as 'R6'
+classes and are also available as 'parsnip' models, so they can be used
+within the 'tidymodels' framework.
 
 %prep
 %setup -q -c -n %{packname}

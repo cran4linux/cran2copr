@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ncmR
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit Neutral Community Model to Microbiome or Ecological Data
 
@@ -18,26 +18,30 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
-BuildRequires:    R-CRAN-bslib 
+BuildRequires:    R-CRAN-bslib >= 0.9.0
 BuildRequires:    R-CRAN-colourpicker 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-ggtext 
+BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-CRAN-minpack.lm 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-systemfonts 
 BuildRequires:    R-CRAN-zip 
 Requires:         R-CRAN-ggplot2 >= 4.0.0
-Requires:         R-CRAN-bslib 
+Requires:         R-CRAN-bslib >= 0.9.0
 Requires:         R-CRAN-colourpicker 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-ggtext 
+Requires:         R-grid 
 Requires:         R-CRAN-Hmisc 
 Requires:         R-CRAN-minpack.lm 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-systemfonts 
 Requires:         R-CRAN-zip 
 
 %description

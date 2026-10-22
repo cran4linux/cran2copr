@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bbk
-%global packver   0.13.0
+%global packver   0.14.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.13.0
+Version:          0.14.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Client for Central Bank APIs
 
@@ -17,18 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-checkmate >= 1.9.0
 BuildRequires:    R-CRAN-data.table >= 1.17.0
-BuildRequires:    R-CRAN-httr2 >= 1.0.0
-BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-httr2 >= 1.0.6
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-stats 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-checkmate >= 1.9.0
 Requires:         R-CRAN-data.table >= 1.17.0
-Requires:         R-CRAN-httr2 >= 1.0.0
-Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-httr2 >= 1.0.6
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-stats 
@@ -43,9 +43,9 @@ México' (Banxico), 'Banco de Portugal' (BdP), 'Bank for International
 Settlements' (BIS), 'Bank of Canada' (BoC), 'Bank of England' (BoE), 'Bank
 of Israel' (BoI), 'Bank of Japan' (BoJ), 'Banque de France' (BdF), 'Czech
 National Bank' (CNB), 'Deutsche Bundesbank' (BBk), 'European Central Bank'
-(ECB), 'National Bank of Poland' (NBP), 'Norges Bank' (NoB),
-'Oesterreichische Nationalbank' (OeNB), 'Sveriges Riksbank' (SRb), and
-'Swiss National Bank' (SNB).
+(ECB), 'National Bank of Belgium' (NBB), 'National Bank of Poland' (NBP),
+'Norges Bank' (NoB), 'Oesterreichische Nationalbank' (OeNB), 'Sveriges
+Riksbank' (SRb), and 'Swiss National Bank' (SNB).
 
 %prep
 %setup -q -c -n %{packname}

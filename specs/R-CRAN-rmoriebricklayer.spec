@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rmoriebricklayer
-%global packver   0.5.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reproducible Data Capsules with Provenance and Fallback
 
@@ -16,52 +16,46 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
+BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-methods 
+Requires:         R-parallel 
 Requires:         R-stats 
+Requires:         R-tools 
 Requires:         R-utils 
 
 %description
-Tools for building brick-proof, reproducible, self-contained data
-capsules. Resolves open-data sources through the Comprehensive Knowledge
-Archive Network ('CKAN', <https://ckan.org/>) package_show and
-package_search endpoints, records and verifies provenance with Secure Hash
-Algorithm 256 ('SHA-256') digests and Internet Archive 'Wayback Machine'
-(<https://web.archive.org/>) snapshots, validates downloaded data against
-a pinned schema, and falls back to schema-driven synthetic data when the
-real source is unreachable. Run records are captured in a manifest plus a
-plain-language summary so any result can be traced back to its inputs.
-Distributional drift between a pinned capsule and a fresh fetch is tested
-with Kolmogorov-Smirnov, chi-square, population stability index,
-Jensen-Shannon divergence and 'Benford' first-digit screens, because a
-re-released extract can be statistically identical yet differ
-byte-for-byte, and a column can keep its name and type while having been
-silently rescaled. Manifests can be authenticated rather than only
-checksum-verified, with keyed digests ('HMAC-SHA-256', RFC 2104) or
-post-quantum hash-based signatures ('Winternitz' one-time signatures under
-a 'Merkle' tree, RFC 8391), and pinned chunk-wise through a 'Merkle' tree
-so a mismatch identifies which part of a capsule moved. Also ships a
-compiled C++ core (summary, robust and rank statistics, 'SHA-256',
-'SHA-512' and 'CRC-32') that sibling packages in the 'rmorie' ecosystem
-reach through 'LinkingTo' for a single, shared numeric and
-provenance-hashing backend. For the published administrative tables these
-capsules usually hold, it computes period-over-period change matched on
-the period rather than the row, with the exact conditional-binomial
-interval for a ratio of counts and with a percentage-point reading kept
-distinct from a percent change, rendered to Hypertext Markup Language
-('HTML'), Portable Document Format ('PDF'), delimited text, JavaScript
-Object Notation ('JSON') or Markdown. Interval categories such as "2 to 5"
-or "50+" are parsed to bounds and the dependence of any derived figure on
-the open top band is measured rather than assumed. Concentration is
-summarised by the 'Gini' coefficient, the Lorenz curve and tail-index
-estimation by exact discrete maximum likelihood; trend in a series of a
-few periods by the Mann-Kendall test with 'Theil-Sen' slopes, a
-permutation step-change scan and Poisson rate ratios; and region-coded
-counts by indirect standardisation, exact standardised incidence ratios,
-the empirical Bayes shrinkage of Clayton and 'Kaldor' (1987)
-<doi:10.2307/2532003>, funnel-plot limits and Moran's I.
+For analyzing published and unpublished tables, from open-data portals and
+statistical agencies to a researcher's own data, so that a result can be
+traced to the exact data behind it and checked again afterwards. A
+'capsule' records where each source came from, its Secure Hash Algorithm
+256 ('SHA-256') hash, the schema it should have and an archived copy in
+the Internet Archive 'Wayback Machine' ('web.archive.org'); sources are
+found through the Comprehensive Knowledge Archive Network ('CKAN',
+'ckan.org'). Run again, a capsule says whether each source still matches
+and, if it does not, how its distribution moved (Kolmogorov-Smirnov,
+chi-square, population stability index and 'Benford' first-digit screens),
+and when a source cannot be reached it runs on schema-driven synthetic
+data that is marked as such. Capsules can be signed with keyed hashes
+('HMAC-SHA-256', RFC 2104) or with the post-quantum signature standards
+'ML-DSA' (FIPS 204), 'SLH-DSA' (FIPS 205) and 'XMSS' (RFC 8391),
+implemented from the standards with no system cryptography library and
+checked against 'OpenSSL' 3.5 and the known-answer vectors of 'NIST' (the
+US National Institute of Standards and Technology). For the administrative
+tables these capsules usually hold, it computes period-over-period change
+with exact intervals, trends (Mann-Kendall with 'Theil-Sen' slopes),
+rates, and the bounds that rounding and suppression in a release imply;
+small-area rates with the empirical Bayes shrinkage of Clayton and
+'Kaldor' (1987) DOI 10.2307/2532003; self-exciting event series as
+'Hawkes' processes; custodial populations by stock-and-flow measures; and
+the burden of air pollution from dispersion to attributable deaths.
 
 %prep
 %setup -q -c -n %{packname}

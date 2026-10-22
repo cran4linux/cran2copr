@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RprobitB
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Probit Choice Modeling
 
@@ -16,14 +16,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-oeli >= 0.7.8
-BuildRequires:    R-CRAN-choicedata >= 0.2.0
+BuildRequires:    R-CRAN-oeli >= 0.7.9
+BuildRequires:    R-CRAN-choicedata >= 0.2.1
 BuildRequires:    R-CRAN-bayesplot 
 BuildRequires:    R-CRAN-bridgesampling 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-Formula 
 BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-loo 
 BuildRequires:    R-CRAN-posterior 
 BuildRequires:    R-CRAN-progressr 
@@ -32,14 +33,15 @@ BuildRequires:    R-CRAN-Rcpp
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-testthat 
-Requires:         R-CRAN-oeli >= 0.7.8
-Requires:         R-CRAN-choicedata >= 0.2.0
+Requires:         R-CRAN-oeli >= 0.7.9
+Requires:         R-CRAN-choicedata >= 0.2.1
 Requires:         R-CRAN-bayesplot 
 Requires:         R-CRAN-bridgesampling 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-Formula 
 Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-loo 
 Requires:         R-CRAN-posterior 
 Requires:         R-CRAN-progressr 
@@ -53,9 +55,9 @@ choices in cross-sectional and panel data. Correlated or uncorrelated
 normal and log-normal random coefficients, finite mixtures, sparse finite
 mixtures, and Dirichlet process mixtures describe preference
 heterogeneity. Multiple Gibbs chains produce posterior draws for
-diagnostics and choice prediction. Empirical model data can be supplied as
-a data frame or simulated from the requested specification. For an
-overarching treatment of the methodology, see Oelschlaeger (2026)
+diagnostics and choice prediction. Choice data can be supplied as a data
+frame or simulated from the requested specification. For an overarching
+treatment of the methodology, see Oelschlaeger (2026)
 <https://pub.uni-bielefeld.de/record/3014719>. The latent-class model is
 described in Oelschlaeger and Bauer (2021)
 <https://trid.trb.org/view/1759753>.

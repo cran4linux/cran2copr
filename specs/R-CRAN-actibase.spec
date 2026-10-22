@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  actibase
-%global packver   0.6.0
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Baseline Functions for Actigraphy and Activity Processing and Analysis
 
@@ -17,20 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-lubridate >= 1.9.0
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-hms 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-lubridate >= 1.9.0
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-hms 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-vctrs 
 

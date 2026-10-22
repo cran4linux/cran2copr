@@ -1,39 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tailDepFun
-%global packver   1.0.1
+%global __requires_exclude ^libmpi
+%global packname  zufast
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Minimum Distance Estimation of Tail Dependence Models
+Summary:          Fast Portable 'C' Primitives for Parsing and Formatting Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.3
-Requires:         R-core >= 3.2.3
-BuildRequires:    R-CRAN-cubature 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-SpatialExtremes 
-BuildRequires:    R-CRAN-copula 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-cubature 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-SpatialExtremes 
-Requires:         R-CRAN-copula 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 
 %description
-Provides functions implementing minimal distance estimation methods for
-parametric tail dependence models, as proposed in Einmahl, J.H.J.,
-Kiriliouk, A., Krajina, A., and Segers, J. (2016) <doi:10.1111/rssb.12114>
-and Einmahl, J.H.J., Kiriliouk, A., and Segers, J. (2018)
-<doi:10.1007/s10687-017-0303-7>.
+A header-only library of small, fast, portable 'C99' primitives for
+converting external text and bytes into native values and back: correctly
+rounded number parsing (from 'fast_float', through its 'C' port 'ffc.h'),
+shortest round-trip number formatting (from 'Ryu'), ISO 8601 dates and
+timestamps, booleans, universally unique identifiers (UUIDs), hexadecimal
+and Base64, 'XXH3' hashing (from 'xxHash'), half-precision floats, endian
+helpers and UTF-8 validation. Other packages use it through 'LinkingTo'
+alone; the 'R' functions exist to test, benchmark and demonstrate the 'C'
+layer.
 
 %prep
 %setup -q -c -n %{packname}
@@ -43,6 +36,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

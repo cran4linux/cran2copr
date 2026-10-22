@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  glyph
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Next-Generation Grammar of Interactive Graphics
+Summary:          A Grammar of Interactive Graphics
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-jsonlite >= 1.8.0
 BuildRequires:    R-CRAN-htmlwidgets >= 1.6.0
 BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-tools 
 Requires:         R-CRAN-cli >= 3.6.0
@@ -29,17 +30,18 @@ Requires:         R-CRAN-jsonlite >= 1.8.0
 Requires:         R-CRAN-htmlwidgets >= 1.6.0
 Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-grDevices 
+Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-tools 
 
 %description
-A modern visualization grammar that treats interactivity, animation, and
-composable layouts as first-class concepts rather than afterthoughts.
-Designed to address key limitations of existing grammars: native hover,
-click, and zoom events, 'WebGL'-accelerated rendering for large datasets,
-built-in multi-plot composition, and a token-based theming system. Renders
-to interactive HTML widgets via 'D3.js' or static SVG from a single
-declarative specification.
+Builds interactive graphics from a declarative specification. Marks,
+scales, tooltips, zoom, brushing, linked selections, animated transitions
+and multi-plot layouts are declared in one pipeline and stored as a plain
+R list that can be inspected, saved as JSON or converted to 'Vega-Lite'.
+Plots are drawn in the browser with 'D3.js' and work at the console, in R
+Markdown and 'Quarto' documents, and in 'Shiny' apps, where brushed
+selections are returned to R.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  evbsreg
-%global packver   1.2.0
+%global packname  BvCh
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Local Influence Diagnostics for the Extreme-Value Birnbaum-Saunders Regression Model
+Summary:          Bivariate Chen Distribution: Density, Survival, Hazard, Plots and Estimates
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,31 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-reliaR >= 0.2
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-SpatialExtremes 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-reliaR >= 0.2
 Requires:         R-stats 
 Requires:         R-graphics 
-Requires:         R-CRAN-SpatialExtremes 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-grDevices 
 
 %description
-Implements local influence diagnostics for the Extreme-Value
-Birnbaum-Saunders (EVBS) regression model: joint maximum likelihood
-estimation, conformal normal curvature diagnostics under three
-perturbation schemes (case-weight, response variable, and explanatory
-variable), randomized quantile residuals with simulation envelope, Monte
-Carlo simulation utilities, and publication-quality density and diagnostic
-plots. Version 1.1.0 adds the density, distribution and quantile
-functions, the finite upper endpoint, return levels and expected
-shortfall, block bootstrap standard errors for serially dependent series,
-local influence diagnostics for the generalized extreme-value regression
-model, and a GAMLSS family allowing the tail-shape parameter to depend on
-covariates. Version 1.2.0 adds a prospective control chart for endpoint
-identifiability. The methods are described in Ospina, Lima, Barros, and
-Macedo (2026, submitted) and are applied to monthly maximum wind gust data
-from Itajai, Brazil.
+Probability density, survival and hazard functions, random generation,
+graphical displays and maximum likelihood estimation for bivariate Chen
+type models. Three constructions are covered: the Bivariate Chen
+distribution with a singular component on the diagonal, the Bivariate
+Extended Chen distribution, and the Bivariate Inverse copula Chen
+distribution obtained through an inverse copula with Chen marginals.
+Univariate Chen density, distribution, quantile, survival, hazard and
+random generation routines are obtained from the 'reliaR' package.
 
 %prep
 %setup -q -c -n %{packname}

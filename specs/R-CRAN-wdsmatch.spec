@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wdsmatch
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Weighted Double Score Matching for Survey-Weighted Causal Inference
 
@@ -35,7 +35,8 @@ multinomial replication variance estimates and centered normal Wald
 confidence intervals, retaining the original matching reuse coefficients
 without re-matching. Supplied scores can be held fixed for inference
 conditional on those scores. This weight-only interface does not encode
-survey strata, clusters, or design-specific replicate weights.
+survey strata, clusters, or design-specific replicate weights. The method
+is described by Zeng et al. (2026) <doi:10.48550/arXiv.2610.25870>.
 
 %prep
 %setup -q -c -n %{packname}

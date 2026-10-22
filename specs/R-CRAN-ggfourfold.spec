@@ -1,40 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  SpatialExtremes
-%global packver   2.1-0
+%global __requires_exclude ^libmpi
+%global packname  ggfourfold
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Modelling Spatial Extremes
+Summary:          Fourfold Displays for 'ggplot2'
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 1.8.0
-Requires:         R-core >= 1.8.0
-BuildRequires:    R-CRAN-maps 
-BuildRequires:    R-CRAN-fields 
-Requires:         R-CRAN-maps 
-Requires:         R-CRAN-fields 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
+BuildRequires:    R-grDevices 
+BuildRequires:    R-grid 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-ggplot2 >= 4.0.0
+Requires:         R-grDevices 
+Requires:         R-grid 
+Requires:         R-stats 
 
 %description
-Tools for the statistical modelling of spatial extremes using max-stable
-processes, copula or Bayesian hierarchical models. More precisely, this
-package allows (conditional) simulations from various parametric
-max-stable models, analysis of the extremal spatial dependence, the
-fitting of such processes using composite likelihoods or least square
-(simple max-stable processes only), model checking and selection and
-prediction. Other approaches (although not completely in agreement with
-the extreme value theory) are available such as the use of (spatial)
-copula and Bayesian hierarchical models assuming the so-called conditional
-assumptions. The latter approaches is handled through an (efficient) Gibbs
-sampler. Some key references: Davison et al. (2012)
-<doi:10.1214/11-STS376>, Padoan et al. (2010)
-<doi:10.1198/jasa.2009.tm08577>, Dombry et al. (2013)
-<doi:10.1093/biomet/ass067>.
+Draws fourfold displays of 2 x 2 (x k) contingency tables as a 'ggplot2'
+layer, following Friendly (1994)
+<https://datavis.ca/papers/4fold/4fold.pdf> and Friendly and Meyer (2016)
+<doi:10.1201/9781315374413>. Cell frequencies are shown as quarter-circles
+or squares of proportional area, with confidence rings for the odds ratio
+and shading for the direction and strength of association. Stratified
+tables are shown with 'ggplot2' faceting and a corresponding 'ggplot2'
+theme is provided.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  avlm
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Safe Anytime Valid Inference for Linear Models
 
@@ -22,9 +22,11 @@ BuildArch:        noarch
 Anytime-valid inference for linear models, namely, sequential t-tests,
 sequential F-tests, and confidence sequences with time-uniform Type-I
 error and coverage guarantees. This allows hypotheses to be continuously
-tested without sacrificing false positive guarantees. It is based on the
-methods documented in Lindon et al. (2022)
-<doi:10.48550/arXiv.2210.08589>.
+tested without sacrificing false positive guarantees.
+Heteroskedasticity-robust and cluster-robust versions are provided. It is
+based on the methods documented in Lindon et al. (2026)
+<doi:10.1080/01621459.2026.2692052> and Lindon (2026)
+<doi:10.48550/arXiv.2610.25613>.
 
 %prep
 %setup -q -c -n %{packname}

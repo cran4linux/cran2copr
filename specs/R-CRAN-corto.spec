@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  corto
-%global packver   1.3.1
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Inference of Gene Regulatory Networks
 
@@ -39,9 +39,11 @@ We present 'corto' (Correlation Tool), a simple package to infer gene
 regulatory networks and visualize master regulators from gene expression
 data using DPI (Data Processing Inequality) and bootstrapping to recover
 edges. An initial step is performed to calculate all significant edges
-between a list of source nodes (centroids) and target genes. Then all
-triplets containing two centroids and one target are tested in a DPI step
-which removes edges. A bootstrapping process then calculates the
+between a list of source nodes (centroids) and target genes. Then a DPI
+step removes edges: by default, for each target only the edge from the
+centroid with the strongest correlation is kept; optionally, the ARACNe
+rule removes an edge only if it is the weakest in a triplet of two
+centroids and one target. A bootstrapping process then calculates the
 robustness of the network, eventually re-adding edges previously removed
 by DPI. The algorithm has been optimized to run outside a computing
 cluster, using a fast correlation implementation. The package finally

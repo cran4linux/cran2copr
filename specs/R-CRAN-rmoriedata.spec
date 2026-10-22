@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rmoriedata
-%global packver   0.3.3
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Integrated Datasets for the 'rmorie' Package
 
@@ -16,10 +16,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.3.0
 Requires:         R-core >= 4.3.0
-BuildRequires:    R-CRAN-rmoriebricklayer >= 0.4.0
+BuildRequires:    R-CRAN-rmoriebricklayer >= 0.5.1
 BuildRequires:    R-stats 
-Requires:         R-CRAN-rmoriebricklayer >= 0.4.0
+BuildRequires:    R-utils 
+Requires:         R-CRAN-rmoriebricklayer >= 0.5.1
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Integrated open data fixtures used by the 'rmorie' package for examples,
@@ -32,9 +34,12 @@ and others), Statistics Canada Canadian Centre for Justice and Community
 Safety Statistics ('CCJS') tables, a multi-agent-reviewed corpus of
 Ontario Special Investigations Unit ('SIU', <https://www.siu.on.ca/>)
 director's reports, and synthetic fixtures for unit tests. Also ships a
-small set of analyst-facing helpers for releasing aggregate statistics
-without re-identification risk: Laplace and Gaussian differential privacy
-mechanisms and k-anonymity, l-diversity, and cell suppression verifiers.
+small set of disclosure-control helpers for aggregate releases:
+differential privacy (an exact discrete Laplace sampler for counts and the
+analytic Gaussian mechanism for means, drawing on the operating system's
+random source, with privacy-budget accounting), k-anonymity and
+l-diversity checks, and cell suppression audited for exact recovery from
+the margins.
 
 %prep
 %setup -q -c -n %{packname}

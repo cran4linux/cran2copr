@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  asleep
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate Sleep from 'Accelerometry' Data
 
@@ -18,16 +18,16 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-reticulate >= 1.42.0
+BuildRequires:    R-CRAN-dplyr >= 1.2.0
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-reticulate >= 1.42.0
+Requires:         R-CRAN-dplyr >= 1.2.0
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-curl 
-Requires:         R-CRAN-lubridate 
 Requires:         R-methods 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 

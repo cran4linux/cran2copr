@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rolescry
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Name-Blind Variable-Role Detection by Data Signature
 
@@ -24,16 +24,18 @@ Requires:         R-utils
 
 %description
 Deterministic, name-blind detection of variable roles (group, outcome,
-survival time and event, paired and agreement measurements, repeated
-measures, scale items, subject identifier, covariate) in tabular data.
-Roles are assigned from each column's information-theoretic signature --
-Shannon entropy, normalized mutual information, and distributional shape
--- rather than from column names, so renaming columns to 'col_1', 'col_2',
-... does not change the result ("Data inspice, non nomen"). An optional,
-capped name-based hint and automatic header-row detection are also
-provided. No large language models and no external data transmission.
-Extracted from the 'MDStatR' biostatistics engine; see Boynukara (2026)
-<doi:10.5281/zenodo.20707791>.
+survival or duration time and event, coupled binary-continuous pairs,
+calendar time index, paired and agreement measurements, repeated measures
+and panels, scale and rating items, subject or entity identifier,
+covariate) in tabular data from any domain -- clinical, financial, social,
+experimental. Roles are assigned from each column's information-theoretic
+signature -- Shannon entropy, normalized mutual information, and
+distributional shape -- rather than from column names, so renaming columns
+to 'col_1', 'col_2', ... does not change the result ("Data inspice, non
+nomen"). An optional, capped name-based hint and automatic header-row
+detection are also provided. No large language models and no external data
+transmission. Extracted from the 'MDStatR' biostatistics engine; see
+Boynukara (2026) <doi:10.5281/zenodo.20707791>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  docorator
-%global packver   0.7.0
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Docorate (Decorate + Output) Displays
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-rmarkdown
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-stringr 
@@ -35,11 +36,14 @@ BuildRequires:    R-CRAN-quarto
 BuildRequires:    R-CRAN-officer 
 BuildRequires:    R-CRAN-polish 
 BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-chromote 
+BuildRequires:    R-CRAN-base64enc 
 Requires:         R-CRAN-gt >= 1.2.0
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-stringr 
@@ -53,6 +57,8 @@ Requires:         R-CRAN-quarto
 Requires:         R-CRAN-officer 
 Requires:         R-CRAN-polish 
 Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-chromote 
+Requires:         R-CRAN-base64enc 
 
 %description
 A framework for creating production outputs. Users can frame a table,

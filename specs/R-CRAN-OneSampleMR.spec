@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  OneSampleMR
-%global packver   0.1.8
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          One Sample Mendelian Randomization and Instrumental Variable Analyses
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3
-Requires:         R-core >= 4.3
+BuildRequires:    R-devel >= 4.5
+Requires:         R-core >= 4.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-ivreg >= 0.6.5
@@ -36,7 +36,9 @@ randomization and instrumental variable analyses. The package includes
 implementations of; the Sanderson and Windmeijer (2016)
 <doi:10.1016/j.jeconom.2015.06.004> conditional F-statistic, the
 multiplicative structural mean model Hernán and Robins (2006)
-<doi:10.1097/01.ede.0000222409.00878.37>, and two-stage predictor
+<doi:10.1097/01.ede.0000222409.00878.37>, the logistic structural mean
+model Vansteelandt and Goetghebeur (2003)
+<doi:10.1046/j.1369-7412.2003.00417.x>, and two-stage predictor
 substitution and two-stage residual inclusion estimators explained by
 Terza et al. (2008) <doi:10.1016/j.jhealeco.2007.09.009>.
 

@@ -1,30 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fabricatr
-%global packver   1.0.2
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Imagine Your Data Before You Collect It
+Summary:          Tidyverse-First Data Fabrication
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Helps you imagine your data before you collect it. Hierarchical data
-structures and correlated data can be easily simulated, either from random
-number generators or by resampling from existing data sources. This
-package is faster with 'data.table' and 'mvnfast' installed.
+Helps you imagine your data before you collect it. Builds a data frame one
+column at a time, with hierarchical levels, cross-classified levels,
+potential outcomes, and draws with a target intra-cluster correlation, so
+that a research design can be simulated and diagnosed before any data
+exist. Version 2.0 is a rewrite of the same public API on 'dplyr',
+'tibble', 'purrr', and 'rlang'.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ftsa
-%global packver   6.7
+%global packver   6.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.7
+Version:          6.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functional Time Series Analysis
 
@@ -19,6 +19,7 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-forecast 
 BuildRequires:    R-CRAN-rainbow 
+BuildRequires:    R-CRAN-fds 
 BuildRequires:    R-CRAN-sde 
 BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-MASS 
@@ -39,8 +40,10 @@ BuildRequires:    R-CRAN-evgam
 BuildRequires:    R-CRAN-ROOPSD 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-longmemo 
 Requires:         R-CRAN-forecast 
 Requires:         R-CRAN-rainbow 
+Requires:         R-CRAN-fds 
 Requires:         R-CRAN-sde 
 Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-MASS 
@@ -61,6 +64,7 @@ Requires:         R-CRAN-evgam
 Requires:         R-CRAN-ROOPSD 
 Requires:         R-CRAN-glue 
 Requires:         R-methods 
+Requires:         R-CRAN-longmemo 
 
 %description
 Functions for visualizing, modeling, forecasting and hypothesis testing of

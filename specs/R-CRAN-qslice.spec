@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  qslice
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Implementations of Various Slice Samplers
 
@@ -19,16 +19,16 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 
 %description
-Implementations of the quantile slice sampler of Heiner et al. (2024+, in
-preparation) as well as other popular slice samplers are provided. Helper
-functions for specifying pseudo-target distributions are included, both
-for diagnostics and for tuning the quantile slice sampler. Other
-implemented methods include the generalized elliptical slice sampler of
-Nishihara et al. (2014)<https://jmlr.org/papers/v15/nishihara14a.html},
-latent slice sampler of Li and Walker
-(2023)<doi:10.1016/j.csda.2022.107652>, and stepping-out slice sampler of
-Neal (2003)<doi:10.1214/aos/1056562461>, and independence
-Metropolis-Hastings sampler.
+Implementations of the quantile slice sampler of Heiner et al. (2026+, in
+preparation) <doi:10.48550/arXiv.2407.12608> as well as other popular
+slice samplers are provided. Helper functions for specifying pseudo-target
+distributions are included, both for diagnostics and for tuning the
+quantile slice sampler. Other implemented methods include the generalized
+elliptical slice sampler of Nishihara et al. (2014)
+<https://jmlr.org/papers/v15/nishihara14a.html>, latent slice sampler of
+Li and Walker (2023) <doi:10.1016/j.csda.2022.107652>, and stepping-out
+slice sampler of Neal (2003) <doi:10.1214/aos/1056562461>, as well as
+independence Metropolis-Hastings and random-walk Metropolis samplers.
 
 %prep
 %setup -q -c -n %{packname}
