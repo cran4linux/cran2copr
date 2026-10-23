@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  netdiffuseR
-%global packver   1.25.0
+%global packver   1.25.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.25.0
+Version:          1.25.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Diffusion and Contagion Processes on Networks
 

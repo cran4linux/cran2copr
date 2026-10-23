@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  doconv
-%global packver   0.4.0
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Document Conversion to 'PDF', Thumbnails and Visual Testing
 
@@ -18,14 +18,16 @@ Recommends:       libreoffice
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-locatexec >= 0.2.1
+BuildRequires:    R-CRAN-filelock 
 BuildRequires:    R-CRAN-gdtools 
-BuildRequires:    R-CRAN-locatexec 
 BuildRequires:    R-CRAN-magick 
 BuildRequires:    R-CRAN-pdftools 
 BuildRequires:    R-CRAN-processx 
 BuildRequires:    R-tools 
+Requires:         R-CRAN-locatexec >= 0.2.1
+Requires:         R-CRAN-filelock 
 Requires:         R-CRAN-gdtools 
-Requires:         R-CRAN-locatexec 
 Requires:         R-CRAN-magick 
 Requires:         R-CRAN-pdftools 
 Requires:         R-CRAN-processx 
@@ -35,11 +37,11 @@ Requires:         R-tools
 Provides the ability to generate images from documents of different types.
 Three main features are provided: generating document thumbnails,
 performing visual tests of documents, and updating fields and tables of
-contents of a 'Microsoft Word' or 'RTF' document. 'Microsoft Word' and/or
-'LibreOffice' must be installed on the machine. If 'Microsoft Word' is
-available, it can produce PDF documents or images identical to the
-originals; otherwise 'LibreOffice' is used and the rendering may sometimes
-differ from the original documents.
+contents of a 'Microsoft Word' or 'RTF' document. 'Microsoft Office'
+('Word', 'PowerPoint', 'Excel') and/or 'LibreOffice' must be installed on
+the machine. If 'Microsoft Office' is available, it can produce PDF
+documents or images identical to the originals; otherwise 'LibreOffice' is
+used and the rendering may sometimes differ from the original documents.
 
 %prep
 %setup -q -c -n %{packname}

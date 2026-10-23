@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  salso
-%global packver   0.3.79
+%global packver   0.3.80
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.79
+Version:          0.3.80
 Release:          1%{?dist}%{?buildtag}
 Summary:          Search Algorithms and Loss Functions for Bayesian Clustering
 

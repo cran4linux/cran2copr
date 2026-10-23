@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mc2d
-%global packver   0.2.2
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Two-Dimensional Monte-Carlo Simulations
 
@@ -14,23 +14,25 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10.0
-Requires:         R-core >= 2.10.0
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-stats 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-utils 
+BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-gtable 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-stats 
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-utils 
+Requires:         R-grid 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-gtable 
 
 %description
 A complete framework to build and study Two-Dimensional Monte-Carlo

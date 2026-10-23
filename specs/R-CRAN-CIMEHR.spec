@@ -1,58 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CIMEHR
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Gaussian Clinically Informative Visiting and Observation Processes in Electronic Health Record (EHR) Data
+Summary:          Longitudinal EHR Analysis with Informative Visits and Recording
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-nleqslv 
-BuildRequires:    R-CRAN-pbivnorm 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-mice 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-slim 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-nleqslv 
-Requires:         R-CRAN-pbivnorm 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-mice 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-splines 
+BuildRequires:    R-stats 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-slim 
+Requires:         R-parallel 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-splines 
+Requires:         R-stats 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
-Fits semiparametric joint models for longitudinal electronic health record
-(EHR) data that addresses two-stage hierarchical missingness mechanism.
-The first stage is the visiting process, and the second stage is the
-observation process. The core CIMEHR method (Clinical Informative
-Missingness for Electronic Health Records) uses a three-stage procedure:
-partial likelihood with log-normal frailty for visit intensity, probit
-regression with shared latent factor-linked random effects for
-observation, and weighted least squares with risk-set centering for the
-outcome. These three stages are connected through a shared latent factor
-that induces dependence across all three processes. A data simulator and
-implementations of common benchmark methods (linear mixed models, multiple
-imputation, and others) are included for comparative studies. Detailed
-methods are described in Yang, Shi, and Mukherjee (2026)
+Longitudinal outcomes in electronic health records (EHR) are seen only
+when a patient visits and the outcome is recorded at that visit, and both
+processes can depend on the patient's latent health. The package fits the
+CIMEHR estimator for this setting, a three-stage procedure linked by a
+shared latent factor: a frailty partial likelihood for the visiting
+process, a pairwise likelihood for the recording (observation) process,
+and an estimating equation for the outcome. Spline and higher-order
+Laplace variants are included, together with comparison methods (summary
+statistics, linear mixed models, Lin-Ying, Liang, pairwise likelihood,
+joint models, inverse intensity rate ratio weighting and balancing,
+multiple imputation, linear increments and EHRJoint) behind one common
+interface. Methods are described in Yang, Shi, and Mukherjee (2026)
 <doi:10.48550/arXiv.2602.15374>.
 
 %prep

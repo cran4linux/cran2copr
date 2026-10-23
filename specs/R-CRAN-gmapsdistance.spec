@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gmapsdistance
-%global packver   4.0.5
+%global packver   4.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.5
+Version:          4.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Distance and Travel Time Between Two Points from Google Maps
 
@@ -14,20 +14,24 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-RCurl 
 BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-methods 
 Requires:         R-CRAN-RCurl 
 Requires:         R-CRAN-XML 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-methods 
 
 %description
-Get distance and travel time between two points from Google Maps. Four
-possible modes of transportation (bicycling, walking, driving and public
-transportation).
+Get distance and travel time between two points from Google Maps. Supports
+both the legacy 'Distance Matrix API' (XML endpoint) and the newer 'Routes
+API' (REST).
 
 %prep
 %setup -q -c -n %{packname}

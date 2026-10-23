@@ -1,21 +1,21 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eq5dsuite
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Handling and Analysing EQ-5d Data
+Summary:          Handling and Analysing 'EQ-5D' Data
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-ggplot2 
@@ -33,7 +33,7 @@ Requires:         R-CRAN-scales
 Requires:         R-CRAN-rappdirs 
 
 %description
-The EQ-5D is a widely-used standarized instrument for measuring Health
+The EQ-5D is a widely-used standardised instrument for measuring Health
 Related Quality Of Life (HRQOL), developed by the EuroQol group
 <https://euroqol.org/>. It assesses five dimensions; mobility, self-care,
 usual activities, pain/discomfort, and anxiety/depression, using either a
@@ -48,7 +48,7 @@ developed by van Hout et al. (2012) <doi:10.1016/j.jval.2012.02.008>
 developed reverse crosswalk by van Hout et al. (2021)
 <doi:10.1016/j.jval.2021.03.009> (mapping EQ-5D-3L responses to EQ-5D-5L
 index values). Users are allowed to add and/or remove user-defined value
-sets. Additionally, the package provides tools to analyze EQ-5D data
+sets. Additionally, the package provides tools to analyse EQ-5D data
 according to the recommended guidelines outlined in "Methods for Analyzing
 and Reporting EQ-5D data" by Devlin et al. (2020)
 <doi:10.1007/978-3-030-47622-9>.

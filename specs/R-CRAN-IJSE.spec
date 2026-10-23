@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  IJSE
-%global packver   0.1.2
+%global packver   0.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Infinitesimal Jackknife Standard Errors for 'brms' Models
 
@@ -17,16 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-brms 
-BuildRequires:    R-CRAN-posterior 
-Requires:         R-CRAN-brms 
-Requires:         R-CRAN-posterior 
+BuildRequires:    R-CRAN-posterior >= 1.4.0
+BuildRequires:    R-stats 
+Requires:         R-CRAN-posterior >= 1.4.0
+Requires:         R-stats 
 
 %description
-Provides a function to calculate infinite-jackknife-based standard errors
-for fixed effects parameters in 'brms' models, handling both clustered and
-independent data. References: Ji et al. (2024)
-<doi:10.48550/arXiv.2407.09772>; Giordano et al. (2024)
+Computes infinitesimal jackknife standard errors and covariance matrices
+for posterior expectations from 'brms' models or matched posterior draws
+and pointwise log likelihoods. Supports independent and clustered sampling
+units, transformed quantities, blockwise likelihood evaluation, and chain
+stability diagnostics. References: Ji et al. (2026)
+<doi:10.3102/10769986251379738>; Giordano and Broderick (2024)
 <doi:10.48550/arXiv.2305.06466>.
 
 %prep

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mariposa
-%global packver   0.7.3
+%global packver   0.7.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.3
+Version:          0.7.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          'SPSS'-Compatible Statistical Tools for Survey Data
 
@@ -45,15 +45,15 @@ descriptive statistics, codebook generation, hypothesis testing,
 correlation analysis, post-hoc comparisons, weighted statistics, scale
 analysis, regression, non-parametric tests, exact tests, factorial ANOVA,
 and ANCOVA. Every analysis offers compact print() and detailed summary()
-output with toggleable sections. Statistical results are validated against
-'SPSS' version 29 within documented per-tier tolerances (see the
-compatibility vignette for per-function status). Methods follow the
-published algorithms of IBM Corp. (2023, "IBM SPSS Statistics
-Algorithms"), the Lilliefors-corrected normality test of Dallal and
-Wilkinson (1986) <doi:10.1080/00031305.1986.10475419>, and the adjusted
-standardized residuals of Haberman (1973) <doi:10.2307/2529686>. Designed
-for survey researchers, social scientists, and students working with
-complex survey designs.
+output with toggleable sections. Statistical results are checked against
+reference output of 'SPSS' version 29 (see the compatibility vignette for
+the status of each function). Methods follow the published algorithms of
+IBM Corp. (2023, "IBM SPSS Statistics Algorithms"), the
+Lilliefors-corrected normality test of Dallal and Wilkinson (1986)
+<doi:10.1080/00031305.1986.10475419>, and the adjusted standardized
+residuals of Haberman (1973) <doi:10.2307/2529686>. Designed for survey
+researchers, social scientists, and students working with complex survey
+designs.
 
 %prep
 %setup -q -c -n %{packname}

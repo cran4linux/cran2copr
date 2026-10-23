@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  phylotypr
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Classifying DNA Sequences to Taxonomic Groupings
 
@@ -16,16 +16,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.2
 Requires:         R-core >= 4.2
-BuildRequires:    R-stats >= 4.0.0
 BuildRequires:    R-CRAN-readr >= 2.1.0
-BuildRequires:    R-CRAN-Rfast >= 2.1.0
 BuildRequires:    R-CRAN-stringi >= 1.8.0
 BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-stats >= 4.0.0
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-parallelly 
+BuildRequires:    R-CRAN-RcppThread 
 Requires:         R-CRAN-readr >= 2.1.0
-Requires:         R-CRAN-Rfast >= 2.1.0
 Requires:         R-CRAN-stringi >= 1.8.0
 Requires:         R-CRAN-Rcpp 
+Requires:         R-stats 
+Requires:         R-CRAN-parallelly 
 
 %description
 Classification based analysis of DNA sequences to taxonomic groupings.

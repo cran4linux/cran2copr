@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  betaregscale
-%global packver   2.7.4
+%global packver   3.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.4
+Version:          3.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Beta Regression for Interval-Censored Scale-Derived Outcomes
 
@@ -23,7 +23,6 @@ BuildRequires:    R-CRAN-numDeriv
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp >= 1.0.12
 Requires:         R-CRAN-Formula 
 Requires:         R-CRAN-ggplot2 
@@ -43,8 +42,8 @@ with flexible link functions for the mean and precision components. A
 compiled C++ backend (via 'Rcpp' and 'RcppArmadillo') provides numerically
 stable, high-performance log-likelihood evaluation. Standard S3 methods
 (print(), summary(), coef(), fitted(), residuals(), predict(), plot(),
-confint(), vcov(), logLik(), AIC(), BIC()) are available for fitted
-objects.
+confint(), vcov(), logLik(), AIC(), BIC(), simulate()) are available for
+fitted objects.
 
 %prep
 %setup -q -c -n %{packname}

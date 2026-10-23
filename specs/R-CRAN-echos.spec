@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  echos
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Echo State Networks for Time Series Modeling and Forecasting
 
@@ -18,15 +18,14 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.3
 BuildRequires:    R-CRAN-fabletools >= 0.3.0
-BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-tsibble 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-distributional 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.3
 Requires:         R-CRAN-fabletools >= 0.3.0
-Requires:         R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-tsibble 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eyeprocess
-%global packver   0.11.1
+%global packver   0.12.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.1
+Version:          0.12.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Harmonize Eye-Tracking, Pupillometry, Biometrics, and Psychometric Process Data
 
@@ -59,9 +59,10 @@ testing. The measurement-intelligence programme adds probabilistic and
 compositional area of interest (AOI) analysis, measurement-uncertainty
 propagation, calibration and device-transportability audits, process
 reliability, phase-amplitude pupil registration, informative-missingness
-sensitivity, temporal and spatial process models, item-bank decision
-optimization, fairness monitoring, conditional process reference
-distributions, and evidence-provenance graphs.
+sensitivity, right-censored gaze-latency survival analysis, temporal and
+spatial process models, item-bank decision optimization, fairness
+monitoring, conditional process reference distributions, and
+evidence-provenance graphs.
 
 %prep
 %setup -q -c -n %{packname}

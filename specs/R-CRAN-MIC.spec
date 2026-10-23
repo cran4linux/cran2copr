@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MIC
-%global packver   2.0.1
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Antimicrobial Minimum Inhibitory Concentration Data
 
@@ -25,8 +25,8 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-ggh4x 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-AMR 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-dplyr 
@@ -35,8 +35,8 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-ggh4x 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyselect 
 
 %description
 Analyse, plot, and tabulate antimicrobial minimum inhibitory concentration

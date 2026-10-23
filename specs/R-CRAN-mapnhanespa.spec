@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mapnhanespa
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Map Quantiles for Physical Activity from 'NHANES'
 
@@ -26,7 +26,11 @@ Requires:         R-CRAN-survey
 
 %description
 Maps physical activity from the National Health and Nutrition Examination
-Survey ('NHANES') study into population-based quantiles.
+Survey ('NHANES') study into population-based quantiles, using the NHANES
+2011-2014 step count and physical activity summaries described in Koffman,
+Crainiceanu, and Muschelli (2025) <doi:10.1249/MSS.0000000000003616>, with
+minute-level data from Koffman and Muschelli (2025)
+<doi:10.13026/9n0r-tv02>.
 
 %prep
 %setup -q -c -n %{packname}

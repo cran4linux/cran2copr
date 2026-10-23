@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  musclesyneRgies
-%global packver   1.3.1
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extract Muscle Synergies from Electromyography
 
@@ -17,22 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-FNN 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-proxy 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-signal 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-umap 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-FNN 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-proxy 
 Requires:         R-CRAN-reshape2 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  aiDIF
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Differential Item Functioning for AI-Scored Assessments
 
@@ -21,23 +21,28 @@ BuildRequires:    R-CRAN-Matrix
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-utils 
+BuildRequires:    R-parallel 
 Requires:         R-CRAN-Matrix 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-utils 
+Requires:         R-parallel 
 
 %description
 Detects and quantifies differential item functioning (DIF) in AI-scored
 educational and psychological assessments. Provides a fully self-contained
 robust DIF engine (M-estimation via iteratively re-weighted least squares
-with the bi-square loss) alongside the Differential AI Scoring Bias (DASB)
-test, which detects item-level scoring shifts that differ across subgroups
-when comparing human and AI scoring conditions. Supports independent and
-paired scoring designs, robust linking of the cross-condition contrast,
-multiplicity control, conversion of fitted 'mirt' models to package
-inputs, simulation utilities, anchor weight diagnostics, and an AI-effect
-classification framework. Methods follow Halpin (2024)
-<doi:10.1007/s11336-024-09957-6>.
+with the bi-square loss), cross-checked against the reference
+implementation in 'robustDIF', alongside the Differential AI Scoring Bias
+(DASB) test, which detects item-level scoring shifts that differ across
+subgroups when comparing human and AI scoring conditions. Supports
+independent and paired scoring designs, including a bootstrap estimator of
+the cross-condition covariance that paired designs require, a one-call
+workflow from raw item scores through 'mirt' calibration, robust linking
+of the cross-condition contrast, bootstrap standard errors, multiplicity
+control, simulation of paired human and AI item scores, anchor weight
+diagnostics, and an AI-effect classification framework. Methods follow
+Halpin (2024) <doi:10.1007/s11336-024-09957-6>.
 
 %prep
 %setup -q -c -n %{packname}

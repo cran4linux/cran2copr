@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  equateMultiple
-%global packver   1.1.3
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Equating of Multiple Forms
 
@@ -43,7 +43,8 @@ Battauz (2025) <doi:10.18637/jss.v115.i11> for a detailed description of
 the package. See Battauz M. (2017) <doi:10.1007/s11336-016-9517-x>,
 Battauz and 'Leoncio' (2023) <doi:10.1177/01466216231151702> and Haberman
 S. J. (2009) <doi:10.1002/j.2333-8504.2009.tb02197.x>) for the methods to
-link multiple test forms.
+link multiple test forms. See <doi:10.1111/bmsp.70023> for DIF detection
+across multiple groups.
 
 %prep
 %setup -q -c -n %{packname}

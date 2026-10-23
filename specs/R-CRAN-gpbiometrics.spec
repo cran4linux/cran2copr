@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gpbiometrics
-%global packver   0.1.0
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          2.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Process and Report Gazepoint Biometrics Data
 
@@ -19,12 +19,17 @@ Requires:         R-core
 BuildArch:        noarch
 
 %description
-Imports, validates, quality-checks, preprocesses, summarises,
-synchronises, models, plots, and reports Gazepoint Biometrics exports. The
-package focuses on Gazepoint-specific biometric channels such as GSR/EDA,
-heart rate, interbeat intervals, pulse signals, engagement dial, TTL
-markers, and synchronisation fields that can be combined with Gazepoint
-GP3 and GP3 HD eye-tracking workflows.
+Gazepoint-native tools for reproducible analysis and reporting of
+Gazepoint Biometrics and GP3-derived physiological, gaze, pupil, fixation,
+AOI, marker, and event-level exports. The package supports import,
+validation, preprocessing, missing-value imputation, EDA/GSR, SCR
+epoching, IBI/RR/HRV, PPG/pulse workflows, pupil blink detection and
+cleaning, gaze filtering, fixation summaries, engagement-dial indices,
+multimodal trial regressors, quality reports, exclusion and QC
+recommendations, synthetic eye-data generation, and interoperability or
+workflow-inspired helpers for common psychophysiology toolchains. The
+package is designed for transparent, CRAN-safe, scriptable analysis rather
+than as a full clone of external commercial or open-source toolboxes.
 
 %prep
 %setup -q -c -n %{packname}

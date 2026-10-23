@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mixedbiastest
-%global packver   1.0.3
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bias Diagnostic for Linear Mixed Models
 
@@ -28,12 +28,16 @@ Requires:         R-CRAN-rlang
 
 %description
 Provides a function to perform bias diagnostics on linear mixed models
-fitted with lmer() from the 'lme4' package. Implements permutation tests
-for assessing the bias of fixed effects, as described in Karl and
-Zimmerman (2021) <doi:10.1016/j.jspi.2020.06.004>. Karl and Zimmerman
-(2020) <doi:10.17632/tmynggddfm.1> provide R code for implementing the
-test using 'mvglmmRank' output. Development of this package was assisted
-by 'GPT o1-preview' for code structure and documentation.
+fitted with lmer() from the 'lme4' package. Compares an internal
+random-effects alignment diagnostic with a fitted permutation reference
+distribution, following Karl and Zimmerman (2021)
+<doi:10.1016/j.jspi.2020.06.004>. Conditional response-refit simulations
+separately record random-effects alignment and residual-weight
+contributions to estimation error. Karl and Zimmerman (2020)
+<doi:10.17632/tmynggddfm.1> provide R code for implementing the test using
+'mvglmmRank' output. Development and review were assisted by 'GPT
+o1-preview', 'GPT 5 Pro', and 'GPT6 Astra'; the author is responsible for
+the code and its interpretation.
 
 %prep
 %setup -q -c -n %{packname}

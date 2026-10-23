@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rTARDIS
-%global packver   2.1.1
+%global packver   2.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          2.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Terrains and Routes Directed in Spacetime
 
@@ -52,12 +52,12 @@ Requires:         R-CRAN-terra
 Implements classes and methods for constructing and analysing graph
 representations of complex geographic spaces at local to global scales,
 particularly where accessible spaces are discontinuously distributed but
-retain display connectivity (e.g., island systems where isolation is
-strong but not necessarily absolute), and where that distribution also
-changes through time (e.g., habitat patch fragmentation or plate tectonic
-drift). The package (originally named TARDIS) was first described and
-published in: Flannery-Sutherland, J., Elsler, A., Farnsworth, A., Lunt,
-D., Benton, M. (2025) <doi:10.1038/s41559-025-02739-y>.
+retain connectivity (e.g., island systems where isolation is prevalent but
+not necessarily absolute), and where that distribution also changes
+through time (e.g., habitat patch fragmentation or plate tectonic drift).
+The package (originally named TARDIS) was first described and published
+in: Flannery-Sutherland, J., Elsler, A., Farnsworth, A., Lunt, D., Benton,
+M. (2025) <doi:10.1038/s41559-025-02739-y>.
 
 %prep
 %setup -q -c -n %{packname}

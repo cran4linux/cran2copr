@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gp3bayes
-%global packver   0.5.0
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Contract-First Bayesian Workflows for Hierarchical Behavioural Data
 
@@ -39,7 +39,11 @@ structures, Gaussian-process trajectories, explicit measurement
 uncertainty and missing-data models, joint binocular analysis, predictive
 model comparison, functional posterior estimands, and experimental
 nonlinear response-shape models while preserving explicit scientific and
-computational governance boundaries.
+computational governance boundaries. Version 0.6 adds retention-first
+Bayesian SCR responsivity accountability and governed trial-level
+multilevel gaze mediation with explicit within- and between-participant
+estimands, serial and moderated extensions, convergence gating, and
+observation-aligned predictive model comparison.
 
 %prep
 %setup -q -c -n %{packname}

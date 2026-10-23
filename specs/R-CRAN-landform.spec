@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  landform
-%global packver   0.2
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Topographic Position Index-Based Landform Classification
 
@@ -14,28 +14,30 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-graphics >= 4.2.0
-BuildRequires:    R-grDevices >= 4.2.0
-BuildRequires:    R-stats >= 4.2.0
-BuildRequires:    R-CRAN-terra >= 1.7.0
-Requires:         R-graphics >= 4.2.0
-Requires:         R-grDevices >= 4.2.0
-Requires:         R-stats >= 4.2.0
-Requires:         R-CRAN-terra >= 1.7.0
+BuildRequires:    R-CRAN-terra >= 1.7.3
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-terra >= 1.7.3
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-stats 
 
 %description
-Provides a function for classifying a landscape into different categories
-based on the Topographic Position Index (TPI) and slope. It offers two
-types of classifications: Slope Position Classification, and Landform
-Classification. The function internally calculates the TPI for the given
-landscape and then uses it along with the slope to perform the
-classification. Optionally, descriptive statistics for every class are
-calculated and plotted. The classifications are useful for identifying the
-position of a location on a slope and for identifying broader landform
-types.
+Classifies a landscape into slope-position and landform classes on the
+basis of the Topographic Position Index (TPI) and slope, following Weiss
+(2001) and Jenness (2006). Two classifications are offered: a six-class
+Slope Position Classification, based on one TPI scale, and a ten-class
+Landform Classification, based on a small and a large TPI scale. The TPI
+can be computed over square, circular or annular neighbourhoods, sized in
+cells or in map units, and standardised either over the whole grid (as in
+the original method) or locally. Results are returned as an object holding
+the classified raster, the TPI and slope surfaces, and per-class
+descriptive statistics, with methods for printing, summarising and
+plotting.
 
 %prep
 %setup -q -c -n %{packname}
