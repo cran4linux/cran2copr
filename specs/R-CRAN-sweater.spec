@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sweater
-%global packver   0.1.8
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Speedy Word Embedding Association Test and Extras Using R
 
@@ -38,10 +38,10 @@ Conduct various tests for evaluating implicit biases in word embeddings:
 Word Embedding Association Test (Caliskan et al., 2017),
 <doi:10.1126/science.aal4230>, Relative Norm Distance (Garg et al., 2018),
 <doi:10.1073/pnas.1720347115>, Mean Average Cosine Similarity (Mazini et
-al., 2019) <arXiv:1904.04047>, SemAxis (An et al., 2018)
-<arXiv:1806.05521>, Relative Negative Sentiment Bias (Sweeney & Najafian,
-2019) <doi:10.18653/v1/P19-1162>, and Embedding Coherence Test (Dev &
-Phillips, 2019) <arXiv:1901.07656>.
+al., 2019) <doi:10.48550/arXiv.1904.04047>, SemAxis (An et al., 2018)
+<doi:10.48550/arXiv.1806.05521>, Relative Negative Sentiment Bias (Sweeney
+& Najafian, 2019) <doi:10.18653/v1/P19-1162>, and Embedding Coherence Test
+(Dev & Phillips, 2019) <doi:10.48550/arXiv.1901.07656>.
 
 %prep
 %setup -q -c -n %{packname}

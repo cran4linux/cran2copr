@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sts
-%global packver   1.4
+%global packver   1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation of the Structural Topic and Sentiment-Discourse Model for Text Analysis
 
@@ -14,32 +14,37 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-slam 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-stm 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-tm 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-SnowballC 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-matrixStats 
 Requires:         R-CRAN-slam 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doParallel 
 Requires:         R-parallel 
-Requires:         R-CRAN-stm 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-tm 
+Requires:         R-CRAN-SnowballC 
+Requires:         R-graphics 
+Requires:         R-stats 
 
 %description
 The Structural Topic and Sentiment-Discourse (STS) model allows
@@ -50,7 +55,7 @@ each topic that modulates the word frequency within a topic. These latent
 topic sentiment-discourse variables are controlled by the document-level
 metadata. The STS model can be useful for regression analysis with text
 data in addition to topic modeling’s traditional use of descriptive
-analysis. The method was developed in Chen and Mankad (2024)
+analysis. The method was developed in Chen and Mankad (2025)
 <doi:10.1287/mnsc.2022.00261>.
 
 %prep

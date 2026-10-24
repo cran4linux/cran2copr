@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  margEVT
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regularized Point Processes and Stochastic Marginalization for Extremes
 
@@ -31,14 +31,15 @@ Requires:         R-utils
 %description
 Implements a non-stationary extreme value analysis framework by coupling a
 covariate-driven non-homogeneous Poisson process (NHPP) with (adaptive)
-elastic-net regularization and analytical gradients. Provides methods for
-estimating conditional return levels and unconditional (marginalized)
-return levels via parametric stochastic integration over stable vector
-autoregressive VAR(p) covariate trajectories, or non-parametric
-annual-block resampling. Supports block-specific penalty controls, BIC
-selection along a regularization path, Karush-Kuhn-Tucker convergence
-checks, time-rescaling residual diagnostics, conditional parametric
-bootstrap inference, and walk-forward assessment.
+elastic-net regularization, analytical gradients and a lower bound on the
+shape parameter. Provides methods for estimating conditional return levels
+and unconditional (marginalized) return levels via parametric stochastic
+integration over stable vector autoregressive VAR(p) covariate
+trajectories, or non-parametric annual-block resampling. Supports
+block-specific penalty controls, BIC selection along a regularization
+path, Karush-Kuhn-Tucker convergence checks, time-rescaling residual
+diagnostics, conditional parametric bootstrap inference, and walk-forward
+assessment.
 
 %prep
 %setup -q -c -n %{packname}

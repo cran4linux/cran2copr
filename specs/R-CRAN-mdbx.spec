@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ButtR
-%global packver   1.1.1
+%global packname  mdbx
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download and Extract Data from the 'OzButterflies' Database
+Summary:          Bindings to the 'libmdbx' Embedded Key-Value Store
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,19 +16,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-cpp11 
 
 %description
-Provides tools to download and extract data from the 'OzButterflies'
-Database <doi:10.5281/zenodo.19019034>, which contains reflectance
-spectra, calibrated photographs, and cytochrome c oxidase subunit I (COI)
-sequences of Australian butterflies. The main function
-get_Oz_butterflies() downloads the database and extracts selected files to
-a specified directory using user-defined filters.
+Provides low-level bindings to 'libmdbx', a compact and fast transactional
+key-value store built on memory-mapped files
+(<https://libmdbx.dqdkfa.ru/>). Database environments, transactions, and
+byte-oriented read and write operations are exposed directly. The
+'libmdbx' sources are bundled and compiled into the package, so no system
+library installation is required.
 
 %prep
 %setup -q -c -n %{packname}

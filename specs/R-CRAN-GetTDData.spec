@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GetTDData
-%global packver   1.7.1
+%global packver   1.7.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.1
+Version:          1.7.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Get Data for Brazilian Bonds (Tesouro Direto)
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rvest >= 1.0.0
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-utils 
@@ -24,7 +25,6 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-bizdays 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-fs 
@@ -32,6 +32,7 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-rvest >= 1.0.0
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-readxl 
 Requires:         R-utils 
@@ -39,7 +40,6 @@ Requires:         R-stats
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-bizdays 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-fs 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gamma
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dose Rate Estimation from in-Situ Gamma-Ray Spectrometry Measurements
 
@@ -18,7 +18,6 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-IsoplotR 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rlang 
@@ -27,7 +26,6 @@ BuildRequires:    R-stats
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-graphics 
 Requires:         R-CRAN-IsoplotR 
 Requires:         R-methods 
 Requires:         R-CRAN-rlang 

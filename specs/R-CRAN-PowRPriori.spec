@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PowRPriori
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Power Analysis via Data Simulation for (Generalized) Linear Mixed Effects Models
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-lmerTest
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-reformulas 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
@@ -43,6 +44,7 @@ Requires:         R-CRAN-lmerTest
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-reformulas 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scales 
 Requires:         R-stats 

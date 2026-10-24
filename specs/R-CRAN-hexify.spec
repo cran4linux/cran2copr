@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hexify
-%global packver   0.8.2
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.2
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Equal-Area Hex Grids on the Snyder ISEA Icosahedron
 
@@ -14,27 +14,31 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-bit64 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-methods 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-bit64 
 
 %description
 Provides functions to build and use hexagonal discrete global grids using
 the Icosahedral Snyder Equal Area ('ISEA') projection (Snyder 1992
 <doi:10.3138/27H7-8K88-4882-1752>) and the 'H3' hierarchical hexagonal
 system (Uber Technologies). Implements the 'ISEA' discrete global grid
-system (Sahr, White and Kimerling 2003 <doi:10.1559/152304003100011090>).
-Includes a fast C++ core for 'ISEA' projection and aperture quantization,
-an included 'H3' v4.4.1 C library for native 'H3' grid operations, and
-'sf'/'terra'-compatible R wrappers for grid generation and coordinate
-assignment. Output is compatible with 'dggridR' for interoperability.
+system (Sahr, White and Kimerling 2003 <doi:10.1559/152304003100011090>)
+and the 'Hex9' octahedral grid (Griffin 2026
+<doi:10.48550/arXiv.2608.00022>). Includes a fast C++ core for 'ISEA'
+projection and aperture quantization, an included 'H3' v4.4.1 C library
+for native 'H3' grid operations, and 'sf'/'terra'-compatible R wrappers
+for grid generation and coordinate assignment. Output is compatible with
+'dggridR' for interoperability.
 
 %prep
 %setup -q -c -n %{packname}

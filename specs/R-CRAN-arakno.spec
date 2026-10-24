@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  arakno
-%global packver   1.3.3
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.3
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          ARAchnid KNowledge Online
 
@@ -41,9 +41,9 @@ Requires:         R-utils
 %description
 Allows the user to connect with the World Spider Catalogue (WSC;
 <https://wsc.nmbe.ch/>) and the World Spider Trait (WST;
-<https://spidertraits.sci.muni.cz/>) databases. Also performs several
-basic functions such as checking names validity, retrieving coordinate
-data from the Global Biodiversity Information Facility (GBIF;
+<https://arachnidatraits.sci.muni.cz/araneae/) databases. Also performs
+several basic functions such as checking names validity, retrieving
+coordinate data from the Global Biodiversity Information Facility (GBIF;
 <https://www.gbif.org/>), and mapping.
 
 %prep

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggseqplot
-%global packver   0.8.9
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.9
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Render Sequence Plots using 'ggplot2'
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
 BuildRequires:    R-CRAN-TraMineR >= 2.2.5
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-forcats >= 1.0.0
@@ -32,8 +32,10 @@ BuildRequires:    R-CRAN-patchwork
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-TraMineRextras 
+Requires:         R-CRAN-ggplot2 >= 3.5.0
 Requires:         R-CRAN-TraMineR >= 2.2.5
 Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-forcats >= 1.0.0
@@ -48,16 +50,21 @@ Requires:         R-CRAN-patchwork
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-rlang 
+Requires:         R-stats 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-TraMineRextras 
 
 %description
-A set of wrapper functions that mainly re-produces most of the sequence
-plots rendered with TraMineR::seqplot(). Whereas 'TraMineR' uses base R to
-produce the plots this library draws on 'ggplot2'. The plots are produced
-on the basis of a sequence object defined with TraMineR::seqdef(). The
-package automates the reshaping and plotting of sequence data. Resulting
-plots are of class 'ggplot', i.e. components can be added and tweaked
-using '+' and regular 'ggplot2' functions.
+A set of wrapper functions that reproduces most of the sequence plots
+rendered with TraMineR::seqplot() and several related plots from
+'TraMineR' and 'TraMineRextras' (Gabadinho et al. 2011,
+<doi:10.18637/jss.v040.i04>). Whereas 'TraMineR' uses base 'R' graphics to
+produce the plots, this library draws on 'ggplot2'. The plots are produced
+on the basis of state sequence objects defined with TraMineR::seqdef()
+and, for some functions, event sequence objects or regression trees of
+sequences. The package automates the reshaping and plotting of sequence
+data. Resulting plots are of class 'ggplot', i.e., components can be added
+and tweaked using '+' and regular 'ggplot2' functions.
 
 %prep
 %setup -q -c -n %{packname}

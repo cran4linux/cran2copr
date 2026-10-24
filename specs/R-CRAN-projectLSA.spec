@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  projectLSA
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Shiny Application for Latent Structure Analysis with a Graphical User Interface
 
@@ -19,6 +19,7 @@ Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-shinyBS 
 BuildRequires:    R-CRAN-colourpicker 
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-DT 
@@ -27,7 +28,6 @@ BuildRequires:    R-CRAN-ggiraph
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glca 
 BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-kableExtra 
 BuildRequires:    R-CRAN-knitr 
@@ -35,6 +35,7 @@ BuildRequires:    R-CRAN-lavaan
 BuildRequires:    R-CRAN-magick 
 BuildRequires:    R-CRAN-mclust 
 BuildRequires:    R-CRAN-mirt 
+BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-CRAN-officer 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-poLCA 
@@ -59,6 +60,7 @@ BuildRequires:    R-CRAN-viridisLite
 BuildRequires:    R-CRAN-writexl 
 Requires:         R-CRAN-shinyBS 
 Requires:         R-CRAN-colourpicker 
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-DT 
@@ -67,7 +69,6 @@ Requires:         R-CRAN-ggiraph
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glca 
 Requires:         R-CRAN-haven 
-Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-kableExtra 
 Requires:         R-CRAN-knitr 
@@ -75,6 +76,7 @@ Requires:         R-CRAN-lavaan
 Requires:         R-CRAN-magick 
 Requires:         R-CRAN-mclust 
 Requires:         R-CRAN-mirt 
+Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-officer 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-poLCA 
@@ -111,13 +113,16 @@ Lewis, 2011) <doi:10.32614/CRAN.package.poLCA> & 'glca' (Kim & Kim, 2024)
 <doi:10.18637/jss.v048.i06>, and EFA via 'psych' (Revelle, 2025). SEM and
 CFA functionalities build upon the 'lavaan' framework (Rosseel, 2012)
 <doi:10.18637/jss.v048.i02>. The CFA/SEM module additionally supports
-multi-group invariance testing, latent growth modelling, modification
-indices, and path diagram visualisation. Every module can save and restore
-an analysis session, export an 'R Markdown' HTML report, and consult an
-optional AI assistant that interprets the current results through a
-user-supplied large language model API key. Users can upload datasets or
-use built-in examples, fit models, compare fit indices, visualize results,
-and export outputs without programming.
+multi-group invariance testing, latent growth modelling, ordinal
+indicators estimated from polychoric correlations, modification indices,
+and path diagram visualisation. Every module can save and restore an
+analysis session and export an 'R Markdown' HTML report whose sections can
+be drafted with an optional AI assistant. The assistant interprets the
+current results through one or several large language models reached with
+user-supplied API keys, including providers with a free tier. The
+application runs in a responsive HTML interface. Users can upload datasets
+or use built-in examples, fit models, compare fit indices, visualize
+results, and export outputs without programming.
 
 %prep
 %setup -q -c -n %{packname}

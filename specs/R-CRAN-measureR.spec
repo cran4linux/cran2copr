@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  measureR
-%global packver   0.0.5
+%global packver   0.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Educational and Psychological Measurement
 
@@ -19,6 +19,9 @@ Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-colourpicker 
 BuildRequires:    R-CRAN-CTT 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-DT 
@@ -57,6 +60,9 @@ BuildRequires:    R-CRAN-viridisLite
 BuildRequires:    R-CRAN-writexl 
 Requires:         R-CRAN-colourpicker 
 Requires:         R-CRAN-CTT 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-DT 
@@ -105,11 +111,12 @@ Exploratory Factor Analysis is performed using 'psych' (Revelle, 2025),
 while Confirmatory Factor Analysis (CFA) and Structural Equation Modeling
 (SEM) are based on the 'lavaan' framework (Rosseel, 2012)
 <doi:10.18637/jss.v048.i02>. The CFA/SEM module features interactive model
-specification, automatic model comparison, modification indices,
-comprehensive fit diagnostics, path diagram visualization, and HTML report
-generation. The application allows users to upload data, evaluate
-statistical models, visualize results, and export outputs through an
-intuitive graphical interface without requiring programming experience.
+specification, ordinal indicators estimated from polychoric correlations,
+automatic model comparison, modification indices, comprehensive fit
+diagnostics, path diagram visualization, and HTML report generation. The
+application allows users to upload data, evaluate statistical models,
+visualize results, and export outputs through an intuitive graphical
+interface without requiring programming experience.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ccva
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Climate Change Vulnerability Assessment with Constrained Latent Models
 
@@ -31,16 +31,18 @@ A general framework for climate change vulnerability assessment (CCVA) of
 any species and any dataset. Variables are tagged as exposure, sensitivity
 or adaptive capacity; each component is computed from its own predictors
 by a chosen method; and the three components are combined into
-vulnerability. Methods range from the conventional weighted index of Ofori
-et al. (2017) <doi:10.1038/s41598-017-13245-y> to shape-constrained
-additive models ('scam'), latent-variable structural equation models
-('lavaan') in which vulnerability is inferred from observable proxies, and
-penalised regression ('glmnet') for high-dimensional predictors.
-Ecological knowledge enters as explicit constraints on predictors, on each
-component's role and on the links between components. Diagnostics,
-validation against observed outcomes, bootstrap and weight-based
-uncertainty, calibrated risk predictions and plots for every step are
-included.
+vulnerability. Methods range from the rule-based framework of Foden et al.
+(2013) <doi:10.1371/journal.pone.0065427> and the conventional weighted
+index of Ofori et al. (2017) <doi:10.1038/s41598-017-13245-y> to
+shape-constrained additive models ('scam'), latent-variable structural
+equation models ('lavaan') in which vulnerability is inferred from
+observable proxies, and penalised regression ('glmnet') for
+high-dimensional predictors. Missing traits and outcomes are handled by
+full-information maximum likelihood. Ecological knowledge enters as
+explicit constraints on predictors, on each component's role and on the
+links between components. Diagnostics, validation against observed
+outcomes, bootstrap and weight-based uncertainty, calibrated risk
+predictions and plots for every step are included.
 
 %prep
 %setup -q -c -n %{packname}

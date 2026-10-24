@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  flow
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          View and Browse Code Using Flow Diagrams
 
@@ -17,24 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nomnoml 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-webshot 
-BuildRequires:    R-CRAN-styler 
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-here 
+BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-nomnoml 
-Requires:         R-utils 
-Requires:         R-CRAN-htmlwidgets 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-webshot 
-Requires:         R-CRAN-styler 
-Requires:         R-methods 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-nomnoml 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-styler 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-webshot2 
 Requires:         R-CRAN-here 
+Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-methods 
+Requires:         R-CRAN-nomnoml 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-styler 
+Requires:         R-utils 
+Requires:         R-CRAN-webshot2 
 
 %description
 Visualize as flow diagrams the logic of functions, expressions or scripts
