@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  newmark
-%global packver   1.3.0
+%global packver   1.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Uncertainty Analysis in Dynamic Site and Slope Response
 
@@ -18,49 +18,29 @@ BuildRequires:    R-devel >= 4.2
 Requires:         R-core >= 4.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-randomForest 
-BuildRequires:    R-CRAN-rpart 
-BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-triangle 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-Hmisc 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-randomForest 
-Requires:         R-CRAN-rpart 
-Requires:         R-CRAN-readxl 
+Requires:         R-parallel 
 Requires:         R-stats 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-triangle 
 Requires:         R-utils 
 
 %description
-Implements a four-stage pipeline for probabilistic seismic performance
-analysis of slopes and embankments. The package takes a uniform-hazard
-spectrum at multiple return periods as input (any source) and produces:
-(1) synthetic soil profile generation and fundamental period estimation
-from USCS classification via Ishihara's small-strain shear-modulus model
-and the inhomogeneous truncated shear-beam theory of Gazetas and Dakoulas;
-(2) nonlinear site amplification using the NGA-East ergodic site-response
-models (Stewart et al. (2020) <doi:10.1177/8755293019878185> and Hashash
-et al. (2020) <doi:10.1177/8755293019878193>, with the 2017 PEER-report
-generation retained as an option), with inter-period correlation via Baker
-& Jayaram (2008) <doi:10.1193/1.2857544>; (3) Monte Carlo ensemble of six
-empirical Newmark sliding-block displacement models (Ambraseys & Menu
-(1988) <doi:10.1002/eqe.4290160704>, Jibson (2007)
-<doi:10.1016/j.enggeo.2007.01.013>, Saygili & Rathje (2008)
-<doi:10.1061/(ASCE)1090-0241(2008)134:6(790)>, Bray & Travasarou (2007)
-<doi:10.1061/(ASCE)1090-0241(2007)133:4(381)>, Bray & Macedo (2017)
-<doi:10.1016/j.soildyn.2017.05.024>, and the Bray and Macedo
-shallow-crustal update) with coherent correlated draws; (4) log-log
-inversion to the performance-based seismic coefficient kmax at
-user-specified displacement targets. All outputs are 'data.table' objects.
+Estimates the seismic response of sites and slopes from the results of a
+seismic hazard analysis. For a site, it computes the fundamental period of
+the soil profile and the amplification of spectral acceleration. For a
+slope, it computes the fundamental period, the earthquake-induced
+displacement, and the pseudostatic coefficient that keeps a selected
+quantile of the displacement within a given limit. Uncertainty in the soil
+profile and in the ground motion is represented by Monte Carlo samples.
+Every result is reported with its representative value, its applicable
+quantiles or dispersion, and the population or conditioning to which it
+refers.
 
 %prep
 %setup -q -c -n %{packname}

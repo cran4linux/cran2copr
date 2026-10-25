@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  norSTR
-%global packver   0.2.1
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Allele Frequencies for 50 Forensic STR Markers
+Summary:          Forensic STR Map and Allele Frequencies
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,11 +19,11 @@ Requires:         R-core >= 3.5
 BuildArch:        noarch
 
 %description
-Allele frequency databases for 50 forensic short tandem repeat (STR)
-markers, covering Norway and several broader regional populations: Europe,
-Africa, South America, West Asia, Middle Asia, and East Asia. Developed
-and maintained for use at the Department of Forensic Sciences, Oslo,
-Norway.
+A marker map for 51 forensic short tandem repeat (STR) markers, and allele
+frequency databases for Norway and several broader regional populations:
+Europe, Africa, South America, West Asia, Middle Asia, and East Asia.
+Developed and maintained for use at the Department of Forensic Sciences,
+Oslo, Norway.
 
 %prep
 %setup -q -c -n %{packname}

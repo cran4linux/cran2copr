@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tightenBlock
-%global packver   0.1.7
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tightens an Observational Block Design by Balanced Subset Matching
 
@@ -26,9 +26,10 @@ Requires:         R-CRAN-rcbalance
 
 %description
 Tightens an observational block design into a smaller design with either
-smaller or fewer blocks while controlling for covariates. The method uses
-fine balance, optimal subset matching (Rosenbaum, 2012
-<doi:10.1198/jcgs.2011.09219>) and two-criteria matching (Zhang et al 2023
+smaller or fewer blocks while controlling for covariates (Rosenbaum 2025
+<doi:10.1080/00031305.2024.2393630>). The method uses fine balance,
+optimal subset matching (Rosenbaum, 2012 <doi:10.1198/jcgs.2011.09219>)
+and two-criteria matching (Zhang et al 2023
 <doi:10.1080/01621459.2021.1981337>).  The main function is tighten().
 The suggested 'rrelaxiv' package for solving minimum cost flow problems:
 (i) derives from Bertsekas and Tseng (1988) <doi:10.1007/BF02288322>, (ii)

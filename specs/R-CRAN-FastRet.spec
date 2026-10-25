@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FastRet
-%global packver   1.3.0
+%global packver   1.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Retention Time Prediction in Liquid Chromatography
 
@@ -18,11 +18,12 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-shiny >= 1.8.1
+BuildRequires:    R-CRAN-future >= 1.40.0
 BuildRequires:    R-CRAN-bslib 
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-htmltools 
@@ -30,16 +31,18 @@ BuildRequires:    R-CRAN-openxlsx
 BuildRequires:    R-CRAN-promises 
 BuildRequires:    R-CRAN-rcdk 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-RSQLite 
 BuildRequires:    R-CRAN-shinyhelper 
 BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-xgboost 
 Requires:         R-CRAN-shiny >= 1.8.1
+Requires:         R-CRAN-future >= 1.40.0
 Requires:         R-CRAN-bslib 
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-DT 
-Requires:         R-CRAN-future 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-htmltools 
@@ -47,6 +50,7 @@ Requires:         R-CRAN-openxlsx
 Requires:         R-CRAN-promises 
 Requires:         R-CRAN-rcdk 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-RSQLite 
 Requires:         R-CRAN-shinyhelper 
 Requires:         R-CRAN-shinyjs 
 Requires:         R-CRAN-withr 
@@ -58,7 +62,8 @@ can train custom models for specific chromatography columns, predict
 retention times using existing models, or adjust existing models to
 account for altered experimental conditions. The provided functionalities
 can be accessed either via the R console or via a graphical user
-interface. Related work: Bonini et al. (2020)
+interface. For details see Fadil et al. (2026)
+<doi:10.1021/acs.jcim.6c01344>. Related work: Bonini et al. (2020)
 <doi:10.1021/acs.analchem.9b05765>.
 
 %prep

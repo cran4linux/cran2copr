@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  metabodeconplus
-%global packver   0.22.0
+%global packver   0.22.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.22.0
+Version:          0.22.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Deconvolution, Alignment and Model Fitting of 1d NMR Spectra
 
@@ -37,9 +37,11 @@ The alignment part is based on functions from the 'speaq' package,
 described in Beirnaert et al. (2018) <doi:10.1371/journal.pcbi.1006018>
 and Vu et al. (2011) <doi:10.1186/1471-2105-12-405>. A detailed
 description and evaluation of an early version of the package can be found
-in Haeckl et al. (2021) <doi:10.3390/metabo11070452>. 'metabodeconplus' is
-the actively developed successor to the 'metabodecon' package and
-introduces backwards-incompatible API changes.
+in Haeckl et al. (2021) <doi:10.3390/metabo11070452>. The current package,
+including the model fitting workflow, is described in Schmidt et al.
+(2026) <doi:10.3390/metabo16090604>. 'metabodeconplus' is the actively
+developed successor to the 'metabodecon' package and introduces
+backwards-incompatible API changes.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GRANDpriv
-%global packver   0.1.3
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Graph Release with Assured Node Differential Privacy
 
@@ -20,7 +20,6 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-EnvStats 
 BuildRequires:    R-CRAN-rmutil 
 BuildRequires:    R-CRAN-RSpectra 
-BuildRequires:    R-CRAN-diffpriv 
 BuildRequires:    R-CRAN-truncnorm 
 BuildRequires:    R-CRAN-randnet 
 BuildRequires:    R-CRAN-igraph 
@@ -29,7 +28,6 @@ BuildRequires:    R-CRAN-transport
 Requires:         R-CRAN-EnvStats 
 Requires:         R-CRAN-rmutil 
 Requires:         R-CRAN-RSpectra 
-Requires:         R-CRAN-diffpriv 
 Requires:         R-CRAN-truncnorm 
 Requires:         R-CRAN-randnet 
 Requires:         R-CRAN-igraph 

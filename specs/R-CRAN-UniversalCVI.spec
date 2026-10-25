@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  UniversalCVI
-%global packver   1.4.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hard and Soft Cluster Validity Indices
 
@@ -19,8 +19,10 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-CRAN-clue 
 Requires:         R-CRAN-e1071 
 Requires:         R-CRAN-mclust 
+Requires:         R-CRAN-clue 
 
 %description
 Algorithms for checking the accuracy of a clustering result with known
