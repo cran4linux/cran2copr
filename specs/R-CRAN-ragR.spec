@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ragR
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Retrieval-Augmented Generation and RAG Evaluation Tools
+Summary:          Retrieval-Augmented Generation and RAG Evaluation Tools in R
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -32,18 +32,10 @@ Requires:         R-CRAN-tibble
 
 %description
 Provides tools for document ingestion, embedding storage,
-retrieval-augmented generation (RAG), and evaluation of question-answering
-systems. The package includes an R-native vector store, wrappers for
-OpenAI embedding and chat-completion application programming interfaces
-(APIs), question-answering logging utilities, and large language model
-(LLM)-based evaluation metrics for context precision, context recall,
-answer relevance, and faithfulness. These metrics are based on the
-Retrieval-Augmented Generation Assessment (RAGAS) framework. The
-retrieval-augmented generation methodology is described by Lewis et al.
-(2020) "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks"
-<doi:10.48550/arXiv.2005.11401>. The evaluation metrics are based on Es et
-al. (2024) "RAGAS: Automated Evaluation of Retrieval Augmented Generation"
-<doi:10.18653/v1/2024.eacl-demo.16>.
+retrieval-augmented generation (RAG), and RAG evaluation for question
+answering systems. The package includes an R-native vector store, wrappers
+for OpenAI embedding and chat-completion APIs, QA logging utilities, and
+LLM-scored RAGAS-style evaluation metrics.
 
 %prep
 %setup -q -c -n %{packname}

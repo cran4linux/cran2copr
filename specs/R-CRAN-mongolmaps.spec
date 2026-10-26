@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mongolmaps
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Maps and Administrative Boundaries of Mongolia and Ulaanbaatar
 
@@ -18,7 +18,7 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 3.6.0
-BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.1
 BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-sf >= 1.0.12
 BuildRequires:    R-CRAN-httr2 >= 1.0.0
@@ -32,7 +32,7 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-cli >= 3.6.0
-Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-dplyr >= 1.1.1
 Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-sf >= 1.0.12
 Requires:         R-CRAN-httr2 >= 1.0.0

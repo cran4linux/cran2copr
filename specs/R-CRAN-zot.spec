@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  zot
-%global packver   0.1.2
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access 'Zotero' Libraries
 
@@ -34,8 +34,8 @@ Requires:         R-CRAN-RSQLite
 Interface to the 'Zotero' reference manager <https://www.zotero.org>
 through its public web API and local client database. Provides paginated
 reads, versioned writes, read-only local queries, batch plans and
-resumable ledgers, bibliographic comparison, metadata mapping, file
-attachment, and optional semantic-index queries.
+resumable ledgers, bibliographic comparison, metadata mapping, and file
+attachment.
 
 %prep
 %setup -q -c -n %{packname}

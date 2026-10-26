@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  chromConverter
-%global packver   0.9.0
+%global packver   0.11.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.11.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Chromatographic File Converter
 
@@ -54,12 +54,16 @@ Requires:         R-CRAN-digest
 Reads chromatograms from binary formats into R objects. Currently supports
 conversion of 'Agilent ChemStation', 'Agilent MassHunter', 'Agilent
 OpenLab', 'Shimadzu LabSolutions', 'ThermoRaw', 'Varian Workstation', and
-'Waters Empower' files as well as various other formats.  In addition to
+'Waters Empower' files as well as various other formats. In addition to
 its internal parsers, chromConverter contains bindings to parsers in
 external libraries, such as 'Aston' <https://github.com/bovee/aston>,
 'Entab' <https://github.com/bovee/entab>, 'rainbow'
 <https://rainbow-api.readthedocs.io/>, and 'ThermoRawFileParser'
-<https://github.com/compomics/ThermoRawFileParser>.
+<https://github.com/compomics/ThermoRawFileParser>. The suggested packages
+'entab' and 'chromConverterExtraTests' are not on CRAN: both are available
+from the repository given in 'Additional_repositories', and the latest
+test fixtures can also be installed from
+<https://github.com/ethanbass/chromConverterExtraTests>.
 
 %prep
 %setup -q -c -n %{packname}

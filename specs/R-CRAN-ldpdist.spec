@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ldpdist
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Local Differential Privacy Tools for Distributional Inference
 
@@ -19,15 +19,18 @@ Requires:         R-core >= 4.1.0
 
 %description
 Estimates cumulative distribution functions and quantiles under local
-differential privacy. Provides binary and categorical randomization
-mechanisms, isotonic distribution estimators, and simulation interfaces
-for sequential quantile estimation with self-normalized inference and
-asymptotic confidence sequences. Distribution estimators operate on
-privatized reports; quantile interfaces simulate local randomization
-internally. Methods include the quantile procedure of Liu et al. (2023)
-<https://proceedings.mlr.press/v202/liu23q.html> and the distribution
-estimator of Liu, Hu and Kong (2024)
-<https://proceedings.mlr.press/v235/liu24z.html>.
+differential privacy. Provides isotonic and divide-and-conquer
+distribution estimators, aggregation across independent surveys, online
+inference for single and multiple quantiles, and asymptotic quantile
+confidence sequences. Also estimates category-specific subdistribution
+functions under asymmetric local privacy. Binary and categorical
+randomization mechanisms support these procedures. Distribution estimators
+operate on privatized reports; quantile interfaces simulate sequential
+local randomization internally. Published methodological sources include
+Liu et al. (2023) <https://proceedings.mlr.press/v202/liu23q.html>, Liu,
+Hu and Kong (2024) <https://proceedings.mlr.press/v235/liu24z.html>, Cai
+et al. (2025) <doi:10.52202/085713-3818>, and Hu and Liu (2026)
+<https://proceedings.mlr.press/v306/hu26ae.html>.
 
 %prep
 %setup -q -c -n %{packname}

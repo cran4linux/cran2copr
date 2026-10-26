@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidyactuarial
-%global packver   0.1.6
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Tools for Actuarial Mathematics and Life Contingencies
 
@@ -36,10 +36,11 @@ Requires:         R-utils
 Provides tidyverse-aligned tools for actuarial mathematics and life
 contingencies, including life tables, survival probabilities, actuarial
 present values of cash flows, life annuities, life insurance, premiums,
-reserves, multiple-life calculations, Monte Carlo simulation, and
-deterministic cash-flow diagrams. The package emphasizes clear actuarial
-notation, reproducible workflows, and pipe-friendly tools for actuarial
-education and applied actuarial analysis.
+reserves, multiple-life calculations, Monte Carlo simulation, collective
+risk models, insurance coverage, tail risk measures, and deterministic
+cash-flow diagrams. The package emphasizes clear actuarial notation,
+reproducible workflows, and pipe-friendly tools for actuarial education
+and applied actuarial analysis.
 
 %prep
 %setup -q -c -n %{packname}

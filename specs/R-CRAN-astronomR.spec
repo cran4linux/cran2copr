@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  astronomR
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cosmic Insights: Statistical Frameworks for Astronomers
 
@@ -17,29 +17,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-stringr >= 1.5.0
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-stringr >= 1.5.0
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-stringr 
+Requires:         R-stats 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
 
 %description
 A comprehensive toolkit for astronomical and cosmological computations.
 Provides functions for angular coordinate conversions (degrees,
-hours-minutes-seconds, degrees-minutes-seconds, and radians), access to
-fundamental physical constants, queries to the Gaia Archive TAP (Table
-Access Protocol) service, cosmological distance calculations,
+hours-minutes-seconds, degrees-minutes-seconds, and radians), Julian Days
+and the conversion of equatorial (right ascension, declination) to
+horizontal (altitude, azimuth) coordinates, access to fundamental physical
+constants ('CODATA' 2018), queries to the Gaia Catalogue of Nearby Stars
+through the Gaia Archive TAP (Table Access Protocol) service, a
+'Lambda-CDM' cosmology model with comoving, luminosity and
+angular-diameter distances, cosmic time and the age of the universe,
 early-universe thermal physics including photon density, 'Saha' equation
 solutions, and a full thermal-cosmology module covering the Hubble rate in
 the radiation-dominated era, effective relativistic degrees of freedom,

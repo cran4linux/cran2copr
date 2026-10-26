@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DeclareDesign
-%global packver   1.1.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Declare and Diagnose Research Designs
+Summary:          A Tidyverse-First Research Design Declaration and Diagnosis Tool
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,27 +17,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-randomizr >= 0.20.0
-BuildRequires:    R-CRAN-estimatr >= 0.20.0
-BuildRequires:    R-CRAN-fabricatr >= 0.10.0
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-fabricatr >= 2.0.0
+BuildRequires:    R-CRAN-estimatr >= 2.0.0
+BuildRequires:    R-CRAN-randomizr >= 1.0.1
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-randomizr >= 0.20.0
-Requires:         R-CRAN-estimatr >= 0.20.0
-Requires:         R-CRAN-fabricatr >= 0.10.0
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-fabricatr >= 2.0.0
+Requires:         R-CRAN-estimatr >= 2.0.0
+Requires:         R-CRAN-randomizr >= 1.0.1
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-generics 
-Requires:         R-methods 
+Requires:         R-parallel 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
 
 %description
-Researchers can characterize and learn about the properties of research
-designs before implementation using `DeclareDesign`. Ex ante declaration
-and diagnosis of designs can help researchers clarify the strengths and
-limitations of their designs and to improve their properties, and can help
-readers evaluate a research strategy prior to implementation and without
-access to results. It can also make it easier for designs to be shared,
-replicated, and critiqued.
+Declares, simulates, diagnoses and redesigns research designs. A design is
+declared as a model, an inquiry, a data strategy and an answer strategy,
+then simulated with 'purrr' and diagnosed with 'dplyr'. Version 2.0 is a
+ground-up rewrite of the package on tidyverse conventions.
 
 %prep
 %setup -q -c -n %{packname}

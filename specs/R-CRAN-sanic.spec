@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sanic
-%global packver   0.0.2
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Solving Ax = b Nimbly in C++
 
@@ -25,10 +25,12 @@ Requires:         R-CRAN-Matrix
 Requires:         R-methods 
 
 %description
-Routines for solving large systems of linear equations and eigenproblems
-in R. Direct and iterative solvers from the Eigen C++ library are made
-available. Solvers include Cholesky, LU, QR, and Krylov subspace methods
-(Conjugate Gradient, BiCGSTAB). Dense and sparse problems are supported.
+Direct and iterative methods for solving linear systems and computing
+eigenvalue and singular value decompositions using the Eigen C++ library
+in R. Supports dense and sparse linear systems with Cholesky, LU, QR,
+conjugate gradient, stabilized biconjugate gradient, and least-squares
+conjugate gradient methods. Provides reusable factorizations for repeated
+solves.
 
 %prep
 %setup -q -c -n %{packname}

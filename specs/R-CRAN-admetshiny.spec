@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  admetshiny
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive ADMET and Drug-Likeness Analysis of Small Molecules
 
@@ -38,6 +38,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-uwot 
+BuildRequires:    R-CRAN-vegan 
 BuildRequires:    R-CRAN-viridisLite 
 BuildRequires:    R-CRAN-webchem 
 Requires:         R-CRAN-cluster 
@@ -61,6 +62,7 @@ Requires:         R-stats
 Requires:         R-tools 
 Requires:         R-utils 
 Requires:         R-CRAN-uwot 
+Requires:         R-CRAN-vegan 
 Requires:         R-CRAN-viridisLite 
 Requires:         R-CRAN-webchem 
 
