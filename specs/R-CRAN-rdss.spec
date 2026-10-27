@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rdss
-%global packver   1.0.14
+%global packver   1.0.16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.14
+Version:          1.0.16
 Release:          1%{?dist}%{?buildtag}
 Summary:          Companion Datasets and Functions for Research Design in the Social Sciences
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-dplyr 
@@ -43,7 +43,7 @@ Requires:         R-CRAN-estimatr
 Requires:         R-CRAN-randomizr 
 
 %description
-Helper functions to accompany the Blair, Coppock, and Humphreys (2022)
+Helper functions to accompany the Blair, Coppock, and Humphreys (2023)
 "Research Design in the Social Sciences: Declaration, Diagnosis, and
 Redesign" <https://book.declaredesign.org>. 'rdss' includes datasets,
 helper functions, and plotting components to enable use and replication of

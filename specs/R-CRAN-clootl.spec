@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  clootl
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fetch and Explore the Cornell Lab of Ornithology Open Tree of Life Avian Phylogeny
 
@@ -18,11 +18,9 @@ BuildRequires:    R-devel >= 4.3.0
 Requires:         R-core >= 4.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-RCurl 
 BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-CRAN-ape 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-RCurl 
 Requires:         R-CRAN-jsonlite 
 

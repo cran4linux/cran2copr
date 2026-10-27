@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  actiread
-%global packver   0.5.0
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Baseline Package for Reading Actigraphy and Activity Data
 
@@ -30,7 +30,8 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-methods 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-read.gt3x >= 0.2.0
 Requires:         R-CRAN-actibase 
 Requires:         R-CRAN-GGIRread 
@@ -44,13 +45,15 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-readr 
-Requires:         R-methods 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
 Provides baseline functions for reading actigraphy and activity data,
 relying on baseline functions from 'actibase'.  Reads data from 'Axivity'
-'CWA' <https://axivity.com/> , ActiGraph 'GT3X'
-<https://ametris.com/actigraph-wgt3x-bt>, 'SensorLog'
+'CWA' <https://axivity.com/>, ActiGraph 'GT3X'
+<https://academic.ametris.com/actigraph-wgt3x-bt>, 'GENEActiv' and 'Genea'
+binary files, 'Parmay Tech Matrix' binary files, 'SensorLog'
 <https://sensorlog.berndthomas.net/>, and 'SensorLogger'
 <https://www.tszheichoi.com/sensorlogger> zipped CSV files.
 

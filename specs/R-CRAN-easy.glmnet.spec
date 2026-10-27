@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  easy.glmnet
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions to Simplify the Use of 'glmnet' for Machine Learning
 
@@ -14,29 +14,36 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cocor 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-multisite.accuracy 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-pROC 
 BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-cocor 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-multisite.accuracy 
 Requires:         R-parallel 
+Requires:         R-CRAN-pROC 
 Requires:         R-CRAN-survival 
 
 %description
-Provides several functions to simplify using the 'glmnet' package:
+Provides several functions to simplify using the 'glmnet' package: a)
 converting data frames into matrices ready for 'glmnet'; b) imputing
 missing variables multiple times; c) fitting and applying prediction
 models straightforwardly; d) assigning observations to folds in a balanced
-way; e) cross-validate the models; f) selecting the most representative
-model across imputations and folds; and g) getting the relevance of the
-model regressors; as described in several publications: Solanes et al.
-(2022) <doi:10.1038/s41537-022-00309-w>, Palau et al. (2023)
+way; e) cross-validate the models and estimating the accuracy and
+calibration; f) selecting the most representative model across imputations
+and folds; and g) getting the count and relevance of the model regressors;
+as described in several publications: Solanes et al. (2022)
+<doi:10.1038/s41537-022-00309-w>, Palau et al. (2023)
 <doi:10.1016/j.rpsm.2023.01.001>, Salazar de Pablo et al. (2025)
 <doi:10.1038/s41380-025-03244-1>.
 

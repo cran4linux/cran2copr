@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shinymanager
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Authentication Management for 'Shiny' Applications
 
@@ -29,6 +29,7 @@ BuildRequires:    R-CRAN-billboarder
 BuildRequires:    R-CRAN-scrypt 
 BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-later 
 Requires:         R-CRAN-DT >= 0.5
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-shiny 
@@ -41,6 +42,7 @@ Requires:         R-CRAN-billboarder
 Requires:         R-CRAN-scrypt 
 Requires:         R-CRAN-yaml 
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-later 
 
 %description
 Simple and secure authentication mechanism for single 'Shiny'

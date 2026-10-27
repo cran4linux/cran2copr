@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ast2ast
-%global packver   1.0.2
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Translates an R Function to a C++ Function
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -19,9 +19,15 @@ Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.4
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RcppThread 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-sundials 
 Requires:         R-CRAN-Rcpp >= 1.0.4
 Requires:         R-CRAN-R6 
 Requires:         R-methods 
+Requires:         R-CRAN-RcppThread 
+Requires:         R-utils 
+Requires:         R-CRAN-sundials 
 
 %description
 Enable translation of a tiny subset of R to C++. The user has to define a

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CRAFT
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Conditional Regime Analog Forecasting with Trajectories
 
@@ -35,7 +35,8 @@ Tools for Conditional Regime Analog Forecasting with Trajectories. The
 package builds lag and lead trajectory embeddings, detects regimes with
 singular value decomposition and changepoint analysis, estimates
 transition probabilities between regimes, samples future-trajectory
-analogues, and fits smooth empirical forecast distributions.
+analogues, and fits smooth empirical forecast distributions. Random-search
+hyperparameter tuning ranks candidate models using internal backtests.
 
 %prep
 %setup -q -c -n %{packname}

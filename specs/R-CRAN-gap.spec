@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gap
-%global packver   1.15.2
+%global packver   1.15.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.15.2
+Version:          1.15.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Genetic Analysis Package
 
@@ -19,11 +19,13 @@ Requires:         R-core >= 2.10
 BuildRequires:    R-CRAN-gap.datasets >= 0.0.6
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-Rdpack 
 Requires:         R-CRAN-gap.datasets >= 0.0.6
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-grDevices 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-Rdpack 
 

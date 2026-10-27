@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  OpenSourceAP.DownloadR
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download Open Source Asset Pricing (OpenAP) Data Directly
 
@@ -18,28 +18,20 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-nanoparquet 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-RPostgres 
 BuildRequires:    R-CRAN-getPass 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-nanoparquet 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-withr 
-Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-RPostgres 
 Requires:         R-CRAN-getPass 
@@ -54,6 +46,9 @@ Research in Security Prices (CRSP)-based variables such as Price, Size,
 and Short-term Reversal can be downloaded with a Wharton Research Data
 Services (WRDS, <https://wrds-www.wharton.upenn.edu/>) subscription. For a
 full list of what is available, see <https://www.openassetpricing.com/>.
+Data are read from the OpenAP Hugging Face dataset
+<https://huggingface.co/datasets/OpenSourceAP/CrossSection>, which holds
+data releases from 2020 onward.
 
 %prep
 %setup -q -c -n %{packname}

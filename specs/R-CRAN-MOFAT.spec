@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MOFAT
-%global packver   1.0
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Maximum One-Factor-at-a-Time Designs
 
@@ -16,25 +16,47 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-SFDesign 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-SLHD 
+BuildRequires:    R-CRAN-spacefillr 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-MaxPro 
+BuildRequires:    R-CRAN-RcppHungarian 
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-SFDesign 
+Requires:         R-CRAN-scales 
 Requires:         R-CRAN-SLHD 
+Requires:         R-CRAN-spacefillr 
 Requires:         R-stats 
+Requires:         R-CRAN-MaxPro 
+Requires:         R-CRAN-RcppHungarian 
+Requires:         R-CRAN-withr 
 
 %description
 Identifying important factors from a large number of potentially important
-factors of a highly nonlinear and computationally expensive black box
+factors in a highly nonlinear and computationally expensive black-box
 model is a difficult problem. Xiao, Joseph, and Ray (2022)
 <doi:10.1080/00401706.2022.2141897> proposed Maximum One-Factor-at-a-Time
-(MOFAT) designs for doing this. A MOFAT design can be viewed as an
-improvement to the random one-factor-at-a-time (OFAT) design proposed by
-Morris (1991) <doi:10.1080/00401706.1991.10484804>. The improvement is
-achieved by exploiting the connection between Morris screening designs and
-Monte Carlo-based Sobol' designs, and optimizing the design using a
-space-filling criterion. This work is supported by a U.S. National Science
-Foundation (NSF) grant CMMI-1921646
-<https://www.nsf.gov/awardsearch/showAward?AWD_ID=1921646>.
+(MOFAT) designs for this purpose. A MOFAT design is a collection of
+one-factor-at-a-time (OFAT) designs constructed to achieve maximal
+screening capability. Song and Joseph (2026)
+<doi:10.48550/arXiv.2609.02087> extended the MOFAT framework to
+incorporate nominal and discrete numeric factors. The resulting designs
+are implemented in the mofatQQ function. Yu and Joseph (2026)
+<doi:10.48550/arXiv.2606.02533> proposed Space-Filling
+One-Factor-at-a-Time (SOFT) designs, which achieve optimal space-filling
+properties while retaining the screening capability. Therefore, SOFT
+designs are useful for both factor screening and surrogate modeling. The
+work on MOFAT is supported by a U.S. National Science Foundation (NSF)
+grant CMMI-1921646
+<https://www.nsf.gov/awardsearch/show-award/?AWD_ID=1921646>, and the work
+on MOFATQQ and SOFT is supported by a U.S. NSF grant DMS-2310637.
 
 %prep
 %setup -q -c -n %{packname}

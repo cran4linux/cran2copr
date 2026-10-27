@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fds
-%global packver   1.9
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functional Data Sets
 
@@ -14,16 +14,19 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rainbow 
-BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-rainbow 
-Requires:         R-CRAN-RCurl 
+Requires:         R-CRAN-httr 
+Requires:         R-utils 
 
 %description
-Functional data sets.
+Functional data sets, covering demography, chemometrics, climate,
+electricity consumption, and finance.
 
 %prep
 %setup -q -c -n %{packname}

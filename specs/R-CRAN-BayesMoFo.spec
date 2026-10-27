@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BayesMoFo
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Mortality Forecasting
 
@@ -47,8 +47,8 @@ factors such as cause of death, country, deprivation level, sex,
 geographic region, insurance product, marital status, socioeconomic group,
 or smoking behavior. While the primary focus is on analysing stratified
 data (p > 1), the package can also handle mortality data that are not
-stratified (p = 1). Model selection via the Deviance Information Criterion
-(DIC) is supported.
+stratified (p = 1), including 'demogdata' and 'StMoMoData' objects. Model
+selection via the Deviance Information Criterion (DIC) is supported.
 
 %prep
 %setup -q -c -n %{packname}

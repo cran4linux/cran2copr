@@ -1,70 +1,68 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mcp
-%global packver   0.3.4
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regression with Multiple Change Points
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rjags >= 4.9
 BuildRequires:    R-CRAN-ggplot2 >= 3.2.1
-BuildRequires:    R-CRAN-tidybayes >= 3.0.0
+BuildRequires:    R-CRAN-checkmate >= 2.3.0
 BuildRequires:    R-CRAN-tibble >= 2.1.3
 BuildRequires:    R-CRAN-loo >= 2.1.0
 BuildRequires:    R-CRAN-bayesplot >= 1.7.0
-BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-future.apply >= 1.4
-BuildRequires:    R-CRAN-future >= 1.16
+BuildRequires:    R-CRAN-future >= 1.20.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.1
+BuildRequires:    R-CRAN-lifecycle >= 1.0.0
+BuildRequires:    R-CRAN-posterior >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-patchwork >= 1.0.0
-BuildRequires:    R-CRAN-rlang >= 0.4.1
-BuildRequires:    R-CRAN-tidyselect >= 0.2.5
+BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-coda >= 0.19.3
-BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-nlme 
 Requires:         R-CRAN-rjags >= 4.9
 Requires:         R-CRAN-ggplot2 >= 3.2.1
-Requires:         R-CRAN-tidybayes >= 3.0.0
+Requires:         R-CRAN-checkmate >= 2.3.0
 Requires:         R-CRAN-tibble >= 2.1.3
 Requires:         R-CRAN-loo >= 2.1.0
 Requires:         R-CRAN-bayesplot >= 1.7.0
-Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-future.apply >= 1.4
-Requires:         R-CRAN-future >= 1.16
+Requires:         R-CRAN-future >= 1.20.0
 Requires:         R-CRAN-dplyr >= 1.1.1
+Requires:         R-CRAN-lifecycle >= 1.0.0
+Requires:         R-CRAN-posterior >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-patchwork >= 1.0.0
-Requires:         R-CRAN-rlang >= 0.4.1
-Requires:         R-CRAN-tidyselect >= 0.2.5
+Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-coda >= 0.19.3
-Requires:         R-parallel 
 Requires:         R-stats 
+Requires:         R-CRAN-nlme 
 
 %description
 Flexible and informed regression with Multiple Change Points. 'mcp' can
 infer change points in means, variances, autocorrelation structure, and
 any combination of these, as well as the parameters of the segments in
-between. All parameters are estimated with uncertainty and prediction
-intervals are supported - also near the change points. 'mcp' supports
-hypothesis testing via Savage-Dickey density ratio, posterior contrasts,
-and cross-validation. 'mcp' is described in Lindeløv (submitted)
-<doi:10.31219/osf.io/fzqxv> and generalizes the approach described in
-Carlin, Gelfand, & Smith (1992) <doi:10.2307/2347570> and Stephens (1994)
-<doi:10.2307/2986119>.
+between. All parameters are estimated with uncertainty and posterior
+predictive intervals are supported - also near the change points. 'mcp'
+supports hypothesis testing via Savage-Dickey density ratio, posterior
+contrasts, and PSIS-LOO model comparison. The 'mcp' framework is
+introduced in Lindeløv (2020) <doi:10.31219/osf.io/fzqxv>.
 
 %prep
 %setup -q -c -n %{packname}

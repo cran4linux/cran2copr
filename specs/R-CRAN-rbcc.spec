@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rbcc
-%global packver   0.1.5
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Risk-Based Control Charts
 
@@ -14,31 +14,35 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.00
-Requires:         R-core >= 4.00
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-qcc 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-PearsonDS 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-pracma 
-Requires:         R-stats 
-Requires:         R-CRAN-qcc 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-reshape2 
+BuildRequires:    R-CRAN-qcc 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-parallel 
 Requires:         R-CRAN-PearsonDS 
-Requires:         R-methods 
-Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-qcc 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Univariate and multivariate versions of risk-based control charts.
-Univariate versions of control charts, such as the risk-based version of
-X-bar, Moving Average (MA), Exponentially Weighted Moving Average Control
-Charts (EWMA), and Cumulative Sum Control Charts (CUSUM) charts. The
-risk-based version of the multivariate T2 control chart. Plot and summary
-functions. Kosztyan et. al. (2016) <doi:10.1016/j.eswa.2016.06.019>.
+Implements univariate and multivariate risk-based control charts for
+statistical process control in the presence of measurement uncertainty.
+Available charts include Shewhart X-bar, R, and S charts, moving-average
+charts, exponentially weighted moving-average charts, cumulative-sum
+charts, and Hotelling T-squared charts. Chart parameters can be optimized
+by minimizing the total cost of the four decision outcomes. The
+methodology is described by Kosztyan and Katona (2016)
+<doi:10.1016/j.eswa.2016.06.019>, Kosztyan and Katona (2018)
+<doi:10.1016/j.cie.2018.04.052>, Katona et al. (2023)
+<doi:10.1109/ACCESS.2023.3312226>, Saghir et al. (2025)
+<doi:10.1016/j.rineng.2025.107278>, and Saghir et al. (2026)
+<doi:10.1016/j.rico.2026.100661>.
 
 %prep
 %setup -q -c -n %{packname}

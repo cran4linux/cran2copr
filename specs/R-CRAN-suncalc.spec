@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  suncalc
-%global packver   0.5.3
+%global packver   0.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          0.5.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compute Sun Position, Sunlight Phases, Moon Position and Lunar Phase
 
@@ -17,11 +17,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-lubridate >= 1.9.0
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-lubridate >= 1.9.0
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
 
 %description

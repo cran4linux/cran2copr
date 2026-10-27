@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Analitica
-%global packver   2.3.0
+%global packver   2.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          2.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exploratory Data Analysis, Group Comparison Tools, and Other Procedures
 
@@ -14,10 +14,10 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4
-Requires:         R-core >= 4.4
+BuildRequires:    R-devel >= 4.6
+Requires:         R-core >= 4.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-ggridges 
@@ -28,7 +28,8 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-multcompView 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-ggridges 
@@ -39,19 +40,21 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-multcompView 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Provides a comprehensive set of tools for descriptive statistics,
 graphical data exploration, outlier detection, homoscedasticity testing,
 and multiple comparison procedures. Includes manual implementations of
-Levene's test, Bartlett's test, and the Fligner-Killeen test, as well as
-post hoc comparison methods such as Tukey, Scheffé, Games-Howell,
-Brunner-Munzel, and others. This version introduces two new procedures:
-the Jonckheere-Terpstra trend test and the Jarque-Bera test with
-Glinskiy's (2024) correction. Designed for use in teaching, applied
-statistical analysis, and reproducible research. Additionally you can find
-a post hoc Test Planner, which helps you to make a decision on which
-procedure is most suitable.
+Levene's test, Bartlett's test, and the Fligner-Killeen test; parametric
+post hoc methods such as Tukey, Scheffe, Duncan, SNK, LSD, Games-Howell
+and Tamhane; and rank-based post hoc methods such as Dunn, Conover-Iman,
+Nemenyi, Dwass-Steel-Critchlow-Fligner and Bonferroni-corrected
+Mann-Whitney tests, with plots suited to each type of procedure. Also
+includes the Jonckheere-Terpstra trend test, the Jarque-Bera test with
+Glinskiy's (2024) correction, and a post hoc test planner that helps
+choose the most suitable procedure. Designed for use in teaching, applied
+statistical analysis, and reproducible research.
 
 %prep
 %setup -q -c -n %{packname}

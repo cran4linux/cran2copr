@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  araponga
-%global packver   1.1.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate 3D Orientations from 2D Landmarks
 
@@ -17,21 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-arrow 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-arrow 
-Requires:         R-CRAN-dplyr 
 Requires:         R-graphics 
-Requires:         R-CRAN-rlang 
 
 %description
-Estimates possible 3D orientations of an object from the 2D image
-coordinates of two landmarks and an approximate camera-object elevation
-angle. Because a projected 2D angle can be compatible with multiple 3D
-pitch, yaw, and view-elevation angles, the package returns compatible sets
-of orientations rather than a single unconstrained estimate.
+Estimates possible 3D orientations of directed objects from the 2D image
+coordinates of two landmarks and any additional information about the
+imaging geometry or object. Because a 2D image generally does not uniquely
+determine a 3D orientation, the package returns sets of compatible pitch,
+yaw, and view-elevation angles rather than a single unconstrained
+estimate.
 
 %prep
 %setup -q -c -n %{packname}

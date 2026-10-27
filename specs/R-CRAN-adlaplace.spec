@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  adlaplace
-%global packver   0.7.4
+%global packver   0.7.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.4
+Version:          0.7.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Laplace Approximations Using Automatic Differentiation
 
@@ -16,22 +16,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-RCppAD >= 1.20260000.0.2
 BuildRequires:    R-CRAN-Matrix >= 1.2.18
 BuildRequires:    R-CRAN-Rcpp >= 1.0.3
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-RCppAD 
 BuildRequires:    R-CRAN-RcppEigen 
 BuildRequires:    R-CRAN-trustOptim 
+Requires:         R-CRAN-RCppAD >= 1.20260000.0.2
 Requires:         R-CRAN-Matrix >= 1.2.18
 Requires:         R-CRAN-Rcpp >= 1.0.3
 Requires:         R-methods 
-Requires:         R-CRAN-data.table 
 Requires:         R-stats 
 Requires:         R-graphics 
-Requires:         R-CRAN-RCppAD 
 
 %description
 Computes Laplace-approximate maximum likelihood for hierarchical and

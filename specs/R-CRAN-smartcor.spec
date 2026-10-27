@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  smartcor
-%global packver   1.0.1
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automatic Correlation Method Selection Based on Variable Types
 
@@ -17,24 +17,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-MVN >= 6.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-cli >= 3.0.0
 BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-CRAN-fNonlinear 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-lmtest 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-moments 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-polycor 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-MVN >= 6.0
 Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-cli >= 3.0.0
 Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-CRAN-fNonlinear 
 Requires:         R-CRAN-generics 
 Requires:         R-graphics 
 Requires:         R-grDevices 
+Requires:         R-CRAN-lmtest 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-moments 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-polycor 
 Requires:         R-stats 
@@ -43,15 +53,17 @@ Requires:         R-utils
 Requires:         R-CRAN-withr 
 
 %description
-Detects variable types (continuous, count, binary, ordinal, categorical)
-and selects the appropriate correlation method for each pair. Supports
-Pearson, Spearman, Kendall's tau, point-biserial, rank-biserial, phi,
-tetrachoric, polychoric, polyserial, Cramer's V, Tschuprow's T, Theil's U,
-Yule's Q, and Goodman-Kruskal's gamma, each with a confidence interval and
-p-value. Explains the selection rationale in the output, follows tidy data
-principles, and works in both interactive and scripted workflows. The
-methodology is described in Harshvardhan and Ranjan (2026)
-<doi:10.48550/arXiv.2607.22285>.
+Detects variable types (continuous, count, binary, ordinal, categorical),
+checks outliers, normality, latent normality, and linearity, and selects
+the appropriate correlation method for each pair. Supports 18 methods:
+Pearson, Spearman, Kendall's tau, point-biserial, biserial, rank-biserial,
+phi, tetrachoric, Yule's Q, polychoric, polyserial, Goodman-Kruskal's
+gamma, the correlation ratio (eta-squared), Kruskal-Wallis eta-squared,
+Freeman's theta, Cramer's V, Tschuprow's T, and Theil's U, each with a
+confidence interval and p-value. Explains the selection rationale in the
+output, follows tidy data principles, and works in both interactive and
+scripted workflows. The methodology is described in Harshvardhan and
+Ranjan (2026) <doi:10.48550/arXiv.2607.22285>.
 
 %prep
 %setup -q -c -n %{packname}

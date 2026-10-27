@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  actisomni
-%global packver   0.2.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Sleep Measures of Actigraphy and Activity Analysis
 
@@ -17,26 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-actibase 
+BuildRequires:    R-CRAN-actibase >= 0.8.0
+BuildRequires:    R-CRAN-asleep >= 0.4.0
 BuildRequires:    R-CRAN-actiread 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-asleep 
 BuildRequires:    R-CRAN-sleeper 
-BuildRequires:    R-CRAN-actigraph.sleepr 
-Requires:         R-CRAN-actibase 
+Requires:         R-CRAN-actibase >= 0.8.0
+Requires:         R-CRAN-asleep >= 0.4.0
 Requires:         R-CRAN-actiread 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-tibble 
 Requires:         R-stats 
-Requires:         R-CRAN-asleep 
 Requires:         R-CRAN-sleeper 
-Requires:         R-CRAN-actigraph.sleepr 
 
 %description
 Estimates sleep from wrist accelerometry and epoch-level activity data.
@@ -44,13 +42,11 @@ Implements sleep-period-time guiders based on angle changes, posture,
 least-active periods, sustained inactivity, low activity, and diary or
 fixed time windows; combines guider windows with sustained-inactivity
 bouts to produce sleep/wake labels and consensus estimates. Provides diary
-helpers and Tudor-Locke sleep-period summaries, and interfaces to the
-'asleep' and 'sleeper' machine-learning estimators. The angle-based and
-sustained-inactivity methods are described by van Hees et al. (2015)
-<doi:10.1371/journal.pone.0142533> and van Hees et al. (2018)
-<doi:10.1038/s41598-018-31266-z>; the sleep-period summary method by
-Tudor-Locke et al. (2014) <doi:10.1139/apnm-2013-0173>; and the model
-estimators by Yuan et al. (2024) <doi:10.1038/s41746-024-01065-0> and
+helpers, and interfaces to the 'asleep' and 'sleeper' machine-learning
+estimators. The angle-based and sustained-inactivity methods are described
+by van Hees et al. (2015) <doi:10.1371/journal.pone.0142533> and van Hees
+et al. (2018) <doi:10.1038/s41598-018-31266-z>; the model estimators are
+described by Yuan et al. (2024) <doi:10.1038/s41746-024-01065-0> and
 Sundararajan et al. (2021) <doi:10.1038/s41598-020-79217-x>.
 
 %prep
