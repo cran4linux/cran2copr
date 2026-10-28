@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cancerradarr
-%global packver   3.0.0
+%global packver   4.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          4.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cancer RADAR Project Tool
 
@@ -19,10 +19,8 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-openxlsx >= 4.2.7
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-epitools 
 BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rmarkdown 
@@ -32,10 +30,8 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-utils 
 Requires:         R-CRAN-openxlsx >= 4.2.7
 Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-epitools 
 Requires:         R-CRAN-gtools 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rmarkdown 

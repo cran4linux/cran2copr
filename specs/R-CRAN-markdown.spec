@@ -1,21 +1,21 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  markdown
-%global packver   2.0
+%global packver   2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Render Markdown with 'commonmark'
+Summary:          A Thin Wrapper of 'litedown' to Render Markdown Documents
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.11.1
-Requires:         R-core >= 2.11.1
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-litedown >= 0.6
 BuildRequires:    R-utils 
@@ -25,8 +25,8 @@ Requires:         R-utils
 Requires:         R-CRAN-xfun 
 
 %description
-Render Markdown to full and lightweight HTML/LaTeX documents with the
-'commonmark' package. This package has been superseded by 'litedown'.
+Render Markdown to HTML/LaTeX. This package has been superseded by
+'litedown'. Please call 'litedown::mark()' directly.
 
 %prep
 %setup -q -c -n %{packname}

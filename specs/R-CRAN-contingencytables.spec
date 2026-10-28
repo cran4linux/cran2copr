@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  contingencytables
-%global packver   3.1.0
+%global packver   3.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          3.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Analysis of Contingency Tables
 
@@ -20,9 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-methods 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-boot 
 Requires:         R-methods 
+Requires:         R-utils 
 
 %description
 Provides functions to perform statistical inference of data organized in

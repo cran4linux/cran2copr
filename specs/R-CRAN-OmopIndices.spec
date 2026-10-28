@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  OmopIndices
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Patient-Level Indices from the OMOP Common Data Model
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-omopgenerics >= 1.4.0
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-clock 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-PatientProfiles 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
@@ -28,6 +29,7 @@ Requires:         R-CRAN-omopgenerics >= 1.4.0
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-clock 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-PatientProfiles 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 

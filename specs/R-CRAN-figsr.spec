@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  figsr
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Interpretable Greedy-Tree Sums for Tree Ensembles
 
@@ -17,12 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
 BuildRequires:    R-CRAN-dials 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-parsnip 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-ggplot2 >= 4.0.0
 Requires:         R-CRAN-dials 
 Requires:         R-graphics 
 Requires:         R-CRAN-parsnip 
@@ -36,9 +38,9 @@ Flexible, interpretable machine learning algorithm for additive tree sums
 by greedily minimizing residual impurity, growing a new tree or deepening
 an existing one at each step, whichever reduces the residuals most.
 Supports regression and two-class classification, variable importance,
-bootstrap ensembling and seamless integration with 'parsnip' and
-'tidymodels' workflows. The method is described in Tan et al. (2023)
-<doi:10.1073/pnas.2310151122>.
+'ggplot2' graphics, bootstrap ensembling and seamless integration with
+'parsnip' and 'tidymodels' workflows. The method is described in Tan et
+al. (2023) <doi:10.1073/pnas.2310151122>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,32 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  usportsR
-%global packver   1.0.0
+%global packname  zigimports
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access U SPORTS Data
+Summary:          Call 'Zig' Code from R
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 
 %description
-Tools package to extract and analyze data from U SPORTS, the governing
-body of university sport in Canada.
+Loads shared libraries compiled from 'Zig' ('.so' files on Linux, '.dll'
+files on Windows) and binds their exported functions to R functions.
+Arguments are passed by value using the native calling convention, so
+functions with mixed integer, double, logical, string and vector arguments
+and with return values can be called. Also compiles and runs 'Zig' code
+directly from R. Compiling code requires the 'Zig' compiler.
 
 %prep
 %setup -q -c -n %{packname}

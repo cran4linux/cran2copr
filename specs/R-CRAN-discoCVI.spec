@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  discoCVI
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Implementation of the DISCO Metric for Internal Clustering Evaluation
 
@@ -16,10 +16,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
-BuildArch:        noarch
 BuildRequires:    R-CRAN-FNN 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-FNN 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
 
 %description

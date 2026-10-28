@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RobustMediate
-%global packver   0.1.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Causal Mediation Analysis with Diagnostics and Sensitivity Analysis
 
@@ -31,20 +31,20 @@ Requires:         R-stats
 Requires:         R-CRAN-broom 
 
 %description
-Provides tools for causal mediation analysis with continuous treatments
-using inverse probability weighting (IPW). Estimates natural direct and
-indirect effects over a user-defined treatment grid and supports flexible
-dose-response mediation analysis. Includes diagnostic procedures for
-assessing covariate balance in both treatment and mediator models using
-standardized mean differences. Implements pathway-specific extensions of
-the impact threshold for a confounding variable (ITCV; Frank, 2000
-<doi:10.1177/0049124100029002001>) adapted to mediation settings. Provides
-joint sensitivity analysis combining E-values (VanderWeele and Ding, 2017
-<doi:10.7326/M16-2607>) and violations of sequential ignorability (Imai,
-Keele, and Yamamoto, 2010 <doi:10.1214/10-STS321>). Additional utilities
-include visualization of dose-response mediation functions, robustness
-profiles, fragility summaries, and formatted outputs for applied research.
-Supports clustered data structures and multiple outcome families.
+Provides tools for causal mediation analysis with continuous treatments.
+Estimates natural direct and indirect effects by g-computation over a
+user-defined treatment grid, with bootstrap intervals that can resample
+whole clusters, and supports nonlinear dose-response through spline terms
+in the model formulas. Includes balance diagnostics based on standardized
+mean differences and stabilized inverse probability weights. Provides
+sensitivity analysis for confounding of the mediator-outcome relationship
+using the error correlation parameter of Imai, Keele, and Yamamoto (2010)
+<doi:10.1214/10-STS321>, and path-wise and indirect-effect robustness
+values in the partial R-squared metric of Cinelli and Hazlett (2020)
+<doi:10.1111/rssb.12348>, for both joint-significance and Sobel tests of
+the indirect effect. Additional utilities include visualization of
+dose-response mediation functions and formatted outputs for applied
+research.
 
 %prep
 %setup -q -c -n %{packname}

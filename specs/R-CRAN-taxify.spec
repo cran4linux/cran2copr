@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  taxify
-%global packver   0.6.0
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Offline Taxonomic Name Matching Against Darwin Core Backbones
 
@@ -17,24 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-vectra >= 0.12.4
+BuildRequires:    R-CRAN-vectra >= 0.14.0
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-vectra >= 0.12.4
+Requires:         R-CRAN-vectra >= 0.14.0
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-rlang 
 
 %description
-Match taxonomic names against locally stored Darwin Core backbone
-databases ('WFO', 'COL', 'GBIF', 'ITIS', 'NCBI Taxonomy', 'Open Tree of
-Life', 'WoRMS', 'Euro+Med', 'Species Fungorum', 'AlgaeBase', 'FishBase',
-'SeaLifeBase', 'Reptile Database', 'LCVP', 'WCVP', 'Mammal Diversity
-Database', 'AviList', 'LPSN'). Provides offline fuzzy and exact matching
-with synonym resolution, hybrid name detection, and a unified output
-schema across all sources. All heavy computation runs in the 'vectra' C11
-columnar engine.
+Matches taxonomic names against local copies of published backbones
+('Catalogue of Life', 'GBIF Backbone Taxonomy', 'ITIS', 'World Flora
+Online', 'WoRMS', 'NCBI Taxonomy', 'Open Tree of Life', 'Euro+Med',
+'Species Fungorum', 'AlgaeBase', 'FishBase', 'SeaLifeBase', 'Reptile
+Database', 'LCVP', 'WCVP', 'Mammal Diversity Database', 'AviList', 'LPSN')
+and two vegetation classifications, and resolves each name to its accepted
+name. It performs the name-resolution step of 'taxize' and 'WorldFlora',
+run offline against these files. Names are cleaned of authors and
+qualifiers, matched exactly and then by edit distance within their genus,
+and followed from synonym to accepted name, with the backbone version
+recorded on every row. Published trait, status and distribution datasets
+are joined on the accepted name, and so is a table the user supplies.
+Matching runs in the 'vectra' column-store engine.
 
 %prep
 %setup -q -c -n %{packname}

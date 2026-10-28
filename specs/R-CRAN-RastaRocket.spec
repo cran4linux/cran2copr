@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RastaRocket
-%global packver   1.1.5
+%global packver   1.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
+Version:          1.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Rocket-Fast Clinical Research Reporting
 
@@ -33,6 +33,7 @@ BuildRequires:    R-CRAN-ggrepel
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-viridis 
 BuildRequires:    R-CRAN-here 
+BuildRequires:    R-CRAN-pillar 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-labelled 
@@ -49,6 +50,7 @@ Requires:         R-CRAN-ggrepel
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-viridis 
 Requires:         R-CRAN-here 
+Requires:         R-CRAN-pillar 
 
 %description
 Description of the tables, both grouped and not grouped, with some

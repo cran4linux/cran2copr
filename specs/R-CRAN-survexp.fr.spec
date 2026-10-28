@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  survexp.fr
-%global packver   1.2
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Relative Survival, AER and SMR Based on French Death Rates
 
@@ -18,11 +18,9 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-WriteXLS 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 Requires:         R-CRAN-survival 
-Requires:         R-CRAN-WriteXLS 
 Requires:         R-stats 
 Requires:         R-graphics 
 

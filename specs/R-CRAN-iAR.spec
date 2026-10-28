@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  iAR
-%global packver   1.3.4
+%global packver   1.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          1.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Irregularly Observed Autoregressive Models
 
@@ -31,13 +31,15 @@ Requires:         R-CRAN-S7
 Requires:         R-CRAN-zoo 
 
 %description
-Data sets, functions and scripts with examples to implement autoregressive
-models for irregularly observed time series. The models available in this
-package are the irregular autoregressive model (Eyheramendy et al.(2018)
-<doi:10.1093/mnras/sty2487>), the complex irregular autoregressive model
-(Elorrieta et al.(2019) <doi:10.1051/0004-6361/201935560>) and the
-bivariate irregular autoregressive model (Elorrieta et al.(2021)
-<doi:10.1093/mnras/stab1216>).
+Data sets and functions for implementing discrete-time autoregressive
+models for irregularly observed time series. The models implemented
+include the irregular autoregressive (iAR) model (Eyheramendy et al.
+(2018) <doi:10.1093/mnras/sty2487>), the complex irregular autoregressive
+(CiAR) model (Elorrieta et al. (2019) <doi:10.1051/0004-6361/201935560>),
+and the bivariate irregular autoregressive (BiAR) model (Elorrieta et al.
+(2021) <doi:10.1093/mnras/stab1216>). For a comprehensive description of
+the package and its applications, see Elorrieta et al. (2026)
+<doi:10.32614/RJ-2026-036>.
 
 %prep
 %setup -q -c -n %{packname}

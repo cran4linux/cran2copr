@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  releaser
-%global packver   1.2.1
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Help with Preparing a New Version of an R Package
 
@@ -20,10 +20,12 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-gh 
 BuildRequires:    R-CRAN-desc 
 BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-attachment 
 BuildRequires:    R-CRAN-roxygen2 
 Requires:         R-CRAN-gh 
 Requires:         R-CRAN-desc 
 Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-attachment 
 Requires:         R-CRAN-roxygen2 
 
 %description

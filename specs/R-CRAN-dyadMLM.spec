@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dyadMLM
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Dyadic Multilevel Models
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,14 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-withr >= 3.0.3
 BuildRequires:    R-CRAN-tibble >= 3.0.0
-BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.1
 BuildRequires:    R-CRAN-rlang >= 0.4.0
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-pillar 
 BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-withr >= 3.0.3
 Requires:         R-CRAN-tibble >= 3.0.0
-Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-dplyr >= 1.1.1
 Requires:         R-CRAN-rlang >= 0.4.0
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-pillar 
 Requires:         R-CRAN-tidyselect 
 
@@ -35,13 +39,17 @@ cross-sectional and intensive longitudinal data, including ecological
 momentary assessment designs, for distinguishable and exchangeable dyads.
 It also supports datasets containing multiple observed dyad compositions.
 It constructs composition-aware, model-ready variables for Actor-Partner
-Interdependence Models (APIMs), Dyadic Score Models (DSMs), and
-Dyad-Individual Models (DIMs). Prepared data can be used with model
-engines such as 'glmmTMB' and 'brms' for Gaussian and non-Gaussian
-outcomes, including counts, proportions, and skewed continuous responses.
-Post-estimation tools compare compatible fitted models and back-transform
-exchangeable sum-and-difference random-effect covariance structures into
-member-level quantities. The APIM and DSM specifications and their
+Interdependence Models (APIMs), Dyad-Individual Models (DIMs), and Dyadic
+Score Models (DSMs). Prepared data can be used with model engines such as
+'glmmTMB' and 'brms' for Gaussian and non-Gaussian outcomes, including
+counts, proportions, and skewed continuous responses. Post-estimation
+tools compare compatible fitted models and back-transform exchangeable
+sum-and-difference random-effect covariance structures into member-level
+quantities. Experimental predictive checks compare observed and simulated
+response variances and partner correlations in Gaussian and selected
+non-Gaussian models. Distributional diagnostics separately check response
+distributions and residual patterns, using simulations that retain partner
+and time dependence. The APIM and DSM specifications and their
 relationships follow Iida et al. (2018) <doi:10.1177/0265407517725407>;
 the multilevel sum-and-difference random-effects implementation for
 exchangeable dyads adapts del Rosario and West (2025)

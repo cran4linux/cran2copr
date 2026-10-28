@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  videogameinsightsR
-%global packver   0.1.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to 'Video Game Insights' API for Gaming Market Analytics
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-digest
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-magrittr 
@@ -35,23 +34,18 @@ Requires:         R-CRAN-digest
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rvest 
 Requires:         R-stats 
 Requires:         R-CRAN-magrittr 
 
 %description
-Interface to the 'Video Game Insights' API
-<https://app.sensortower.com/vgi/> for video game market analytics and
-intelligence. Provides functions to retrieve game metadata, developer and
-publisher information, player statistics (concurrent players, daily and
-monthly active users), revenue and sales data, review analytics, wish-list
-tracking, and platform-specific rankings. The package includes data
-processing utilities to analyze player demographics, track pricing
-history, calculate player overlap between games, and monitor market
-trends. Supports analysis across multiple gaming platforms including
-'Steam', 'PlayStation', 'Xbox', and 'Nintendo' with unified data
-structures for cross-platform comparison.
+Interface to the 'Video Game Insights' API v4
+<https://app.sensortower.com/vgi/> for video game market analytics.
+Retrieves game metadata, developer and publisher information, player
+statistics (concurrent players, daily and monthly active users), revenue
+and units, reviews, wishlists, followers, price history, player overlap
+and player demographics for games on 'Steam', 'PlayStation' and 'Xbox', as
+tidy tibbles with VGI and Steam identifiers for cross-platform comparison.
 
 %prep
 %setup -q -c -n %{packname}

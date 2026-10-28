@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  antedep
-%global packver   0.2.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Antedependence Models for Longitudinal Data
 
@@ -18,10 +18,12 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-nloptr >= 1.2.0
+BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-MASS 
 Requires:         R-CRAN-nloptr >= 1.2.0
+Requires:         R-CRAN-numDeriv 
 Requires:         R-stats 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-MASS 
@@ -35,8 +37,9 @@ binomial) and flexible innovation distributions (Poisson, Bell, negative
 binomial), categorical antedependence models for discrete-state
 longitudinal outcomes, and Gaussian antedependence (AD) models for
 continuous data. Implements maximum likelihood estimation via
-time-separable optimization and block coordinate descent, with confidence
-intervals based on Louis' identity and profile likelihood.
+time-separable optimization, block coordinate descent, and the EM
+algorithm, with confidence intervals based on Louis' identity, the
+observed-data Hessian, and profile likelihood.
 
 %prep
 %setup -q -c -n %{packname}

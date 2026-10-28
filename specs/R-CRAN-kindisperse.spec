@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  kindisperse
-%global packver   0.10.2
+%global packver   0.10.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.2
+Version:          0.10.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulate and Estimate Close-Kin Dispersal Kernels
 
@@ -21,7 +22,6 @@ BuildRequires:    R-CRAN-readr
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinythemes 
 BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-fitdistrplus 
 BuildRequires:    R-CRAN-LaplacesDemon 
 BuildRequires:    R-CRAN-here 
 BuildRequires:    R-stats 
@@ -29,7 +29,6 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tidyselect 
@@ -39,7 +38,6 @@ Requires:         R-CRAN-readr
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinythemes 
 Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-fitdistrplus 
 Requires:         R-CRAN-LaplacesDemon 
 Requires:         R-CRAN-here 
 Requires:         R-stats 
@@ -47,7 +45,6 @@ Requires:         R-methods
 Requires:         R-CRAN-tibble 
 Requires:         R-grid 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tidyselect 

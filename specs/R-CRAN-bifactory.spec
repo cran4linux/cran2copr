@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bifactory
-%global packver   0.6.0
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          (Bifactor) ESEM with Continuous (MLR) or Ordinal (WLSMV) Data
 
@@ -48,7 +48,7 @@ Continuous models use 'lavaan' native efa() blocks with robust maximum
 likelihood (MLR) estimation. Ordinal ESEM defaults to the 'lavaan'
 weighted least squares mean- and variance-adjusted (WLSMV) estimator;
 ordinal B-ESEM uses a custom diagonally weighted least squares (DWLS) path
-with polychoric correlations from 'psych', rotation-delta standard errors
+with polychoric correlations from 'lavaan', rotation-delta standard errors
 via 'numDeriv', and a mean- and variance-adjusted chi-square. Target,
 geomin, and oblimin rotations use 'GPArotation'; the bifactor ESEM
 approach follows Morin, Arens and Marsh (2016)

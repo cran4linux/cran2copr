@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Bergm
-%global packver   5.0.7
+%global packver   6.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.0.7
+Version:          6.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Exponential Random Graph Models
 
@@ -16,38 +16,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ergm 
+BuildRequires:    R-CRAN-ergm >= 4.2.3
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-matrixcalc 
-BuildRequires:    R-CRAN-MCMCpack 
-BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-mice 
 BuildRequires:    R-CRAN-network 
-BuildRequires:    R-CRAN-Rglpk 
-BuildRequires:    R-CRAN-statnet.common 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-ergm 
+Requires:         R-CRAN-ergm >= 4.2.3
 Requires:         R-CRAN-coda 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-matrixcalc 
-Requires:         R-CRAN-MCMCpack 
-Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-mice 
 Requires:         R-CRAN-network 
-Requires:         R-CRAN-Rglpk 
-Requires:         R-CRAN-statnet.common 
+Requires:         R-parallel 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
 Requires:         R-utils 
 
 %description
 Bayesian analysis for exponential random graph models using advanced
-computational algorithms. More information can be found at:
-<https://acaimo.github.io/Bergm/>.
+computational algorithms: the approximate exchange algorithm with adaptive
+direction sampling (optionally adaptive, delayed-acceptance and parallel),
+calibrated pseudo-posteriors, Bayesian data augmentation for missing
+network data, and Bayesian goodness-of-fit diagnostics. More information
+can be found at: <https://acaimo.github.io/Bergm/>.
 
 %prep
 %setup -q -c -n %{packname}

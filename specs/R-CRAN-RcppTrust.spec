@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RcppTrust
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Thread-Safe C++ Port of the 'trust' Trust Region Optimizer
+Summary:          Thread-Safe C++ Trust Region Optimizers
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -22,13 +22,19 @@ BuildRequires:    R-CRAN-BH
 Requires:         R-CRAN-Rcpp 
 
 %description
-Does local optimization using two derivatives and trust regions.
-Guaranteed to converge to a local minimum of the objective function. This
-is a thread-safe C++ port of the algorithm in the 'trust' package by
-Charles J. Geyer, exposed both as a drop-in R function and as a
-C-callable, thread-safe entry point (with function pointers registered for
-other packages to call without linking against this package's shared
-library) so it can be used from parallel C++ code such as in 'nlmixr2est'.
+Thread-safe C++ trust region optimizers, each exposed both as an R
+function and as a C-callable entry point (with function pointers
+registered for other packages to call without linking against this
+package's shared library) so they can be used from parallel C++ code such
+as in 'nlmixr2est'. Includes a port of the two-derivative trust region
+algorithm in the 'trust' package by Charles J. Geyer; a port of the
+Steihaug truncated conjugate-gradient trust region method from the 'basin'
+Rust crate (Steihaug (1983) <doi:10.1137/0720042>); and ports of M. J. D.
+Powell's derivative-free BOBYQA (Powell (2009), Report DAMTP 2009/NA06)
+and NEWUOA (Powell (2006) <doi:10.1007/0-387-30065-1_16>) Fortran 77 code
+<https://github.com/libprima/prima/tree/main/fortran/original>, as
+modified and distributed in the 'minqa' package, whose R interface is
+reproduced.
 
 %prep
 %setup -q -c -n %{packname}

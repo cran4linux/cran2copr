@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scopr
-%global packver   0.3.5
+%global packver   0.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          0.3.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read Ethoscope Data
 
@@ -33,8 +33,7 @@ Requires:         R-CRAN-memoise
 %description
 Handling of behavioural data from the Ethoscope platform (Geissmann,
 Garcia Rodriguez, Beckwith, French, Jamasb and Gilestro (2017)
-<DOI:10.1371/journal.pbio.2003026>). Ethoscopes
-(<https://giorgiogilestro.notion.site/Ethoscope-User-Manual-a9739373ae9f4840aa45b277f2f0e3a7>)
+<DOI:10.1371/journal.pbio.2003026>). Ethoscopes (<https://ethoscope.net>)
 are an open source/open hardware framework made of interconnected
 raspberry pis (<https://www.raspberrypi.org>) designed to quantify the
 behaviour of multiple small animals in a distributed and real-time
