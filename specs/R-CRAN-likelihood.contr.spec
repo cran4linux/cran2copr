@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  likelihood.contr
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Likelihood Contribution Models for Heterogeneous Observation Types
 
@@ -19,8 +19,10 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-likelihood.model 
 BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-likelihood.model 
 Requires:         R-CRAN-numDeriv 
+Requires:         R-stats 
 
 %description
 Constructs likelihood models from heterogeneous observation types by

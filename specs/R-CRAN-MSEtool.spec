@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MSEtool
-%global packver   3.7.5
+%global packver   3.7.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.7.5
+Version:          3.7.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Management Strategy Evaluation Toolkit
 
@@ -16,7 +16,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-snowfall 
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
@@ -28,7 +27,6 @@ BuildRequires:    R-CRAN-Rcpp
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-snowfall 
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 

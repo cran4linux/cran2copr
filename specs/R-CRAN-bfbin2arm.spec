@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bfbin2arm
-%global packver   0.1.6
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayes Factor Design for Two-Arm Binomial Trials
 
@@ -26,6 +26,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-gridExtra 
 Requires:         R-stats 
 Requires:         R-CRAN-statmod 
 Requires:         R-CRAN-VGAM 
@@ -35,14 +36,15 @@ Requires:         R-utils
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-gridExtra 
 
 %description
-Design and analysis of one- and two-stage binomial clinical phase II
-trials using Bayes factors. Implements Bayes factors for point-null and
-directional hypotheses, predictive densities under different hypotheses,
-and power and sample size calibration. Both one-arm trials with only a
-single treatment arm and two-arm trials with treatment and control arm are
-implemented for the one- and two-stage designs.
+Design and analysis of one- and two-stage clinical trials using Bayes
+factors. Implements methods for binomial and continuous endpoints,
+including point-null and directional hypotheses, power calculations, and
+sample size calibration. Supports one-arm trials with a single treatment
+arm and two-arm trials with treatment and control arms. Includes methods
+for equivalence, non-inferiority, and superiority designs.
 
 %prep
 %setup -q -c -n %{packname}

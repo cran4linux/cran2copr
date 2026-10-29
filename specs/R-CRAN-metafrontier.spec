@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  metafrontier
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Metafrontier Models for Efficiency and Productivity
 
@@ -45,13 +45,18 @@ Huang, Huang, and Liu (2014) <doi:10.1007/s11123-014-0402-2>, and the
 metafrontier Malmquist productivity index of O'Donnell, Rao, and Battese
 (2008) <doi:10.1007/s00181-007-0119-4>. The deterministic metafrontier can
 be identified by either the minimum sum of absolute deviations (LP) or the
-minimum sum of squared deviations (QP) criterion. Additional features
-include panel SFA with time-varying inefficiency, bootstrap confidence
-intervals for technology gap ratios, a DEA poolability permutation test,
-latent class metafrontier estimation via the EM algorithm, Murphy-Topel
-corrected standard errors, convergence diagnostics, import of pre-fitted
-models from external estimation engines ('sfaR', 'frontier',
-'Benchmarking'), and 'ggplot2' visualisation methods.
+minimum sum of squared deviations (QP) criterion. Group frontiers can be
+production or cost frontiers, corrected for sample selection following
+Greene (2010) <doi:10.1007/s11123-009-0159-1>, or spatial-autoregressive
+stochastic frontiers. Transitive Fare-Primont and Lowe productivity
+indexes (O'Donnell, 2012 <doi:10.1093/ajae/aas023>) are decomposed against
+group technologies and the metatechnology. Additional features include
+panel SFA with time-varying inefficiency, bootstrap confidence intervals
+for technology gap ratios, a DEA poolability permutation test, latent
+class metafrontier estimation via the EM algorithm, Murphy-Topel corrected
+standard errors, convergence diagnostics, import of pre-fitted models from
+external estimation engines ('sfaR', 'frontier', 'Benchmarking'), and
+'ggplot2' visualisation methods.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  thisplot
-%global packver   0.4.0
+%global packver   0.4.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utility Functions for Plotting
 
@@ -17,14 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-thisutils >= 0.4.3
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
+BuildRequires:    R-CRAN-thisutils >= 0.5.0
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dendextend 
 BuildRequires:    R-CRAN-ggforce 
 BuildRequires:    R-CRAN-geomtextpath 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-ggnewscale 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gtable 
@@ -35,14 +35,14 @@ BuildRequires:    R-CRAN-proxyC
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-thisutils >= 0.4.3
+Requires:         R-CRAN-ggplot2 >= 4.0.0
+Requires:         R-CRAN-thisutils >= 0.5.0
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dendextend 
 Requires:         R-CRAN-ggforce 
 Requires:         R-CRAN-geomtextpath 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-ggnewscale 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-grDevices 
 Requires:         R-grid 
 Requires:         R-CRAN-gtable 

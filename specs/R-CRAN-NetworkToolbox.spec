@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  NetworkToolbox
-%global packver   1.4.4
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.4
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Methods and Measures for Brain, Cognitive, and Psychometric Network Analysis
 
@@ -57,6 +57,8 @@ Tumminello, Madi, Gur-Gershgoren, Mantegna, & Ben-Jacob, 2010
 (Barfuss, Massara, Di Matteo, & Aste, 2016
 <doi:10.1103/PhysRevE.94.062306>), and Efficiency-Cost Optimization
 (Fallani, Latora, & Chavez, 2017 <doi:10.1371/journal.pcbi.1005305>).
+Several network measures are translated from the Brain Connectivity
+Toolbox (Rubinov & Sporns, 2010 <doi:10.1016/j.neuroimage.2009.10.003>).
 Brain methods include the recently developed Connectome Predictive
 Modeling (see references in package). Also implements several network
 measures including local network characteristics (e.g., centrality),

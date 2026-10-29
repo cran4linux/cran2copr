@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hIRT
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hierarchical Item Response Theory Models
 
@@ -16,14 +16,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
-BuildArch:        noarch
 BuildRequires:    R-CRAN-rms >= 5.1.1
 BuildRequires:    R-CRAN-Matrix >= 1.2.10
 BuildRequires:    R-CRAN-ltm >= 1.1.1
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-rms >= 5.1.1
 Requires:         R-CRAN-Matrix >= 1.2.10
 Requires:         R-CRAN-ltm >= 1.1.1
+Requires:         R-CRAN-Rcpp >= 1.0.0
 Requires:         R-stats 
 
 %description

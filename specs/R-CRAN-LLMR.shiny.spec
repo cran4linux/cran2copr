@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LLMR.shiny
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Shared 'Shiny' Components for 'LLMR' Family Applications
 
@@ -17,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-bslib 
+BuildRequires:    R-CRAN-shiny >= 1.5.0
+BuildRequires:    R-CRAN-bslib >= 0.5.1
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-bslib 
+Requires:         R-CRAN-shiny >= 1.5.0
+Requires:         R-CRAN-bslib >= 0.5.1
 Requires:         R-stats 
 Requires:         R-utils 
 

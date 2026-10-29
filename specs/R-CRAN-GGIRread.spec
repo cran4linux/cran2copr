@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GGIRread
-%global packver   1.0.11
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.11
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Wearable Accelerometer Data File Readers
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.10
+BuildRequires:    R-CRAN-Rcpp >= 1.0.10
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-matlab 
@@ -25,7 +25,7 @@ BuildRequires:    R-CRAN-data.table
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-digest 
-Requires:         R-CRAN-Rcpp >= 0.12.10
+Requires:         R-CRAN-Rcpp >= 1.0.10
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-matlab 

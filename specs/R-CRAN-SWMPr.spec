@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SWMPr
-%global packver   2.5.2
+%global packver   2.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.2
+Version:          2.5.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Retrieving, Organizing, and Analyzing Estuary Monitoring Data
 
@@ -28,7 +28,6 @@ BuildRequires:    R-CRAN-lattice
 BuildRequires:    R-CRAN-openair 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-suncalc 
 BuildRequires:    R-CRAN-tictoc 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-XML 
@@ -43,7 +42,6 @@ Requires:         R-CRAN-lattice
 Requires:         R-CRAN-openair 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-suncalc 
 Requires:         R-CRAN-tictoc 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-XML 

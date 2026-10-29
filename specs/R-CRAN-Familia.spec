@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Familia
-%global packver   2.0.0
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'shiny' Application for Population Structure and Ancestry Assessments
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.4.0
 Requires:         R-core >= 4.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-BIGpopA >= 2.0.0
+BuildRequires:    R-CRAN-BIGpopA >= 2.2.0
 BuildRequires:    R-CRAN-vcfR >= 1.15.0
 BuildRequires:    R-CRAN-bs4Dash 
 BuildRequires:    R-CRAN-config 
@@ -39,7 +39,7 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-zip 
-Requires:         R-CRAN-BIGpopA >= 2.0.0
+Requires:         R-CRAN-BIGpopA >= 2.2.0
 Requires:         R-CRAN-vcfR >= 1.15.0
 Requires:         R-CRAN-bs4Dash 
 Requires:         R-CRAN-config 
@@ -71,8 +71,9 @@ evaluate genomic relationships through an accessible, web-based interface
 without requiring command-line tools. Pedigree validation, Mendelian error
 analysis and parentage assignment build on the 'BIGpopA' package
 (<https://CRAN.R-project.org/package=BIGpopA>) and support diploid and
-polyploid data. Ancestry estimation uses the sparse non-negative matrix
-factorization method of Frichot et al. (2014)
+polyploid data. Genotypes can be uploaded as dosage tables, VCF files, or
+'PLINK' .ped files. Ancestry estimation uses the sparse non-negative
+matrix factorization method of Frichot et al. (2014)
 <doi:10.1534/genetics.113.160572> as implemented in the 'LEA' package by
 Frichot and Francois (2015) <doi:10.1111/2041-210X.12382>. Line and breed
 composition are estimated using the breed composition regression method of

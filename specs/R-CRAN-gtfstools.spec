@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gtfstools
-%global packver   1.4.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          General Transit Feed Specification (GTFS) Editing and Analysing Tools
 
@@ -14,31 +14,35 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-gtfsio >= 1.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-gtfsio >= 1.2.2
+BuildRequires:    R-CRAN-httr2 >= 1.0.4
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-parallelly 
 BuildRequires:    R-CRAN-processx 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-sfheaders 
-BuildRequires:    R-CRAN-units 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-zip 
 BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-gtfsio >= 1.0.0
+Requires:         R-CRAN-gtfsio >= 1.2.2
+Requires:         R-CRAN-httr2 >= 1.0.4
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-parallelly 
 Requires:         R-CRAN-processx 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-sfheaders 
-Requires:         R-CRAN-units 
+Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-zip 
 

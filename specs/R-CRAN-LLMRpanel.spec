@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LLMRpanel
-%global packver   0.6.1
+%global packver   0.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.6.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Benchmarked Silicon Samples for Survey and Experiment Design
 
@@ -32,13 +32,14 @@ Requires:         R-utils
 
 %description
 Administers survey and experimental instruments to panels of
-language-model personas, with respondent-level randomization, benchmark
-comparison against human data, and conjoint estimation from recorded
-respondent-level profile assignments. Samples of language-model personas
-follow Argyle et al. (2023) <doi:10.1017/pan.2023.2>; the case for
-benchmarking them against human data is set out in Bisbee et al. (2024)
-<doi:10.1017/pan.2024.5>; the conjoint estimand is the average marginal
-component effect of Hainmueller et al. (2014) <doi:10.1093/pan/mpt024>.
+language-model personas, with option-order randomization and benchmark
+comparison against human data. Conjoint effects are estimated from
+recorded respondent-level profile assignments. Samples of language-model
+personas follow Argyle et al. (2023) <doi:10.1017/pan.2023.2>; the case
+for benchmarking them against human data is set out in Bisbee et al.
+(2024) <doi:10.1017/pan.2024.5>; the conjoint estimand is the average
+marginal component effect of Hainmueller et al. (2014)
+<doi:10.1093/pan/mpt024>.
 
 %prep
 %setup -q -c -n %{packname}

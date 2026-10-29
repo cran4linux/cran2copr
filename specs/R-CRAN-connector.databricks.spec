@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  connector.databricks
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Expand 'connector' Package for 'Databricks' Tables and Volumes
 
@@ -20,7 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-R6 >= 2.4.0
 BuildRequires:    R-CRAN-odbc >= 1.4.0
 BuildRequires:    R-CRAN-connector >= 1.0.0
-BuildRequires:    R-CRAN-brickster >= 0.2.7
+BuildRequires:    R-CRAN-brickster >= 0.2.14
 BuildRequires:    R-CRAN-arrow 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-cli 
@@ -29,6 +29,7 @@ BuildRequires:    R-CRAN-dbplyr
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-hms 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-withr 
@@ -36,7 +37,7 @@ BuildRequires:    R-CRAN-zephyr
 Requires:         R-CRAN-R6 >= 2.4.0
 Requires:         R-CRAN-odbc >= 1.4.0
 Requires:         R-CRAN-connector >= 1.0.0
-Requires:         R-CRAN-brickster >= 0.2.7
+Requires:         R-CRAN-brickster >= 0.2.14
 Requires:         R-CRAN-arrow 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-cli 
@@ -45,6 +46,7 @@ Requires:         R-CRAN-dbplyr
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-hms 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-withr 

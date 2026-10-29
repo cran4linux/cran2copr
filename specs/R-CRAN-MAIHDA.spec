@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MAIHDA
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multilevel Analysis of Individual Heterogeneity and Discriminatory Accuracy
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-lme4 >= 1.1.27
 BuildRequires:    R-CRAN-tidyr >= 1.1.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 0.4.0
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-reformulas 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-generics 
@@ -35,6 +36,7 @@ Requires:         R-CRAN-lme4 >= 1.1.27
 Requires:         R-CRAN-tidyr >= 1.1.0
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-rlang >= 0.4.0
+Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-reformulas 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-generics 

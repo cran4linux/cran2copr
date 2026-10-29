@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  exiftoolr
-%global packver   0.2.8
+%global packver   0.2.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.8
+Version:          0.2.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          ExifTool Functionality from R
 
@@ -35,11 +35,11 @@ Reads, writes, and edits EXIF and other file metadata using ExifTool
 <https://exiftool.org/>, returning read results as a data frame. ExifTool
 supports many different metadata formats including EXIF, GPS, IPTC, XMP,
 JFIF, GeoTIFF, ICC Profile, Photoshop IRB, FlashPix, AFCP and ID3,
-Lyrics3, as well as the maker notes of many digital cameras by Canon,
-Casio, DJI, FLIR, FujiFilm, GE, GoPro, HP, JVC/Victor, Kodak, Leaf,
-Minolta/Konica-Minolta, Motorola, Nikon, Nintendo, Olympus/Epson,
-Panasonic/Leica, Pentax/Asahi, Phase One, Reconyx, Ricoh, Samsung, Sanyo,
-Sigma/Foveon and Sony.
+Lyrics3, as well as the maker notes of many digital cameras by Apple,
+Canon, Casio, DJI, FLIR, FujiFilm, GE, Google, GoPro, HP, JVC/Victor,
+Kodak, Leaf, Minolta/Konica-Minolta, Motorola, Nikon, Nintendo,
+Olympus/Epson, Panasonic/Leica, Pentax/Asahi, Phase One, Reconyx, Ricoh,
+Samsung, Sanyo, Sigma/Foveon and Sony.
 
 %prep
 %setup -q -c -n %{packname}

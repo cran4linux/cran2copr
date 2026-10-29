@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  framework
-%global packver   1.0.2
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Structured Data Science Project Scaffolding
 
@@ -27,7 +27,6 @@ BuildRequires:    R-CRAN-dotenv
 BuildRequires:    R-CRAN-openssl 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-plumber 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-RSQLite 
@@ -38,7 +37,6 @@ Requires:         R-CRAN-dotenv
 Requires:         R-CRAN-openssl 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-plumber 
 
 %description
 Project scaffolding and workflow tools for reproducible data science.

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nabla
-%global packver   0.7.1
+%global packver   0.7.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.7.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exact Derivatives via Automatic Differentiation
 
@@ -23,12 +23,15 @@ Requires:         R-methods
 Requires:         R-stats 
 
 %description
-Exact automatic differentiation for R functions. Provides a composable
-derivative operator D that computes gradients, Hessians, Jacobians, and
+Automatic differentiation for R functions written with supported scalar
+arithmetic and mathematical operations. Provides a composable derivative
+operator D that computes gradients, Hessians, Jacobians, and
 arbitrary-order derivative tensors at machine precision. D(D(f)) gives
 Hessians, D(D(D(f))) gives third-order tensors for skewness of maximum
-likelihood estimators, and so on to any order. Works through any R code
-including loops, branches, and control flow.
+likelihood estimators, and so on to higher orders. Supports loops and
+executed branches composed of supported operations. Uses nested dual
+numbers without finite difference truncation error; floating-point
+rounding and conditioning still affect results.
 
 %prep
 %setup -q -c -n %{packname}

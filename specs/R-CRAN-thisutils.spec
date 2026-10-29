@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  thisutils
-%global packver   0.5.0
+%global packver   0.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reliable Utilities for Reusable Research Workflows
 
@@ -20,23 +20,27 @@ BuildRequires:    R-CRAN-callr >= 3.5.0
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-pak 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-ps 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
+BuildRequires:    R-splines 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-callr >= 3.5.0
 Requires:         R-CRAN-cli 
 Requires:         R-methods 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-pak 
 Requires:         R-parallel 
 Requires:         R-CRAN-ps 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
+Requires:         R-splines 
 Requires:         R-utils 
 
 %description

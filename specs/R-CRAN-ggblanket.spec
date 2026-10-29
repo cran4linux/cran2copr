@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggblanket
-%global packver   21.0.0
+%global packver   30.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          21.0.0
+Version:          30.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Publication-Quality 'ggplot2' Visualisation
 
@@ -22,7 +22,6 @@ BuildRequires:    R-CRAN-scales >= 1.4.0
 BuildRequires:    R-CRAN-ggnewscale >= 0.5.2
 BuildRequires:    R-CRAN-blends 
 BuildRequires:    R-CRAN-farver 
-BuildRequires:    R-CRAN-ggrefine 
 BuildRequires:    R-CRAN-jumble 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
@@ -34,7 +33,6 @@ Requires:         R-CRAN-scales >= 1.4.0
 Requires:         R-CRAN-ggnewscale >= 0.5.2
 Requires:         R-CRAN-blends 
 Requires:         R-CRAN-farver 
-Requires:         R-CRAN-ggrefine 
 Requires:         R-CRAN-jumble 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wsMed
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Within-Subject Mediation Analysis Using Structural Equation Modeling
 
@@ -28,6 +28,8 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-lavaan 
 Requires:         R-CRAN-semmcci 
@@ -39,6 +41,8 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-ggplot2 
 Requires:         R-methods 
 Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-utils 
 
 %description
 Within-subject mediation analysis using structural equation modeling.

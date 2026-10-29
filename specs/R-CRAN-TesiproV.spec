@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TesiproV
-%global packver   0.9.6
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reliability Analysis Methods for Structural Engineering
 
@@ -21,27 +21,35 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-parallel 
+BuildRequires:    R-graphics 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-EnvStats 
+BuildRequires:    R-CRAN-evd 
 Requires:         R-stats 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-digest 
+Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-nloptr 
 Requires:         R-methods 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-pracma 
+Requires:         R-parallel 
+Requires:         R-graphics 
+Requires:         R-utils 
+Requires:         R-CRAN-EnvStats 
+Requires:         R-CRAN-evd 
 
 %description
 Calculate the failure probability of civil engineering problems with Level
-I up to Level III Methods. Have fun and enjoy. References: Spaethe (1991,
-ISBN:3-211-82348-4) "Die Sicherheit tragender Baukonstruktionen", AU,BECK
-(2001) "Estimation of small failure probabilities in high dimensions by
-subset simulation." <doi:10.1016/S0266-8920(01)00019-4>, Breitung (1989)
+I up to Level III Methods. References: Spaethe (1991, ISBN:3-211-82348-4)
+"Die Sicherheit tragender Baukonstruktionen", Au and Beck (2001)
+"Estimation of small failure probabilities in high dimensions by subset
+simulation." <doi:10.1016/S0266-8920(01)00019-4>, Breitung (1989)
 "Asymptotic approximations for probability integrals."
 <doi:10.1016/0266-8920(89)90024-6>.
 

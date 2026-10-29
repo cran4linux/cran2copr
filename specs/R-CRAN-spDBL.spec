@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spDBL
-%global packver   1.0.2
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dynamic Bayesian Learning for Spatiotemporal Mechanistic Models
 
@@ -25,6 +25,9 @@ BuildRequires:    R-CRAN-LaplacesDemon
 BuildRequires:    R-CRAN-matrixcalc 
 BuildRequires:    R-CRAN-mniw 
 BuildRequires:    R-utils 
+BuildRequires:    R-tools 
+BuildRequires:    R-methods 
+BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-ggplot2 
@@ -42,6 +45,9 @@ Requires:         R-CRAN-LaplacesDemon
 Requires:         R-CRAN-matrixcalc 
 Requires:         R-CRAN-mniw 
 Requires:         R-utils 
+Requires:         R-tools 
+Requires:         R-methods 
+Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-CRAN-ggpubr 
 Requires:         R-CRAN-ggplot2 
