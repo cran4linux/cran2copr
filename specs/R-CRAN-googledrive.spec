@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  googledrive
-%global packver   2.1.2
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Interface to Google Drive
 
@@ -14,15 +14,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 3.0.0
 BuildRequires:    R-CRAN-tibble >= 2.0.0
 BuildRequires:    R-CRAN-pillar >= 1.9.0
-BuildRequires:    R-CRAN-gargle >= 1.6.0
+BuildRequires:    R-CRAN-gargle >= 1.7.0
 BuildRequires:    R-CRAN-glue >= 1.4.2
-BuildRequires:    R-CRAN-rlang >= 1.0.2
+BuildRequires:    R-CRAN-rlang >= 1.2.0
 BuildRequires:    R-CRAN-purrr >= 1.0.1
 BuildRequires:    R-CRAN-vctrs >= 0.3.0
 BuildRequires:    R-CRAN-httr 
@@ -35,9 +35,9 @@ BuildRequires:    R-CRAN-withr
 Requires:         R-CRAN-cli >= 3.0.0
 Requires:         R-CRAN-tibble >= 2.0.0
 Requires:         R-CRAN-pillar >= 1.9.0
-Requires:         R-CRAN-gargle >= 1.6.0
+Requires:         R-CRAN-gargle >= 1.7.0
 Requires:         R-CRAN-glue >= 1.4.2
-Requires:         R-CRAN-rlang >= 1.0.2
+Requires:         R-CRAN-rlang >= 1.2.0
 Requires:         R-CRAN-purrr >= 1.0.1
 Requires:         R-CRAN-vctrs >= 0.3.0
 Requires:         R-CRAN-httr 

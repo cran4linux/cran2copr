@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  paramix
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Aggregate and Disaggregate Continuous Parameters for Compartmental Models
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
 Requires:         R-CRAN-data.table 
@@ -26,7 +26,9 @@ varying parameters (for example, case fatality ratio, with age) for proper
 parametrization of lower-resolution compartmental models (for example,
 with broad age categories) and subsequent upscaling of model outputs to
 high resolution (for example, as needed when calculating age-sensitive
-measures like years-life-lost).
+measures like years-life-lost). Methods and application to calculating
+years of life lost are described in Goodfellow et al. (2025)
+<doi:10.1371/journal.pcbi.1013420>.
 
 %prep
 %setup -q -c -n %{packname}

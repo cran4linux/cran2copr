@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mighty.metadata
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Manage 'CDISC' 'ADaM' Dataset Specifications in 'YAML' Format
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-S7schema >= 0.1.1
+BuildRequires:    R-CRAN-S7schema >= 0.2.1
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-glue 
@@ -26,9 +26,8 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-S7 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-zephyr 
-Requires:         R-CRAN-S7schema >= 0.1.1
+Requires:         R-CRAN-S7schema >= 0.2.1
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-glue 
@@ -37,7 +36,6 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-S7 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-yaml 
 Requires:         R-CRAN-zephyr 
 
 %description

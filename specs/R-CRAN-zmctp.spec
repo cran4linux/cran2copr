@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  zmctp
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Zero-Modified Complex 'Tri-Parametric' Pearson Distribution for Overdispersed Count Data
 
@@ -19,17 +19,18 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
+BuildRequires:    R-utils 
 Requires:         R-stats 
 Requires:         R-graphics 
+Requires:         R-utils 
 
 %description
-Implements zero-modified versions of the Complex 'Tri-Parametric' Pearson
-distribution for overdispersed count data. The package addresses
-limitations of existing implementations when the parameter b approaches
-zero. It provides distribution functions, maximum likelihood estimation,
-and diagnostic tools for modeling count data with excess zeros. The
-methodology is based on 'Rodriguez-Avi' and coauthors (2003)
-<doi:10.1007/s00362-002-0134-7>.
+Provides probability, distribution, quantile and random-generation
+functions for the complex three-parameter Pearson distribution and its
+zero-inflated extension. Maximum likelihood fitting uses analytic
+profiling of the mixing probability, multiple starting points and
+numerical boundary diagnostics. The parent family is described in the 2003
+study <doi:10.1007/s00362-002-0134-7>.
 
 %prep
 %setup -q -c -n %{packname}

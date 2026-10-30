@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MLSP
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Machine Learning Models for Soil Properties
+Summary:          Machine Learning Models for Soil Properties from Spectroscopy
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,11 +17,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-gsignal 
 BuildRequires:    R-CRAN-pls 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-Cubist 
 BuildRequires:    R-CRAN-randomForest 
+Requires:         R-stats 
+Requires:         R-utils 
 Requires:         R-CRAN-gsignal 
 Requires:         R-CRAN-pls 
 Requires:         R-CRAN-glmnet 
@@ -29,10 +33,29 @@ Requires:         R-CRAN-Cubist
 Requires:         R-CRAN-randomForest 
 
 %description
-Creates a spectroscopy guideline with a highly accurate prediction model
-for soil properties using machine learning or deep learning algorithms
-such as LASSO, Random Forest, Cubist, etc., and decide which algorithm
-generates the best model for different soil types.
+Soil spectroscopy studies use many different combinations of spectral
+preprocessing and calibration methods, which makes results difficult to
+compare or generalize across studies. For visible and near-infrared (VNIR)
+spectra (350-2500 nm), runs every combination of preprocessing and
+calibration methods on identical repeated calibration and validation
+splits. The 26 preprocessing methods are raw reflectance, standard normal
+variate, pseudo-absorbance, and 23 Savitzky-Golay smoothers, first
+derivatives, and second derivatives with linear, quadratic, or cubic
+polynomials and 3- to 11-point windows, excluding settings that give
+mathematically identical filters. The calibration methods are principal
+component regression (PCR), partial least squares regression (PLSR), least
+absolute shrinkage and selection operator (LASSO), 'Cubist', and random
+forest. Model complexity is tuned by cross-validation within each
+calibration set, and combinations are ranked by the coefficient of
+determination (R2), root mean squared error (RMSE), ratio of performance
+to interquartile distance (RPIQ), or bias, reporting the top 10 by
+default. The methods are those most commonly used in published soil
+spectroscopy studies, following Savitzky and Golay (1964)
+<doi:10.1021/ac60214a047>, Barnes et al. (1989)
+<doi:10.1366/0003702894202201>, Rinnan et al. (2009)
+<doi:10.1016/j.trac.2009.07.007>, Bellon-Maurel et al. (2010)
+<doi:10.1016/j.trac.2010.05.006>, and Clingensmith et al. (2019)
+<doi:10.1111/ejss.12753>.
 
 %prep
 %setup -q -c -n %{packname}

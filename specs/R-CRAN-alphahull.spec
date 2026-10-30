@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  alphahull
-%global packver   2.5
+%global packver   3.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5
+Version:          3.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalization of the Convex Hull of a Sample of Points in the Plane
 
@@ -17,14 +18,14 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-interp 
+BuildRequires:    R-CRAN-geometry 
 BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-CRAN-sgeostat 
 BuildRequires:    R-CRAN-spatstat.geom 
 BuildRequires:    R-CRAN-spatstat.random 
 BuildRequires:    R-CRAN-splancs 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-interp 
+Requires:         R-CRAN-geometry 
 Requires:         R-CRAN-R.utils 
 Requires:         R-CRAN-sgeostat 
 Requires:         R-CRAN-spatstat.geom 

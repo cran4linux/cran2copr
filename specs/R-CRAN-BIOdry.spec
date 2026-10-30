@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BIOdry
-%global packver   0.9.1
+%global packver   0.9.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.9.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multilevel Modeling of Dendroclimatical Fluctuations
 
@@ -14,23 +14,26 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-ecodist 
+BuildRequires:    R-CRAN-lattice 
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-ecodist 
+Requires:         R-CRAN-lattice 
 
 %description
-Multilevel ecological data series (MEDS) are sequences of observations
-ordered according to temporal/spatial hierarchies that are defined by
-sample designs, with sample variability confined to ecological factors.
-Dendroclimatic MEDS of tree rings and climate are modeled into normalized
-fluctuations of tree growth and aridity.  Modeled fluctuations (model
-frames) are compared with Mantel correlograms on multiple levels defined
-by sample design. Package implementation can be understood by running
-examples in modelFrame(), and muleMan() functions.
+Processes multilevel ecological data series (MEDS) arranged in temporal or
+spatial hierarchies defined by sampling designs. The package recursively
+applies one-level stage functions to long-format tree-ring and climate
+data, then optionally fits a terminal model to the processed series.
+Terminal fits currently include mixed-effects detrending through 'nlme'
+and Friedman supersmoother detrending through supsmu() of 'stats'. The
+package also supports post-detrending comparison and inference tools for
+multilevel dendroclimatic analyses. The method is described in Lara et al.
+(2018) <doi:10.1371/journal.pone.0196923>.
 
 %prep
 %setup -q -c -n %{packname}

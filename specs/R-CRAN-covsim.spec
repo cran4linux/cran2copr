@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  covsim
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          VITA, IG and PLSIM Simulation for Given Covariance and Marginals
+Summary:          VITA, IG, PLSIM and VM Simulation for Given Covariance and Marginals
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -23,7 +23,7 @@ BuildRequires:    R-CRAN-nleqslv
 BuildRequires:    R-CRAN-PearsonDS 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tmvtnorm 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-Matrix 
 Requires:         R-CRAN-lavaan >= 0.6.5
 Requires:         R-CRAN-rvinecopulib >= 0.5.1.1.0
@@ -31,7 +31,7 @@ Requires:         R-CRAN-nleqslv
 Requires:         R-CRAN-PearsonDS 
 Requires:         R-CRAN-MASS 
 Requires:         R-stats 
-Requires:         R-CRAN-tmvtnorm 
+Requires:         R-parallel 
 Requires:         R-CRAN-Matrix 
 
 %description
@@ -41,10 +41,11 @@ the package implements the VITA (VIne-To-Anything) algorithm Grønneberg
 and Foldnes (2017) <doi:10.1007/s11336-017-9569-6>.  See also Grønneberg,
 Foldnes and Marcoulides (2022) <doi:10.18637/jss.v102.i03>. Alternatively,
 marginal skewness and kurtosis may be specified, for which the package
-implements the IG (independent generator) and PLSIM (piecewise linear)
-algorithms, see Foldnes and Olsson (2016)
-<doi:10.1080/00273171.2015.1133274> and Foldnes and Grønneberg (2021)
-<doi:10.1080/10705511.2021.1949323>, respectively.
+implements the IG (independent generator), PLSIM (piecewise linear) and VM
+(Vale-Maurelli) algorithms, see Foldnes and Olsson (2016)
+<doi:10.1080/00273171.2015.1133274>, Foldnes and Grønneberg (2021)
+<doi:10.1080/10705511.2021.1949323> and Vale and Maurelli (1983)
+<doi:10.1007/BF02293687>, respectively.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  qPCRtools
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for qPCR
 
@@ -43,7 +43,10 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-tidyr 
 
 %description
-PKG_DESC.
+Provides tools for quantitative PCR (qPCR) data analysis, including
+standard curve calculation with amplification efficiency, relative
+expression calculation by the 2-'dCt', 2-'ddCt', standard curve and
+'RqPCR' methods, and RNA volume calculation for reverse transcription.
 
 %prep
 %setup -q -c -n %{packname}

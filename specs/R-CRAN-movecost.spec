@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  movecost
-%global packver   3.0.0
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculation of Slope-Dependant Accumulated Cost Surface, Least-Cost Paths, Least-Cost Corridors, Least-Cost Networks Related to Human Movement Across the Landscape
 
@@ -35,13 +35,15 @@ Provides the facility to calculate non-isotropic accumulated cost
 surfaces, least-cost paths, least-cost corridors, least-cost networks,
 ranked alternative paths, cost allocation and cost boundaries, using a
 number of human-movement-related cost functions that can be selected by
-the user. The package is built around a compute-once design: a single cost
-surface object is created first and then reused by every analysis
-function, avoiding redundant computation. Visualisation is fully decoupled
-from computation and is provided through 'ggplot2' methods that can be
-invoked, customised, and re-invoked at any time without re-running any
-analysis. It just requires a Digital Terrain Model, a start location and
-(optionally) destination locations. See Alberti (2019)
+the user. The terrain factor can be set as a single value or vary across
+the landscape via a raster of terrain factors or terrain classes. The
+package is built around a compute-once design: a single cost surface
+object is created first and then reused by every analysis function,
+avoiding redundant computation. Visualisation is fully decoupled from
+computation and is provided through 'ggplot2' methods that can be invoked,
+customised, and re-invoked at any time without re-running any analysis. It
+just requires a Digital Terrain Model, a start location and (optionally)
+destination locations. See Alberti (2019)
 <doi:10.1016/j.softx.2019.100331>.
 
 %prep

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pubformat
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Publication-Ready Formatting for Statistical Results
 
@@ -19,12 +19,14 @@ Requires:         R-core
 BuildArch:        noarch
 
 %description
-Provides tools for converting statistical results into consistent,
-publication-ready character output. Current functionality includes
-formatting p-values, confidence intervals, and correlation coefficients
-using publication-friendly conventions. The package emphasizes consistent
-reporting while preserving the underlying statistical results and
-statistical decision-making.
+Provides tools for converting already-computed statistical results into
+consistent, publication-ready character output. Supports p-values,
+confidence intervals, correlation coefficients, percentages, test
+statistics, and commonly reported effect sizes, with optional confidence
+intervals and multiple output styles for selected statistical symbols. The
+package emphasizes separation of statistical calculation, interpretation,
+and publication formatting so that reporting choices do not alter the
+underlying numeric results or inferential decisions.
 
 %prep
 %setup -q -c -n %{packname}

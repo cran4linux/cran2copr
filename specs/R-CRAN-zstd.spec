@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  zstd
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Zstandard Compression
 
@@ -19,11 +19,11 @@ Requires:         R-core
 
 %description
 Compress and decompress data with the 'Zstandard' algorithm
-<https://facebook.github.io/zstd/>, a fast lossless compression format.
-Works on raw vectors in memory and on files, and can create and extract
-'zstd' compressed 'tar' archives. Supports compression levels,
-multithreaded compression, long distance matching, content checksums, and
-training dictionaries for better compression of small, similar inputs.
+<https://meta.github.io/zstd/>, a fast lossless compression format. Works
+on raw vectors in memory and on files, and can create and extract 'zstd'
+compressed 'tar' archives. Supports compression levels, multithreaded
+compression, long distance matching, content checksums, and training
+dictionaries for better compression of small, similar inputs.
 
 %prep
 %setup -q -c -n %{packname}

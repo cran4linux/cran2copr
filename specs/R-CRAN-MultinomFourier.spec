@@ -1,52 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cthist
-%global packver   2.1.12
+%global packname  MultinomFourier
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.12
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Clinical Trial Registry History
+Summary:          p-Values of Multinomial Goodness-of-Fit Tests by Fourier Series Inversion
 
-License:          AGPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-parallel 
+Requires:         R-parallel 
 
 %description
-Retrieves historical versions of clinical trial registry entries from
-<https://ClinicalTrials.gov>. Package functionality and implementation for
-v 1.0.0 is documented in Carlisle (2022)
-<DOI:10.1371/journal.pone.0270909>.
+Computes p-values of multinomial goodness-of-fit tests based on an
+additive statistic: the log-likelihood ratio, Pearson's chi-squared, the
+Cressie-Read power divergence, and the exact multinomial test. The main
+function, pval_fourier(), writes the p-value as a Fourier series in the
+moment-generating function of the statistic and sums it until an adaptive
+stopping rule is met, which makes small p-values of large instances
+computationally feasible. The function pval_exact() computes the exact
+p-value by branch pruning with bounds from a dynamic program, and
+pval_flexible() chooses between the two according to the size of the
+instance.
 
 %prep
 %setup -q -c -n %{packname}

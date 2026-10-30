@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  frictionless
-%global packver   1.3.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read and Write Frictionless Data Packages
 
@@ -40,10 +40,10 @@ Requires:         R-CRAN-yaml
 
 %description
 Read and write Frictionless Data Packages. A 'Data Package'
-(<https://specs.frictionlessdata.io/data-package/>) is a simple container
-format and standard to describe and package a collection of (tabular)
-data. It is typically used to publish FAIR
-(<https://www.go-fair.org/fair-principles/>) and open datasets.
+(<https://datapackage.org/>) is a simple container format and standard to
+describe and package a collection of (tabular) data. It is typically used
+to publish FAIR (<https://www.gofair.foundation/fair-principles>) and open
+datasets.
 
 %prep
 %setup -q -c -n %{packname}

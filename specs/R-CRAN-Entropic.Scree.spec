@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Entropic.Scree
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Information-Theoretic Dimensionality Estimation
+Summary:          Information-Theoretic Measurement Mapping and Rank Estimation
 
 License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
@@ -30,12 +30,16 @@ Requires:         R-CRAN-patchwork
 Requires:         R-CRAN-Rcpp 
 
 %description
-An information-theoretic diagnostic technique for estimating the intrinsic
-dimensionality of tabular datasets. Evaluates shared probability mass via
-a transformed mutual information metric. Aims to extract the Intrinsic
-Generative Rank (r) and structural topology. For full methodological
-details, see the preprint by Lee-St. John (2026)
-<https://zenodo.org/records/22028087>.
+Maps relationships among measurements using a double-centered,
+joint-entropy-normalized mutual information matrix. Provides
+informational-axis loadings, primary and extended spectral-boundary
+diagnostics, and spectral-volume and informational-gravity summaries for
+discrete and discretized tabular data. The selected Primary Informational
+Rank is a candidate information-spectrum boundary, not an identified
+generating dimension. Optional, explicitly recorded missing-data
+preparation supports categorical missing states and numeric median fills
+with protected missingness indicators. For methodological details, see
+Lee-St. John (2026) <doi:10.5281/zenodo.22028086>.
 
 %prep
 %setup -q -c -n %{packname}

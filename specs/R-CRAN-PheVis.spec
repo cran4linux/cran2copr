@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PheVis
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automatic Phenotyping of Electronic Health Record at Visit Resolution
 
@@ -22,7 +22,6 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-randomForest 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
@@ -34,7 +33,6 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-randomForest 
 Requires:         R-stats 
 Requires:         R-CRAN-tidyr 
@@ -54,7 +52,7 @@ used for chronic or acute diseases. An example of how to use 'PheVis' is
 available in the vignette. Basically there are two functions that are to
 be used: `train_phevis()` which trains the algorithm and `test_phevis()`
 which get the predicted probabilities. The detailed method is described in
-preprint by Ferté et al. (2020) <doi:10.1101/2020.06.15.20131458>.
+Ferté et al. (2021) <doi:10.1016/j.jbi.2021.103746>.
 
 %prep
 %setup -q -c -n %{packname}

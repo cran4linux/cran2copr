@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  semTests
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Test Statistics for Structural Equation Models
 
@@ -17,10 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lavaan >= 0.7.2
+BuildRequires:    R-CRAN-lavaan >= 0.7.3
 BuildRequires:    R-methods 
-Requires:         R-CRAN-lavaan >= 0.7.2
+BuildRequires:    R-CRAN-pbivnorm 
+Requires:         R-CRAN-lavaan >= 0.7.3
 Requires:         R-methods 
+Requires:         R-CRAN-pbivnorm 
 
 %description
 Computes robust p-values for overall fit and nested comparisons of
@@ -31,7 +33,9 @@ extension to nested models (Foldnes, Grønneberg, Moss, 2026)
 <doi:10.3758/s13428-026-02968-4>, alongside familiar corrections such as
 Satorra-Bentler. Supported settings include complete-data ML, GLS, and
 ULS, categorical DWLS and ULS, and full-information maximum likelihood
-with one or several groups.
+with one or several groups. Score and criterion-difference tests of
+parameter restrictions are also available, including restrictions in
+misspecified models.
 
 %prep
 %setup -q -c -n %{packname}

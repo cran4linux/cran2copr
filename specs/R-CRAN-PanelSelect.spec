@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PanelSelect
-%global packver   1.0.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Panel Sample Selection Models
 
@@ -14,31 +14,23 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.5.0
+Requires:         R-core >= 4.5.0
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-PanelCount 
 BuildRequires:    R-CRAN-pbivnorm 
-BuildRequires:    R-CRAN-maxLik 
 BuildRequires:    R-CRAN-statmod 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-pbv 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-PanelCount 
 Requires:         R-CRAN-pbivnorm 
-Requires:         R-CRAN-maxLik 
 Requires:         R-CRAN-statmod 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-pbv 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Extends the Heckman selection framework to panel data with individual
-random effects. The first stage models participation via a panel Probit
-specification, while the second stage can take a panel linear, Probit,
-Poisson, or Poisson log-normal form. Model details are provided in Bailey
+Fits sample selection models with continuous, binary, and count outcomes
+in panel and cross-sectional data. Model details are provided in Bailey
 and Peng (2025) <doi:10.2139/ssrn.5475626> and Peng and Van den Bulte
 (2024) <doi:10.1287/mnsc.2019.01897>.
 

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  actimetrics
-%global packver   0.9.0
+%global packver   0.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.10.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Metrics Actigraphy and Activity Analysis
+Summary:          Create Metrics of Actigraphy and Activity Analysis
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,9 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-actibase >= 0.8.0
 BuildRequires:    R-CRAN-walking >= 0.8.0
 BuildRequires:    R-CRAN-actigraph.sleepr >= 0.3.1
-BuildRequires:    R-CRAN-actibase 
 BuildRequires:    R-CRAN-actiread 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-lubridate 
@@ -31,9 +31,9 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-methods 
+Requires:         R-CRAN-actibase >= 0.8.0
 Requires:         R-CRAN-walking >= 0.8.0
 Requires:         R-CRAN-actigraph.sleepr >= 0.3.1
-Requires:         R-CRAN-actibase 
 Requires:         R-CRAN-actiread 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-lubridate 
@@ -53,7 +53,11 @@ include activity counts, step counts, activity index, Monitor Independent
 Movement Summary Unit (MIMS), mean amplitude deviation (MAD), and provides
 wrappers for sleep estimation from activity counts using Tudor-Locke
 (2014) <doi:10.1139/apnm-2013-0173> and Sadeh (1994)
-<doi:10.1093/sleep/17.3.201>.
+<doi:10.1093/sleep/17.3.201>. Count-intensity thresholds include Montoye
+et al. (2020) <doi:10.1080/02640414.2020.1794244> and Sasaki et al. (2011)
+<doi:10.1016/j.jsams.2011.04.003>. Raw-acceleration Euclidean Norm Minus
+One (ENMO) thresholds include Hildebrand et al. (2014)
+<doi:10.1249/MSS.0000000000000289>.
 
 %prep
 %setup -q -c -n %{packname}

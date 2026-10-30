@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  inferMM
-%global packver   0.0.3
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Variance-Aware Michaelis-Menten Estimation and Inference
 
@@ -27,12 +27,15 @@ Requires:         R-stats
 %description
 Variance-aware Michaelis-Menten estimation, model screening, grouped
 enzyme-kinetic analyses, and clustered repeated-measurement workflows. The
-package implements profile-score estimators under working variance
-functions, together with a lightweight cluster-aware working-covariance
-extension, Wald and bootstrap confidence intervals, prediction utilities,
-and simulation helpers. Related methodology is discussed by Kim and Ma
-(2012) <doi:10.1007/s10463-011-0332-y>, Kim (2023) <doi:10.1002/sta4.606>,
-and Ma and Genton (2010) <doi:10.1111/j.1467-9868.2010.00741.x>.
+package implements profile-score estimators under built-in or user-defined
+fixed working variance functions for single curves, optional higher-moment
+estimating equations for independent observations with asymmetric errors,
+and a lightweight cluster-aware working-covariance extension with optional
+conditional projected scores for an unspecified random-effect density,
+Wald and bootstrap confidence intervals, prediction utilities, and
+simulation helpers. Related methodology is discussed by Kim and Ma (2012)
+<doi:10.1007/s10463-011-0332-y>, Kim (2023) <doi:10.1002/sta4.606>, and Ma
+and Genton (2010) <doi:10.1111/j.1467-9868.2010.00741.x>.
 
 %prep
 %setup -q -c -n %{packname}

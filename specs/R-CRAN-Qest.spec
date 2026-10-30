@@ -1,38 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Qest
-%global packver   1.0.2
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quantile-Based Estimator
+Summary:          Quantile-Based Estimators
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-pch 
-BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-pch 
-Requires:         R-CRAN-survival 
+Requires:         R-graphics 
 Requires:         R-CRAN-matrixStats 
-Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-CRAN-survival 
 Requires:         R-utils 
 
 %description
-Quantile-based estimators (Q-estimators) can be used to fit any parametric
-distribution, using its quantile function. Q-estimators are usually more
-robust than standard maximum likelihood estimators. The method is
-described in: Sottile G. and Frumento P. (2022). Robust estimation and
-regression with parametric quantile functions.
+Quantile-based estimators (Q-estimators) fit any parametric distribution
+through its quantile function, by minimizing the integrated loss of
+quantile regression. They are usually more robust than maximum likelihood
+estimators, and allow for censored and truncated data. The package
+implements user-defined quantile functions, built-in families (normal,
+gamma, continuous Poisson, uniform), linear models and proportional
+hazards models. The method is described in Sottile and Frumento (2022)
 <doi:10.1016/j.csda.2022.107471>.
 
 %prep

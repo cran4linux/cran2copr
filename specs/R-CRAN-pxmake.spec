@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pxmake
-%global packver   0.21.0
+%global packver   0.22.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.21.0
+Version:          0.22.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Make PX-Files in R
 
@@ -17,9 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-arrow 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-furrr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-openxlsx 
@@ -34,9 +32,7 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-arrow 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-furrr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
 Requires:         R-CRAN-openxlsx 

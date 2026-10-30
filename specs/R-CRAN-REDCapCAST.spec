@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  REDCapCAST
-%global packver   26.1.1
+%global packver   26.10.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          26.1.1
+Version:          26.10.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          REDCap Metadata Casting and Castellated Data Handling
 

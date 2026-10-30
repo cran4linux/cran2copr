@@ -1,54 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TrackTrap
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Model Cumulative Growing Degree-Days for Pest Monitoring
+Summary:          Calculate and Visualize Degree-Days for Pest Monitoring
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-daymetr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-degday 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-tools 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-daymetr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-degday 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-utils 
 Requires:         R-CRAN-rlang 
+Requires:         R-tools 
 
 %description
-Pest monitoring is crucial, especially during the early season, to
-understand the distribution and the proliferation of the target pest. Raw
-count data from pest monitoring/traps can be coupled with derived
-environmental variables such as growing degree-day ('GDD') to get useful
-insights about the pest phenology. This package pulls temperature data
-from the 'Daymet' application programming interface ('API',
-<https://daymet.ornl.gov>), or 'Open-Meteo' ('API',
-<https://open-meteo.com/>) or manual user-supplied CSV file from the
-California Irrigation Management Information System ('CIMIS',
-<https://cimis.water.ca.gov>), for a user-specified time period and
-calculates cumulative growing degree-days. Users provide intended date
-range, pest of concern, and the geographic coordinates of the trap
-location to track pest emergence and phenology throughout the growing
-season.
+Combines pest trap observations with daily temperatures to calculate and
+visualize cumulative degree-days. Temperature inputs include 'Daymet'
+<https://daymet.ornl.gov>, 'Open-Meteo' <https://open-meteo.com/>, reports
+from the California Irrigation Management Information System ('CIMIS')
+<https://cimis.water.ca.gov>, and user-supplied daily weather data.
+Degree-days are calculated using the simple-average method with either an
+upper threshold applied to the daily mean or an explicitly selected
+calculation without an upper cutoff. The first positive trap count defines
+the biofix for every pest, with accumulation beginning on the following
+day. Negative daily degree-day values are set to zero. Users can provide
+temperature thresholds and optional thermal reference values. Thermal
+reference markers and their multiples do not independently establish
+flight or generation identities. Complete daily calculations and weather
+provenance are retained with the output to support reproducibility.
 
 %prep
 %setup -q -c -n %{packname}

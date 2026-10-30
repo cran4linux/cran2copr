@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rdomains
-%global packver   0.6.0
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Get the Category of Content Hosted by a Domain
 
@@ -66,8 +66,8 @@ Requires:         R-CRAN-withr
 
 %description
 Fetch website content and classify it through the Python 'piedomains' text
-model. Look up domains in UT-Capitole, Steven Black, university, archived
-'Shallalist' and 'DMOZ' lists, or use 'VirusTotal'
+model. Look up domains in 'UT-Capitole', Steven Black, university,
+archived 'Shallalist' and 'DMOZ' lists, or use 'VirusTotal'
 <https://www.virustotal.com/>, 'OpenAI' and 'Anthropic' APIs. Report
 collection outcomes and source provenance. Includes a historical
 domain-name classifier trained on 'Shallalist' data.

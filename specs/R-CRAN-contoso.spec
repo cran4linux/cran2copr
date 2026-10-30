@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  contoso
-%global packver   2.1.0
+%global packver   2.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dataset of the 'Contoso' Company
 
@@ -22,11 +22,15 @@ BuildRequires:    R-CRAN-DBI
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-yaml12 
 Requires:         R-CRAN-duckdb >= 1.4.0
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-yaml12 
 
 %description
 A collection of synthetic datasets simulating sales transactions from a
@@ -43,9 +47,15 @@ including order and delivery dates, store, and customer data. - "product":
 Contains data on products, including attributes such as product name,
 category, price, cost, and weight. - "calendar": A time-based table that
 includes date-related attributes like year, month, quarter, day, and
-working day indicators. This dataset is ideal for practicing data
-analysis, performing time-series analysis, creating reports, or simulating
-business intelligence scenarios.
+working day indicators. The package also includes 1,127 fictional internal
+business reports (weekly sales flashes, monthly reviews, regional reviews,
+pricing committee minutes, annual operating plans and industry notes)
+written about the trading from 2016 to 2025 in the larger cloud dataset,
+with a glossary of the terms they use, for building and testing document
+search and financial planning and analysis workflows with large language
+models. This dataset is ideal for practicing data analysis, performing
+time-series analysis, creating reports, or simulating business
+intelligence scenarios.
 
 %prep
 %setup -q -c -n %{packname}

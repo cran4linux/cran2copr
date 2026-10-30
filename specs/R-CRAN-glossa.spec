@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  glossa
-%global packver   1.2.4
+%global packver   1.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          1.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          User-Friendly 'shiny' App for Bayesian Species Distribution Models
 
@@ -29,7 +29,6 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-leaflet 
 BuildRequires:    R-CRAN-markdown 
-BuildRequires:    R-CRAN-mcp 
 BuildRequires:    R-CRAN-pROC 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-shinyWidgets 
@@ -51,7 +50,6 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-leaflet 
 Requires:         R-CRAN-markdown 
-Requires:         R-CRAN-mcp 
 Requires:         R-CRAN-pROC 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-shinyWidgets 

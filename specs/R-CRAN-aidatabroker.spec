@@ -1,48 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Epoch
-%global packver   1.0.7
+%global packname  aidatabroker
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          IEEG (Intracranial Electroencephalography) Epoch Data Tools
+Summary:          Read Open Data on the AI Training Data Market
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-ramify 
-BuildRequires:    R-CRAN-TableContainer 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-osfr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-ggtext 
-BuildRequires:    R-CRAN-gsignal 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-methods 
-Requires:         R-CRAN-ramify 
-Requires:         R-CRAN-TableContainer 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-osfr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-ggtext 
-Requires:         R-CRAN-gsignal 
+BuildRequires:    R-utils 
+Requires:         R-utils 
 
 %description
-Provides tools for working with iEEG matrix data, including downloading
-curated iEEG data from OSF (The Open Science Framework <https://osf.io/>)
-(EpochDownloader()), making new objects (Epoch()), processing (crop() and
-resample()), and visualizing the data (plot()).
+Downloads the open datasets published by 'AIData.Broker' on the market for
+AI training data: public prices, licensing deals, buyers, vendors,
+lawsuits and related tables, each row with its source, from
+<https://aidata.broker/datasets>. The data are licensed CC BY 4.0.
 
 %prep
 %setup -q -c -n %{packname}

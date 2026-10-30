@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rms
-%global packver   8.1-1
+%global packver   8.2-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          8.1.1
+Version:          8.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regression Modeling Strategies
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.4.0
 Requires:         R-core >= 4.4.0
-BuildRequires:    R-CRAN-Hmisc >= 5.2.5
+BuildRequires:    R-CRAN-Hmisc >= 5.3.0
 BuildRequires:    R-CRAN-nlme >= 3.1.123
 BuildRequires:    R-CRAN-htmlTable >= 1.11.0
 BuildRequires:    R-methods 
@@ -36,7 +36,8 @@ BuildRequires:    R-CRAN-colorspace
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-Hmisc >= 5.2.5
+BuildRequires:    R-CRAN-tinytable 
+Requires:         R-CRAN-Hmisc >= 5.3.0
 Requires:         R-CRAN-nlme >= 3.1.123
 Requires:         R-CRAN-htmlTable >= 1.11.0
 Requires:         R-methods 
@@ -56,6 +57,7 @@ Requires:         R-CRAN-colorspace
 Requires:         R-CRAN-knitr 
 Requires:         R-grDevices 
 Requires:         R-CRAN-scales 
+Requires:         R-CRAN-tinytable 
 
 %description
 Regression modeling, testing, estimation, validation, graphics,
@@ -63,8 +65,9 @@ prediction, and typesetting by storing enhanced model design attributes in
 the fit.  'rms' is a collection of functions that assist with and
 streamline modeling.  It also contains functions for binary and ordinal
 logistic regression models, ordinal models for continuous Y with a variety
-of distribution families, and the Buckley-James multiple regression model
-for right-censored responses, and implements penalized maximum likelihood
+of distribution families and types of censoring with optional random
+effects, and the Buckley-James multiple regression model for
+right-censored responses, and implements penalized maximum likelihood
 estimation for logistic and ordinary linear models.  'rms' works with
 almost any regression model, but it was especially written to work with
 binary or ordinal regression models, Cox regression, accelerated failure
