@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  inkaR
-%global packver   0.6.6
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.6
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download and Analyze Spatial Development Data from 'INKAR'
 
@@ -41,7 +41,9 @@ Urban Development) database. Features a bilingual interactive wizard,
 fuzzy and normalized indicator search, multi-indicator downloads with
 automatic tidy merging (long/wide), guaranteed consistent output schema,
 robust disk caching with automatic retry, and 'ggplot2' themes for
-regional mapping.
+regional mapping. Map boundaries come from 'Eurostat' 'GISCO'
+<https://ec.europa.eu/eurostat/web/gisco> and match the territorial status
+used by 'INKAR'.
 
 %prep
 %setup -q -c -n %{packname}

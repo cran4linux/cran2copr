@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mfrmr
-%global packver   0.2.3.1
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3.1
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation and Diagnostics for Many-Facet Measurement Models
 
@@ -16,6 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
+BuildRequires:    R-CRAN-cpp11 >= 0.5.4
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-Matrix 
@@ -29,9 +30,10 @@ BuildRequires:    R-CRAN-psych
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-methods 
+BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-cpp11 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-Matrix 
@@ -45,21 +47,30 @@ Requires:         R-CRAN-psych
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-rlang 
 Requires:         R-methods 
+Requires:         R-parallel 
 Requires:         R-stats 
+Requires:         R-tools 
 Requires:         R-utils 
 
 %description
-Native R implementation of many-facet ordered-response measurement models
-with arbitrary facet counts, rating-scale and partial-credit
-parameterizations, a bounded generalized partial-credit extension, and
-both marginal and joint maximum likelihood estimation. The package
-provides a fit / diagnose / report pipeline covering anchoring, linking,
-bias and differential-functioning screening, and publication-oriented
-reporting summaries, with reproducibility manifests for replay. See
-'Andrich' (1978) <doi:10.1007/BF02293814>, 'Masters' (1982)
-<doi:10.1007/BF02296272>, and 'Muraki' (1992)
-<doi:10.1177/014662169201600206> for the underlying ordered-response
-models.
+Estimates many-facet ordered-response measurement models with arbitrary
+facet counts, rating-scale and partial-credit parameterizations, a
+generalized partial-credit extension with discrimination varying across
+levels of one selected facet. Marginal maximum likelihood permits a
+different facet to own category steps; joint maximum likelihood requires
+the same facet for both roles. Conditional maximum likelihood fits
+many-facet rating-scale and partial-credit models by conditioning on
+person totals, with structural contrast intervals and no assumed ability
+distribution. Experimental two-family estimation and conditional scoring
+retain explicit uncertainty limitations. The fit, diagnose and report
+workflow covers anchoring, linking, bias and differential-functioning
+screening, with saved results for replay. Observed-score generalizability
+and decision studies support assessment planning under declared rating
+designs. Agreement, rater feedback and conditional classification
+summaries connect analysis to assessment decisions. See 'Andrich' (1978)
+<doi:10.1007/BF02293814>, 'Masters' (1982) <doi:10.1007/BF02296272>, and
+'Muraki' (1992) <doi:10.1177/014662169201600206> for the underlying
+ordered-response models.
 
 %prep
 %setup -q -c -n %{packname}

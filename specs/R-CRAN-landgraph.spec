@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  landgraph
-%global packver   0.0.3
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Graphs and Covariance for Landscape Genetics
 
@@ -24,11 +24,15 @@ Requires:         R-stats
 Shared, dependency-light primitives for landscape-genetic network methods:
 a lightweight deme/landscape graph (vertex coordinates and an undirected
 edge list) with constructors from coordinates; genetic covariance and
-distance from biallelic or multiallelic data (the Yang-style
-normalized-dosage covariance and the Dyer-style multivariate covariance);
-and antisymmetric per-edge directional covariate builders (the gradient of
-a scalar potential, and the projection of a vector flow field). Used by
-'terradish' (symmetric resistance). No compiled code.
+distance from biallelic or multiallelic data (the normalized-dosage
+covariance of Yang et al. (2010) <doi:10.1038/ng.608>, and the
+multivariate covariance of Dyer and Nason (2004)
+<doi:10.1111/j.1365-294X.2004.02177.x> built by the Gower (1966)
+<doi:10.1093/biomet/53.3-4.325> double-centering); pairwise F_ST by the
+estimator of Bhatia et al. (2013) <doi:10.1101/gr.154831.113>; and
+antisymmetric per-edge directional covariate builders (the gradient of a
+scalar potential, and the projection of a vector flow field). Used by
+'terradish' (symmetric resistance).
 
 %prep
 %setup -q -c -n %{packname}

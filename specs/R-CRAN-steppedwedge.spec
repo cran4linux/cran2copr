@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  steppedwedge
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyze Data from Stepped Wedge Cluster Randomized Trials
 
@@ -14,28 +14,34 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS >= 7.3.61
 BuildRequires:    R-stats >= 4.0.0
 BuildRequires:    R-methods >= 3.6.2
 BuildRequires:    R-CRAN-ggplot2 >= 3.5.1
 BuildRequires:    R-CRAN-magrittr >= 2.0.3
+BuildRequires:    R-CRAN-lme4 >= 2.0.0
+BuildRequires:    R-CRAN-Matrix >= 1.7.1
 BuildRequires:    R-CRAN-stringr >= 1.5.1
 BuildRequires:    R-CRAN-geepack >= 1.3.12
-BuildRequires:    R-CRAN-lme4 >= 1.1.35.5
 BuildRequires:    R-CRAN-dplyr >= 1.0.10
 BuildRequires:    R-CRAN-forcats >= 1.0.0
+BuildRequires:    R-CRAN-expm >= 1.0.0
 BuildRequires:    R-CRAN-performance >= 0.12.4
+Requires:         R-CRAN-MASS >= 7.3.61
 Requires:         R-stats >= 4.0.0
 Requires:         R-methods >= 3.6.2
 Requires:         R-CRAN-ggplot2 >= 3.5.1
 Requires:         R-CRAN-magrittr >= 2.0.3
+Requires:         R-CRAN-lme4 >= 2.0.0
+Requires:         R-CRAN-Matrix >= 1.7.1
 Requires:         R-CRAN-stringr >= 1.5.1
 Requires:         R-CRAN-geepack >= 1.3.12
-Requires:         R-CRAN-lme4 >= 1.1.35.5
 Requires:         R-CRAN-dplyr >= 1.0.10
 Requires:         R-CRAN-forcats >= 1.0.0
+Requires:         R-CRAN-expm >= 1.0.0
 Requires:         R-CRAN-performance >= 0.12.4
 
 %description

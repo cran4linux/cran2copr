@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rdborrow
-%global packver   0.0.5.0
+%global packver   0.0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5.0
+Version:          0.0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          External Control Borrowing for Rare Disease Trials
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-futile.logger
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-ECOSolveR 
 BuildRequires:    R-CRAN-copula 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-stats 
@@ -34,6 +35,7 @@ Requires:         R-CRAN-futile.logger
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-ECOSolveR 
 Requires:         R-CRAN-copula 
 Requires:         R-CRAN-progress 
 Requires:         R-stats 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlr3torch
-%global packver   0.3.3
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Deep Learning with 'mlr3'
 
@@ -14,30 +14,32 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-checkmate >= 2.2.0
-BuildRequires:    R-CRAN-mlr3 >= 1.0.1
+BuildRequires:    R-CRAN-mlr3 >= 1.8.0
 BuildRequires:    R-CRAN-paradox >= 1.0.0
-BuildRequires:    R-CRAN-mlr3pipelines >= 0.6.0
+BuildRequires:    R-CRAN-mlr3misc >= 0.23
 BuildRequires:    R-CRAN-torch >= 0.16.2
-BuildRequires:    R-CRAN-mlr3misc >= 0.14.0
+BuildRequires:    R-CRAN-mlr3pipelines >= 0.11.0
 BuildRequires:    R-CRAN-backports 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-coro 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-lgr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-checkmate >= 2.2.0
-Requires:         R-CRAN-mlr3 >= 1.0.1
+Requires:         R-CRAN-mlr3 >= 1.8.0
 Requires:         R-CRAN-paradox >= 1.0.0
-Requires:         R-CRAN-mlr3pipelines >= 0.6.0
+Requires:         R-CRAN-mlr3misc >= 0.23
 Requires:         R-CRAN-torch >= 0.16.2
-Requires:         R-CRAN-mlr3misc >= 0.14.0
+Requires:         R-CRAN-mlr3pipelines >= 0.11.0
 Requires:         R-CRAN-backports 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-coro 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-lgr 
 Requires:         R-methods 
@@ -46,7 +48,7 @@ Requires:         R-CRAN-withr
 
 %description
 Deep Learning library that extends the mlr3 framework by building upon the
-'torch' package. It allows to conveniently build, train, and evaluate deep
+'torch' package. It makes it convenient to build, train, and evaluate deep
 learning models without having to worry about low level details. Custom
 architectures can be created using the graph language defined in
 'mlr3pipelines'.

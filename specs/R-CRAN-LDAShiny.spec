@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LDAShiny
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interactive Topic Modeling and Bibliometric Analysis via Shiny
+Summary:          Shiny Application for Topic Modeling of Scientific Literature
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,18 +17,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny >= 1.7.0
-BuildRequires:    R-CRAN-golem >= 0.4.0
-BuildRequires:    R-CRAN-config >= 0.3.1
+BuildRequires:    R-CRAN-beepr 
+BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-colourpicker 
+BuildRequires:    R-CRAN-config 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-golem 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-LDAvis 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-CRAN-quanteda 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinybusy 
 BuildRequires:    R-CRAN-shinydashboard 
 BuildRequires:    R-CRAN-shinyjs 
@@ -40,24 +47,27 @@ BuildRequires:    R-CRAN-textmineR
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tm 
-BuildRequires:    R-CRAN-wordcloud 
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-parallel 
-BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-shiny >= 1.7.0
-Requires:         R-CRAN-golem >= 0.4.0
-Requires:         R-CRAN-config >= 0.3.1
+BuildRequires:    R-CRAN-wordcloud 
+Requires:         R-CRAN-beepr 
+Requires:         R-CRAN-broom 
 Requires:         R-CRAN-colourpicker 
+Requires:         R-CRAN-config 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-golem 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-LDAvis 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-openxlsx 
 Requires:         R-CRAN-quanteda 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinybusy 
 Requires:         R-CRAN-shinydashboard 
 Requires:         R-CRAN-shinyjs 
@@ -69,22 +79,17 @@ Requires:         R-CRAN-textmineR
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tm 
-Requires:         R-CRAN-wordcloud 
-Requires:         R-CRAN-broom 
-Requires:         R-parallel 
-Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-grDevices 
+Requires:         R-CRAN-wordcloud 
 
 %description
-Provides a 'Shiny' graphical interface for the complete workflow of Latent
-Dirichlet Allocation (LDA) topic modelling on bibliometric data from
-Scopus and Web of Science. Steps include data import and deduplication,
-text preprocessing (stopword removal, stemming, n-grams, sparse-term
-filtering), statistical inference to select the optimal number of topics
-via coherence, final model training, and topic trend analysis over time
-using linear regression. All results can be exported as Excel files, RDS
-objects, and publication-quality plots.
+A 'shiny' application that guides users through an exploratory review of
+scientific literature using Latent Dirichlet Allocation (LDA) topic
+modeling. It imports bibliometric records exported from databases such as
+'Scopus' and 'Web of Science', performs text preprocessing, helps select
+the number of topics, fits the final model, and visualizes the results and
+the evolution of topics over time. The methodology is described in De la
+Hoz-M et al. (2021) <doi:10.3390/math9141671>.
 
 %prep
 %setup -q -c -n %{packname}

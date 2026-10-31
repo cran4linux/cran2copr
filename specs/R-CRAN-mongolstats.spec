@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mongolstats
-%global packver   0.2.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mongolian 'NSO' 'PXWeb' Data and Boundaries (Tidy Client)
+Summary:          Tidy Access to Mongolian Official Statistics and Metadata
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,35 +17,46 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-httr2 >= 1.1.0
+BuildRequires:    R-CRAN-purrr >= 1.1.0
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-filelock 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-curl 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-httr2 >= 1.1.0
+Requires:         R-CRAN-purrr >= 1.1.0
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-filelock 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 
 %description
-A 'tidyverse'-friendly client for the National Statistics Office of
-Mongolia 'PXWeb' API <https://data.1212.mn/> with helpers to discover
-tables, variables, and fetch statistical data. Also includes utilities to
-retrieve Mongolia administrative boundaries (ADM0-ADM2) as 'sf' objects
-from open sources for mapping and spatial analysis.
+A 'tidyverse'-friendly client for the public statistical services of the
+National Statistics Office of Mongolia <https://data.1212.mn/>. Discover
+tables and their dimensions, and fetch statistical data as 'tibble' data
+frames with English or Mongolian labels. Periods are reported by their
+labels and can be selected in any of the office's period formats, tables
+that have moved within the catalogue are found automatically, and large
+requests are split to stay within the server's limits. Source provenance
+and raw observation symbols support reproducible exports. Experimental
+clients provide access to the public data and metadata portals, including
+official definitions, collection forms, classifications, and reviewed
+indicator queries. Maps and joins by statistical code are provided by the
+companion package 'mongolmaps'.
 
 %prep
 %setup -q -c -n %{packname}

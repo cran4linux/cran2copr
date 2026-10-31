@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ivDiag
-%global packver   1.0.6
+%global packver   1.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation and Diagnostic Tools for Instrumental Variables Designs
 
@@ -18,36 +18,44 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-doRNG 
+BuildRequires:    R-CRAN-parallelly 
 BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-lfe 
-BuildRequires:    R-CRAN-fixest 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggfortify 
 BuildRequires:    R-CRAN-wCorr 
 BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-testthat 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-future 
+Requires:         R-CRAN-doRNG 
+Requires:         R-CRAN-parallelly 
 Requires:         R-CRAN-doParallel 
+Requires:         R-parallel 
 Requires:         R-CRAN-lfe 
-Requires:         R-CRAN-fixest 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggfortify 
 Requires:         R-CRAN-wCorr 
 Requires:         R-CRAN-haven 
-Requires:         R-CRAN-glue 
 Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-testthat 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-utils 
 
 %description
-Estimation and diagnostic tools for instrumental variables designs, which
-implements the guidelines proposed in Lal et al. (2023)
-<arXiv:2303.11399>, including bootstrapped confidence intervals, effective
-F-statistic, Anderson-Rubin test, valid-t ratio test, and local-to-zero
-tests.
+Estimation and diagnostic tools for instrumental variables designs with
+one endogenous treatment, implementing the guidelines in Lal, Lockhart,
+Xu, and Zu (2024) <doi:10.1017/pan.2024.2>. The package reports ordinary
+least squares and two-stage least squares estimates with analytic and
+bootstrapped confidence intervals, several first-stage F statistics
+including the effective F statistic, the Anderson-Rubin test and its
+confidence set, the tF procedure of Lee, McCrary, Moreira, and Porter
+(2022) <doi:10.1257/aer.20211063>, and local-to-zero sensitivity tests. It
+also supports fuzzy regression discontinuity designs.
 
 %prep
 %setup -q -c -n %{packname}

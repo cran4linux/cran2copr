@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GeoModels
-%global packver   2.2.9
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.9
+Version:          2.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Procedures for Gaussian and Non Gaussian Geostatistical (Large) Data Analysis
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-future.apply 
@@ -30,6 +30,7 @@ BuildRequires:    R-CRAN-hypergeo
 BuildRequires:    R-CRAN-VGAM 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-minqa 
+BuildRequires:    R-CRAN-parallelly 
 Requires:         R-CRAN-fields 
 Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-future.apply 
@@ -44,6 +45,7 @@ Requires:         R-CRAN-hypergeo
 Requires:         R-CRAN-VGAM 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-minqa 
+Requires:         R-CRAN-parallelly 
 
 %description
 Functions for Gaussian and Non Gaussian (bivariate) spatial and

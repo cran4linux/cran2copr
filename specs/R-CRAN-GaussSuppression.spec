@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GaussSuppression
-%global packver   1.3.0
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tabular Data Suppression using Gaussian Elimination
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-SSBtools >= 1.8.6
+BuildRequires:    R-CRAN-SSBtools >= 1.8.8
 BuildRequires:    R-CRAN-RegSDC >= 0.7.0
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
@@ -25,7 +25,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-ellipsis 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-SSBtools >= 1.8.6
+Requires:         R-CRAN-SSBtools >= 1.8.8
 Requires:         R-CRAN-RegSDC >= 0.7.0
 Requires:         R-stats 
 Requires:         R-methods 
@@ -41,11 +41,14 @@ using the Gaussian elimination secondary suppression algorithm (Langsrud,
 working with functions SuppressSmallCounts() and SuppressDominantCells().
 These functions use primary suppression functions for the minimum
 frequency rule and the dominance rule, respectively. Novel functionality
-for suppression of disclosive cells is also included. General primary
-suppression functions can be supplied as input to the general working
-horse function, GaussSuppressionFromData(). Suppressed frequencies can be
-replaced by synthetic decimal numbers as described in Langsrud (2019)
-<doi:10.1007/s11222-018-9848-9>.
+for targeted attribute disclosure protection is also included. See
+Langsrud (2026) <doi:10.1007/978-3-032-37883-5_8> and references therein.
+General primary suppression functions can be supplied as input to the
+general working horse function, GaussSuppressionFromData(). Suppressed
+frequencies can be replaced by synthetic decimal numbers as described in
+Langsrud (2019) <doi:10.1007/s11222-018-9848-9>. This approach can also be
+used as a flexible tool for suppression of post-published tabular data
+(Langsrud and Bøvelstad, 2022) <doi:10.1007/978-3-031-13945-1_8>.
 
 %prep
 %setup -q -c -n %{packname}

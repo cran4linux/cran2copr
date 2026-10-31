@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  NormGen
-%global packver   0.0.6
+%global packver   0.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          0.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Efficient and Precise Quantile Mapping for Normal Pseudo-Random Number Generation
 
@@ -28,7 +28,8 @@ pseudo-random numbers based on precise mathematical approximations. The
 package features Rnorm() for efficient single-threaded generation and
 parallel_Rnorm(), a high-performance, multithreaded variant powered by
 'RcppParallel' and Intel 'TBB'. Package compilation flags are optimized to
-support multi-core parallel processing.
+support multi-core parallel processing. Renamed parallel_Rnorm() to
+PRnorm() for brevity.
 
 %prep
 %setup -q -c -n %{packname}

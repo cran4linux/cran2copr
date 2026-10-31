@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TEMPO
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Romania's National Institute of Statistics Tempo Data
 
@@ -19,13 +19,21 @@ Requires:         R-core >= 3.6
 BuildArch:        noarch
 BuildRequires:    R-CRAN-curl >= 5.0.0
 BuildRequires:    R-CRAN-jsonlite >= 1.7.0
+BuildRequires:    R-stats 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-curl >= 5.0.0
 Requires:         R-CRAN-jsonlite >= 1.7.0
+Requires:         R-stats 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
-Download table metadata and data from the Romanian National Institute of
-Statistics' TEMPO Online database. Tables can be listed in Romanian or
-English and downloaded as CSV files.
+Find, inspect and download statistical tables from the Romanian National
+Institute of Statistics' TEMPO Online database. Tables can be listed and
+searched in Romanian or English, their structure inspected before
+downloading, and whole tables or filtered selections retrieved either as
+data frames or as CSV files that are kept up to date between sessions.
 
 %prep
 %setup -q -c -n %{packname}

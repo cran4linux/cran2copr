@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BayesianQDM
-%global packver   0.1.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Quantitative Decision-Making Framework for Binary and Continuous Endpoints
+Summary:          Bayesian Quantitative Decision-Making Framework for Binary, Continuous and Time-to-Event Endpoints
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,41 +16,37 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-mvtnorm 
+Requires:         R-grDevices 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
 
 %description
-Provides comprehensive methods to calculate posterior probabilities,
-posterior predictive probabilities, and Go/NoGo/Gray decision
-probabilities for quantitative decision-making under a Bayesian paradigm
-in clinical trials. The package supports both single and two-endpoint
-analyses for binary and continuous outcomes, with controlled,
-uncontrolled, and external designs. For single continuous endpoints, three
-calculation methods are available: numerical integration (NI), Monte Carlo
-simulation (MC), and Moment-Matching approximation (MM). For two
-continuous endpoints, a bivariate Normal-Inverse-Wishart conjugate model
-is implemented with MC and MM methods. For two binary endpoints, a
-Dirichlet-multinomial model is implemented. External designs incorporate
-historical data through power priors using exact conjugate representations
-(Normal-Inverse-Chi-squared for single continuous, Normal-Inverse-Wishart
-for two continuous, and Dirichlet for binary endpoints), enabling
-closed-form posterior computation without Markov chain Monte Carlo (MCMC)
-sampling. This approach significantly reduces computational burden while
-preserving complete Bayesian rigor. The package also provides grid-search
-functions to find optimal Go and NoGo thresholds that satisfy
-user-specified operating characteristic criteria for all supported
-endpoint types and study designs. S3 print() and plot() methods are
-provided for all decision probability classes, enabling formatted display
-and visualisation of Go/NoGo/Gray operating characteristics across
-treatment scenarios. See Kang, Yamaguchi, and Han (2026)
-<doi:10.1080/10543406.2026.2655410> for the methodological framework.
+Bayesian quantitative decision-making for proof-of-concept clinical trials
+with Go, NoGo and Gray decisions. A study is specified by its sample
+sizes, conjugate prior distributions, external data borrowed through power
+priors, a concurrent, external, hypothetical or fixed control group, and a
+decision criterion based on the posterior or posterior predictive
+probability of the treatment effect. The package computes the decision for
+observed data, the operating characteristics of a design under scenarios
+for the true parameters, the decision thresholds that control the
+probabilities of false Go and false NoGo decisions, and the observed data
+that lead to each decision. One or two binary endpoints (Beta-binomial and
+Dirichlet-multinomial models), one or two continuous endpoints
+(Normal-Inverse-chi-squared and Normal-Inverse-Wishart models) and one
+time-to-event endpoint evaluated by the milestone survival probability or
+the hazard ratio (exponential model with Gamma priors) are supported, with
+larger or smaller effects as favorable. The posterior distributions have
+closed forms, so Markov chain Monte Carlo (MCMC) sampling is not needed;
+the probabilities are computed from closed-form distribution functions, by
+exact summation, numerical integration, a moment-matching approximation or
+Monte Carlo simulation, with the main computations in C++. See Kang,
+Yamaguchi, and Han (2026) <doi:10.1080/10543406.2026.2655410> for the
+methodological framework.
 
 %prep
 %setup -q -c -n %{packname}

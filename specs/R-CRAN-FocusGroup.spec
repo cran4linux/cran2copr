@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FocusGroup
-%global packver   0.5.2
+%global packver   0.5.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.5.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Focus Group Simulation Using LLM Agents
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-haven 
 BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-CRAN-LLMR >= 0.8.8
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-dplyr 
@@ -31,12 +32,14 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-haven 
 Requires:         R-CRAN-withr 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Moderated focus group discussions simulated with large language models.
-Participants carry personas built from respondent records or labeled
-survey files. A session runs under a specified turn-taking rule, and one
-turn can be experimentally manipulated to measure its effect on the next.
+Moderated focus group discussions simulated with large language models
+(LLMs). Participants carry personas built from respondent records or
+labeled survey files. A session runs under a specified turn-taking rule,
+and one turn can be experimentally manipulated to measure its effect on
+the next.
 
 %prep
 %setup -q -c -n %{packname}

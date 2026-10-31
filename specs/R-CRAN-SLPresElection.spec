@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SLPresElection
-%global packver   1.1.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Presidential Election Data of "Sri Lanka" from 1982 to 2019
+Summary:          Presidential Election Data of "Sri Lanka" from 1982 to 2024
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,7 +20,7 @@ BuildArch:        noarch
 
 %description
 Provides Sri Lankan presidential election results for 1982, 1988, 1994,
-1999, 2005, 2010, 2015, and 2019. The datasets contain candidate vote
+1999, 2005, 2010, 2015, 2019 and 2024. The datasets contain candidate vote
 counts, reported percentages, and summary statistics for polling divisions
 and district results, including postal and displaced votes where
 available. Results were extracted from PDF documents and prepared in a

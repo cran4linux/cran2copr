@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  jumps
-%global packver   1.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hodrick-Prescott Filter with Jumps
+Summary:          Hodrick-Prescott Filter and Spline Smoothing with Jumps
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,17 +18,30 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.10
 BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp >= 1.0.10
 Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-CRAN-nloptr 
+Requires:         R-utils 
 
 %description
-A set of functions to compute the Hodrick-Prescott (HP) filter with
-automatically selected jumps. The original HP filter extracts a smooth
-trend from a time series, and our version allows for a small number of
-automatically identified jumps. See Maranzano and Pelagatti (2024)
-<doi:10.2139/ssrn.4896170> for details.
+A set of functions to compute the Hodrick-Prescott (HP) filter and spline
+smoothing with automatically selected jumps. The original HP filter and
+spline smoothing extract a smooth signal, and our version allows for a
+small number of automatically identified jumps. Smoothing splines with
+discontinuities are obtained either by time warping, or by the
+dynamic-programming algorithm of Storath and Weinmann (2024)
+<doi:10.1080/10618600.2023.2262000>. See Pelagatti, Maranzano and Gatto
+Ronchieri (2026) <doi:10.48550/arXiv.2610.33137> for details on the
+smoothing splines with discontinuities, and Maranzano and Pelagatti (2025)
+<doi:10.1016/j.econmod.2025.107132> for details on the HP filter with
+jumps.
 
 %prep
 %setup -q -c -n %{packname}

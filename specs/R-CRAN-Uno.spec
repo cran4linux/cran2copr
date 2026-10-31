@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Uno
-%global packver   2.7.4-1
+%global packver   2.9.2-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.4.1
+Version:          2.9.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to the 'Uno' Nonlinear Optimization Solver
 
@@ -16,9 +16,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-rmumps >= 5.2.1.41
+BuildRequires:    R-CRAN-rmumps >= 5.2.1.43
 BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-rmumps >= 5.2.1.41
+Requires:         R-CRAN-rmumps >= 5.2.1.43
 
 %description
 Bindings to 'Uno' (Unifying Nonlinear Optimization), a C++ solver for
@@ -28,8 +28,8 @@ methods, by decomposing them into interacting building blocks
 (constraint-relaxation, inequality-handling, Hessian, and globalization
 strategies) that can be freely combined, either through options or through
 presets that reproduce established solvers such as 'filterSQP' and
-'IPOPT'. The framework is described in Vanaret and Leyffer (2024)
-<doi:10.48550/arXiv.2406.13454>.
+'IPOPT'. The framework is described in Vanaret and Leyffer (2026)
+<doi:10.1007/s12532-026-00310-9>.
 
 %prep
 %setup -q -c -n %{packname}

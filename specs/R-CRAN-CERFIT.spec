@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CERFIT
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Causal Effect Random Forest of Interaction Trees
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-Rcpp
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-partykit 
 Requires:         R-CRAN-CBPS 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-Rcpp
 Requires:         R-stats 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-survival 
+Requires:         R-grid 
 
 %description
 Fits a Causal Effect Random Forest of Interaction Trees (CERFIT) which is

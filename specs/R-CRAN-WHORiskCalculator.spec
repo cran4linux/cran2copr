@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  WHORiskCalculator
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          WHO Cardiovascular Disease Risk Calculator
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 
 %description
@@ -28,8 +28,9 @@ sex, systolic blood pressure, total cholesterol, smoking status, and
 diabetes history; and a non-laboratory-based model substituting body mass
 index (BMI) for cholesterol and diabetes, suitable for resource-limited
 settings. Risk estimates are recalibrated to 21 Global Burden of Disease
-regions using region-specific incidence rates and risk factor
-distributions derived from the Emerging Risk Factors Collaboration.
+regions (or to individual countries) using the authors' recalibration
+parameters, fitted to Global Burden of Disease 2017 incidence rates and
+Non-Communicable Disease Risk Factor Collaboration risk factor levels.
 Functions are fully vectorized for efficient batch calculations and
 support automatic country-to-region mapping via ISO 3166-1 alpha-3 country
 codes.

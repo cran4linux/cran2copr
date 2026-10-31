@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  golfastr
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficiently Access Pro Golf Data
 
@@ -20,17 +20,24 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-cli 
 Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-cli 
 
 %description
-Fetch Professional Golfers' Association (PGA) Tour tournament data from
-ESPN <https://www.espn.com/golf/> including leaderboards and hole-by-hole
-scoring. Data is returned in tidy tibble format ready for analysis.
-Supports local storage via RDS or 'Apache Arrow' Parquet files for fast
-repeated access. Designed for golf analytics, data journalism, and fantasy
-sports research.
+Designed for quickly grabbing PGA Tour data. Includes a large data update
+with shot-level PGA Tour 'ShotLink' data, tee times and course setup,
+strokes gained, win probability after every hole, a what's in the bag
+database (WITBDB) of player equipment, an ID crosswalk between 'ESPN' and
+the PGA Tour, and logo image URLs. Leaderboards and hole-by-hole scoring
+come from 'ESPN' <https://www.espn.com/golf/> for the PGA Tour, LIV Golf,
+LPGA, DP World Tour and Champions Tour. Completed seasons are served from
+hosted files for fast repeated access, and data can be saved as RDS,
+'Apache Arrow' Parquet or a 'SQLite' database.
 
 %prep
 %setup -q -c -n %{packname}

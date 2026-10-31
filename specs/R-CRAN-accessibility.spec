@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  accessibility
-%global packver   1.5.0
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Transport Accessibility Measures
 
@@ -17,12 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli >= 3.0.0
+BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-Rdpack >= 0.7
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-cli >= 3.0.0
+Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-Rdpack >= 0.7
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-data.table 
@@ -31,13 +35,13 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-A set of fast and convenient functions to help conducting accessibility
+A set of fast and convenient functions to help conduct accessibility
 analyses. Given a pre-computed travel cost matrix and a land use dataset
 (containing for example the location of jobs, healthcare and population),
 the package allows one to calculate accessibility levels, and
 accessibility poverty and inequality. The package covers the majority of
 the most commonly used accessibility measures (such as cumulative
-opportunities, gravity-based and floating catchment areas methods), some
+opportunities, gravity-based and floating catchment area methods), some
 cutting edge measures proposed in the literature (e.g. balancing cost and
 constrained accessibility) as well as the most frequently used inequality
 and poverty metrics (such as the Palma ratio, the concentration and Theil

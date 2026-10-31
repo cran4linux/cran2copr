@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DSIR
-%global packver   0.11.0
+%global packver   0.13.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.0
+Version:          0.13.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Science Infrastructure for Global Health
 
@@ -20,14 +20,12 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-tibble >= 3.0.0
 BuildRequires:    R-CRAN-httr2 >= 1.0.0
-BuildRequires:    R-CRAN-flextable >= 0.9.0
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-vctrs 
 Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-tibble >= 3.0.0
 Requires:         R-CRAN-httr2 >= 1.0.0
-Requires:         R-CRAN-flextable >= 0.9.0
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-vctrs 
@@ -42,10 +40,10 @@ standardization against the bundled WHO 2026 Standard Population, period
 life-table construction, a snapshot helper for reproducible data pulls,
 and convenience clients for the World Health Organization Global Health
 Observatory (GHO) through its legacy OData API
-<https://ghoapi.azureedge.net/api/> or the public WHO xMart OData API
-<https://xmart-api-public.who.int/DATA_>, Global Health Estimates (GHE)
-through WHO xMart, and the United Nations Sustainable Development Goals
-(SDG) API <https://unstats.un.org/SDGAPI/swagger/>.
+<https://www.who.int/data/gho/info/gho-odata-api> or the public WHO xMart
+OData API <https://xmart-api-public.who.int/DATA_>, Global Health
+Estimates (GHE) through WHO xMart, and the United Nations Sustainable
+Development Goals (SDG) API <https://unstats.un.org/SDGAPI/swagger/>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PanelTM
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Two- And Three-Way Dynamic Panel Threshold Regression Model for Change Point Detection
 
@@ -27,14 +27,18 @@ Requires:         R-CRAN-pracma
 Requires:         R-CRAN-MASS 
 
 %description
-Estimation of two- and three-way dynamic panel threshold regression models
-(Di Lascio and Perazzini (2024) <https://repec.unibz.it/bemps104.pdf>; Di
-Lascio and Perazzini (2022, ISBN:978-88-9193-231-0); Seo and Shin (2016)
-<doi:10.1016/j.jeconom.2016.03.005>) through the generalized method of
-moments based on the first difference transformation and the use of
-instrumental variables. The models can be used to find a change point
-detection in the time series. In addition, random number generation is
-also implemented.
+Estimation of two-way and three-way dynamic panel threshold regression
+models using the first-differenced instrumental-variable generalized
+method of moments (FD-IV-GMM) estimator. The implementation builds on Seo
+and Shin (2016) <doi:10.1016/j.jeconom.2016.03.005> and Di Lascio and
+Perazzini (2026) <doi:10.1007/s10260-026-00842-3>. The models accommodate
+time-varying exogenous and endogenous regressors and allow the lagged
+dependent variable to serve as the threshold variable. The package
+includes a bootstrap-based test for threshold effects, a procedure for
+identifying change points in individual time series, functions for
+simulating two-way and three-way panel data with regime changes, and tools
+for evaluating estimator performance through bias and root mean squared
+error measures.
 
 %prep
 %setup -q -c -n %{packname}

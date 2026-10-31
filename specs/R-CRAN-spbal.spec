@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spbal
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatially Balanced Sampling Algorithms
 
@@ -16,27 +16,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
 BuildRequires:    R-CRAN-units 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppThread 
+Requires:         R-CRAN-Rcpp >= 1.0.0
 Requires:         R-CRAN-units 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-Rcpp 
 
 %description
 Encapsulates a number of spatially balanced sampling algorithms, namely,
 Balanced Acceptance Sampling (equal, unequal, seed point, panels), Halton
 frames (for discretizing a continuous resource), Halton Iterative
-Partitioning (equal probability) and Simple Random Sampling. Robertson, B.
-L., Brown, J. A., McDonald, T. and Jaksons, P. (2013)
+Partitioning (equal probability), Simple Random Sampling, Dynamic
+Assignment Sampling and Doubly balanced Dynamic Assignment Sampling.
+Robertson, B. L., Brown, J. A., McDonald, T. and Jaksons, P. (2013)
 <doi:10.1111/biom.12059>. Robertson, B. L., McDonald, T., Price, C. J. and
 Brown, J. A. (2017) <doi:10.1016/j.spl.2017.05.004>. Robertson, B. L.,
 McDonald, T., Price, C. J. and Brown, J. A. (2018)
 <doi:10.1007/s10651-018-0406-6>. Robertson, B. L., van Dam-Bates, P. and
 Gansell, O. (2021a) <doi:10.1007/s10651-020-00481-1>. Robertson, B. L.,
 Davies, P., Gansell, O., van Dam-Bates, P., McDonald, T. (2025)
-<doi:10.1111/anzs.12435>.
+<doi:10.1111/anzs.12435>. Robertson, B.L., Price, C.J., Reale, M., Davies,
+P. (2026) <doi:10.1093/biomtc/ujag011>. Robertson, B.L., Price, C.J.,
+Reale, M., Davies, P. (2026) <doi:10.1093/jssam/smag021>.
 
 %prep
 %setup -q -c -n %{packname}

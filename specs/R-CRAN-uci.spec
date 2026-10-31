@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  uci
-%global packver   0.3.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Urban Centrality Index
 
@@ -17,25 +17,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli >= 3.2.0
+BuildRequires:    R-CRAN-cppRouting >= 3.2
+BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-cppRouting 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-furrr 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-spdep 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-cli >= 3.2.0
+Requires:         R-CRAN-cppRouting >= 3.2
+Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-cppRouting 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-furrr 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-fields 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-spdep 
+Requires:         R-stats 
 Requires:         R-utils 
 
 %description

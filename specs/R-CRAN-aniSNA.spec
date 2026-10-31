@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  aniSNA
-%global packver   1.1.1
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Network Analysis of Animal Social Networks
 
@@ -14,36 +14,36 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-plotrix 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-reshape 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-ggraph 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-graphics 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
 Requires:         R-parallel 
-Requires:         R-CRAN-plotrix 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-reshape 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
 Requires:         R-utils 
+Requires:         R-CRAN-ggraph 
+Requires:         R-CRAN-tidyr 
 
 %description
 Obtain network structures from animal GPS telemetry observations and

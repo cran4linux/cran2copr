@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MRStdCRT
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model-Robust Standardization in Cluster-Randomized Trials
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-WeMix >= 4.0.3
 BuildRequires:    R-CRAN-nlme >= 3.1.150
 BuildRequires:    R-CRAN-magrittr >= 2.0.0
 BuildRequires:    R-CRAN-geepack >= 1.3.2
@@ -24,6 +25,7 @@ BuildRequires:    R-CRAN-lme4 >= 1.1.25
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-stats 
+Requires:         R-CRAN-WeMix >= 4.0.3
 Requires:         R-CRAN-nlme >= 3.1.150
 Requires:         R-CRAN-magrittr >= 2.0.0
 Requires:         R-CRAN-geepack >= 1.3.2
@@ -39,7 +41,14 @@ models to estimate marginal treatment effects. The targets include the
 cluster-average and individual-average treatment effects, with utilities
 for variance estimation and example simulation datasets. Methods are
 described in Li, Tong, Fang, Cheng, Kahan, and Wang (2025)
-<doi:10.1002/sim.70270>.
+<doi:10.1002/sim.70270>. Inverse-cluster-size weighted outcome models are
+available for generalized estimating equations and linear or generalized
+linear mixed models. The outcome models can use common fitting weights for
+both estimands or inverse-cluster-size weights for the cluster-average
+effect and no weights for the individual-average effect. Inference retains
+the original standardization framework and paired cluster jackknife.
+Related cluster-size saturated models are described in the arXiv preprint
+by Lee, Harhay, and Li (2026) <doi:10.48550/arXiv.2608.28943>.
 
 %prep
 %setup -q -c -n %{packname}

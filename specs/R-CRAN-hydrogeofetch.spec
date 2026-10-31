@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hydrogeofetch
-%global packver   2.0.4
+%global packver   2.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          2.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hydrologic Geospatial Fabric Extraction Tool Chain
 
@@ -17,7 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-hydroloom 
+BuildRequires:    R-CRAN-memoise >= 2.0.0
+BuildRequires:    R-CRAN-hydroloom >= 1.3.0
 BuildRequires:    R-CRAN-dataRetrieval 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-sf 
@@ -31,9 +32,9 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-arrow 
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-zip 
-BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-digest 
-Requires:         R-CRAN-hydroloom 
+Requires:         R-CRAN-memoise >= 2.0.0
+Requires:         R-CRAN-hydroloom >= 1.3.0
 Requires:         R-CRAN-dataRetrieval 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-sf 
@@ -47,7 +48,6 @@ Requires:         R-methods
 Requires:         R-CRAN-arrow 
 Requires:         R-tools 
 Requires:         R-CRAN-zip 
-Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-digest 
 
 %description

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  slca
-%global packver   1.4.2
+%global packver   1.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          1.4.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Structural Modeling for Multiple Latent Class Variables
 
@@ -35,6 +35,8 @@ Class Profile Analysis (LCPA; Hwan Chung et al., 2010)
 <doi:10.1111/j.1467-985x.2010.00674.x>, and Joint Latent Class Analysis
 (JLCA; Saebom Jeon et al., 2017) <doi:10.1080/10705511.2017.1340844>, and
 any other extended models involving multiple latent class variables.
+Details on the methodology and implementation are given in Kim and Chung
+(2026) <doi:10.18637/jss.v117.i08>.
 
 %prep
 %setup -q -c -n %{packname}
