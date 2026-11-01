@@ -1,50 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  spinebil
-%global packver   1.0.6
+%global packname  brvmr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Investigating New Projection Pursuit Index Functions
+Summary:          Free Access to BRVM Stock Market Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tourr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tictoc 
-BuildRequires:    R-CRAN-cassowaryr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-readr 
-Requires:         R-CRAN-tourr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-tibble 
-Requires:         R-stats 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tictoc 
-Requires:         R-CRAN-cassowaryr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-readr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-utils 
 
 %description
-Projection pursuit is used to find interesting low-dimensional projections
-of high-dimensional data by optimizing an index over all possible
-projections. The 'spinebil' package contains methods to evaluate the
-performance of projection pursuit index functions using tour methods. A
-paper describing the methods can be found at
-<doi:10.1007/s00180-020-00954-8>.
+Light client to read prices, indices and dividends of the Bourse Regionale
+des Valeurs Mobilieres (BRVM, West African stock exchange) from the public
+mirror 'harzat/brvm-data-public' of BRVMetrics. The package ships no data:
+it is downloaded at call time. Data remain the property of their sources
+(BRVM, SikaFinance, RicheBourse), with no guarantee of accuracy. This is
+not investment advice.
 
 %prep
 %setup -q -c -n %{packname}

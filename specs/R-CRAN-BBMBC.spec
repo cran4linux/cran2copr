@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BBMBC
-%global packver   0.1.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Beta-Binomial Models for Vaccine-Specific Memory B Cell Frequency and Power Calculations
+Summary:          Beta-Binomial Models for Immune Cell Frequencies and Power Calculations
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -31,15 +31,16 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-Provides tools to model overdispersed vaccine-specific memory B cell
-frequencies using Beta-Binomial generalized linear models, specifically
-designed for analyzing vaccine-induced cellular immune responses. Includes
-method-of-moments dispersion estimation, likelihood ratio testing across
-experimental arms, and Monte Carlo simulation frameworks to calculate
+Provides tools to model overdispersed immune cell frequencies using
+Beta-Binomial generalized linear models. Originally designed for memory B
+cells, the framework generalizes to evaluate rare cellular immune
+responses across vaccinology, immuno-oncology, and related fields.
+Includes method-of-moments dispersion estimation, likelihood ratio testing
+across experimental arms, and Monte Carlo simulation to calculate
 statistical power and Type I error rates. The methodologies are directly
-motivated by the analysis of immunology data in 'Vaccination with
+motivated by the analysis of immunology data in "Vaccination with
 mRNA-encoded membrane-anchored HIV envelope trimers elicited tier 2
-neutralizing antibodies in a phase 1 clinical trial' (Parks et al. 2025)
+neutralizing antibodies in a phase 1 clinical trial" (Parks et al. 2025)
 <doi:10.1126/scitranslmed.ady6831>.
 
 %prep

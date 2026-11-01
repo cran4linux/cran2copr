@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  statMatchLCM
-%global packver   2.0
+%global packver   2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Matching Using Latent Class Models
 
@@ -23,19 +23,22 @@ Requires:         R-CRAN-nnet
 Requires:         R-CRAN-StatMatch 
 
 %description
-Provides a revised framework (1.2->2.0) for statistical matching of
-categorical data based on latent class models, including multiple
-imputation, predictive modeling, nearest-neighbour hot-deck matching, and
-probabilistic assignment of categorical target variables. It allows
-researchers to perform data integration when no unique identifiers are
-available by modeling the joint distribution of variables through latent
-categorical structures. The package supports estimation of latent class
-models, probabilistic matching between donor and recipient data sets, and
+Provides a revised framework for statistical matching of categorical data
+based on latent class models, including multiple imputation, predictive
+modeling, nearest-neighbour hot-deck matching, and probabilistic
+assignment of categorical target variables. It allows researchers to
+perform data integration when no unique identifiers are available by
+modeling the joint distribution of variables through latent categorical
+structures. The package supports estimation of latent class models,
+probabilistic matching between donor and recipient data sets, and
 generation of synthetic linked data under uncertainty. It is particularly
 useful in survey research and data fusion applications where combining
 information from multiple sources is required while preserving statistical
 properties and accounting for measurement error and missing data
-mechanisms.
+mechanisms. The latent class matching methods are described by Lewaa,
+Hafez and Ismail (2023) <doi:10.18576/jsap/120123>. (2.0->2.1): in
+smc2_step2() Gower distance is replaced by Euclidean distance in hot deck
+method.
 
 %prep
 %setup -q -c -n %{packname}

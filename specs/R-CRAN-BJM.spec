@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BJM
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Backward Joint Model for the Dynamic Prediction of Both Time-to-Event and Longitudinal Outcomes
 
@@ -17,18 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-parallel 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-Matrix 
 Requires:         R-parallel 
+Requires:         R-graphics 
 
 %description
 Provides tools to fit joint models of multivariate longitudinal data and
@@ -38,6 +40,9 @@ conditional on survival. The models accommodate irregularly measured
 longitudinal data and competing risks outcomes. The use of the backward
 joint model enables fast and efficient computation, especially for
 applications with large sample sizes and many longitudinal variables.
+Methods without competing risks are described in Shen and Li (2021)
+<doi:10.1002/sim.9037>, and their extension to competing risks is
+described in Li et al. (2026) <doi:10.1007/s10985-026-09725-x>.
 
 %prep
 %setup -q -c -n %{packname}

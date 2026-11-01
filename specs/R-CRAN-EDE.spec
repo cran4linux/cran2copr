@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EDE
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extinction Date Estimation from Sighting Records
 
@@ -17,25 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Estimates the historic date of extinction of a species from a time-ordered
-record of sighting events. Given a table of sighting counts per year,
-computes extinction date estimators from the sighting-record literature:
-optimal linear estimation and its Weibull extreme-value persistence test
-(Roberts & Solow, 2003; Solow, 2005), constant-rate and declining-rate
-persistence tests (Solow, 1993), a sighting-rate persistence test
-comparable across records with different observation periods (McInerny,
-Roberts, Davy & Cribb, 2006), a classical confidence interval on the end
-of a temporal range (Strauss & Sadler, 1989), a truncation-point
-extrapolation (Robson & Whitlock, 1964), and a combinatorial persistence
-test based on inclusion-exclusion over sighting-gap occupancy (Burgman,
-Grimson & Ferson, 1995). Also implements a nonparametric endpoint test
-(Solow & Roberts, 2003), a sighting-interval trend index (Jarić &
-Ebenhard, 2010), and reliability-adjusted inference for uncertain records
-(Jarić & Roberts, 2014). Every estimator is built on a validated input
-object and returns a common result class with, where defined, a point
-estimate, a confidence interval, or a full p-value curve.
+Infers the extinction of a species from a time-ordered record of
+sightings, collecting methods from the sighting-record and
+stratigraphic-range literature under one interface. Includes endpoint
+estimators (Robson & Whitlock, 1964; Strauss & Sadler, 1989; Roberts &
+Solow, 2003), frequentist persistence tests (Solow, 1993a, 1993b; Burgman,
+Grimson & Ferson, 1995; Solow & Roberts, 2003; Solow, 2005; McInerny,
+Roberts, Davy & Cribb, 2006; Jarić & Ebenhard, 2010), Bayesian models
+(Rout, Salomon & McCarthy, 2009; Caley & Barry, 2014), methods for
+sightings of uncertain reliability (Thompson et al., 2013; Jarić &
+Roberts, 2014; Lee et al., 2014; Brook, Buettel & Jarić, 2019; Kodikara et
+al., 2020, 2021), models combining records and surveys (Thompson et al.,
+2017, 2019), and confidence intervals on the end-points of fossil ranges
+(Marshall, 1994, 1997; Weiss & Marshall, 1999). Every method is tested
+against the published examples of its source paper and returns a common
+result class; persistence tests are inverted to give one-sided upper
+confidence bounds.
 
 %prep
 %setup -q -c -n %{packname}

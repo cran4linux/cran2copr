@@ -1,36 +1,66 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gptr
-%global packver   0.7.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Convenient R Interface with the OpenAI 'ChatGPT' API
+Summary:          Language Model Agents in Live 'R' Sessions
 
-License:          MIT + file LICENSE
+License:          Apache License (== 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-RCurl 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-RCurl 
+BuildRequires:    R-CRAN-curl >= 6.0.0
+BuildRequires:    R-CRAN-processx >= 3.8.6
+BuildRequires:    R-CRAN-cli >= 3.6.2
+BuildRequires:    R-CRAN-yaml >= 2.3.0
+BuildRequires:    R-CRAN-jsonlite >= 1.8.8
+BuildRequires:    R-CRAN-ps >= 1.8.0
+BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-curl >= 6.0.0
+Requires:         R-CRAN-processx >= 3.8.6
+Requires:         R-CRAN-cli >= 3.6.2
+Requires:         R-CRAN-yaml >= 2.3.0
+Requires:         R-CRAN-jsonlite >= 1.8.8
+Requires:         R-CRAN-ps >= 1.8.0
+Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
-A convenient interface with the OpenAI 'ChatGPT' API
-<https://openai.com/api>. 'gptr' allows you to interact with 'ChatGPT', a
-powerful language model, for various natural language processing tasks.
-The 'gptr' R package makes talking to 'ChatGPT' in R super easy. It helps
-researchers and data folks by simplifying the complicated stuff, like
-asking questions and getting answers. With 'gptr', you can use 'ChatGPT'
-in R without any hassle, making it simpler for everyone to do cool things
-with language!
+Runs language model agents in an existing 'R' session, where generated
+code can inspect and modify objects already in memory. The peter()
+function supports interactive chat and programmatic calls. Conversational
+models use tools and return session objects; typed decision models return
+logical, character or numeric vectors with associated model probabilities.
+Supports the 'Anthropic'
+<https://platform.claude.com/docs/en/api/overview>, 'OpenAI'
+<https://developers.openai.com/api/reference/overview> and 'Google Gemini'
+<https://ai.google.dev/gemini-api/docs> APIs, 'OpenAI'-compatible
+endpoints, local 'Ollama' <https://ollama.com> models, and the 'Claude
+Code' and 'Codex' command line tools. Decision models include 'Jev',
+hosted by 'TypeSafe AI' <https://docs.typesafe.ai/introduction>, and the
+local 'Clef'. Top-level agent calls and their executed code can be
+recorded in 'R' scripts, 'R Markdown' and 'Quarto' documents, or 'Jupyter'
+notebooks. Recorded 'R' scripts can be replayed without model calls when
+the required inputs and packages are available.
 
 %prep
 %setup -q -c -n %{packname}

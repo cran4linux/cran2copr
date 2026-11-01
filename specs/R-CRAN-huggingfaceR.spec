@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  huggingfaceR
-%global packver   2.3.0
+%global packver   2.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          2.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access 'Hugging Face' Models and Datasets
 
@@ -17,9 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr2 >= 1.0.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-cli >= 3.0.0
+BuildRequires:    R-CRAN-httr2 >= 1.1.1
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-magrittr 
@@ -29,9 +29,9 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-httr2 >= 1.0.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-cli >= 3.0.0
+Requires:         R-CRAN-httr2 >= 1.1.1
+Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-magrittr 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spicy
-%global packver   0.13.0
+%global packver   0.14.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.13.0
+Version:          0.14.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Publication-Ready Tables for Descriptive Statistics and Regression Models
 
@@ -41,7 +41,7 @@ Requires:         R-utils
 %description
 Provides publication-ready tables for descriptive statistics and
 regression models: frequency tables and cross-tabulations with association
-measures (Cramer's V, Kendall's Tau-b, and others), categorical and
+measures (Cramér's V, Kendall's Tau-b, and others), categorical and
 continuous summary tables, by group or from a complex survey design, and
 regression tables for one or more models side by side, across more than
 thirty model classes from mixed-effects to survival and Bayesian, with

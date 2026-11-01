@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ballast
-%global packver   0.6.1
+%global packver   0.7.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.7.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stress-Test a Pre-Specified Mixed Model for Repeated Measures
 

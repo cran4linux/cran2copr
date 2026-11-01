@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  opencage
-%global packver   0.2.2
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Geocode with the OpenCage API
 
@@ -13,15 +14,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-withr >= 2.0.0
 BuildRequires:    R-CRAN-jsonlite >= 1.5
 BuildRequires:    R-CRAN-tibble >= 1.4.2
 BuildRequires:    R-CRAN-progress >= 1.1.2
 BuildRequires:    R-CRAN-memoise >= 1.1.0
-BuildRequires:    R-CRAN-tidyr >= 0.8.0
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.7.4
 BuildRequires:    R-CRAN-crul >= 0.5.2
 BuildRequires:    R-CRAN-ratelimitr >= 0.4.0
@@ -33,7 +34,7 @@ Requires:         R-CRAN-jsonlite >= 1.5
 Requires:         R-CRAN-tibble >= 1.4.2
 Requires:         R-CRAN-progress >= 1.1.2
 Requires:         R-CRAN-memoise >= 1.1.0
-Requires:         R-CRAN-tidyr >= 0.8.0
+Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.7.4
 Requires:         R-CRAN-crul >= 0.5.2
 Requires:         R-CRAN-ratelimitr >= 0.4.0
@@ -45,7 +46,7 @@ Requires:         R-CRAN-rlang
 Geocode with the OpenCage API, either from place name to longitude and
 latitude (forward geocoding) or from longitude and latitude to the name
 and address of a location (reverse geocoding), see
-<https://opencagedata.com/>.
+<https://opencagedata.com>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -55,6 +56,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
