@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  OECDdata
-%global packver   0.2.5
+%global packver   0.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast and Friendly Access to OECD Data
 
@@ -16,7 +16,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildArch:        noarch
 BuildRequires:    R-CRAN-curl >= 5.0.0
 BuildRequires:    R-CRAN-magrittr >= 2.0.3
 BuildRequires:    R-CRAN-xml2 >= 1.3.3
@@ -32,14 +31,15 @@ Requires:         R-utils
 
 %description
 Discover, describe, compare and import statistical datasets from the
-Organisation for Economic Co-operation and Development ('OECD') via its
-public Statistical Data and Metadata eXchange ('SDMX') Representational
-State Transfer ('REST') API <https://sdmx.oecd.org/public/>. Adapts the
+Organisation for Economic Co-operation and Development (OECD) via its
+public Statistical Data and Metadata eXchange (SDMX) Representational
+State Transfer (REST) API <https://sdmx.oecd.org/public/>. Adapts the
 discovery workflow of 'eurodata' to OECD-native names, catalogue-resolved
 short codes and dataset-scoped metadata. Uses SDMX REST version 2 by
-default, streamed downloads, native 'data.table' parsing, defensive
-metadata resolution, caching and bounded HTTP retries. Includes an
-explicit version 1 transport for interoperability.
+default, streamed downloads, native 'data.table' parsing, defensive bulk C
+XML extraction, indexed structural metadata resolution, caching and
+bounded HTTP retries. Includes an explicit version 1 transport for
+interoperability.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HeatStressR
-%global packver   2.4.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.0
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate Heat Stress Indices
 
@@ -14,24 +14,29 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-heatindex >= 0.0.2
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-utils 
 BuildRequires:    R-parallel 
+Requires:         R-CRAN-heatindex >= 0.0.2
 Requires:         R-stats 
-Requires:         R-CRAN-assertthat 
+Requires:         R-utils 
 Requires:         R-parallel 
 
 %description
-Calculates heat-stress indices from meteorological observations, including
-the physically based wet-bulb globe temperature model described by
-Liljegren et al. (2008) <doi:10.1080/15459620802310770>. The package
-provides an independently maintained R implementation with row-level
-diagnostics, configurable physical controls, and batch processing for the
-Liljegren method; it is not a bitwise-compatible port of the original
-program, and cross-implementation differences are expected.
+Calculates heat-stress indices from meteorological observations using
+shared psychrometric calculations and consistent method-specific input
+handling. Methods include the physically based outdoor wet-bulb globe
+temperature model described by Liljegren et al. (2008)
+<doi:10.1080/15459620802310770>, wet-bulb temperature and heat-index
+calculations, and established closed-form heat-stress indices. Provides
+row-level diagnostics, configurable physical controls, vectorized batch
+processing, and optional parallel execution for the Liljegren method. It
+is an independently maintained fork of 'HeatStress'; its Liljegren
+implementation is not a bitwise-compatible port of the original program.
 
 %prep
 %setup -q -c -n %{packname}

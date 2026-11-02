@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  matchednull
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Matched-Null Tests for Cluster-Count Claims
 
@@ -22,14 +22,15 @@ Requires:         R-stats
 
 %description
 Builds matched nulls for cluster-count claims: synthetic twins of a
-dataset that preserve every marginal distribution and the full correlation
-matrix while containing no cluster structure by construction. A reported
-number of clusters or "types" can then be tested against what the data's
-own margins and covariance already produce, using any clustering pipeline.
-A t-copula option adds tail dependence to the null, so that an apparent
-excess of clusters can be checked against a heavier-tailed alternative
-before it is read as evidence of types. Implements the matched-null
-procedure of Meng (2026) "Types Without Taxa" <doi:10.17605/OSF.IO/2EKCG>.
+dataset that preserve every marginal distribution exactly and the
+correlation matrix approximately, while containing no cluster structure by
+construction. A reported number of clusters or "types" can then be tested
+against what the data's own margins and covariance already produce, using
+any clustering pipeline. A t-copula option is a sensitivity check that
+adds tail dependence to the reference, so an apparent excess of clusters
+can be rerun against a heavier-tailed reference; neither outcome of that
+rerun establishes that types exist. Implements the matched-null procedure
+of Meng (2026) "Types Without Taxa" <doi:10.17605/OSF.IO/2EKCG>.
 
 %prep
 %setup -q -c -n %{packname}

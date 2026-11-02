@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Gtheory4LLM
-%global packver   0.5.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalizability Theory for LLM Subjective Tasks
 
@@ -16,18 +16,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.5.0
 Requires:         R-core >= 4.5.0
-BuildArch:        noarch
 BuildRequires:    R-CRAN-OpenMx >= 2.22.11
 BuildRequires:    R-CRAN-Matrix >= 1.6.0
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
+BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-OpenMx >= 2.22.11
 Requires:         R-CRAN-Matrix >= 1.6.0
 Requires:         R-graphics 
 Requires:         R-methods 
+Requires:         R-parallel 
 Requires:         R-stats 
+Requires:         R-tools 
 Requires:         R-utils 
 
 %description
@@ -38,23 +41,30 @@ generation, and repeated-run facets through crossed or explicitly nested
 random sources with configurable item interactions. Fits univariate
 models, joint Gaussian models, and joint discrete models for binary,
 ordinal, and unordered categorical outcomes, with source-specific
-covariance. Gaussian models use exact balanced likelihood; discrete models
-use a dense first-order Laplace approximation with Gaussian latent random
-effects. Supported balanced decision studies compare evaluator, prompt,
-and replication allocations using observed Gaussian or explicitly
+covariance. Gaussian models use exact balanced likelihood, with a bounded
+observed-row route for incomplete univariate panels. Discrete models use
+dense or sparse first-order Laplace approximation with Gaussian latent
+random effects. Supported balanced decision studies compare evaluator,
+prompt, and replication allocations using observed Gaussian or explicitly
 requested latent binary and ordinal reliability, with random or fixed
-facets after Brennan (2001). Gaussian fits report asymptotic Wald standard
-errors for their variance components and delta-method intervals for the
-coefficients; discrete fits report point estimates only. Provides
-fixed-layout Gaussian batch projections, bounded cost-aware allocation
-comparisons, and Gaussian simulation-based pilot precision planning.
-Scalar nominal reliability and joint Gaussian-discrete fitting are not
-implemented. Includes three publicly archived LLM annotation datasets
-covering hate-speech, mental-health, and drug-review tasks. Discrete
-fitting is limited to small models; the preflight report describes
-supported designs and computational limits. Generalizability coefficients
-follow the variance-decomposition framework of Brennan (2001)
-<doi:10.1007/978-1-4757-3456-0>.
+facets after Brennan (2001). 'OpenMx' Gaussian fits report asymptotic Wald
+standard errors for variance components and delta-method coefficient
+intervals when curvature checks permit them; the 'lme4' route returns
+point estimates only. Discrete fits offer optional full-information latent
+coefficient intervals, subject to numerical and boundary checks. An object
+bootstrap refits resampled objects under each fit's acceptance rule and
+gives percentile and bias-corrected and accelerated intervals for
+components, coefficients and decision studies. Provides fixed-layout call
+effects, categorical score and category-vector reliability projections,
+repeated-panel decision agreement, bounded cost-aware comparisons, and
+Gaussian or latent binary/ordinal pilot precision planning, and
+categorical point-estimator pilot operating characteristics. Joint
+Gaussian-discrete fitting is not implemented. Includes three publicly
+archived LLM annotation datasets covering hate-speech, mental-health, and
+drug-review tasks. Discrete fitting retains conservative size limits; the
+preflight report describes supported designs and computational limits.
+Generalizability coefficients follow the variance-decomposition framework
+of Brennan (2001) <doi:10.1007/978-1-4757-3456-0>.
 
 %prep
 %setup -q -c -n %{packname}

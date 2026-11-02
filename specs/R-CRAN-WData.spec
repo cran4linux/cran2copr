@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  WData
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Inference for Weighted Data
 
@@ -18,17 +18,17 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-bayesmeta 
-BuildRequires:    R-CRAN-evmix 
 BuildRequires:    R-CRAN-KScorrect 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-bayesmeta 
-Requires:         R-CRAN-evmix 
 Requires:         R-CRAN-KScorrect 
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-Rdpack 
+Requires:         R-stats 
 
 %description
 Analyzes and models data subject to sampling biases. Provides functions to

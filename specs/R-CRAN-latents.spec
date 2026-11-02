@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  latents
-%global packver   0.9.21
+%global packver   1.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.21
+Version:          1.1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multilevel Latent Profile, Class and Transition Models
 
@@ -18,27 +18,27 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-utils 
+BuildRequires:    R-parallel 
 Requires:         R-stats 
-Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-utils 
+Requires:         R-parallel 
 
 %description
-Provides functions for fitting multilevel latent profile analysis, latent
-class, and latent transition models for continuous, categorical, and
-mixed-type variables. Models are estimated by expectation-maximization,
-handle missing data, and provide standard and robust standard errors.
-Model selection is supported by information criteria, entropy,
-classification diagnostics, and a parametric bootstrap likelihood ratio
-test. Covariates can be related to latent class membership using
-three-step methods with correction for classification error. Latent
-transition models estimate transitions between latent profiles across
-ordered occasions and are compatible with the 'tna' package for network
-and sequence analysis. The multilevel mixture formulation follows Vermunt
-(2003) <doi:10.1111/j.0081-1750.2003.t01-1-00131.x>.
+Fits single-level and multilevel latent profile and class models, latent
+transition models, and mixture regression and growth models for studying
+unobserved heterogeneity. Supported measurement models accommodate
+continuous, categorical, ordinal, count and mixed indicators. Provides
+model comparison, parameter inference, classification diagnostics and
+graphical summaries, with additional methods for membership covariates,
+staged estimation and analyses of external variables that account for
+classification error. Observed-data likelihood methods are available for
+incomplete indicators, and supported transition models can be represented
+as networks using the 'tna' package. The multilevel latent class
+formulation follows Vermunt (2003)
+<doi:10.1111/j.0081-1750.2003.t01-1-00131.x>.
 
 %prep
 %setup -q -c -n %{packname}

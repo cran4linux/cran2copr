@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  smacofx
-%global packver   1.22-0
+%global packver   1.26-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.22.0
+Version:          1.26.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flexible Multidimensional Scaling and 'smacof' Extensions
 
@@ -34,20 +34,22 @@ Requires:         R-CRAN-vegan
 
 %description
 Flexible multidimensional scaling (MDS) methods and extensions to the
-package 'smacof'. This package contains various functions, wrappers,
-methods and classes for fitting, plotting and displaying a large number of
-different flexible MDS models. These are: Torgerson scaling (Torgerson,
-1958, ISBN:978-0471879459) with powers, Sammon mapping (Sammon, 1969,
-<doi:10.1109/T-C.1969.222678>) with ratio and interval optimal scaling,
-Multiscale MDS (Ramsay, 1977, <doi:10.1007/BF02294052>) with ratio and
-interval optimal scaling, s-stress MDS (ALSCAL; Takane, Young & De Leeuw,
-1977, <doi:10.1007/BF02293745>) with ratio and interval optimal scaling,
-elastic scaling (McGee, 1966, <doi:10.1111/j.2044-8317.1966.tb00367.x>)
-with ratio and interval optimal scaling, r-stress MDS (De Leeuw, Groenen &
-Mair, 2016, <https://rpubs.com/deleeuw/142619>) with ratio, interval,
-splines and nonmetric optimal scaling, power-stress MDS (POST-MDS; Buja &
-Swayne, 2002 <doi:10.1007/s00357-001-0031-0>) with ratio and interval
-optimal scaling, restricted power-stress (Rusch, Mair & Hornik, 2021,
+package 'smacof' as described in Rusch, De Leeuw, Mair & Hornik (2026)
+<doi:10.18637/jss.v117.i07>. This package contains various functions,
+wrappers, methods and classes for fitting, plotting and displaying a large
+number of different flexible MDS models. These are: Torgerson scaling
+(Torgerson, 1958, ISBN:978-0471879459) with powers, Sammon mapping
+(Sammon, 1969, <doi:10.1109/T-C.1969.222678>) with ratio and interval
+optimal scaling, Multiscale MDS (Ramsay, 1977, <doi:10.1007/BF02294052>)
+with ratio and interval optimal scaling, s-stress MDS (ALSCAL; Takane,
+Young & De Leeuw, 1977, <doi:10.1007/BF02293745>) with ratio and interval
+optimal scaling, elastic scaling (McGee, 1966,
+<doi:10.1111/j.2044-8317.1966.tb00367.x>) with ratio and interval optimal
+scaling, r-stress MDS (De Leeuw, Groenen & Mair, 2016,
+<https://rpubs.com/deleeuw/142619>) with ratio, interval, splines and
+nonmetric optimal scaling, power-stress MDS (POST-MDS; Buja & Swayne, 2002
+<doi:10.1007/s00357-001-0031-0>) with ratio and interval optimal scaling,
+restricted power-stress (Rusch, Mair & Hornik, 2021,
 <doi:10.1080/10618600.2020.1869027>) with ratio and interval optimal
 scaling, approximate power-stress with ratio optimal scaling (Rusch, Mair
 & Hornik, 2021, <doi:10.1080/10618600.2020.1869027>), Box-Cox MDS (Chen &
@@ -60,14 +62,14 @@ dissimilarity powers functions (De Leeuw, 2024,
 <https://github.com/deleeuw/smacofManual/blob/main/smacofPO(power)/smacofPO.pdf>),
 sparsified (power) MDS and sparsified multidimensional (power) distance
 analysis aka extended curvilinear (power) component analysis and extended
-curvilinear (power) distance analysis (Rusch, 2024,
-<doi:10.57938/355bf835-ddb7-42f4-8b85-129799fc240e>). Some functions are
-suitably flexible to allow any other sensible combination of explicit
-power transformations for weights, distances and input proximities with
-implicit ratio, interval, splines or nonmetric optimal scaling of the
-input proximities. Most functions use a Majorization-Minimization
-algorithm. Currently the methods are only available for one-mode two-way
-data (symmetric dissimilarity matrices).
+curvilinear (power) distance analysis (Rusch, 2025,
+<doi:10.1002/sta4.70086>). Some functions are suitably flexible to allow
+any other sensible combination of explicit power transformations for
+weights, distances and input proximities with implicit ratio, interval,
+splines or nonmetric optimal scaling of the input proximities. Most
+functions use a Majorization-Minimization algorithm. Currently the methods
+are only available for one-mode two-way data (symmetric dissimilarity
+matrices).
 
 %prep
 %setup -q -c -n %{packname}

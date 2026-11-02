@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggvolc
-%global packver   0.1.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Volcano Plots for Differential Gene Expression Data
 
@@ -14,28 +14,38 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-ggtext 
-BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-gt 
+BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-grid 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-ggtext 
-Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-gt 
+Requires:         R-CRAN-patchwork 
 Requires:         R-grid 
+Requires:         R-grDevices 
+Requires:         R-methods 
+Requires:         R-stats 
 
 %description
-Provides functionality to create customizable volcano plots for
-visualizing differential gene expression analysis results. The package
-offers options to highlight genes of interest, adjust significance
-thresholds, customize colors, and add informative labels. Designed
-specifically for RNA-seq data analysis workflows.
+Creates customizable volcano plots for differential gene expression
+results from RNA-seq analyses. Accepts result objects or tables from
+'DESeq2', 'edgeR', and 'limma' directly, with automatic column detection.
+Labels the most significant or chosen genes, colors gene sets, compares
+several contrasts side by side, offers colorblind-safe color presets, and
+can produce interactive plots with 'ggiraph'. Gene tables are rendered
+with 'gt' and composed with 'patchwork'.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FCUSUM
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fourier CUSUM Cointegration Test
 
@@ -18,16 +18,21 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-utils 
 Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-utils 
 
 %description
-Implements the Fourier cumulative sum (CUSUM) cointegration test for
-detecting cointegration relationships in time series data with structural
-breaks. The test uses Fourier approximations to capture smooth structural
-changes and CUSUM statistics to test for cointegration stability. Based on
-methodology described in Zaghdoudi (2025) <doi:10.46557/001c.144076>. The
-corrected Akaike Information Criterion (AICc) is used for optimal
-frequency selection.
+Implements a Fourier CUSUM test for the null hypothesis of cointegration
+in the presence of smooth structural change. The cointegrating regression
+is estimated by dynamic OLS with a Fourier pair at a fractional or integer
+frequency, and the residual CUSUM statistic of Xiao and Phillips (2002)
+<doi:10.1016/S0304-4076(01)00103-8> is scaled by a Bartlett long-run
+variance estimate. A sup-F pre-test decides whether the Fourier terms are
+needed, and bootstrap critical values that replicate the frequency search
+give correct size when a break is present.
 
 %prep
 %setup -q -c -n %{packname}

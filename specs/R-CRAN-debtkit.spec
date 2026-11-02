@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  debtkit
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Debt Sustainability Analysis and Fiscal Risk Assessment
 
@@ -28,8 +28,8 @@ Requires:         R-stats
 
 %description
 Analyses government debt sustainability using the standard debt dynamics
-framework from Blanchard (1990) <doi:10.1787/budget-v2-art12-en> and the
-IMF Debt Sustainability Analysis methodology (IMF, 2013) and the Sovereign
+framework from Blanchard (1990) <doi:10.1787/435618162862> and the IMF
+Debt Sustainability Analysis methodology (IMF, 2013) and the Sovereign
 Risk and Debt Sustainability Framework (IMF, 2022). Projects debt-to-GDP
 paths, decomposes historical debt changes into interest, growth, and
 primary balance contributions, and estimates fiscal reaction functions

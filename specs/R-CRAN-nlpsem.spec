@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nlpsem
-%global packver   0.4
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonlinear Longitudinal Process in Structural Equation Modeling
 
@@ -18,27 +18,29 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-OpenMx >= 2.21.8
+BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-nnet 
-BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-methods 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-OpenMx >= 2.21.8
+Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-nnet 
-Requires:         R-CRAN-readr 
 Requires:         R-methods 
 Requires:         R-grDevices 
+Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-utils 
 
@@ -48,12 +50,14 @@ particular the intrinsically nonlinear models, in four scenarios: (1)
 univariate longitudinal processes with growth factors, with or without
 covariates including time-invariant covariates (TICs) and time-varying
 covariates (TVCs); (2) multivariate longitudinal processes that facilitate
-the assessment of correlation or causation between multiple longitudinal
-variables; (3) multiple-group models for scenarios (1) and (2) to evaluate
-differences among manifested groups, and (4) longitudinal mixture models
-for scenarios (1) and (2), with an assumption that trajectories are from
-multiple latent classes. The methods implemented are introduced in Liu
-(2025) <doi:10.3758/s13428-025-02596-4>.
+the assessment of associations and directional relationships between
+multiple longitudinal variables; (3) multiple-group models for scenarios
+(1) and (2) to evaluate differences among manifested groups, and (4)
+longitudinal mixture models for scenarios (1) and (2), with an assumption
+that trajectories are from multiple latent classes. Data can also be
+simulated from these models with the generating parameter values attached.
+The methods implemented are introduced in Liu (2025)
+<doi:10.3758/s13428-025-02596-4>.
 
 %prep
 %setup -q -c -n %{packname}

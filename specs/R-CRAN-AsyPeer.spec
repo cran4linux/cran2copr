@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  AsyPeer
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimating Asymmetric Peer Effects
+Summary:          Asymmetric Peer Effect Models
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -38,7 +38,7 @@ Requires:         R-CRAN-foreach
 Requires:         R-CRAN-doRNG 
 
 %description
-Simulating and estimating asymmetric peer-effect models (Houndetoungan and
+Simulating and estimating asymmetric peer effect models (Houndetoungan and
 Lambotte, 2026 <doi:10.48550/arXiv.2608.09219>). The model nests the
 widely used linear-in-means model (Manski, 1993 <doi:10.2307/2298123>;
 Bramoulle et al., 2009 <doi:10.1016/j.jeconom.2008.12.021>) and allows

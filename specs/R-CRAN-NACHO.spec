@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  NACHO
-%global packver   2.0.8
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.8
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          NanoString Quality Control Dashboard
 
@@ -14,28 +14,42 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.3
+Requires:         R-core >= 4.3
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
-BuildRequires:    R-CRAN-shiny >= 1.7.4
+BuildRequires:    R-CRAN-cli >= 3.6.0
+BuildRequires:    R-CRAN-yaml >= 2.3.12
 BuildRequires:    R-CRAN-scales >= 1.4.0
-BuildRequires:    R-CRAN-knitr >= 1.39
-BuildRequires:    R-CRAN-rmarkdown >= 1.16
+BuildRequires:    R-CRAN-promises >= 1.3.2
+BuildRequires:    R-CRAN-shiny >= 1.11.0
+BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-ggrepel >= 0.9.6
+BuildRequires:    R-CRAN-htmltools >= 0.5.9
 BuildRequires:    R-CRAN-ggforce >= 0.5.0
-BuildRequires:    R-CRAN-shinyWidgets >= 0.4.9
+BuildRequires:    R-CRAN-S7 >= 0.2.2
+BuildRequires:    R-CRAN-bslib >= 0.10.0
+BuildRequires:    R-CRAN-brand.yml >= 0.1.0
+BuildRequires:    R-methods 
 BuildRequires:    R-utils 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-data.table 
 Requires:         R-CRAN-ggplot2 >= 4.0.0
-Requires:         R-CRAN-shiny >= 1.7.4
+Requires:         R-CRAN-cli >= 3.6.0
+Requires:         R-CRAN-yaml >= 2.3.12
 Requires:         R-CRAN-scales >= 1.4.0
-Requires:         R-CRAN-knitr >= 1.39
-Requires:         R-CRAN-rmarkdown >= 1.16
+Requires:         R-CRAN-promises >= 1.3.2
+Requires:         R-CRAN-shiny >= 1.11.0
+Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-ggrepel >= 0.9.6
+Requires:         R-CRAN-htmltools >= 0.5.9
 Requires:         R-CRAN-ggforce >= 0.5.0
-Requires:         R-CRAN-shinyWidgets >= 0.4.9
+Requires:         R-CRAN-S7 >= 0.2.2
+Requires:         R-CRAN-bslib >= 0.10.0
+Requires:         R-CRAN-brand.yml >= 0.1.0
+Requires:         R-methods 
 Requires:         R-utils 
+Requires:         R-grDevices 
 Requires:         R-CRAN-data.table 
 
 %description

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cer
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download and Tidy Australian Clean Energy Regulator Data
 
@@ -32,11 +32,11 @@ Requires:         R-utils
 Fetch Australian Clean Energy Regulator data on carbon credits, safeguard
 mechanism facilities, renewable energy certificates, and greenhouse gas
 reporting. Provides tidy access to the Australian Carbon Credit Unit
-('ACCU') Scheme project register, Safeguard Mechanism baselines and
-covered emissions, Large-scale Renewable Energy Target ('LRET') power
-station accreditations, Small-scale Renewable Energy Scheme ('SRES')
-installation data, the National Greenhouse and Energy Reporting ('NGER')
-scheme, and Quarterly Carbon Market Reports
+(ACCU) Scheme project register, Safeguard Mechanism baselines and covered
+emissions, Large-scale Renewable Energy Target (LRET) power station
+accreditations, Small-scale Renewable Energy Scheme (SRES) installation
+data, the National Greenhouse and Energy Reporting (NGER) scheme, and
+Quarterly Carbon Market Reports
 <https://cer.gov.au/markets/reports-and-data>. Includes a post-Chubb ACCU
 integrity layer (Chubb 2022 Independent Review), Safeguard reform handling
 (declining industry baselines from July 2023), National Greenhouse and

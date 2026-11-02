@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ipw
-%global packver   1.3.1
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate Inverse Probability Weights
 
@@ -22,14 +22,12 @@ BuildRequires:    R-CRAN-nnet
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-geepack 
 BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-geepack 
 Requires:         R-graphics 
-Requires:         R-methods 
 Requires:         R-stats 
 
 %description

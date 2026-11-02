@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DendroFlux
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Processing and Analyzing Dendrometer and Sap Flux Data
 
@@ -35,11 +35,12 @@ conversion. The package also calculates multiple growth metrics of tree
 radial change data, including the cumulative growth over the entire
 observation period, daily cumulative growth, and growth changes between
 adjacent time intervals. Various approaches can be applied to calculate
-the night delta-Tmax required for sap flow (Peters et al., 2018, <doi:
-10.1111/nph.15241>) and subsequently estimate sap flow density (Granier,
-1987, <doi: 10.1093/treephys/3.4.309>). In addition, it supports the
-creation of simple time‑series point plots to visually display the dynamic
-changes in tree growth status or sap flow density during that period.
+the night delta-Tmax required for sap flow (Peters et al., 2018,
+<doi:10.1111/nph.15241>) and subsequently estimate sap flow density
+(Granier, 1987, <doi:10.1093/treephys/3.4.309>). In addition, it supports
+the creation of simple time‑series point plots to visually display the
+dynamic changes in tree growth status or sap flow density during that
+period.
 
 %prep
 %setup -q -c -n %{packname}

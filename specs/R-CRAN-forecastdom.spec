@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  forecastdom
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for (Un)Conditional Forecast Dominance
+Summary:          (Un)Conditional Forecast Dominance
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -31,15 +31,16 @@ unconditional and conditional equal and superior predictive ability,
 encompassing, and nested-model comparison. Implements the Diebold-Mariano
 test with the Harvey, Leybourne, and Newbold (1997)
 <doi:10.1016/S0169-2070(96)00719-4> small-sample correction; the
-Clark-West MSFE-adjusted statistic (Clark and West, 2007)
-<doi:10.1016/j.jeconom.2006.05.023>; the ENC-NEW encompassing test of
-Clark and McCracken (2001) <doi:10.1016/S0304-4076(01)00071-9>; the
-Giacomini-White conditional equal predictive ability test (Giacomini and
-White, 2006) <doi:10.1111/j.1468-0262.2006.00718.x>; Hansen's superior
-predictive ability test (Hansen, 2005) <doi:10.1198/073500105000000063>;
-the conditional superior predictive ability test of Li, Liao, and
-Quaedvlieg (2022) <doi:10.1093/restud/rdab039>; and the uniform and
-average multi-horizon SPA tests of Quaedvlieg (2021)
+Clark-West mean squared forecast error (MSFE) adjusted statistic (Clark
+and West, 2007) <doi:10.1016/j.jeconom.2006.05.023>; the ENC-NEW
+encompassing test of Clark and McCracken (2001)
+<doi:10.1016/S0304-4076(01)00071-9>; the Giacomini-White conditional equal
+predictive ability test (Giacomini and White, 2006)
+<doi:10.1111/j.1468-0262.2006.00718.x>; Hansen's superior predictive
+ability (SPA) test (Hansen, 2005) <doi:10.1198/073500105000000063>; the
+conditional superior predictive ability test of Li, Liao, and Quaedvlieg
+(2022) <doi:10.1093/restud/rdab039>; and the uniform and average
+multi-horizon SPA tests of Quaedvlieg (2021)
 <doi:10.1080/07350015.2019.1620074>.
 
 %prep

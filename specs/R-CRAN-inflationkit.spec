@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  inflationkit
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Inflation Decomposition, Core Measures, and Trend Estimation
 
@@ -29,12 +29,11 @@ Requires:         R-stats
 %description
 Tools for analysing inflation dynamics. Computes weighted contributions of
 price index components, core inflation measures (trimmed mean, weighted
-median, exclusion-based) following Bryan and Cecchetti (1994)
-<doi:10.1016/0304-3932(94)90030-2>, inflation persistence via
-sum-of-AR-coefficients, diffusion indices, Phillips curve estimation,
-breakeven inflation, and trend inflation using the Beveridge-Nelson
-decomposition and Hodrick-Prescott filter. All functions are pure
-computation and work with price data from any source.
+median, exclusion-based) following Bryan and Cecchetti (1994), inflation
+persistence via sum-of-AR-coefficients, diffusion indices, Phillips curve
+estimation, breakeven inflation, and trend inflation using the
+Beveridge-Nelson decomposition and Hodrick-Prescott filter. All functions
+are pure computation and work with price data from any source.
 
 %prep
 %setup -q -c -n %{packname}

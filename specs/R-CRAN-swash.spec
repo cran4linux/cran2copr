@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  swash
-%global packver   3.0.2
+%global packver   3.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.2
+Version:          3.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Health Geography Toolbox for Model-Based Analysis of Infections Panel Data
 
@@ -36,7 +36,7 @@ Requires:         R-methods
 Within epidemic outbreaks, infections grow and decline differently between
 regions, and the velocity of spatial spread differs between countries. The
 swash library offers a set of model-based analyses for these topics.
-Spread velocity may be analysed with the Swash-Backwash Model for the
+Spread velocity may be analysed with the Swash-Backwash Model of the
 Single Epidemic Wave by Cliff and Haggett (2006)
 <doi:10.1007/s10109-006-0027-8> and corresponding functions for bootstrap
 confidence intervals, country comparison, and visualization of results.

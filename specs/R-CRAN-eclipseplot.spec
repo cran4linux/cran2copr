@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eclipseplot
-%global packver   0.9.7
+%global packver   0.9.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.7
+Version:          0.9.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Graphical Visualizations for ROBUST-RCT Risk of Bias Assessments
+Summary:          Eclipse Plot: A Graphical Visualization for Risk of Bias Assessments with ROBUST
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -33,10 +33,8 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-readxl 
 
 %description
-Provides visual representations of risk-of-bias assessments using the
-ROBUST-RCT framework, as described in Wang et al. (2025)
-<doi:10.1136/bmj-2024-081199>. The graphical visualization displays both
-factual evaluation (Step 1) and judgment (Step 2).
+Provides a novel visualization tool for the ROBUST framework, displaying
+both factual evaluation (Step 1) and judgment (Step 2).
 
 %prep
 %setup -q -c -n %{packname}
