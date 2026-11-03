@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  staggeredGMM
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          GMM Estimation of Treatment Effects Under Staggered Adoption
 
@@ -33,8 +33,9 @@ schemes are provided, corresponding to a pooled stationary covariance, a
 cohort-specific stationary covariance, and an unrestricted within-cohort
 covariance. Optional adjustment for baseline covariates by outcome
 regression, and a serial-correlation robust over-identification test of
-parallel trends and no anticipation, are also supported. The methods are
-described in Arora and Bijani (2026) <doi:10.2139/ssrn.6558759>.
+unconditional parallel trends and no anticipation, are also supported. The
+methods are described in Arora and Bijani (2026)
+<doi:10.2139/ssrn.6558759>.
 
 %prep
 %setup -q -c -n %{packname}

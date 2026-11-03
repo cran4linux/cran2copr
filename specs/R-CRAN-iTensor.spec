@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  iTensor
-%global packver   0.99.0
+%global packver   1.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.99.0
+Version:          1.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          ICA-Based Matrix/Tensor Decomposition
 
@@ -13,24 +14,35 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rTensor 
+BuildRequires:    R-graphics 
+BuildRequires:    R-utils 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-rTensor 
+BuildRequires:    R-CRAN-jointDiag 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-einsum 
 Requires:         R-CRAN-MASS 
 Requires:         R-methods 
-Requires:         R-CRAN-rTensor 
+Requires:         R-graphics 
+Requires:         R-utils 
 Requires:         R-stats 
+Requires:         R-CRAN-rTensor 
+Requires:         R-CRAN-jointDiag 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-einsum 
 
 %description
-Some functions for performing ICA, MICA, and Multilinear ICA are
-implemented. ICA, MICA, and Multilinear ICA extract statistically
-independent components from single matrix, multiple matrices, and single
-tensor, respectively. For the details of these methods, see the reference
-section of GitHub README.md <https://github.com/rikenbit/iTensor>.
+Some functions for performing ICA, MICA, Group ICA, and Multilinear ICA
+are implemented. ICA, MICA/Group ICA, and Multilinear ICA extract
+statistically independent components from single matrix, multiple
+matrices, and single tensor, respectively. For the details of these
+methods, see the reference section of GitHub README.md
+<https://github.com/rikenbit/iTensor>.
 
 %prep
 %setup -q -c -n %{packname}

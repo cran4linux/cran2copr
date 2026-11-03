@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  testflow
-%global packver   1.0.0
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Workflow for Statistical Testing and Interpretation
 
@@ -17,26 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-basetable >= 1.4.1
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-car 
+Requires:         R-CRAN-basetable >= 1.4.1
 Requires:         R-stats 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-survival 

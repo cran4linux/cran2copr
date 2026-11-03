@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  caverify
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Strength-t Coverage Verification for Covering Arrays
 
@@ -25,8 +25,11 @@ check for covering arrays, using compiled C code with optional 'OpenMP'
 threading. Supports uniform and mixed-level (per-column symbol counts)
 arrays. Missing values mark flexible ("don't care") entries, which
 contribute nothing to coverage, so a verified array remains covering
-however they are filled. Designed to be easy to embed in other packages: a
-single C file with a registered .Call entry point and one R wrapper.
+however they are filled. Each set of t-1 columns is checked against all
+later columns at once, one bit per column, which is many times faster than
+checking every set of t columns on its own on large arrays. Designed to be
+easy to embed in other packages: a single C file with a registered .Call
+entry point and one R wrapper.
 
 %prep
 %setup -q -c -n %{packname}

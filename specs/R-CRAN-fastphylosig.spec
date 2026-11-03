@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fastphylosig
-%global packver   0.3.1
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Phylogenetic Signal Statistics
 
@@ -36,9 +36,11 @@ combines discrete ancestral-state likelihoods with MCMC and permutation
 diagnostics. The package also provides reusable prepared trees, explicit
 tree/data matching, trait-wise missing-value handling, conservative tree
 diagnostics, bounded simulation memory, and structured timing and Monte
-Carlo uncertainty metadata. Methods follow Blomberg, Garland and Ives
-(2003) <doi:10.1111/j.0014-3820.2003.tb00285.x> for K, Pagel (1999)
-<doi:10.1038/44766> for lambda, Fritz and Purvis (2010)
+Carlo uncertainty metadata. Clade scans describe local and overall signal
+in continuous, binary and multistate traits, with optional model-reference
+tests of signal dispersion or deviation. Methods follow Blomberg, Garland
+and Ives (2003) <doi:10.1111/j.0014-3820.2003.tb00285.x> for K, Pagel
+(1999) <doi:10.1038/44766> for lambda, Fritz and Purvis (2010)
 <doi:10.1111/j.1523-1739.2010.01455.x> for D, and Borges et al. (2019)
 <doi:10.1093/bioinformatics/bty800> for categorical Delta.
 

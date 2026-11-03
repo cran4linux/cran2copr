@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  metathis
-%global packver   1.1.4
+%global packver   1.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          HTML Metadata Tags for 'R Markdown' and 'Shiny'
 
@@ -17,14 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-purrr >= 1.0.0
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
+Requires:         R-CRAN-purrr >= 1.0.0
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
 
 %description
 Create meta tags for 'R Markdown' HTML documents and 'Shiny' apps for

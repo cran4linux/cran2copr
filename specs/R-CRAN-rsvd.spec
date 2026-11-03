@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rsvd
-%global packver   1.0.6
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Randomized Singular Value Decomposition
 
@@ -14,26 +14,28 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-Matrix >= 1.7.0
+BuildRequires:    R-methods 
+Requires:         R-CRAN-Matrix >= 1.7.0
+Requires:         R-methods 
 
 %description
-Low-rank matrix decompositions are fundamental tools and widely used for
-data analysis, dimension reduction, and data compression. Classically,
-highly accurate deterministic matrix algorithms are used for this task.
-However, the emergence of large-scale data has severely challenged our
-computational ability to analyze big data. The concept of randomness has
-been demonstrated as an effective strategy to quickly produce approximate
-answers to familiar problems such as the singular value decomposition
-(SVD). The rsvd package provides several randomized matrix algorithms such
-as the randomized singular value decomposition (rsvd), randomized
-principal component analysis (rpca), randomized robust principal component
-analysis (rrpca), randomized interpolative decomposition (rid), and the
-randomized CUR decomposition (rcur). In addition several plot functions
-are provided.
+Computes low-rank matrix approximations for dimension reduction, data
+analysis, and compression. Randomized algorithms use random weighted
+combinations of the input to find a small subspace, then factorize the
+projected matrix. This can reduce the work when the requested rank is
+small relative to the matrix dimensions and the input has a useful
+low-rank approximation. Methods include singular value decomposition,
+principal component analysis, QB factorization, and interpolative and CUR
+decompositions. Robust principal component analysis separates a matrix
+into low-rank and entrywise sparse components. Selected routines support
+sparse matrices, including principal component analysis with implicit
+centering and scaling. Plotting functions display scores, loadings, and
+explained variance. See Erichson et al. (2019) <doi:10.18637/jss.v089.i11>
+for the algorithms and examples of their use.
 
 %prep
 %setup -q -c -n %{packname}

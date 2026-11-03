@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  maxtwin
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Robust Deterministic Data Splitting Method
 
@@ -25,9 +25,9 @@ Requires:         R-CRAN-FNN
 %description
 Provides a deterministic method for splitting data into training and
 testing sets that maximizes the distance between training and testing
-points while preserving their distributions. See Joseph and Cho (in press)
-for details. This work is supported by U.S. National Science Foundation
-grant DMS-2310637.
+points while preserving their distributions. See Joseph and Cho (2026)
+<doi:10.1080/10618600.2026.2754089> for details. This work is supported by
+U.S. National Science Foundation grant DMS-2310637.
 
 %prep
 %setup -q -c -n %{packname}

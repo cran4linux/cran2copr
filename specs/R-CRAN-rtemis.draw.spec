@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rtemis.draw
-%global packver   0.5.3
+%global packver   0.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          0.5.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Schema-Driven Interactive Charts, Network Graphs, and Maps
+Summary:          Schema-Driven Interactive Charts, Networks, Maps, and Diagrams
 
 License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.4.0
 Requires:         R-core >= 4.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rtemis.core >= 0.4.6
+BuildRequires:    R-CRAN-rtemis.core >= 0.4.7
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-jsonlite 
@@ -27,7 +27,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-viridisLite 
-Requires:         R-CRAN-rtemis.core >= 0.4.6
+Requires:         R-CRAN-rtemis.core >= 0.4.7
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-jsonlite 
@@ -39,17 +39,18 @@ Requires:         R-utils
 Requires:         R-CRAN-viridisLite 
 
 %description
-Create interactive statistical charts, network graphs and choropleth maps.
-Charts are rendered with the 'ECharts' 'JavaScript' library, networks with
-'Sigma.js' and maps with 'MapLibre GL JS'. A high-level interface of
-plotting functions builds a complete visualization from data in a single
-call, while a low-level interface gives full control over every option.
-Both are based on the same type-checked and validated 'S7' configuration
-objects. Configurations can be saved to and restored from 'JSON' files,
-and each chart type has a published 'JSON Schema' that other interfaces
-can implement. Visualizations display as 'htmlwidgets' that automatically
-adapt to light and dark themes, work in 'R Markdown', 'Quarto' and
-'shiny', and can be exported to Scalable Vector Graphics (SVG) files using
+Create interactive statistical charts, network graphs, choropleth maps,
+and diagrams. Charts are rendered with the 'ECharts' 'JavaScript' library,
+networks with 'Sigma.js', maps with 'MapLibre GL JS', and diagrams written
+in 'Mermaid' syntax with 'Pele'. A high-level interface of plotting
+functions builds a complete visualization from data in a single call,
+while a low-level interface gives full control over every option. Both are
+based on the same type-checked and validated 'S7' configuration objects.
+Configurations can be saved to and restored from JSON files, and each
+chart type has a published JSON Schema that other interfaces can
+implement. Visualizations display as 'htmlwidgets' that automatically
+adapt to light and dark themes, work in R Markdown, 'Quarto', and 'shiny',
+and can be exported to Scalable Vector Graphics (SVG) files using
 'Node.js'.
 
 %prep

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  litedown
-%global packver   0.11
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Lightweight Version of R Markdown
 
@@ -16,18 +16,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-commonmark >= 2.0.0
-BuildRequires:    R-CRAN-xfun >= 0.55
+BuildRequires:    R-CRAN-xfun >= 0.62
 BuildRequires:    R-utils 
-Requires:         R-CRAN-commonmark >= 2.0.0
-Requires:         R-CRAN-xfun >= 0.55
+Requires:         R-CRAN-xfun >= 0.62
 Requires:         R-utils 
 
 %description
 Render R Markdown to Markdown (without using 'knitr'), and Markdown to
-lightweight HTML or 'LaTeX' documents with the 'commonmark' package
-(instead of 'Pandoc'). Some missing Markdown features in 'commonmark' are
+lightweight HTML or 'LaTeX' documents via the bundled 'cmark-gfm' library
+(instead of 'Pandoc'). Some missing Markdown features in 'cmark-gfm' are
 also supported, such as raw HTML or 'LaTeX' blocks, 'LaTeX' math,
 superscripts, subscripts, footnotes, element attributes, and appendices,
 but not all 'Pandoc' Markdown features are (or will be) supported. With

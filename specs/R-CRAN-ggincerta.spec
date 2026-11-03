@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggincerta
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extend 'ggplot2' with Layers and Scales for Spatial Uncertainty Visualization
 
@@ -47,7 +47,7 @@ Requires:         R-CRAN-withr
 %description
 Provide specialized 'ggplot2' layers and scales for spatial uncertainty
 visualization, including bivariate choropleth maps, pixel maps, glyph
-maps, and exceedance probability maps.
+maps, and dual maps.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mfp2
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariable Fractional Polynomial Models with Extensions
 
@@ -16,27 +16,37 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-stats 
 Requires:         R-CRAN-survival 
+Requires:         R-CRAN-nnet 
 Requires:         R-utils 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Multivariable fractional polynomial algorithm simultaneously selects
-variables and functional forms in both generalized linear models and Cox
-proportional hazard models. Key references are Royston and Altman (1994)
+Fits multivariable fractional polynomial models with selection of
+predictors and functional forms. The mfp2() function supports generalized
+linear models, including Gamma and inverse-Gaussian regression;
+negative-binomial, multinomial and ordinal regression; generalized
+estimating equations for clustered data; Cox and parametric survival
+models; and Fine-Gray competing-risks models. Extensions include
+approximate cumulative distribution transformations for sigmoid-shaped
+associations and spike-at-zero modelling for semi-continuous covariates.
+The mfpi() function assesses interactions between a categorical grouping
+variable and continuous, binary, or categorical predictors. Fractional
+polynomial modelling is described by Royston and Altman (1994)
 <doi:10.2307/2986270> and Royston and Sauerbrei (2008,
-ISBN:978-0-470-02842-1). In addition, it can model a sigmoid relationship
-between variable x and an outcome variable y using the approximate
-cumulative distribution transformation proposed by Royston (2014)
-<doi:10.1177/1536867X1401400206>. This feature distinguishes it from a
-standard fractional polynomial function, which lacks the ability to
-achieve such modeling.
+ISBN:978-0-470-02842-1). The approximate cumulative distribution extension
+follows Royston (2014) <doi:10.1177/1536867X1401400206> and Royston and
+Sauerbrei (2016) <doi:10.1177/1536867X1601600109>. Spike-at-zero modelling
+follows Becher et al. (2012) <doi:10.1002/bimj.201100263>. Interaction
+analyses follow Royston and Sauerbrei (2004) <doi:10.1002/sim.1815>,
+Royston and Sauerbrei (2013) <doi:10.1002/sim.5813>, and Royston and
+Sauerbrei (2014) <doi:10.1002/sim.6308>.
 
 %prep
 %setup -q -c -n %{packname}

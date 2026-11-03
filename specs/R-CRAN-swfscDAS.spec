@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  swfscDAS
-%global packver   0.6.4
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.4
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Processing DAS Data Files
 
@@ -14,12 +14,11 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-purrr 
@@ -30,7 +29,6 @@ BuildRequires:    R-CRAN-swfscMisc
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
 Requires:         R-parallel 
 Requires:         R-CRAN-purrr 
@@ -42,8 +40,7 @@ Requires:         R-CRAN-tidyr
 
 %description
 Process and summarize DAS data files. These files are typically, but do
-not have to be DAS
-<https://swfsc-publications.fisheries.noaa.gov/publications/TM/SWFSC/NOAA-TM-NMFS-SWFSC-305.PDF>
+not have to be DAS <https://repository.library.noaa.gov/view/noaa/3174>
 data produced by the Southwest Fisheries Science Center (SWFSC) program
 'WinCruz'. This package standardizes and streamlines basic DAS data
 processing, and includes a PDF with the DAS data format requirements

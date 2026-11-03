@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggchord
-%global packver   0.8.0
+%global packver   0.16.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.16.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multi-Sequence Alignment Chord Diagram Visualization Tool
+Summary:          Layered Chord, Circular and Linear Sequence Visualization
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,17 +20,22 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
 BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
 Requires:         R-CRAN-ggplot2 >= 4.0.0
 Requires:         R-grDevices 
 Requires:         R-grid 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
 
 %description
-A 'ggplot2'-based R package that visualizes multi-sequence alignment
-results as chord diagrams using layered grammar of graphics. Users build
-chord plots by stacking geom layers (geom_seq, geom_ribbon, geom_gene,
-geom_axis). Layout parameters are specified within each geom layer,
-following 'ggplot2' conventions. Homologous regions between query and
-subject sequences are intuitively displayed.
+A 'ggplot2'-based package for multi-sequence alignment chord diagrams,
+linear collinearity plots and single circular sequence maps. A layered
+grammar combines sequence backbones, interval links, genes, general
+biological features, labels, quantitative tracks, genomic axes and
+restriction sites. Feature placement is expressed with reusable Position
+objects, while role-specific scales and themes keep data mapping separate
+from geometry and appearance.
 
 %prep
 %setup -q -c -n %{packname}

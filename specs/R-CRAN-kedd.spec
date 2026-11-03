@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  kedd
-%global packver   1.0.4
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Kernel Estimator and Bandwidth Selection for Density and Its Derivatives
 
@@ -14,14 +14,38 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15.0
-Requires:         R-core >= 2.15.0
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-Rcpp >= 1.0.0
+Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
-Smoothing techniques and computing bandwidth selectors of the nth
-derivative of a probability density for one-dimensional data (described in
-Arsalane Chouaib Guidoum (2020) <arXiv:2012.06102> [stat.CO]).
+Kernel estimation of a univariate probability density and of its
+derivatives of any order r, with data-driven bandwidth selection. Provides
+the kernel estimator of the derivative of order r, the kernels, their
+derivatives and convolutions, and eight bandwidth selectors: the
+asymptotic MISE rule (AMISE), and unbiased (UCV), biased (BCV1, BCV2),
+complete (CCV), modified (MCV), trimmed (TCV), smoothed (SCV) and
+maximum-likelihood (MLCV) cross-validation. Supports ten named kernels
+(Gaussian, Epanechnikov, uniform, triangular, biweight, triweight,
+tricube, cosine, Silverman, logistic) and the power family Pow(s,t),
+c(1-|x|^s)^t on [-1,1]. Results are S4 objects with 'ggplot2' graphics;
+the O(n^2) criteria are computed in C++ ('Rcpp') with 'OpenMP'
+parallelism. Includes five example samples from Marron and Wand (1992)
+normal mixtures, a vignette and demos. Companion to Guidoum (2020)
+<doi:10.48550/arXiv.2012.06102>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  qs2
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient Serialization of R Objects
 
@@ -17,10 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildRequires:    R-CRAN-RcppParallel >= 6.1.1
-BuildRequires:    R-CRAN-stringfish >= 0.18.0
+BuildRequires:    R-CRAN-charport >= 0.1.1
 BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-RcppParallel >= 6.1.1
-Requires:         R-CRAN-stringfish >= 0.18.0
+Requires:         R-CRAN-charport >= 0.1.1
 Requires:         R-CRAN-Rcpp 
 
 %description

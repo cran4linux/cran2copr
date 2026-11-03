@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rtemis.llm
-%global packver   0.8.7
+%global packver   0.8.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.7
+Version:          0.8.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Large Language Models and Agentic AI
 
-License:          GPL (>= 3)
+License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -20,29 +20,31 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-jsonvalidate >= 1.5.0
 BuildRequires:    R-CRAN-rtemis.core >= 0.4.6
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-openssl 
 BuildRequires:    R-CRAN-S7 
 Requires:         R-CRAN-jsonvalidate >= 1.5.0
 Requires:         R-CRAN-rtemis.core >= 0.4.6
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-digest 
 Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-openssl 
 Requires:         R-CRAN-S7 
 
 %description
 Unified interface for creating LLM and Agent objects, generating responses
 and performing batch inference based on a type-checked and validated 'S7'
-backend. Features reasoning, structured output, memory management, and
-tool use. Supports 'Ollama' <https://docs.ollama.com/api>,
+backend. Features reasoning, structured output, image input, memory
+management, and tool use. Supports 'Ollama' <https://docs.ollama.com/api>,
 'OpenAI'-compatible
 <https://developers.openai.com/api/reference/overview>, and
 'Anthropic'-compatible
 <https://platform.claude.com/docs/en/api/getting-started> endpoints. Runs
 Apple's on-device 'Foundation Models' through the 'rtemis-afm' bridge
-<https://github.com/rtemis-org/rtemis-afm>.
+<https://github.com/rtemis-org/rtemis-afm>. Fills closed schemas and
+answers typed questions with decision models served by 'Ollama' and
+'OpenRouter' <https://openrouter.ai>.
 
 %prep
 %setup -q -c -n %{packname}

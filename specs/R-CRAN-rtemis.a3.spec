@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rtemis.a3
-%global packver   0.5.3
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Amino Acid Annotation (A3) Format
 
@@ -19,13 +19,17 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-rtemis.core 
 BuildRequires:    R-CRAN-S7 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-rtemis.core 
 Requires:         R-CRAN-S7 
+Requires:         R-stats 
 Requires:         R-utils 
 
 %description

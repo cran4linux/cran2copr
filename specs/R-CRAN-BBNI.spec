@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BBNI
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Inference of Boolean Genetic Networks
 
@@ -19,8 +19,12 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-graphics 
+BuildRequires:    R-utils 
 Requires:         R-stats 
 Requires:         R-CRAN-igraph 
+Requires:         R-graphics 
+Requires:         R-utils 
 
 %description
 Implements a fully Bayesian Markov chain Monte Carlo (MCMC) approach for

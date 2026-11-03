@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rpsurv
-%global packver   0.7.1
+%global packver   0.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.8.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Royston-Parmar Flexible Parametric Survival Models
 
@@ -33,9 +33,11 @@ Requires:         R-grDevices
 Fits Royston-Parmar flexible parametric survival models (Royston and
 Parmar, 2002) <doi:10.1002/sim.1203> on the log cumulative hazard, odds,
 and probit scales, with time-varying (non-proportional) covariate effects
-via restricted cubic splines in log time. The likelihood and its analytic
-gradient are evaluated in C++ with 'RcppParallel', giving large speedups
-over pure-R implementations for large datasets.
+via restricted cubic splines in log time, and smooth non-linear covariate
+effects via restricted cubic splines in the covariate, each with its own
+argument. The likelihood and its analytic gradient are evaluated in C++
+with 'RcppParallel', giving large speedups over pure-R implementations for
+large datasets.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tsmarch
-%global packver   1.0.0
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate ARCH Models
 
@@ -14,17 +14,18 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-tsgarch >= 1.0.3
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-Rsolnp >= 2.0.0
+BuildRequires:    R-CRAN-Rcpp >= 1.1.1
+BuildRequires:    R-CRAN-tsgarch >= 1.0.5
+BuildRequires:    R-CRAN-tsdistributions >= 1.0.3
 BuildRequires:    R-CRAN-tsmethods >= 1.0.2
-BuildRequires:    R-CRAN-tsdistributions >= 1.0.2
-BuildRequires:    R-CRAN-Rcpp >= 0.10.6
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-RcppParallel 
 BuildRequires:    R-CRAN-RcppBessel 
-BuildRequires:    R-CRAN-Rsolnp 
 BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-CRAN-flextable 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-shape 
@@ -39,15 +40,16 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-tsgarch >= 1.0.3
+Requires:         R-CRAN-Rsolnp >= 2.0.0
+Requires:         R-CRAN-tsgarch >= 1.0.5
+Requires:         R-CRAN-tsdistributions >= 1.0.3
 Requires:         R-CRAN-tsmethods >= 1.0.2
-Requires:         R-CRAN-tsdistributions >= 1.0.2
 Requires:         R-methods 
-Requires:         R-CRAN-Rcpp >= 0.10.6
+Requires:         R-CRAN-Rcpp >= 1.1.1
 Requires:         R-CRAN-RcppParallel 
 Requires:         R-CRAN-RcppBessel 
-Requires:         R-CRAN-Rsolnp 
 Requires:         R-CRAN-nloptr 
+Requires:         R-CRAN-flextable 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-shape 

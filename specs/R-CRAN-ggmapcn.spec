@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggmapcn
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Customizable China and Global Map Visualizations
 
@@ -37,10 +37,15 @@ Requires:         R-CRAN-digest
 Requires:         R-grid 
 
 %description
-A 'ggplot2' extension centered on map visualization of China and the
-globe. Provides customizable projections, boundary styles, coordinate
-grids, scale bars, and buffer zones for thematic maps, suitable for
-spatial data analysis and cartographic visualization.
+Provides 'ggplot2' layers and annotations for thematic mapping of China
+and the world. Uses administrative division data from the 'Tianditu'
+geospatial information service and separate layers for land borders,
+coastlines, and maritime boundaries. Supports province-, city-, and
+county-level maps, map projections, graticules, scale bars, north arrows,
+boundary buffers, and elevation and vegetation raster layers. The package
+provides default map datasets. Larger data files are hosted in a companion
+repository <https://github.com/Rimagination/ggmapcn-data> and retrieved as
+needed.
 
 %prep
 %setup -q -c -n %{packname}

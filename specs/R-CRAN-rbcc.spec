@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rbcc
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Risk-Based Control Charts
 
@@ -35,11 +35,12 @@ Implements univariate and multivariate risk-based control charts for
 statistical process control in the presence of measurement uncertainty.
 Available charts include Shewhart X-bar, R, and S charts, moving-average
 charts, exponentially weighted moving-average charts, cumulative-sum
-charts, and Hotelling T-squared charts. Chart parameters can be optimized
-by minimizing the total cost of the four decision outcomes. The
-methodology is described by Kosztyan and Katona (2016)
-<doi:10.1016/j.eswa.2016.06.019>, Kosztyan and Katona (2018)
-<doi:10.1016/j.cie.2018.04.052>, Katona et al. (2023)
+charts, and Hotelling T-squared charts. Chart limits can be selected by
+exact empirical threshold optimization, bounded numerical optimization, or
+sequential and optional parallel grid search while minimizing the total
+cost of four decision outcomes. The methodology is described by Kosztyan
+and Katona (2016) <doi:10.1016/j.eswa.2016.06.019>, Kosztyan and Katona
+(2018) <doi:10.1016/j.cie.2018.04.052>, Katona et al. (2023)
 <doi:10.1109/ACCESS.2023.3312226>, Saghir et al. (2025)
 <doi:10.1016/j.rineng.2025.107278>, and Saghir et al. (2026)
 <doi:10.1016/j.rico.2026.100661>.
