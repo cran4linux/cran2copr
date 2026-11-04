@@ -1,36 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RationalExp
-%global packver   0.2.2
+%global packname  r2sbml
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Rationalizing Rational Expectations. Tests and Deviations
+Summary:          Read 'SBML' Models and Convert Them to Simulation Code
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-snowfall 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-snowfall 
-Requires:         R-stats 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 0.12.6
+Requires:         R-CRAN-Rcpp >= 0.12.6
 
 %description
-We implement a test of the rational expectations hypothesis based on the
-marginal distributions of realizations and subjective beliefs from
-D'Haultfoeuille, Gaillac, and Maurel (2018) <doi:10.3386/w25274>. This
-test can be used in cases where realizations and subjective beliefs are
-observed in two different datasets that cannot be matched, or when they
-are observed in the same dataset. The package also computes the estimator
-of the minimal deviations from rational expectations than can be
-rationalized by the data.
+Reads models in the Systems Biology Markup Language ('SBML') (Hucka et al.
+(2003) <doi:10.1093/bioinformatics/btg015>) through the bundled 'libSBML'
+library (Bornstein et al. (2008) <doi:10.1093/bioinformatics/btn051>).
+Lists a model's species, parameters, compartments, reactions, rules,
+events and function definitions, and converts the model into ready-to-run
+simulation code for 'deSolve', 'mrgsolve', 'rxode2', 'MATLAB', 'Julia' or
+'ubiquity'. Models are read, not modified.
 
 %prep
 %setup -q -c -n %{packname}

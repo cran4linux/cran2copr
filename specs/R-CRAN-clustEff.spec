@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  clustEff
-%global packver   0.3.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Clusters of Effects Curves in Quantile Regression Models
 
@@ -14,24 +14,30 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-qrcm 
 BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-fda 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-qrcm 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-splines 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-fda 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-splines 
+Requires:         R-stats 
 
 %description
-Clustering method to cluster both effects curves, through quantile
-regression coefficient modeling, and curves in functional data analysis.
-Sottile G. and Adelfio G. (2019) <doi:10.1007/s00180-018-0817-8>.
+Clustering of curves based on a dissimilarity that combines the
+concordance of their shapes and their closeness, as proposed by Sottile
+and Adelfio (2019) <doi:10.1007/s00180-018-0817-8>. The method can be
+applied to the effects curves of quantile regression coefficients models
+fitted with 'qrcm', with univariate or multivariate responses, and to
+curves observed in time, as in functional data analysis. The package also
+implements the clustering of waveforms by trimmed k-means of functional
+principal component scores (Adelfio, Chiodi, D'Alessandro and Luzio,
+2011).
 
 %prep
 %setup -q -c -n %{packname}

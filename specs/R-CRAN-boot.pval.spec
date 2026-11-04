@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  boot.pval
-%global packver   0.7.0
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bootstrap p-Values
 
@@ -21,20 +21,10 @@ BuildRequires:    R-CRAN-boot
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-rms 
-BuildRequires:    R-CRAN-gt 
-BuildRequires:    R-CRAN-flextable 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-car 
 Requires:         R-stats 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-rms 
-Requires:         R-CRAN-gt 
-Requires:         R-CRAN-flextable 
 
 %description
 Computation of bootstrap p-values through inversion of confidence

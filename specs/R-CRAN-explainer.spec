@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  explainer
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Machine Learning Model Explainer
 
@@ -22,7 +22,6 @@ BuildRequires:    R-CRAN-data.table
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-egg 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggpmisc 
 BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-plotly 
@@ -36,7 +35,6 @@ Requires:         R-CRAN-data.table
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-egg 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggpmisc 
 Requires:         R-CRAN-ggpubr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-plotly 

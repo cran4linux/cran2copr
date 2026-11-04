@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  jmBIG
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Joint Longitudinal and Survival Model for Big Data
 
@@ -17,18 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-FastJM >= 1.7.0
 BuildRequires:    R-CRAN-JMbayes2 
 BuildRequires:    R-CRAN-joineRML 
 BuildRequires:    R-CRAN-rstanarm 
-BuildRequires:    R-CRAN-FastJM 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-FastJM >= 1.7.0
 Requires:         R-CRAN-JMbayes2 
 Requires:         R-CRAN-joineRML 
 Requires:         R-CRAN-rstanarm 
-Requires:         R-CRAN-FastJM 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-survival 

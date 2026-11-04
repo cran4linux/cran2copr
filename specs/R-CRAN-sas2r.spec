@@ -1,49 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  iSTATS
-%global packver   1.8
+%global packname  sas2r
+%global packver   0.5.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8
+Version:          0.5.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Graphical Interface to Perform STOCSY Analyses on NMR Data
+Summary:          Translate 'SAS' Programs to R with Dependency-Aware Migration
 
-License:          GPL (>= 3)
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-gtools >= 3.8.1
-BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
-BuildRequires:    R-CRAN-shiny >= 1.6.0
-BuildRequires:    R-CRAN-shinyBS >= 0.61
-BuildRequires:    R-CRAN-shinyWidgets >= 0.4.3
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-cli >= 3.4
+BuildRequires:    R-CRAN-callr 
+BuildRequires:    R-CRAN-clue 
+BuildRequires:    R-CRAN-filelock 
+BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-gtools >= 3.8.1
-Requires:         R-CRAN-ggplot2 >= 3.0.0
-Requires:         R-CRAN-shiny >= 1.6.0
-Requires:         R-CRAN-shinyBS >= 0.61
-Requires:         R-CRAN-shinyWidgets >= 0.4.3
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-cli >= 3.4
+Requires:         R-CRAN-callr 
+Requires:         R-CRAN-clue 
+Requires:         R-CRAN-filelock 
+Requires:         R-CRAN-haven 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-stats 
+Requires:         R-CRAN-tibble 
 Requires:         R-utils 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-yaml 
 
 %description
-Launches a 'shiny' based application for Nuclear Magnetic Resonance (NMR)
-data importation and Statistical TOtal Correlation SpectroscopY (STOCSY)
-analyses in a full interactive approach. The theoretical background and
-applications of the STOCSY method are described by Cloarec, O., Dumas, M.
-E., Craig, A., Barton, R. H., Trygg, J., Hudson, J., Blancher, C.,
-Gauguier, D., Lindon, J. C., Holmes, E. & Nicholson, J. (2005)
-<doi:10.1021/ac048630x>. Spectral alignment follows the interval
-correlation optimized shifting method of Savorani, F., Tomasi, G. &
-Engelsen, S. B. (2010) <doi:10.1016/j.jmr.2009.11.012>.
+Translates 'SAS' programs and projects into R code, orders connected
+programs by their dependencies, and executes generated code. Compares
+generated datasets with supplied reference outputs and reports unresolved
+translation and validation findings. Rule-based translation works offline
+without a 'SAS' installation. Optional language model translation, review,
+and repair use a user-configured provider through 'ellmer' and may require
+an account and API credentials.
 
 %prep
 %setup -q -c -n %{packname}

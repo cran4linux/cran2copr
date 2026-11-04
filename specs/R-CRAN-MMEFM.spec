@@ -1,43 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  CancerGram
-%global packver   1.0.0
+%global __requires_exclude ^libmpi
+%global packname  MMEFM
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Prediction of Anticancer Peptides
+Summary:          Multilevel Main Effects Matrix Factor Model Tools
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-biogram 
-BuildRequires:    R-CRAN-devtools 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-ranger 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-biogram 
-Requires:         R-CRAN-devtools 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-ranger 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-parallel 
+BuildRequires:    R-stats 
+Requires:         R-parallel 
+Requires:         R-stats 
 
 %description
-Predicts anticancer peptides using random forests trained on the n-gram
-encoded peptides. The implemented algorithm can be accessed from both the
-command line and shiny-based GUI. The CancerGram model is too large for
-CRAN and it has to be downloaded separately from the repository:
-<https://github.com/BioGenies/CancerGramModel>. For more information see:
-Burdukiewicz et al. (2020) <doi:10.3390/pharmaceutics12111045>.
+Provides estimation, rank selection, and simulation for grouped
+matrix-valued time series using the Multilevel Main Effects Matrix Factor
+Model. The model separates global and local grand means, row and column
+main effects, and bilinear interaction components, allowing nonstationary
+main effects under suitable conditions. A circular-shift bootstrap is used
+to detect a shared global common component and screen participating groups
+on a stationary segment. The underlying methodology is developed in Liu,
+Lam and Cen (2026) <doi:10.48550/arXiv.2610.18335>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,6 +40,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

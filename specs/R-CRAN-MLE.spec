@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MLE
-%global packver   1.9
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Maximum Likelihood Estimation of Various Univariate and Multivariate Distributions
 
@@ -22,11 +22,14 @@ BuildRequires:    R-CRAN-bivpois
 BuildRequires:    R-CRAN-CCd 
 BuildRequires:    R-CRAN-COMPoissonReg 
 BuildRequires:    R-CRAN-Compositional 
+BuildRequires:    R-CRAN-Compositionalcln 
+BuildRequires:    R-CRAN-Compositionalzerocens 
 BuildRequires:    R-CRAN-Directional 
 BuildRequires:    R-CRAN-foldedt 
 BuildRequires:    R-CRAN-geppe 
 BuildRequires:    R-CRAN-gp 
 BuildRequires:    R-CRAN-MN 
+BuildRequires:    R-CRAN-Mobius 
 BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-CRAN-Rfast2 
 BuildRequires:    R-CRAN-svmf 
@@ -36,11 +39,14 @@ Requires:         R-CRAN-bivpois
 Requires:         R-CRAN-CCd 
 Requires:         R-CRAN-COMPoissonReg 
 Requires:         R-CRAN-Compositional 
+Requires:         R-CRAN-Compositionalcln 
+Requires:         R-CRAN-Compositionalzerocens 
 Requires:         R-CRAN-Directional 
 Requires:         R-CRAN-foldedt 
 Requires:         R-CRAN-geppe 
 Requires:         R-CRAN-gp 
 Requires:         R-CRAN-MN 
+Requires:         R-CRAN-Mobius 
 Requires:         R-CRAN-Rfast 
 Requires:         R-CRAN-Rfast2 
 Requires:         R-CRAN-svmf 

@@ -1,39 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  blink
-%global packver   1.1.0
+%global __requires_exclude ^libmpi
+%global packname  SexSeek
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Record Linkage for Empirically Motivated Priors
+Summary:          Estimate Genetic Sex from Expression Counts
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringdist 
-BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-stringdist 
-Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-utils 
 
 %description
-An implementation of the model in Steorts (2015) <DOI:10.1214/15-BA965SI>,
-which performs Bayesian entity resolution for categorical and text data,
-for any distance function defined by the user. In addition, the precision
-and recall are in the package to allow one to compare to any other
-comparable method such as logistic regression, Bayesian additive
-regression trees (BART), or random forests. The experiments are
-reproducible and illustrated using a simple vignette. LICENSE: GPL-3 +
-file license.
+Infers the genetic sex of samples, donors or cells from bulk or
+single-cell RNA sequencing counts. Accepts dense or sparse matrices,
+delimited text files, 10x Genomics outputs, and 'Seurat',
+'SingleCellExperiment' and 'SummarizedExperiment' objects.
 
 %prep
 %setup -q -c -n %{packname}
@@ -43,6 +42,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

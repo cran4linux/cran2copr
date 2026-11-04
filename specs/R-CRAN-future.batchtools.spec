@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  future.batchtools
-%global packver   0.30.0
+%global packver   0.31.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.30.0
+Version:          0.31.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Future API for Parallel and Distributed Processing using 'batchtools'
 
@@ -17,13 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-future >= 1.58.0
+BuildRequires:    R-CRAN-future >= 1.80.0
 BuildRequires:    R-CRAN-batchtools >= 0.9.17
 BuildRequires:    R-CRAN-parallelly 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-stringi 
-Requires:         R-CRAN-future >= 1.58.0
+Requires:         R-CRAN-future >= 1.80.0
 Requires:         R-CRAN-batchtools >= 0.9.17
 Requires:         R-CRAN-parallelly 
 Requires:         R-utils 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggRandomForests
-%global packver   3.5.5
+%global packver   4.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.5.5
+Version:          4.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visually Exploring Random Forests
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4.0
-Requires:         R-core >= 4.4.0
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-randomForestSRC >= 3.4.0
 BuildRequires:    R-CRAN-varPro >= 3.3.0
@@ -39,11 +39,14 @@ Requires:         R-CRAN-patchwork
 Requires:         R-CRAN-stringr 
 
 %description
-Graphic elements for exploring Random Forests using the 'randomForest' or
-'randomForestSRC' package for survival, regression and classification
-forests and 'ggplot2' package plotting. Implements visualizations of the
-methods described in Breiman (2001) <doi:10.1023/A:1010933404324> and
-Ishwaran, Kogalur, Blackstone, and Lauer (2008) <doi:10.1214/08-AOAS169>.
+Graphic elements for exploring Random Forests using 'randomForestSRC' and
+'randomForest' for survival, regression, and classification forests, and
+'varPro' for rule-based variable priority. Suggests 'randomForestRHF' for
+hazards with time-dependent covariates. Implements visualizations of the
+methods described in Breiman (2001) <doi:10.1023/A:1010933404324>,
+Ishwaran, Kogalur, Blackstone, and Lauer (2008) <doi:10.1214/08-AOAS169>,
+Lu and Ishwaran (2024) <doi:10.48550/arXiv.2409.09003>, and Ishwaran,
+Hsich, Kogalur, and Lee (2026) <doi:10.48550/arXiv.2608.21597>.
 
 %prep
 %setup -q -c -n %{packname}

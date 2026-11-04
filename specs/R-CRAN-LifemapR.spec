@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LifemapR
-%global packver   1.1.6
+%global packver   1.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.6
+Version:          1.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Visualisation on 'Lifemap' Tree
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-leaflet.minicharts 
 BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-RCurl 
 BuildRequires:    R-CRAN-fastmatch 
@@ -35,6 +36,7 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-leaflet.minicharts 
 Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-RCurl 
 Requires:         R-CRAN-fastmatch 

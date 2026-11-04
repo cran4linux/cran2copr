@@ -1,38 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  fdq
-%global packver   0.12
+%global __requires_exclude ^libmpi
+%global packname  shapleydecomp
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Forest Data Quality
+Summary:          Shapley Value Decomposition for Discrete-Time Simulation Models
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Fgmutils >= 0.8
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-sqldf 
-BuildRequires:    R-CRAN-randomcoloR 
-BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-Fgmutils >= 0.8
+BuildRequires:    R-parallel 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-sqldf 
-Requires:         R-CRAN-randomcoloR 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-parallel 
+Requires:         R-utils 
 
 %description
-Forest data quality is a package containing nine methods of analysis for
-forest databases, from databases containing inventory data and growth
-models, the focus of the analyzes is related to the quality of the data
-present in the database with a focus on consistency , punctuality and
-completeness of data.
+Attributes changes in the outcomes of a discrete-time simulation model to
+its input factors using Shapley values (Shapley 1953)
+<doi:10.1515/9781400881970-018>, which for binary factors coincide with
+the symmetric standardization of Das Gupta (1993)
+<https://www2.census.gov/library/publications/1993/demographics/p23-186.pdf>.
+Any calibrated model can be decomposed by implementing four S3 methods
+that run the model, summarize its output, and construct counterfactual
+inputs. Counterfactuals either remove a factor entirely or hold it at its
+value in a baseline year, and a sequential decomposition attributes each
+year's policy conditional on the past.
 
 %prep
 %setup -q -c -n %{packname}
@@ -42,6 +44,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

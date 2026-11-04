@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fedstatAPIr
-%global packver   1.1.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Unofficial API for Fedstat (Rosstat EMISS System) for Automatic and Efficient Data Queries
 
@@ -23,7 +23,8 @@ BuildRequires:    R-CRAN-xml2
 BuildRequires:    R-CRAN-readsdmx 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-utils 
-BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-data.table 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
@@ -31,12 +32,16 @@ Requires:         R-CRAN-xml2
 Requires:         R-CRAN-readsdmx 
 Requires:         R-CRAN-magrittr 
 Requires:         R-utils 
-Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-tools 
 Requires:         R-CRAN-data.table 
 
 %description
-An API for automatic data queries to the fedstat <https://www.fedstat.ru>,
-using a small set of functions with a common interface.
+Downloads indicator data from Fedstat (EMISS), the Russian official
+statistics portal <https://www.fedstat.ru>. Large selections are
+downloaded in small, paced parts that are saved to disk and resume after
+interruptions. Also lists the filters and the code dictionaries of
+indicators.
 
 %prep
 %setup -q -c -n %{packname}

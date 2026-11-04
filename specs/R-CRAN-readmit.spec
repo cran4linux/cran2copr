@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  readmit
-%global packver   0.0.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Working with Hospital Readmissions Data
+Summary:          Readmission Risk Pool Platform
 
-License:          MIT + file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,29 +17,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-duckdb 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-duckdb 
 
 %description
-Contains tools for working with and analyzing hospital readmissions data.
-The package provides utilities for components of the Hospital Readmissions
-Reduction Program (HRRP), including program timeline functions,
-Hospital-Specific Report (HSR) helpers, and general importing tools for
-the Provider Data Catalog (PDC).
+Provides the R implementation of the Readmission Risk Pool (RRP)
+analytical platform for reassessing the remaining probability of a first
+hospital readmission through 30 days after discharge. Distributed as the
+'readmit' package, it creates user-owned projects, applies shared
+eligibility rules at explicit assessment times, retains completed
+assessments as history, and generates CSV analytical products for a
+project-owned interactive application. Project authors supply clinical
+source-mapping and risk-provider functions; no clinically validated
+prediction model is included.
 
 %prep
 %setup -q -c -n %{packname}

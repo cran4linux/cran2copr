@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  sNPLS
-%global packver   1.0.27
+%global packver   1.0.41
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.27
+Version:          1.0.41
 Release:          1%{?dist}%{?buildtag}
 Summary:          NPLS Regression with L1 Penalization
 
@@ -19,21 +20,27 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-clickR 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-GA 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-ks 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-pROC 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-clickR 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-GA 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-ks 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-pROC 
+Requires:         R-CRAN-rlang 
 
 %description
 Tools for performing variable selection in three-way data using N-PLS in
@@ -53,6 +60,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

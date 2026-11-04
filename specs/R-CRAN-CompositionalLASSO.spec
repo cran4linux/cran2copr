@@ -1,29 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  osDesign
-%global packver   1.8
+%global __requires_exclude ^libmpi
+%global packname  CompositionalLASSO
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Design, Planning and Analysis of Observational Studies
+Summary:          LASSO Compositional Data Regression
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-Compositional 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-Compositional 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-Rfast 
+Requires:         R-stats 
 
 %description
-A suite of functions for the design of case-control and two-phase studies,
-and the analysis of data that arise from them. Functions in this packages
-provides Monte Carlo based evaluation of operating characteristics such as
-powers for estimators of the components of a logistic regression model.
-For additional detail see: Haneuse S, Saegusa T and Lumley T
-(2011)<doi:10.18637/jss.v043.i11>.
+LASSO (Least Absolute Shrinkage and Selection Operator) regression for
+compositional responses with and without zero values present and
+continuous predictors. The choice of the penalty parameter, lambda, takes
+place using K-fold cross-validation. Two relevant papers are Li Z. et al.
+(2018) <doi:10.1007/s12561-018-9219-2> and Alenazi A.A. (2022)
+<doi:10.18187/pjsor.v18i4.3969>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -33,6 +42,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

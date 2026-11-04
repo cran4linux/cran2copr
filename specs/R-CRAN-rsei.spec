@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rsei
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Client for the 'SEI' Electronic Information System Web Services
 
@@ -47,8 +47,7 @@ processes and documents, sending and signing off processes, blocks,
 deadlines and markers) and the permission services of the companion 'SIP'
 system. Note that access to the web services is restricted by the server
 to previously authorized network addresses. For more information about the
-'SEI' system and its web services see
-<https://www.gov.br/gestao/pt-br/assuntos/processo-eletronico-nacional>.
+'SEI' system and its web services see <https://github.com/pengovbr>.
 
 %prep
 %setup -q -c -n %{packname}

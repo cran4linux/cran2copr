@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lessR
-%global packver   4.5.6
+%global packver   4.5.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.5.6
+Version:          4.5.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Less Code with More Comprehensive Results
 
@@ -33,7 +33,6 @@ BuildRequires:    R-CRAN-openxlsx
 BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-kableExtra 
 BuildRequires:    R-CRAN-xts 
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-MASS 
@@ -56,7 +55,6 @@ Requires:         R-CRAN-openxlsx
 Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-kableExtra 
 Requires:         R-CRAN-xts 
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-MASS 

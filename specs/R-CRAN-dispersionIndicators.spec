@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dispersionIndicators
-%global packver   0.1.6
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Indicators for the Analysis of Dispersion of Datasets with Batched and Ordered Samples
 
@@ -21,10 +21,14 @@ BuildRequires:    R-CRAN-ggplot2 >= 3.5.2
 BuildRequires:    R-CRAN-corpcor 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-qpdf 
 Requires:         R-CRAN-ggplot2 >= 3.5.2
 Requires:         R-CRAN-corpcor 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-qpdf 
 
 %description
 Provides methods for analyzing the dispersion of tabular datasets with

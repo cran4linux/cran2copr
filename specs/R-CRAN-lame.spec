@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lame
-%global packver   1.3.4
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Longitudinal Additive and Multiplicative Effects Models for Networks
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-netify >= 1.5.3
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-pbivnorm 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-ggforce 
@@ -36,6 +37,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-netify >= 1.5.3
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-pbivnorm 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-ggforce 

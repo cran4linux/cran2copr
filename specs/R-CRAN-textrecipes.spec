@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  textrecipes
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extra 'Recipes' for Text Processing
 
@@ -14,38 +14,40 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildRequires:    R-CRAN-recipes >= 1.2.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildRequires:    R-CRAN-recipes >= 1.4.0
 BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-sparsevctrs >= 0.3.0
 BuildRequires:    R-CRAN-generics >= 0.1.0
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-SnowballC 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tokenizers 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-recipes >= 1.2.0
+Requires:         R-CRAN-recipes >= 1.4.0
 Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-sparsevctrs >= 0.3.0
 Requires:         R-CRAN-generics >= 0.1.0
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-SnowballC 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tokenizers 
+Requires:         R-utils 
 Requires:         R-CRAN-vctrs 
-Requires:         R-CRAN-glue 
 
 %description
 Converting text to numerical features requires specifically created

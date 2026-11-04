@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SurveyNCD
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Survey-Weighted Analysis of Self-Reported Health Indicators
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
@@ -33,24 +33,27 @@ Requires:         R-CRAN-survey
 Requires:         R-CRAN-tidyr 
 
 %description
-Analyses population health survey data from the World Health Organization
-(WHO) Stepwise Approach to Non-Communicable Disease (NCD) Risk Factor
-Surveillance (STEPS), Demographic and Health Surveys (DHS), Multiple
-Indicator Cluster Surveys (MICS), and similar complex sample surveys,
-where chronic conditions are self-reported rather than coded using the
-International Classification of Diseases (ICD) and estimates must account
-for stratification, clustering, and sampling weights. Includes a
-self-reported multimorbidity index based on the Functional Comorbidity
-Index (FCI) described by Groll et al. (2005)
-<doi:10.1016/j.jclinepi.2004.10.018>, design-weighted population
-prevalence estimation via the 'survey' package, a survey-weighted
-concentration index for health inequality analysis, a DHS anthropometric
-z-score categoriser, a choropleth mapping helper, and exploratory
-survey-weighted gradient boosting (via 'xgboost') with SHapley Additive
-exPlanations (SHAP) based explainability. The gradient boosting component
-applies case weights but does not yet propagate cluster and strata design
-effects into variance estimates; it should be treated as exploratory
-rather than as design-based inference.
+Design-based analysis of population health survey data from the World
+Health Organization (WHO) Stepwise Approach to Non-Communicable Disease
+(NCD) Risk Factor Surveillance (STEPS), Demographic and Health Surveys
+(DHS), Multiple Indicator Cluster Surveys (MICS) and similar complex
+sample surveys, where chronic conditions are self-reported rather than
+coded with the International Classification of Diseases (ICD). Provides
+survey design constructors for DHS, MICS and STEPS microdata; design-based
+prevalence for any binary indicators and groupings; a self-reported
+multimorbidity count based on the Functional Comorbidity Index (FCI) of
+Groll et al. (2005) <doi:10.1016/j.jclinepi.2004.10.018>, with
+condition-pattern analysis, sensitivity bounds for missing answers, and
+direct age standardisation to the WHO World Standard Population; standard,
+generalized, Erreygers and Wagstaff concentration indices with
+design-based standard errors following Kakwani, Wagstaff and van Doorslaer
+(1997) <doi:10.1016/S0304-4076(96)01807-6> and O'Donnell et al. (2016)
+<doi:10.1177/1536867X1601600112>, concentration curves, and slope and
+relative indices of inequality; categorisation of DHS-coded child growth
+z-scores; publication-ready tables and plots. Simulated example data with
+a known population are included. Experimental helpers for choropleth maps
+and case-weighted gradient boosting with SHapley Additive exPlanations
+(SHAP) are also provided.
 
 %prep
 %setup -q -c -n %{packname}

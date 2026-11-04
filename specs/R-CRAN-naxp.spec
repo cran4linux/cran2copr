@@ -1,42 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  qrfactor
-%global packver   1.6
+%global packname  naxp
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simultaneous Q-Mode and R-Mode Factor Analysis for Spatial Data
+Summary:          Encoded ASCII Expressions
 
-License:          GPL-2
+License:          Apache License (== 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-mvoutlier 
-BuildRequires:    R-CRAN-pvclust 
-Requires:         R-methods 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-mvoutlier 
-Requires:         R-CRAN-pvclust 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-cpp11 
 
 %description
-Performs Q-mode and R-mode factor analysis simultaneously on spatial and
-non-spatial data. A single function, qrfactor(), carries out principal
-component analysis, R-mode factor analysis, Q-mode factor analysis,
-simultaneous R- and Q-mode factor analysis, principal coordinate analysis
-and multidimensional scaling. Loadings and scores are returned from the
-fitted object, and the plot() method provides annotated biplots for
-combinations of eigenvectors, loadings and scores. Input may be supplied
-as an 'ESRI' shapefile, a delimited text file or a data frame.
+Converts alphanumeric codes such as postcodes to whole numbers and back
+again, following the 'naxp' standard <https://naxp.org/spec/>. A naxp
+('encoded ASCII expression') is a pattern, defined using a similar syntax
+to regular expressions, that maps each text it accepts to a number from 1
+to a fixed maximum, and any other text to 0. The same pattern maps text to
+numbers identically across all 'naxp' libraries in all languages on all
+platforms (subject only to the availability of types able to store large
+enough integers). Standard naxps are defined for common code systems and
+are built into all 'naxp' libraries. Two naxps can be compared to
+determine, among other things, whether stored values keep their meaning
+when one replaces the other. Wraps the 'naxp' 'C++' library
+<https://naxp.org/api/#cpp>.
 
 %prep
 %setup -q -c -n %{packname}

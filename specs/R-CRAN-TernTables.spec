@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TernTables
-%global packver   1.7.2
+%global packver   1.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.2
+Version:          1.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automated Statistical Analysis and Table Generation for Biomedical Research
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-flextable >= 0.9.0
 BuildRequires:    R-CRAN-officer >= 0.4.6
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-epitools 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-multcompView 
 BuildRequires:    R-CRAN-rlang 
@@ -35,7 +34,6 @@ Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-flextable >= 0.9.0
 Requires:         R-CRAN-officer >= 0.4.6
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-epitools 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-multcompView 
 Requires:         R-CRAN-rlang 

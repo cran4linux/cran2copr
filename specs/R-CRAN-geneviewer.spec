@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geneviewer
-%global packver   0.1.11
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.11
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Gene Cluster Visualizations
 
@@ -17,27 +17,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-fontawesome 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-fontawesome 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-rlang 
+Requires:         R-grDevices 
+Requires:         R-stats 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
 Provides tools for plotting gene clusters and transcripts by importing
-data from GenBank, FASTA, and GFF files. It performs BLASTP and MUMmer
-alignments [Altschul et al. (1990) <doi:10.1016/S0022-2836(05)80360-2>;
-Delcher et al. (1999) <doi:10.1093/nar/27.11.2369>] and displays results
-on gene arrow maps. Extensive customization options are available,
-including legends, labels, annotations, scales, colors, tooltips, and
-more.
+data from GenBank, FASTA, and GFF files. It performs global pairwise
+protein alignments and 'MUMmer' alignments [Needleman and Wunsch (1970)
+<doi:10.1016/0022-2836(70)90057-4>; Delcher et al. (1999)
+<doi:10.1093/nar/27.11.2369>] and displays results on gene arrow maps.
+Extensive customization options are available, including legends, labels,
+annotations, scales, colors, tooltips, and more.
 
 %prep
 %setup -q -c -n %{packname}

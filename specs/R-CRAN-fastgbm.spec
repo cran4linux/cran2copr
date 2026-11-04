@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fastgbm
-%global packver   0.6.1
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Histogram Gradient Boosting for Regression, Classification, and Survival Analysis
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.5.0
-Requires:         R-core >= 4.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-Rcpp 
@@ -30,10 +30,13 @@ A fast gradient boosting machine covering four task types with one
 interface: regression (squared error), binary and multiclass
 classification (logistic and one-vs-rest), and right-censored survival
 analysis via Cox (Breslow ties), accelerated failure time (normal
-location-scale), or piecewise-exponential objectives. Provides native
-missing-value routing, baseline-hazard estimation and survival-probability
-prediction for the survival objectives, and deterministic multi-threaded
-training via 'RcppParallel'. Methods are described in Friedman (2001)
+location-scale), or piecewise-exponential objectives, and competing risks
+via Fine-Gray subdistribution hazards, cause-specific hazards, or coupled
+cause-specific hazards, following 'CoxBoost' (Binder et al. 2009)
+<doi:10.1093/bioinformatics/btp088>. Provides native missing-value
+routing, baseline-hazard estimation and survival-probability prediction
+for the survival objectives, and deterministic multi-threaded training via
+'RcppParallel'. Methods are described in Friedman (2001)
 <doi:10.1214/aos/1013203451>.
 
 %prep

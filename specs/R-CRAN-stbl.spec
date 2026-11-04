@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  stbl
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stabilize Objects
 
@@ -29,7 +29,7 @@ Requires:         R-CRAN-vctrs
 
 %description
 A set of consistent, opinionated functions to quickly check objects,
-coerce them to the desired configuration, or deliver informative error
+convert them to the desired configuration, or deliver informative error
 messages when that is not possible.
 
 %prep

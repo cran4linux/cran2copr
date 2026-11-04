@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BayesTools
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Bayesian Analyses
 
@@ -14,9 +14,10 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildArch:        noarch
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
+BuildRequires:    R-CRAN-rlang >= 0.4.10
+BuildRequires:    R-CRAN-reformulas >= 0.2.0
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grid 
@@ -27,7 +28,8 @@ BuildRequires:    R-CRAN-bridgesampling
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-rlang >= 0.4.10
+Requires:         R-CRAN-reformulas >= 0.2.0
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-grid 
@@ -38,7 +40,6 @@ Requires:         R-CRAN-bridgesampling
 Requires:         R-parallel 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-rlang 
 
 %description
 Provides tools for conducting Bayesian analyses and Bayesian model

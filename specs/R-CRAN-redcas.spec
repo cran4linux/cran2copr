@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  redcas
-%global packver   0.1.1
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Interface to the Computer Algebra System 'REDUCE'
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-methods 
 Requires:         R-methods 
@@ -29,11 +29,12 @@ dialects 'Portable Standard Lisp' ('PSL') and 'Codemist Standard Lisp'
 ('CSL'). The 'redcas' package provides an interface for executing
 arbitrary 'REDUCE' code interactively from 'R', returning output as
 character vectors. 'R' code and 'REDUCE' code can be interspersed. It also
-provides a specialized function for calling the 'REDUCE' feature for
-solving systems of equations, returning the output as an 'R' object
-designed for the purpose. A further specialized function uses 'REDUCE'
+provides specialized functions for calling 'REDUCE' functions, for
+example, solving simultaneous or differential equations, differentiation
+and factorization of polynomials and integers returning the output as an
+appropriate 'R' object. A further specialized function uses 'REDUCE'
 features to generate 'LaTeX' output and post-processes this for direct use
-in 'LaTeX' documents, e.g. using 'Sweave'.
+in 'LaTeX' documents using, e.g., 'Sweave'.
 
 %prep
 %setup -q -c -n %{packname}

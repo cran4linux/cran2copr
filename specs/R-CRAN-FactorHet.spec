@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FactorHet
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate Heterogeneous Effects in Factorial Experiments Using Grouping and Sparsity
 
@@ -46,7 +46,7 @@ methodology employs a Bayesian finite mixture of regularized logistic
 regressions, where moderators can affect each observation's probability of
 group membership and a sparsity-inducing prior fuses together levels of
 each factor while respecting ANOVA-style sum-to-zero constraints.
-Goplerud, Imai, and Pashley (2024) <doi:10.48550/ARXIV.2201.01357> provide
+Goplerud, Imai, and Pashley (2025) <doi:10.1214/24-AOAS1994> provide
 further details.
 
 %prep

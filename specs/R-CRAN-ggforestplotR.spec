@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggforestplotR
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Publication-Ready Forest Plots with 'ggplot2'
 
@@ -17,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-patchwork >= 1.2.0
+BuildRequires:    R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-patchwork >= 1.2.0
+Requires:         R-CRAN-rlang >= 1.1.0
 
 %description
 Transform model coefficients into flexible forest plots using 'ggplot2'.

@@ -1,47 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RegCombin
-%global packver   0.4.1
+%global packname  wavecov
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Partially Linear Regression under Data Combination
+Summary:          Overlap-Aware Workforce Wave Comparisons
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-kableExtra 
-BuildRequires:    R-CRAN-snowfall 
-BuildRequires:    R-CRAN-RationalExp 
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-geometry 
-BuildRequires:    R-CRAN-pracma 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-kableExtra 
-Requires:         R-CRAN-snowfall 
-Requires:         R-CRAN-RationalExp 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-geometry 
-Requires:         R-CRAN-pracma 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-We implement linear regression when the outcome of interest and some of
-the covariates are observed in two different datasets that cannot be
-linked, based on D'Haultfoeuille, Gaillac, Maurel (2022)
-<doi:10.3386/w29953>. The package allows for common regressors observed in
-both datasets, and for various shape constraints on the effect of
-covariates on the outcome of interest. It also provides the tools to
-perform a test of point identification. See the associated vignette
-<https://github.com/cgaillac/RegCombin/blob/master/RegCombin_vignette.pdf>
-for theory and code examples.
+Tools for comparing workforce metric distributions between panel waves
+using linked stayers, reliability assumptions, or Cauchy bounds. Its
+purpose is to provide a low-latency alternative to traditional
+hierarchical or latent-growth modeling that is better-able to scale in
+cloud based architectures. The mathematics is an extension of rotating
+panel formulae from the official statistics literature.
 
 %prep
 %setup -q -c -n %{packname}
