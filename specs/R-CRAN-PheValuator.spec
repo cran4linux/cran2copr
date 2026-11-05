@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PheValuator
-%global packver   2.2.18
+%global packver   2.2.19
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.18
+Version:          2.2.19
 Release:          1%{?dist}%{?buildtag}
 Summary:          Rapid Phenotype Evaluation
 

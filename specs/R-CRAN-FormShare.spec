@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FormShare
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Simple Connection Between the 'FormShare App' and 'R' for Advanced Analytics
 
@@ -20,15 +20,16 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-utils 
 
 %description
-Provides analytics directly from 'R'. It requires: 'FormShare App':
-<https://github.com/qlands/FormShare >= 2.22.0> . Analytics plugin:
-<https://github.com/qlands/formshare_analytics_plugin> . Remote SQL
-plugin: <https://github.com/qlands/formshare_sql_plugin> .
+Provides analytics directly from 'R'. It requires a 'FormShare App'
+(version 2.22.0 or later) <https://github.com/qlands/FormShare> with its
+Analytics and Remote SQL plugins installed.
 
 %prep
 %setup -q -c -n %{packname}

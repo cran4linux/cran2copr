@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  biblionetwork
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Different Types of Bibliometric Networks
 
@@ -13,13 +14,27 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-Matrix >= 1.5.0
+BuildRequires:    R-CRAN-data.table >= 1.12.0
+BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-Rdpack >= 0.7
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-Matrix >= 1.5.0
+Requires:         R-CRAN-data.table >= 1.12.0
+Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-Rdpack >= 0.7
-Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Functions to find edges for bibliometric networks like bibliographic
@@ -30,11 +45,11 @@ analyse. These functions are optimized to be be used on large dataset. The
 package contains functions inspired by: Leydesdorff, Loet and Park, Han
 Woo (2017) <doi:10.1016/j.joi.2016.11.007>; Perianes-Rodriguez, Antonio,
 Ludo Waltman, and Nees Jan Van Eck (2016) <doi:10.1016/j.joi.2016.10.006>;
-Sen, Subir K. and Shymal K. Gan (1983)
-<http://nopr.niscair.res.in/handle/123456789/28008>; Shen, Si, Zhu,
-Danhao, Rousseau, Ronald, Su, Xinning and Wang, Dongbo (2019)
-<doi:10.1016/j.joi.2019.01.012>; Zhao, Dangzhi and Strotmann, Andreas
-(2008) <doi:10.1002/meet.2008.1450450292>.
+Sen, Subir K. and Shymal K. Gan (1983) "A mathematical extension of the
+idea of bibliographic coupling and its applications", Annals of Library
+Science and Documentation 30(2); Shen, Si, Zhu, Danhao, Rousseau, Ronald,
+Su, Xinning and Wang, Dongbo (2019) <doi:10.1016/j.joi.2019.01.012>; Zhao,
+Dangzhi and Strotmann, Andreas (2008) <doi:10.1002/meet.2008.1450450292>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -44,6 +59,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

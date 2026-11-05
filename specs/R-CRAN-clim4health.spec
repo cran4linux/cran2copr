@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  clim4health
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Post-Processing of Climate Data for Health Applications
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-CSTools 
 BuildRequires:    R-CRAN-ecmwfr 
@@ -56,10 +56,8 @@ forecasts and hindcasts, and weather stations for their use in
 epidemiological analyses. It is organised in three sequential blocks,
 input (download and load data), transform (downscaling, verification,
 spatiotemporal aggregation and threshold-based indicators) and output
-(visualising and exporting data). Downscaling methods include those
-described in Duzenli et al. (2026) <doi:10.1038/s41598-026-45067-2> and
-verification methods are based on those in Manubens et al. (2018)
-<doi:10.1016/j.envsoft.2018.01.018>.
+(visualising and exporting data). The methods included in the package are
+described in Ball et al. (2026) <doi:10.12688/wellcomeopenres.27413.1>.
 
 %prep
 %setup -q -c -n %{packname}

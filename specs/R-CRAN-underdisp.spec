@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  underdisp
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Diagnostics and Models for Underdispersed Count Data
 
@@ -44,14 +44,15 @@ against the data; the continuous parameter binomial (CPB) and generalized
 event count (Katz) regressions with zero-truncated, hurdle, and
 zero-inflated forms and high-dimensional fixed effects with a split-panel
 jackknife bias correction; matched Poisson, negative binomial, COM-Poisson
-(rate- and mean-parameterized), generalized Poisson, gamma-count, and
-double Poisson regressions through the same interface, with frequency
-weights, offsets, and analytic, robust, and cluster-robust standard
-errors; bootstrap and profile-likelihood inference; proper scoring rules,
-rootograms, PIT histograms, and simulation methods; and quantities of
-interest including predicted distributions, the implied ceiling, rate
-ratios, and first differences with an extensive/intensive decomposition.
-The likelihoods are implemented in C++.
+(rate- and mean-parameterized), generalized Poisson, gamma-count, double
+Poisson, hyper-Poisson, and exponentially weighted Poisson regressions
+through the same interface, with frequency weights, offsets, and analytic,
+robust, and cluster-robust standard errors; bootstrap and
+profile-likelihood inference; proper scoring rules, rootograms, PIT
+histograms, and simulation methods; and quantities of interest including
+predicted distributions, the implied ceiling, rate ratios, and first
+differences with an extensive/intensive decomposition. The likelihoods are
+implemented in C++.
 
 %prep
 %setup -q -c -n %{packname}

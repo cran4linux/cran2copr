@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  deltapif
-%global packver   0.4.5
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.5
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate Potential Impact and Population Attributable Fractions with Aggregated Data
 
@@ -21,10 +21,12 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-Deriv 
 BuildRequires:    R-CRAN-S7 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-Deriv 
 Requires:         R-CRAN-S7 
 Requires:         R-CRAN-scales 
+Requires:         R-stats 
 
 %description
 Uses the delta-method to estimate the Potential Impact Fraction (PIF) and

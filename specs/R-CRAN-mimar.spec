@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mimar
-%global packver   1.0.0
+%global packver   1.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compact Multiple Imputation, Assessment, and Reporting
 
@@ -17,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-basetable >= 1.4.2
 BuildRequires:    R-CRAN-BART 
-BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-densemlp 
 BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-fastgbm 
 BuildRequires:    R-CRAN-functionals 
-BuildRequires:    R-CRAN-gbm 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-missknn 
@@ -32,12 +32,12 @@ BuildRequires:    R-CRAN-ranger
 BuildRequires:    R-CRAN-rpart 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-xgboost 
+Requires:         R-CRAN-basetable >= 1.4.2
 Requires:         R-CRAN-BART 
-Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-densemlp 
 Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-fastgbm 
 Requires:         R-CRAN-functionals 
-Requires:         R-CRAN-gbm 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-missknn 

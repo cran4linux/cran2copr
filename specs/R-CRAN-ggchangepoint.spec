@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggchangepoint
-%global packver   0.5.0
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Combines Changepoint Analysis with 'ggplot2'
 
@@ -44,26 +44,34 @@ Requires:         R-utils
 
 %description
 A unified, tidy, 'ggplot2'-native interface to changepoint detection in R.
-Provides the 'ggcpt' S3 result class with 'broom'-style
-tidy/glance/augment methods, 'autoplot()' (with confidence intervals,
-significance regions, detector statistics, solution paths, scale space,
-and multivariate facets), composable geoms ('geom_changepoint()',
-'geom_cpt_segment()', 'geom_cpt_ci()', 'geom_cpt_region()',
-'geom_cpt_label()', 'geom_cpt_event()', 'stat_changepoint()'), and a
-'cpt_detect()' dispatcher covering fifty methods with introspection via
-'cpt_methods()': penalised/optimal partitioning, multiscale and search
-methods, nonparametric and kernel methods, Bayesian methods,
-high-dimensional, functional, covariance and network methods, regression
-breaks, seasonal-trend decomposition, the classical single-change tests,
-and robust detection under drift and autocorrelation. Adds inference
-(Narrowest Significance Pursuit regions, a unified 'cpt_confint()',
-post-detection tests), selection of the number of changes, influence and
-sensitivity diagnostics, supervised detection with learned penalties,
-consensus and method recommendation, event annotation and reproducible
-reports, benchmarks against the Turing Change Point Dataset, sequential
-monitoring with detection-delay accounting, power and study design, and an
-extension mechanism ('as_ggcpt()', 'cpt_register_method()') that brings
-external and non-CRAN detectors into the same grammar.
+A 'cpt_detect()' dispatcher covers 51 methods (penalised and optimal
+partitioning, multiscale and search methods, nonparametric and kernel
+methods, Bayesian methods, high-dimensional, functional, covariance and
+network methods, regression breaks through a formula interface,
+seasonal-trend decomposition, the classical single-change tests, and
+anomalous stretches that return to a baseline), with distribution families
+for counts, binary outcomes and waiting times, missing-value handling,
+grouped data, and constraints on locations and segment lengths. Every
+result is the same 'ggcpt' object, in one verified location convention,
+with 'broom'-style tidy/glance/augment methods, 'autoplot()' and
+composable 'ggproto' layers. Around detection: which coordinates of a
+multivariate series changed, certified with family-wise error control;
+distribution-free confidence sets for each location; effect sizes and what
+the series would have done without each change; a test for a change at a
+date fixed in advance, tests for a change anywhere, and screening of many
+series with false discovery rate control; a check of whether a change was
+abrupt or gradual; weights over the number of changes; assumption checks
+and goodness of fit, robustness to the noise model, stability, consensus
+and influence diagnostics, supervised detection, sequential monitoring
+including cumulative-sum and exponentially weighted moving-average control
+charts, power and study design, benchmarks, reports and an export under a
+documented 'JSON' schema. What each engine does (its runtime, whether its
+answer survives a change of units or a reversal of time, its false
+positives by noise regime and data type, its false alarms on pure noise)
+and the calibration of the package's own intervals, tests and monitors are
+measured and shipped as data, and 'cpt_recommend()' chooses from those
+measurements. 'cpt_register_method()' brings external and non-CRAN
+detectors into the same grammar.
 
 %prep
 %setup -q -c -n %{packname}

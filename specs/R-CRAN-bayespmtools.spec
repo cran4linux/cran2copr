@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bayespmtools
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Sample Size and Precision Considerations for Risk Prediction Models
 
@@ -17,18 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-mcmapper >= 0.0.12
 BuildRequires:    R-CRAN-fastLogisticRegressionWrap 
 BuildRequires:    R-CRAN-logitnorm 
 BuildRequires:    R-CRAN-mc2d 
-BuildRequires:    R-CRAN-mcmapper 
 BuildRequires:    R-CRAN-pROC 
 BuildRequires:    R-CRAN-cobs 
 BuildRequires:    R-CRAN-OOR 
 BuildRequires:    R-CRAN-quantreg 
+Requires:         R-CRAN-mcmapper >= 0.0.12
 Requires:         R-CRAN-fastLogisticRegressionWrap 
 Requires:         R-CRAN-logitnorm 
 Requires:         R-CRAN-mc2d 
-Requires:         R-CRAN-mcmapper 
 Requires:         R-CRAN-pROC 
 Requires:         R-CRAN-cobs 
 Requires:         R-CRAN-OOR 

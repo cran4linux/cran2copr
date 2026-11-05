@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rilostat
-%global packver   2.5.0
+%global packver   2.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.0
+Version:          2.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access and Manipulation of ILOSTAT Labour Statistics
 
@@ -20,7 +20,9 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 3.3.0
 BuildRequires:    R-CRAN-haven >= 2.5.0
 BuildRequires:    R-CRAN-readr >= 2.1.5
+BuildRequires:    R-CRAN-jsonlite >= 1.8.0
 BuildRequires:    R-CRAN-stringr >= 1.5.2
+BuildRequires:    R-CRAN-xml2 >= 1.3.0
 BuildRequires:    R-CRAN-tidyselect >= 1.2.0
 BuildRequires:    R-CRAN-data.table >= 1.15.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.4
@@ -29,7 +31,9 @@ BuildRequires:    R-CRAN-httr2 >= 1.0.0
 Requires:         R-CRAN-tibble >= 3.3.0
 Requires:         R-CRAN-haven >= 2.5.0
 Requires:         R-CRAN-readr >= 2.1.5
+Requires:         R-CRAN-jsonlite >= 1.8.0
 Requires:         R-CRAN-stringr >= 1.5.2
+Requires:         R-CRAN-xml2 >= 1.3.0
 Requires:         R-CRAN-tidyselect >= 1.2.0
 Requires:         R-CRAN-data.table >= 1.15.0
 Requires:         R-CRAN-dplyr >= 1.1.4

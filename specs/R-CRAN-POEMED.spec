@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  POEMED
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Power Enhancement for High-Dimensional Mediation Analysis
 
@@ -43,16 +43,16 @@ captures marginal signals from individual mediators, so that active
 mediators are detected even when their individual indirect effects cancel
 and the total indirect effect is zero. The package also identifies which
 individual mediators are active with familywise error rate or false
-discovery rate control. The methods implement Yu and Kelley (in press),
-"Power Enhancement in High-Dimensional Heterogeneous Mediation Analysis"
-(Journal of the American Statistical Association); the package also
-simulates mediation data under the homogeneous, heterogeneous, and
-contrasting patterns that the article studies, ships its empirical
-health-expenditure data as a benchmark and reruns that empirical analysis,
-and runs the designs of its Monte Carlo size and power studies. The name,
-'POEMED', from POwer-Enhanced MEDiation, encodes the method. Every
-estimation and testing function returns a tidy 'data.frame' that prints
-with sensible rounding and composes with the broader R ecosystem.
+discovery rate control. The methods implement Yu and Kelley (2026) "Power
+Enhancement in High-Dimensional Heterogeneous Mediation Analysis"
+<doi:10.1080/01621459.2026.2739445>; the package also simulates mediation
+data under the homogeneous, heterogeneous, and contrasting patterns that
+the article studies, ships its empirical health-expenditure data as a
+benchmark and reruns that empirical analysis, and runs the designs of its
+Monte Carlo size and power studies. The name, 'POEMED', from
+POwer-Enhanced MEDiation, encodes the method. Every estimation and testing
+function returns a tidy 'data.frame' that prints with sensible rounding
+and composes with the broader R ecosystem.
 
 %prep
 %setup -q -c -n %{packname}

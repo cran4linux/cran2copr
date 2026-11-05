@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spacyr
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Wrapper to the 'spaCy' 'NLP' Library
 
@@ -17,10 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-reticulate >= 1.6
+BuildRequires:    R-CRAN-reticulate >= 1.31
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-reticulate >= 1.6
+Requires:         R-CRAN-reticulate >= 1.31
 Requires:         R-methods 
 Requires:         R-CRAN-data.table 
 

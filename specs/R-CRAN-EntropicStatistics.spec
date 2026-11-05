@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EntropicStatistics
-%global packver   0.1.3
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions Based on Entropic Statistics
 
@@ -17,22 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Methods for data analysis from an entropic perspective. These methods are
-nonparametric and perform well on non-ordinal data. Currently includes
-'HeatMap()' for visualizing distributional characteristics among multiple
-populations (groups).
+Nonparametric tools for comparing discrete distributions through
+generalized Shannon entropy profiles, following Zhang and Shi (2024)
+<doi:10.1016/j.spl.2024.110070>. HeatMap() visualizes these profiles
+across entropy orders. HeatMapOrder() provides hierarchical clustering,
+reference similarity ranking, and other row orderings, with accessible
+profiles and position tables. Comparisons are invariant to category
+permutations and describe distributional shape rather than dependence
+between variables.
 
 %prep
 %setup -q -c -n %{packname}

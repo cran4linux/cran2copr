@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CANE
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Comprehensive Groups of Experiments Analysis for Numerous Environments
 
@@ -17,49 +17,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-agricolae 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-emmeans 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-agricolae 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-emmeans 
+BuildRequires:    R-utils 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-In many cases, experiments must be repeated across multiple seasons or
-locations to ensure applicability of findings. A single experiment
-conducted in one location and season may yield limited conclusions, as
-results can vary under different environmental conditions. In agricultural
-research, treatment × location and treatment × season interactions play a
-crucial role. Analyzing a series of experiments across diverse conditions
-allows for more generalized and reliable recommendations. The 'CANE'
-package facilitates the pooled analysis of experiments conducted over
-multiple years, seasons, or locations. It is designed to assess treatment
-interactions with environmental factors (such as location and season)
-using various experimental designs. The package supports pooled analysis
-of variance (ANOVA) for the following designs: (1) 'PooledCRD()':
-completely randomized design; (2) 'PooledRBD()': randomized block design;
-(3) 'PooledLSD()': Latin square design; (4) 'PooledSPD()': split plot
-design; and (5) 'PooledStPD()': strip plot design. Each function provides
-the following outputs: (i) Individual ANOVA tables based on independent
-analysis for each location or year; (ii) Testing of homogeneity of error
-variances among distinct locations using Bartlett’s Chi-Square test; (iii)
-If Bartlett’s test is significant, 'Aitken’s' transformation, defined as
-the ratio of the response to the square root of the error mean square, is
-applied to the response variable; otherwise, the data is used as is; (iv)
-Combined analysis to obtain a pooled ANOVA table; (v) Multiple comparison
-tests, including Tukey's honestly significant difference (Tukey's HSD)
-test, Duncan’s multiple range test (DMRT), and the least significant
-difference (LSD) test, for treatment comparisons. The statistical theory
-and steps of analysis of these designs are available in Dean et al.
-(2017)<doi:10.1007/978-3-319-52250-0> and Ruíz et al.
-(2024)<doi:10.1007/978-3-031-65575-3>. By broadening the scope of
-experimental conclusions, 'CANE' enables researchers to derive robust,
-widely applicable recommendations. This package is particularly valuable
-in agricultural research, where accounting for treatment × location and
-treatment × season interactions is essential for ensuring the validity of
-findings across multiple settings.
+Pooled analysis of a series of designed experiments repeated over
+locations, seasons or years, where treatment-by-environment interaction is
+of primary interest. One design-specific function call performs
+environment-wise analysis of variance, formal testing of homogeneity of
+error variances, an optional variance-stabilising transformation, pooled
+analysis of variance with the correct error stratum for every effect, and
+multiple comparison of means. Five classical designs are supported:
+completely randomised ('PooledCRD()'), randomised block ('PooledRBD()'),
+Latin square ('PooledLSD()'), split plot ('PooledSPD()') and strip plot
+('PooledStPD()'). Homogeneity of error variances is assessed by Bartlett's
+test computed on the environment-wise error mean squares as in Bartlett
+(1937) <doi:10.1098/rspa.1937.0109>, and by the median-centred
+Brown-Forsythe form of Levene's test <doi:10.1080/01621459.1974.10482955>,
+which is robust to non-normality. When variances are heterogeneous,
+Aitken's transformation (division of each observation by the square root
+of the error mean square of its own environment) may be applied, and
+treatment means are reported on both the transformed and the original
+scale. For split plot and strip plot designs every effect is tested
+against its proper error term, and mean separation uses the error mean
+square and degrees of freedom of the corresponding stratum. The
+statistical theory is given in Cochran and Cox (1957, ISBN:9780471162032),
+Gomez and Gomez (1984, ISBN:9780471870928), Dean et al. (2017)
+<doi:10.1007/978-3-319-52250-0> and Ruiz et al. (2024)
+<doi:10.1007/978-3-031-65575-3>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,32 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mizu
-%global packver   0.0.1
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Single-Producer Single-Consumer Channels
+Summary:          Thread-Speed 'Async' and Parallel R over Shared Memory
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.3
+Requires:         R-core >= 4.3
 
 %description
-Provides a single-producer single-consumer channel with bounded capacity,
-optional timeouts on receives, and sentinel return values for full,
-timeout, and closed states. The ring buffer is implemented in C: sends and
-receives are constant-time operations, values are delivered in first-in
-first-out order, and a closed channel drains its buffered values before
-reporting the closed state. The transport is in-process: both ends of a
-channel live in the calling R process, which suits the channel to
-prototyping producer and consumer designs and to testing channel-based
-logic.
+Parallel computation and data exchange between R processes on the same
+machine: lock-free channels, work-stealing task pools, and a parallel map
+over 'POSIX' shared memory (Linux, macOS) or 'Win32' file mappings
+(Windows), with the hot path entirely in user space. Communication is
+cheap enough that work can be divided as finely as with threads. Vectors
+and data frames transfer zero-copy, received as 'ALTREP' views over the
+shared pages, and 'Apache Arrow' tables and record batches travel as a
+single frame with zero-copy conversion in both directions. Receives and
+task results integrate with 'later' and 'promises' for non-blocking,
+event-driven applications such as 'shiny'. Channels, pools, and maps
+interoperate with 'pymizu', so a peer or worker can equally be a Python
+process. It complements 'mirai', and its payloads interoperate with 'mori'
+shared objects.
 
 %prep
 %setup -q -c -n %{packname}

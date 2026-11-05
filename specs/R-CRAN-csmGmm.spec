@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  csmGmm
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Conditionally Symmetric Multidimensional Gaussian Mixture Model
 
@@ -17,20 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-ggplot2 >= 3.5.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-magrittr 
 Requires:         R-stats 
