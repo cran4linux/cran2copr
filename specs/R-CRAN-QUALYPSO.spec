@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  QUALYPSO
-%global packver   3.1
+%global packver   3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1
+Version:          3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Partitioning Uncertainty Components of an Incomplete Ensemble of Climate Projections
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-expm 
@@ -39,9 +39,11 @@ Requires:         R-CRAN-statmod
 %description
 These functions apply an analysis of variance to incomplete ensembles of
 climate projections. It provides estimates of climate change responses of
-all simulation chains and of all uncertainty variables. It has been
-applied to different ensembles of projections simulated to study the
-impact of climate change: for climate indicators in Evin et al. (2019)
+all simulation chains and of all uncertainty variables. The current
+notations correspond to Evin et al. (2026)
+<doi:10.5194/hess-30-1023-2026>. QUALYPSO has been applied to different
+ensembles of projections simulated to study the impact of climate change:
+for climate indicators in Evin et al. (2019)
 <doi:10.1175/JCLI-D-18-0606.1>; seasonal precipitation and temperature in
 Evin, Somot and Hingray (2021) <doi:10.5194/esd-12-1543-2021>;
 hydrological variables in Evin et al. (2026)

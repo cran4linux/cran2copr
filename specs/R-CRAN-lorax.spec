@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lorax
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Speak for the Trees
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-hardhat 
 BuildRequires:    R-CRAN-partykit 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tibble 
@@ -28,6 +29,7 @@ Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-generics 
+Requires:         R-CRAN-hardhat 
 Requires:         R-CRAN-partykit 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tibble 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  brotli
-%global packver   1.3.2
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Compression Format Optimized for the Web
 
@@ -19,7 +19,7 @@ Requires:         R-core
 
 %description
 A lossless compressed data format that uses a combination of the LZ77
-algorithm and Huffman coding <https://www.rfc-editor.org/rfc/rfc7932>.
+algorithm and Huffman coding <https://www.rfc-editor.org/info/rfc7932/>.
 Brotli is similar in speed to deflate (gzip) but offers more dense
 compression.
 

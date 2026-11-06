@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ecodive
-%global packver   2.2.6
+%global packver   2.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.6
+Version:          2.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parallel and Memory-Efficient Ecological Diversity Metrics
 
@@ -22,10 +22,14 @@ Requires:         R-parallel
 Requires:         R-utils 
 
 %description
-Computes alpha and beta diversity metrics using concurrent 'C' threads.
-Metrics include 'UniFrac', Faith's phylogenetic diversity, Bray-Curtis
-dissimilarity, Shannon diversity index, and many others. Also parses
-newick trees into 'phylo' objects and rarefies feature tables.
+Computes alpha and beta diversity metrics in a parallel, memory-efficient
+manner using 'C' and 'pthreads'. Implements 51 classic, compositional, and
+phylogenetic indices including 'Shannon', 'Bray-Curtis', 'Faith', 'JSD',
+'Hellinger', 'Robust Aitchison', and the 'UniFrac' family. Provides random
+sub-sampling for table rarefaction and parses 'Newick' trees into 'phylo'
+objects. Integrates with data structures from 'phyloseq', 'rbiom', and
+other common 'bioinformatics' packages. Algorithms are described in Smith
+'et al.' (2026) <doi:10.21105/joss.09777>.
 
 %prep
 %setup -q -c -n %{packname}

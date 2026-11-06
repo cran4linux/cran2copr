@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ErrorTracer
-%global packver   1.4.1
+%global packver   1.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          1.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Error Propagation and Forecast Uncertainty Decomposition
 
@@ -31,11 +31,14 @@ Requires:         R-utils
 %description
 Provides a full pipeline from regularized or standard regression models
 (elastic net, linear models, generalized linear models, random forests) to
-informed Bayesian priors, structured forecast uncertainty decomposition
-(parameter / environmental / residual, plus a temporal component when the
-model carries an autocorrelation term), and forecast shelf life analysis
-(the quantification of when a forecast becomes uninformative). Designed
-for ecological and genomic forecasting with climate or environmental
+informed Bayesian priors, or accepts an existing 'brms' fit directly, for
+structured forecast uncertainty decomposition (parameter / environmental /
+residual, plus group-level variance for new random-effect levels and a
+temporal component under autocorrelation, alongside global Sobol indices),
+forecast shelf life analysis (quantifying when a forecast becomes
+uninformative, with Kaplan-Meier pooling across forecast origins),
+null-model skill scoring, and calibration diagnostics. Designed for
+ecological and genomic forecasting with climate or environmental
 covariates. Methods build on Bürkner (2017) <doi:10.18637/jss.v080.i01>
 for Bayesian regression via 'Stan', Friedman, Hastie, and Tibshirani
 (2010) <doi:10.18637/jss.v033.i01> for elastic net regularization, Wright

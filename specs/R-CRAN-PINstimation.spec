@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PINstimation
-%global packver   0.2.0
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation of the Probability of Informed Trading
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-skellam
 BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-CRAN-furrr 
 BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-parallelly 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-coda 
@@ -36,6 +37,7 @@ Requires:         R-CRAN-skellam
 Requires:         R-CRAN-nloptr 
 Requires:         R-CRAN-furrr 
 Requires:         R-CRAN-future 
+Requires:         R-CRAN-parallelly 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-coda 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  uSDT
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hierarchical Signal Detection Theory Models for Unconscious Processing
 
@@ -17,29 +17,42 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-withr >= 3.0.3
+BuildRequires:    R-grid 
+BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gtable 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-brms 
+BuildRequires:    R-CRAN-posterior 
+BuildRequires:    R-CRAN-logspline 
+BuildRequires:    R-CRAN-callr 
+BuildRequires:    R-CRAN-cli 
+Requires:         R-CRAN-withr >= 3.0.3
+Requires:         R-grid 
+Requires:         R-parallel 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gtable 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-brms 
+Requires:         R-CRAN-posterior 
+Requires:         R-CRAN-logspline 
+Requires:         R-CRAN-callr 
+Requires:         R-CRAN-cli 
 
 %description
-Fits hierarchical signal detection theory (SDT) models to paired direct
-and indirect measures, the design used to test for unconscious processing.
-Continuous indirect measures (typically response times) are dichotomized
-with the within-subject median split of Meyen et al. (2022)
-<doi:10.1037/xge0001065> so that both tasks are placed on a common
-sensitivity scale. The package estimates a binomial probit mixed model in
-which the two sensitivities are correlated random effects, and tests the
-three hypotheses of interest: the group-level difference between
-sensitivities, their latent correlation, and the latent regression of the
-indirect on the direct measure, whose intercept is the test for
-unconscious processing. Frequentist estimation uses 'lme4'.
+Fits hierarchical signal detection theory (SDT) models to paired awareness
+and influence measures in research on unconscious processing. Estimates
+mean sensitivities, their latent correlation and influence sensitivity at
+zero awareness sensitivity, using maximum likelihood with 'lme4' or
+Bayesian inference with 'brms'. Provides Bayes factors, equivalence tests,
+reliability estimates and study planning for power, precision and cost.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  virustotal
-%global packver   0.7.0
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Client for the 'VirusTotal' API
 
@@ -19,14 +19,16 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-checkmate >= 2.0.0
 BuildRequires:    R-CRAN-jsonlite >= 1.7.0
-BuildRequires:    R-CRAN-httr2 >= 1.1.0
+BuildRequires:    R-CRAN-httr2 >= 1.2.2
 BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-CRAN-checkstring >= 0.2.1
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-openssl 
 Requires:         R-CRAN-checkmate >= 2.0.0
 Requires:         R-CRAN-jsonlite >= 1.7.0
-Requires:         R-CRAN-httr2 >= 1.1.0
+Requires:         R-CRAN-httr2 >= 1.2.2
 Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-CRAN-checkstring >= 0.2.1
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-openssl 
 

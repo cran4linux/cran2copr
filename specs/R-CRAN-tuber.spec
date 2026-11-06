@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tuber
-%global packver   2.0.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Client for the YouTube Data API
 
@@ -17,34 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-httr2 >= 1.2.0
 BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-askpass 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-hms 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-mime 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-httr2 >= 1.2.0
 Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-askpass 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-hms 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-mime 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
