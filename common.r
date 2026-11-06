@@ -534,6 +534,13 @@ subset_failed <- function(x, chroots=seq_len(ncol(x)-1)) {
   subset(x, apply(cbind(x.fail, x.succ), 1, all))
 }
 
+subset_partial <- function(x, chroots=getOption("copr.chroots")) {
+  x.chrt <- x[, 2:ncol(x), drop=FALSE]
+  x.fail <- apply(x.chrt[, chroots, drop=FALSE], 2, function(x) grepl("failed", x))
+  x.succ <- apply(x.chrt, 2, function(x) grepl("succeeded|forked", x))
+  subset(x, rowSums(x.fail) > 0 & rowSums(x.succ) > 0)
+}
+
 subset_forked <- function(x, chroots=seq_len(ncol(x)-1)) {
   x.fork <- x[, 2:ncol(x), drop=FALSE][, chroots, drop=FALSE]
   x.fork <- apply(x.fork, 2, function(x) grepl("forked", x))
