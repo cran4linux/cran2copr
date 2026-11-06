@@ -6,8 +6,8 @@
 %global selinuxtype targeted
 
 Name:           R-%{packname}
-Version:        0.5.8
-Release:        2%{?dist}%{?buildtag}
+Version:        0.6.0
+Release:        1%{?dist}%{?buildtag}
 Summary:        Package Manager for the 'cran2copr' Project
 
 License:        MIT
@@ -15,7 +15,7 @@ URL:            https://github.com/cran4linux/%{projname}
 Source0:        %{url}/archive/v%{version}/%{projname}_%{version}.tar.gz
 
 BuildRequires:  R-devel, python3-devel
-Requires:       python3-dnf
+Requires:       python3-libdnf5
 Requires:       (%{name}-selinux = %{version}-%{release} if selinux-policy-%{selinuxtype})
 Recommends:     /usr/bin/busctl, python3-dbus, python3-gobject
 BuildArch:      noarch
