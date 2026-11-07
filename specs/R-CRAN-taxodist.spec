@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  taxodist
-%global packver   0.9.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Taxonomic Hierarchy Distances and Lineage Analysis
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-cli >= 3.0.0
 BuildRequires:    R-CRAN-jsonlite >= 1.8.0
 BuildRequires:    R-CRAN-httr >= 1.4.0
 BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-xml2 >= 1.3.0
 BuildRequires:    R-CRAN-rvest >= 1.0.0
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
@@ -30,6 +31,7 @@ Requires:         R-CRAN-cli >= 3.0.0
 Requires:         R-CRAN-jsonlite >= 1.8.0
 Requires:         R-CRAN-httr >= 1.4.0
 Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-xml2 >= 1.3.0
 Requires:         R-CRAN-rvest >= 1.0.0
 Requires:         R-utils 
 Requires:         R-stats 
@@ -42,14 +44,17 @@ retrieved from The Taxonomicon <http://taxonomicon.taxonomy.nl>. For
 distinct nodes, distance is defined as the reciprocal of the depth of
 their most recent common ancestor; identical nodes have distance zero.
 This definition yields an ultrametric within each connected hierarchy.
-Functions are provided for auditable name resolution, online or
-user-supplied lineage analysis, clade membership, pairwise, matrix, and
-cross-set distance calculation, classification trees with named clades,
-hierarchical clustering, principal coordinates analysis, portable and
-comparable JSON analysis bundles, and cache management. Distance matrices
-are returned as base R 'dist' objects. The distances represent
-classification depth rather than evolutionary time or phylogenetic branch
-length.
+Path length, Wu-Palmer, and rank-based distances are also available,
+together with the taxonomic diversity and distinctness indices of Clarke
+and Warwick (1998) <doi:10.1046/j.1365-2664.1998.3540523.x> and their
+randomization test. Functions are provided for auditable name resolution,
+online or user-supplied lineage analysis, node ranks, clade membership,
+pairwise, matrix, and cross-set distance calculation, classification trees
+with named clades, hierarchical clustering, principal coordinates
+analysis, portable and comparable JSON analysis bundles, and cache
+management. Distance matrices are returned as base R 'dist' objects. The
+distances represent classification depth rather than evolutionary time or
+phylogenetic branch length.
 
 %prep
 %setup -q -c -n %{packname}

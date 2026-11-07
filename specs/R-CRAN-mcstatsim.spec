@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mcstatsim
-%global packver   0.5.1
+%global packver   0.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.9.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Monte Carlo Statistical Simulation Tools Using a Functional Approach
 
@@ -21,10 +21,13 @@ BuildRequires:    R-CRAN-functionals
 Requires:         R-CRAN-functionals 
 
 %description
-A lightweight package designed to facilitate statistical simulations
-through functional programming. It centralizes the simulation process into
-a single higher-order function, enhancing manageability and usability. The
-package includes ready-to-use functions for common simulation targets.
+A lightweight toolkit for Monte Carlo simulation studies built around a
+higher-order, functional-style interface: the simulation is expressed as a
+function of its parameters and mapped over a grid of conditions by a
+single driver function, which handles iteration, parallelism, reproducible
+per-replication random-number streams, error capture and result assembly.
+Also provides ready-to-use performance measures with Monte Carlo standard
+errors, a summary layer, and diagnostic plots.
 
 %prep
 %setup -q -c -n %{packname}

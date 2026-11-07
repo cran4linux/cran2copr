@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  iq
-%global packver   2.1.0
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Protein Quantification in Mass Spectrometry-Based Proteomics
 
@@ -14,22 +14,22 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 
 %description
 An implementation of the MaxLFQ algorithm by Cox et al. (2014)
-<doi:10.1074/mcp.M113.031591> in a comprehensive pipeline for processing
-proteomics data in data-independent acquisition mode (Pham et al. 2020
-<doi:10.1093/bioinformatics/btz961>; Pham et al. 2026
+<doi:10.1074/mcp.M113.031591> using least-squares analysis in a
+comprehensive pipeline for processing proteomics data in data-independent
+acquisition mode (Pham et al. 2020 <doi:10.1093/bioinformatics/btz961>,
+and a new algorithm using the conjugate gradient method Pham et al. 2026
 <doi:10.1021/acs.jproteome.5c01038>). It offers additional options for
 protein quantification using the N most intense fragment ions, using all
 fragment ions, the median polish algorithm by Tukey (1977,
-ISBN:0201076160), and a robust linear model. In general, the tool can be
-used to integrate multiple proportional observations into a single
-quantitative value.
+ISBN:0201076160), a robust linear model, and fragment weighting. A new iq
+format enables the processing of large-scale datasets. In general, the
+tool can be used to integrate multiple proportional observations into a
+single quantitative value.
 
 %prep
 %setup -q -c -n %{packname}

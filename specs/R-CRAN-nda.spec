@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nda
-%global packver   0.2.5
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Network-Based Dimensionality Reduction and Analysis
 
@@ -14,42 +14,42 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.00
-Requires:         R-core >= 4.00
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-energy 
 BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-mco 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-ppcor 
-BuildRequires:    R-CRAN-lm.beta 
-BuildRequires:    R-CRAN-leidenAlg 
-BuildRequires:    R-CRAN-Metrics 
 BuildRequires:    R-CRAN-visNetwork 
 Requires:         R-CRAN-energy 
 Requires:         R-CRAN-psych 
 Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-grid 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-Matrix 
-Requires:         R-methods 
-Requires:         R-CRAN-Rfast 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-mco 
+Requires:         R-parallel 
 Requires:         R-CRAN-ppcor 
-Requires:         R-CRAN-lm.beta 
-Requires:         R-CRAN-leidenAlg 
-Requires:         R-CRAN-Metrics 
 Requires:         R-CRAN-visNetwork 
 
 %description
-Non-parametric dimensionality reduction function. Reduction with and
-without feature selection. Plot functions. Automated feature selections.
-Kosztyan et. al. (2024) <doi:10.1016/j.eswa.2023.121779>.
+Constructs interpretable latent variables from communities in
+squared-association networks. Supports full, partial, and semipartial
+associations, feature selection, sparse networks, inference, prediction,
+visualization, and supervised regression. The generalized method is
+described in Kosztyan et al. (2024) <doi:10.1016/j.eswa.2023.121779>.
 
 %prep
 %setup -q -c -n %{packname}

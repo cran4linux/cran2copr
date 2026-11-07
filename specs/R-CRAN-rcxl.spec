@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rcxl
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read xlsx Files with a Native Parser
 
@@ -19,9 +19,10 @@ Requires:         R-core >= 4.0
 
 %description
 Reads tabular data from xlsx files with a specialized C parser. Worksheet
-XML is scanned in a single pass and decoded directly into R vectors, with
-no intermediate document model. Bundles the 'miniz' and 'libdeflate'
-decompressors to read the underlying archive.
+XML is scanned in a single pass into compact per-column buffers, with no
+intermediate document model, and the R vectors are built from those.
+Bundles the 'miniz' and 'libdeflate' decompressors to read the underlying
+archive.
 
 %prep
 %setup -q -c -n %{packname}

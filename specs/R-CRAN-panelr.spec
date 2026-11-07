@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  panelr
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regression Models and Utilities for Repeated Measures and Panel Data
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-lmerTest >= 3.2.1
 BuildRequires:    R-CRAN-jtools >= 2.3.1
 BuildRequires:    R-CRAN-tibble >= 2.0.0
 BuildRequires:    R-CRAN-tidyr >= 0.8.3
@@ -28,11 +29,11 @@ BuildRequires:    R-CRAN-crayon
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-Formula 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lmerTest 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-lmerTest >= 3.2.1
 Requires:         R-CRAN-jtools >= 2.3.1
 Requires:         R-CRAN-tibble >= 2.0.0
 Requires:         R-CRAN-tidyr >= 0.8.3
@@ -44,7 +45,6 @@ Requires:         R-CRAN-crayon
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-Formula 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lmerTest 
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
 Requires:         R-CRAN-purrr 

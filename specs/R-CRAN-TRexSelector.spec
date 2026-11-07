@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TRexSelector
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          T-Rex Selector: High-Dimensional Variable Selection & FDR Control
 
@@ -14,35 +14,28 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tlars 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-doRNG 
+BuildRequires:    R-devel >= 4.3
+Requires:         R-core >= 4.3
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-boot 
-Requires:         R-CRAN-MASS 
-Requires:         R-stats 
-Requires:         R-CRAN-tlars 
-Requires:         R-parallel 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-doRNG 
+BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-BH 
+BuildRequires:    R-CRAN-Rcereal 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-R6 
 Requires:         R-methods 
-Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-boot 
 
 %description
-Performs fast variable selection in high-dimensional settings while
-controlling the false discovery rate (FDR) at a user-defined target level.
-The package is based on the paper Machkour, Muma, and Palomar (2022)
-<arXiv:2110.06048>.
+Variable selection for regression and classification in high-dimensional
+settings with control of the false discovery rate (FDR) at a
+user-specified target level. The implementations are primarily based on
+the T-Rex selector of Machkour, Muma and Palomar (2025)
+<doi:10.1016/j.sigpro.2025.109894> and its dependency-aware extension for
+correlated variables by Machkour, Muma and Palomar (2025)
+<doi:10.1016/j.sigpro.2025.109990>. Since version 2.0.0 the package comes
+as R bindings to the 'TRexSelector' C++ library, which replaces the pure-R
+implementation of the 1.x releases.
 
 %prep
 %setup -q -c -n %{packname}

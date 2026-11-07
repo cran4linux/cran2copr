@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ethnoecologyR
-%global packver   0.1.4
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantitative Ethnoecology Analysis and Landscape Knowledge Modeling
 
@@ -27,6 +27,9 @@ BuildRequires:    R-CRAN-reshape2
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-rstan 
+BuildRequires:    R-CRAN-ggraph 
+BuildRequires:    R-CRAN-tidygraph 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
@@ -38,6 +41,9 @@ Requires:         R-CRAN-reshape2
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-rstan 
+Requires:         R-CRAN-ggraph 
+Requires:         R-CRAN-tidygraph 
+Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-rstantools
 
 %description
@@ -46,11 +52,11 @@ landscape knowledge modeling. Implements core indices including Landscape
 Use (LU), Cultural Importance in Ecology (CIE), Frequency of Citation
 (FC), Fidelity Level (FL), Number of Uses (NU), and Cultural Value of
 Ecolandscape (CVe). Provides visualization tools for chord diagrams,
-alluvial plots, and radial plots, as well as Bayesian consensus modeling
-and bootstrap resampling to support reproducible research in Local
-Ecological Knowledge (LEK) and participatory land-use decision analysis.
-Methods are based on Tardío and Pardo-de-Santayana (2008)
-<doi:10.1007/s12231-007-9004-5>, Reyes-García et al. (2006)
+alluvial plots, radial plots, and bipartite networks, as well as Bayesian
+consensus modeling and bootstrap resampling to support reproducible
+research in Local Ecological Knowledge (LEK) and participatory land-use
+decision analysis. Methods are based on Tardío and Pardo-de-Santayana
+(2008) <doi:10.1007/s12231-007-9004-5>, Reyes-García et al. (2006)
 <https://www.jstor.org/stable/4257061>, and Friedman et al. (1986)
 <doi:10.1037/0022-3514.51.6.1173>.
 

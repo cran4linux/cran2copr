@@ -1,34 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DiallelAnalysisR
-%global packver   0.6.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Diallel Analysis with R
+Summary:          Diallel Analysis, Heterosis and Related Mating Designs
 
 License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-scales 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Performs Diallel Analysis with R using Griffing's and Hayman's approaches.
-Four different Methods (1: Method-I (Parents + F1's + reciprocals); 2:
-Method-II (Parents and one set of F1's); 3: Method-III (One set of F1's
-and reciprocals); 4: Method-IV (One set of F1's only)) and two Models (1:
-Fixed Effects Model; 2: Random Effects Model) can be applied using
-Griffing's approach.
+Analysis of diallel crosses and related mating designs in plant breeding,
+from the plot data of randomized complete block experiments: Griffing's
+four methods and two models (Griffing, 1956 <doi:10.1071/BI9560463>), from
+plot data, from a published table of means or over several environments,
+with gca by environment and sca by environment interactions and a split of
+reciprocal effects into maternal and non-maternal parts (Cockerham and
+Weir, 1977); Hayman's analysis with the Wr-Vr graph and the components of
+variation (Hayman, 1954 <doi:10.1093/genetics/39.6.789>); mid-parent,
+better-parent and standard heterosis with t tests; Gardner and Eberhart's
+(1966) Analyses II and III; the partial diallel (Kempthorne and Curnow,
+1961 <doi:10.2307/2527989>); line by tester analysis with proportional
+contributions; and the North Carolina designs I, II and III (Comstock and
+Robinson, 1948). Missing plots are handled by least-squares means. Results
+include analyses of variance, effects with standard errors, variance
+components and genetic ratios, plots of the effects and a biplot of the
+crosses, tables for papers in Word, LaTeX, HTML or Markdown, simulation of
+diallel data and the power of the tests for planning the number of
+replicates, and an interactive 'shiny' application.
 
 %prep
 %setup -q -c -n %{packname}

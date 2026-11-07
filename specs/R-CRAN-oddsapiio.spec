@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  oddsapiio
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Client for the 'Odds-API.io' Sports Betting Odds API
 
@@ -14,20 +14,27 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr2 >= 1.0.0
+BuildRequires:    R-CRAN-httr2 >= 1.1.0
 BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-httr2 >= 1.0.0
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-httr2 >= 1.1.0
 Requires:         R-CRAN-jsonlite 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Query live and upcoming sports betting odds from the 'Odds-API.io' REST
-API <https://docs.odds-api.io>. Covers sports, bookmakers, leagues,
-events, per-event odds, value bets and arbitrage bets across 265+
-bookmakers, returned as tidy data frames. An API key is required; a free
-tier is available.
+API <https://docs.odds-api.io>. Covers sports, markets, bookmakers,
+leagues, participants, events, per-event and multi-event odds, odds
+deltas, odds movements, odds summaries, value bets, arbitrage bets,
+dropping odds, historical events, odds and closing lines, bet settlement
+and grading, outright (futures) odds and results, and bookmaker id
+mappings across 450+ bookmakers, returned as tidy data frames. An API key
+from a paid plan is required.
 
 %prep
 %setup -q -c -n %{packname}

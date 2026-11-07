@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scaledescr
-%global packver   0.2.8
+%global packver   0.2.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.8
+Version:          0.2.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Descriptive, Reliability, and Inferential Tables for Psychometric Scales and Demographic Data
 
@@ -29,6 +29,7 @@ BuildRequires:    R-CRAN-psych
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-flextable 
 BuildRequires:    R-CRAN-lavaan 
+BuildRequires:    R-CRAN-performance 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-gtsummary 
 Requires:         R-CRAN-purrr 
@@ -41,16 +42,21 @@ Requires:         R-CRAN-psych
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-flextable 
 Requires:         R-CRAN-lavaan 
+Requires:         R-CRAN-performance 
 
 %description
-Provides functions to format and summarise already computed outputs from
-commonly used statistical and psychometric functions into compact,
-single-row tables and simple graphs, with utilities to export results to
-CSV, Word, and Excel formats. The package does not implement new
-statistical methods or estimation procedures; instead, it organises and
-presents results obtained from existing packages such as 'psych', 'stats',
-'gtsummary', and 'lavaan' to streamline reporting workflows in clinical
-and psychological research.
+Wraps and formats outputs from established statistical and psychometric
+functions into compact tables and summaries designed for straightforward
+export to CSV, Word, and Excel formats. Core utilities support
+psychometric scale preparation, reliability assessment, factorability
+checks, structural equation and mediation analyses, inferential tests, and
+demographic summaries. The package does not introduce new statistical
+methods or estimation procedures; instead, it serves as a reporting
+wrapper around packages such as 'psych', 'stats', 'lavaan', and
+'gtsummary' to facilitate everyday data export workflows in clinical and
+psychological research. It is intended to lower the barrier to entry for
+researchers transitioning into the R ecosystem, with function names
+structured to be intuitive and self-descriptive.
 
 %prep
 %setup -q -c -n %{packname}

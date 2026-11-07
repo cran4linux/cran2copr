@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sTiles
-%global packver   2026.9.4
+%global packver   2026.10.19
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2026.9.4
+Version:          2026.10.19
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tile-Based Sparse Cholesky Factorization and Selected Inverse
 

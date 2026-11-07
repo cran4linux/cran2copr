@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cmAnalysis
-%global packver   1.0.3
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Process and Visualise Concept Mapping Data
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-clue
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-pheatmap 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-factoextra 
@@ -31,6 +32,7 @@ Requires:         R-CRAN-clue
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-pheatmap 
+Requires:         R-CRAN-rlang 
 
 %description
 Concept maps are versatile tools used across disciplines to enhance

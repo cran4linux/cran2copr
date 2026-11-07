@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  jtools
-%global packver   2.3.1
+%global packver   2.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.1
+Version:          2.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis and Presentation of Social Scientific Data
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-reformulas >= 0.4.2
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-broom 
@@ -29,6 +30,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-reformulas >= 0.4.2
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-broom 

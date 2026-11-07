@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  kuenm2
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Detailed Development of Ecological Niche Models
 
@@ -54,11 +54,12 @@ transfers are included. Other tools to assess extrapolation risks and
 variability in model transfers are also available. Methodological and
 theoretical basis for the methods implemented here can be found in:
 Peterson et al. (2011)
-<https://www.degruyter.com/princetonup/view/title/506966>, Radosavljevic
-and Anderson (2014) <doi:10.1111/jbi.12227>, Peterson et al. (2018)
-<doi:10.1111/nyas.13873>, Cobos et al. (2019) <doi:10.7717/peerj.6281>,
-Alkishe et al. (2020) <doi:10.1016/j.pecon.2020.03.002>, Machado-Stredel
-et al. (2021) <doi:10.21425/F5FBG48814>, Arias-Giraldo and Cobos (2024)
+<https://academic.oup.com/princeton-scholarship-online/book/16160?login=true>,
+Radosavljevic and Anderson (2014) <doi:10.1111/jbi.12227>, Peterson et al.
+(2018) <doi:10.1111/nyas.13873>, Cobos et al. (2019)
+<doi:10.7717/peerj.6281>, Alkishe et al. (2020)
+<doi:10.1016/j.pecon.2020.03.002>, Machado-Stredel et al. (2021)
+<doi:10.21425/F5FBG48814>, Arias-Giraldo and Cobos (2024)
 <doi:10.17161/bi.v18i.21742>, Cobos et al. (2024)
 <doi:10.17161/bi.v18i.21742>.
 

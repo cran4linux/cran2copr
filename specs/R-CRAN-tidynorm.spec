@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidynorm
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Tidy Vowel Normalization
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-cli 
@@ -39,6 +40,7 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-withr 
 
 %description
 An implementation of tidy speaker vowel normalization. This includes

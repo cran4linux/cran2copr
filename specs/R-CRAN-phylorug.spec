@@ -1,35 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rladybugdb
-%global packver   0.4.4
+%global packname  phylorug
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to the 'LadybugDB' Embedded Graph Database
+Summary:          Visualize Clade Recovery and Support Across Phylogenetic Trees
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-DBI >= 1.2.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-methods 
-Requires:         R-CRAN-DBI >= 1.2.0
-Requires:         R-CRAN-Rcpp >= 1.0.0
-Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-methods 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-phangorn 
+BuildRequires:    R-stats 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-ape 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-phangorn 
+Requires:         R-stats 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
-Provides an R interface to 'LadybugDB', an embedded columnar graph
-database using the 'Cypher' query language. 'LadybugDB' was formerly known
-as 'Kuzu'. This package uses native 'Rcpp' bindings to the 'LadybugDB' C
-library, requiring no 'Python' runtime.
+Generates rug plot visualizations directly on tree nodes to illustrate
+clade recovery and support from multiple phylogenetic and phylogenomic
+analyses. As modern studies routinely employ diverse datasets and
+inference techniques producing potentially conflicting trees, 'phylorug'
+simplifies the comparison among these trees by consolidating clade
+recovery and support on a reference tree.
 
 %prep
 %setup -q -c -n %{packname}

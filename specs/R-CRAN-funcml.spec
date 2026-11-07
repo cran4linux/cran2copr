@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  funcml
-%global packver   0.9.0
+%global packver   0.9.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.9.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functional Machine Learning Framework
 
@@ -23,7 +23,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-functionals 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-basetable 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-nnet 
@@ -42,17 +42,17 @@ BuildRequires:    R-CRAN-ada
 BuildRequires:    R-CRAN-pls 
 BuildRequires:    R-CRAN-partykit 
 BuildRequires:    R-CRAN-dbarts 
-BuildRequires:    R-CRAN-torch 
 BuildRequires:    R-CRAN-xgboost 
 BuildRequires:    R-CRAN-lightgbm 
 BuildRequires:    R-CRAN-densemlp 
+BuildRequires:    R-CRAN-fastgbm 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-functionals 
 Requires:         R-grDevices 
 Requires:         R-tools 
-Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-basetable 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-nnet 
@@ -71,10 +71,10 @@ Requires:         R-CRAN-ada
 Requires:         R-CRAN-pls 
 Requires:         R-CRAN-partykit 
 Requires:         R-CRAN-dbarts 
-Requires:         R-CRAN-torch 
 Requires:         R-CRAN-xgboost 
 Requires:         R-CRAN-lightgbm 
 Requires:         R-CRAN-densemlp 
+Requires:         R-CRAN-fastgbm 
 
 %description
 A compact and explicit machine learning framework for supervised learning,
