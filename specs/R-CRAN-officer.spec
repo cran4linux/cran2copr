@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  officer
-%global packver   0.7.7
+%global packver   0.7.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.7
+Version:          0.7.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Manipulation of Microsoft Word and PowerPoint Documents
+Summary:          Manipulation of Microsoft Word, PowerPoint and Excel Documents
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -45,13 +45,13 @@ Requires:         R-utils
 Requires:         R-CRAN-uuid 
 
 %description
-Access and manipulate 'Microsoft Word', 'RTF' and 'Microsoft PowerPoint'
-documents from R.  The package focuses on tabular and graphical reporting
-from R; it also provides two functions that let users get document content
-into data objects. A set of functions lets add and remove images, tables
-and paragraphs of text in new or existing documents.  The package does not
-require any installation of Microsoft products to be able to write
-Microsoft files.
+Access and manipulate 'Microsoft Word', 'Microsoft PowerPoint', 'Microsoft
+Excel' and 'RTF' documents from R.  The package focuses on tabular and
+graphical reporting from R; it also provides two functions that let users
+get document content into data objects. A set of functions lets add and
+remove images, tables and paragraphs of text in new or existing documents.
+The package does not require any installation of Microsoft products to be
+able to write Microsoft files.
 
 %prep
 %setup -q -c -n %{packname}

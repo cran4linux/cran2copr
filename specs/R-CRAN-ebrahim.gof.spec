@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ebrahim.gof
-%global packver   3.0.0
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Goodness-of-Fit and Calibration Tests for Logistic Regression
 
@@ -55,10 +55,16 @@ fraction of the sample size. For a model fitted elsewhere,
 'edge.stream()' updates the 'EDGE' test as validation records arrive.
 'localize.gof()' and 'localize.external()' name which part of the model is
 wrong (the intercept, the slope, the link or the covariates) with
-familywise error control. For comparison, the projection test of Liu et
-al. is implemented as 'projection.gof()' and a fast implementation of the
-adaptive-partition test 'BAGofT' as 'bagoft.fast()'. For more details see
-Hosmer (1980) <doi:10.1080/03610928008827941> and Farrington (1996)
+familywise error control; 'localize.update()' tests each part against the
+model already updated for the simpler parts, and 'localize.size()' gives
+the size of each part. For comparison, the projection test of Liu et al.
+is implemented as 'projection.gof()' and a fast implementation of the
+adaptive-partition test 'BAGofT' as 'bagoft.fast()'. For Gaussian
+graphical models, 'ridge_pcor()', 'effective_penalty()',
+'extrapolated_ridge()' and 'mps_select()' extract networks from the ridge
+estimator of a precision matrix and estimate the effective penalty that
+says which graph such a network estimates. For more details see Hosmer
+(1980) <doi:10.1080/03610928008827941> and Farrington (1996)
 <doi:10.1111/j.2517-6161.1996.tb02086.x>.
 
 %prep

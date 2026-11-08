@@ -1,29 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  uuidx
-%global packver   0.0.1
+%global packname  pstratreg
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Modern UUIDs for R with a Rust Backend
+Summary:          Estimate Bounds via Principal Stratification
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3
-Requires:         R-core >= 4.3
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-foreach 
+Requires:         R-methods 
+Requires:         R-CRAN-purrr 
+Requires:         R-stats 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Generate, parse, and validate RFC 9562 UUIDs from R using the Rust 'uuid'
-crate via 'extendr'. Developed by Thomas Bryce Kelly at Icy Seas
-Co-Laboratory LLC. Version 7 UUIDs are the default for new identifiers,
-while versions 4, 5, 6, and legacy version 1 are also supported. Functions
-return character vectors by default and can also expose 16-byte raw
-representations for low-level workflows.
+When studying the causal effect of a treatment on an outcome,
+post-treatment events may render the outcome undefined. For example, the
+effect of job training on hourly wage is ill-defined for those who would
+not be employed without job training. This package estimates average
+causal effects among those whose outcome would be defined regardless of
+the intervention, producing a set-identified result. For more details, see
+Lundberg and Cho (2025) <doi:10.48550/arXiv.2508.14770>.
 
 %prep
 %setup -q -c -n %{packname}

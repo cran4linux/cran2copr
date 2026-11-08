@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggindex
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Numbered Focus Points for 'ggplot2' Scatter Plots
+Summary:          Numbered Focus Points for 'ggplot2' Plots
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -25,9 +25,10 @@ Requires:         R-grid
 Requires:         R-CRAN-scales 
 
 %description
-A 'ggplot2' geom that highlights selected points of a scatter plot with
-numbered markers and lists their descriptions in a legend keyed by the
-same numbers, as on an annotated map.
+A 'ggplot2' geom that highlights selected observations of a plot, such as
+points of a scatter plot, events on a line chart or features on a map,
+with numbered markers and lists their descriptions in a legend keyed by
+the same numbers, as on an annotated map.
 
 %prep
 %setup -q -c -n %{packname}

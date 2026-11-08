@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DACT
-%global packver   1.0.0
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Design and Analysis for Clinical Trials
 
@@ -25,6 +25,9 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-parallel 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-clinfun 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-doParallel 
@@ -33,6 +36,9 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-survival 
+Requires:         R-parallel 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 The applications and evaluation of the operating characteristics of many

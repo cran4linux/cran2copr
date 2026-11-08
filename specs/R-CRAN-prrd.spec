@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  prrd
-%global packver   0.0.7
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parallel Runs of Reverse Depends
 
@@ -32,7 +32,10 @@ Requires:         R-CRAN-RSQLite
 
 %description
 Reverse depends for a given package are queued such that multiple workers
-can run the reverse-dependency tests in parallel.
+can run the reverse-dependency tests in parallel where operations are
+robust to concurrent workers writing. Work queue management is provided by
+package 'liteq' from which an approach for dealing with concurrent
+'sqlite' writes is also borrowed.
 
 %prep
 %setup -q -c -n %{packname}

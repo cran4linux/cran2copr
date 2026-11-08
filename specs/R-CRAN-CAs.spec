@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CAs
-%global packver   0.24-4
+%global packver   0.25
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.24.4
+Version:          0.25
 Release:          1%{?dist}%{?buildtag}
 Summary:          Creating Covering Arrays
 
@@ -31,6 +31,7 @@ BuildRequires:    R-CRAN-gmp
 BuildRequires:    R-CRAN-conf.design 
 BuildRequires:    R-CRAN-sfsmisc 
 BuildRequires:    R-CRAN-combinat 
+BuildRequires:    R-CRAN-httr2 
 Requires:         R-CRAN-caverify >= 0.2.0
 Requires:         R-CRAN-lhs 
 Requires:         R-CRAN-DoE.base 
@@ -45,6 +46,7 @@ Requires:         R-CRAN-gmp
 Requires:         R-CRAN-conf.design 
 Requires:         R-CRAN-sfsmisc 
 Requires:         R-CRAN-combinat 
+Requires:         R-CRAN-httr2 
 
 %description
 Implements covering arrays, as proposed in Groemping (2025)

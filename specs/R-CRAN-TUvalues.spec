@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TUvalues
-%global packver   1.2
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Calculating Allocations in Game Theory using Exact and Approximated Methods
 
@@ -36,10 +36,12 @@ egalitarian rules, alongside their extensions for structured games: the
 Owen value and Banzhaf-Owen value for games with a priori unions, and the
 Myerson value for communication games on networks. To address the inherent
 exponential computational complexity of exact evaluation, the package
-offers both exact algorithms and linear approximation methods based on
-sampling, enabling the analysis of large-scale games. Additionally, it
-supports core set-based solutions, allowing computation of the vertices
-and the centroid of the core.
+offers both exact algorithms and sampling-based approximation methods,
+enabling the analysis of large-scale games. The characteristic function
+can be supplied as a vector or as an R function, so that coalition values
+are evaluated only when required. Additionally, it supports core set-based
+solutions, allowing computation of the vertices and the centroid of the
+core and checking whether an allocation belongs to it.
 
 %prep
 %setup -q -c -n %{packname}

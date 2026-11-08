@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FishDiveR
-%global packver   1.1.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Classify Aquatic Animal Behaviours from Vertical Movement Data
 
@@ -68,9 +68,9 @@ statistics. Classify depth time-series with unsupervised k-means
 clustering into 24-hour periods of vertical movement behaviour with
 distinct patterns of vertical movement. Plot example days from each
 behaviour cluster, and plot the TDR coloured by cluster. Based on
-principals of combining CWT with k-means first developed by Sakamoto
-(2009) <doi:10.1371/journal.pone.0005379> and redeveloped by Beale (2026)
-<doi:10.21203/rs.3.rs-6907076/v1>.
+principles of combining CWT with k-means first developed by Sakamoto et
+al. (2009) <doi:10.1371/journal.pone.0005379> and redeveloped by Beale et
+al. (2026) <doi:10.1186/s40462-025-00622-w>.
 
 %prep
 %setup -q -c -n %{packname}

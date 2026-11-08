@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sassy
-%global packver   1.3.2
+%global packver   1.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Makes 'R' Easier for Everyone
 
@@ -18,21 +18,21 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-fmtr >= 1.7.3
-BuildRequires:    R-CRAN-reporter >= 1.4.7
-BuildRequires:    R-CRAN-libr >= 1.4.1
-BuildRequires:    R-CRAN-logr >= 1.3.9
+BuildRequires:    R-CRAN-reporter >= 1.5.0
+BuildRequires:    R-CRAN-libr >= 1.4.2
+BuildRequires:    R-CRAN-logr >= 1.4.1
 BuildRequires:    R-CRAN-common >= 1.1.5
-BuildRequires:    R-CRAN-procs >= 1.0.9
+BuildRequires:    R-CRAN-procs >= 1.1.0
 BuildRequires:    R-CRAN-macro >= 0.1.6
 BuildRequires:    R-datasets 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-fmtr >= 1.7.3
-Requires:         R-CRAN-reporter >= 1.4.7
-Requires:         R-CRAN-libr >= 1.4.1
-Requires:         R-CRAN-logr >= 1.3.9
+Requires:         R-CRAN-reporter >= 1.5.0
+Requires:         R-CRAN-libr >= 1.4.2
+Requires:         R-CRAN-logr >= 1.4.1
 Requires:         R-CRAN-common >= 1.1.5
-Requires:         R-CRAN-procs >= 1.0.9
+Requires:         R-CRAN-procs >= 1.1.0
 Requires:         R-CRAN-macro >= 0.1.6
 Requires:         R-datasets 
 Requires:         R-tools 
@@ -44,8 +44,8 @@ programmers who have a background in 'SAS®' software. This set of packages
 brings many useful concepts to 'R', including data libraries, data
 dictionaries, formats and format catalogs, a data step, and a traceable
 log.  The system also includes a package that replicates several
-commonly-used 'SAS®' procedures, like 'PROC FREQ', 'PROC MEANS', and 'PROC
-REG'.
+commonly-used 'SAS®' procedures, like 'PROC FREQ', 'PROC MEANS', 'PROC
+TTEST', 'PROC REG', and 'PROC GLM'.
 
 %prep
 %setup -q -c -n %{packname}

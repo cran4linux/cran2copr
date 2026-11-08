@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gerda
-%global packver   0.8.1
+%global packver   0.8.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.8.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          German Election Database (GERDA)
 
@@ -34,15 +34,14 @@ Requires:         R-utils
 
 %description
 Provides tools to download datasets of German elections covering local,
-state, federal, mayoral, European Parliament, and county (Kreistag)
-elections, with federal county-level coverage from 1953 and other families
-extending through 2025. The package supplies turnout, vote shares, and
-derived indicators at the municipal and county level, including
-geographically harmonized datasets that account for changes in municipal
-boundaries over time and incorporate mail-in voting districts. Bundled
-data includes county-level INKAR covariates (1995-2022) and
-municipality-level Zensus 2022 indicators. Data is sourced from
-<https://github.com/awiedem/german_election_data>.
+state, federal, mayoral, 'Landrat', European Parliament, and county
+(Kreistag) elections from 1945 to 2026; coverage varies by election type.
+The package supplies turnout, vote shares, and derived indicators at the
+municipal and county level, including geographically harmonized datasets
+that account for changes in municipal boundaries over time and incorporate
+mail-in voting districts. Bundled data includes county-level INKAR
+covariates (1995-2023) and municipality-level Zensus 2022 indicators. Data
+is sourced from <https://github.com/awiedem/german_election_data>.
 
 %prep
 %setup -q -c -n %{packname}

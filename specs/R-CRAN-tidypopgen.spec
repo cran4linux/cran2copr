@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidypopgen
-%global packver   0.4.4
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Population Genetics
 
@@ -16,15 +16,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
 BuildRequires:    R-CRAN-dplyr >= 1.2.0
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.600
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-bigparallelr 
 BuildRequires:    R-CRAN-bigsnpr 
 BuildRequires:    R-CRAN-bigstatsr 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-patchwork 
@@ -37,15 +38,17 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-gtable 
 BuildRequires:    R-CRAN-rmio 
+Requires:         R-CRAN-ggplot2 >= 3.5.0
 Requires:         R-CRAN-dplyr >= 1.2.0
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-bigparallelr 
 Requires:         R-CRAN-bigsnpr 
 Requires:         R-CRAN-bigstatsr 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-generics 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-methods 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-patchwork 
@@ -58,6 +61,7 @@ Requires:         R-CRAN-tidyr
 Requires:         R-utils 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-gtable 
 
 %description
 We provide a tidy grammar of population genetics, facilitating the

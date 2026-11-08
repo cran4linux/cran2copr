@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MR.RGM
-%global packver   0.1.1
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fitting Multivariate Bidirectional Mendelian Randomization Networks Using Bayesian Directed Cyclic Graphical Models
+Summary:          Bayesian Multivariable Bidirectional Mendelian Randomization
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,38 +18,38 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-GIGrvg 
 BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppDist 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
+Requires:         R-utils 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-GIGrvg 
 
 %description
-Addressing a central challenge encountered in Mendelian randomization (MR)
-studies, where MR primarily focuses on discerning the effects of
-individual exposures on specific outcomes and establishes causal links
-between them. Using a network-based methodology, the intricacy involving
-interdependent outcomes due to numerous factors has been tackled through
-this routine. Based on Ni et al. (2018) <doi:10.1214/17-BA1087>, 'MR.RGM'
-extends to a broader exploration of the causal landscape by leveraging on
-network structures and involves the construction of causal graphs that
-capture interactions between response variables and consequently between
-responses and instrument variables. The resulting Graph visually
-represents these causal connections, showing directed edges with effect
-sizes labeled. 'MR.RGM' facilitates the navigation of various data
-availability scenarios effectively by accommodating three input formats,
-i.e., individual-level data and two types of summary-level data. The
-method also optionally incorporates measured covariates (when available)
-and allows flexible modeling of the error variance structure, including
-correlated errors that may reflect unmeasured confounding among responses.
-In the process, causal effects, adjacency matrices, and other essential
-parameters of the complex biological networks, are estimated. Besides,
-'MR.RGM' provides uncertainty quantification for specific network
-structures among response variables. Parts of the Inverse Wishart sampler
-are adapted from the econ722 repository by DiTraglia (GPL-2.0).
+Fits multivariable bidirectional Mendelian randomization networks with
+Bayesian directed cyclic graphical models (reciprocal graphical models;
+Ni, Ji and Mueller (2018) <doi:10.1214/17-BA1087>), an earlier version of
+which is described in Sarkar and Ni (2025)
+<doi:10.1093/bioinformatics/btaf130>. The causal effects among the
+responses, which may form directed cycles, are estimated with
+spike-and-slab or threshold priors, and posterior probabilities of network
+motifs are provided. With a known instrument-response map the instrument
+effects obey the exclusion restrictions; with an unrestricted map they are
+selected by a spike-and-slab prior, which allows invalid instruments
+(horizontal pleiotropy). The input can be individual-level data, the
+second-moment matrices of one sample, or marginal instrument-response
+regressions, with optional measured covariates. The error covariance can
+be diagonal, inverse-Wishart, or a stochastic search structure learning
+prior (Wang (2015) <doi:10.1214/14-BA916>) whose inclusion indicators
+describe unmeasured confounding among the responses. Inference is by
+Markov chain Monte Carlo with exact Gibbs updates of the instrument
+effects and adaptive random-walk Metropolis updates of the causal effects
+(Roberts and Rosenthal (2009) <doi:10.1198/jcgs.2009.06134>); the fitting
+function reports diagnostics of weak instruments, weak identification and
+convergence.
 
 %prep
 %setup -q -c -n %{packname}

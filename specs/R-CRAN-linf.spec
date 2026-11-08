@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  linf
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          L-Infinity Normalization and Dominant Community State Types
 
@@ -25,12 +25,13 @@ Requires:         R-methods
 %description
 Implements L-infinity normalization for compositional matrices, assigns
 samples to dominant features, constructs truncated and hierarchically
-refined dominant community state types, and computes representative
-landmark profiles. The methods are described in the accompanying
-publication <doi:10.48550/arXiv.2503.21543>. Bundled vaginal and gut
-microbiome data support reproducible demonstrations of the package
-interface; phenotype fields in the stratified gut subset are illustrative
-and are not suitable for population-level inference.
+refined dominant community state types, constructs unordered dominance
+sets with support-based sample filtering, and computes representative
+landmark profiles. The methods are described by Gajer and Ravel (2025)
+<doi:10.48550/arXiv.2503.21543>. Bundled vaginal and gut microbiome data
+support reproducible demonstrations of the package interface; phenotype
+fields in the stratified gut subset are illustrative and are not suitable
+for population-level inference.
 
 %prep
 %setup -q -c -n %{packname}

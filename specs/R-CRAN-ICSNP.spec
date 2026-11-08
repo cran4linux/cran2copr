@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ICSNP
-%global packver   1.1-3
+%global packver   1.2-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Multivariate Nonparametrics
 
@@ -22,9 +22,16 @@ Requires:         R-CRAN-mvtnorm
 Requires:         R-CRAN-ICS 
 
 %description
-Tools for multivariate nonparametrics, as location tests based on marginal
-ranks, spatial median and spatial signs computation, Hotelling's T-test,
-estimates of shape are implemented.
+Classical multivariate methods such as Hotelling's T-test are based on the
+sample mean vector and the sample covariance matrix, which makes them
+sensitive to outliers and heavy-tailed distributions. The package provides
+nonparametric alternatives based on marginal ranks, spatial signs and
+spatial ranks, as reviewed for example in Nordhausen and Oja (2018)
+<doi:10.1146/annurev-statistics-031017-100247>. It contains tests for
+location and independence, Hotelling's T-test as a parametric reference,
+the spatial median and other location estimates, and several estimates of
+shape. The tests can also be applied to invariant coordinates obtained
+with the package 'ICS'.
 
 %prep
 %setup -q -c -n %{packname}

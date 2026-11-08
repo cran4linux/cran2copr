@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PublicationBiasBenchmark
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Benchmark for Publication Bias Correction Methods
 
@@ -20,7 +20,10 @@ BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-callr 
 BuildRequires:    R-CRAN-metafor 
-BuildRequires:    R-CRAN-osfr 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-pwr 
@@ -38,7 +41,10 @@ BuildRequires:    R-CRAN-rstantools
 Requires:         R-stats 
 Requires:         R-CRAN-callr 
 Requires:         R-CRAN-metafor 
-Requires:         R-CRAN-osfr 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-pwr 

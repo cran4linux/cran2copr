@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DHARMa
-%global packver   0.5.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Residual Diagnostics for Hierarchical (Multi-Level / Mixed) Regression Models
 
@@ -41,7 +41,7 @@ Requires:         R-CRAN-ape
 Requires:         R-CRAN-lme4 
 
 %description
-"Uses a simulation-based approach to create readily interpretable scaled
+Uses a simulation-based approach to create readily interpretable scaled
 (quantile) residuals for fitted generalized linear (mixed) models.
 Currently supported are linear and generalized linear (mixed) models from
 'lme4' (classes 'lmerMod', 'glmerMod'), 'glmmTMB', 'GLMMadaptive',
@@ -56,7 +56,7 @@ interpreted as intuitively as residuals from a linear regression. The
 package also provides a number of plot and test functions for typical
 model misspecification problems, such as over/underdispersion,
 zero-inflation, and residual spatial, temporal and phylogenetic
-autocorrelation."
+autocorrelation.
 
 %prep
 %setup -q -c -n %{packname}

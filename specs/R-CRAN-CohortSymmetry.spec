@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CohortSymmetry
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sequence Symmetry Analysis Using the Observational Medical Outcomes Partnership Common Data Model
 
@@ -17,33 +17,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-CodelistGenerator >= 3.1.0
-BuildRequires:    R-CRAN-CDMConnector >= 1.7.0
 BuildRequires:    R-CRAN-PatientProfiles >= 1.0.0
 BuildRequires:    R-CRAN-omopgenerics >= 1.0.0
-BuildRequires:    R-CRAN-DrugUtilisation >= 0.7.0
+BuildRequires:    R-CRAN-omock >= 0.6.2
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-here 
-Requires:         R-CRAN-CodelistGenerator >= 3.1.0
-Requires:         R-CRAN-CDMConnector >= 1.7.0
+BuildRequires:    R-CRAN-clock 
 Requires:         R-CRAN-PatientProfiles >= 1.0.0
 Requires:         R-CRAN-omopgenerics >= 1.0.0
-Requires:         R-CRAN-DrugUtilisation >= 0.7.0
+Requires:         R-CRAN-omock >= 0.6.2
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-stats 
 Requires:         R-CRAN-here 
+Requires:         R-CRAN-clock 
 
 %description
-Calculating crude sequence ratio, adjusted sequence ratio and confidence
+Calculates crude sequence ratios, adjusted sequence ratios and confidence
 intervals using data mapped to the Observational Medical Outcomes
-Partnership Common Data Model.
+Partnership Common Data Model. The methodology for sequence symmetry
+analysis is described by Pratt et al. (2015) <doi:10.1002/pds.3780> and
+Hendrix et al. (2024) <doi:10.1186/s12874-023-02108-y>.
 
 %prep
 %setup -q -c -n %{packname}

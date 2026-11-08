@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ctreeMI
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Conditional Inference Trees with Stacked Multiple Imputation
 
@@ -44,8 +44,11 @@ degrees of freedom depend on how many levels remain in a node. The result
 is a single interpretable tree that incorporates imputation uncertainty
 without requiring pooling of structurally different trees. Also exports
 stack_imputations(), rescale_statistic(), prune_stackM(), node_table() and
-report_ctreeMI() as standalone utilities. The underlying 'ctree' algorithm
-is provided by 'partykit' (Hothorn & Zeileis, 2015; Hothorn, Hornik &
+report_ctreeMI() as standalone utilities. For data nested in few clusters,
+a within-cluster design splits participants within every cluster, grows
+the tree on the outcome centered by cluster, and confirms the partition
+three ways (confirm_within()). The underlying 'ctree' algorithm is
+provided by 'partykit' (Hothorn & Zeileis, 2015; Hothorn, Hornik &
 Zeileis, 2006 <doi:10.1198/106186006X133933>).
 
 %prep
