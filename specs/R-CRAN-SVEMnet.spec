@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SVEMnet
-%global packver   3.6.3
+%global packver   4.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.6.3
+Version:          4.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Self-Validated Ensemble Models with Lasso and Relaxed Elastic Net Regression
 
@@ -44,7 +44,23 @@ to tune penalty paths by validation-weighted AIC/BIC. Supports Gaussian
 and binomial responses, deterministic expansion helpers for shared factor
 spaces, prediction with bootstrap uncertainty, and a random-search
 optimizer that respects mixture constraints and combines multiple
-responses via desirability functions. Also includes a permutation-based
+responses via desirability functions. Gaussian process models from
+'GauPro' and extremely randomized forests from 'ranger' can each nominate
+candidate recipes for follow-up experiments using the same factors and
+constraints. The default formulation workflow carries forward the best
+observed preparation, nominates new candidates from elastic-net SVEM,
+Gaussian process, extremely randomized forest and forward SVEM models, and
+fills the remaining preparation budget with uncertainty medoids. Users can
+set a total preparation budget or request separate counts of new model
+candidates and exploration runs alongside optional reference repeats. A
+living executable vignette shows the shared factor specification, explicit
+scientific goals, worklist export, confirmation and refitting. An optional
+Gaussian self-validated smooth surface can nominate an additional recipe
+using a saved response-free domain, thin-plate or higher-dimensional
+Duchon spline bases, categorical study effects, multiple mixture groups
+and validation-tuned curvature shrinkage. Declared blocks remain additive.
+Gaussian forward selection uses validation likelihood to select among
+training-weighted least-squares fits. Also includes a permutation-based
 whole-model test for Gaussian SVEM fits (Karl (2024)
 <doi:10.1016/j.chemolab.2024.105122>). Package code was drafted with
 assistance from generative AI tools.

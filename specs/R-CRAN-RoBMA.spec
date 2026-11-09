@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RoBMA
-%global packver   4.0.0
+%global packver   4.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.0
+Version:          4.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Bayesian Meta-Analyses
 
@@ -15,15 +15,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    jags-devel
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-BayesTools >= 0.3.0
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
+BuildRequires:    R-CRAN-loo >= 2.10.0
+BuildRequires:    R-CRAN-Matrix >= 1.6.2
+BuildRequires:    R-CRAN-BayesTools >= 0.4.0
 BuildRequires:    R-CRAN-bridgesampling 
-BuildRequires:    R-CRAN-loo 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-ps 
 BuildRequires:    R-CRAN-runjags 
 BuildRequires:    R-CRAN-rjags 
+BuildRequires:    R-CRAN-statmod 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-mvtnorm 
@@ -32,13 +35,16 @@ BuildRequires:    R-CRAN-Rdpack
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-BayesTools >= 0.3.0
+Requires:         R-CRAN-loo >= 2.10.0
+Requires:         R-CRAN-Matrix >= 1.6.2
+Requires:         R-CRAN-BayesTools >= 0.4.0
 Requires:         R-CRAN-bridgesampling 
-Requires:         R-CRAN-loo 
 Requires:         R-CRAN-MASS 
 Requires:         R-parallel 
+Requires:         R-CRAN-ps 
 Requires:         R-CRAN-runjags 
 Requires:         R-CRAN-rjags 
+Requires:         R-CRAN-statmod 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-CRAN-mvtnorm 
@@ -52,12 +58,12 @@ Requires:         R-CRAN-ggplot2
 A framework for Bayesian meta-analysis, including model estimation, prior
 specification, model comparison, prediction, summaries, visualizations,
 and diagnostics. The package fits single and model-averaged meta-analytic,
-meta-regression, multilevel, publication bias adjusted, and generalized
-linear mixed models The model-averaged meta-analytic models combine
-competing models based on their predictive performance, weight inference
-by posterior model probabilities, and test model components using Bayes
-factors (e.g., effect vs. no effect; Bartoš et al., 2022,
-<doi:10.1002/jrsm.1594>; Maier, Bartoš & Wagenmakers, 2022,
+meta-regression, multilevel and multivariate, publication bias adjusted,
+and generalized linear mixed models. The model-averaged meta-analytic
+models combine competing models based on their predictive performance,
+weight inference by posterior model probabilities, and test model
+components using Bayes factors (e.g., effect vs. no effect; Bartoš et al.,
+2022, <doi:10.1002/jrsm.1594>; Maier, Bartoš & Wagenmakers, 2022,
 <doi:10.1037/met0000405>; Bartoš et al., 2025, <doi:10.1037/met0000737>).
 Users can specify flexible prior distributions for effect sizes,
 heterogeneity, publication bias (including selection models and

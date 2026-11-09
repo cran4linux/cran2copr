@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  airGRiwrm
-%global packver   0.7.0
+%global packver   0.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.8.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          'airGR' Integrated Water Resource Management
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-airGR >= 1.7.0
+BuildRequires:    R-CRAN-airGR >= 1.7.8
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
@@ -27,7 +27,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-zlib 
-Requires:         R-CRAN-airGR >= 1.7.0
+Requires:         R-CRAN-airGR >= 1.7.8
 Requires:         R-CRAN-dplyr 
 Requires:         R-graphics 
 Requires:         R-grDevices 

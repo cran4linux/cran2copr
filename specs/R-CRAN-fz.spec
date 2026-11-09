@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fz
-%global packver   1.2.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Wrapper for the 'funz-fz' Parametric Simulation Framework
 
@@ -17,8 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-reticulate >= 1.28
-Requires:         R-CRAN-reticulate >= 1.28
+BuildRequires:    R-CRAN-reticulate >= 1.41
+BuildRequires:    R-utils 
+Requires:         R-CRAN-reticulate >= 1.41
+Requires:         R-utils 
 
 %description
 Provides R bindings to the 'funz-fz' Python package using 'reticulate'.

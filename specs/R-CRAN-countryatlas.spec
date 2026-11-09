@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  countryatlas
-%global packver   3.0.0
+%global packver   4.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          4.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Join World Bank Data, Country Codes and Maps on the ISO Spine
 
@@ -20,9 +20,12 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-cachem 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-countrycode 
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-rlang 
@@ -35,9 +38,12 @@ BuildRequires:    R-CRAN-WDI
 Requires:         R-CRAN-cachem 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-countrycode 
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grDevices 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-memoise 
 Requires:         R-parallel 
 Requires:         R-CRAN-rlang 
@@ -52,24 +58,27 @@ Requires:         R-CRAN-WDI
 A complete toolkit for getting country data onto honest maps. Country
 names rarely line up across data sources ("US", "U.S.", "United States",
 "United States of America" are one country, but a naive join treats them
-as four), so 'countryatlas' makes ISO codes the universal join key. It
-generalises a one-call, map-ready table that stitches together 'ggplot2'
-map geometry, 'WDI' World Bank indicators and the 'countrycode' Rosetta
-stone; exposes the join machinery for the user's own data; ships curated
-reference data (metadata, group memberships, an indicator catalogue, flags
-and currencies); adds analysis helpers (per-capita, regional roll-ups,
-ranking, inequality and convergence statistics); and turns one hand-drawn
-choropleth into a full vocabulary of projected, area-honest maps (binned
-and quantile choropleths, proportional-symbol, spike, bivariate,
-value-by-alpha, cartogram, tile-grid, flow, small-multiple, animated,
-globe and interactive), and can hand its curated, ISO-reconciled tables to
-'ggsql' for database-side spatial rendering. Honesty is treated as a
-feature rather than a slogan: classification methods can be compared side
-by side, missing data can be hatched rather than greyed, coverage and
-provenance travel with the plot, and the distortion each projection
-introduces can be measured and drawn. Heavy spatial dependencies stay
-optional, and a bundled offline snapshot lets every example, test and
-vignette run without the network.
+as four), so 'countryatlas' makes ISO codes the universal join key, and
+matches names in many languages. It joins indicators from the World Bank,
+Our World in Data, the European Union's statistical office and any
+statistical data and metadata exchange service to bundled Natural Earth
+borders and the 'countrycode' Rosetta stone, recording each value's
+source, unit and release, and can pin a World Bank release so a result
+reproduces; treats country-year panels as first class, with dated income
+groups, regions and group memberships, lags keyed on the year and
+aggregates that report their coverage; adds analysis helpers (per-capita,
+inequality, convergence, distribution dynamics, rates, and spatial
+statistics with multiple-testing control); and draws a full vocabulary of
+equal-area maps (classed and continuous choropleths, proportional-symbol,
+spike, bivariate, ternary, value-by-alpha, cartogram, tile-grid, flow,
+small-multiple, animated, globe and interactive), and can hand its curated
+tables to 'ggsql' for database-side rendering. Honesty is treated as a
+feature rather than a slogan: maps state their coverage and source, draw
+small states rather than dropping them and describe themselves in alt
+text, classification methods can be compared side by side, and the
+distortion each projection introduces can be measured and drawn. Heavy
+spatial dependencies stay optional, and a bundled offline snapshot lets
+every example, test and vignette run without the network.
 
 %prep
 %setup -q -c -n %{packname}

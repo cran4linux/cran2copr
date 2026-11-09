@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  grip
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Graph Drawing with Intelligent Placement (GRIP)
 
@@ -26,7 +26,9 @@ Provides layout scoring, candidate comparison, multiscale trace
 diagnostics, synthetic graph families, and advanced experimental
 geodesic-KK utilities for weighted-layout evaluation and polish. Based on
 Gajer and Kobourov (2002) <doi:10.7155/jgaa.00052> and Gajer, Goodrich and
-Kobourov (2004) <doi:10.1016/j.comgeo.2004.03.014>.
+Kobourov (2004) <doi:10.1016/j.comgeo.2004.03.014>. Includes derived graph
+datasets from the SuiteSparse Matrix Collection, with source attribution
+and transformation metadata.
 
 %prep
 %setup -q -c -n %{packname}

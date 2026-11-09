@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  varycoef
-%global packver   0.3.6
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.6
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modeling Spatially Varying Coefficients
 
@@ -17,25 +17,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-optimParallel >= 0.8.1
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-lhs 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-mlr 
-BuildRequires:    R-CRAN-mlrMBO 
-BuildRequires:    R-CRAN-ParamHelpers 
 BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-smoof 
 BuildRequires:    R-CRAN-spam 
-Requires:         R-CRAN-optimParallel >= 0.8.1
-Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-lhs 
 Requires:         R-methods 
-Requires:         R-CRAN-mlr 
-Requires:         R-CRAN-mlrMBO 
-Requires:         R-CRAN-ParamHelpers 
 Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-smoof 
 Requires:         R-CRAN-spam 
 
 %description

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LiblineaR
-%global packver   2.10-26
+%global packver   2.50-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.10.26
+Version:          2.50.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linear Predictive Models Based on the LIBLINEAR C/C++ Library
 
@@ -26,12 +26,13 @@ is a simple library for solving large-scale regularized linear
 classification and regression. It currently supports L2-regularized
 classification (such as logistic regression, L2-loss linear SVM and
 L1-loss linear SVM) as well as L1-regularized classification (such as
-L2-loss linear SVM and logistic regression) and L2-regularized support
-vector regression (with L1- or L2-loss). The main features of LiblineaR
-include multi-class classification (one-vs-the rest, and Crammer & Singer
-method), cross validation for model selection, probability estimates
-(logistic regression only) or weights for unbalanced data. The estimation
-of the models is particularly fast as compared to other libraries.
+L2-loss linear SVM and logistic regression), L2-regularized support vector
+regression (with L1- or L2-loss), and one-class support vector machines
+for outlier/novelty detection. The main features of LiblineaR include
+multi-class classification (one-vs-the rest, and Crammer & Singer method),
+cross validation for model selection, probability estimates (logistic
+regression only) or weights for unbalanced data. The estimation of the
+models is particularly fast as compared to other libraries.
 
 %prep
 %setup -q -c -n %{packname}

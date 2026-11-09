@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  soilVAE
-%global packver   0.1.10
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.10
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Supervised Variational Autoencoder Regression via 'reticulate'
 
@@ -14,22 +14,27 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-reticulate >= 1.41
 BuildRequires:    R-stats 
-Requires:         R-CRAN-reticulate 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-reticulate >= 1.41
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Supervised latent-variable regression for high-dimensional predictors such
 as soil reflectance spectra. The model uses an encoder-decoder neural
 network with a stochastic Gaussian latent representation regularized by a
 Kullback-Leibler term, and a supervised prediction head trained jointly
-with the reconstruction objective. The implementation interfaces R with a
-'Python' deep-learning backend and provides utilities for training,
-tuning, and prediction.
+with the reconstruction objective (Kingma and Welling (2014)
+<doi:10.48550/arXiv.1312.6114>). Predictors and response are standardised
+inside the model, so new data are scaled like the training data. The
+implementation interfaces R with a 'Python' deep-learning backend ('Keras'
+and 'TensorFlow') and provides utilities for installation, training with
+early stopping, tuning, prediction, latent embeddings, and saving models.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FlexRL
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flexible Record Linkage and Linked Data Quality Assessment
 
@@ -23,15 +23,6 @@ BuildRequires:    R-graphics
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-BRL 
-BuildRequires:    R-CRAN-arf 
-BuildRequires:    R-CRAN-diyar 
-BuildRequires:    R-CRAN-fastLink 
-BuildRequires:    R-CRAN-fedmatch 
-BuildRequires:    R-CRAN-mice 
-BuildRequires:    R-CRAN-multilink 
-BuildRequires:    R-CRAN-reclin2 
-BuildRequires:    R-CRAN-synthpop 
 Requires:         R-CRAN-Matrix >= 1.7
 Requires:         R-CRAN-Rcpp >= 1.0.13
 Requires:         R-CRAN-cli 
@@ -39,15 +30,6 @@ Requires:         R-graphics
 Requires:         R-grDevices 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-BRL 
-Requires:         R-CRAN-arf 
-Requires:         R-CRAN-diyar 
-Requires:         R-CRAN-fastLink 
-Requires:         R-CRAN-fedmatch 
-Requires:         R-CRAN-mice 
-Requires:         R-CRAN-multilink 
-Requires:         R-CRAN-reclin2 
-Requires:         R-CRAN-synthpop 
 
 %description
 Probabilistically link records that refer to the same entities across two

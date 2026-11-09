@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GGIR
-%global packver   3.3-9
+%global packver   3.4-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.9
+Version:          3.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Raw Accelerometer Data Analysis
 
@@ -19,38 +19,46 @@ Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-ActCR 
+BuildRequires:    R-CRAN-actilifecounts 
+BuildRequires:    R-CRAN-arrow 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-signal 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-unisensR 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-GGIRread 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-ineq 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-irr 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-GGIRread 
-BuildRequires:    R-CRAN-ActCR 
+BuildRequires:    R-methods 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-read.gt3x 
-BuildRequires:    R-CRAN-arrow 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-signal 
+BuildRequires:    R-CRAN-unisensR 
+BuildRequires:    R-CRAN-zoo 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-ActCR 
+Requires:         R-CRAN-actilifecounts 
+Requires:         R-CRAN-arrow 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-signal 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-unisensR 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-GGIRread 
+Requires:         R-grDevices 
 Requires:         R-CRAN-ineq 
-Requires:         R-methods 
-Requires:         R-CRAN-psych 
 Requires:         R-CRAN-irr 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-GGIRread 
-Requires:         R-CRAN-ActCR 
+Requires:         R-methods 
+Requires:         R-parallel 
+Requires:         R-CRAN-psych 
 Requires:         R-CRAN-read.gt3x 
-Requires:         R-CRAN-arrow 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-signal 
+Requires:         R-CRAN-unisensR 
+Requires:         R-CRAN-zoo 
 
 %description
 A tool to process and analyse data collected with wearable raw

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TemporalHazard
-%global packver   1.1.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Temporal Parametric Hazard Modeling
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -25,7 +25,7 @@ Provides native R implementations of the multiphase parametric hazard
 model of Blackstone, Naftel, and Turner (1986)
 <doi:10.1080/01621459.1986.10478314> with a focus on behavioral parity,
 transparent numerics, and reproducible validation against reference
-outputs from the original 'C'/'SAS' HAZARD program, originally developed
+outputs from the original 'C'/'SAS' 'HAZARD' program, originally developed
 at the University of Alabama at Birmingham (UAB). The 'SAS'/'C' code and
 this R package are currently developed and maintained at The Cleveland
 Clinic Foundation, and the R code was wholly developed at The Cleveland

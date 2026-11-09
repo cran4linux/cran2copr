@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  featR
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Unified Toolkit for Feature Selection
 
@@ -17,26 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-withr >= 2.4.0
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-withr >= 2.4.0
 Requires:         R-CRAN-data.table 
+Requires:         R-methods 
 Requires:         R-parallel 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-withr 
 
 %description
 Filter, wrapper, and embedded feature-selection methods behind a
 consistent set of functions that share one calling convention and one
-return type: correlation and chi-squared filters, information gain, LASSO
-and elastic net, Bayesian model comparison, Boruta, recursive feature
-elimination, random forest importance, multivariate adaptive regression
-splines, support vector machine recursive feature elimination, stepwise
-selection, and principal component / singular value decomposition helpers.
-The implemented methods follow Tibshirani (1996)
+return type: univariate threshold filters, correlation and chi-squared
+filters, information gain, the least absolute shrinkage and selection
+operator (LASSO) and elastic net, Bayesian model comparison, Boruta,
+recursive feature elimination, random forest importance, multivariate
+adaptive regression splines, support vector machine recursive feature
+elimination, stepwise selection, and principal component / singular value
+decomposition helpers. The implemented methods follow Tibshirani (1996)
 <doi:10.1111/j.2517-6161.1996.tb02080.x>, Zou and Hastie (2005)
 <doi:10.1111/j.1467-9868.2005.00503.x>, Friedman (1991)
 <doi:10.1214/aos/1176347963>, Breiman (2001)

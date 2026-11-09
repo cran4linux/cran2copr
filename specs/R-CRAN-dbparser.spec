@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dbparser
-%global packver   2.2.1
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.1
+Version:          2.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Drugs Databases Parser
 
@@ -19,6 +19,7 @@ Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tibble 
@@ -27,6 +28,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-XML 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tibble 
@@ -35,9 +37,14 @@ Requires:         R-utils
 Requires:         R-CRAN-XML 
 
 %description
-This tool is for parsing public drug databases such as 'DrugBank' XML
-database <https://go.drugbank.com/>. The parsed data are then returned in
-a proper 'R' object called 'dvobject'.
+Parses drug and gene databases from their downloaded files: the 'DrugBank'
+XML database <https://go.drugbank.com/>, the 'OnSIDES' and 'TWOSIDES'
+adverse drug event databases, Human Phenotype Ontology ('HPO')
+gene-phenotype associations, the 'HGNC' gene nomenclature files, Health
+Canada's Drug Product Database ('DPD') data extract, and the 'openFDA'
+'Drugs@FDA' and 'NDC' directory downloads. The parsed tables are returned
+in an 'R' object called 'dvobject', which records the source release,
+licence and file hashes.
 
 %prep
 %setup -q -c -n %{packname}

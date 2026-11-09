@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  brfinance
-%global packver   0.9.0
+%global packname  bgbcalc
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access to Brazilian Macroeconomic and Financial Time Series
+Summary:          Calculations for German Civil Code Rules ('BGB-Rechenregeln')
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,31 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-labelled 
-BuildRequires:    R-CRAN-yfR 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-labelled 
-Requires:         R-CRAN-yfR 
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
+Requires:         R-utils 
+Requires:         R-stats 
 
 %description
-Provides simplified access to selected Brazilian macroeconomic and
-financial time series from official sources, primarily the Central Bank of
-Brazil through the SGS (Sistema Gerenciador de Séries Temporais) API. The
-package enables users to quickly retrieve and visualize indicators such as
-the unemployment rate and the Selic interest rate using a standardized
-data structure. It is designed for data access and visualization purposes,
-without performing forecasts or statistical modeling. For more
-information, see the official API:
-<https://dadosabertos.bcb.gov.br/dataset/>.
+Numerical and calendar calculations for provisions of the German Civil
+Code ('Buergerliches Gesetzbuch', BGB)
+<https://www.gesetze-im-internet.de/bgb/>. Covers time limits ('Fristen'),
+interest ('Zinsen'), monetary limits ('Betragsgrenzen'), proportional
+allocations ('Quoten') and inheritance calculations ('Erbrecht'). German
+parameter names preserve statutory terminology ('deutsche
+Rechtsbegriffe'). Results include exact fractions ('Brueche'), calculation
+steps ('Rechenschritte'), assumptions ('Annahmen') and a fixed source
+identifier ('Quellenfassung'). Legal conditions require qualified inputs.
+Conditional models require justified method choices ('Methodenwahl');
+universal legal completeness is not asserted ('keine umfassende
+Rechtsentscheidung').
 
 %prep
 %setup -q -c -n %{packname}
