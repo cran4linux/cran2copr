@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sociome
-%global packver   3.0.1
+%global packver   3.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.1
+Version:          3.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Operationalizing Social Determinants of Health Data for Researchers
 
@@ -19,21 +19,21 @@ Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-mice >= 3.10.0.1
 BuildRequires:    R-CRAN-tibble >= 3.0.3
+BuildRequires:    R-CRAN-tidycensus >= 2.0.0
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-tidyr >= 1.1.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.1
-BuildRequires:    R-CRAN-tidycensus >= 1.0
 BuildRequires:    R-CRAN-rlang >= 0.4.7
 BuildRequires:    R-CRAN-purrr >= 0.3.4
 BuildRequires:    R-CRAN-psych 
 Requires:         R-CRAN-mice >= 3.10.0.1
 Requires:         R-CRAN-tibble >= 3.0.3
+Requires:         R-CRAN-tidycensus >= 2.0.0
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-tidyr >= 1.1.0
 Requires:         R-CRAN-dplyr >= 1.0.1
-Requires:         R-CRAN-tidycensus >= 1.0
 Requires:         R-CRAN-rlang >= 0.4.7
 Requires:         R-CRAN-purrr >= 0.3.4
 Requires:         R-CRAN-psych 

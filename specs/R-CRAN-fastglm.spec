@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fastglm
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast and Stable Fitting of Generalized Linear Models using 'RcppEigen'
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.13
 BuildRequires:    R-CRAN-bigmemory 
 BuildRequires:    R-methods 
@@ -33,7 +33,10 @@ Requires:         R-CRAN-Formula
 Fits generalized linear models efficiently using 'RcppEigen'. The
 iteratively reweighted least squares implementation utilizes the
 step-halving approach of Marschner (2011) <doi:10.32614/RJ-2011-012> to
-help safeguard against convergence issues.
+help safeguard against convergence issues. Provides formula and matrix
+interfaces for count and cumulative-link ordinal models, mean bias
+reduction, and fitting from data read in blocks of rows for supported
+model classes.
 
 %prep
 %setup -q -c -n %{packname}

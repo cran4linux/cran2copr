@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  skellam
-%global packver   0.2.4
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Densities and Sampling for the Skellam Distribution
+Summary:          The Skellam Distribution: Densities, Sampling, Estimation and Regression
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,8 +21,13 @@ BuildRequires:    R-stats
 Requires:         R-stats 
 
 %description
-Functions for the Skellam distribution, including: density (pmf), cdf,
-quantiles and regression.
+Density, distribution function, quantile function and random generation
+for the Skellam distribution, the distribution of the difference of two
+independent Poisson variables (Skellam, 1946), with saddlepoint
+approximations, maximum likelihood estimation, and a regression model in
+which both rates depend on covariates. The distribution functions remain
+accurate for very large rates and far into the tails, on the natural and
+the log scale.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dmai
-%global packver   0.5.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Divisia Monetary Aggregates Index
 
@@ -14,25 +14,36 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
+Requires:         R-grDevices 
+Requires:         R-CRAN-scales 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Functions to calculate Divisia monetary aggregates index as given in
-Barnett, W. A. (1980) (<DOI:10.1016/0304-4076(80)90070-6>).
+Builds monetary aggregates from their components by the methods of index
+number theory. The Divisia index of Barnett (1980)
+<doi:10.1016/0304-4076(80)90070-6> weights every component (currency,
+demand deposits, savings and time deposits, ...) by its share in the
+expenditure on monetary services, priced by its user cost (Barnett 1978)
+<doi:10.1016/0165-1765(78)90051-4>. Also gives the Fisher ideal index, a
+variant with simple growth rates, the simple-sum aggregate, the currency
+equivalent index of Rotemberg, Driscoll and Poterba (1995), the dual
+user-cost price index and the Divisia second moments of Barnett and
+Serletis (1990) <doi:10.1016/0304-4076(90)90104-2>; benchmark rates given
+or taken from the components (upper envelope); 'ggplot2' graphics, a
+plain-language interpretation of every result and a built-in 'shiny'
+application.
 
 %prep
 %setup -q -c -n %{packname}

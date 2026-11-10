@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wefnexus
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Water-Energy-Food-Nutrient-Carbon Nexus Analysis for Agronomic Systems
 
@@ -51,6 +51,14 @@ irrigated and rain-fed systems, and arid and semi-arid production
 environments. Methods follow Lal (2004) <doi:10.1016/j.envint.2004.03.005>
 for carbon emissions from farm operations, and Hoover et al. (2023)
 <doi:10.1016/j.scitotenv.2022.160992> for water use efficiency indicators.
+Version 1.1.0 adds a one-call workflow for replicated field trials,
+analysis of variance with standard error of mean (SEm), critical
+difference (CD) and coefficient of variation (CV), objective indicator
+weights by the entropy, CRITIC (Diakoulaki et al. (1995)
+<doi:10.1016/0305-0548(94)00059-H>) and principal component methods,
+TOPSIS ranking of treatments (Hwang and Yoon, 1981), and energy budgeting
+from physical input quantities with an editable table of energy
+equivalents.
 
 %prep
 %setup -q -c -n %{packname}

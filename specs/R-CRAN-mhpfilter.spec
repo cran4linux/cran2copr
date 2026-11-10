@@ -1,49 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mhpfilter
-%global packver   0.1.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Modified Hodrick-Prescott Filter with Optimal Smoothing Parameter Selection
+Summary:          Modified and Fully Modified Hodrick-Prescott Filters
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-collapse >= 2.0.0
-BuildRequires:    R-CRAN-data.table >= 1.14.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-BuildRequires:    R-CRAN-RcppArmadillo >= 0.12.0.0.0
-Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-collapse >= 2.0.0
-Requires:         R-CRAN-data.table >= 1.14.0
-Requires:         R-CRAN-Rcpp >= 1.0.0
-Requires:         R-CRAN-RcppArmadillo >= 0.12.0.0.0
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-grDevices 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-scales 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-High-performance implementation of the Modified Hodrick-Prescott (HP)
-Filter for decomposing macroeconomic time series into trend and cyclical
-components. Based on the methodology of Choudhary, Hanif and Iqbal (2014)
-<doi:10.1080/00036846.2014.894631> "On smoothing macroeconomic time series
-using the modified HP filter", which uses generalized cross-validation
-(GCV) to automatically select the optimal smoothing parameter lambda,
-following McDermott (1997) "An automatic method for choosing the smoothing
-parameter in the HP filter" (as described in Coe and McDermott (1997)
-<doi:10.2307/3867497>). Unlike the standard HP filter that uses fixed
-lambda values (1600 for quarterly, 100 for annual data), this package
-estimates series-specific lambda values that minimize the GCV criterion.
-Implements efficient C++ routines via 'RcppArmadillo' for fast
-computation, supports batch processing of multiple series, and provides
-comprehensive visualization tools using 'ggplot2'. Particularly useful for
-cross-country macroeconomic comparisons, business cycle analysis, and when
-the appropriate smoothing parameter is uncertain.
+Decomposes macroeconomic time series into trend and cycle with the
+Hodrick-Prescott (HP) filter and two data-driven versions of it. The
+modified HP filter of McDermott (1997), assessed by Choudhary, Hanif and
+Iqbal (2014) <doi:10.1080/00036846.2014.894631>, chooses the smoothing
+parameter of every series by generalised cross-validation (as described in
+Coe and McDermott (1997) <doi:10.2307/3867497>). The fully modified HP
+filter of Hanif, Iqbal and Choudhary (2017, State Bank of Pakistan Working
+Paper 88) also reduces the end-point bias of the HP filter: it raises the
+smoothing parameter at the first and last observations, with linear or
+quadratic weights chosen to minimise the loss of Bloechl (2014, University
+of Munich Discussion Paper 2014-1). Every filter is a banded linear solve,
+so the searches are fast; batch processing of many series, comparisons of
+the filters, the filter weights, gain functions and end-point loss,
+simulation of trend-plus-cycle series and the power comparison of the
+paper, 'ggplot2' graphics, a plain-language interpretation of every result
+and a built-in 'shiny' application.
 
 %prep
 %setup -q -c -n %{packname}

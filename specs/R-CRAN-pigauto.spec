@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pigauto
-%global packver   0.11.0
+%global packver   0.11.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.0
+Version:          0.11.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fill in Missing Species Traits Using a Phylogenetic Tree
 
@@ -47,19 +47,19 @@ habitat, geography). Handles continuous measurements, counts, binary
 variables, ordered categories, unordered categories, bounded proportions,
 zero-inflated counts, and compositional multi-proportion data in a single
 call. The default method is a phylogenetic baseline calibrated on held-out
-data; an optional graph neural network correction, which is needed to use
-covariates, is blended in through a per-trait gate that retains a baseline
-fallback. Provides conformal prediction intervals for continuous, count,
-ordinal, and proportion traits and an experimental analysis-aware
-multiple-imputation workflow for one missing continuous covariate in
-Gaussian linear, binomial-logit, and Gaussian random-intercept models,
-with Rubin pooling limited to fixed effects. Stochastic graph-network and
-posterior-tree completions are prediction diagnostics rather than
-validated inferential imputations. Bundled datasets include 300-species
-and 9,993-species bird-trait subsets with matching example phylogenetic
-trees. Rubin (1987, ISBN:978-0-471-08705-2); Vovk et al. (2005,
-ISBN:978-0-387-25061-8); Nakagawa and de Villemereuil (2019)
-<doi:10.1093/sysbio/syy089>.
+data; an optional graph neural network prediction is blended in through a
+per-trait gate that retains a baseline fallback. Covariates can inform the
+network and selected baseline paths. Provides conformal prediction
+intervals for continuous, count, ordinal, and proportion traits and an
+experimental analysis-aware multiple-imputation workflow for one missing
+continuous covariate in Gaussian linear, binomial-logit, and Gaussian
+random-intercept models, with Rubin pooling limited to fixed effects.
+Stochastic graph-network and posterior-tree completions are prediction
+diagnostics rather than validated inferential imputations. Bundled
+datasets include 300-species and 9,993-species bird-trait subsets with
+matching example phylogenetic trees. Rubin (1987, ISBN:978-0-471-08705-2);
+Vovk et al. (2005, ISBN:978-0-387-25061-8); Nakagawa and de Villemereuil
+(2019) <doi:10.1093/sysbio/syy089>.
 
 %prep
 %setup -q -c -n %{packname}

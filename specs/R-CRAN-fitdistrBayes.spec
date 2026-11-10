@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fitdistrBayes
-%global packver   0.6.0
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Objective Bayesian Distribution Fitting
+Summary:          Objective Bayesian Distribution Fitting and AFT Regression
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,6 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-survival 
+Requires:         R-stats 
 
 %description
 Fits common univariate distributions using registered objective Bayesian
@@ -31,7 +35,12 @@ evaluation. A separate interface fits independently right-censored
 observations using the registered complete-data priors, observed-data
 likelihood sampling or data augmentation, with sufficient
 posterior-propriety checks. Optional post-processing provides WAIC,
-PSIS-LOO, and DIC for observed-data likelihoods. The reference-prior
+PSIS-LOO, and DIC for observed-data likelihoods. Formula-based accelerated
+failure time regression is available for nine lifetime families with
+complete or right-censored data, including gamma and Prentice generalized
+gamma models, fixed objective priors, survival prediction, and time
+ratios. Model-specific sufficient propriety and moment conditions guard
+the reported summaries and predictive comparisons. The reference-prior
 framework follows Bernardo (1979)
 <doi:10.1111/j.2517-6161.1979.tb01066.x>.
 

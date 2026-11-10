@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  llm.api
-%global packver   0.1.9
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Minimal LLM Chat Interface
 
@@ -28,9 +28,10 @@ Requires:         R-CRAN-jsonlite
 A minimal-dependency client for Large Language Model chat APIs. Supports
 'OpenAI' <https://openai.com/>, 'Anthropic' 'Claude'
 <https://claude.com/>, 'Moonshot' 'Kimi' <https://www.moonshot.ai/>,
-'OpenAI' 'Codex' subscription endpoints, 'Ollama' <https://ollama.com/>,
-and other 'OpenAI'-compatible endpoints. Includes an agent loop with tool
-use and a 'Model Context Protocol' client
+'Google' 'Gemini' <https://ai.google.dev/>, 'OpenAI' 'Codex' subscription
+endpoints, 'Ollama' <https://ollama.com/>, and other 'OpenAI'-compatible
+endpoints. Supports streaming and image input. Includes an agent loop with
+tool use and a 'Model Context Protocol' client
 <https://modelcontextprotocol.io/>. API design is derived from the
 'ellmer' package, reimplemented with only base R, 'curl', 'jsonlite', and
 'tinyoauth'.

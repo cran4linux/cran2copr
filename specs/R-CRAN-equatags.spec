@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  equatags
-%global packver   0.2.2
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Equations to 'XML'
 
@@ -17,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-katex 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-xslt 
-BuildRequires:    R-CRAN-katex 
+Requires:         R-CRAN-katex 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-xslt 
-Requires:         R-CRAN-katex 
 
 %description
 Provides function to transform latex math expressions into format 'HTML'

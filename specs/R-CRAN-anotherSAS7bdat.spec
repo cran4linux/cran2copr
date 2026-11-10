@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  anotherSAS7bdat
-%global packver   0.0.7
+%global packver   0.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          0.0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read 'SAS' Data in Chunks and Convert to 'Parquet'
 
@@ -16,11 +16,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-hms 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.14
+BuildRequires:    R-CRAN-hms >= 0.5.0
 BuildRequires:    R-utils 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-hms 
+Requires:         R-CRAN-Rcpp >= 1.0.14
+Requires:         R-CRAN-hms >= 0.5.0
 Requires:         R-utils 
 
 %description

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  causaldef
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Decision-Theoretic Causal Diagnostics via Experiment Deficiency
 
@@ -31,7 +31,7 @@ Requires:         R-graphics
 %description
 Implements a deficiency-theoretic framework for causal inference, grounded
 in the classical theory of statistical experiment comparison, as described
-in Akdemir (2026) <doi:10.5281/zenodo.21877511>. Provides theorem-backed
+in Akdemir (2026) <doi:10.5281/zenodo.18367346>. Provides theorem-backed
 bounds together with computable proxy diagnostics for information loss
 from confounding, selection bias, and distributional shift. Supports
 continuous, binary, count, survival, and competing risks outcomes. Key

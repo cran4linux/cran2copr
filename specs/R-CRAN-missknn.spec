@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  missknn
-%global packver   1.1.2
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Masked K-Nearest Neighbor Imputation
 
@@ -16,17 +16,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-basetable >= 1.4.2
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppParallel 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-basetable >= 1.4.2
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-RcppParallel 
 Requires:         R-stats 
 
 %description
-Fast masked KNN imputation for tabular data with support for single and
+Fast masked k-nearest neighbor imputation for mixed-type tabular data.
+Distances are computed only on the variables jointly observed by the
+receiver and the donor, and missing values are filled by local regression
+(numeric) or weighted vote (categorical) over the nearest donors. Returns
+completed data for single imputation or a list of completed data sets for
 multiple imputation.
 
 %prep
