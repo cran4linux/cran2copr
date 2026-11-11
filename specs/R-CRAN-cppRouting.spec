@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cppRouting
-%global packver   3.2
+%global packver   4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2
+Version:          4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Algorithms for Routing and Solving the Traffic Assignment Problem
 
@@ -18,11 +18,10 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp >= 1.0.7
 BuildRequires:    R-CRAN-RcppParallel 
-BuildRequires:    R-CRAN-RcppProgress 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-RcppProgress 
 Requires:         R-CRAN-Rcpp >= 1.0.7
 Requires:         R-CRAN-RcppParallel 
-Requires:         R-CRAN-RcppProgress 
 Requires:         R-CRAN-data.table 
 
 %description
@@ -43,7 +42,8 @@ Method of Successive Averages, Frank-Wolfe algorithm (M. Fukushima (1984)
 <doi:10.1016/0191-2615(84)90029-8>), Conjugate and Bi-Conjugate
 Frank-Wolfe algorithms (M. Mitradjieva, P. O. Lindberg (2012)
 <doi:10.1287/trsc.1120.0409>), Algorithm-B (R. B. Dial (2006)
-<doi:10.1016/j.trb.2006.02.008>).
+<doi:10.1016/j.trb.2006.02.008>), Customizable Contraction Hierarchies (J.
+Dibbelt, B. Strasser, D. Wagner (2014) <doi:10.1145/2886843>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ellmercodex
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          'ChatGPT' Plan Provider for 'ellmer'
 
@@ -18,7 +18,7 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-httr2 >= 1.3.0
-BuildRequires:    R-CRAN-ellmer >= 0.5.0
+BuildRequires:    R-CRAN-ellmer >= 0.5.1
 BuildRequires:    R-CRAN-coro 
 BuildRequires:    R-CRAN-httpuv 
 BuildRequires:    R-CRAN-jose 
@@ -28,7 +28,7 @@ BuildRequires:    R-CRAN-promises
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-S7 
 Requires:         R-CRAN-httr2 >= 1.3.0
-Requires:         R-CRAN-ellmer >= 0.5.0
+Requires:         R-CRAN-ellmer >= 0.5.1
 Requires:         R-CRAN-coro 
 Requires:         R-CRAN-httpuv 
 Requires:         R-CRAN-jose 
@@ -43,7 +43,7 @@ Connects 'ellmer' chats to a 'ChatGPT' subscription through 'OpenAI''s
 documented "Sign in with ChatGPT" flow for open-source, locally hosted
 apps <https://developers.openai.com/siwc/token-sharing-open-source>.
 Provides a stable, explicitly bounded core of the public 'ellmer' (>=
-0.5.0) Chat object, including browser sign-in with dynamic client
+0.5.1) Chat object, including browser sign-in with dynamic client
 registration, package-scoped credential storage, redacted diagnostics,
 multi-turn text, streaming, structured-output, function-tool,
 asynchronous, cancellation, cloning, metadata, multimodal chat,

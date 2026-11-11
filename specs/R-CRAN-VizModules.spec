@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  VizModules
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flexible, Interactive 'shiny' Modules for Almost Any Plot
 
@@ -18,44 +18,44 @@ BuildRequires:    R-devel >= 4.5
 Requires:         R-core >= 4.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-shinyWidgets >= 0.7.0
+BuildRequires:    R-CRAN-shinyjqui >= 0.4.0
 BuildRequires:    R-CRAN-plotthis >= 0.13.0
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-dittoViz 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-shinyBS 
-BuildRequires:    R-CRAN-roclang 
 BuildRequires:    R-CRAN-colourpicker 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-shinyjqui 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-zip 
 Requires:         R-CRAN-shinyWidgets >= 0.7.0
+Requires:         R-CRAN-shinyjqui >= 0.4.0
 Requires:         R-CRAN-plotthis >= 0.13.0
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-dittoViz 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-shinyBS 
-Requires:         R-CRAN-roclang 
 Requires:         R-CRAN-colourpicker 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-shinyjs 
 Requires:         R-CRAN-scales 
-Requires:         R-CRAN-shinyjqui 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-methods 
 Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-zip 
 
 %description

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bayesammi
-%global packver   0.3.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Estimation of the Additive Main Effects and Multiplicative Interaction Model
 
@@ -14,47 +14,59 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-collapse 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-ks 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rstiefel 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tmvtnorm 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-collapse 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-ks 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-magrittr 
+Requires:         R-grDevices 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rstiefel 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-scales 
 Requires:         R-stats 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tmvtnorm 
+Requires:         R-utils 
 
 %description
-Performs Bayesian estimation of the additive main effects and
-multiplicative interaction (AMMI) model. The method is explained in
-Crossa, J., Perez-Elizalde, S., Jarquin, D., Cotes, J.M., Viele, K., Liu,
-G. and Cornelius, P.L. (2011) (<doi:10.2135/cropsci2010.06.0343>).
+Bayesian estimation of the additive main effects and multiplicative
+interaction (AMMI) model of multi-environment trials by the Gibbs sampler
+of Crossa, Perez-Elizalde, Jarquin, Cotes, Viele, Liu and Cornelius (2011)
+<doi:10.2135/cropsci2010.06.0343>: posterior distributions of the overall
+mean, genotype and environment effects, singular values, genotype and
+environment scores (von Mises-Fisher conditionals on the constrained
+spheres) and error variance; several chains with burn-in and thinning;
+posterior summaries with highest posterior density intervals; the
+convergence diagnostics of Raftery-Lewis, Heidelberger-Welch and
+Gelman-Rubin; the AMMI biplot with highest posterior density regions for
+inference on genotypes and environments; least-squares AMMI; and a
+plain-language interpretation of every result, computed from its numbers.
+Beyond the article: unbalanced trials with missing plots and cells (data
+augmentation), environment-specific error variances, the Bayesian GGE
+(sites regression) model of Perez-Elizalde, Jarquin and Crossa (2012)
+<doi:10.1007/s13253-011-0063-9>, probabilities of superior performance and
+stability (Dias et al. 2022 <doi:10.1007/s00122-022-04041-y>), posterior
+ranks, Bayesian stability measures, predictions and the winner of every
+environment, model choice by DIC and WAIC with posterior predictive
+checks, draws for the 'posterior', 'bayesplot' and 'coda' packages, a
+compiled sampler, and a built-in 'shiny' application. Bayesian stability
+analysis: the Finlay-Wilkinson, Eberhart-Russell and Shukla models by
+Gibbs sampling, and the posterior distributions of classical stability
+indices (Wricke, Shukla, Lin-Binns, Annicchiarico, Eskridge's
+safety-first) and of AMMI-based indices (ASV, SIPC, EV, Za, WAAS, WAASY).
+Every result prints the references of its method.
 
 %prep
 %setup -q -c -n %{packname}

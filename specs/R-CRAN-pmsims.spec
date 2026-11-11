@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pmsims
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulation-Based Sample Size Tools for Prediction Models
 
@@ -17,23 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-survival >= 3.5.0
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-mlpwr 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-pROC 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-timeROC 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-survival >= 3.5.0
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-mlpwr 
+Requires:         R-parallel 
 Requires:         R-CRAN-pROC 
 Requires:         R-stats 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-timeROC 
 Requires:         R-utils 
 
 %description

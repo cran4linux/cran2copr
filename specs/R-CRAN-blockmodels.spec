@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  blockmodels
-%global packver   1.1.5
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Latent and Stochastic Block Model Estimation by a 'V-EM' Algorithm
 
@@ -28,7 +29,8 @@ Requires:         R-CRAN-digest
 %description
 Latent and Stochastic Block Model estimation by a Variational EM
 algorithm. Various probability distribution are provided (Bernoulli,
-Poisson...), with or without covariates.
+Poisson...), with or without covariates. See Leger (2016)
+<doi:10.48550/arXiv.1602.07587>.
 
 %prep
 %setup -q -c -n %{packname}

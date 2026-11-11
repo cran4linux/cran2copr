@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mop
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mobility Oriented-Parity Metric
 
@@ -16,19 +16,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
+BuildRequires:    R-CRAN-pbapply >= 1.7
 BuildRequires:    R-CRAN-terra >= 1.6.7
-BuildRequires:    R-CRAN-foreach >= 1.5
 BuildRequires:    R-CRAN-Rcpp >= 1.0.14
-BuildRequires:    R-CRAN-doSNOW >= 1.0
-BuildRequires:    R-CRAN-snow >= 0.4
 BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-pbapply >= 1.7
 Requires:         R-CRAN-terra >= 1.6.7
-Requires:         R-CRAN-foreach >= 1.5
-Requires:         R-CRAN-doSNOW >= 1.0
-Requires:         R-CRAN-snow >= 0.4
 Requires:         R-methods 
 Requires:         R-parallel 
 Requires:         R-CRAN-Rcpp >= 1.0.14

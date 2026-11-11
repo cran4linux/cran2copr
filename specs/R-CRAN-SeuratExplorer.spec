@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SeuratExplorer
-%global packver   0.1.8
+%global packver   0.1.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.1.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          An 'Shiny' App for Exploring scRNA-seq Data Processed in 'Seurat'
 
@@ -25,6 +25,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-tools 
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-shinydashboard 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-shinycssloaders 
@@ -38,9 +39,8 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-qs2 
 BuildRequires:    R-CRAN-circlize 
 BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-markdown 
 BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-later 
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-Seurat >= 5.4.0
 Requires:         R-CRAN-SeuratObject >= 5.3.0
@@ -50,6 +50,7 @@ Requires:         R-utils
 Requires:         R-tools 
 Requires:         R-stats 
 Requires:         R-methods 
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-shinydashboard 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-shinycssloaders 
@@ -63,9 +64,8 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-qs2 
 Requires:         R-CRAN-circlize 
 Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-markdown 
 Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-later 
 Requires:         R-CRAN-rlang 
 
 %description

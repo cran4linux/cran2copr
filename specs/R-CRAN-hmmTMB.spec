@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hmmTMB
-%global packver   1.1.2
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit Hidden Markov Models using Template Model Builder
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-tmbstan 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-fmesher 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-mgcv 
@@ -35,6 +36,7 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-tmbstan 
 Requires:         R-methods 
+Requires:         R-CRAN-fmesher 
 
 %description
 Fitting hidden Markov models using automatic differentiation and Laplace

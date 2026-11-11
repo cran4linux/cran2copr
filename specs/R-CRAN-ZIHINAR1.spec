@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ZIHINAR1
-%global packver   0.2.1
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Zero-Inflated and Hurdle INAR(1) Models
 
@@ -28,6 +28,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-HMMpa 
+BuildRequires:    R-CRAN-COMPoissonReg 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-rstan 
 Requires:         R-CRAN-VGAM 
@@ -40,6 +41,7 @@ Requires:         R-stats
 Requires:         R-CRAN-knitr 
 Requires:         R-utils 
 Requires:         R-CRAN-HMMpa 
+Requires:         R-CRAN-COMPoissonReg 
 Requires:         R-CRAN-rstantools
 
 %description
@@ -47,7 +49,10 @@ Provides tools for estimating Zero-Inflated INAR(1) (ZI-INAR(1)) and
 Hurdle INAR(1) (H-INAR(1)) models using 'Stan'. It allows users to
 simulate time series data for these models, estimate parameters, and
 evaluate model fit using various criteria. Functions include model
-estimation, simulation, and likelihood-based metrics.
+estimation, simulation, and likelihood-based metrics. The zero-inflated
+and hurdle INAR(1) methods are described by Yang et al. (2025)
+<doi:10.1214/25-BJPS646>. Zero-inflated models also support
+Conway-Maxwell-Poisson innovations.
 
 %prep
 %setup -q -c -n %{packname}

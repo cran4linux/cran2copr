@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  propagate
-%global packver   1.2-0
+%global packver   1.3-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Propagation of Uncertainty
 
@@ -18,22 +18,22 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-minpack.lm 
-BuildRequires:    R-CRAN-copula 
 BuildRequires:    R-CRAN-hdf5r 
 BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-nortest 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-minpack.lm 
-Requires:         R-CRAN-copula 
 Requires:         R-CRAN-hdf5r 
 Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-nortest 
 
 %description
 Propagation of uncertainty using higher-order Taylor expansion and Monte
 Carlo simulation. Calculations of propagated uncertainties are based on
 matrix calculus including covariance structure according to Arras 1998
 <doi:10.3929/ethz-a-010113668> (first order), Wang & Iyer 2005
-<doi:10.1088/0026-1394/42/5/011> (second order) and BIPM Supplement 1
-(Monte Carlo) <doi:10.59161/JCGM101-2008>.
+<doi:10.1088/0026-1394/42/5/011> (second order) and the Monte Carlo method
+of GUM Supplement 1 (2008) <doi:10.59161/JCGM101-2008>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  reems
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimating Effective Migration Surfaces from Single Nucleotide Polymorphism Data
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.9.1
 BuildRequires:    R-CRAN-Rcpp >= 0.12.0
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-testthat 
 Requires:         R-stats >= 3.3.2
 Requires:         R-utils >= 3.3.2
 Requires:         R-CRAN-raster >= 2.4.15

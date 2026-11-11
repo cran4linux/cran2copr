@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MetricGraph
-%global packver   1.6.0
+%global packver   1.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Random Fields on Metric Graphs
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-rSPDE >= 2.5.0
+BuildRequires:    R-CRAN-rSPDE >= 2.7.0
 BuildRequires:    R-CRAN-Matrix >= 1.5.0
 BuildRequires:    R-CRAN-igraph >= 1.3.0
 BuildRequires:    R-CRAN-tidyr >= 1.1.0
@@ -40,7 +40,7 @@ BuildRequires:    R-CRAN-doParallel
 BuildRequires:    R-CRAN-spatstat.geom 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-rSPDE >= 2.5.0
+Requires:         R-CRAN-rSPDE >= 2.7.0
 Requires:         R-CRAN-Matrix >= 1.5.0
 Requires:         R-CRAN-igraph >= 1.3.0
 Requires:         R-CRAN-tidyr >= 1.1.0
