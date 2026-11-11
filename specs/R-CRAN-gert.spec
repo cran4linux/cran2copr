@@ -14,7 +14,7 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    libgit2-devel
+BuildRequires:    pkgconfig(libgit2)
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-zip >= 2.1.0
