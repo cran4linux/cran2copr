@@ -10,7 +10,8 @@ License:        GPLv3
 URL:            https://github.com/jsta/%{name}
 Source0:        %{url}/archive/%{version}/%{name}-%{version}.tar.gz
 
-BuildRequires:  gcc, glibc-devel(x86-32), automake, autoconf
+BuildRequires:  gcc, automake, autoconf
+BuildRequires:  glibc-devel(x86-32), libatomic(x86-32)
 
 %description
 OpenBUGS is a program that conducts Bayesian estimation via Gibbs Sampling.
