@@ -1,3 +1,4 @@
+%global debug_package %{nil}
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  renv

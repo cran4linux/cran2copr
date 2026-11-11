@@ -324,7 +324,7 @@ pkg_exceptions <- function(tpl, pkg, path) {
     pkg,
     Rapp="%undefine __brp_mangle_shebangs",
     BANOVA=,beam=,Boom=,FastRWeb=,mapdata=,pbdRPC=,pbdPROF=,qtpaint=,RxODE=,
-    tth=,wingui=,mixl=,StanHeaders=,mathjaxr=,x13binary="%global debug_package %{nil}"), tpl)
+    tth=,wingui=,mixl=,StanHeaders=,mathjaxr=,renv=,x13binary="%global debug_package %{nil}"), tpl)
 
   # source
   src <- grep("Source0", tpl)
