@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cifmodeling
-%global packver   1.0.0
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualization and Polytomous Modeling of Survival and Competing Risks
 
@@ -46,10 +46,13 @@ marks, and multi-panel or inset layouts built on 'ggplot2' and
 'ggsurvfit'. The modeling function 'polyreg()' performs direct polytomous
 regression for coherent joint modeling of all cause-specific CIFs to
 estimate risk ratios, odds ratios, or subdistribution hazard ratios at
-user-specified time points. All core functions adopt a formula-and-data
-syntax and return tidy and extensible outputs that integrate smoothly with
-'modelsummary', 'broom', and the broader 'tidyverse' ecosystem. Key
-numerical routines are implemented in C++ via 'Rcpp'.
+user-specified time points. The function 'ciftest()' provides log-rank,
+Gray, robust score, augmented score, and multiple-direction tests for
+survival and competing-risk outcomes. All core functions adopt a
+formula-and-data syntax and return tidy and extensible outputs that
+integrate smoothly with 'modelsummary', 'broom', and the broader
+'tidyverse' ecosystem. Key numerical routines are implemented in C++ via
+'Rcpp'.
 
 %prep
 %setup -q -c -n %{packname}

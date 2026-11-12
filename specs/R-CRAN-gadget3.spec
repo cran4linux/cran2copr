@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gadget3
-%global packver   0.15-1
+%global packver   1.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.15.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Globally-Applicable Area Disaggregated General Ecosystem Toolbox V3
 
@@ -14,17 +14,19 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-TMB >= 1.7.0
 BuildRequires:    R-CRAN-rlang >= 0.4.5
 BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-RcppEigen 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-TMB >= 1.7.0
 Requires:         R-CRAN-rlang >= 0.4.5
 Requires:         R-CRAN-digest 
+Requires:         R-CRAN-RcppEigen 
 Requires:         R-stats 
 Requires:         R-utils 
 
@@ -36,9 +38,8 @@ models in 'TMB', but can be extended beyond gadget2's capabilities. Kasper
 Kristensen, Anders Nielsen, Casper W. Berg, Hans Skaug, Bradley M. Bell
 (2016) <doi:10.18637/jss.v070.i05> "TMB: Automatic Differentiation and
 Laplace Approximation.". Begley, J., & Howell, D. (2004)
-<https://files01.core.ac.uk/download/pdf/225936648.pdf> "An overview of
-Gadget, the globally applicable area-disaggregated general ecosystem
-toolbox. ICES.".
+<doi:10.17895/ices.pub.25349308> "An overview of Gadget, the globally
+applicable area-disaggregated general ecosystem toolbox. ICES.".
 
 %prep
 %setup -q -c -n %{packname}

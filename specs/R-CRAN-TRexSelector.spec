@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TRexSelector
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          T-Rex Selector: High-Dimensional Variable Selection & FDR Control
+Summary:          T-Rex Selector: High-Dimensional Variable Selection and FDR Control
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,15 +16,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.3
 Requires:         R-core >= 4.3
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-BH 
 BuildRequires:    R-CRAN-Rcereal 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-methods 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-Rcpp 
 
 %description
 Variable selection for regression and classification in high-dimensional

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rcicr
-%global packver   1.5.0
+%global packver   1.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reverse-Correlation Image-Classification Toolbox
 
@@ -17,11 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-matlab 
 BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-jpeg 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-viridis 
 BuildRequires:    R-utils 
 BuildRequires:    R-parallel 
@@ -29,13 +26,9 @@ BuildRequires:    R-CRAN-doSNOW
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-spatstat.explore 
 BuildRequires:    R-CRAN-spatstat.geom 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-yesno 
-Requires:         R-CRAN-matlab 
+BuildRequires:    R-CRAN-Matrix 
 Requires:         R-CRAN-png 
 Requires:         R-CRAN-jpeg 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-scales 
 Requires:         R-CRAN-viridis 
 Requires:         R-utils 
 Requires:         R-parallel 
@@ -43,8 +36,7 @@ Requires:         R-CRAN-doSNOW
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-spatstat.explore 
 Requires:         R-CRAN-spatstat.geom 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-yesno 
+Requires:         R-CRAN-Matrix 
 
 %description
 Generate stimuli and analyze data of reverse correlation image

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LAGOtrials
-%global packver   1.1.1
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Learn-as-You-Go Adaptive Trial Optimization
 
@@ -16,22 +16,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-shiny >= 1.8.1
+BuildRequires:    R-CRAN-bslib >= 0.7.0
 BuildRequires:    R-CRAN-rje 
 BuildRequires:    R-CRAN-NlcOptim 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-bslib 
-BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-later 
+Requires:         R-CRAN-shiny >= 1.8.1
+Requires:         R-CRAN-bslib >= 0.7.0
 Requires:         R-CRAN-rje 
 Requires:         R-CRAN-NlcOptim 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-bslib 
-Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-shinyjs 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-later 
 
 %description
 Optimizes interventions for adaptive "Learn-As-you-GO" (LAGO) trials, in

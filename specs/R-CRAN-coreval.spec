@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  coreval
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Check Clinical Trial Data Against 'CDISC' Open Rules
 
@@ -24,20 +24,22 @@ Requires:         R-CRAN-haven
 
 %description
 Finds conformance problems in clinical trial data without leaving R, using
-the openly published 'CDISC' Open Rules ('CORE'). Check a single dataset
-while you are still writing the code that builds it, or a whole study
-folder once it exists, and get the findings back as a tidy data frame
-pointing at the exact row and variable. Reads transport ('XPT'), 'SAS',
-comma-separated and 'Dataset-JSON' files, plus 'Define-XML' when present,
-and 'USDM' study-design documents. Covers rules for the 'SDTM', 'SEND',
-'TIG' and 'USDM' standards. The rules are bundled inside the package, so
-nothing is downloaded and your data never leaves your machine: no
-internet, no API key, no account. When a rule cannot be checked - because
-it needs a dataset you did not supply, for instance - it is reported as
-skipped with the reason, never counted as a pass. Meant as a quick first
-pass before a qualified validation system, never as a replacement for one.
-An independent project: not affiliated with or endorsed by 'CDISC', and
-not a 'CORE'-certified conformance engine.
+the openly published 'CORE' conformance rules: the 'CORE' 1.0 rules
+maintained by Verisian for 'SDTM', and the 'CDISC' Open Rules for 'SEND',
+'TIG' and 'USDM'. Check a single dataset while you are still writing the
+code that builds it, or a whole study folder once it exists, and get the
+findings back as a tidy data frame pointing at the exact row and variable.
+Reads transport ('XPT'), 'SAS', comma-separated and 'Dataset-JSON' files,
+plus 'Define-XML' when present, and 'USDM' study-design documents. Covers
+rules for the 'SDTM', 'SEND', 'TIG' and 'USDM' standards. The rules are
+bundled inside the package, so nothing is downloaded and your data never
+leaves your machine: no internet, no API key, no account. When a rule
+cannot be checked - because it needs a dataset you did not supply, for
+instance - it is reported as skipped with the reason, never counted as a
+pass. Meant as a quick first pass before a qualified validation system,
+never as a replacement for one. An independent project: not affiliated
+with or endorsed by 'CDISC' or Verisian, and not a 'CORE'-certified
+conformance engine.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shinyfilters
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create 'shiny' Inputs from Vectors, 'data.frames', or any R Object
 
@@ -17,11 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-S7 >= 0.2.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-S7 
 BuildRequires:    R-CRAN-shiny 
-Requires:         R-CRAN-S7 >= 0.2.0
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-htmltools 
 Requires:         R-methods 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-S7 
 Requires:         R-CRAN-shiny 
 
 %description

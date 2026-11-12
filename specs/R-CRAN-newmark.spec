@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  newmark
-%global packver   1.10.0
+%global packver   1.14.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.10.0
+Version:          1.14.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Uncertainty Analysis in Dynamic Site and Slope Response
 
-License:          MIT + file LICENSE
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,15 +17,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2
 Requires:         R-core >= 4.2
 BuildArch:        noarch
+BuildRequires:    R-CRAN-mvtnorm >= 1.2.3
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-mvtnorm >= 1.2.3
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-mvtnorm 
 Requires:         R-parallel 
 Requires:         R-stats 
 Requires:         R-utils 

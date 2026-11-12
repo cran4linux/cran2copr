@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gmsp
-%global packver   0.7.1
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ground Motion Signal Processing
 
-License:          MIT + file LICENSE
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -19,36 +19,32 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-EMD 
 BuildRequires:    R-CRAN-expm 
-BuildRequires:    R-CRAN-hht 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-openssl 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-osqp 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-seewave 
 BuildRequires:    R-CRAN-signal 
-BuildRequires:    R-CRAN-spectral 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-VMDecomp 
+BuildRequires:    R-CRAN-xemd 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-digest 
-Requires:         R-CRAN-EMD 
 Requires:         R-CRAN-expm 
-Requires:         R-CRAN-hht 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-openssl 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-osqp 
+Requires:         R-parallel 
 Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-seewave 
 Requires:         R-CRAN-signal 
-Requires:         R-CRAN-spectral 
 Requires:         R-stats 
-Requires:         R-CRAN-stringr 
+Requires:         R-tools 
 Requires:         R-utils 
-Requires:         R-CRAN-VMDecomp 
+Requires:         R-CRAN-xemd 
 
 %description
 Implements short-time Fourier transform (STFT) based processing of
@@ -68,7 +64,7 @@ period, and the derived indices earthquake destructiveness potential (EPI)
 and power-of-input (PDI); and D50 and D100 horizontal response spectra.
 Methods: Huang et al. (1998) <doi:10.1098/rspa.1998.0193>, Wu and Huang
 (2009) <doi:10.1142/S1793536909000047>, Dragomiretskiy and Zosso (2014)
-<doi:10.1109/TSP.2013.2288675>, Boore (2010) <doi:10.1785/0120090179>. An
+<doi:10.1109/TSP.2013.2288675>, Boore (2010) <doi:10.1785/0120090400>. An
 optional indexing layer parses provider files in formats including 'PEER'
 'NGA-West2' 'AT2', 'CESMD' 'V2'/'V2c', 'NWZ' 'V2A', Geological Survey of
 Canada 'TR', 'IGP'/'UCR' 'AC' variants, and generic two-column ASCII text,

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dials
-%global packver   1.4.4
+%global packver   1.4.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.4
+Version:          1.4.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Creating Tuning Parameter Values
 
@@ -30,6 +30,8 @@ BuildRequires:    R-CRAN-pillar
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-sfd 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-scales >= 1.3.0
@@ -45,6 +47,8 @@ Requires:         R-CRAN-pillar
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-sfd 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 Requires:         R-utils 
 Requires:         R-CRAN-withr 
 

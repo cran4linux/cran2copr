@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sbm
-%global packver   0.4.7
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.7
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stochastic Blockmodels
 
@@ -16,43 +16,44 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-blockmodels >= 1.2.1
 BuildRequires:    R-CRAN-alluvial 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-blockmodels 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-GREMLINS 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-prodlim 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-blockmodels >= 1.2.1
 Requires:         R-CRAN-alluvial 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-blockmodels 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-GREMLINS 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-prodlim 
+Requires:         R-grDevices 
 
 %description
 A collection of tools and functions to adjust a variety of stochastic
 blockmodels (SBM). Supports at the moment Simple, Bipartite,
 'Multipartite' and Multiplex SBM (undirected or directed with Bernoulli,
-Poisson or Gaussian emission laws on the edges, and possibly covariate for
-Simple and Bipartite SBM). See Léger (2016)
-<doi:10.48550/arXiv.1602.07587>, 'Barbillon et al.' (2020)
+Poisson or Gaussian emission laws on the edges). For Simple and Bipartite
+SBM, covariates can be given on the edges, or on the nodes to drive the
+block memberships, and the network may contain missing values. See Léger
+(2016) <doi:10.48550/arXiv.1602.07587>, 'Barbillon et al.' (2020)
 <doi:10.1111/rssa.12193> and 'Bar-Hen et al.' (2020)
 <doi:10.48550/arXiv.1807.10138>.
 

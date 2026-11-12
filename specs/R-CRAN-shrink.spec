@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shrink
-%global packver   1.2.3
+%global packver   1.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Global, Parameterwise and Joint Shrinkage Factor Estimation
 
@@ -40,7 +40,8 @@ and a compromise between global and parameterwise shrinkage, termed 'joint
 shrinkage', is a useful extension. A computational shortcut to
 resampling-based shrinkage factor estimation based on DFBETA residuals can
 be applied. Global, parameterwise and joint shrinkage for models fitted by
-lm(), glm(), coxph(), or mfp() is available.
+lm(), glm(), coxph(), or mfp() is available. The package is also available
+at <https://github.com/biometrician/shrink>.
 
 %prep
 %setup -q -c -n %{packname}

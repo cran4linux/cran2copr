@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  enmpa
-%global packver   0.2.5
+%global packver   0.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ecological Niche Modeling using Presence-Absence Data
 
@@ -16,28 +16,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-doSNOW 
 BuildRequires:    R-CRAN-ellipse 
-BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-snow 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-vegan 
-Requires:         R-CRAN-doSNOW 
 Requires:         R-CRAN-ellipse 
-Requires:         R-CRAN-foreach 
 Requires:         R-graphics 
 Requires:         R-methods 
 Requires:         R-CRAN-mgcv 
 Requires:         R-parallel 
+Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-snow 
 Requires:         R-stats 
 Requires:         R-CRAN-terra 
 Requires:         R-utils 

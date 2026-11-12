@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  r4pde
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Quantitative Plant Disease Epidemiology
 
@@ -30,13 +30,14 @@ BuildRequires:    R-CRAN-nasapower
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-terra 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-car 
 Requires:         R-CRAN-cluster 
@@ -50,21 +51,23 @@ Requires:         R-CRAN-nasapower
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
+Requires:         R-parallel 
 Requires:         R-stats 
+Requires:         R-utils 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-terra 
 
 %description
 Tools for quantitative plant disease epidemiology, including functional
 analysis of disease progress curves, spatial epidemiology, disease
-quantification, and weather-driven epidemic analysis. The package also
-serves as an educational resource and companion to the book "R for Plant
-Disease Epidemiology" (R4PDE). Several functions are based on classical
-and contemporary methods, including those discussed in Laurence V. Madden,
+quantification (including the validation of standard area diagrams), and
+weather-driven epidemic analysis. The package also serves as an
+educational resource and companion to the book "R for Plant Disease
+Epidemiology" (R4PDE). Several functions are based on classical and
+contemporary methods, including those discussed in Laurence V. Madden,
 Gareth Hughes, and Frank van den Bosch (2007) <doi:10.1094/9780890545058>.
 
 %prep

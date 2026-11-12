@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  glyrepr
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Representation for Glycan Compositions and Structures
 
@@ -16,26 +16,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-igraph >= 2.0.0
 BuildRequires:    R-CRAN-dplyr >= 1.2.0
 BuildRequires:    R-CRAN-vctrs >= 0.6.5
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-pillar 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rstackdeque 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-igraph >= 2.0.0
 Requires:         R-CRAN-dplyr >= 1.2.0
 Requires:         R-CRAN-vctrs >= 0.6.5
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-pillar 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 

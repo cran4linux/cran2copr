@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hellometry
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Biomass Estimation from Allometric Relationships
 
@@ -44,7 +44,10 @@ Requires:         R-utils
 Estimates body size and biomass of organisms from allometric
 relationships. It works with any data that follow a few column-naming
 conventions, using the measurements you supply to impute the ones that are
-missing.
+missing. Taxa can also be grouped by fuzzy traits (Chevenet et al. 1994)
+<doi:10.1111/j.1365-2427.1994.tb01742.x>, as in Céréghino et al. (2018)
+<doi:10.1111/1365-2435.13141>. Example data come from Rogy et al. (2024)
+<https://ttfnc.org/livingworld/index.php/lwj/article/view/rogy_et_al_2024>.
 
 %prep
 %setup -q -c -n %{packname}

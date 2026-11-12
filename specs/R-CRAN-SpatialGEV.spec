@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SpatialGEV
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit Spatial Generalized Extreme Value Models
 
@@ -43,7 +43,7 @@ write the models in 'TMB' by themselves. This package also offers methods
 to sample from both fixed and random effects posteriors as well as the
 posterior predictive distributions at different spatial locations. Methods
 for fitting this class of models are described in Chen, Ramezan, and Lysy
-(2024) <doi:10.48550/arXiv.2110.07051>.
+(2024) <doi:10.1002/cjs.11829>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dppca
-%global packver   0.1.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Differentially Private Principal Component Analysis Visualization
+Summary:          Differentially Private Principal Component Analysis and Visualization
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,23 +16,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.3.0
 Requires:         R-core >= 4.3.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-rARPACK 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-VGAM 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
 Requires:         R-graphics 
 Requires:         R-grDevices 
+Requires:         R-grid 
 Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-rARPACK 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
@@ -40,19 +41,20 @@ Requires:         R-CRAN-VGAM
 
 %description
 Provides tools for differentially private principal component analysis
-(PCA) visualization. It includes functions for estimating private
-principal component directions, constructing private scree and proportion
-of variance explained summaries, and visualizing two-dimensional PCA score
-summaries using additive and sparse histogram mechanisms. Group-wise score
-visualizations and an interactive 'shiny' app are also provided. Private
-principal component directions are based on Kim and Jung (2025)
-<doi:10.1002/sam.70053>. Private scree summaries use mechanisms motivated
-by Dwork and Roth (2014) <doi:10.1561/0400000042>, Ramsay and Spicker
-(2025) <doi:10.48550/arXiv.2501.14095>, and Yu, Ren and Zhou (2024)
-<doi:10.3150/23-BEJ1706>. Private score plot frames use smooth sensitivity
-quantiles from Nissim, Raskhodnikova and Smith (2007)
-<doi:10.1145/1250790.1250803>. Private score histograms use additive and
-sparse histogram ideas from Wasserman and Zhou (2010)
+(PCA) and visualization. Includes private principal component directions,
+scree and proportion of variance explained (PVE) estimates, and
+two-dimensional private score histograms with synthetic sampled points.
+Supports additive and sparse histogram mechanisms, group-wise score
+visualizations, and optional non-private comparisons. An integrated
+workflow produces loading plots, scree plots, score plots, variable plots,
+and biplots from shared private PCA estimates. An interactive 'shiny'
+application is also provided. Private direction estimation is based on Kim
+and Jung (2025) <doi:10.1002/sam.70053>. Private scree estimation draws on
+Dwork and Roth (2014) <doi:10.1561/0400000042>, Ramsay and Spicker (2025)
+<doi:10.48550/arXiv.2501.14095>, and Yu, Ren and Zhou (2024)
+<doi:10.3150/23-BEJ1706>. Private score frames use unbounded quantile
+mechanisms from Durfee (2023) <doi:10.52202/075280-3394>. Private score
+histograms use methods related to Wasserman and Zhou (2010)
 <doi:10.1198/jasa.2009.tm08651> and Karwa and Vadhan (2018)
 <doi:10.4230/LIPIcs.ITCS.2018.44>.
 

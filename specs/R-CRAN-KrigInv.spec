@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  KrigInv
-%global packver   1.4.2
+%global packver   1.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          1.4.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Kriging-Based Inversion for Deterministic and Noisy Computer Experiments
 
@@ -32,7 +32,10 @@ Requires:         R-CRAN-mvtnorm
 
 %description
 Criteria and algorithms for sequentially estimating level sets of a
-multivariate numerical function, possibly observed with noise.
+multivariate numerical function, possibly observed with noise. The methods
+are described in Chevalier, Picheny and Ginsbourger (2014)
+<doi:10.1016/j.csda.2013.03.008> and Azzimonti, Ginsbourger, Chevalier,
+Bect and Richet (2021) <doi:10.1080/00401706.2019.1693427>.
 
 %prep
 %setup -q -c -n %{packname}
