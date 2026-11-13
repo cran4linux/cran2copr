@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  portion
-%global packver   0.1.3
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extracting a Data Portion
 
@@ -21,8 +21,10 @@ BuildRequires:    R-stats
 Requires:         R-stats 
 
 %description
-Provides simple methods to extract data portions from various objects. The
-relative portion size and the way the portion is selected can be chosen.
+Extracts a portion of the data in vectors, matrices, data frames, time
+series, and lists of these objects. The size of the portion is given
+relative to the size of the object. The portion can consist of the first,
+the last, random, similar, or dissimilar elements, rows, or columns.
 
 %prep
 %setup -q -c -n %{packname}

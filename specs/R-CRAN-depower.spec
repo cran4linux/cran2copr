@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  depower
-%global packver   2026.1.30
+%global packver   2026.11.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2026.1.30
+Version:          2026.11.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Power Analysis for Differential Expression Studies
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 4.5.0
+Requires:         R-core >= 4.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-stats 
@@ -35,12 +35,16 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-scales 
 
 %description
-Provides a convenient framework to simulate, test, power, and visualize
-data for differential expression studies with lognormal or negative
-binomial outcomes. Supported designs are two-sample comparisons of
-independent or dependent outcomes. Power may be summarized in the context
-of controlling the per-family error rate or family-wise error rate.
-Negative binomial methods are described in Yu, Fernandez, and Brock (2017)
+Provides a convenient framework to simulate data, run hypothesis tests,
+estimate power, and plot the results for differential expression studies.
+The simulation-based framework is described in Klamer and Yu (2026)
+<doi:10.1177/11769351261431247>. Outcomes may be lognormal, negative
+binomial, or bivariate negative binomial. Supported designs are
+one-sample, independent two-sample, and dependent two-sample comparisons.
+Built-in tests include t-tests, Wald tests, and likelihood ratio tests.
+User-defined tests are also accepted. The significance level can be set to
+control the per-family error rate or the family-wise error rate. Negative
+binomial methods are described in Yu, Fernandez, and Brock (2017)
 <doi:10.1186/s12859-017-1648-2> and Yu, Fernandez, and Brock (2020)
 <doi:10.1186/s12859-020-3541-7>.
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  polykde
-%global packver   1.2.1
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Polyspherical Kernel Density Estimation
 
@@ -17,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.8.3
+BuildRequires:    R-CRAN-DirStats >= 1.0.0
 BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-Bessel 
 BuildRequires:    R-CRAN-doFuture 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-future 
@@ -30,8 +30,8 @@ BuildRequires:    R-CRAN-rotasym
 BuildRequires:    R-CRAN-sphunif 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.8.3
+Requires:         R-CRAN-DirStats >= 1.0.0
 Requires:         R-CRAN-abind 
-Requires:         R-CRAN-Bessel 
 Requires:         R-CRAN-doFuture 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-future 
@@ -46,7 +46,7 @@ Requires:         R-CRAN-sphunif
 Kernel density estimation on the polysphere, (hyper)sphere, and circle.
 Includes functions for density estimation, regression estimation, ridge
 estimation, bandwidth selection, kernels, samplers, and homogeneity tests.
-Companion package to García-Portugués and Meilán-Vila (2025)
+Companion package to García-Portugués and Meilán-Vila (2026)
 <doi:10.1080/01621459.2025.2521898> and García-Portugués and Meilán-Vila
 (2023) <doi:10.1007/978-3-031-32729-2_4>.
 

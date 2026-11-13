@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  AIGovernance
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Auditing and Governance Reporting for Employment AI Systems
+Summary:          Statistical Auditing, Drift Monitoring and Governance Reporting for AI Decision Systems
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,19 +20,23 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-nnet 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
+Requires:         R-utils 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-nnet 
 
 %description
 Provides statistical auditing, risk documentation, and reporting tools to
-support AI governance workflows for employment and hiring decision
-systems. Implements the EEOC four-fifths adverse impact rule (Equal
-Employment Opportunity Commission, 1978,
+support AI governance workflows for employment, hiring and other
+AI-assisted decision systems. Implements the EEOC four-fifths adverse
+impact rule (Equal Employment Opportunity Commission, 1978,
 <https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XIV/part-1607>),
 NYC Local Law 144 bias audit requirements (New York City, 2023,
 <https://www.nyc.gov/site/dca/about/automated-employment-decision-tools.page>),
@@ -40,9 +44,17 @@ and the AI Risk Management Framework checklist items from the National
 Institute of Standards and Technology (2023, <doi:10.6028/NIST.AI.100-1>).
 Optionally supports EU AI Act high-risk classification (European
 Parliament and Council, 2024,
-<https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689>).
-The package does not provide legal advice or certify legal compliance; it
-is a statistical and documentation support tool.
+<https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai>).
+It also audits decision drift over time: the change in a decision rate is
+decomposed into case-mix, allocation (routing of cases to decision units)
+and rule-change components in the spirit of Kitagawa (1955)
+<doi:10.1080/01621459.1955.10501299>; net and absolute drift are estimated
+over a fixed reference case mix with overlap trimming and cluster
+bootstrap uncertainty; categorical decisions and unit-level drift with
+noise-corrected heterogeneity are supported; and a simulator with known
+drift mechanisms is included. The package does not provide legal advice or
+certify legal compliance; it is a statistical and documentation support
+tool.
 
 %prep
 %setup -q -c -n %{packname}

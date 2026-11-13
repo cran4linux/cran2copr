@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dvir
-%global packver   3.4.2
+%global packver   3.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.2
+Version:          3.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Disaster Victim Identification
 
@@ -17,24 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pedtools >= 2.11.0
-BuildRequires:    R-CRAN-forrel >= 1.9.0
-BuildRequires:    R-CRAN-pedprobr >= 1.1.0
+BuildRequires:    R-CRAN-pedtools >= 2.12.0
+BuildRequires:    R-CRAN-pedprobr >= 1.2.0
+BuildRequires:    R-CRAN-forrel >= 1.10.0
+BuildRequires:    R-CRAN-pedFamilias >= 0.3.0
 BuildRequires:    R-CRAN-mirai 
-BuildRequires:    R-CRAN-pedFamilias 
 BuildRequires:    R-CRAN-ribd 
 BuildRequires:    R-CRAN-verbalisr 
-Requires:         R-CRAN-pedtools >= 2.11.0
-Requires:         R-CRAN-forrel >= 1.9.0
-Requires:         R-CRAN-pedprobr >= 1.1.0
+Requires:         R-CRAN-pedtools >= 2.12.0
+Requires:         R-CRAN-pedprobr >= 1.2.0
+Requires:         R-CRAN-forrel >= 1.10.0
+Requires:         R-CRAN-pedFamilias >= 0.3.0
 Requires:         R-CRAN-mirai 
-Requires:         R-CRAN-pedFamilias 
 Requires:         R-CRAN-ribd 
 Requires:         R-CRAN-verbalisr 
 
 %description
 Joint DNA-based disaster victim identification (DVI), as described in
-Vigeland and Egeland (2021) <doi:10.21203/rs.3.rs-296414/v1>.
+Vigeland and Egeland (2021) <doi:10.1038/s41598-021-93071-5>.
 Identification is performed by optimising the joint likelihood of all
 victim samples and reference individuals. Individual identification
 probabilities, conditional on all available information, are derived from

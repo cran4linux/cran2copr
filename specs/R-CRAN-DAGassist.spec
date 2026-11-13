@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DAGassist
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Test Robustness with Directed Acyclic Graphs
+Summary:          Align Regressions with Target Estimands
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -41,11 +41,11 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-dotwhisker 
 
 %description
-Provides robustness checks to align estimands with the identification that
-they require. Given a 'dagitty' object and a model specification,
-'DAGassist' classifies variables by causal roles, recovers a target
-estimand, and generates a report comparing the original model with
-DAG-derived adjustment sets. Exports publication-grade reports in 'LaTeX',
+Provides tools to align estimands with the identification that they
+require. Given a 'dagitty' object and a model specification, 'DAGassist'
+classifies variables by causal roles, recovers a target estimand, and
+generates a report comparing the original model with DAG-derived
+adjustment sets. Supports exporting publication-grade reports in 'LaTeX',
 'Word', 'Excel', 'dotwhisker', or plain text/'markdown'. 'DAGassist' is
 built on 'dagitty', an 'R' package that uses the 'DAGitty' web tool
 (<https://dagitty.net/>) for creating and analyzing DAGs. Methods draw on

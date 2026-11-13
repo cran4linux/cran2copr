@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  MFO
-%global packver   0.1.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Maximal Fat Oxidation and Kinetics Calculation
 
@@ -13,37 +14,41 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-minpack.lm 
 BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-stats 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-minpack.lm 
 Requires:         R-CRAN-openxlsx 
 Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
 
 %description
-Calculate the maximal fat oxidation, the exercise intensity that elicits
-the maximal fat oxidation and the SIN model to represent the fat oxidation
-kinetics. Three variables can be obtained from the SIN model: dilatation,
-symmetry and translation. Examples of these methods can be found in Montes
-de Oca et al (2021) <doi:10.1080/17461391.2020.1788650> and Chenevière et
-al. (2009) <doi:10.1249/MSS.0b013e31819e2f91>.
+Computes the maximal fat oxidation (MFO), the exercise intensity that
+elicits it (Fatmax), the Fatmax zone and the crossover point from indirect
+calorimetry data of a graded exercise test. Substrate oxidation is
+estimated with the stoichiometric equations of Frayn (1983)
+<doi:10.1152/jappl.1983.55.2.628>, Peronnet and Massicotte (1991, Can J
+Sport Sci 16(1):23-29) or Jeukendrup and Wallis (2005)
+<doi:10.1055/s-2004-830512>, and Fatmax is located with a third- or
+second-degree polynomial, the measured values or the MRER method. Fat
+oxidation kinetics are described with the SIN model of Cheneviere et al.
+(2009) <doi:10.1249/MSS.0b013e31819e2f91>, which returns dilatation,
+symmetry and translation, together with the intensity at which fat
+oxidation becomes negligible (Fatmin). Applications of these methods are
+given in Achten et al. (2002) <doi:10.1097/00005768-200201000-00015> and
+Montes de Oca et al. (2021) <doi:10.1080/17461391.2020.1788650>.
 
 %prep
 %setup -q -c -n %{packname}

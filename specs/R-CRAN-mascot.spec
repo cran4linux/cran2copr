@@ -1,45 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sgapi
-%global packver   1.1.2
+%global packname  mascot
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Aid Querying 'nomis' and 'Office for National Statistics Open Geography' APIs
+Summary:          Live Mood-Driven Mascots for 'Shiny' Apps and 'Quarto' Sites
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-xml2 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-shiny >= 1.8.1
+BuildRequires:    R-CRAN-htmltools >= 0.5.3
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-shiny >= 1.8.1
+Requires:         R-CRAN-htmltools >= 0.5.3
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Facilitates extraction of geospatial data from the 'Office for National
-Statistics Open Geography' and 'nomis' Application Programming Interfaces
-(APIs). Simplifies process of querying 'nomis' datasets
-<https://www.nomisweb.co.uk/> and extracting desired datasets in dataframe
-format. Extracts area shapefiles at chosen resolution from 'Office for
-National Statistics Open Geography'
-<https://geoportal.statistics.gov.uk/>.
+Adds a character drawn in code to 'Shiny' apps and 'Quarto' sites. The
+character shows a mood with status text beside it and animates when the
+mood changes; a 'Shiny' server can change its mood, status, speech bubble
+and gestures, and a click can run an action or open a menu. It follows
+light and dark mode and takes its colours from built-in palettes or custom
+colours. Custom characters can be described in 'JSON' and checked before
+use, and an interactive app demonstrates every function.
 
 %prep
 %setup -q -c -n %{packname}

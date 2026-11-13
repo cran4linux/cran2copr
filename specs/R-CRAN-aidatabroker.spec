@@ -1,30 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  aidatabroker
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read Open Data on the AI Training Data Market
+Summary:          Read Licensed Market Data on AI Training Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-utils 
 Requires:         R-utils 
 
 %description
-Downloads the open datasets published by 'AIData.Broker' on the market for
-AI training data: public prices, licensing deals, buyers, vendors,
-lawsuits and related tables, each row with its source, from
-<https://aidata.broker/datasets>. The data are licensed CC BY 4.0.
+Reads the tables that 'AIData.Broker' keeps on the market for AI training
+data (prices, licensing deals, buyers, vendors, lawsuits and related
+tables, each row with its source) for holders of its Market Data Licence,
+using the licence's API key. Since 11 November 2026 the tables are sold
+under that licence, not published openly; see
+<https://aidata.broker/datasets> for the licence and its terms.
 
 %prep
 %setup -q -c -n %{packname}

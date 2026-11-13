@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  normalize
-%global packver   0.1.3
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Centering and Scaling of Numeric Data
 
@@ -21,8 +21,10 @@ BuildRequires:    R-stats
 Requires:         R-stats 
 
 %description
-Provides simple methods for centering and scaling of numeric data. Columns
-or rows can be ignored when normalizing or be normalized jointly.
+Centers and scales numeric data in vectors, matrices, data frames, time
+series, and lists of these objects. Rows or columns can be left unchanged
+or be normalized jointly. The values used for centering and scaling are
+returned as attributes.
 
 %prep
 %setup -q -c -n %{packname}

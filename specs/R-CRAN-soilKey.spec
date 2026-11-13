@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  soilKey
-%global packver   0.9.259
+%global packver   0.9.403
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.259
+Version:          0.9.403
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automated Soil Profile Classification per WRB 2022, 'SiBCS' 5 and USDA Soil Taxonomy 13
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bacenR
-%global packver   0.5.1
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access Data from Brazilian Central Bank: IFdata, Active Institutions, Balance Sheets and Normative Acts
 
@@ -57,8 +57,8 @@ Requires:         R-CRAN-xml2
 %description
 Provides functions to query, retrieve, and tidy economic and financial
 data from Brazilian Central Bank web services for use in R analyses and
-workflows. Active institutions information, balance sheets and normative
-acts.
+workflows. Active institutions information, bank branches, balance sheets,
+banking statistics by municipality (ESTBAN) and normative acts.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Uno
-%global packver   2.9.2-1
+%global packver   2.9.2-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9.2.1
+Version:          2.9.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to the 'Uno' Nonlinear Optimization Solver
 
@@ -17,8 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-rmumps >= 5.2.1.43
+BuildRequires:    R-CRAN-highs >= 1.15.1.2
 BuildRequires:    R-CRAN-cpp11 
 Requires:         R-CRAN-rmumps >= 5.2.1.43
+Requires:         R-CRAN-highs >= 1.15.1.2
 
 %description
 Bindings to 'Uno' (Unifying Nonlinear Optimization), a C++ solver for

@@ -1,33 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ECTSVR
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cointegration Based Support Vector Regression Model
+Summary:          Error Correction Term Based Support Vector Regression for Time Series
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-urca 
-BuildRequires:    R-CRAN-vars 
-BuildRequires:    R-CRAN-WeightSVM 
+BuildRequires:    R-CRAN-tseries 
+BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-Metrics 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
 Requires:         R-CRAN-urca 
-Requires:         R-CRAN-vars 
-Requires:         R-CRAN-WeightSVM 
+Requires:         R-CRAN-tseries 
+Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-Metrics 
+Requires:         R-CRAN-knitr 
+Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
-The cointegration based support vector regression model enables
-researchers to use data obtained from the cointegrating vector as input in
-the support vector regression model.
+The cointegration based support vector regression model is a combination
+of error correction model and support vector regression. This hybrid model
+allows the researcher to make use of the information extracted by the
+cointegrating vector as an input in the support vector regression mode.
+Implements the models with multiple kernel functions (linear, polynomial,
+radial, sigmoid) for time series forecasting. Includes stationarity tests,
+Johansen cointegration, and comprehensive model evaluation.
 
 %prep
 %setup -q -c -n %{packname}

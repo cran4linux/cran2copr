@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  TSDFGS
-%global packver   2.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Training Set Determination for Genomic Selection
 
@@ -13,28 +14,26 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 1.0.8.3
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-latex2exp 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-parallel 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Rcpp >= 1.0.8.3
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-latex2exp 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-parallel 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-stats 
 
 %description
-We propose an optimality criterion to determine the required training set,
-r-score, which is derived directly from Pearson's correlation between the
-genomic estimated breeding values and phenotypic values of the test set
-<doi:10.1007/s00122-019-03387-0>. This package provides two main functions
-to determine a good training set and its size.
+Finds a training set for genomic selection and the size it needs. The
+r-score of Ou and Liao (2019) <doi:10.1007/s00122-019-03387-0> is derived
+from Pearson's correlation between the genomic estimated breeding values
+and the phenotypic values of the test set. optTrain() searches for a good
+training set, and SSDFGS() searches for its size. Eighteen criteria are
+available to score or optimize a training set, among them A-, D-, E- and
+G-optimality, PEVmax, MSPE, CDmean, CDmax, and genomic relationship
+criteria (Chen et al. (2024) <doi:10.1007/s00122-024-04766-y>;
+Fernandez-Gonzalez et al. (2023) <doi:10.1007/s00122-023-04265-6>). The
+computation uses 'Rcpp' and 'RcppEigen', and independent searches can run
+on several threads with 'OpenMP'.
 
 %prep
 %setup -q -c -n %{packname}

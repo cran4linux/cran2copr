@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SelectionTools
-%global packver   26.5
+%global packver   26.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          26.5
+Version:          26.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulation and Data Analysis for Plant Breeders
 
@@ -24,8 +24,8 @@ prediction of segregation variance (Osthushenrich, Frisch and Herzog
 (2017) <doi:10.1371/journal.pone.0188839>), genomic prediction (Hofheinz
 and Frisch (2014) <doi:10.1534/g3.113.010025>), linkage disequilibrium
 based haplotype construction, and planning of marker assisted back
-crossing programs.  It provides an integrated framework for simulation and
-analysis of plant breeding programs.
+crossing programs. Functions to fit linear mixed models and for phasing
+and imputation of DNA marker data are also included.
 
 %prep
 %setup -q -c -n %{packname}

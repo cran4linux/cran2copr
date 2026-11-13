@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MultinomFourier
-%global packver   1.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          p-Values of Multinomial Goodness-of-Fit Tests by Fourier Series Inversion
 

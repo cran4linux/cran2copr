@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  whomds
-%global packver   1.1.1
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate Results from WHO Model Disability Survey Data
 
@@ -17,49 +17,41 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-eRm >= 1.0.7
 BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-eRm 
 BuildRequires:    R-CRAN-ggraph 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-GPArotation 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-nFactors 
-BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-polycor 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-srvyr 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-TAM 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidygraph 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-WrightMap 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-eRm >= 1.0.7
 Requires:         R-CRAN-psych 
 Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-eRm 
 Requires:         R-CRAN-ggraph 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-GPArotation 
 Requires:         R-grDevices 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-nFactors 
-Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-polycor 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scales 
 Requires:         R-CRAN-srvyr 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-TAM 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidygraph 

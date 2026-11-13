@@ -1,36 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  isoniche
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculating Density-Independent Niche Breadth Indices from Abundance Data
+Summary:          Isodar-Adjusted, Abundance-Independent Niche Breadth
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-CRAN-tibble 
 
 %description
-Deriving density-independent and density-dependent niche breadth indices
-from abundance data of two or more habitats, including both the pairwise
-and n-dimensional methods to calculate isodar-adjusted inequality. Methods
-are described in Granot, Dubiner & Belmaker (in revision), "Why
-abundance-based indices of niche breadth are biased, and what can be done
-to improve them", Ecology Letters.
+Estimates habitat niche breadth corrected for the effects of abundance,
+using isodars (the relationships between a species' densities in pairs of
+habitats under density-dependent habitat selection). Fits pairwise and
+n-dimensional isodars, including data where sites lack some habitats, and
+computes the isodar-adjusted inequality (IAI) at any total abundance, with
+density-independent and density-dependent niche breadth, bootstrap
+confidence intervals and diagnostics. Method described in Granot, Dubiner
+and Belmaker (in revision, Ecology Letters).
 
 %prep
 %setup -q -c -n %{packname}

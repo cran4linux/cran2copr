@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  IncAAM
-%global packver   1.8
+%global packver   1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8
+Version:          1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Age-at-Maturity Analysis from Increment-Width Growth Series
 
@@ -18,7 +18,6 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-ggplot2 
@@ -26,7 +25,6 @@ BuildRequires:    R-CRAN-posterior
 BuildRequires:    R-CRAN-minpack.lm 
 BuildRequires:    R-CRAN-brms 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-ggplot2 
@@ -37,10 +35,11 @@ Requires:         R-CRAN-brms
 %description
 Bayesian hierarchical nonlinear mixed-effects analysis for estimating age
 at sexual maturity from annual increment-width growth series. The method
-estimates age at maturity using tangent-ratio and jerk approaches and
-provides a posterior threshold-crossing ogive with an estimated A50.
-Methodological details and applications are described in Campana,
-Smoliński, Morrongiello and Black (2026, in press).
+estimates age at maturity using tangent-ratio and jerk approaches,
+including the hierarchical population-median tangent-ratio estimate and an
+analytical posterior crossing ogive with Bayesian credible intervals and
+estimated A50. Methodological details and applications are described in
+Campana, Smoliński, Morrongiello and Black (2027, in press).
 
 %prep
 %setup -q -c -n %{packname}
