@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gdtools
-%global packver   0.5.3
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Font Metrics and Font Management Utilities for R Graphics
 
@@ -30,13 +30,14 @@ Requires:         R-CRAN-htmltools
 Requires:         R-tools 
 
 %description
-Compute text metrics (width, ascent, descent) from font files with
-'FreeType', independently of the active graphic device. Font lookup is
-delegated to 'systemfonts'. Additional utilities let users register
-'Google Fonts' or bundled 'Liberation' fonts, check font availability, and
-assemble 'htmlDependency' objects so that fonts are correctly embedded in
-'Shiny' applications, 'R Markdown' documents, and 'htmlwidgets' outputs
-such as 'ggiraph'.
+Compute text metrics (width, ascent, descent), with or without kerning,
+from font files with 'FreeType', independently of the active graphic
+device. Font lookup is delegated to 'systemfonts'. Additional utilities
+let users register 'Google Fonts', the bundled 'Liberation' fonts or the
+bundled math font 'STIX Two Math', check font availability, and assemble
+'htmlDependency' objects so that fonts are correctly embedded in 'Shiny'
+applications, 'R Markdown' documents, and 'htmlwidgets' outputs such as
+'ggiraph'.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rcccd
-%global packver   0.3.2
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Class Cover Catch Digraph Classification
 
@@ -14,17 +14,14 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RANN 
 BuildRequires:    R-CRAN-Rfast 
-BuildRequires:    R-CRAN-proxy 
-BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-RANN 
 Requires:         R-CRAN-Rfast 
-Requires:         R-CRAN-proxy 
 
 %description
 Fit Class Cover Catch Digraph Classification models that can be used in

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  imbalanceDatRel
-%global packver   0.1.6
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Relocated Data Oversampling for Imbalanced Data Classification
 
@@ -31,7 +31,9 @@ Relocates oversampled data from a specific oversampling method to cover
 area determined by pure and proper class cover catch digraphs (PCCCD). It
 prevents any data to be generated in class overlapping area. For more
 details, see the corresponding publication: F. Sağlam (2025)
-<doi:10.1007/s10994-025-06755-8>.
+<doi:10.1007/s10994-025-06755-8>. This package is superseded by the
+'imbalanceKit' package, which contains DatRel and many more resampling
+methods.
 
 %prep
 %setup -q -c -n %{packname}

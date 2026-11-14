@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SSIMmap
-%global packver   0.4.0
+%global packver   0.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Structural Similarity Index Measure for Maps
 
@@ -14,32 +14,33 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-FNN 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-stats 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-terra 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-FNN 
 
 %description
-Extends the classical SSIM method proposed by 'Wang', 'Bovik', 'Sheikh',
-and 'Simoncelli'(2004) <doi:10.1109/TIP.2003.819861>. for irregular
-lattice-based maps and raster images. The geographical SSIM method
-incorporates well-developed 'geographically weighted summary
-statistics'('Brunsdon', 'Fotheringham' and 'Charlton' 2002)
-<doi:10.1016/S0198-9715(01)00009-6> with an adaptive bandwidth kernel
-function for irregular lattice-based maps.
+Computes the Structural Similarity Index Measure (SSIM) and its components
+for raster images and irregular polygon maps. The raster method follows
+Wang et al. (2004) <doi:10.1109/TIP.2003.819861>. The polygon method uses
+geographically weighted summary statistics described by Brunsdon et al.
+(2002) <doi:10.1016/S0198-9715(01)00009-6> with an adaptive
+nearest-neighbor kernel. Provides bandwidth selection, value
+transformations, permutation-based inference, Fire Weather Index rasters,
+and Toronto census-derived example data.
 
 %prep
 %setup -q -c -n %{packname}

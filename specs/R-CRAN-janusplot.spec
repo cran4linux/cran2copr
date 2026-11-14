@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  janusplot
-%global packver   0.1.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Asymmetric Smoothed-Association Matrices via GAM Fits
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -23,7 +23,9 @@ BuildRequires:    R-CRAN-mgcv >= 1.9.0
 BuildRequires:    R-CRAN-patchwork >= 1.1.0
 BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-grid 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
+BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-cli >= 3.6.0
 Requires:         R-CRAN-ggplot2 >= 3.5.0
@@ -31,17 +33,19 @@ Requires:         R-CRAN-mgcv >= 1.9.0
 Requires:         R-CRAN-patchwork >= 1.1.0
 Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-grid 
+Requires:         R-grDevices 
 Requires:         R-stats 
+Requires:         R-tools 
 Requires:         R-CRAN-lifecycle 
 
 %description
 Render a pairwise, asymmetric smoothed-association matrix of continuous
 variables. Each cell shows the fitted spline from an 'mgcv' generalised
-additive model, with the upper triangle displaying 'gam(x_j ~ s(x_i))' and
-the lower triangle 'gam(x_i ~ s(x_j))'. Unlike Pearson's correlation
+additive model, with the upper triangle displaying 'gam(x_i ~ s(x_j))' and
+the lower triangle 'gam(x_j ~ s(x_i))'. Unlike Pearson's correlation
 matrix, the visualisation is intentionally asymmetric, revealing
 heteroscedasticity, leverage, and directional non-linearity that a single
-scalar correlation hides. An asymmetry index and a 24-category shape
+scalar correlation hides. An asymmetry index and a 27-category shape
 taxonomy quantify the directional difference and qualitative form of each
 fitted smooth.
 

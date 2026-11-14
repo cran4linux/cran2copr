@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  azr
-%global packver   0.3.6
+%global packver   0.3.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.6
+Version:          0.3.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Credential Chain for Seamless 'OAuth 2.0' Authentication to 'Azure Services'
+Summary:          Credential Chain for OAuth 2.0 Authentication to 'Azure'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -33,11 +33,12 @@ Requires:         R-CRAN-jsonlite
 Requires:         R-CRAN-rlang 
 
 %description
-Implements a credential chain for 'Azure OAuth 2.0' authentication based
-on the package 'httr2''s 'OAuth' framework. Sequentially attempts
-authentication methods until one succeeds. During development allows
-interactive browser-based flows ('Device Code' and 'Auth Code' flows) and
-non-interactive flow ('Client Secret') in batch mode.
+Implements a credential chain for 'Azure' OAuth 2.0 authentication, built
+on the OAuth framework of the 'httr2' package. Tries authentication
+methods in turn until one succeeds, so the same code runs on a laptop, in
+continuous integration and on an 'Azure' host. Supports client secret,
+workload identity, managed identity and 'Azure CLI' credentials, plus
+interactive device code and authorization code flows during development.
 
 %prep
 %setup -q -c -n %{packname}

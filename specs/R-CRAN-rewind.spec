@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rewind
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Undo and Redo for 'Shiny' Applications
+Summary:          Undo and Redo for 'shiny' Applications
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -27,7 +27,7 @@ Requires:         R-CRAN-R6
 Requires:         R-utils 
 
 %description
-Adds a user-facing undo and redo history to 'Shiny' applications.
+Adds a user-facing undo and redo history to 'shiny' applications.
 Application state, comprising registered inputs and optionally server-side
 reactive values, is captured as the user interacts with the application.
 Users may then step backwards and forwards through that history with the

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  grasps
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Groupwise Regularized Adaptive Sparse Precision Solution
 
@@ -33,13 +33,14 @@ Requires:         R-CRAN-Rdpack
 Requires:         R-CRAN-scales 
 
 %description
-Provides a unified framework for sparse-group regularization and precision
-matrix estimation in Gaussian graphical models. It implements multiple
-sparse-group penalties, including sparse-group lasso, sparse-group
-adaptive lasso, sparse-group SCAD, and sparse-group MCP, and solves them
-efficiently using ADMM-based optimization. The package is designed for
-high-dimensional network inference where both sparsity and group structure
-are present.
+Provides a unified framework for sparse-group precision matrix estimation
+in Gaussian graphical models using combined element-wise and group-wise
+regularization. It supports multiple sparse-group penalties, including
+lasso, adaptive lasso, and several non-convex penalties such as SCAD and
+MCP. Non-convex estimates can be computed using one-step or iterative LLA,
+with weighted subproblems solved efficiently using ADMM-based
+optimization. The package is designed for high-dimensional network
+inference where both sparsity and group structure are present.
 
 %prep
 %setup -q -c -n %{packname}

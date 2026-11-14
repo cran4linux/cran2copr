@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SMOTEWB
-%global packver   1.2.5
+%global packver   1.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.5
+Version:          1.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Imbalanced Resampling using SMOTE with Boosting (SMOTEWB)
 
@@ -29,14 +29,17 @@ Requires:         R-CRAN-rpart
 Requires:         R-CRAN-Rfast 
 
 %description
-Provides the SMOTE with Boosting (SMOTEWB) algorithm. See F. Sağlam, M. A.
-Cengiz (2022) <doi:10.1016/j.eswa.2022.117023>. It is a SMOTE-based
-resampling technique which creates synthetic data on the links between
-nearest neighbors. SMOTEWB uses boosting weights to determine where to
-generate new samples and automatically decides the number of neighbors for
-each sample. It is robust to noise and outperforms most of the
-alternatives according to Matthew Correlation Coefficient metric.
-Alternative resampling methods are also available in the package.
+Provides the SMOTE with boosting (SMOTEWB) algorithm, where SMOTE is the
+synthetic minority over-sampling technique. See F. Sağlam, M. A. Cengiz
+(2022) <doi:10.1016/j.eswa.2022.117023>. It is a SMOTE-based resampling
+technique which creates synthetic data on the links between nearest
+neighbors. SMOTEWB uses boosting weights to determine where to generate
+new samples and automatically decides the number of neighbors for each
+sample. It is robust to noise and outperforms most of the alternatives
+according to Matthew Correlation Coefficient metric. Alternative
+resampling methods are also available in the package. This package is
+superseded by the 'imbalanceKit' package, which contains all of its
+methods and more.
 
 %prep
 %setup -q -c -n %{packname}

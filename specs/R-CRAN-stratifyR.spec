@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  stratifyR
-%global packver   2.0-4
+%global packver   2.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimal Stratification of Univariate Populations
 
@@ -54,9 +54,10 @@ provides cost-constrained allocation with unequal per-stratum costs, a
 design-efficiency comparison (compare_designs), two- and three-dimensional
 and interactive visualisations, solution-quality diagnostics (a
 Cauchy-Schwarz optimality gap and KKT first-order residuals for the
-derivative-free solvers) and a self-contained 'shiny' application, while
-remaining backward compatible with the strata.data() and strata.distr()
-interface of version 1.x.  The methodology follows Khan et al. (2008)
+derivative-free solvers), accessor functions for the results and a
+self-contained 'shiny' application, while remaining backward compatible
+with the strata.data() and strata.distr() interface of version 1.x.  The
+methodology follows Khan et al. (2008)
 <https://www150.statcan.gc.ca/n1/pub/12-001-x/2008002/article/10761-eng.pdf>,
 Reddy and Khan (2018) <doi:10.1111/anzs.12244> and Reddy and Khan (2020)
 <doi:10.1111/anzs.12301>.

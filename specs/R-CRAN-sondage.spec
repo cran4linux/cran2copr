@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sondage
-%global packver   0.9.1
+%global packver   0.15.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.15.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Survey Sampling Algorithms
 
@@ -23,13 +23,14 @@ probability sampling from finite populations, written in C. Provides equal
 probability methods (simple random sampling, systematic, Bernoulli),
 unequal probability methods (conditional Poisson / maximum entropy,
 Sampford, Brewer, systematic PPS, Pareto, sequential Poisson, Poisson,
-Chromy's minimum replacement, multinomial), balanced sampling via the cube
-method, and spatially balanced sampling via the local pivotal method and
-spatially correlated Poisson sampling. All sampling functions return
-design objects carrying sample indices, inclusion probabilities, and
-design metadata. Generics compute joint inclusion probabilities, pairwise
-expectations, and sampling covariances for variance estimation. Mostly
-based on algorithms from Tillé (2006, <doi:10.1007/0-387-34240-0>).
+Chromy's sequential and systematic PPS with minimum replacement,
+multinomial), balanced sampling via the cube method, and spatially
+balanced sampling via the local pivotal method and spatially correlated
+Poisson sampling. All sampling functions return design objects carrying
+sample indices, inclusion probabilities, and design metadata. Generics
+compute joint inclusion probabilities, pairwise expectations, and sampling
+covariances for variance estimation. Mostly based on algorithms from Tillé
+(2006, <doi:10.1007/0-387-34240-0>).
 
 %prep
 %setup -q -c -n %{packname}

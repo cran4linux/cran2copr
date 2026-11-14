@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  heumilkr
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Heuristic Capacitated Vehicle Routing Problem Solver
 
@@ -29,8 +29,9 @@ Requires:         R-CRAN-rlang >= 1.1.0
 %description
 Implements the Clarke-Wright algorithm to find a quasi-optimal solution to
 the Capacitated Vehicle Routing Problem. See Clarke, G. and Wright, J.R.
-(1964) <doi:10.1287/opre.12.4.568> for details. The implementation is
-accompanied by helper functions to inspect its solution.
+(1964) <doi:10.1287/opre.12.4.568> for details. Sites can also have goods
+picked up and brought back to the depot ("backhaul"). The implementation
+is accompanied by helper functions to inspect its solution.
 
 %prep
 %setup -q -c -n %{packname}

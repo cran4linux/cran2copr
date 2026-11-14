@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  margEVT
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regularized Point Processes and Stochastic Marginalization for Extremes
 
@@ -16,15 +16,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-parallel 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
 Requires:         R-utils 
 
@@ -35,11 +36,12 @@ elastic-net regularization, analytical gradients and a lower bound on the
 shape parameter. Provides methods for estimating conditional return levels
 and unconditional (marginalized) return levels via parametric stochastic
 integration over stable vector autoregressive VAR(p) covariate
-trajectories, or non-parametric annual-block resampling. Supports
+trajectories, or non-parametric annual-block resampling, and risk over
+planning horizons (design life levels) under covariate scenarios. Supports
 block-specific penalty controls, BIC selection along a regularization
-path, Karush-Kuhn-Tucker convergence checks, time-rescaling residual
-diagnostics, conditional parametric bootstrap inference, and walk-forward
-assessment.
+path, unpenalized refitting of the selected model, Karush-Kuhn-Tucker
+convergence checks, declustering, time-rescaling residual diagnostics,
+conditional parametric bootstrap inference, and walk-forward assessment.
 
 %prep
 %setup -q -c -n %{packname}

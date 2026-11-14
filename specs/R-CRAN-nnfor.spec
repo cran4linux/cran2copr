@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nnfor
-%global packver   0.9.9
+%global packver   0.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.9
+Version:          0.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Time Series Forecasting with Neural Networks
 
@@ -17,24 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-tsutils >= 0.9.5
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-forecast 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-neuralnet 
 BuildRequires:    R-CRAN-plotrix 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-tsutils 
 BuildRequires:    R-CRAN-uroot 
-BuildRequires:    R-methods 
+BuildRequires:    R-parallel 
+BuildRequires:    R-datasets 
+Requires:         R-CRAN-tsutils >= 0.9.5
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-forecast 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-neuralnet 
 Requires:         R-CRAN-plotrix 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-tsutils 
 Requires:         R-CRAN-uroot 
-Requires:         R-methods 
+Requires:         R-parallel 
+Requires:         R-datasets 
 
 %description
 Automatic time series modelling with neural networks. Allows fully

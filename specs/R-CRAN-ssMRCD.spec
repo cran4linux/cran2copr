@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ssMRCD
-%global packver   2.0.1
+%global packver   2.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Estimators for Multi-Group and Spatial Data
 
@@ -29,10 +29,10 @@ BuildRequires:    R-CRAN-DescTools
 BuildRequires:    R-CRAN-rootSolve 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-cellWise 
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-CRAN-robustbase 
@@ -46,7 +46,6 @@ Requires:         R-CRAN-DescTools
 Requires:         R-CRAN-rootSolve 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-cellWise 
 Requires:         R-methods 
 Requires:         R-utils 
@@ -57,9 +56,9 @@ the casewise robust Spatially Smoothed Minimum Regularized Determinant
 (ssMRCD) estimator and its usage for local outlier detection as described
 in Puchhammer and Filzmoser (2023) <doi:10.1080/10618600.2023.2277875> as
 well as for sparse robust PCA for multi-source data described in
-Puchhammer, Wilms and Filzmoser (2024) <doi:10.48550/arXiv.2407.16299>.
+Puchhammer, Wilms and Filzmoser (2026) <doi:10.1007/s11222-025-10771-y>.
 Moreover, a cellwise robust multi-group Gaussian mixture model (MG-GMM) is
-implemented as described in Puchhammer, Wilms and Filzmoser (2024)
+implemented as described in Puchhammer, Wilms and Filzmoser (2025)
 <doi:10.48550/arXiv.2504.02547>. Included are also complementary
 visualization and parameter tuning tools.
 

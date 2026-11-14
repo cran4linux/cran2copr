@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MatchingPursuit
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Processing Time Series Data Using the Matching Pursuit Algorithm
+Summary:          Sparse Time Series Decomposition Using Matching Pursuit and Orthogonal Matching Pursuit
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -28,6 +28,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-EGM 
 BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-Matrix 
 Requires:         R-CRAN-edf 
 Requires:         R-CRAN-signal 
 Requires:         R-CRAN-RSQLite 
@@ -39,6 +40,7 @@ Requires:         R-utils
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-EGM 
 Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-Matrix 
 
 %description
 Provides tools for analysing and decomposing time series data using the

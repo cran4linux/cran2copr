@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  Rita
-%global packver   1.2.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automated Transformations, Normality Testing, and Reporting
 
@@ -16,23 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-base 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-lattice 
-Requires:         R-base 
+BuildRequires:    R-grid 
 Requires:         R-stats 
 Requires:         R-CRAN-lattice 
+Requires:         R-grid 
 
 %description
-Automated performance of common transformations used to fulfill parametric
-assumptions of normality and identification of the best performing method
-for the user. Output for various normality tests (Thode, 2002)
-corresponding to the best performing method and a descriptive statistical
-report of the input data in its original units (5-number summary and
-mathematical moments) are also presented. Lastly, the Rankit, an empirical
-normal quantile transformation (ENQT) (Soloman & Sawilowsky, 2009), is
-provided to accommodate non-standard use cases and facilitate adoption.
-<DOI: 10.1201/9780203910894>. <DOI: 10.22237/jmasm/1257034080>.
+Automatically evaluates common normalizing transformations of numeric
+variables and selects the best-fitting transformation for each based on
+squared correlation with theoretical normal quantiles. Available
+transformations include Rankit, arcsine, logit/log-odds, logarithmic,
+square-root, and inverse/reciprocal. Performs six normality tests (Thode,
+2002, <doi:10.1201/9780203910894>), incorporating simulation-based p-value
+calibration for small-sample Jarque–Bera and optionally Lilliefors, as
+well as subsampling for Shapiro–Wilk when sample sizes exceed its
+supported limit. Available tests include Anderson–Darling, Pearson
+chi-square, D'Agostino–Pearson omnibus, Jarque–Bera, Kolmogorov–Smirnov
+with Lilliefors correction, and Shapiro–Wilk. A descriptive statistical
+report of the retained input data in their original units, including the
+five-number summary and mathematical moments, is also presented. The
+Rankit empirical normal quantile transformation (ENQT) (Soloman and
+Sawilowsky, 2009, <doi:10.22237/jmasm/1257034080>) is provided for those
+requiring rank-based normalization and to facilitate its adoption.
+Structured analytical results and paired visualizations of original and
+transformed distributions are also available.
 
 %prep
 %setup -q -c -n %{packname}

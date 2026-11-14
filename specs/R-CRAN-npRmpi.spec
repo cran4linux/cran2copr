@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  npRmpi
-%global packver   0.70-5
+%global packver   0.80-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.70.5
+Version:          0.80.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parallel Nonparametric Kernel Smoothing Methods for Mixed Data Types Using 'MPI'
 
@@ -16,18 +16,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-crs >= 0.15.44
+BuildRequires:    R-CRAN-crs >= 0.15.46
 BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-cubature 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-quadprog 
 BuildRequires:    R-CRAN-quantreg 
 BuildRequires:    R-stats 
 BuildRequires:    R-parallel 
 BuildRequires:    R-tools 
-Requires:         R-CRAN-crs >= 0.15.44
+Requires:         R-CRAN-crs >= 0.15.46
 Requires:         R-CRAN-boot 
-Requires:         R-CRAN-cubature 
 Requires:         R-methods 
 Requires:         R-CRAN-quadprog 
 Requires:         R-CRAN-quantreg 
@@ -45,13 +43,13 @@ to Hao Yu for his contributions to the 'R' community. We would like to
 gratefully acknowledge support from the Natural Sciences and Engineering
 Research Council of Canada (NSERC, <https://www.nserc-crsng.gc.ca/>), the
 Social Sciences and Humanities Research Council of Canada (SSHRC,
-<https://www.sshrc-crsh.gc.ca/>), and the Shared Hierarchical Academic
-Research Computing Network (SHARCNET, <https://sharcnet.ca/>). We would
-also like to acknowledge the contributions of the 'GNU GSL' authors. In
-particular, we adapt the 'GNU GSL' B-spline routine 'gsl_bspline.c' adding
-automated support for quantile knots (in addition to uniform knots),
-providing missing functionality for derivatives, and for extending the
-splines beyond their endpoints.
+<https://sshrc-crsh.canada.ca/en.aspx>), and the Shared Hierarchical
+Academic Research Computing Network (SHARCNET, <https://sharcnet.ca/>). We
+would also like to acknowledge the contributions of the 'GNU GSL' authors.
+In particular, we adapt the 'GNU GSL' B-spline routine 'gsl_bspline.c'
+adding automated support for quantile knots (in addition to uniform
+knots), providing missing functionality for derivatives, and for extending
+the splines beyond their endpoints.
 
 %prep
 %setup -q -c -n %{packname}

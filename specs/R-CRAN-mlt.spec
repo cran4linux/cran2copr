@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlt
-%global packver   1.8-4
+%global packver   1.9-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.4
+Version:          1.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Most Likely Transformations
 
@@ -14,12 +14,12 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.6.0
+Requires:         R-core >= 4.6.0
 BuildRequires:    R-CRAN-basefun >= 1.2.1
 BuildRequires:    R-CRAN-variables >= 1.1.0
-BuildRequires:    R-CRAN-BB 
 BuildRequires:    R-CRAN-alabama 
+BuildRequires:    R-CRAN-BB 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-quadprog 
 BuildRequires:    R-CRAN-coneproj 
@@ -30,13 +30,12 @@ BuildRequires:    R-CRAN-sandwich
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-icenReg 
 Requires:         R-CRAN-basefun >= 1.2.1
 Requires:         R-CRAN-variables >= 1.1.0
-Requires:         R-CRAN-BB 
 Requires:         R-CRAN-alabama 
+Requires:         R-CRAN-BB 
 Requires:         R-stats 
 Requires:         R-CRAN-quadprog 
 Requires:         R-CRAN-coneproj 
@@ -47,7 +46,6 @@ Requires:         R-CRAN-sandwich
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-nloptr 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-icenReg 
 

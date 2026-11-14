@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidywater
-%global packver   0.10.0
+%global packver   0.11.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.0
+Version:          0.11.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Water Quality Models for Drinking Water Treatment Processes
 
@@ -28,6 +28,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-deSolve 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-forcats 
@@ -39,6 +40,7 @@ Requires:         R-methods
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-deSolve 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-cli 
 
 %description
 Provides multiple water chemistry-based models and published empirical

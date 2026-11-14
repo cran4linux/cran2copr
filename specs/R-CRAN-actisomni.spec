@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  actisomni
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Sleep Measures of Actigraphy and Activity Analysis
 
@@ -19,7 +19,6 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-actibase >= 0.8.0
 BuildRequires:    R-CRAN-asleep >= 0.4.0
-BuildRequires:    R-CRAN-actiread 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-assertthat 
@@ -28,7 +27,6 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-sleeper 
 Requires:         R-CRAN-actibase >= 0.8.0
 Requires:         R-CRAN-asleep >= 0.4.0
-Requires:         R-CRAN-actiread 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-assertthat 
@@ -42,12 +40,14 @@ Implements sleep-period-time guiders based on angle changes, posture,
 least-active periods, sustained inactivity, low activity, and diary or
 fixed time windows; combines guider windows with sustained-inactivity
 bouts to produce sleep/wake labels and consensus estimates. Provides diary
-helpers, and interfaces to the 'asleep' and 'sleeper' machine-learning
-estimators. The angle-based and sustained-inactivity methods are described
-by van Hees et al. (2015) <doi:10.1371/journal.pone.0142533> and van Hees
-et al. (2018) <doi:10.1038/s41598-018-31266-z>; the model estimators are
-described by Yuan et al. (2024) <doi:10.1038/s41746-024-01065-0> and
-Sundararajan et al. (2021) <doi:10.1038/s41598-020-79217-x>.
+helpers, and interfaces to the 'asleep', 'sleeper', and 'rester'
+machine-learning estimators. The angle-based and sustained-inactivity
+methods are described by van Hees et al. (2015)
+<doi:10.1371/journal.pone.0142533> and van Hees et al. (2018)
+<doi:10.1038/s41598-018-31266-z>; the model estimators are described by
+Yuan et al. (2024) <doi:10.1038/s41746-024-01065-0>, Sundararajan et al.
+(2021) <doi:10.1038/s41598-020-79217-x>, and Lorenzen et al. (2026)
+<doi:10.64898/2026.01.28.26345056>.
 
 %prep
 %setup -q -c -n %{packname}

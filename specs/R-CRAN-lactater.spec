@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lactater
-%global packver   0.2.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Analyzing Lactate Thresholds
 
@@ -14,44 +14,43 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggtext 
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
+BuildRequires:    R-CRAN-ggtext >= 0.2.0
+BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-minpack.lm 
-BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-pillar 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-segmented 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-forcats 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggtext 
+BuildRequires:    R-splines 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-ggplot2 >= 4.0.0
+Requires:         R-CRAN-ggtext >= 0.2.0
+Requires:         R-grid 
 Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-minpack.lm 
-Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-pillar 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-segmented 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-forcats 
+Requires:         R-splines 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-tools 
+Requires:         R-utils 
+Requires:         R-CRAN-vctrs 
 
 %description
 Set of tools for analyzing lactate thresholds from a step incremental test
-to exhaustion. Easily analyze the methods Log-log, Onset of Blood Lactate
-Accumulation (OBLA), Baseline plus (Bsln+), Dmax, Lactate Turning Point
-(LTP), and Lactate / Intensity ratio (LTratio) in cycling, running, or
-swimming. Beaver WL, Wasserman K, Whipp BJ (1985)
+to exhaustion. Estimate Log-log, Onset of Blood Lactate Accumulation
+(OBLA), Baseline plus (Bsln+), the Dmax family, Lactate Turn Points (LTP),
+the Lactate / Intensity ratio (LTratio), and the Individual Anaerobic
+Thresholds of Dickhuth (IAT) and Stegmann in cycling, running, swimming,
+or rowing, with bootstrap confidence intervals, data-quality checks,
+training zones, test comparisons, training load, and the maximal lactate
+accumulation rate (VLamax). Beaver WL, Wasserman K, Whipp BJ (1985)
 <doi:10.1152/jappl.1985.59.6.1936>. Heck H, Mader A, Hess G, Mücke S,
 Müller R, Hollmann W (1985) <doi:10.1055/s-2008-1025824>. Kindermann W,
 Simon G, Keul J (1979) <doi:10.1007/BF00421101>. Skinner JS, Mclellan TH
@@ -67,7 +66,11 @@ Tschakert G (2017) <doi:10.3389/fphys.2017.00337>. Hofmann P, Pokan R, von
 Duvillard SP, Seibert FJ, Zweiker R, Schmid P (1997)
 <doi:10.1097/00005768-199706000-00005>. Pokan R, Hofmann P, Von Duvillard
 SP, et al. (1997) <doi:10.1097/00005768-199708000-00009>. Dickhuth H-H,
-Yin L, Niess A, et al. (1999) <doi:10.1055/s-2007-971105>.
+Yin L, Niess A, et al. (1999) <doi:10.1055/s-2007-971105>. Stegmann H,
+Kindermann W, Schnabel A (1981) <doi:10.1055/s-2008-1034604>. Heuberger
+JAAC, Gal P, Stuurman FE, et al. (2018)
+<doi:10.1371/journal.pone.0206846>. Meixner B, Nusser V, Koehler K, et al.
+(2024) <doi:10.14814/phy2.16086>.
 
 %prep
 %setup -q -c -n %{packname}

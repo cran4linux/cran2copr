@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  censored
-%global packver   0.3.5
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'parsnip' Engines for Survival Models
 
@@ -22,11 +22,11 @@ BuildRequires:    R-CRAN-tibble >= 3.1.3
 BuildRequires:    R-CRAN-prodlim >= 2023.03.31
 BuildRequires:    R-CRAN-hardhat >= 1.4.1
 BuildRequires:    R-CRAN-parsnip >= 1.3.0
-BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-dials >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.8.0.1
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dials 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-lifecycle 
@@ -39,11 +39,11 @@ Requires:         R-CRAN-tibble >= 3.1.3
 Requires:         R-CRAN-prodlim >= 2023.03.31
 Requires:         R-CRAN-hardhat >= 1.4.1
 Requires:         R-CRAN-parsnip >= 1.3.0
-Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-dials >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.8.0.1
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dials 
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-lifecycle 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  corteza
-%global packver   0.7.1
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          AI Agent Runtime
 
@@ -17,7 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.4.0
 Requires:         R-core >= 4.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-llm.api >= 0.1.9
+BuildRequires:    R-CRAN-saber >= 0.8.0
+BuildRequires:    R-CRAN-llm.api >= 0.2.0
 BuildRequires:    R-CRAN-callr 
 BuildRequires:    R-CRAN-codetools 
 BuildRequires:    R-CRAN-curl 
@@ -25,8 +26,9 @@ BuildRequires:    R-CRAN-digest
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-printify 
 BuildRequires:    R-CRAN-processx 
-BuildRequires:    R-CRAN-saber 
-Requires:         R-CRAN-llm.api >= 0.1.9
+BuildRequires:    R-utils 
+Requires:         R-CRAN-saber >= 0.8.0
+Requires:         R-CRAN-llm.api >= 0.2.0
 Requires:         R-CRAN-callr 
 Requires:         R-CRAN-codetools 
 Requires:         R-CRAN-curl 
@@ -34,7 +36,7 @@ Requires:         R-CRAN-digest
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-printify 
 Requires:         R-CRAN-processx 
-Requires:         R-CRAN-saber 
+Requires:         R-utils 
 
 %description
 An agent runtime that gives Large Language Models (LLMs) from 'Anthropic'

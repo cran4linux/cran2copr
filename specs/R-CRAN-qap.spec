@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  qap
-%global packver   0.1-3
+%global packver   0.2-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Heuristics for the Quadratic Assignment Problem (QAP)
 
@@ -18,10 +18,10 @@ BuildRequires:    R-devel
 Requires:         R-core
 
 %description
-Implements a simulated annealing heuristic for the Quadratic Assignment
-Problem (QAP). Originally formulated as a facility location problem in
-operations research, the QAP also has applications in data analysis. The
-problem is NP-hard.
+Implements search heuristics for the Quadratic Assignment Problem (QAP).
+Originally formulated as a facility location problem in operations
+research, the QAP also has applications in data analysis. The problem is
+NP-hard.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  upndown
-%global packver   0.3.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities and Design Aids for Up-and-Down Dose-Finding Studies
 
@@ -27,12 +27,13 @@ Requires:         R-CRAN-MASS
 Requires:         R-CRAN-plyr 
 
 %description
-Up-and-Down (UD) is the most popular design approach for dose-finding, but
+Up-and-Down (UD) is the most popular design approach to dose-finding, but
 it has been severely under-served by the statistical and computing
 communities. This is the first package that comprehensively addresses UD's
-needs. Recent applied UD tutorial: Oron et al., 2022
-<doi:10.1097/ALN.0000000000004282>. Recent methodological overview: Oron
-and Flournoy, 2024 <doi:10.51387/24-NEJSDS74>.
+needs. Development version available on Github: assaforon/upndown. Recent
+applied UD tutorial: Oron et al., 2022 <doi:10.1097/ALN.0000000000004282>.
+Recent methodological overview: Oron and Flournoy, 2025
+<doi:10.51387/24-NEJSDS74>.
 
 %prep
 %setup -q -c -n %{packname}

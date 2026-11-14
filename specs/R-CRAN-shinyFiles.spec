@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shinyFiles
-%global packver   0.9.3
+%global packver   0.9.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.3
+Version:          0.9.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Server-Side File System Viewer for Shiny
 
@@ -22,12 +22,14 @@ BuildRequires:    R-CRAN-fs >= 1.2.6
 BuildRequires:    R-CRAN-shiny >= 1.1.0
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-later 
 BuildRequires:    R-tools 
 Requires:         R-CRAN-tibble >= 1.4.2
 Requires:         R-CRAN-fs >= 1.2.6
 Requires:         R-CRAN-shiny >= 1.1.0
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-later 
 Requires:         R-tools 
 
 %description

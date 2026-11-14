@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  summarySCI
-%global packver   0.1.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Produces Publication-Ready Summary Tables
+Summary:          Produces Publication-Ready Summary Tables and Plots
 
 License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -28,6 +28,11 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-flextable 
 BuildRequires:    R-CRAN-officer 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-tools 
 Requires:         R-CRAN-gtsummary >= 2.3.0
 Requires:         R-CRAN-Hmisc 
 Requires:         R-CRAN-cardx 
@@ -39,11 +44,18 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-flextable 
 Requires:         R-CRAN-officer 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-tools 
 
 %description
 Produces tables with descriptive statistics for continuous, categorical
 and dichotomous variables. It is largely based on the package 'gtsummary';
-Sjoberg DD et al. (2021) <doi:10.32614/RJ-2021-053>.
+Sjoberg DD et al. (2021) <doi:10.32614/RJ-2021-053>. The tables can be
+accompanied by matching boxplots, line plots and stacked barplots, also
+over time.
 
 %prep
 %setup -q -c -n %{packname}

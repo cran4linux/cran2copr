@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  coda.base
-%global packver   1.0.6
+%global packver   1.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Basic Set of Functions for Compositional Data Analysis
 
@@ -26,8 +26,9 @@ Requires:         R-CRAN-Matrix
 
 %description
 A minimum set of functions to perform compositional data analysis using
-the log-ratio approach introduced by John Aitchison (1982). Main functions
-have been implemented in c++ for better performance.
+the log-ratio approach introduced by John Aitchison (1982)
+<doi:10.1111/j.2517-6161.1982.tb01195.x>. Main functions have been
+implemented in C++ for better performance.
 
 %prep
 %setup -q -c -n %{packname}
