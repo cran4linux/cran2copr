@@ -1,39 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  inferference
-%global packver   1.0.3
+%global packname  cprd.search
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Methods for Causal Inference with Interference
+Summary:          Search the Clinical Practice Research Datalink Aurum Dictionary
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-numDeriv >= 2012.9.1
-BuildRequires:    R-CRAN-lme4 >= 1.1.6
-BuildRequires:    R-CRAN-Formula >= 1.1.2
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-spaMM 
-Requires:         R-CRAN-numDeriv >= 2012.9.1
-Requires:         R-CRAN-lme4 >= 1.1.6
-Requires:         R-CRAN-Formula >= 1.1.2
-Requires:         R-methods 
-Requires:         R-CRAN-spaMM 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-stringdist 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-stringdist 
+Requires:         R-CRAN-tibble 
 
 %description
-Provides methods for estimating causal effects in the presence of
-interference described in B. Saul and M. Hugdens (2017)
-<doi:10.18637/jss.v082.i02>. Currently it implements the
-inverse-probability weighted (IPW) estimators proposed by E.J. Tchetgen
-Tchetgen and T.J. Vanderweele (2012) <doi:10.1177/0962280210386779>.
+Searches user-supplied Clinical Practice Research Datalink (CPRD) Aurum
+medical dictionaries to support the development of medical code lists.
+Provides case-insensitive keyword searches with AND, OR, and exclusion
+logic, optional regular expressions, approximate matching of complete
+terms, observation-count filtering, column selection, and deduplicated
+combinations of results. Exports results to comma-separated files while
+preserving character identifiers. Includes synthetic example data; real
+dictionaries must be obtained separately from CPRD
+<https://www.cprd.com/>.
 
 %prep
 %setup -q -c -n %{packname}

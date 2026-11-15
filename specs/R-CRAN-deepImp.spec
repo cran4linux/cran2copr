@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  deepImp
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Imputation with Deep Learning Methods
 
@@ -18,25 +18,26 @@ BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-torch 
-BuildRequires:    R-CRAN-luz 
+BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-CRAN-VIM 
-BuildRequires:    R-CRAN-robCompositions 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-graphics 
 Requires:         R-CRAN-torch 
-Requires:         R-CRAN-luz 
+Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-VIM 
-Requires:         R-CRAN-robCompositions 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-graphics 
 
 %description
-Imputation of mixed-type and compositional data with neural networks. The
-architecture (number and size of hidden layers, dropout, activation,
-optimiser) is user-configurable. See Templ (2021)
-<doi:10.1007/978-3-030-71175-7>.
+Imputation of mixed-type and compositional data with neural networks. Each
+network head is a generalised linear model plus a neural-network
+correction. Missing values are imputed by point predictions or, for
+multiple imputation, by predictive draws on bootstrap fits, with pooling
+through 'mice'. The architecture (number and size of hidden layers,
+dropout, activation, optimiser) and the training settings are
+user-configurable. See Templ (2021) <doi:10.1007/978-3-030-71175-7>.
 
 %prep
 %setup -q -c -n %{packname}

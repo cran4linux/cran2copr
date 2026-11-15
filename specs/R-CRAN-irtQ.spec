@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  irtQ
-%global packver   1.3.1
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Unidimensional Item Response Theory Modeling
 
@@ -49,27 +49,29 @@ Requires:         R-CRAN-Matrix
 Requires:         R-CRAN-Rfast 
 
 %description
-Fit unidimensional item response theory (IRT) models to test data, which
-includes both dichotomous and polytomous items, calibrate pretest item
-parameters, estimate examinees' abilities, and examine the IRT model-data
-fit on item-level in different ways as well as provide useful functions
-related to IRT analyses such as differential item functioning analysis. In
-addition, the package provides a set of classical test theory functions
-for computing item- and test-level statistics (e.g., item difficulty,
-item-total correlation, and coefficient alpha) and for scoring and
-analyzing selected-response item data. The bring.flexmirt() and
-write.flexmirt() functions were written by modifying the read.flexmirt()
-function (Pritikin & Falk (2020) <doi:10.1177/0146621620929431>). The
-bring.bilog() and bring.parscale() functions were written by modifying the
-read.bilog() and read.parscale() functions, respectively (Weeks (2010)
+Fits unidimensional item response theory (IRT) models to test data that
+include dichotomous and polytomous items, calibrates pretest items with
+fixed item and fixed ability parameter calibration, performs
+multiple-group calibration, estimates the abilities of examinees, and
+evaluates model-data fit at the item level. It also provides tools for
+detecting differential item functioning and item parameter drift, for
+computing classification accuracy and consistency, and for evaluating and
+simulating multistage-adaptive test panels, together with classical test
+theory functions for item- and test-level statistics (e.g., item
+difficulty, item-total correlation, and coefficient alpha) and for scoring
+selected-response item data. The bring.flexmirt() and write.flexmirt()
+functions were written by modifying the read.flexmirt() function (Pritikin
+& Falk (2020) <doi:10.1177/0146621620929431>). The bring.bilog() and
+bring.parscale() functions were written by modifying the read.bilog() and
+read.parscale() functions, respectively (Weeks (2010)
 <doi:10.18637/jss.v035.i12>). The bisection() function was written by
 modifying the bisection() function (Howard (2017, ISBN:9780367657918)).
 The code of the inverse test characteristic curve scoring in the
 est_score() function was written by modifying the irt.eq.tse() function
 (Gonzalez (2014) <doi:10.18637/jss.v059.i07>). In est_score() function,
 the code of weighted likelihood estimation method was written by referring
-to the Pi(), Ji(), and Ii() functions of the catR package (Magis & Barrada
-(2017) <doi:10.18637/jss.v076.c01>).
+to the Pi(), Ji(), and Ii() functions of the 'catR' package (Magis &
+Barrada (2017) <doi:10.18637/jss.v076.c01>).
 
 %prep
 %setup -q -c -n %{packname}

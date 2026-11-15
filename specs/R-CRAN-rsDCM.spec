@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rsDCM
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust and Sparse Dynamic Causal Modelling for Functional MRI
 
@@ -16,14 +16,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
-BuildArch:        noarch
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-expm 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-expm 
 Requires:         R-CRAN-MASS 
 Requires:         R-methods 
@@ -31,16 +32,17 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-Provides a robust and sparse method for group-level Dynamic Causal
-Modelling (DCM) of functional magnetic resonance imaging (fMRI) data:
-Student-t weighting of subjects for robustness, combined with a nonlocal
-product-moment (pMOM) spike-and-slab prior for sparse selection of
-group-level effects (<doi:10.48550/arXiv.2609.06379>). The package also
-provides an R implementation of single-subject DCM for fMRI using
-variational Laplace inversion (Friston et al., 2003
-<doi:10.1016/S1053-8119(03)00202-7>), including the bilinear neural state
-equation and the Buxton-Friston hemodynamic response model, ported from
-the 'SPM25' (version 25.01.02) toolbox for 'MATLAB'.
+Fits robust and sparse group-level Dynamic Causal Models (DCMs) for
+functional magnetic resonance imaging data. The group method combines a
+Student-t likelihood with a Gaussian-spike and nonlocal product-moment
+slab prior, propagates first-level posterior covariance through block
+pre-whitening, fits empirical-Bayes modes by multistart generalized
+expectation-maximization with conditional maximization, and integrates
+posterior inclusion probabilities by parallel-tempering Monte Carlo
+(<doi:10.48550/arXiv.2609.06379>). The package also provides an R port of
+deterministic single-state DCM and Parametric Empirical Bayes routines
+from 'SPM25' (version 25.01.02), based on Friston et al. (2003)
+<doi:10.1016/S1053-8119(03)00202-7>.
 
 %prep
 %setup -q -c -n %{packname}

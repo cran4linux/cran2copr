@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gSeg
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Graph-Based Change-Point Detection (g-Segmentation)
 
@@ -16,15 +16,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.0.1
 Requires:         R-core >= 3.0.1
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ade4 
-Requires:         R-CRAN-ade4 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
 Uses similarity graphs to estimate change-points and their p-values. The
-default data-level interface constructs a k-MST with k=floor(sqrt(N)) and
-reports the max-type scan. The generalized, original, and weighted scans
-remain available explicitly.
+main functions accept either observations or dissimilarities, construct a
+k-MST with k=floor(sqrt(N)) by default, and report the max-type scan. A
+supplied similarity graph and the generalized, original, and weighted
+scans remain available explicitly.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  survalis
-%global packver   1.0.0
+%global packver   2.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interpretable Survival Machine Learning Framework
 
@@ -14,71 +14,77 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
+BuildRequires:    R-CRAN-basetable >= 1.4.5
+BuildRequires:    R-CRAN-fastgbm >= 0.7.0
 BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-functionals 
 BuildRequires:    R-CRAN-nnls 
 BuildRequires:    R-CRAN-rpart 
 BuildRequires:    R-CRAN-rsample 
 BuildRequires:    R-CRAN-aftgee 
 BuildRequires:    R-CRAN-aorsf 
-BuildRequires:    R-CRAN-bnnSurvival 
 BuildRequires:    R-CRAN-pec 
 BuildRequires:    R-CRAN-party 
 BuildRequires:    R-CRAN-ranger 
-BuildRequires:    R-CRAN-survdnn 
-BuildRequires:    R-CRAN-survivalsvm 
+BuildRequires:    R-CRAN-unsurv 
 BuildRequires:    R-CRAN-randomForestSRC 
 BuildRequires:    R-CRAN-xgboost 
+BuildRequires:    R-CRAN-densemlp 
+BuildRequires:    R-CRAN-rpsurv 
+BuildRequires:    R-CRAN-nbsurv 
+BuildRequires:    R-CRAN-tvrmst 
 BuildRequires:    R-CRAN-CoxBoost 
 BuildRequires:    R-CRAN-BART 
 BuildRequires:    R-CRAN-flexsurv 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-mboost 
-BuildRequires:    R-CRAN-rstpm2 
 BuildRequires:    R-CRAN-timereg 
 BuildRequires:    R-CRAN-partykit 
 BuildRequires:    R-CRAN-gower 
 BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-torch 
-BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-ggplot2 >= 3.5.0
+Requires:         R-CRAN-basetable >= 1.4.5
+Requires:         R-CRAN-fastgbm >= 0.7.0
 Requires:         R-CRAN-survival 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-functionals 
 Requires:         R-CRAN-nnls 
 Requires:         R-CRAN-rpart 
 Requires:         R-CRAN-rsample 
 Requires:         R-CRAN-aftgee 
 Requires:         R-CRAN-aorsf 
-Requires:         R-CRAN-bnnSurvival 
 Requires:         R-CRAN-pec 
 Requires:         R-CRAN-party 
 Requires:         R-CRAN-ranger 
-Requires:         R-CRAN-survdnn 
-Requires:         R-CRAN-survivalsvm 
+Requires:         R-CRAN-unsurv 
 Requires:         R-CRAN-randomForestSRC 
 Requires:         R-CRAN-xgboost 
+Requires:         R-CRAN-densemlp 
+Requires:         R-CRAN-rpsurv 
+Requires:         R-CRAN-nbsurv 
+Requires:         R-CRAN-tvrmst 
 Requires:         R-CRAN-CoxBoost 
 Requires:         R-CRAN-BART 
 Requires:         R-CRAN-flexsurv 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-mboost 
-Requires:         R-CRAN-rstpm2 
 Requires:         R-CRAN-timereg 
 Requires:         R-CRAN-partykit 
 Requires:         R-CRAN-gower 
 Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-torch 
-Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 A modular toolkit for interpretable survival machine learning with a
@@ -93,10 +99,9 @@ Jaeger et al. (2019) <doi:10.1214/19-AOAS1261>, Harrell et al. (1982)
 <doi:10.1001/jama.1982.03320430047030>, Graf et al. (1999)
 <doi:10.1002/(SICI)1097-0258(19990915/30)18:17/18%%3C2529::AID-SIM274%%3E3.0.CO;2-5>,
 Friedman (2001) <doi:10.1214/aos/1013203451>, Apley and Zhu (2020)
-<doi:10.1111/rssb.12377>, and Lundberg and Lee (2017)
-<https://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions>,
-and other related methods for survival modeling, prediction, and
-interpretation.
+<doi:10.1111/rssb.12377>, and other related methods for survival modeling,
+prediction, and interpretation. Clustering of individualized survival
+curves is described in El Badisy (2026) <doi:10.1093/bioadv/vbag218>.
 
 %prep
 %setup -q -c -n %{packname}

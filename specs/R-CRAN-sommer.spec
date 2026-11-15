@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sommer
-%global packver   4.5.12
+%global packver   4.5.27
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.5.12
+Version:          4.5.27
 Release:          1%{?dist}%{?buildtag}
 Summary:          Solving Mixed Model Equations in R
 
@@ -35,18 +35,27 @@ Requires:         R-CRAN-MASS
 Requires:         R-CRAN-crayon 
 
 %description
-Structural multivariate-univariate linear mixed model solver for
-estimation of multiple random effects with unknown variance-covariance
-structures (e.g., unstructured, diagonal, autoregressive, factor analytic,
-reduced rank, among others) and known covariance among levels of random
-effects (e.g., pedigree and genomic relationship matrices)
+Fits generalized linear and non linear mixed models with flexible
+covariance structures for multiple random effects. Supports structured
+random-effect and Gaussian residual covariances, including unstructured,
+autoregressive, spatial, factor-analytic and reduced-rank models. These
+structures can be combined using Kronecker products and user-defined
+covariance functions. Known relationships among random-effect levels,
+including pedigree and genomic relationship matrices, can be incorporated.
+Gaussian models are fitted by maximum likelihood or restricted maximum
+likelihood using complementary coefficient-space Henderson and
+observation-space direct-inversion engines, with average-information
+optimization and expectation-maximization recovery. Numerical methods
+include sparse matrix factorization, preconditioned iterative solvers and
+stochastic trace and log-determinant approximations for eligible
+large-scale problems. Generalized models are fitted by penalized
+quasi-likelihood or native Laplace-approximated maximum likelihood,
+including joint models of responses from different families linked through
+shared random effects. Provides prediction, uncertainty quantification and
+inference tools for applications including quantitative genetics, genomic
+prediction, multi-environment trials and spatial analysis
 (Covarrubias-Pazaran, 2016 <doi:10.1371/journal.pone.0156744>; Maier et
-al., 2015 <doi:10.1016/j.ajhg.2014.12.006>; Jensen et al., 1997). REML
-estimates can be obtained using the Direct-Inversion Newton-Raphson and
-Direct-Inversion Average Information algorithms for the problems r x r (r
-being the number of records) or using the Henderson-based average
-information algorithm for the problem c x c (c being the number of
-coefficients to estimate).
+al., 2015 <doi:10.1016/j.ajhg.2014.12.006>; Jensen et al., 1997).
 
 %prep
 %setup -q -c -n %{packname}

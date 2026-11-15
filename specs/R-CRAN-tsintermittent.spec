@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  tsintermittent
-%global packver   1.10
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.10
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Intermittent Time Series Forecasting
 
@@ -13,22 +14,30 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MAPA 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-parallel 
-Requires:         R-CRAN-MAPA 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-generics 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-parallel 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Time series methods for intermittent demand forecasting. Includes
 Croston's method and its variants (Moving Average, SBA), and the TSB
 method. Users can obtain optimal parameters on a variety of loss
-functions, or use fixed ones (Kourenztes (2014)
-<doi:10.1016/j.ijpe.2014.06.007>). Intermittent time series classification
+functions, or use fixed ones. Intermittent time series classification
 methods and iMAPA that uses multiple temporal aggregation levels are also
-provided (Petropoulos & Kourenztes (2015) <doi:10.1057/jors.2014.62>).
+provided. Empirical quantiles of the demand over the lead time are
+calculated from the cumulative forecast errors.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  phyloregion
-%global packver   1.0.9
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.9
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Biogeographic Regionalization and Macroecology
 
@@ -57,7 +57,9 @@ biogeographical regionalization. Additionally, the package contains fast
 and efficient functions to compute more standard conservation measures
 such as phylogenetic diversity, phylogenetic endemism, evolutionary
 distinctiveness and global endangerment, as well as compositional turnover
-(e.g., beta diversity).
+(e.g., beta diversity), and functional alpha and beta diversity from trait
+probability densities for mixed continuous and categorical traits (Carmona
+et al. 2016) <doi:10.1016/j.tree.2016.02.003>.
 
 %prep
 %setup -q -c -n %{packname}

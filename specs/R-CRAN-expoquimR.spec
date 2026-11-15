@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  expoquimR
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Qualitative and Quantitative Assessment of Occupational Chemical Exposure Risk
 
@@ -40,9 +40,7 @@ code. References: UK Health and Safety Executive (2003)
 Berne (2013, ISBN:978-2-7389-2166-2) "Méthodologie d'évaluation simplifiée
 du risque chimique: un outil d'aide à la décision" INRS ND 2233; European
 Committee for Standardisation (2018)
-<https://www.en-standard.eu/bs-en-689-2018-workplace-exposure-measurement-of-exposure-by-inhalation-to-chemical-agents-strategy-for-testing-compliance-with-occupational-exposure-limit-values/>;
-Lorenzale Algarra, Sanchez-Toledo, Guillen Riquelme, Agun-Gonzalez and
-Aguilar-Elena (2026) <doi:10.1080/10803548.2025.2575603>.
+<https://www.en-standard.eu/bs-en-689-2018-workplace-exposure-measurement-of-exposure-by-inhalation-to-chemical-agents-strategy-for-testing-compliance-with-occupational-exposure-limit-values/>.
 
 %prep
 %setup -q -c -n %{packname}

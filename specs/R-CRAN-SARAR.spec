@@ -1,42 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  evolvability
-%global packver   2.0.1
+%global packname  SARAR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculation of Evolvability Parameters
+Summary:          Bayesian Estimation of Spatial Autoregressive Models with Flexible Error Distributions
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-CRAN-Formula 
 BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-statmod 
+BuildRequires:    R-CRAN-spdep 
+Requires:         R-CRAN-Formula 
 Requires:         R-CRAN-coda 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-lme4 
-Requires:         R-stats 
+Requires:         R-CRAN-statmod 
+Requires:         R-CRAN-spdep 
 
 %description
-Provides tools for calculating evolvability parameters from estimated
-G-matrices as defined in Hansen and Houle (2008)
-<doi:10.1111/j.1420-9101.2008.01573.x> and fits phylogenetic comparative
-models that link the rate of evolution of a trait to the state of another
-evolving trait (see Hansen et al. 2021 Systematic Biology
-<doi:10.1093/sysbio/syab079>). The package was released with Bolstad et
-al. (2014) <doi:10.1098/rstb.2013.0255>, which contains some examples of
-use.
+Provides Bayesian estimation and inference for spatial autoregressive
+models with spatial dependence in both the response variable and the error
+terms. The models accommodate Gaussian, Student-t, Laplace, skew-normal,
+and skew-Student-t error distributions. Posterior inference is performed
+using Markov chain Monte Carlo methods. The package also provides
+posterior summaries, convergence diagnostics, residual analysis, and model
+comparison criteria, including the Deviance Information Criterion (DIC)
+and the Watanabe-Akaike Information Criterion (WAIC).  See LeSage and Pace
+(2009, ISBN:9781420064247), "Introduction to Spatial Econometrics".
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  chromConverter
-%global packver   0.11.2
+%global packver   0.12.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.2
+Version:          0.12.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Chromatographic File Converter
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-readxl
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-RaMS 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-xml2 
@@ -41,6 +42,7 @@ Requires:         R-CRAN-readxl
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
+Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-RaMS 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-xml2 

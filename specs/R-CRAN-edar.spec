@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  edar
-%global packver   0.0.7
+%global packver   0.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          0.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Convenient Functions for Exploratory Data Analysis
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-flextable
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-gtsummary 
 BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-kableExtra 
 BuildRequires:    R-CRAN-knitr 
@@ -40,6 +41,7 @@ Requires:         R-CRAN-flextable
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggpubr 
 Requires:         R-grDevices 
+Requires:         R-CRAN-gtsummary 
 Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-kableExtra 
 Requires:         R-CRAN-knitr 

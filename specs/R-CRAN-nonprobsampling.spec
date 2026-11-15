@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nonprobsampling
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Inference for Nonprobability Samples Using Multiple Reference Surveys
 
@@ -27,7 +27,7 @@ Requires:         R-CRAN-nleqslv
 Requires:         R-utils 
 
 %description
-Provides pseudo-weighted estimates of means and prevalences for finite
+Provides pseudo-weighted estimates of means and prevalence for finite
 population inference from nonprobability samples using auxiliary
 information from one or multiple probability reference surveys. The
 package supports estimation with multiple reference surveys, allowing
@@ -38,7 +38,7 @@ surveys. Methods are based on the generalized estimating equations
 framework of Landsman et al. (2026) <doi:10.1002/sim.70403> for correcting
 participation bias. For a single reference survey, the package implements
 the raking ratio calibration method and includes the adjusted logistic
-propensity (ALP) method of Wang, Valliant, and Li (2021)
+propensity (ALP) weighting method of Wang, Valliant, and Li (2021)
 <doi:10.1002/sim.9122>, as well as the Chen-Li-Wu (CLW) method of Chen,
 Li, and Wu (2020) <doi:10.1080/01621459.2019.1677241>. Analytic variance
 estimation uses Taylor linearization and accounts for complex sampling

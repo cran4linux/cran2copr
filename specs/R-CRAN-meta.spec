@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  meta
-%global packver   8.5-0
+%global packver   9.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          8.5.0
+Version:          9.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          General Package for Meta-Analysis
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-metafor >= 3.0.0
 BuildRequires:    R-CRAN-metabook >= 0.2.0
@@ -61,12 +61,14 @@ Galbraith / radial, L'Abbe, Baujat, bubble); - three-level meta-analysis
 model; - generalised linear mixed model; - logistic regression with
 penalised likelihood for rare events; - Hartung-Knapp method for random
 effects model; - Kenward-Roger method for random effects model; -
-prediction interval and density of the prediction distribution; - expected
-proportion of comparable studies with clinically important benefit or
-harm; - statistical tests for funnel plot asymmetry; - trim-and-fill
-method to evaluate bias in meta-analysis; - meta-regression; - cumulative
-meta-analysis and leave-one-out meta-analysis; - import data from 'RevMan
-5'; - produce forest plot summarising several (subgroup) meta-analyses.
+cluster-robust variance estimators for univariate random effects and
+three-level models; - prediction interval and density of the prediction
+distribution; - expected proportion of comparable studies with clinically
+important benefit or harm; - statistical tests for funnel plot asymmetry;
+- trim-and-fill method to evaluate bias in meta-analysis; -
+meta-regression; - cumulative meta-analysis and leave-one-out
+meta-analysis; - import data from 'RevMan Web' and 'RevMan 5'; - produce
+forest plot summarising several (subgroup) meta-analyses.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,50 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  partR2
-%global packver   0.9.2
+%global packname  ordpp
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Partitioning R2 in GLMMs
+Summary:          Projection Pursuit with Monotone Scoring for Ordered Categorical Data
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
-BuildRequires:    R-CRAN-tibble >= 2.1.3
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-pbapply >= 1.4.2
-BuildRequires:    R-CRAN-lme4 >= 1.1.21
-BuildRequires:    R-CRAN-tidyr >= 1.1
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-rlang >= 0.4.2
-BuildRequires:    R-CRAN-purrr >= 0.3.3
-BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 >= 3.3.0
-Requires:         R-CRAN-tibble >= 2.1.3
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-pbapply >= 1.4.2
-Requires:         R-CRAN-lme4 >= 1.1.21
-Requires:         R-CRAN-tidyr >= 1.1
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-rlang >= 0.4.2
-Requires:         R-CRAN-purrr >= 0.3.3
-Requires:         R-methods 
+BuildRequires:    R-graphics 
 Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
-Partitioning the R2 of GLMMs into variation explained by each predictor
-and combination of predictors using semi-partial (part) R2 and inclusive
-R2. Methods are based on the R2 for GLMMs described in Nakagawa &
-Schielzeth (2013) and Nakagawa, Johnson & Schielzeth (2017).
+Exploratory projection pursuit for ordered categorical (ordinal) items.
+Monotone category scores and a projection direction are estimated jointly
+by maximizing a weighted characteristic-function discrepancy between the
+projected joint distribution and the projection implied by item
+independence with the observed marginal distributions. Fitted category
+dictionaries and loadings can be frozen and evaluated on held-out data,
+with a finite-sample-valid held-out permutation test, a refitted
+permutation test, a variance/shape decomposition of the index and
+bootstrap stability summaries.
 
 %prep
 %setup -q -c -n %{packname}

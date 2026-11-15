@@ -1,38 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rgeomstats
-%global packver   0.0.1
+%global packname  rok
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to 'Geomstats'
+Summary:          Fast Package and Project Manager
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-reticulate 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
-Provides an interface to the Python package 'Geomstats' authored by
-Miolane et al. (2020) <arXiv:2004.04667>.
+Manages the packages and the R version of a project. Packages are resolved
+from dated snapshots of the 'Posit Package Manager'
+<https://packagemanager.posit.co> and recorded in a lockfile, so that a
+project can be reproduced as it was. The work is done by the 'rok'
+command-line program, which this package downloads from the project's
+'GitHub' releases on first use, after asking for user consent.
 
 %prep
 %setup -q -c -n %{packname}

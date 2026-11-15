@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  easyViz
-%global packver   2.1.0
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easy Visualization of Conditional Effects from Regression Models
 
@@ -34,17 +34,17 @@ lm(), rlm(), glm(), glm.nb(), betareg(), and gam() (from 'mgcv');
 nonlinear models via nls(); generalized least squares via gls(); and
 survival models via coxph() (from 'survival'). Mixed-effects models with
 random intercepts and/or slopes can be fitted using lmer(), glmer(),
-glmer.nb(), glmmTMB(), or gam() (from 'mgcv', via smooth terms). Plots are
-rendered using base R graphics with extensive customization options.
-Approximate confidence intervals for nls() and betareg() models are
-computed using the delta method. Robust standard errors for rlm() are
-computed using the sandwich estimator (Zeileis 2004)
-<doi:10.18637/jss.v011.i10>. For beta regression using 'betareg', see
-Cribari-Neto and Zeileis (2010) <doi:10.18637/jss.v034.i02>. For
+glmer.nb(), glmmTMB(), or gam() (from 'mgcv', via smooth terms).
+Approximate confidence intervals for rlm(), gls(), nls(), and betareg()
+models use delta-method variance propagation. Optional sandwich covariance
+estimators can be specified for compatible model classes (Zeileis 2004
+<doi:10.18637/jss.v011.i10>). Plots are rendered using base R graphics
+with extensive customization options. For beta regression using 'betareg',
+see Cribari-Neto and Zeileis (2010) <doi:10.18637/jss.v034.i02>. For
 mixed-effects models with 'lme4', see Bates et al. (2015)
 <doi:10.18637/jss.v067.i01>. For models using 'glmmTMB', see Brooks et al.
-(2017) <doi:10.32614/RJ-2017-066>. Methods for generalized additive models
-using 'mgcv' follow Wood (2017) <doi:10.1201/9781315370279>.
+(2017) <doi:10.32614/RJ-2017-066>. For generalized additive models using
+'mgcv', see Wood (2017) <doi:10.1201/9781315370279>.
 
 %prep
 %setup -q -c -n %{packname}

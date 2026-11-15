@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  imbalanceKit
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Resampling Methods and Tools for Imbalanced Classification
 
@@ -16,17 +16,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
-BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-FNN 
 BuildRequires:    R-CRAN-rpart 
 BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-FNN 
 Requires:         R-CRAN-rpart 
 Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-Rcpp 
 
 %description
 A collection of resampling methods for class imbalance in classification
@@ -37,12 +38,15 @@ Markov chain SMOTE (MCSMOTE) by F. Sağlam and M. A. Cengiz (2025)
 F. Sağlam and M. A. Cengiz (2026) <doi:10.1016/j.knosys.2026.115886>, and
 bi-directional SMOTE (BiSMOTE) by F. Sağlam and U. Yamak (2027)
 <doi:10.1016/j.eswa.2026.134648>, and the data relocation approach DatRel
-by F. Sağlam (2025) <doi:10.1007/s10994-025-06755-8>, together with
-commonly used alternatives such as SMOTE, ADASYN, Borderline-SMOTE,
-Safe-Level-SMOTE, geometric SMOTE, random oversampling and undersampling.
-The methods share the same interface: they take a feature matrix and a
-factor class variable and return the resampled data together with the
-synthetic samples.
+by F. Sağlam (2025) <doi:10.1007/s10994-025-06755-8>, which can also be
+applied to synthetic samples from any other source, together with commonly
+used alternatives such as SMOTE, ADASYN, Borderline-SMOTE,
+Safe-Level-SMOTE, Radius-SMOTE, VS-SMOTE, geometric SMOTE, random
+oversampling and undersampling. The methods share the same interface: they
+take a feature matrix and a factor class variable and return the resampled
+data together with the synthetic samples. The package also provides
+performance metrics for imbalanced classification and data complexity
+measures of class imbalance, class overlap and noise.
 
 %prep
 %setup -q -c -n %{packname}

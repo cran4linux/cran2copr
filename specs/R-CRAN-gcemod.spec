@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gcemod
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Competing Event Models with Lunn-McNeil Testing
 
@@ -41,8 +41,10 @@ plots by risk group and calibration plots of predicted versus observed
 omega-plus. It also compares covariate effects across the primary,
 competing, and total (composite) events, and estimates covariate effects
 on the ratio of cumulative incidence functions (a
-cumulative-incidence-scale GCE model). Methods follow Carmona et al.
-(2014) <doi:10.1016/j.ijrobp.2014.03.047>, Mell et al. (2024)
+cumulative-incidence-scale GCE model). Models are specified through a
+formula interface and return classed objects with summary, extractor,
+prediction, and plot methods. Methods follow Carmona et al. (2014)
+<doi:10.1016/j.ijrobp.2014.03.047>, Mell et al. (2024)
 <doi:10.1016/j.eururo.2023.01.020>, and Lunn and McNeil (1995)
 <doi:10.2307/2532940>.
 
