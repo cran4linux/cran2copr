@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  equatags
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Equations to 'XML'
+Summary:          Convert, Measure and Draw 'LaTeX' Equations
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,18 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-systemfonts >= 1.2.0
+BuildRequires:    R-CRAN-gdtools >= 0.6.0
+BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-katex 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-xslt 
+Requires:         R-CRAN-systemfonts >= 1.2.0
+Requires:         R-CRAN-gdtools >= 0.6.0
+Requires:         R-grid 
 Requires:         R-CRAN-katex 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-xslt 
 
 %description
-Provides function to transform latex math expressions into format 'HTML'
-or 'Office Open XML Math'. The 'XML' result can then be included in
-'HTML', 'Microsoft Word' documents or 'Microsoft PowerPoint' presentations
-by using a 'Markdown' document or the R package 'officer'.
+Transform 'LaTeX' math expressions into 'HTML' or 'Office Open XML Math',
+to include them in 'HTML' pages, 'Microsoft Word' documents or 'Microsoft
+PowerPoint' presentations with a 'Markdown' document or the R package
+'officer'. Compute the size of equations and draw them with 'grid', with
+the rules of 'TeX' and the parameters of an 'OpenType' math font,
+independently of the graphic device.
 
 %prep
 %setup -q -c -n %{packname}

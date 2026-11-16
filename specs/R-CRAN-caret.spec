@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  caret
-%global packver   7.0-1
+%global packver   7.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.0.1
+Version:          7.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Classification and Regression Training
 
@@ -14,40 +14,42 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildRequires:    R-CRAN-withr >= 2.0.0
-BuildRequires:    R-CRAN-ModelMetrics >= 1.2.2.2
+BuildRequires:    R-CRAN-yardstick >= 1.4.0
 BuildRequires:    R-CRAN-lattice >= 0.20
 BuildRequires:    R-CRAN-recipes >= 0.1.10
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-pROC 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-stats 
 BuildRequires:    R-stats4 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-vctrs 
 Requires:         R-CRAN-withr >= 2.0.0
-Requires:         R-CRAN-ModelMetrics >= 1.2.2.2
+Requires:         R-CRAN-yardstick >= 1.4.0
 Requires:         R-CRAN-lattice >= 0.20
 Requires:         R-CRAN-recipes >= 0.1.10
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-e1071 
 Requires:         R-CRAN-foreach 
 Requires:         R-grDevices 
 Requires:         R-methods 
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-pROC 
 Requires:         R-CRAN-reshape2 
 Requires:         R-stats 
 Requires:         R-stats4 
 Requires:         R-utils 
+Requires:         R-CRAN-vctrs 
 
 %description
 Misc functions for training and plotting classification and regression

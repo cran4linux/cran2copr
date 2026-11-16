@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pkr
-%global packver   0.1.6
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pharmacokinetics in R
 
@@ -17,14 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-NonCompart >= 0.8.2
+BuildRequires:    R-CRAN-NonCompart >= 0.8.5
 BuildRequires:    R-CRAN-foreign 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grid 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-NonCompart >= 0.8.2
+Requires:         R-CRAN-NonCompart >= 0.8.5
 Requires:         R-CRAN-foreign 
 Requires:         R-grDevices 
 Requires:         R-graphics 
@@ -40,9 +40,10 @@ maintained engine. Some features are 1) CDISC SDTM terms 2) Automatic
 slope selection with the same criterion of WinNonlin(R), restricted by
 default to samples after the end of an infusion 3) Supporting both
 'linear-up linear-down' and 'linear-up log-down' method 4)
-Interval(partial) AUCs with 'linear' or 'log' interpolation method *
-Reference: Gabrielsson J, Weiner D. Pharmacokinetic and Pharmacodynamic
-Data Analysis - Concepts and Applications. 5th ed. 2016.
+Interval(partial) AUCs with 'linear' or 'log' interpolation method 5)
+Steady-state analysis over the dosing interval (AUCTAU, CAVG, CL and Vz
+from AUCTAU) * Reference: Gabrielsson J, Weiner D. Pharmacokinetic and
+Pharmacodynamic Data Analysis - Concepts and Applications. 5th ed. 2016.
 (ISBN:9198299107).
 
 %prep

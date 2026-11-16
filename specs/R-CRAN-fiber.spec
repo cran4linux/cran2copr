@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fiber
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          S7 Data Structures for Diffusion MRI Tractography
+Summary:          'S7' Data Structures for Diffusion MRI Tractography
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,10 +18,12 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-S7 
 BuildRequires:    R-CRAN-cpp11 
 Requires:         R-CRAN-cli 
 Requires:         R-methods 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-S7 
 
 %description

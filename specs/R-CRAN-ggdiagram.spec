@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggdiagram
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Object-Oriented Diagram Plots with 'ggplot2'
 
@@ -14,18 +14,19 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.4
+BuildRequires:    R-CRAN-farver >= 2.1.0
 BuildRequires:    R-CRAN-ggforce >= 0.5.0
+BuildRequires:    R-CRAN-S7 >= 0.2.2
+BuildRequires:    R-CRAN-ggarrow >= 0.2.1
 BuildRequires:    R-CRAN-arrowheadr 
 BuildRequires:    R-CRAN-bezier 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-farver 
 BuildRequires:    R-CRAN-geomtextpath 
-BuildRequires:    R-CRAN-ggarrow 
 BuildRequires:    R-CRAN-ggtext 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
@@ -36,9 +37,9 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-pdftools 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-S7 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-signs 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
@@ -46,15 +47,16 @@ BuildRequires:    R-CRAN-tinter
 BuildRequires:    R-CRAN-tinytex 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-ggplot2 >= 4.0.0
+Requires:         R-CRAN-ggplot2 >= 4.0.4
+Requires:         R-CRAN-farver >= 2.1.0
 Requires:         R-CRAN-ggforce >= 0.5.0
+Requires:         R-CRAN-S7 >= 0.2.2
+Requires:         R-CRAN-ggarrow >= 0.2.1
 Requires:         R-CRAN-arrowheadr 
 Requires:         R-CRAN-bezier 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-farver 
 Requires:         R-CRAN-geomtextpath 
-Requires:         R-CRAN-ggarrow 
 Requires:         R-CRAN-ggtext 
 Requires:         R-grDevices 
 Requires:         R-grid 
@@ -65,9 +67,9 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-pdftools 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-S7 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-signs 
+Requires:         R-stats 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 

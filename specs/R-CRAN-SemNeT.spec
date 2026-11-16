@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SemNeT
-%global packver   2.1.0
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Methods and Measures for Semantic Network Analysis
 
@@ -22,6 +22,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-parallelly 
 BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-qgraph 
@@ -34,6 +35,7 @@ Requires:         R-stats
 Requires:         R-graphics 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-parallelly 
 Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-qgraph 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  forestsearch
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exploratory Subgroup Identification in Survival and GLM Outcomes
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-glmnet >= 5.0
+BuildRequires:    R-CRAN-survival >= 3.5.8
 BuildRequires:    R-CRAN-weightedsurv >= 0.1.0
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-doFuture 
@@ -38,9 +39,9 @@ BuildRequires:    R-CRAN-progressr
 BuildRequires:    R-CRAN-randomForest 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-glmnet >= 5.0
+Requires:         R-CRAN-survival >= 3.5.8
 Requires:         R-CRAN-weightedsurv >= 0.1.0
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-doFuture 
@@ -61,7 +62,6 @@ Requires:         R-CRAN-progressr
 Requires:         R-CRAN-randomForest 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
-Requires:         R-CRAN-survival 
 Requires:         R-utils 
 
 %description
@@ -81,6 +81,8 @@ particularly for multi-regional clinical trials (MRCT) requiring regional
 consistency evaluation. Methods are described in Leon et al. (2024)
 <doi:10.1002/sim.10163>. Post-selection inference for the identified
 subgroup follows León and Anderson (2026) <doi:10.48550/arXiv.2609.38361>.
+The search methodology is given in León and Anderson (2026)
+<doi:10.48550/arXiv.2610.28379>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggvfields
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Vector Field Visualizations with 'ggplot2'
 
@@ -18,29 +18,27 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
-BuildRequires:    R-CRAN-farver 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-deSolve 
 BuildRequires:    R-grid 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-gstat 
-BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-ggplot2 >= 3.3.0
-Requires:         R-CRAN-farver 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-deSolve 
 Requires:         R-grid 
-Requires:         R-utils 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-gstat 
-Requires:         R-CRAN-cli 
 Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-utils 
 
 %description
 A 'ggplot2' extension for visualizing vector fields in two-dimensional

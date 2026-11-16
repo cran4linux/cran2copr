@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cgam
-%global packver   1.33
+%global packver   1.34
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.33
+Version:          1.34
 Release:          1%{?dist}%{?buildtag}
 Summary:          Constrained Generalized Additive Model
 
@@ -31,6 +31,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-quadprog 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-coneproj >= 1.20
 Requires:         R-CRAN-splines2 
 Requires:         R-CRAN-svDialogs 
@@ -45,6 +46,7 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-quadprog 
 Requires:         R-CRAN-MASS 
 Requires:         R-stats 
+Requires:         R-CRAN-withr 
 
 %description
 A constrained generalized additive model is fitted by the cgam routine.

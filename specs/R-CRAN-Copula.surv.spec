@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Copula.surv
-%global packver   3.1
+%global packver   3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1
+Version:          3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Bivariate Survival Data Based on Copulas
 
@@ -27,6 +27,8 @@ various copulas. Two different ways to estimate the association parameter
 in copula models are implemented. A goodness-of-fit test for the Gumbel
 and Clayton copulas is also implemented for semiparametric models. See
 Emura, Lin and Wang (2010) <doi:10.1016/j.csda.2010.03.013> for details.
+Also, the bivariate survival analysis with Weibull regression is
+implemented (Section 2.6.3 of Emura et al. (2019); Emura et al.(2026-)).
 
 %prep
 %setup -q -c -n %{packname}
