@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  metaSEM
-%global packver   1.5.0
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Meta-Analysis using Structural Equation Modeling
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-OpenMx 
 BuildRequires:    R-CRAN-Matrix 
@@ -27,6 +27,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-lavaan 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-OpenMx 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-MASS 
@@ -37,6 +38,7 @@ Requires:         R-utils
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-lavaan 
+Requires:         R-methods 
 
 %description
 A collection of functions for conducting meta-analysis using a structural

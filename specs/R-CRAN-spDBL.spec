@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spDBL
-%global packver   1.1.1
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dynamic Bayesian Learning for Spatiotemporal Mechanistic Models
 
@@ -16,51 +16,39 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
+BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-matrixsampling 
-BuildRequires:    R-CRAN-invgamma 
-BuildRequires:    R-CRAN-deSolve 
-BuildRequires:    R-CRAN-ReacTran 
-BuildRequires:    R-CRAN-LaplacesDemon 
-BuildRequires:    R-CRAN-matrixcalc 
 BuildRequires:    R-CRAN-mniw 
 BuildRequires:    R-utils 
 BuildRequires:    R-tools 
 BuildRequires:    R-methods 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-matrixsampling 
-Requires:         R-CRAN-invgamma 
-Requires:         R-CRAN-deSolve 
-Requires:         R-CRAN-ReacTran 
-Requires:         R-CRAN-LaplacesDemon 
-Requires:         R-CRAN-matrixcalc 
 Requires:         R-CRAN-mniw 
 Requires:         R-utils 
 Requires:         R-tools 
 Requires:         R-methods 
 Requires:         R-graphics 
 Requires:         R-stats 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scales 
 
 %description
-Provides tools for Bayesian learning of spatiotemporal dynamical
-mechanistic models. Includes methods for parameter estimation, simulation,
-and inference using hierarchical and state-space modeling approaches,
-following Banerjee, Chen, Frankenburg and Zhou (2025)
+Emulates the output of spatiotemporal mechanistic simulators, a field on a
+spatial grid at each time step, with a matrix-variate dynamic linear model
+whose posterior is available in closed form, processing large grids as
+sequences of spatial blocks, and predicts the output at untried inputs.
+Calibrates simulator parameters to noisy field data without further
+simulator runs: a design Gaussian process supplies the emulator's
+autoregressive inputs, and 'Stan' (through the suggested package 'rstan')
+samples the parameters conditionally on emulator posterior draws, with the
+emulator field and a dynamic spatial discrepancy integrated out. Follows
+Banerjee, Chen, Frankenburg and Zhou (2025)
 <https://jmlr.org/papers/v26/22-0896.html>.
 
 %prep

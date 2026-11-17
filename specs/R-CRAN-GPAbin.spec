@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GPAbin
-%global packver   1.1.1
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Unifying Multiple Biplot Visualisations into a Single Display
 
@@ -24,6 +24,9 @@ BuildRequires:    R-CRAN-mice
 BuildRequires:    R-CRAN-missMDA 
 BuildRequires:    R-CRAN-mitools 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-dplyr 
 Requires:         R-CRAN-ca 
 Requires:         R-CRAN-jomo 
 Requires:         R-CRAN-mi 
@@ -31,6 +34,9 @@ Requires:         R-CRAN-mice
 Requires:         R-CRAN-missMDA 
 Requires:         R-CRAN-mitools 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-dplyr 
 
 %description
 Aligning multiple visualisations by utilising generalised orthogonal

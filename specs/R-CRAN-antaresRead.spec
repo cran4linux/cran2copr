@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  antaresRead
-%global packver   3.1.0
+%global packver   3.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          3.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Import, Manipulate and Explore the Results of an 'Antares' Simulation
 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-stringi
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-utils 
@@ -47,6 +48,7 @@ Requires:         R-CRAN-stringi
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-doParallel 
+Requires:         R-parallel 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-httr 
 Requires:         R-utils 

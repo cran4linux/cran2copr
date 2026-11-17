@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  funbootband
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simultaneous Prediction and Confidence Bands for Functional Data
 
@@ -23,15 +23,12 @@ Requires:         R-stats
 
 %description
 Computes simultaneous prediction and confidence bands for densely sampled
-functional data on a common grid. The calibration builds on the functional
-bootstrap approach of Lenhoff et al. (1999)
-<doi:10.1016/S0966-6362(98)00043-5>; hierarchical measurement designs are
-motivated by Koska et al. (2023) <doi:10.1016/j.jbiomech.2023.111506>.
-Independent curves are resampled individually. Clustered data use an
-intact-subject bootstrap with equal subject weighting, and the clustered
-prediction target is one future curve from a new subject. Curves are
-represented by finite Fourier series, and an 'Rcpp' backend performs the
-bootstrap calibration.
+functional data on a common grid. Supports independent curves and repeated
+curves from multiple subjects. For clustered data, an intact-subject
+bootstrap gives each subject equal weight. Clustered prediction targets
+one future curve from a new subject, whereas confidence bands target the
+subject-weighted population mean. Curves are represented by finite Fourier
+series, and an 'Rcpp' backend performs bootstrap calibration.
 
 %prep
 %setup -q -c -n %{packname}

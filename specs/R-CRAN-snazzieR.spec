@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  snazzieR
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Chic and Sleek Functions for Beautiful Statisticians
 
@@ -17,15 +17,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-kableExtra 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-ggplot2 >= 3.5.0
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-grid 
+Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-kableExtra 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-knitr 
 Requires:         R-stats 
 
 %description
@@ -34,7 +40,10 @@ color palette and kable styling to make your regression results look
 sharper than they are. Includes support for Partial Least Squares (PLS)
 regression via both the SVD and NIPALS algorithms, along with a unified
 interface for model fitting and fabulous LaTeX and console output
-formatting. See the package website at
+formatting. Regression diagnostics include the standard residual plots,
+marginal model plots, a table of unusual observations and variance
+inflation factors. LaTeX tables also preview as HTML when R Markdown
+chunks are run interactively. See the package website at
 <https://finitesample.space/snazzier>.
 
 %prep

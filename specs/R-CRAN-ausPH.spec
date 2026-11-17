@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ausPH
-%global packver   1.0.1
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Retrieve Data from the Parliamentary Handbook of the Commonwealth of Australia
 
@@ -28,10 +28,10 @@ Requires:         R-CRAN-readr
 Retrieves data from the Australian Parliamentary Library's Parliamentary
 Handbook <https://handbook.aph.gov.au/> and returns it as tidy tables:
 members and senators, their parliamentary and party service, ministries,
-shadow ministries, committees, parties, electorates, parliaments, sitting
-dates, elections and two candidate preferred results. Known errors in the
-Handbook are flagged, and can optionally be corrected from a documented
-errata table.
+shadow ministries, presiding officers, committees, parties, electorates,
+parliaments, sitting dates, elections and two candidate preferred results.
+Known errors in the Handbook are flagged, and can optionally be corrected
+from a documented errata table.
 
 %prep
 %setup -q -c -n %{packname}

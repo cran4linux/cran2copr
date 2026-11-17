@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spectra2rgb
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Convert Spectral Signatures to sRGB and CIELAB Colour Coordinates
 
@@ -25,11 +25,12 @@ Requires:         R-grDevices
 Requires:         R-utils 
 
 %description
-Converts hyperspectral reflectance signatures to device- independent sRGB
-hex codes and CIE L*a*b* coordinates using the CIE 1931 2-degree standard
-observer and the D65 standard illuminant. Includes bundled reference data
-so the package is self-contained. Handles missing and non-finite
-reflectance values via a configurable policy.
+Converts hyperspectral reflectance signatures to sRGB hex codes and CIE
+L*a*b* coordinates using the CIE 1931 2-degree standard observer and the
+D65 standard illuminant. CIELAB coordinates are calculated directly from
+CIE XYZ values; sRGB output is generated independently. Includes bundled
+reference data so the package is self-contained. Handles missing and
+non-finite reflectance values via a configurable policy.
 
 %prep
 %setup -q -c -n %{packname}

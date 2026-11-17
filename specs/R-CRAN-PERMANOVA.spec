@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  PERMANOVA
-%global packver   0.2.0
+%global packver   16.11.26
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          16.11.26
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Analysis of Variance Based on Distances and Permutations
 
@@ -24,6 +25,9 @@ BuildRequires:    R-CRAN-deldir
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-MultBiplotR 
+BuildRequires:    R-CRAN-dbrobust 
+BuildRequires:    R-parallel 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-xtable 
 Requires:         R-CRAN-MASS 
@@ -32,6 +36,9 @@ Requires:         R-CRAN-deldir
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-stats 
+Requires:         R-CRAN-MultBiplotR 
+Requires:         R-CRAN-dbrobust 
+Requires:         R-parallel 
 
 %description
 Calculates multivariate analysis of variance based on permutations and

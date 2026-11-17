@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ConverTier2
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Conversion of Tiered Assessment Responses to Polytomous Scores
 
@@ -30,8 +30,9 @@ Requires:         R-CRAN-writexl
 Provides tools for converting binary responses from tiered assessment
 instruments into polytomous item scores based on user-defined scoring
 rules. The package supports scoring rule parsing, data validation, tiered
-response conversion, Excel file processing, and a Shiny-based graphical
-user interface.
+response conversion, and Excel file processing. It also provides a
+bilingual Indonesian and English graphical user interface using 'shiny',
+along with downloadable 'Excel' templates and example datasets.
 
 %prep
 %setup -q -c -n %{packname}

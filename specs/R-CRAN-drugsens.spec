@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  drugsens
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automated Analysis of 'QuPath' Output Data and Metadata Extraction
 
@@ -17,23 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2
 Requires:         R-core >= 4.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-testthat >= 3.0.0
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-roxygen2 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-testthat >= 3.0.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-roxygen2 
+Requires:         R-grDevices 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
@@ -43,8 +37,9 @@ Requires:         R-utils
 %description
 A comprehensive toolkit for analyzing microscopy data output from 'QuPath'
 software. Provides functionality for automated data processing, metadata
-extraction, and statistical analysis of imaging results. The methodology
-implemented in this package is based on Labrosse et al. (2024)
+extraction, control normalization, dose-response modeling, and statistical
+visualization of imaging results. The methodology implemented in this
+package is based on Labrosse et al. (2024)
 <doi:10.1016/j.xpro.2024.103274> "Protocol for quantifying drug
 sensitivity in 3D patient-derived ovarian cancer models", which describes
 the complete workflow for drug sensitivity analysis in patient-derived

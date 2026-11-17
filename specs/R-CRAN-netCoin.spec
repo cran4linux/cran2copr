@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  netCoin
-%global packver   2.1.19
+%global packver   2.1.49
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.19
+Version:          2.1.49
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive Analytic Networks
 
@@ -20,22 +20,29 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS >= 7.3
 BuildRequires:    R-CRAN-GPArotation >= 2022.4
 BuildRequires:    R-CRAN-Matrix >= 1.2.4
-BuildRequires:    R-CRAN-rD3plot >= 1.1.37
+BuildRequires:    R-CRAN-rD3plot >= 1.1.71
 BuildRequires:    R-CRAN-haven >= 1.1.0
 BuildRequires:    R-CRAN-igraph >= 1.0.1
+BuildRequires:    R-CRAN-marginaleffects 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-nnet 
 Requires:         R-CRAN-MASS >= 7.3
 Requires:         R-CRAN-GPArotation >= 2022.4
 Requires:         R-CRAN-Matrix >= 1.2.4
-Requires:         R-CRAN-rD3plot >= 1.1.37
+Requires:         R-CRAN-rD3plot >= 1.1.71
 Requires:         R-CRAN-haven >= 1.1.0
 Requires:         R-CRAN-igraph >= 1.0.1
+Requires:         R-CRAN-marginaleffects 
 Requires:         R-methods 
+Requires:         R-CRAN-nnet 
 
 %description
-Create interactive analytic networks. It joins the data analysis power of
-R to obtain coincidences, co-occurrences and correlations, and the
-visualization libraries of 'JavaScript' in one package.
+Combines the data analysis capabilities of R with the interactive
+visualization libraries of JavaScript to create networks of coincidences,
+co-occurrences, correlations and regressions that can be explored directly
+in a browser, embedded in HTML files or integrated into Shiny
+applications. It also generates networked HTML galleries and other plots
+of coincidences.
 
 %prep
 %setup -q -c -n %{packname}

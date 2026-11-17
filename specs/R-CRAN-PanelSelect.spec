@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PanelSelect
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Panel Sample Selection Models
 
@@ -31,8 +31,9 @@ Requires:         R-utils
 %description
 Fits sample selection models with continuous, binary, and count outcomes
 in panel and cross-sectional data. Model details are provided in Bailey
-and Peng (2025) <doi:10.2139/ssrn.5475626> and Peng and Van den Bulte
-(2024) <doi:10.1287/mnsc.2019.01897>.
+and Peng (forthcoming in American Political Science Review)
+<doi:10.2139/ssrn.5475626> and Peng and Van den Bulte (2024)
+<doi:10.1287/mnsc.2019.01897>.
 
 %prep
 %setup -q -c -n %{packname}

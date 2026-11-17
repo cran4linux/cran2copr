@@ -1,43 +1,46 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  DesignLibrary
-%global packver   0.1.10
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.10
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Library of Research Designs
+Summary:          A Library of Declared Designs
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fabricatr >= 0.8.0
-BuildRequires:    R-CRAN-DeclareDesign >= 0.17.0
-BuildRequires:    R-CRAN-randomizr >= 0.16.1
-BuildRequires:    R-CRAN-estimatr >= 0.16.0
-BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-DeclareDesign >= 2.0.0
+BuildRequires:    R-CRAN-fabricatr >= 2.0.0
+BuildRequires:    R-CRAN-randomizr >= 2.0.0
+BuildRequires:    R-CRAN-estimatr >= 2.0.0
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-fabricatr >= 0.8.0
-Requires:         R-CRAN-DeclareDesign >= 0.17.0
-Requires:         R-CRAN-randomizr >= 0.16.1
-Requires:         R-CRAN-estimatr >= 0.16.0
-Requires:         R-CRAN-generics 
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-DeclareDesign >= 2.0.0
+Requires:         R-CRAN-fabricatr >= 2.0.0
+Requires:         R-CRAN-randomizr >= 2.0.0
+Requires:         R-CRAN-estimatr >= 2.0.0
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-glue 
+Requires:         R-CRAN-yaml 
+Requires:         R-utils 
+Requires:         R-stats 
 
 %description
-A simple interface to build designs using the package 'DeclareDesign'. In
-one line of code, users can specify the parameters of individual designs
-and diagnose their properties. The designers can also be used to compare
-performance of a given design across a range of combinations of
-parameters, such as effect size, sample size, and assignment
-probabilities.
+A lightweight library of research designs declared with 'DeclareDesign'.
+Designs live as self-contained R files; editable parameters are read from
+the design itself. Optional YAML metadata adds labels, categories, tips,
+and book aliases. Includes maintainer tools to index, audit, and bake
+small diagnosis previews, plus a bundled Shiny browser
+(`designs_shiny_app()`).
 
 %prep
 %setup -q -c -n %{packname}

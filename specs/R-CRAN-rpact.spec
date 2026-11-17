@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rpact
-%global packver   4.4.0
+%global packver   5.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.4.0
+Version:          5.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Confirmatory Adaptive Clinical Trial Design and Analysis
 
@@ -14,11 +14,14 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-R6 >= 2.5.1
 BuildRequires:    R-CRAN-knitr >= 1.19
 BuildRequires:    R-CRAN-Rcpp >= 1.0.3
+BuildRequires:    R-grid 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-parallel 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
@@ -28,6 +31,9 @@ BuildRequires:    R-CRAN-rlang
 Requires:         R-CRAN-R6 >= 2.5.1
 Requires:         R-CRAN-knitr >= 1.19
 Requires:         R-CRAN-Rcpp >= 1.0.3
+Requires:         R-grid 
+Requires:         R-grDevices 
+Requires:         R-parallel 
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-utils 
@@ -36,12 +42,16 @@ Requires:         R-tools
 Requires:         R-CRAN-rlang 
 
 %description
-Design and analysis of confirmatory adaptive clinical trials with
-continuous, binary, and survival endpoints according to the methods
-described in the monograph by Wassmer and Brannath (2025)
-<doi:10.1007/978-3-031-89669-9>. This includes classical group sequential
-as well as multi-stage adaptive hypotheses tests that are based on the
-combination testing principle.
+Design, simulation, and analysis of confirmatory clinical trials with
+continuous, binary, survival, and count data endpoints according to the
+methods described in the monograph by Wassmer and Brannath (2025)
+<doi:10.1007/978-3-031-89669-9>. This includes sample size and power
+calculations for standard fixed-sample and classical group sequential
+designs, as well as power simulations for innovative trial designs. The
+latter include multi-stage adaptive hypothesis tests based on the
+combination testing principle, adaptive procedures such as sample size
+reassessment, and methods for multi-arm multi-stage (MAMS) and population
+enrichment trials.
 
 %prep
 %setup -q -c -n %{packname}

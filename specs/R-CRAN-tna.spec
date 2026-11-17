@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tna
-%global packver   1.3.1
+%global packver   1.5.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.5.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Transition Network Analysis (TNA)
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-cluster 
@@ -25,13 +26,14 @@ BuildRequires:    R-CRAN-colorspace
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-graphics 
+BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-cluster 
@@ -40,9 +42,9 @@ Requires:         R-CRAN-colorspace
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-graphics 
+Requires:         R-grid 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
@@ -54,7 +56,7 @@ relational dynamics, including functions for building and plotting TNA
 models, calculating centrality measures, and identifying dominant events
 and patterns. TNA statistical techniques (e.g., bootstrapping and
 permutation tests) ensure the reliability of observed insights and confirm
-that identified dynamics are meaningful. See (Saqr et al., 2025)
+that identified dynamics are meaningful. See Saqr et al. (2025)
 <doi:10.1145/3706468.3706513> for more details on TNA.
 
 %prep

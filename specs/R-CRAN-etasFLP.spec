@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  etasFLP
-%global packver   2.3.0
+%global packver   2.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          2.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mixed FLP and ML Estimation of ETAS Space-Time Point Processes for Earthquake Description
 
@@ -19,18 +19,24 @@ Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-mapdata 
 BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-CRAN-maps 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-mapdata 
 Requires:         R-CRAN-fields 
 Requires:         R-CRAN-maps 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-stats 
 
 %description
 Estimation of the components of an ETAS (Epidemic Type Aftershock
-Sequence) model for earthquake description. Non-parametric background
+Sequence) model for earthquake description. The non-parametric background
 seismicity can be estimated through FLP (Forward Likelihood Predictive).
-New version 2.0.0: covariates have been introduced to explain the effects
-of external factors on the induced seismicity; the parametrization has
-been changed; in version 2.3.0 improved update method. Chiodi, Adelfio
-(2017)<doi:10.18637/jss.v076.i03>.
+Covariates can be used to explain the effects of external factors on the
+induced seismicity. Methods for updating, profile likelihood and graphical
+diagnostics are provided. See Chiodi and Adelfio (2017)
+<doi:10.18637/jss.v076.i03>.
 
 %prep
 %setup -q -c -n %{packname}
