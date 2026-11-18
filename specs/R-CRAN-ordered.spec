@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ordered
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'parsnip' Engines and Wrappers for Ordinal Classification Models
 
@@ -14,18 +14,20 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-parsnip >= 1.5
-BuildRequires:    R-CRAN-dials >= 1.4.3
+BuildRequires:    R-CRAN-parsnip >= 1.6.1
+BuildRequires:    R-CRAN-dials >= 1.4.5
+BuildRequires:    R-CRAN-scales >= 1.3.0
 BuildRequires:    R-CRAN-rlang >= 1.1.4
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-parsnip >= 1.5
-Requires:         R-CRAN-dials >= 1.4.3
+Requires:         R-CRAN-parsnip >= 1.6.1
+Requires:         R-CRAN-dials >= 1.4.5
+Requires:         R-CRAN-scales >= 1.3.0
 Requires:         R-CRAN-rlang >= 1.1.4
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-purrr 

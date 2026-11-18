@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  edgemodelr
-%global packver   0.4.5
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.5
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Local Large Language Model Inference Engine
 
@@ -17,9 +17,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-parallel 
 BuildRequires:    R-utils 
 BuildRequires:    R-tools 
 Requires:         R-CRAN-Rcpp >= 1.0.0
+Requires:         R-parallel 
 Requires:         R-utils 
 Requires:         R-tools 
 
@@ -29,10 +31,12 @@ files and the 'llama.cpp' inference engine. Provides a complete R
 interface for loading models, generating text completions, extracting
 vector representations, and streaming responses in real-time. Includes
 grammar-constrained generation for structured output, text classification,
-and retrieval-augmented generation (RAG) pipelines. Supports local
-inference without requiring cloud APIs or internet connectivity, ensuring
-complete data privacy and control. Based on the 'llama.cpp' project by
-Georgi Gerganov (2023) <https://github.com/ggml-org/llama.cpp>.
+and retrieval-augmented generation (RAG) pipelines. Models can also be
+served to many users at once as an HTTP API compatible with the 'OpenAI'
+chat completions API. Supports local inference without requiring cloud
+APIs or internet connectivity, ensuring complete data privacy and control.
+Based on the 'llama.cpp' project by Georgi Gerganov (2023)
+<https://github.com/ggml-org/llama.cpp>.
 
 %prep
 %setup -q -c -n %{packname}

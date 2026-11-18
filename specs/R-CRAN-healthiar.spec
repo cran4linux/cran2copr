@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  healthiar
-%global packver   0.2.7
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantifying and Monetizing Health Impacts Attributable to Exposure
 
@@ -37,11 +37,17 @@ Requires:         R-parallel
 Requires:         R-stats 
 
 %description
-This R package has been developed with a focus on air pollution and noise
-but can be applied to other exposures. The initial development has been
-funded by the European Union project BEST-COST. Disclaimer: It is work in
-progress and the developers are not liable for any calculation errors or
-inaccuracies resulting from the use of this package. Selection of relevant
+Quantifies and monetizes the health impacts attributable to exposure in a
+study area. It has been developed with a focus on air pollution and noise
+but can be applied to other exposures. It includes relative and absolute
+risk approaches, life tables, multiple geographic units, summary of
+uncertainty, comparison of scenarios, cost-benefit analysis and social
+inequalities. The initial development has been funded by the European
+Union project BEST-COST. Disclaimer: This package is provided "as is",
+without warranty of any kind. The developers are not liable for any
+calculation errors, inaccuracies or results obtained with it. Functions,
+arguments and results may change between versions. If you use 'healthiar',
+please cite it: <doi:10.21105/joss.10599>. Selection of relevant
 references (in chronological order): WHO (2003)
 <https://www.who.int/publications/i/item/9241546204>, Murray et al. (2003)
 <doi:10.1186/1478-7954-1-1>, Miller & Hurley (2003)

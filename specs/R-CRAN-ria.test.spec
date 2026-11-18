@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ria.test
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Testing Equality of Natural Mediation Effects and Their Randomized Interventional Analogues
 
@@ -17,7 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ife >= 0.2.1
+BuildRequires:    R-CRAN-ife >= 0.2.5
+BuildRequires:    R-CRAN-mlr3superlearner >= 0.1.2
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-origami 
@@ -29,9 +30,12 @@ BuildRequires:    R-CRAN-S7
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-coro 
 BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-mlr3superlearner 
+BuildRequires:    R-CRAN-lightgbm 
+BuildRequires:    R-CRAN-earth 
+BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-CRAN-progressr 
-Requires:         R-CRAN-ife >= 0.2.1
+Requires:         R-CRAN-ife >= 0.2.5
+Requires:         R-CRAN-mlr3superlearner >= 0.1.2
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-origami 
@@ -43,21 +47,24 @@ Requires:         R-CRAN-S7
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-coro 
 Requires:         R-CRAN-generics 
-Requires:         R-CRAN-mlr3superlearner 
+Requires:         R-CRAN-lightgbm 
+Requires:         R-CRAN-earth 
+Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-progressr 
 
 %description
-Implements the empirical test introduced by Yu, Ge, and Elwert (2026) for
-detecting when randomized interventional analogues should not be
-interpreted as natural mediation effects. The package estimates natural
-effects, their randomized interventional analogues, and TE - TE^R, the
-difference between the total effect and its randomized interventional
-analogue. Rejecting TE - TE^R = 0 falsifies the composite null that the
-natural indirect and direct effects equal their randomized interventional
-analogues. The procedure remains valid in settings where the natural
-effects themselves are not identified, and |TE - TE^R| provides a lower
-bound on the total divergence between the natural and randomized
-interventional decompositions.
+Implements the empirical test introduced by Yu, Ge, and Elwert (2025)
+<doi:10.48550/arXiv.2407.02671> for detecting when randomized
+interventional analogues should not be interpreted as natural mediation
+effects. The package estimates natural effects, their randomized
+interventional analogues, and TE - TE^R, the difference between the total
+effect and its randomized interventional analogue. Rejecting TE - TE^R = 0
+falsifies the composite null that the natural indirect and direct effects
+equal their randomized interventional analogues. The procedure remains
+valid in settings where the natural effects themselves are not identified,
+and |TE - TE^R| provides a lower bound on the total divergence between the
+natural and randomized interventional decompositions. The package is built
+on 'crumble', authored by Nicholas Williams, Richard Liu, and Iván Díaz.
 
 %prep
 %setup -q -c -n %{packname}

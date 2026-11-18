@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shinyOAuth
-%global packver   0.7.0
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          OIDC Authentication and OAuth Authorization for 'shiny' Applications
 
@@ -19,7 +19,7 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-callr >= 3.7.6
 BuildRequires:    R-CRAN-cli >= 3.0.0
-BuildRequires:    R-CRAN-openssl >= 2.1.2
+BuildRequires:    R-CRAN-openssl >= 2.6.0
 BuildRequires:    R-CRAN-R6 >= 2.0
 BuildRequires:    R-CRAN-urltools >= 1.7.3
 BuildRequires:    R-CRAN-shiny >= 1.7.0
@@ -35,7 +35,7 @@ BuildRequires:    R-CRAN-otel >= 0.2.0
 BuildRequires:    R-CRAN-curl 
 Requires:         R-CRAN-callr >= 3.7.6
 Requires:         R-CRAN-cli >= 3.0.0
-Requires:         R-CRAN-openssl >= 2.1.2
+Requires:         R-CRAN-openssl >= 2.6.0
 Requires:         R-CRAN-R6 >= 2.0
 Requires:         R-CRAN-urltools >= 1.7.3
 Requires:         R-CRAN-shiny >= 1.7.0

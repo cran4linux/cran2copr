@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geozarr
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          GeoZarr Conventions for Geospatial Data in Zarr Stores
 
@@ -18,10 +18,10 @@ BuildRequires:    R-devel >= 4.4
 Requires:         R-core >= 4.4
 BuildArch:        noarch
 BuildRequires:    R-CRAN-CFtime >= 1.7.3
-BuildRequires:    R-CRAN-zarr >= 1.0.0
+BuildRequires:    R-CRAN-zarr >= 1.0.1
 BuildRequires:    R-CRAN-R6 
 Requires:         R-CRAN-CFtime >= 1.7.3
-Requires:         R-CRAN-zarr >= 1.0.0
+Requires:         R-CRAN-zarr >= 1.0.1
 Requires:         R-CRAN-R6 
 
 %description

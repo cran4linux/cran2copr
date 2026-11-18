@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  robin
-%global packver   1.1.2
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          ROBustness in Network
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-ggplot2 
@@ -28,6 +28,8 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-spam 
 BuildRequires:    R-CRAN-qpdf 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-perturbR 
+BuildRequires:    R-CRAN-reshape2 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-networkD3 
@@ -39,6 +41,8 @@ Requires:         R-parallel
 Requires:         R-CRAN-spam 
 Requires:         R-CRAN-qpdf 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-perturbR 
+Requires:         R-CRAN-reshape2 
 
 %description
 Assesses the robustness of the community structure of a network found by
@@ -49,7 +53,7 @@ selected detection algorithms on the same network. robin helps to choose
 among different community detection algorithms the one that better fits
 the network of interest. Reference in Policastro V., Righelli D.,
 Carissimo A., Cutillo L., De Feis I. (2021)
-<https://journal.r-project.org/archive/2021/RJ-2021-040/index.html>.
+<https://journal.r-project.org/articles/RJ-2021-040/index.html>.
 
 %prep
 %setup -q -c -n %{packname}

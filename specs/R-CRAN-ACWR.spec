@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ACWR
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Acute Chronic Workload Ratio Calculation
 
@@ -22,10 +23,11 @@ Requires:         R-CRAN-r2d3
 %description
 Functions for calculating the acute chronic workload ratio using three
 different methods: exponentially weighted moving average (EWMA), rolling
-average coupled (RAC) and rolling averaged uncoupled (RAU). Examples of
-this methods can be found in Williams et al. (2017)
-<doi:10.1136/bjsports-2016-096589> for EWMA and Windt & Gabbet (2018) for
-RAC and RAU <doi: 10.1136/bjsports-2017-098925>.
+average coupled (RAC) and rolling averaged uncoupled (RAU). Sessions are
+placed on a daily calendar, so rest days count as zero load. Examples of
+these methods can be found in Williams et al. (2017)
+<doi:10.1136/bjsports-2016-096589> for EWMA and Windt & Gabbett (2019)
+<doi:10.1136/bjsports-2017-098925> for RAC and RAU.
 
 %prep
 %setup -q -c -n %{packname}

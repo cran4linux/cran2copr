@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cooccure
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Co-Occurrence Network Construction and Manipulation
 
@@ -18,11 +18,13 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 Requires:         R-stats 
@@ -36,7 +38,7 @@ splitting into several networks, thresholding, and subsetting. Provides
 eight similarity measures, including Jaccard, cosine, and association
 strength. Supports export to several network and file formats. Network
 construction and analysis methods follow Saqr, Lopez-Pernas, Conde, and
-Hernandez-Garcia (2024, <doi:10.1007/978-3-031-54464-4_15>).
+Hernandez-Garcia (2024) <doi:10.1007/978-3-031-54464-4_15>.
 
 %prep
 %setup -q -c -n %{packname}

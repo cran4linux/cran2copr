@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  matSPACE
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sparse Partial Correlation Estimation for Matrix-Variate Data
 
@@ -28,9 +28,11 @@ Kronecker-product covariance structure. All partial correlations are
 estimated simultaneously via an L1-penalized (lasso) shooting algorithm
 within a single optimization framework, which preserves symmetry of the
 estimated network and avoids the tuning-parameter selection difficulties
-of separate node-wise regressions. Optional features include column
-reweighting, residual variance re-estimation across outer iterations, and
-automatic generation of a lasso penalty sequence for tuning.
+of separate node-wise regressions. Columns are reweighted and residual
+variances are re-estimated across outer iterations until convergence. A
+lasso penalty sequence is generated automatically and the penalty is
+selected by BIC; the whole penalty path is fitted in compiled code from
+the Gram matrix of the data.
 
 %prep
 %setup -q -c -n %{packname}

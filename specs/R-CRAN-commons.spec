@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  commons
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          AI Agents for Data Analysis
 
@@ -16,15 +16,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-callr >= 3.8.0
 BuildRequires:    R-CRAN-duckdb >= 1.5.4.2
 BuildRequires:    R-CRAN-promises >= 1.5.0
 BuildRequires:    R-CRAN-rlang >= 1.2.0
 BuildRequires:    R-CRAN-httr2 >= 1.1.0
-BuildRequires:    R-CRAN-ellmer >= 0.5.0
+BuildRequires:    R-CRAN-ellmer >= 0.5.1
 BuildRequires:    R-CRAN-shinychat >= 0.5.0
 BuildRequires:    R-CRAN-bslib >= 0.11.0
-BuildRequires:    R-CRAN-callr 
+BuildRequires:    R-CRAN-bsicons 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-commonmark 
 BuildRequires:    R-CRAN-coro 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-evaluate 
@@ -34,6 +36,7 @@ BuildRequires:    R-CRAN-htmltools
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-later 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-processx 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-ragg 
@@ -42,15 +45,18 @@ BuildRequires:    R-CRAN-roxygen2
 BuildRequires:    R-CRAN-S7 
 BuildRequires:    R-CRAN-sass 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-callr >= 3.8.0
 Requires:         R-CRAN-duckdb >= 1.5.4.2
 Requires:         R-CRAN-promises >= 1.5.0
 Requires:         R-CRAN-rlang >= 1.2.0
 Requires:         R-CRAN-httr2 >= 1.1.0
-Requires:         R-CRAN-ellmer >= 0.5.0
+Requires:         R-CRAN-ellmer >= 0.5.1
 Requires:         R-CRAN-shinychat >= 0.5.0
 Requires:         R-CRAN-bslib >= 0.11.0
-Requires:         R-CRAN-callr 
+Requires:         R-CRAN-bsicons 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-commonmark 
 Requires:         R-CRAN-coro 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-evaluate 
@@ -60,6 +66,7 @@ Requires:         R-CRAN-htmltools
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-later 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-processx 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-ragg 
@@ -68,6 +75,7 @@ Requires:         R-CRAN-roxygen2
 Requires:         R-CRAN-S7 
 Requires:         R-CRAN-sass 
 Requires:         R-utils 
+Requires:         R-CRAN-yaml 
 
 %description
 Implements trustworthy large language model agents. Connect raw data

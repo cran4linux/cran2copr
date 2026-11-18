@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  clustur
-%global packver   0.1.4
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Clustering
 
@@ -14,17 +14,23 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.12
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-strollur 
+BuildRequires:    R-CRAN-RcppThread 
+BuildRequires:    R-CRAN-sitmo 
 BuildRequires:    R-CRAN-testthat 
 Requires:         R-CRAN-Rcpp >= 1.0.12
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 Requires:         R-utils 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-strollur 
 
 %description
 A tool that implements the clustering algorithms from 'mothur' (Schloss PD

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dbscan
-%global packver   1.2.7
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.7
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Density-Based Spatial Clustering of Applications with Noise (DBSCAN) and Related Algorithms
 
@@ -32,7 +32,7 @@ clustering of applications with noise) and HDBSCAN (hierarchical DBSCAN),
 the ordering algorithm OPTICS (ordering points to identify the clustering
 structure), shared nearest neighbor clustering, and the outlier detection
 algorithms LOF (local outlier factor) and GLOSH (global-local outlier
-score from hierarchies). The implementations use the kd-tree data
+score from hierarchies). The implementations use the k-d tree data
 structure (from library ANN) for faster k-nearest neighbor search. An R
 interface to fast kNN and fixed-radius NN search is also provided.
 Hahsler, Piekenbrock and Doran (2019) <doi:10.18637/jss.v091.i01>.

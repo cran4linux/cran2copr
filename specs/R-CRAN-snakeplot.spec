@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  snakeplot
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Serpentine Plots for Long Timeline, Sequential and Survey Data
 
@@ -29,7 +29,9 @@ Visualize long timelines, extended sequences and temporally chained survey
 responses and experience sampling data using intuitive serpentine (snake)
 plots. Supports distribution bars, tick-mark plots, inter-item correlation
 arcs, faceted multi-construct panels, and daily time-of-day positioning
-for ecological momentary assessment data.
+for ecological momentary assessment data. Further plot types fold
+categorical state sequences, career timelines and daily activity logs into
+the same serpentine layout. All plots are drawn with base 'R' graphics.
 
 %prep
 %setup -q -c -n %{packname}

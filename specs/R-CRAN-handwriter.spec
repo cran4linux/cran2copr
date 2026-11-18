@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  handwriter
-%global packver   3.2.4
+%global packver   3.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.4
+Version:          3.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Handwriting Analysis in R
 
@@ -16,38 +16,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-lpSolve 
-BuildRequires:    R-CRAN-magick 
 BuildRequires:    R-CRAN-mc2d 
 BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-Rfast 
-BuildRequires:    R-CRAN-rjags 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-coda 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-lpSolve 
-Requires:         R-CRAN-magick 
 Requires:         R-CRAN-mc2d 
 Requires:         R-CRAN-png 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-Rfast 
-Requires:         R-CRAN-rjags 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 

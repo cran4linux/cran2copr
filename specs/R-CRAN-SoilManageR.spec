@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SoilManageR
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate Soil Management Indicators for Agricultural Practice Assessment
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggthemes >= 5.0.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.4
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-lubridate >= 1.9.2
 BuildRequires:    R-CRAN-readxl >= 1.4.3
 BuildRequires:    R-CRAN-tidyr >= 1.3.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.4
+BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-CRAN-ggthemes >= 5.0.0
 Requires:         R-CRAN-ggplot2 >= 3.4.4
 Requires:         R-CRAN-tibble >= 3.2.1
@@ -35,17 +36,19 @@ Requires:         R-CRAN-lubridate >= 1.9.2
 Requires:         R-CRAN-readxl >= 1.4.3
 Requires:         R-CRAN-tidyr >= 1.3.0
 Requires:         R-CRAN-dplyr >= 1.1.4
+Requires:         R-CRAN-jsonlite 
 
 %description
 Calculate numerical agricultural soil management indicators from on a
 management timeline of an arable field. Currently, indicators for carbon
 (C) input into the soil system, soil tillage intensity rating (STIR),
 number of soil cover and living plant cover days, N fertilization and
-livestock intensity, and plant diversity are implemented. The functions
-can also be used independently of the management timeline to calculate
-some indicators. The package contains tables with reference information
-for the functions, as well as a '*.xlsx' template to collect the
-management data.
+livestock intensity, and plant diversity are implemented. An additional
+indicator estimates the stable organic matter of organic amendments. The
+functions can also be used independently of the management timeline to
+calculate some indicators. The package contains tables with reference
+information for the functions, as well as a '*.xlsx' template to collect
+the management data.
 
 %prep
 %setup -q -c -n %{packname}

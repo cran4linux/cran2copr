@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  yahoofinancer
-%global packver   0.6.1
+%global packver   0.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.6.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fetch Data from Yahoo Finance API
 
@@ -40,7 +40,7 @@ Requires:         R-CRAN-tibble
 Obtain historical and near real time data related to stocks, index and
 currencies from the Yahoo Finance API. This package is community
 maintained and is not officially supported by 'Yahoo'. The accuracy of
-data is only as correct as provided on <https://finance.yahoo.com/>.
+data is only as correct as provided by Yahoo Finance.
 
 %prep
 %setup -q -c -n %{packname}

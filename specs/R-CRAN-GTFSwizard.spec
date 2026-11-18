@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GTFSwizard
-%global packver   1.2.1
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Creating, Exploring, and Manipulating GTFS Files
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-gtfsio 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-zip 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
@@ -31,6 +32,7 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-gtfsio 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-zip 
 
 %description
 Creating, exploring, analyzing, and manipulating General Transit Feed
