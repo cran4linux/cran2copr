@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vegan
-%global packver   2.7-6
+%global packver   2.7-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.6
+Version:          2.7.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Community Ecology Package
 
@@ -21,11 +21,13 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-parallel 
 Requires:         R-CRAN-permute >= 0.9.0
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-mgcv 
+Requires:         R-parallel 
 
 %description
 Ordination methods, diversity analysis and other functions for community

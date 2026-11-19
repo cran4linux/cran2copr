@@ -1,0 +1,73 @@
+%global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
+%global packname  capnet
+%global packver   0.4.1
+%global rlibdir   /usr/local/lib/R/library
+
+Name:             R-CRAN-%{packname}
+Version:          0.4.1
+Release:          1%{?dist}%{?buildtag}
+Summary:          Contribution-Capped Elastic Net Regularization
+
+License:          GPL (>= 2)
+URL:              https://cran.r-project.org/package=%{packname}
+Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
+
+
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-lbfgs 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-stats 
+BuildRequires:    R-parallel 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-lbfgs 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-xts 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-Matrix 
+Requires:         R-stats 
+Requires:         R-parallel 
+
+%description
+Implements contribution-capped regularization to directly bound
+per-feature contributions in predictive models. Includes quasi-Newton
+optimization for unbounded fits and projected proximal gradient for finite
+coefficient bounds, as well as cross-validation, walk-forward fitting and
+prediction, and plotting utilities. References: Andrew and Gao (2007)
+<doi:10.1145/1273496.1273501>; Friedman et al. (2010)
+<doi:10.18637/jss.v033.i01>; James et al. (2020)
+<doi:10.1080/01621459.2019.1609970>; Nocedal (1980)
+<doi:10.1090/S0025-5718-1980-0572855-7>.
+
+%prep
+%setup -q -c -n %{packname}
+
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
+
+%build
+
+%install
+
+mkdir -p %{buildroot}%{rlibdir}
+%{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
+rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
+
+%files
+%{rlibdir}/%{packname}

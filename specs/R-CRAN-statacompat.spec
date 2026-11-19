@@ -1,33 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BET
-%global packver   0.6.0
+%global packname  statacompat
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Binary Expansion Testing
+Summary:          Reproduce Selected 'Stata' Expression and Missing-Value Semantics
 
-License:          GPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.3
-Requires:         R-CRAN-Rcpp >= 0.12.3
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
 
 %description
-Nonparametric detection of nonuniformity and dependence with Binary
-Expansion Testing (BET). See Kai Zhang (2019) BET on Independence, Journal
-of the American Statistical Association, 114:528, 1620-1637,
-<DOI:10.1080/01621459.2018.1537921>, Kai Zhang, Wan Zhang, Zhigen Zhao,
-Wen Zhou. (2023). BEAUTY Powered BEAST, <doi:10.48550/arXiv.2103.00674>
-and Wan Zhang, Zhigen Zhao, Michael Baiocchi, Yao Li, Kai Zhang. (2023)
-SorBET: A Fast and Powerful Algorithm to Test Dependence of Variables,
-Technical report.
+A lightweight compatibility layer for researchers translating 'Stata'
+data-management code into R. Provides vectorised helpers that reproduce
+selected 'Stata' expression semantics where they differ from base R, most
+importantly "Stata's" rule that numeric missing values are larger than
+every number: relational comparisons, inlist(), inrange(), cond(),
+missing(), and the 'egen' row functions rowtotal(), rowmean(), rowmiss()
+and rownonmiss(). Only the ordinary missing value is fully supported;
+"Stata's" extended missing values are detected and rejected wherever they
+would change a result.
 
 %prep
 %setup -q -c -n %{packname}

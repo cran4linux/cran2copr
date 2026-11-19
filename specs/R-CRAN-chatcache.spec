@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CopernicusMarine
-%global packver   0.5.0
+%global packname  chatcache
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Search Download and Handle Data from Copernicus Marine Service Information
+Summary:          Persistent Cache for 'ellmer' and 'shinychat' Large Language Model Interactions
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,40 +17,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr2 >= 1.1.0
-BuildRequires:    R-CRAN-sf >= 1.0.24
-BuildRequires:    R-CRAN-stars >= 0.7.1
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-leaflet 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-httr2 >= 1.1.0
-Requires:         R-CRAN-sf >= 1.0.24
-Requires:         R-CRAN-stars >= 0.7.1
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-RSQLite 
+BuildRequires:    R-CRAN-cli 
+Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-digest 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-leaflet 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-RSQLite 
+Requires:         R-CRAN-cli 
 
 %description
-Subset and download data from EU Copernicus Marine Service Information:
-<https://data.marine.copernicus.eu>. Import data on the oceans physical
-and biogeochemical state from Copernicus into R without the need of
-external software.
+Provides a persistent SQLite-based cache for user prompts and large
+language model (LLM) responses in applications built with the 'ellmer' and
+'shinychat' packages. Reduces API (application programming interface)
+costs and latency by storing and retrieving identical or similar chat
+interactions across sessions and users.
 
 %prep
 %setup -q -c -n %{packname}

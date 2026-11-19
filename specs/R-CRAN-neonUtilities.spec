@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  neonUtilities
-%global packver   4.0.2
+%global packver   4.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.2
+Version:          4.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities for Working with NEON Data
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table >= 1.17.8
 BuildRequires:    R-CRAN-httr 
@@ -29,10 +29,10 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-arrow 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-duckdbfs 
+BuildRequires:    R-CRAN-hdf5r 
 Requires:         R-CRAN-data.table >= 1.17.8
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
@@ -45,10 +45,10 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-pbapply 
 Requires:         R-parallel 
-Requires:         R-CRAN-curl 
 Requires:         R-CRAN-arrow 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-duckdbfs 
+Requires:         R-CRAN-hdf5r 
 
 %description
 NEON data packages can be accessed through the NEON Data Portal

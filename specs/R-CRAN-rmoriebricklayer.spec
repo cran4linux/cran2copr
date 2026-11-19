@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rmoriebricklayer
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Reproducible Data Capsules with Provenance and Fallback
+Summary:          Reproducible Data Capsules with Provenance
 
 License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -32,8 +32,9 @@ Requires:         R-tools
 Requires:         R-utils 
 
 %description
-For analyzing published and unpublished tables, from open-data portals and
-statistical agencies to a researcher's own data, so that a result can be
+For any data an analysis depends on (tables, spreadsheets, microdata from
+surveys, model outputs, archived documents), from open-data portals and
+statistical agencies to a researcher's own files, so that a result can be
 traced to the exact data behind it and checked again afterwards. A
 'capsule' records where each source came from, its Secure Hash Algorithm
 256 ('SHA-256') hash, the schema it should have and an archived copy in
@@ -48,14 +49,19 @@ data that is marked as such. Capsules can be signed with keyed hashes
 'ML-DSA' (FIPS 204), 'SLH-DSA' (FIPS 205) and 'XMSS' (RFC 8391),
 implemented from the standards with no system cryptography library and
 checked against 'OpenSSL' 3.5 and the known-answer vectors of 'NIST' (the
-US National Institute of Standards and Technology). For the administrative
-tables these capsules usually hold, it computes period-over-period change
-with exact intervals, trends (Mann-Kendall with 'Theil-Sen' slopes),
-rates, and the bounds that rounding and suppression in a release imply;
-small-area rates with the empirical Bayes shrinkage of Clayton and
-'Kaldor' (1987) DOI 10.2307/2532003; self-exciting event series as
-'Hawkes' processes; custodial populations by stock-and-flow measures; and
-the burden of air pollution from dispersion to attributable deaths.
+US National Institute of Standards and Technology). For published
+administrative tables, one kind of source among many, it computes
+period-over-period change with exact intervals, trends (Mann-Kendall with
+'Theil-Sen' slopes), rates, and the bounds that rounding and suppression
+in a release imply; small-area rates with the empirical Bayes shrinkage of
+Clayton and 'Kaldor' (1987) DOI 10.2307/2532003; self-exciting event
+series as 'Hawkes' processes; custodial populations by stock-and-flow
+measures; the burden of air pollution from dispersion to attributable
+deaths; and the effect of a policy from a panel of such tables, by
+difference in differences with staggered adoption, synthetic difference in
+differences ('Arkhangelsky' and others (2021) DOI 10.1257/aer.20190159),
+matching on trajectories before treatment and double machine learning
+('Chernozhukov' and others (2018) DOI 10.1111/ectj.12097).
 
 %prep
 %setup -q -c -n %{packname}

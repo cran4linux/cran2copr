@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fastQR
-%global packver   1.1.5
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast QR Decomposition and Update
 
@@ -25,14 +25,13 @@ Requires:         R-CRAN-RcppEigen
 Requires:         R-CRAN-Rdpack 
 
 %description
-Efficient algorithms for performing, updating, and removing rows or
-columns from the QR decomposition, R decomposition, or the inverse of the
-R decomposition of a matrix as rows or columns are added or removed. It
-also includes functions for solving linear systems of equations, normal
-equations for linear regression models, and normal equations for linear
-regression with a RIDGE penalty. For a detailed introduction to these
-methods, the monograph Matrix Computations (2013,
-<doi:10.1007/978-3-319-05089-8>) for complete introduction to the methods.
+Methods for computing QR factorizations and updating or downdating QR and
+triangular factors when rows or columns are added or removed. Includes
+compact, thin and complete factorizations, least-squares and ridge
+regression, and cross-validation. Selected dense operations use the BLAS
+and LAPACK libraries configured for R. Background references include Golub
+and Van Loan (2013, ISBN:9781421407944) and Bjorck (2015,
+<doi:10.1007/978-3-319-05089-8>).
 
 %prep
 %setup -q -c -n %{packname}

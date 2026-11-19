@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EDE
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extinction Date Estimation from Sighting Records
 
@@ -17,8 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-graphics 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Infers the extinction of a species from a time-ordered record of
@@ -28,13 +32,22 @@ estimators (Robson & Whitlock, 1964; Strauss & Sadler, 1989; Roberts &
 Solow, 2003), frequentist persistence tests (Solow, 1993a, 1993b; Burgman,
 Grimson & Ferson, 1995; Solow & Roberts, 2003; Solow, 2005; McInerny,
 Roberts, Davy & Cribb, 2006; Jarić & Ebenhard, 2010), Bayesian models
-(Rout, Salomon & McCarthy, 2009; Caley & Barry, 2014), methods for
-sightings of uncertain reliability (Thompson et al., 2013; Jarić &
-Roberts, 2014; Lee et al., 2014; Brook, Buettel & Jarić, 2019; Kodikara et
-al., 2020, 2021), models combining records and surveys (Thompson et al.,
-2017, 2019), and confidence intervals on the end-points of fossil ranges
-(Marshall, 1994, 1997; Weiss & Marshall, 1999). Every method is tested
-against the published examples of its source paper and returns a common
+(Rout, Salomon & McCarthy, 2009; Caley & Barry, 2014; Alroy, 2014),
+methods for sightings of uncertain reliability (Thompson et al., 2013;
+Jarić & Roberts, 2014; Lee et al., 2014; Brook, Buettel & Jarić, 2019;
+Kodikara et al., 2020, 2021), models combining records and surveys
+(Thompson et al., 2017, 2019), and confidence intervals on the end-points
+of fossil ranges (Marshall, 1994, 1997; Weiss & Marshall, 1999), a test of
+a common end-point of several taxa (Solow, 1996), and an estimator of the
+extinction time from radiometrically dated remains that allows for dating
+error (Solow, 1997; Solow, Roberts & Robbirt, 2006; Bradshaw et al.,
+2012). Also provides tools from extreme value theory, applied to the
+latest sightings as upper order statistics: end-point estimators (Hall &
+Wang, 1999; Dekkers, Einmahl & de Haan, 1989; Fraga Alves & Neves, 2014;
+Smith, 1985), tests of whether a finite end-point is supported (Neves,
+Picek & Fraga Alves, 2006; Hasofer & Wang, 1992), and an automatic choice
+of the number of recent sightings. Where the source paper gives a worked
+example the method is tested against it. All methods return a common
 result class; persistence tests are inverted to give one-sided upper
 confidence bounds.
 

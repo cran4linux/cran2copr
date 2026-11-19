@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Dyn4cast
-%global packver   11.11.28
+%global packver   11.11.28-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          11.11.28
+Version:          11.11.28.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dynamic Modeling and Machine Learning Environment
 

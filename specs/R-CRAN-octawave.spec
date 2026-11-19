@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  octawave
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Octahedral Quantum Wave Functions
 
@@ -42,7 +42,16 @@ geometric principles of equations of the octahedron type are outlined in
 Bobenko and Suris (2012) <doi:10.1093/imrn/rnr083>. Additional structural
 and biological symmetry contexts are derived from Bragg (1914)
 <doi:10.1098/rspa.1914.0015> and Caspar and Klug (1962)
-<doi:10.1101/sqb.1962.027.001.005>.
+<doi:10.1101/sqb.1962.027.001.005>. Octahedral vertex constructions honor
+the classical polyhedral proofs of Theaetetus of Athens (400 BC) as
+recorded in Plato (ca. 369 BC) "Theaetetus"
+<urn:cts:greekLit:tlg0059.tlg006> and Euclid (ca. 300 BC) "Elements"
+<urn:cts:greekLit:tlg1799.tlg001>, while C60 fullerene vertex coordinates
+and resonance coupling follow Osawa (1970) and Kroto et al. (1985)
+<doi:10.1038/318162a0>. Algorithmic data structures, vectorized coordinate
+transformations, and three-dimensional graphical foundations in R follow
+the methodological principles established by Ligges (2007,
+ISBN:9783540363323) and Crawley (2007, ISBN:9780470510247).
 
 %prep
 %setup -q -c -n %{packname}

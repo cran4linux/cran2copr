@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eq5d
-%global packver   0.17.0
+%global packver   0.17.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.17.0
+Version:          0.17.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Methods for Analysing 'EQ-5D' Data and Calculating 'EQ-5D' Index Scores
 
@@ -34,12 +34,13 @@ package provides methods for the valuation, reporting and analysis of
 EQ-5D data. Utility index scores can be calculated for EQ-5D-3L, EQ-5D-5L
 and EQ-5D-Y-3L data using a wide range of value sets and mapping
 approaches. Functionality is also provided for descriptive-system
-reporting, severity and distributional summaries, informativity measures,
-health-state distribution analysis, longitudinal change analysis,
-probability of superiority analysis and Health Profile Grid visualisation.
-Methods described in Devlin et al. (2020) <doi:10.1007/978-3-030-47622-9>
-are implemented where appropriate. A companion 'Shiny' application is
-included for interactive analysis and visualisation of EQ-5D datasets.
+reporting, severity and distributional summaries, 'informativity'
+measures, health-state distribution analysis, longitudinal change
+analysis, probability of superiority analysis and Health Profile Grid
+visualisation. Methods described in Devlin et al. (2020)
+<doi:10.1007/978-3-030-47622-9> are implemented where appropriate. A
+companion 'Shiny' application is included for interactive analysis and
+visualisation of EQ-5D datasets.
 
 %prep
 %setup -q -c -n %{packname}

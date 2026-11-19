@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  runjags
-%global packver   2.2.2-5
+%global packver   2.3.0-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.2.5
+Version:          2.3.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface Utilities, Model Templates, Parallel Computing Methods and Additional Distributions for MCMC Models in JAGS
 
@@ -17,11 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    jags-devel
 BuildRequires:    R-devel >= 2.14.0
 Requires:         R-core >= 2.14.0
+BuildRequires:    R-CRAN-rjags >= 4.18
 BuildRequires:    R-CRAN-lattice >= 0.20.10
 BuildRequires:    R-CRAN-coda >= 0.17.1
 BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-rjags >= 4.18
 Requires:         R-CRAN-lattice >= 0.20.10
 Requires:         R-CRAN-coda >= 0.17.1
 Requires:         R-parallel 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gptr
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Language Model Agents in Live 'R' Sessions
 
@@ -53,14 +53,14 @@ logical, character or numeric vectors with associated model probabilities.
 Supports the 'Anthropic'
 <https://platform.claude.com/docs/en/api/overview>, 'OpenAI'
 <https://developers.openai.com/api/reference/overview> and 'Google Gemini'
-<https://ai.google.dev/gemini-api/docs> APIs, 'OpenAI'-compatible
-endpoints, local 'Ollama' <https://ollama.com> models, and the 'Claude
-Code' and 'Codex' command line tools. Decision models include 'Jev',
-hosted by 'TypeSafe AI' <https://docs.typesafe.ai/introduction>, and the
-local 'Clef'. Top-level agent calls and their executed code can be
-recorded in 'R' scripts, 'R Markdown' and 'Quarto' documents, or 'Jupyter'
-notebooks. Recorded 'R' scripts can be replayed without model calls when
-the required inputs and packages are available.
+<https://aistudio.google.com/docs> APIs, 'OpenAI'-compatible endpoints,
+local 'Ollama' <https://ollama.com> models, and the 'Claude Code' and
+'Codex' command line tools. Decision models include 'Jev', hosted by
+'TypeSafe AI' <https://docs.typesafe.ai/introduction>, and the local
+'Clef'. Top-level agent calls and their executed code can be recorded in
+'R' scripts, 'R Markdown' and 'Quarto' documents, or 'Jupyter' notebooks.
+Recorded 'R' scripts can be replayed without model calls when the required
+inputs and packages are available.
 
 %prep
 %setup -q -c -n %{packname}

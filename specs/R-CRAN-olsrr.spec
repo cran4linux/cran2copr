@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  olsrr
-%global packver   0.7.0
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Building OLS Regression Models
 
@@ -19,22 +19,20 @@ Requires:         R-core >= 3.3
 BuildArch:        noarch
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-goftest 
 BuildRequires:    R-graphics 
+BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-nortest 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xplorerr 
 Requires:         R-CRAN-car 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-goftest 
 Requires:         R-graphics 
+Requires:         R-grid 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-nortest 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-xplorerr 
 
 %description
 Tools designed to make it easier for users, particularly

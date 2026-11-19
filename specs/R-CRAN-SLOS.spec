@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SLOS
-%global packver   1.0.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          ICU Length of Stay Prediction and Efficiency Evaluation
 
@@ -17,31 +17,50 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-MLmetrics 
-BuildRequires:    R-CRAN-ems 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-caretEnsemble 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-DescTools 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ems 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-mice 
+BuildRequires:    R-CRAN-MLmetrics 
 BuildRequires:    R-CRAN-ranger 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-MLmetrics 
-Requires:         R-CRAN-ems 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-caret 
 Requires:         R-CRAN-caretEnsemble 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-DescTools 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ems 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-graphics 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-mice 
+Requires:         R-CRAN-MLmetrics 
 Requires:         R-CRAN-ranger 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Provides tools for predicting ICU length of stay and assessing ICU
-efficiency. It is based on the methodologies proposed by Peres et al.
-(2022, 2023), which utilize data-driven approaches for modeling and
-validation, offering insights into ICU performance and patient outcomes.
-References: Peres et al.
-(2022)<https://pubmed.ncbi.nlm.nih.gov/35988701/>, Peres et al.
-(2023)<https://pubmed.ncbi.nlm.nih.gov/37922007/>. More information:
+Provides tools for predicting intensive care unit (ICU) length of stay and
+assessing ICU efficiency with the standardized length of stay ('SLOS')
+ratio, following the methodology of Peres et al. (2022)
+<doi:10.1016/j.accpm.2022.101142> and Peres et al. (2023)
+<doi:10.1007/s00134-023-07255-w>. The package supports a pretrained model
+for Brazilian intensive care units, as well as a complete pipeline for
+building a new model from local data: feature screening and multiple
+imputation, recursive feature elimination, training of a stacked ensemble
+(linear model and random forest), and unit-level evaluation with funnel
+plots. More information:
 <https://github.com/igor-peres/ICU-Length-of-Stay-Prediction>.
 
 %prep

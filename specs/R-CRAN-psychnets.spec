@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  psychnets
-%global packver   0.5.2
+%global packver   0.8.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.8.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Clean-Room Psychological Network Modeling
 
@@ -33,8 +33,11 @@ graphical models with extended Bayesian information criterion (EBIC)
 regularization, nonparanormal and stepwise selection variants,
 information-filtering networks (the triangulated maximally filtered graph
 and the local-global inverse covariance), relative-importance networks,
-and Ising and mixed graphical models <doi:10.3758/s13428-017-0862-1>
-<doi:10.1007/978-3-031-54464-4_19>. All methods are implemented from first
+Ising and mixed graphical models, and the panel graphical
+vector-autoregressive model (Epskamp, Borsboom and Fried (2018)
+<doi:10.3758/s13428-017-0862-1>; Saqr, Beck and Lopez-Pernas (2024)
+<doi:10.1007/978-3-031-54464-4_19>; Epskamp (2020)
+<doi:10.1007/s11336-020-09697-3>). All methods are implemented from first
 principles in base R without compiled dependencies and return consistent,
 tidy outputs. Functions are designed to be transparent and report
 optimization diagnostics where applicable. For Gaussian graphical models,

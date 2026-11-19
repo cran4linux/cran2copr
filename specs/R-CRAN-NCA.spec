@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  NCA
-%global packver   5.0.2
+%global packver   5.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.0.2
+Version:          5.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Necessary Condition Analysis
 
@@ -58,10 +58,14 @@ values increase ''upwards'' and ''to the right''). The ceiling line is a
 (piecewise) linear non-decreasing line: a linear step function or a
 straight line. It indicates which level of x (e.g., an effort, a
 characteristic) is necessary but not sufficient for a (desired or
-undesired) level of y (e.g., good performance or disease). A quick start
-guide for using this package can be found here:
-<https://repub.eur.nl/pub/78323/> or
-<https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2624981>.
+undesired) level of y (e.g., good performance or disease). The method and
+the use of this package are described in the book Dul, J. (2027)
+'Necessary Condition Analysis (NCA): Principles and Application', Chapman
+& Hall/CRC Press, with a free online version at
+<https://jandul.github.io/nca-book/>. The Quick Start Guide NCA with R and
+other materials are available on the NCA landing page
+<https://jandul.github.io/NCA/>. The package includes two example datasets
+(nca.example and nca.example2).
 
 %prep
 %setup -q -c -n %{packname}

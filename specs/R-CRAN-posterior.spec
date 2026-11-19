@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  posterior
-%global packver   1.7.0
+%global packver   1.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.0
+Version:          1.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Working with Posterior Distributions
 
@@ -43,15 +43,16 @@ Requires:         R-parallel
 Requires:         R-CRAN-matrixStats 
 
 %description
-Provides useful tools for both users and developers of packages for
-fitting Bayesian models or working with output from Bayesian models. The
-primary goals of the package are to: (a) Efficiently convert between many
-different useful formats of draws (samples) from posterior or prior
-distributions. (b) Provide consistent methods for operations commonly
-performed on draws, for example, subsetting, binding, or mutating draws.
-(c) Provide various summaries of draws in convenient formats. (d) Provide
-lightweight implementations of state of the art posterior inference
-diagnostics. References: Vehtari et al. (2021) <doi:10.1214/20-BA1221>.
+Provides useful tools for both users and developers of Bayesian modeling
+software, focusing on manipulating, summarizing, and diagnosing the output
+of Bayesian models. The primary goals of the package are to: (a)
+Efficiently convert between many different useful formats of draws
+(samples) from posterior or prior distributions. (b) Provide consistent
+methods for operations commonly performed on draws, for example,
+subsetting, binding, or mutating draws. (c) Provide various summaries of
+draws in convenient formats. (d) Provide lightweight implementations of
+state of the art posterior inference diagnostics. References: Vehtari et
+al. (2021) <doi:10.1214/20-BA1221>.
 
 %prep
 %setup -q -c -n %{packname}

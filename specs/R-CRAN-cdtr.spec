@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cdtr
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Constrained Delaunay Triangulation with Refinement
 
@@ -21,9 +21,12 @@ BuildRequires:    R-CRAN-cpp11
 %description
 Binding to the 'CDT' header-only C++ library: constrained and conforming
 Delaunay triangulation, Ruppert refinement by area or minimum angle
-(Ruppert, 1995, <doi:10.1006/jagm.1995.1021>), resolution of crossing
-constraints, and topological region depth per triangle. Aimed at replacing
-'RTriangle' in 'anglr'.
+(Ruppert (1995) <doi:10.1006/jagm.1995.1021>), resolution of crossing
+constraints, and topological region depth per triangle. Also returns the
+provenance of each vertex and the input segments behind each constraint
+edge, so that the coverage of overlapping polygons and lines can be found
+from the mesh. The input and output follow the planar straight line graph
+form used by 'RTriangle'.
 
 %prep
 %setup -q -c -n %{packname}

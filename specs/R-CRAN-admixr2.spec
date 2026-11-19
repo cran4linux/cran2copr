@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  admixr2
-%global packver   0.4.1
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Aggregate Data Modelling
 
@@ -20,6 +20,7 @@ BuildRequires:    R-CRAN-nlmixr2est >= 6.0.1
 BuildRequires:    R-CRAN-rxode2 >= 5.1.2
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-CRAN-randtoolbox 
 BuildRequires:    R-CRAN-Rcpp 
@@ -29,6 +30,7 @@ Requires:         R-CRAN-nlmixr2est >= 6.0.1
 Requires:         R-CRAN-rxode2 >= 5.1.2
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-digest 
+Requires:         R-grDevices 
 Requires:         R-CRAN-nloptr 
 Requires:         R-CRAN-randtoolbox 
 Requires:         R-CRAN-Rcpp 

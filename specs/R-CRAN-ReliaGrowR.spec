@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ReliaGrowR
-%global packver   0.7
+%global packver   0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7
+Version:          0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reliability Growth Analysis and Repairable Systems Modeling
 
@@ -19,12 +19,10 @@ Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-plumber 
 BuildRequires:    R-CRAN-segmented 
 BuildRequires:    R-stats 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-CRAN-plumber 
 Requires:         R-CRAN-segmented 
 Requires:         R-stats 
 

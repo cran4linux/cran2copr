@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GHRmodel
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Hierarchical Modelling of Spatio-Temporal Health Data
 
@@ -18,23 +18,29 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
+BuildRequires:    R-CRAN-GHRexplore >= 0.3.0
 BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-dlnm 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-GHRexplore 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-VGAM 
 Requires:         R-CRAN-ggplot2 >= 3.5.0
+Requires:         R-CRAN-GHRexplore >= 0.3.0
 Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-dlnm 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-GHRexplore 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-VGAM 
 
 %description
 Supports modeling health outcomes using Bayesian hierarchical

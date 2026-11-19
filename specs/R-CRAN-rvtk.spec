@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rvtk
-%global packver   0.1.3
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bindings for the Visualization Toolkit ('VTK')
 
@@ -19,27 +19,15 @@ Requires:         R-core
 BuildArch:        noarch
 
 %description
-Provides pre-compiled static 'VTK' libraries and headers so that
-downstream R packages can link against the Visualization Toolkit without
-requiring users to install 'VTK' manually. On all platforms the package
-first honours a user-supplied 'VTK_DIR' environment variable. On macOS it
-then tries 'Homebrew', followed by 'pkg-config'. On Linux it tries
-'pkg-config' and well-known system prefixes ('/usr', '/usr/local'). If no
-suitable system installation is found on macOS or Linux, pre-built static
-libraries are downloaded automatically from the package's GitHub releases.
-On Windows the package tries 'VTK_DIR', then 'Rtools45' 'pacman', then
-common 'MSYS2' prefixes, accepting both static ('.a') and shared ('.dll.a'
-import libs + DLLs) installations. When shared libraries are used, the VTK
-DLLs are staged in 'inst/vtk-dlls/' and an '.onLoad' hook prepends that
-directory to PATH via 'Sys.setenv()' when the package is loaded, and
-restored in '.onUnload()'. The pre-built fallback downloads static
-libraries by default; set 'VTK_LINK_TYPE=shared' before installation to
-download the DLL build instead. Note that on Windows the modules
-'VTK_IONetCDF', 'VTK_IOHDF', 'VTK_GeovisCore', and 'VTK_RenderingCore' are
-disabled because 'netcdf' and 'libproj' are not available in the
-'Rtools45' 'static.posix' sysroot. Downstream packages can declare
+Makes the Visualization Toolkit ('VTK') available to R packages so their
+C++ code can link against it without requiring users to install 'VTK'
+manually. When no suitable system installation is found, pre-built static
+libraries are downloaded automatically. Downstream packages declare
 'Imports: rvtk' and obtain the correct compiler and linker flags at
-install time via rvtk::CppFlags() and rvtk::LdFlagsFile().
+install time from CppFlags(), LdFlags(), and LdFlagsFile(); the use_rvtk()
+helper writes all required build-time files in one step. Pre-built
+libraries are provided for macOS, Linux, and Windows; on Windows a
+shared-DLL build is available via 'VTK_LINK_TYPE=shared'.
 
 %prep
 %setup -q -c -n %{packname}

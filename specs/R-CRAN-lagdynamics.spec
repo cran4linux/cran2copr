@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lagdynamics
-%global packver   0.32
+%global packver   0.35.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.32
+Version:          0.35.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lag Sequential Analysis, Dynamics, and Lag Transition Networks
 
@@ -19,31 +19,35 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-cograph >= 2.3.6
+BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
+BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-cograph >= 2.3.6
+Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-grid 
+Requires:         R-parallel 
 Requires:         R-stats 
 Requires:         R-utils 
 
 %description
-A modern, tidy toolkit for lag sequential analysis and lag transition
-networks of categorical event and sequence data. It provides an
-accessible, unified workflow for fitting, inspecting, visualising, and
-comparing lagged transition patterns, with tidy outputs throughout.
-Includes confirmatory tools for uncertainty, robustness, and group
-differences, including bootstrap intervals, analytic certainty, split-half
-reliability, case-drop stability, permutation tests, and Bayesian group
-comparisons. Supports long-format event-log import, import from common
-sequence and state-sequence objects, multi-lag analysis, structural-zero
-constraints, transition and initial probabilities, plotting of transition
-structures, and a directed transfer-entropy measure. The lag sequential
-analysis framework follows Sackett and others (1979)
-<doi:10.3758/BF03205679>.
+Implements lag sequential analysis of categorical event and sequence data.
+For each ordered pair of states it tests whether one state follows another
+at a given lag more or less often than expected under independence,
+reporting adjusted residuals, transitional probabilities and Yule's Q in
+tidy data frames. Five test engines are provided (classical, two-cell,
+bidirectional, parallel dominance and non-parallel dominance). Transitions
+can be evaluated with bootstrap intervals, analytic certainty, split-half
+reliability, case-drop stability and permutation tests, and groups
+compared by permutation or by a Bayesian Dirichlet-multinomial contrast.
+Supports long-format event logs, sequence objects, multiple lags,
+structural zeros, transition and initial probabilities, plots of lag
+transition networks, and a directed transfer-entropy measure. The method
+follows Sackett and others (1979) <doi:10.3758/BF03205679>.
 
 %prep
 %setup -q -c -n %{packname}

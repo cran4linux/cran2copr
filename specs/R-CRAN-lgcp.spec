@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lgcp
-%global packver   2.0-1
+%global packver   2.0-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Log-Gaussian Cox Process
 
@@ -17,7 +17,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rpanel >= 1.1.3
 BuildRequires:    R-CRAN-spatstat.geom 
 BuildRequires:    R-CRAN-spatstat.explore 
 BuildRequires:    R-CRAN-spatstat.utils 
@@ -30,7 +29,6 @@ BuildRequires:    R-CRAN-ncdf4
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-rpanel >= 1.1.3
 Requires:         R-CRAN-spatstat.geom 
 Requires:         R-CRAN-spatstat.explore 
 Requires:         R-CRAN-spatstat.utils 
