@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  varmapack
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Burn-in-Free Simulation and Analysis of Gaussian VARMA Models
 
@@ -24,8 +24,10 @@ Requires:         R-CRAN-R6
 %description
 Simulates Gaussian vector autoregressive-moving-average time-series models
 without a burn-in period by drawing startup shocks from their
-model-implied conditional distribution. Also provides model test cases,
-autocovariances, spectral radii, and impulse responses.
+model-implied conditional distribution. Also simulates stationary
+Ornstein-Uhlenbeck and Slepian-based moving-average models at unevenly
+spaced observation times. Provides model test cases, autocovariances,
+spectral radii, impulse responses, and innovation covariance recovery.
 
 %prep
 %setup -q -c -n %{packname}

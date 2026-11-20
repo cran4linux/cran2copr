@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  stevethemes
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Steve's 'ggplot2' Themes and Related Theme Elements
 
@@ -20,9 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
 BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-systemfonts 
+BuildRequires:    R-grDevices 
 Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-systemfonts 
+Requires:         R-grDevices 
 
 %description
 This is a compilation of my preferred themes and related theme elements

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FINN
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Forest Informed Neural Networks
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-Rcpp
 BuildRequires:    R-CRAN-torch 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-grid 
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-cli 
 Requires:         R-stats 
@@ -36,6 +37,7 @@ Requires:         R-CRAN-Rcpp
 Requires:         R-CRAN-torch 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glue 
+Requires:         R-grid 
 
 %description
 A hybrid dynamic forest (gap) model (FINN) that can be configured as a

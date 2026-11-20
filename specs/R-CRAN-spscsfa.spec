@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spscsfa
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Semiparametric Smooth-Coefficient Stochastic Frontier Analysis
 
@@ -14,13 +14,19 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
+BuildRequires:    R-CRAN-progress >= 1.2.1
 BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-np 
 BuildRequires:    R-stats 
+Requires:         R-CRAN-progress >= 1.2.1
 Requires:         R-CRAN-Formula 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-CRAN-np 
 Requires:         R-stats 
 
@@ -34,9 +40,18 @@ estimated using nonparametric regression and the remaining frontier
 parameters are estimated by maximum likelihood. Technical efficiency and
 inefficiency are computed using the Battese and Coelli (1988)
 <doi:10.1016/0304-4076(88)90053-X> and Jondrow et al. (1982)
-<doi:10.1016/0304-4076(82)90004-5> methods, respectively. Confidence
-intervals for technical efficiency are computed using the approach of
-Horrace and Schmidt (1996) <doi:10.1007/BF00157044>.
+<doi:10.1016/0304-4076(82)90004-5> (JLMS) methods, respectively.
+Confidence intervals for technical efficiency are computed using the
+approach of Horrace and Schmidt (1996) <doi:10.1007/BF00157044>. Marginal
+effects of inefficiency determinants on the JLMS inefficiency estimator
+are computed following Kumbhakar and Sun (2013)
+<doi:10.1016/j.econlet.2013.04.041>. By-products of the package include
+least-squares cross-validation bandwidth selection for the local-linear
+semiparametric smooth-coefficient estimator, local-linear semiparametric
+smooth-coefficient estimation, and analytic gradients of the
+local-constant semiparametric smooth-coefficient estimator with respect to
+the continuous z variables following Geng and Sun (2019)
+<doi:10.1016/j.econlet.2019.108684>.
 
 %prep
 %setup -q -c -n %{packname}

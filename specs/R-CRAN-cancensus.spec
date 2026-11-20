@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cancensus
-%global packver   0.6.1
+%global packver   0.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.6.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access, Retrieve, and Work with Canadian Census Data and Geography
 
@@ -17,22 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-readr >= 2.0.0
 BuildRequires:    R-CRAN-httr >= 1.0.0
+BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 1.0
 BuildRequires:    R-CRAN-jsonlite >= 1.0
 BuildRequires:    R-CRAN-digest >= 0.1
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-geojsonsf 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-readr 
+Requires:         R-CRAN-readr >= 2.0.0
 Requires:         R-CRAN-httr >= 1.0.0
+Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-dplyr >= 1.0
 Requires:         R-CRAN-jsonlite >= 1.0
 Requires:         R-CRAN-digest >= 0.1
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-geojsonsf 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-readr 
 
 %description
 Integrated, convenient, and uniform access to Canadian Census data and

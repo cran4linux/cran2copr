@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pctax
-%global packver   0.1.7
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Professional Comprehensive Omics Data Analysis
 
@@ -55,14 +55,17 @@ Requires:         R-CRAN-ade4
 Requires:         R-CRAN-scales 
 
 %description
-Provides a comprehensive suite of tools for analyzing omics data. It
-includes functionalities for alpha diversity analysis, beta diversity
-analysis, differential abundance analysis, community assembly analysis,
-visualization of phylogenetic tree, and functional enrichment analysis.
-With a progressive approach, the package offers a range of analysis
-methods to explore and understand the complex communities. It is designed
-to support researchers and practitioners in conducting in-depth and
-professional omics data analysis.
+Tools for microbiome and other omics data, including alpha and beta
+diversity, differential abundance, community assembly, phylogenetic trees
+and functional enrichment. Community assembly includes the normalized
+stochasticity ratio of Ning, Deng, Tiedje and Zhou (2019)
+<doi:10.1073/pnas.1904623116> and the neutral model of Sloan et al. (2006)
+<doi:10.1111/j.1462-2920.2005.00956.x>. The suggested packages 'linkET',
+'pairwiseAdonis' and 'sankeyD3' are not available from CRAN or
+Bioconductor. Install 'linkET' from <https://github.com/Hy4m/linkET> and
+'sankeyD3' from <https://github.com/fbreitwieser/sankeyD3>. Install
+'pairwiseAdonis' from <https://github.com/pmartinezarbizu/pairwiseAdonis>;
+the package directory is 'pairwiseAdonis'.
 
 %prep
 %setup -q -c -n %{packname}

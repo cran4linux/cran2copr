@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cograph
-%global packver   2.7.2
+%global packver   2.7.17
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.2
+Version:          2.7.17
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis and Visualization of Complex Networks
 
@@ -34,11 +34,13 @@ Requires:         R-utils
 
 %description
 Provides tools for the analysis, visualization, and manipulation of
-dynamical, social (Saqr et al. (2024) <doi:10.1007/978-3-031-54464-4_10>)
+dynamical, social (Saqr et al. (2024) <doi:10.1007/978-3-031-54464-4_15>)
 and complex networks (Saqr et al. (2025) <doi:10.1145/3706468.3706513>).
 The package supports multiple network formats and offers flexible tools
-for heterogeneous, multi-layer, and hierarchical network analysis with
-simple syntax and extensive toolset.
+for heterogeneous, multilayer, and hierarchical network analysis with a
+simple syntax. It computes node centrality measures, network-level
+statistics, community detection, motif and robustness analyses, and
+returns the results as tidy data frames.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wrGraph
-%global packver   1.3.18
+%global packver   1.3.19.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.18
+Version:          1.3.19.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Graphics in the Context of Analyzing High-Throughput Data
 
@@ -17,14 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-wrMisc > 2.0.1
+BuildRequires:    R-CRAN-wrMisc >= 2.2.0
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-wrMisc > 2.0.1
+Requires:         R-CRAN-wrMisc >= 2.2.0
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-grid 
@@ -45,7 +45,9 @@ input-formats, principal components analysis (PCA)
 <doi:10.1080/00031305.1999.10474494> to highlight and compare the center
 areas for groups of samples, generic MA-plots (differential- versus
 average-value plots) <doi:10.1093/nar/30.4.e15>, staggered count plots and
-generation of mouse-over interactive html pages.
+generation of mouse-over interactive html pages. This package is used for
+plotting results from package 'wrProteo'
+(<https://CRAN.R-project.org/package=wrProteo>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MariNET
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Build Network Based on Linear Mixed Models from EHRs
+Summary:          Build Networks from EHRs and Omics Data Using Linear Mixed Models
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -28,9 +28,12 @@ Requires:         R-CRAN-qgraph
 Analyzing longitudinal clinical data from Electronic Health Records (EHRs)
 using linear mixed models (LMM) and visualizing the results as networks.
 It includes functions for fitting LMM, normalizing adjacency matrices, and
-comparing networks. The package is designed for researchers in clinical
-and biomedical fields who need to model longitudinal data and explore
-relationships between variables For more details see Bates et al. (2015)
+comparing networks. It also allows the integration of omics data (e.g.
+gene expression or protein abundance) with longitudinal clinical
+variables, building networks of molecular feature-clinical relationships.
+The package is designed for researchers in clinical and biomedical fields
+who need to model longitudinal data and explore relationships between
+variables.  For more details see Bates et al. (2015)
 <doi:10.18637/jss.v067.i01>.
 
 %prep

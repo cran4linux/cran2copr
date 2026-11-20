@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  jose
-%global packver   2.0.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          JavaScript Object Signing and Encryption
 
@@ -17,14 +17,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-openssl >= 1.2.1
+BuildRequires:    R-CRAN-openssl >= 2.6.0
 BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-openssl >= 1.2.1
+Requires:         R-CRAN-openssl >= 2.6.0
 Requires:         R-CRAN-jsonlite 
 
 %description
 Read and write JSON Web Keys (JWK, rfc7517), generate and verify JSON Web
-Signatures (JWS, rfc7515) and encode/decode JSON Web Tokens (JWT, rfc7519)
+Signatures (JWS, rfc7515), encrypt and decrypt with JSON Web Encryption
+(JWE, rfc7516) and encode/decode JSON Web Tokens (JWT, rfc7519)
 <https://datatracker.ietf.org/wg/jose/documents/>. These standards provide
 modern signing and encryption formats that are natively supported by
 browsers via the JavaScript WebCryptoAPI

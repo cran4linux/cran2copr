@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Compind
-%global packver   3.7
+%global packver   3.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.7
+Version:          3.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Composite Indicators Functions
 
@@ -19,34 +19,16 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Benchmarking 
 BuildRequires:    R-CRAN-psych 
-BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-lpSolve 
-BuildRequires:    R-CRAN-spdep 
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-GPArotation 
 BuildRequires:    R-CRAN-nonparaeff 
-BuildRequires:    R-CRAN-smaa 
-BuildRequires:    R-CRAN-np 
-BuildRequires:    R-CRAN-FactoMineR 
-BuildRequires:    R-CRAN-GWmodel 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-Rcompadre 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
 Requires:         R-CRAN-Benchmarking 
 Requires:         R-CRAN-psych 
-Requires:         R-CRAN-boot 
 Requires:         R-CRAN-lpSolve 
-Requires:         R-CRAN-spdep 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-GPArotation 
 Requires:         R-CRAN-nonparaeff 
-Requires:         R-CRAN-smaa 
-Requires:         R-CRAN-np 
-Requires:         R-CRAN-FactoMineR 
-Requires:         R-CRAN-GWmodel 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-Rcompadre 
+Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
 A collection of functions to calculate Composite Indicators methods,

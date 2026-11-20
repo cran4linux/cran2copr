@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  openlineage
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create and Emit 'OpenLineage' Events
 
@@ -20,14 +20,14 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 3.0.0
 BuildRequires:    R-CRAN-R6 >= 2.5.0
 BuildRequires:    R-CRAN-jsonlite >= 1.8.0
+BuildRequires:    R-CRAN-httr2 >= 1.2.0
 BuildRequires:    R-CRAN-uuid >= 1.1.0
-BuildRequires:    R-CRAN-httr2 >= 1.0.0
 BuildRequires:    R-CRAN-S7 >= 0.2.0
 Requires:         R-CRAN-cli >= 3.0.0
 Requires:         R-CRAN-R6 >= 2.5.0
 Requires:         R-CRAN-jsonlite >= 1.8.0
+Requires:         R-CRAN-httr2 >= 1.2.0
 Requires:         R-CRAN-uuid >= 1.1.0
-Requires:         R-CRAN-httr2 >= 1.0.0
 Requires:         R-CRAN-S7 >= 0.2.0
 
 %description

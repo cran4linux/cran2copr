@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gpmapr
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Query the 'OpenGWAS' Genotype-Phenotype Map
 
@@ -31,13 +31,14 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-Client for the 'OpenGWAS' genotype-phenotype map ('GPMap') API
-<https://gpmap.opengwas.io>, which brings together colocalisation, rare
-variant and molecular QTL results across thousands of traits. Functions
-retrieve traits, genes, variants and genomic regions with their
-colocalising studies, associations, linkage disequilibrium and pleiotropy
-summaries, search the map by name or variant, and upload GWAS summary
-statistics for analysis against it.
+Client for the 'OpenGWAS' genotype-phenotype map ('GPMap') application
+programming interface (API) <https://gpmap.opengwas.io>, which brings
+together colocalization, rare variant and molecular quantitative trait
+locus (QTL) results across thousands of traits. Functions retrieve traits,
+genes, variants and genomic regions with their colocalizing studies,
+associations, linkage disequilibrium and pleiotropy summaries, search the
+map by name or variant, and upload genome-wide association study (GWAS)
+summary statistics for analysis against it.
 
 %prep
 %setup -q -c -n %{packname}
