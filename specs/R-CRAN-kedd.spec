@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  kedd
-%global packver   2.0.1
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Kernel Estimator and Bandwidth Selection for Density and Its Derivatives
 
@@ -35,10 +35,10 @@ Requires:         R-utils
 Kernel estimation of a univariate probability density and of its
 derivatives of any order r, with data-driven bandwidth selection. Provides
 the kernel estimator of the derivative of order r, the kernels, their
-derivatives and convolutions, and eight bandwidth selectors: the
-asymptotic MISE rule (AMISE), and unbiased (UCV), biased (BCV1, BCV2),
-complete (CCV), modified (MCV), trimmed (TCV), smoothed (SCV) and
-maximum-likelihood (MLCV) cross-validation. Supports ten named kernels
+derivatives and convolutions, and nine bandwidth selectors: the asymptotic
+MISE rule (AMISE), and unbiased (UCV), biased (BCV1, BCV2), complete
+(CCV), modified (MCV), trimmed (TCV), smoothed (SCV), partitioned (PCV)
+and maximum-likelihood (MLCV) cross-validation. Supports ten named kernels
 (Gaussian, Epanechnikov, uniform, triangular, biweight, triweight,
 tricube, cosine, Silverman, logistic) and the power family Pow(s,t),
 c(1-|x|^s)^t on [-1,1]. Results are S4 objects with 'ggplot2' graphics;

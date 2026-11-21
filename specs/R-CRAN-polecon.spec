@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  polecon
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantitative Methods for Political Economy
 
@@ -19,14 +19,12 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 
 %description
-Computes weighted rank-dependent concentration and inequality indices with
-explicit treatment of tied ranks. Implements the relative, generalized,
-modified, Wagstaff-normalized and Erreygers-normalized estimators
-described by O'Donnell et al. (2016) <doi:10.1177/1536867X1601600112>. A
-replicate-weight survey design can estimate sampling uncertainty while
-recomputing fractional ranks for every replicate. This is an independently
-restructured R implementation informed by the 'Stata' command distributed
-under the GPL-3 license.
+Provides quantitative methods for empirical research in political economy,
+with applications to food security, household economic vulnerability, and
+inequality. Computes weighted, rank-dependent concentration and inequality
+indices with explicit treatment of tied ranks. Supports variance
+estimation with survey replicate weights and recomputes fractional ranks
+for each replicate.
 
 %prep
 %setup -q -c -n %{packname}

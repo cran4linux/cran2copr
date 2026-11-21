@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  openairmaps
-%global packver   0.10.1
+%global packver   0.11.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.1
+Version:          0.11.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Maps of Air Pollution Data
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-openair >= 3.1.0
+BuildRequires:    R-CRAN-openair >= 3.2.0
 BuildRequires:    R-CRAN-leaflet >= 2.2.0
 BuildRequires:    R-CRAN-purrr >= 1.1.0
 BuildRequires:    R-CRAN-cli 
@@ -29,7 +29,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-openair >= 3.1.0
+Requires:         R-CRAN-openair >= 3.2.0
 Requires:         R-CRAN-leaflet >= 2.2.0
 Requires:         R-CRAN-purrr >= 1.1.0
 Requires:         R-CRAN-cli 

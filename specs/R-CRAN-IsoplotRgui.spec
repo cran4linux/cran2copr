@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  IsoplotRgui
-%global packver   7.1
+%global packver   7.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.1
+Version:          7.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Web Interface to 'IsoplotR'
 
@@ -17,9 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-IsoplotR >= 7.1
+BuildRequires:    R-CRAN-IsoplotR >= 7.2
 BuildRequires:    R-CRAN-shinylight >= 1.3
-Requires:         R-CRAN-IsoplotR >= 7.1
+Requires:         R-CRAN-IsoplotR >= 7.2
 Requires:         R-CRAN-shinylight >= 1.3
 
 %description

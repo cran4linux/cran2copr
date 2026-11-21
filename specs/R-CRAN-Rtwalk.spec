@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rtwalk
-%global packver   2.2.0
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          2.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          An MCMC Sampler Using the t-Walk Algorithm
 
@@ -41,9 +41,10 @@ tuning and is robust for a wide range of target distributions, including
 high-dimensional and multimodal problems. The sampler is implemented in
 C++ and validated against a pure R reference implementation of the
 published algorithm. The package supports reproducible parallel chains,
-continuation of runs, single transitions for hybrid samplers, and
-convergence diagnostics following Vehtari et al. (2021)
-<doi:10.1214/20-BA1221>.
+continuation of runs, single transitions for hybrid samplers, the
+penalised move of Medina-Aguayo & Christen (2022)
+<doi:10.1016/j.jspi.2022.04.008> for multimodal targets, and convergence
+diagnostics following Vehtari et al. (2021) <doi:10.1214/20-BA1221>.
 
 %prep
 %setup -q -c -n %{packname}

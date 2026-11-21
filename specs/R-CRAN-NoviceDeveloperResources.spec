@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  NoviceDeveloperResources
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Resources to Assist Novice Developers
 
@@ -19,8 +19,12 @@ Requires:         R-core >= 4.2.0
 BuildArch:        noarch
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-devtools 
+BuildRequires:    R-CRAN-installationDriver 
+BuildRequires:    R-CRAN-stringr 
 Requires:         R-utils 
 Requires:         R-CRAN-devtools 
+Requires:         R-CRAN-installationDriver 
+Requires:         R-CRAN-stringr 
 
 %description
 Assist novice developers when preparing a single package or a set of

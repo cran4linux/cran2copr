@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  munch
-%global packver   0.0.3
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Rich Inline Text for 'grid' Graphics and 'flextable'
 
@@ -17,26 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.4
 BuildRequires:    R-CRAN-officer >= 0.7.8
-BuildRequires:    R-CRAN-gdtools >= 0.5.3
-BuildRequires:    R-CRAN-flextable >= 0.10.4
+BuildRequires:    R-CRAN-gdtools >= 0.6.0
+BuildRequires:    R-CRAN-flextable >= 0.10.5
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-commonmark 
 BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-S7 
 BuildRequires:    R-grid 
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-systemfonts 
 BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-ggplot2 >= 4.0.4
 Requires:         R-CRAN-officer >= 0.7.8
-Requires:         R-CRAN-gdtools >= 0.5.3
-Requires:         R-CRAN-flextable >= 0.10.4
+Requires:         R-CRAN-gdtools >= 0.6.0
+Requires:         R-CRAN-flextable >= 0.10.5
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-commonmark 
 Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-S7 
 Requires:         R-grid 
-Requires:         R-methods 
 Requires:         R-CRAN-systemfonts 
 Requires:         R-CRAN-xml2 
 
@@ -46,7 +46,9 @@ graphics and 'ggplot2', from markdown or 'flextable' chunks. Provides
 grobs, theme elements, and geometry layers for styled text rendering. Only
 works with graphics devices that support 'systemfonts', such as those
 provided by 'ragg', 'svglite', or 'ggiraph'. The 'cairo_pdf' device is
-also supported when fonts are installed at the system level.
+also supported when fonts are installed at the system level, except on
+Windows, where it ignores the spacing between pairs of letters stored in
+the fonts.
 
 %prep
 %setup -q -c -n %{packname}

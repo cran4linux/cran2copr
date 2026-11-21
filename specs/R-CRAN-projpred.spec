@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  projpred
-%global packver   2.11.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.11.0
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Projection Predictive Feature Selection
 
@@ -14,20 +14,21 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
+BuildRequires:    R-CRAN-loo >= 2.10.1
+BuildRequires:    R-CRAN-lme4 >= 2.0.1
 BuildRequires:    R-CRAN-rstantools >= 2.0.0
-BuildRequires:    R-CRAN-loo >= 2.0.0
-BuildRequires:    R-CRAN-lme4 >= 1.1.28
+BuildRequires:    R-CRAN-posterior >= 1.7.0
+BuildRequires:    R-CRAN-gamm4 >= 0.3.0
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-gamm4 
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-ordinal 
@@ -35,18 +36,19 @@ BuildRequires:    R-CRAN-nnet
 BuildRequires:    R-CRAN-mclogit 
 BuildRequires:    R-CRAN-reformulas 
 BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-loo >= 2.10.1
+Requires:         R-CRAN-lme4 >= 2.0.1
 Requires:         R-CRAN-rstantools >= 2.0.0
-Requires:         R-CRAN-loo >= 2.0.0
-Requires:         R-CRAN-lme4 >= 1.1.28
+Requires:         R-CRAN-posterior >= 1.7.0
+Requires:         R-CRAN-gamm4 >= 0.3.0
 Requires:         R-methods 
 Requires:         R-utils 
+Requires:         R-parallel 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-gtools 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-gamm4 
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-ordinal 

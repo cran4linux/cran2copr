@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  imply
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficiently Apply Functions to Images
 
@@ -14,15 +14,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
+BuildRequires:    R-CRAN-S7 >= 1.0.0
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-S7 
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-RcppArray 
+Requires:         R-CRAN-S7 >= 1.0.0
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-S7 
-Requires:         R-methods 
 
 %description
 Infrastructure for handling generalised two and three dimensional images,

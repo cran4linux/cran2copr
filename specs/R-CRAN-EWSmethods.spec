@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EWSmethods
-%global packver   1.3.3
+%global packver   1.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.3
+Version:          1.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Forecasting Tipping Points at the Community Level
 
@@ -26,7 +26,6 @@ BuildRequires:    R-CRAN-forecast
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-infotheo 
 BuildRequires:    R-CRAN-mAr 
-BuildRequires:    R-CRAN-moments 
 BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-scales 
 Requires:         R-CRAN-rEDM >= 1.15.0
@@ -38,7 +37,6 @@ Requires:         R-CRAN-forecast
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-infotheo 
 Requires:         R-CRAN-mAr 
-Requires:         R-CRAN-moments 
 Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-scales 
 

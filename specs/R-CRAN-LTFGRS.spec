@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LTFGRS
-%global packver   1.0.1
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Implementation of Several Phenotype-Based Family Genetic Risk Scores
 
@@ -32,6 +32,7 @@ BuildRequires:    R-CRAN-tidyselect
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-xgboost 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-batchmeans 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-future.apply 
@@ -48,6 +49,7 @@ Requires:         R-CRAN-tidyselect
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-xgboost 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-ggplot2 
 
 %description
 Implementation of several phenotype-based family genetic risk scores with

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SSN2
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Modeling on Stream Networks
 
@@ -16,7 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-spmodel >= 0.7.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-spmodel >= 0.14.0
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-Matrix 
@@ -32,7 +33,7 @@ BuildRequires:    R-CRAN-foreach
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-itertools 
 BuildRequires:    R-CRAN-iterators 
-Requires:         R-CRAN-spmodel >= 0.7.0
+Requires:         R-CRAN-spmodel >= 0.14.0
 Requires:         R-stats 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-Matrix 
@@ -50,12 +51,16 @@ Requires:         R-CRAN-itertools
 Requires:         R-CRAN-iterators 
 
 %description
-Spatial statistical modeling and prediction for data on stream networks,
-including models based on in-stream distance (Ver Hoef, J.M. and Peterson,
-E.E., (2010) <DOI:10.1198/jasa.2009.ap08248>.) Models are created using
-moving average constructions. Spatial linear models, including explanatory
-variables, can be fit with (restricted) maximum likelihood.  Mapping and
-other graphical functions are included.
+Fit, summarize, and predict for spatial linear and generalized linear
+models on stream networks. Stream covariance models use moving average
+constructions based on in-stream distance. Parameters are estimated using
+likelihood methods. Additional modeling features include Euclidean
+covariance, anisotropy, non-spatial random effects, partition factors, and
+big data methods. Model-fit statistics are used to summarize, visualize,
+and compare models, and predictions at unobserved locations are readily
+obtainable. For additional details, see Ver Hoef and Peterson (2010)
+<DOI:10.1198/jasa.2009.ap08248> and Dumelle et al. (2024)
+<DOI:10.21105/joss.06389>.
 
 %prep
 %setup -q -c -n %{packname}

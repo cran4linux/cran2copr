@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ale
-%global packver   0.5.3
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interpretable Machine Learning and Statistical Inference with Accumulated Local Effects (ALE)
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-broom
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-furrr 
-BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-insight 
 BuildRequires:    R-methods 
@@ -40,7 +39,6 @@ Requires:         R-CRAN-broom
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-furrr 
-Requires:         R-CRAN-future 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-insight 
 Requires:         R-methods 

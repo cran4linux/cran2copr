@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eulerr
-%global packver   8.3.1
+%global packver   8.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          8.3.1
+Version:          8.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Area-Proportional Euler and Venn Diagrams
 
@@ -30,11 +30,12 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-Generate area-proportional Euler diagrams using numerical optimization. A
+Generate area-proportional Euler diagrams using numerical optimization. An
 Euler diagram is a generalization of a Venn diagram, relaxing the
 criterion that all interactions need to be represented. Diagrams may be
 fit with circles, ellipses, squares, and rectangles via a wide range of
-inputs and can be visualized in numerous ways.
+inputs and can be visualized in numerous ways. The fitting engine is
+described in Larsson and Lee (2026) <doi:10.48550/arXiv.2611.02198>.
 
 %prep
 %setup -q -c -n %{packname}

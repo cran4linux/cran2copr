@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  zuyaml
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parse and Emit 'YAML' 1.2
+Summary:          Parse and Emit YAML 1.2
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,14 +16,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildRequires:    R-CRAN-zufast 
 
 %description
-Converts between 'YAML' 1.2 (<https://yaml.org/spec/1.2.2/>) and ordinary
-R objects using a bundled copy of the 'cyaml' C11 parser and emitter
+Converts between YAML 1.2 (<https://yaml.org/spec/1.2.2/>) and ordinary R
+objects using a bundled copy of the 'cyaml' C11 parser and emitter
 (<https://github.com/andrewmd5/cyaml>), so there is no system dependency
-and no runtime dependency beyond R itself. Ambiguous 'YAML' features are
+and no runtime dependency beyond R itself. Ambiguous YAML features are
 handled strictly and predictably: duplicate keys are refused by default,
-the 'YAML' 1.2 core schema is followed so that yes and no resolve as
+the YAML 1.2 core schema is followed so that yes and no resolve as
 strings, and integers beyond double precision are preserved rather than
 silently rounded. A stream of documents and a sequence are different
 things, and the interface keeps them apart. Input size, nesting depth and

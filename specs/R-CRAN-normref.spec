@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  normref
-%global packver   0.1.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Continuous Norming
 
@@ -17,26 +17,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-gamlss 
 BuildRequires:    R-CRAN-gamlss.dist 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lpSolve 
 BuildRequires:    R-CRAN-openxlsx2 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-lpSolve 
+BuildRequires:    R-CRAN-doParallel 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-gamlss 
 Requires:         R-CRAN-gamlss.dist 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lpSolve 
 Requires:         R-CRAN-openxlsx2 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-Rdpack 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-withr 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-lpSolve 
+Requires:         R-CRAN-doParallel 
 
 %description
 A toolbox for continuous norming of psychological and educational tests,
@@ -46,9 +54,9 @@ Generalized Additive Models for Location, Scale, and Shape (GAMLSS),
 enabling flexible modelling of the full score distribution in a normative
 sample. The package supports applications in psychometrics and
 psychological testing, and includes functions for model selection,
-reliability estimation, norm calculation, including confidence intervals,
-and sample size planning. For more details, see Timmerman et al. (2021)
-<doi:10.1037/met0000348>.
+reliability estimation, and norm calculation, including confidence
+intervals, and normed score precision evaluation and visualization. For
+more details, see Timmerman et al. (2021) <doi:10.1037/met0000348>.
 
 %prep
 %setup -q -c -n %{packname}

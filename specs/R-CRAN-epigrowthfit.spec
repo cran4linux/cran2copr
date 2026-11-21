@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  epigrowthfit
-%global packver   0.15.4
+%global packver   0.16.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.15.4
+Version:          0.16.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonlinear Mixed Effects Models of Epidemic Growth
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.3
 Requires:         R-core >= 4.3
 BuildRequires:    R-CRAN-Matrix >= 1.6.2
-BuildRequires:    R-CRAN-RcppEigen >= 0.3.4.0.0
+BuildRequires:    R-CRAN-RcppEigen >= 0.3.4
 BuildRequires:    R-CRAN-TMB 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 

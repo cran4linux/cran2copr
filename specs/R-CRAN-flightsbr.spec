@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  flightsbr
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download Flight and Airport Data from Brazil
 
@@ -18,22 +18,24 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table >= 1.14.0
+BuildRequires:    R-CRAN-httr2 >= 1.1.1
 BuildRequires:    R-CRAN-archive 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-parzer 
-BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rvest 
 Requires:         R-CRAN-data.table >= 1.14.0
+Requires:         R-CRAN-httr2 >= 1.1.1
 Requires:         R-CRAN-archive 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-fs 
-Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-parzer 
-Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rvest 
 
 %description

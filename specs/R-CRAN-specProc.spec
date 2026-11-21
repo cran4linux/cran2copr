@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  specProc
-%global packver   0.8.3
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.3
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Preprocessing Tools for Laser-Induced Breakdown Spectroscopy
+Summary:          Analysis of Laser-Induced Breakdown Spectroscopy Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,8 +16,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
+BuildRequires:    R-CRAN-scales >= 1.3.0
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-MASS 
@@ -30,8 +33,11 @@ BuildRequires:    R-CRAN-robustbase
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-ggplot2 >= 3.5.0
+Requires:         R-CRAN-scales >= 1.3.0
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-generics 
+Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-MASS 
@@ -52,20 +58,30 @@ coupled plasma optical emission spectroscopy. Covers the workflow from raw
 spectra to calibrated results: peak finding and fitting, wavelength
 calibration, baseline correction, normalization and scaling, orthogonal
 signal correction including orthogonal partial least squares (OPLS; Trygg
-and Wold (2002) <doi:10.1002/cem.695>), calibration transfer, calibration
-curves and figures of merit, and plasma diagnostics (Boltzmann and
-Saha-Boltzmann plots, Stark broadening). Includes robust tools for outlier
-detection and exploration: robust principal component analysis (Hubert,
-Rousseeuw and Vanden Branden (2005) <doi:10.1198/004017004000000563>),
-detection of deviating cells (Rousseeuw and Van den Bossche (2018)
+and Wold (2002) <doi:10.1002/cem.695>), wavelength selection (variable
+importance in projection, selectivity ratio, interval partial least
+squares), calibration transfer, calibration curves and figures of merit,
+and plasma diagnostics (Boltzmann and Saha-Boltzmann plots, Stark
+broadening). Includes robust tools for outlier detection and exploration:
+robust principal component analysis (Hubert, Rousseeuw and Vanden Branden
+(2005) <doi:10.1198/004017004000000563>), robust partial least squares
+regression (Hubert and Vanden Branden (2003) <doi:10.1002/cem.822>) and
+principal component regression (Hubert and Verboven (2003)
+<doi:10.1002/cem.783>) with their robust cross-validation (Engelen and
+Hubert (2005) <doi:10.1016/j.aca.2005.01.015>), robust classification by
+SIMCA (Vanden Branden and Hubert (2005)
+<doi:10.1016/j.chemolab.2005.03.002>) and discriminant analysis (Hubert
+and Van Driessen (2004) <doi:10.1016/S0167-9473(02)00299-2>), detection of
+deviating cells (Rousseeuw and Van den Bossche (2018)
 <doi:10.1080/00401706.2017.1340909>), PCA with cellwise outliers and
 missing values (MacroPCA; Hubert, Rousseeuw and Van den Bossche (2019)
 <doi:10.1080/00401706.2018.1562989>), robust transformations to central
 normality (Raymaekers and Rousseeuw (2021)
 <doi:10.1007/s10994-021-05960-5>), and self-organizing maps (Kohonen
 (1982) <doi:10.1007/BF00337288>). Preprocessing steps are also available
-as 'recipes' steps for 'tidymodels' workflows. Computationally intensive
-steps are implemented in 'C++' via 'Rcpp' and 'RcppEigen'.
+as 'recipes' steps, and the robust models as 'parsnip' models and engines,
+for 'tidymodels' workflows. Computationally intensive steps are
+implemented in 'C++' via 'Rcpp' and 'RcppEigen'.
 
 %prep
 %setup -q -c -n %{packname}

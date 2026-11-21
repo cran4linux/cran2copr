@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CompositionalLASSO
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          LASSO Compositional Data Regression
 
@@ -28,10 +28,12 @@ Requires:         R-stats
 
 %description
 LASSO (Least Absolute Shrinkage and Selection Operator) regression for
-compositional responses with and without zero values present and
-continuous predictors. The choice of the penalty parameter, lambda, takes
-place using K-fold cross-validation. Two relevant papers are Li Z. et al.
-(2018) <doi:10.1007/s12561-018-9219-2> and Alenazi A.A. (2022)
+compositional responses and Euclidean predictors, or Euclidean responses
+and compositional predictors with and without zero values present. The
+choice of the penalty parameter, lambda, takes place using K-fold
+cross-validation. If the compositional data appear on the predictors side
+the alpha-transformation is employed first. Two relevant papers are Li Z.
+et al. (2018) <doi:10.1007/s12561-018-9219-2> and Alenazi A.A. (2022)
 <doi:10.18187/pjsor.v18i4.3969>.
 
 %prep
