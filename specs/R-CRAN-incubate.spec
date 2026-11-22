@@ -1,56 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  OPSR
-%global packver   1.0.1
+%global packname  incubate
+%global packver   1.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.4.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ordered Probit Switching Regression
+Summary:          Parametric Time-to-Event Analysis with Variable Incubation Phases
 
-License:          GPL (>= 3)
+License:          LGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rdpack >= 0.7
-BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-future.apply >= 1.6
+BuildRequires:    R-CRAN-glue >= 1.4
+BuildRequires:    R-CRAN-future >= 1.21
+BuildRequires:    R-CRAN-rlang >= 1.1.3
+BuildRequires:    R-CRAN-purrr >= 1.0.3
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-maxLik 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-CRAN-minqa 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-texreg 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rdpack >= 0.7
-Requires:         R-CRAN-car 
-Requires:         R-CRAN-Formula 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-cpp11 
+Requires:         R-CRAN-future.apply >= 1.6
+Requires:         R-CRAN-glue >= 1.4
+Requires:         R-CRAN-future >= 1.21
+Requires:         R-CRAN-rlang >= 1.1.3
+Requires:         R-CRAN-purrr >= 1.0.3
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-maxLik 
-Requires:         R-methods 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-sandwich 
+Requires:         R-CRAN-minqa 
 Requires:         R-stats 
-Requires:         R-CRAN-texreg 
-Requires:         R-utils 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-tibble 
 
 %description
-Estimates ordered probit switching regression models - a Heckman type
-selection model with an ordinal selection and continuous outcomes.
-Different model specifications are allowed for each treatment/regime. For
-more details on the method, see Wang & Mokhtarian (2024)
-<doi:10.1016/j.tra.2024.104072> or Chiburis & Lokshin (2007)
-<doi:10.1177/1536867X0700700202>.
+Fit parametric models for time-to-event data that show an initial
+'incubation period', i.e. a variable delay phase where no events occur.
+The delayed Weibull distribution serves as the foundational data model.
+For parameter estimation, different flavours of maximum likelihood
+estimation ('MLE') and the method of maximum product of spacings
+estimation ('MPSE') are implemented.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggmlR
-%global packver   0.8.8.1
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.8.1
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'GGML' Tensor Operations for Machine Learning
 
@@ -36,7 +36,7 @@ The package features a 'Keras'-like sequential API and a 'PyTorch'-style
 'autograd' engine for building, training, and deploying neural networks.
 Key capabilities include high-performance 5D tensor operations, 'f16'
 precision, and efficient quantization. It supports native 'ONNX' model
-import (50+ operators) and 'GGUF' weight loading from the 'llama.cpp' and
+import (90+ operators) and 'GGUF' weight loading from the 'llama.cpp' and
 'Hugging Face' ecosystems. Designed for zero-overhead inference via
 dedicated weight buffering, it integrates seamlessly as a 'parsnip' engine
 for 'tidymodels' and provides first-class learners for the 'mlr3'

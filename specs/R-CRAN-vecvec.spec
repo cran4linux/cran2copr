@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vecvec
-%global packver   1.4.0
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Construct Mixed Type Data Structures with Vectors of Vectors
 
@@ -16,14 +16,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildRequires:    R-CRAN-S7 >= 0.2.2
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-S7 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-S7 >= 0.2.2
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-S7 
 Requires:         R-stats 
 Requires:         R-CRAN-vctrs 
 

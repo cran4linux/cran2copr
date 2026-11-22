@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SPCompute
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compute Power or Sample Size for GWAS with Covariate Effect
 
@@ -28,7 +28,7 @@ GWAS studies with different types of covariate effects and different types
 of covariate-gene dependency structure. For the detailed description of
 the methodology, see Zhang (2022) "Power and Sample Size Computation for
 Genetic Association Studies of Binary Traits: Accounting for Covariate
-Effects" <arXiv:2203.15641>.
+Effects" <doi:10.48550/arXiv.2203.15641>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BBMBC
-%global packver   1.0.1
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Beta-Binomial Models for Immune Cell Frequencies and Power Calculations
+Summary:          Beta-Binomial Models for Evaluating Overdispersed B-Cell Phenotyping Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -31,17 +31,22 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-Provides tools to model overdispersed immune cell frequencies using
-Beta-Binomial generalized linear models. Originally designed for memory B
-cells, the framework generalizes to evaluate rare cellular immune
-responses across vaccinology, immuno-oncology, and related fields.
+Provides tools for statistical power calculations to plan early-phase
+vaccine and immunotherapy trials comparing rare, antigen-specific immune
+cell frequencies. Originally designed for memory B-cell phenotyping
+studies and generalizable to high-parameter flow cytometry assays across
+vaccinology and immuno-oncology, the models overdispersed count
+distributions using Beta-Binomial generalized linear models. Unlike
+rank-based tests, this approach retains response magnitude information
+while accounting for extra-binomial variation, small sample sizes, unequal
+between-participant variability, and uncertainty in pilot estimates.
 Includes method-of-moments dispersion estimation, likelihood ratio testing
-across experimental arms, and Monte Carlo simulation to calculate
-statistical power and Type I error rates. The methodologies are directly
-motivated by the analysis of immunology data in "Vaccination with
-mRNA-encoded membrane-anchored HIV envelope trimers elicited tier 2
-neutralizing antibodies in a phase 1 clinical trial" (Parks et al. 2025)
-<doi:10.1126/scitranslmed.ady6831>.
+across experimental arms, and Monte Carlo simulation to evaluate
+statistical power with well-controlled empirical Type I error rates. This
+workflow is directly motivated by the analysis of immunology data in
+"Vaccination with mRNA-encoded membrane-anchored HIV envelope trimers
+elicited tier 2 neutralizing antibodies in a phase 1 clinical trial"
+(Parks et al. 2025) <doi:10.1126/scitranslmed.ady6831>.
 
 %prep
 %setup -q -c -n %{packname}

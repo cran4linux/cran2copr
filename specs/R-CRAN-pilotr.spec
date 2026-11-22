@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pilotr
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulate Experimental and Behavioural Data from a Portable Design Specification
 
@@ -31,15 +31,16 @@ with the 'Python' package of the same name. Supports user-specified fixed
 effect sizes, crossed by-subject and by-item random intercepts and slopes,
 predictors measured with error, realistic response families (Gaussian,
 lognormal, shifted lognormal, ex-Gaussian, Bernoulli, Poisson, ordinal and
-Beta), and simulation-based power and precision-based design analysis,
+Beta) and simulation-based power and precision-based design analysis,
 including the Type S and Type M errors of Gelman and Carlin (2014)
 <doi:10.1177/1745691614551642> and a region of practical equivalence. A
 shared cross-language random-number generator means that, given the same
 specification and seed, the R and 'Python' implementations produce
-identical data: exactly for the Gaussian family and for any family with
-rounding set, and to within the last unit in the last place for families
-applying a transcendental function to the linear predictor, whose rounding
-the IEEE-754 standard does not fix.
+identical data wherever they share a maths library, as on Linux, except in
+a rare Beta case under R 4.6.0 or later that the cross-language vignette
+describes. Elsewhere, a value that passes through exp(), log() or pow(),
+whose rounding the IEEE-754 standard does not fix, can differ in its last
+bits.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lexsync
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lexical Optimisation and Hardware-Timed Experiment Generation
 
@@ -14,40 +14,41 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-readr >= 2.0.0
+BuildRequires:    R-CRAN-jsonlite >= 1.8.7
 BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-stringdist 
 BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-stats 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-readr 
+Requires:         R-CRAN-readr >= 2.0.0
+Requires:         R-CRAN-jsonlite >= 1.8.7
 Requires:         R-CRAN-yaml 
 Requires:         R-CRAN-stringdist 
 Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-digest 
 Requires:         R-stats 
 Requires:         R-tools 
 Requires:         R-utils 
 
 %description
-A cross-platform toolkit that unifies many-language lexical-corpus access,
-parallel multidimensional stimulus matching, deterministic pseudoword
-generation, counterbalancing and the automated generation of experiments
-from a declarative trial-event model, for 'PsychoPy', 'OpenSesame' and the
-browser ('jsPsych'). The laboratory targets bind electroencephalography
-onset triggers to the stimulus flip. It is the R member of a dual-language
-pair; a structurally identical 'Python' package is also provided. Several
-paradigms (factorial word contrasts, lexical decision, priming, self-paced
-reading and cued categorisation) are supported, and each design is
-accompanied by a machine- and human-readable materials datasheet for
-reproducibility.
+A cross-platform toolkit for lexical-corpus access (bundled English,
+Spanish and Mandarin lexica and a registry of citable corpora), the
+matching of stimuli on several dimensions at once, deterministic
+pseudoword generation, counterbalancing and the automated generation of
+experiments from a declarative trial-event model, for 'PsychoPy',
+'OpenSesame' and the browser ('jsPsych'). The laboratory targets send
+electroencephalography onset triggers on the screen refresh that shows the
+stimulus. Several paradigms are supported (factorial word contrasts,
+lexical decision, priming, self-paced reading and cued categorisation),
+and each design is accompanied by a materials datasheet, readable by
+machines and people, for reproducibility. A 'Python' package of the same
+name has the same structure and functions.
 
 %prep
 %setup -q -c -n %{packname}

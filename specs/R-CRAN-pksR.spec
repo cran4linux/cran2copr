@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CIMEHR
-%global packver   0.2.0
+%global packname  pksR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Longitudinal EHR Analysis with Informative Visits and Recording
+Summary:          District-Level German Police Crime Statistics
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,35 +16,40 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-splines 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-nlme 
-Requires:         R-parallel 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-splines 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-methods 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
+Requires:         R-CRAN-tibble 
 Requires:         R-tools 
 Requires:         R-utils 
 
 %description
-Longitudinal outcomes in electronic health records (EHR) are seen only
-when a patient visits and the outcome is recorded at that visit, and both
-processes can depend on the patient's latent health. The package fits the
-CIMEHR estimator for this setting, a three-stage procedure linked by a
-shared latent factor: a frailty partial likelihood for the visiting
-process, a pairwise likelihood for the recording (observation) process,
-and an estimating equation for the outcome. Spline and higher-order
-Laplace variants are included, together with comparison methods (summary
-statistics, linear mixed models, Lin-Ying, Liang, pairwise likelihood,
-joint models, inverse intensity rate ratio weighting and balancing,
-multiple imputation, linear increments and EHRJoint) behind one common
-interface. Methods are described in Yang, Shi, and Mukherjee (2026)
-<doi:10.48550/arXiv.2602.15374>.
+Access to the district (Kreis) tables of the German Police Crime
+Statistics ('Polizeiliche Kriminalstatistik', PKS) published by the
+Bundeskriminalamt, from 2003 onwards. Data come from versioned, validated
+releases of the 'pksR-data' pipeline, either as published or harmonized to
+a common territorial boundary and offence classification. Downloads are
+cached and checked against SHA-256 checksums; rates can be recomputed
+after harmonization, panels validated, and data releases cited.
 
 %prep
 %setup -q -c -n %{packname}

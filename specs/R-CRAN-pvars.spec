@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pvars
-%global packver   1.1.1
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          VAR Modeling for Heterogeneous Panels
 
@@ -48,17 +48,18 @@ Requires:         R-CRAN-vars
 
 %description
 Implements (1) panel cointegration rank tests, (2) estimators for panel
-vector autoregressive (VAR) models, and (3) identification methods for
-panel structural vector autoregressive (SVAR) models as described in the
-accompanying vignette. The implemented functions allow to account for
-cross-sectional dependence and for structural breaks in the deterministic
-terms of the VAR processes. Among the large set of functions, particularly
-noteworthy are those that implement (1) the correlation-augmented inverse
-normal test on the cointegration rank by Arsova and Oersal (2021,
-<doi:10.1016/j.ecosta.2020.05.002>), (2) the two-step estimator for pooled
-cointegrating vectors by Breitung (2005, <doi:10.1081/ETC-200067895>), and
-(3) the pooled identification based on independent component analysis by
-Herwartz and Wang (2024, <doi:10.1002/jae.3044>).
+vector autoregressive (panel VAR) models, and (3) identification methods
+for panel structural vector autoregressive (panel SVAR) models as
+described in the accompanying vignette. The implemented functions allow
+users to account for cross-sectional dependence and for structural breaks
+in the deterministic terms of the VAR processes. Among the large set of
+functions, particularly noteworthy are those that implement (1) the
+correlation-augmented inverse normal test on the cointegration rank by
+Arsova and Oersal (2021, <doi:10.1016/j.ecosta.2020.05.002>), (2) the
+two-step estimator for pooled cointegrating vectors by Breitung (2005,
+<doi:10.1081/ETC-200067895>), and (3) the pooled identification based on
+independent component analysis by Herwartz and Wang (2024,
+<doi:10.1002/jae.3044>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,46 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rSDR
-%global packver   1.0.3.0
+%global packname  RMTIF
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Robust Sufficient Dimension Reduction
+Summary:          Restricted Mean Time in Favor of Treatment
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ManifoldOptim 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-rstiefel 
-BuildRequires:    R-CRAN-scatterplot3d 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-future.apply 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggsci 
-Requires:         R-CRAN-ManifoldOptim 
-Requires:         R-methods 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-rstiefel 
-Requires:         R-CRAN-scatterplot3d 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-future.apply 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggsci 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-parallel 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-parallel 
 
 %description
-A novel sufficient-dimension reduction method is robust against outliers
-using alpha-distance covariance and manifold-learning in dimensionality
-reduction problems. Please refer Hsin-Hsiung Huang, Feng Yu & Teng Zhang
-(2024) <doi:10.1080/10485252.2024.2313137> for the details.
+Estimates restricted mean time in favor of treatment from ordered
+multistate trajectories, with lower states denoting better outcomes.
+Provides complete-path pairwise estimation, projection standard errors,
+normal confidence intervals and tests, terminal-aware inverse probability
+of censoring weighting, stratified bootstrap inference, and pairwise
+regression with sandwich or refitted-bootstrap inference. Includes
+parameterized simulation and Monte Carlo summary tools for reversible
+processes, continuous-time Markov paths, constant-utility regression, and
+comparisons of longitudinal oncology endpoints. The restricted-time
+estimand follows Mao (2023) <doi:10.1111/biom.13570>; pairwise regression
+is motivated by the proportional win-fractions framework of Mao and Wang
+(2021) <doi:10.1111/biom.13382>.
 
 %prep
 %setup -q -c -n %{packname}

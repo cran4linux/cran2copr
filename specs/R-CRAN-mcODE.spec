@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mcODE
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Monte Carlo Solution of First Order Differential Equations
 
@@ -19,9 +19,11 @@ Requires:         R-core
 BuildArch:        noarch
 
 %description
-Two functions for simulating the solution of initial value problems of the
+Functions for simulating the solution of initial value problems of the
 form g'(x) = G(x, g) with g(x0) = g0.  One is an acceptance-rejection
-method. The other is a method based on the Mean Value Theorem.
+method. The others are based on the Mean Value Theorem, with options for
+antithetic variates, replicated solutions and confidence intervals, and
+systems of equations.
 
 %prep
 %setup -q -c -n %{packname}

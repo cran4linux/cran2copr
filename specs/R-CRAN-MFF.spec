@@ -1,60 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MFF
-%global packver   0.2.5
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Meta Fuzzy Functions
+Summary:          Meta Fuzzy Functions for Aggregating Prediction Pools
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-randomForest 
-BuildRequires:    R-CRAN-xgboost 
-BuildRequires:    R-CRAN-lightgbm 
 BuildRequires:    R-CRAN-e1071 
-BuildRequires:    R-CRAN-ppclust 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-parallel 
-Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-randomForest 
-Requires:         R-CRAN-xgboost 
-Requires:         R-CRAN-lightgbm 
 Requires:         R-CRAN-e1071 
-Requires:         R-CRAN-ppclust 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
 Requires:         R-parallel 
 
 %description
-Implements Meta Fuzzy Functions (MFFs) for regression Tak and Ucan (2026)
-<doi:10.1016/j.asoc.2026.114592> by aggregating predictions from multiple
-base learners using membership weights learned in the prediction space of
-validation set. The package supports fuzzy and crisp meta-ensemble
-structures via Fuzzy C-Means (FCM) Tak (2018)
-<doi:10.1016/j.asoc.2018.08.009>, Possibilistic FCM (PFCM) Tak (2021)
-<doi:10.1016/j.ins.2021.01.024>, Gustafson–Kessel (GK) clustering, and
-k-means, and provides a workflow to (i) generate validation/test
-prediction matrices from common regression learners (linear and penalized
-regression via 'glmnet', random forests, gradient boosting with 'xgboost'
-and 'lightgbm'), (ii) fit cluster-wise meta fuzzy functions and compute
-membership-based weights, (iii) tune clustering-related hyperparameters
-(number of clusters/functions, fuzziness exponent, possibilistic
-regularization) via grid search on validation loss, and (iv) predict on
-new/test prediction matrices and evaluate performance using standard
-regression metrics (MAE, RMSE, MAPE, SMAPE, MSE, MedAE). This enables
-flexible, interpretable ensemble regression where different base models
-contribute to different meta components according to learned memberships.
+Aggregates numeric candidate predictions using Meta Fuzzy Functions and
+membership-derived weights learned on validation predictions, following
+Tak (2018) <doi:10.1016/j.asoc.2018.08.009> and Tak (2021)
+<doi:10.1016/j.ins.2021.01.024>. Provides a common prediction-pool
+interface, fixed and tuned fits, explicit validation-based selection, and
+standard methods for inspecting weights, predicting and plotting results.
+Candidate pools may contain different regression learners, bootstrap fits,
+alternative hyperparameter configurations, or externally generated
+regression and time-aligned forecasting predictions. Resampling results of
+'caret' and 'tidymodels' can be converted into pools, and forecasting
+pools are built by rolling-origin evaluation or from 'fable' forecasts.
+Supports fuzzy c-means, possibilistic fuzzy c-means following Pal et al.
+(2005) <doi:10.1109/TFUZZ.2004.840099>, Gustafson-Kessel clustering with
+the improved covariance estimation of Babuska et al. (2002)
+<doi:10.1109/FUZZ.2002.1006654> and k-means clustering. Optional helpers
+train built-in or user-defined regression learners on explicit data
+splits, cross-validation folds or bootstrap samples.
 
 %prep
 %setup -q -c -n %{packname}

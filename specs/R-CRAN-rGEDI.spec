@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rGEDI
-%global packver   0.6.0
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          NASA's Global Ecosystem Dynamics Investigation (GEDI) Data Visualization and Processing
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-hdf5r 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lazyeval 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-sf 
@@ -42,6 +43,7 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-hdf5r 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lazyeval 
+Requires:         R-parallel 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-sf 
@@ -60,7 +62,9 @@ create gridded summaries; and visualize orbital tracks and measurements.
 The package also simulates GEDI-like waveforms from airborne
 laser-scanning point clouds and supports spatial sampling, predictive
 modelling, ancillary-data extraction, and wall-to-wall upscaling with
-optional Google Earth Engine workflows.
+optional Google Earth Engine workflows. An optional Python interface
+queries analysis-ready footprint data from the public 'gediDB' 'TileDB'
+service.
 
 %prep
 %setup -q -c -n %{packname}

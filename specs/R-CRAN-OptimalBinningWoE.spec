@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  OptimalBinningWoE
-%global packver   1.14.0
+%global packver   1.14.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.14.0
+Version:          1.14.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimal Binning and Weight of Evidence Framework for Modeling
 
@@ -34,13 +34,15 @@ Requires:         R-utils
 Requires:         R-graphics 
 
 %description
-High-performance implementation of 37 optimal binning algorithms (16
-categorical, 21 numerical) for Weight of Evidence ('WoE') transformation,
-credit scoring, and risk modeling. Includes advanced methods such as Mixed
-Integer Linear Programming ('MILP'), Genetic Algorithms, Simulated
-Annealing, and Monotonic Regression. Features automatic method selection
-based on Information Value ('IV') maximization, strict monotonicity
-enforcement, and efficient handling of large datasets via 'Rcpp'. Provides
+High-performance implementation of 28 binning algorithms (37
+implementations: 21 numerical, 16 categorical) for Weight of Evidence
+('WoE') transformation, credit scoring, and risk modeling. Methods include
+dynamic programming over ordered levels, entropy-based ('MDLP') and
+chi-square ('ChiMerge') partitioning, isotonic regression, simulated
+annealing, kernel-density binning, sketch-based binning (KLL and
+Count-Min), and greedy merging heuristics. Features a default algorithm
+chosen from the target type, monotonicity enforcement where the algorithm
+supports it, and efficient handling of large datasets via 'Rcpp'. Provides
 automated variable screening by Information Value strength and bin
 ordering, and generation of the equivalent 'SQL' 'CASE' expressions for
 in-database scoring. Fully integrated with the 'tidymodels' ecosystem for

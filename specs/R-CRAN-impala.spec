@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  impala
-%global packver   0.1.4
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Model Calibration
 
@@ -18,13 +18,19 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-einsum 
+BuildRequires:    R-methods 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-cli 
-Requires:         R-methods 
-Requires:         R-CRAN-progress 
 Requires:         R-CRAN-einsum 
+Requires:         R-methods 
+Requires:         R-parallel 
+Requires:         R-CRAN-progress 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Package provides tools for modular Bayesian model calibration. these tools

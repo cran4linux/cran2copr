@@ -1,39 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  KernelICA
-%global packver   2.0.0
+%global packname  misskappa
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Kernel Independent Component Analysis
+Summary:          Agreement Coefficients with Missing Ratings
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-ManifoldOptim 
-BuildRequires:    R-CRAN-JADE 
-BuildRequires:    R-CRAN-ICtest 
-BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-methods 
-Requires:         R-CRAN-ManifoldOptim 
-Requires:         R-CRAN-JADE 
-Requires:         R-CRAN-ICtest 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-The kernel independent component analysis (kernel ICA) method introduced
-by Bach and Jordan (2002) <doi:10.1162/153244303768966085>. A separate
-function for the incomplete Cholesky decomposition used in kernel ICA is
-also provided.
+Estimates chance-corrected agreement coefficients (Cohen's, Conger's, and
+Fleiss' kappa and the Brennan-Prediger coefficient; Conger (1980)
+<doi:10.1037/0033-2909.88.2.322>) for any number of raters, with nominal,
+linear, or quadratic weights, when some ratings are missing. Missing
+ratings are handled by inverse-probability weighting (Horvitz and Thompson
+(1952) <doi:10.1080/01621459.1952.10483446>) when they are missing
+completely at random, and by categorical or robust normal-theory
+full-information maximum likelihood when they are missing at random
+(Little and Rubin (2019) <doi:10.1002/9781119482260>). Every estimate
+comes with an influence-function standard error, giving confidence
+intervals and Wald tests that compare coefficients across groups, raters,
+or estimators. Also handles counts-format data, multirater g-wise
+agreement (Moss (2024) <doi:10.1007/s11336-023-09945-2>), and
+vector-valued ratings.
 
 %prep
 %setup -q -c -n %{packname}

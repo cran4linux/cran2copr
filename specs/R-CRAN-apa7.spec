@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  apa7
-%global packver   0.1.3
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Facilitate Writing Documents in American Psychological Association Style, Seventh Edition
+Summary:          Writing Documents in American Psychological Association Style, Seventh Edition
 
 License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,11 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-effectsize 
 BuildRequires:    R-CRAN-flextable 
 BuildRequires:    R-CRAN-ftExtra 
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-parameters 
 BuildRequires:    R-CRAN-performance 
 BuildRequires:    R-CRAN-psych 
@@ -31,15 +33,19 @@ BuildRequires:    R-CRAN-S7
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-signs 
+BuildRequires:    R-CRAN-snakecase 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-systemfonts 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-xfun 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-effectsize 
 Requires:         R-CRAN-flextable 
 Requires:         R-CRAN-ftExtra 
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-parameters 
 Requires:         R-CRAN-performance 
 Requires:         R-CRAN-psych 
@@ -49,15 +55,17 @@ Requires:         R-CRAN-S7
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-signs 
+Requires:         R-CRAN-snakecase 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-systemfonts 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-xfun 
+Requires:         R-CRAN-tidyselect 
 
 %description
 Create American Psychological Association Style, Seventh Edition
 documents. Format numbers and text consistent with APA style. Create
-tables that comply with APA style by extending flextable functions.
+tables that comply with APA style by extending 'flextable' functions.
 
 %prep
 %setup -q -c -n %{packname}

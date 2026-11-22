@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  theoryforge
-%global packver   0.6.0
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Systematic Theory Development
 
@@ -17,26 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-yaml >= 2.3.8
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-stats 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-yaml >= 2.3.8
 Requires:         R-CRAN-jsonlite 
 Requires:         R-stats 
 Requires:         R-tools 
 Requires:         R-utils 
-Requires:         R-CRAN-yaml 
 
 %description
-Provides a rigorous, reproducible workflow for building, developing and
-testing scientific theories represented as versioned, machine-checkable
-objects. Functions read and validate theory objects, score them against a
-versioned rigour checklist, screen constructs for lexical redundancy, and
-emit byte-identical diagram intermediate representations. The package is
-the feature-parity twin of a 'Python' package of the same name, with
-behaviour pinned by a shared specification so the two implementations
-produce identical verdicts.
+Provides a reproducible workflow for building, developing and testing
+scientific theories represented as versioned, machine-checkable objects.
+Functions read and validate theory objects, score them against a versioned
+rigour checklist, screen constructs for redundancy, derive the conditional
+independencies a causal theory implies, appraise amendments as
+progressive, degenerating or neutral, write preregistration and audit
+documents, compile 'lavaan' model syntax, simulate the construct network,
+map a theory onto the themes of a literature corpus and write diagram
+intermediate representations. A 'Python' package of the same name offers
+the same functions. Both follow one specification, so they produce the
+same verdicts and the same diagram intermediate representations.
 
 %prep
 %setup -q -c -n %{packname}

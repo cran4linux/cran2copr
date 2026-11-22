@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rxref
-%global packver   0.4.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tidy Utilities for RxNorm and NDC Resolution
+Summary:          Tidy Utilities for 'RxNorm' and NDC Resolution
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-httr2 >= 1.0.0
+BuildRequires:    R-CRAN-purrr >= 1.0.0
 BuildRequires:    R-CRAN-cachem 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-digest 
@@ -25,13 +26,13 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-memoise 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-vctrs 
 Requires:         R-CRAN-httr2 >= 1.0.0
+Requires:         R-CRAN-purrr >= 1.0.0
 Requires:         R-CRAN-cachem 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-digest 
@@ -39,7 +40,6 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-memoise 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
@@ -48,11 +48,12 @@ Requires:         R-CRAN-vctrs
 
 %description
 Provides a tidy, vectorized interface to the 'RxNorm' / 'RxNav' API for
-resolving drug names, RxCUIs, National Drug Codes (NDCs), and related drug
-concept metadata. The package supports workflows for mapping between drug
-names, RxCUIs, NDCs, ingredients, products, drug classes, and related
-concepts using data from the National Library of Medicine's 'RxNav'
-services <https://lhncbc.nlm.nih.gov/RxNav/APIs/> and 'RxNorm'
+resolving drug names, 'RxNorm' Concept Unique Identifiers (RxCUIs),
+National Drug Codes (NDCs), and related drug concept metadata. The package
+supports workflows for mapping between drug names, RxCUIs, NDCs,
+ingredients, products, drug classes, and related concepts using data from
+the U.S. National Library of Medicine's 'RxNav' services
+<https://lhncbc.nlm.nih.gov/RxNav/APIs/> and 'RxNorm'
 <https://www.nlm.nih.gov/research/umls/rxnorm/>.
 
 %prep

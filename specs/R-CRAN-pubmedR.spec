@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pubmedR
-%global packver   1.0.2
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Gathering Metadata About Publications, Grants, Clinical Trials from 'PubMed' Database
 
@@ -17,8 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-rentrez 
 BuildRequires:    R-CRAN-XML 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-rentrez 
 Requires:         R-CRAN-XML 
 
@@ -28,8 +30,8 @@ using 'NCBI' REST API <https://www.ncbi.nlm.nih.gov/home/develop/api/>. It
 includes functions to search, download, and convert 'PubMed' bibliographic
 records into data frames compatible with the 'bibliometrix' package.
 Features include programmatic query building, batch downloading by PMID,
-citation enrichment via 'NCBI' E-Link, and robust error handling with
-automatic retry logic.
+citation enrichment via 'NCBI' E-Link and 'NIH iCite', and robust error
+handling with automatic retry logic.
 
 %prep
 %setup -q -c -n %{packname}

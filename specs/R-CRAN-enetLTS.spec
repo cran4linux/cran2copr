@@ -1,48 +1,47 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  enetLTS
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Robust and Sparse Methods for High Dimensional Linear and Binary and Multinomial Regression
+Summary:          Robust and Sparse Methods for High Dimensional Linear, Binary and Multinomial Regression
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-reshape 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-cvTools 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-robustbase 
 BuildRequires:    R-CRAN-robustHD 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-glmnet 
-Requires:         R-grid 
-Requires:         R-CRAN-reshape 
 Requires:         R-parallel 
-Requires:         R-CRAN-cvTools 
 Requires:         R-stats 
 Requires:         R-CRAN-robustbase 
 Requires:         R-CRAN-robustHD 
+Requires:         R-grDevices 
 
 %description
-Fully robust versions of the elastic net estimator are introduced for
-linear and binary and multinomial regression, in particular high
-dimensional data. The algorithm searches for outlier free subsets on which
-the classical elastic net estimators can be applied. A reweighting step is
-added to improve the statistical efficiency of the proposed estimators.
-Selecting appropriate tuning parameters for elastic net penalties are done
-via cross-validation.
+Fully robust versions of the elastic net estimator for linear, binary and
+multinomial regression, in particular for high dimensional data. The
+algorithm searches for outlier-free subsets on which the classical elastic
+net estimator can be applied. A reweighting step is added to improve the
+statistical efficiency of the estimators. The tuning parameters of the
+elastic net penalty are selected by cross-validation. The methods are
+described in Kurnaz, Hoffmann and Filzmoser (2018)
+<doi:10.1016/j.chemolab.2017.11.017> and in Kurnaz and Filzmoser (2023)
+<doi:10.1007/s10618-023-00936-6>.
 
 %prep
 %setup -q -c -n %{packname}
