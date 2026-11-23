@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sundialr
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Interface to 'SUNDIALS' Ordinary Differential Equation (ODE) Solvers
 
@@ -21,13 +21,16 @@ BuildRequires:    R-CRAN-RcppArmadillo
 Requires:         R-CRAN-Rcpp >= 1.0.12
 
 %description
-Provides a way to call the functions in 'SUNDIALS' C ODE solving library
-(<https://computing.llnl.gov/projects/sundials>). Currently the serial
-version of ODE solver, 'CVODE', sensitivity calculator 'CVODES' and
-differential algebraic solver 'IDA' from the 'SUNDIALS' library are
-implemented. The package requires ODE to be written as an 'R' or 'Rcpp'
-function and does not require the 'SUNDIALS' library to be installed on
-the local machine.
+Provides a way to call the functions in the 'SUNDIALS' C ODE solving
+library (<https://computing.llnl.gov/projects/sundials>). Currently the
+serial versions of the ODE solver 'CVODE', the sensitivity calculator
+'CVODES' and the differential algebraic equation solver 'IDA' from the
+'SUNDIALS' library are implemented, together with a wrapper around 'CVODE'
+for systems with discontinuities such as repeated doses. The ODE is
+written as an 'R' or 'Rcpp' function, and the 'SUNDIALS' library does not
+need to be installed on the local machine. A C-level interface to 'CVODE'
+and 'ARKODE' is also registered for use from the compiled code of other
+packages.
 
 %prep
 %setup -q -c -n %{packname}

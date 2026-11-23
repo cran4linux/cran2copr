@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cg
-%global packver   1.0-4
+%global packver   1.0-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compare Groups, Analytically and Graphically
 
@@ -29,7 +29,6 @@ BuildRequires:    R-CRAN-lattice
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-multcomp 
 BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-rms 
 Requires:         R-CRAN-Hmisc >= 3.17.1
 Requires:         R-CRAN-VGAM >= 1.0.0
 Requires:         R-methods 
@@ -42,7 +41,6 @@ Requires:         R-CRAN-lattice
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-multcomp 
 Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-rms 
 
 %description
 Comprehensive data analysis software, and the name "cg" stands for

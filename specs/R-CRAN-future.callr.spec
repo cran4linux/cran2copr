@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  future.callr
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Future API for Parallel Processing using 'callr'
+Summary:          Parallel Future Backend using 'callr'
 
 License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,20 +17,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-future >= 1.58.0
+BuildRequires:    R-CRAN-future >= 1.80.0
 BuildRequires:    R-CRAN-parallelly 
 BuildRequires:    R-CRAN-callr 
-Requires:         R-CRAN-future >= 1.58.0
+Requires:         R-CRAN-future >= 1.80.0
 Requires:         R-CRAN-parallelly 
 Requires:         R-CRAN-callr 
 
 %description
 Implementation of the Future API <doi:10.32614/RJ-2021-048> on top of the
-'callr' package.  This allows you to process futures, as defined by the
-'future' package, in parallel out of the box, on your local (Linux, macOS,
-Windows, ...) machine.  Contrary to backends relying on the 'parallel'
-package (e.g. 'future::multisession') and socket connections, the 'callr'
-backend provided here can run more than 125 parallel R processes.
+'callr' package. The backend is fully compliant with the Future API, as
+validated by the 'future.tests' conformance test suite, meaning that code
+using futures gives identical results and behaves the same regardless of
+which future backend is used. Each future is resolved in a fresh
+background R session on the local machine, and, contrary to backends
+relying on the 'parallel' package and socket connections, it can run more
+than 125 parallel R processes. A common use is to parallelize existing
+map-reduce calls via the 'futurize' package
+<doi:10.48550/arXiv.2601.17578>, e.g. 'plan(future.callr::callr)' followed
+by 'lapply(xs, fcn) |> futurize()' or 'purrr::map(xs, fcn) |> futurize()'.
 
 %prep
 %setup -q -c -n %{packname}

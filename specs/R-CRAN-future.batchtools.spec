@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  future.batchtools
-%global packver   0.31.0
+%global packver   0.32.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.31.0
+Version:          0.32.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Future API for Parallel and Distributed Processing using 'batchtools'
+Summary:          Parallel Future Backend for HPC Schedulers using 'batchtools'
 
 License:          LGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -32,12 +32,17 @@ Requires:         R-CRAN-stringi
 
 %description
 Implementation of the Future API <doi:10.32614/RJ-2021-048> on top of the
-'batchtools' package. This allows you to process futures, as defined by
-the 'future' package, in parallel out of the box, not only on your local
-machine or ad-hoc cluster of machines, but also via high-performance
-compute ('HPC') job schedulers such as 'LSF', 'OpenLava', 'Slurm', 'SGE',
-and 'TORQUE' / 'PBS', e.g. 'y <- lapply(files, FUN = process) |>
-futurize::futurize()'.
+'batchtools' package. The backend is fully compliant with the Future API,
+as validated by the 'future.tests' conformance test suite, meaning that
+code using futures gives identical results and behaves the same regardless
+of which future backend is used. Futures are resolved on the local
+machine, on an ad-hoc cluster of machines, or via job schedulers on
+high-performance compute ('HPC') clusters, such as 'Slurm', 'SGE', 'LSF',
+'OpenLava', and 'TORQUE' / 'PBS'. A common use is to parallelize existing
+map-reduce calls via the 'futurize' package
+<doi:10.48550/arXiv.2601.17578>, e.g.
+'plan(future.batchtools::batchtools_slurm)' followed by 'lapply(xs, fcn)
+|> futurize()' or 'purrr::map(xs, fcn) |> futurize()'.
 
 %prep
 %setup -q -c -n %{packname}

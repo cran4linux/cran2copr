@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rapsimng.decide.sowing
-%global packver   0.1.0
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyse APSIM Next Generation Simulation Outputs for Sowing Decision
 
@@ -17,18 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rapsimng.decide.core >= 0.1.2
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-rapsimng.decide.core 
+Requires:         R-CRAN-rapsimng.decide.core >= 0.1.2
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-rapsimng.decide.core 
 
 %description
 Provides functions to analyse Agricultural Production Systems sIMulator

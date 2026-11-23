@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nestedscales
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nested Scales and Multi-Dimensional Indexes for Modeling
 
@@ -23,12 +23,14 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-S7 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-vctrs 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-S7 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-vctrs 
 
 %description
 Provides multi-level discrete representations of data dimensions for
@@ -42,8 +44,8 @@ multi-dimensional indexes, clustering units and storing data with its
 scale metadata. Members may carry attributes (a calorific value, an
 emission factor) and aliases, resolved along the hierarchy and applied row
 by row, and a scale is exchanged as a language-neutral definition file: a
-'JSON' header with inline, 'Arrow' or 'CSV' tables ('YAML' accepted), with
-a catalogue of the definitions installed packages ship. Forms the
+JSON header with inline, 'Arrow' or CSV tables (YAML accepted), with a
+catalogue of the definitions installed packages ship. Forms the
 dimension-agnostic core of 'timescales'
 <https://github.com/optimal2050/timescales> (calendars) and 'geoscales'
 <https://github.com/optimal2050/geoscales> (regions), designed for

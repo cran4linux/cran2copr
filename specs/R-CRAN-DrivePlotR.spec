@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DrivePlotR
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linked Plot Maps for Multivariate High-Resolution Spatio-Temporal Data
 
@@ -17,22 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-plotly >= 4.10.4
-BuildRequires:    R-CRAN-ggplot2 >= 3.5.2
+BuildRequires:    R-CRAN-plotly >= 4.12.0
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.2
+BuildRequires:    R-CRAN-leaflet >= 2.2.3
 BuildRequires:    R-CRAN-rlang >= 1.1.6
-BuildRequires:    R-CRAN-leaflet 
 BuildRequires:    R-CRAN-crosstalk 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-viridisLite 
-Requires:         R-CRAN-plotly >= 4.10.4
-Requires:         R-CRAN-ggplot2 >= 3.5.2
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-plotly >= 4.12.0
+Requires:         R-CRAN-ggplot2 >= 4.0.2
+Requires:         R-CRAN-leaflet >= 2.2.3
 Requires:         R-CRAN-rlang >= 1.1.6
-Requires:         R-CRAN-leaflet 
 Requires:         R-CRAN-crosstalk 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-viridisLite 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-sf 
 
 %description
 Create interactive, linked plot maps for multivariate high-resolution

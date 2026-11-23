@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cito
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Building and Training Neural Networks
 
@@ -14,10 +14,12 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildArch:        noarch
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-coro 
+BuildRequires:    R-CRAN-jpeg 
+BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-torch 
 BuildRequires:    R-CRAN-gridExtra 
@@ -28,7 +30,12 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-torchvision 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-reformulas 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-coro 
+Requires:         R-CRAN-jpeg 
+Requires:         R-CRAN-png 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-torch 
 Requires:         R-CRAN-gridExtra 
@@ -39,6 +46,8 @@ Requires:         R-CRAN-cli
 Requires:         R-CRAN-torchvision 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-reformulas 
 
 %description
 The 'cito' package provides a user-friendly interface for training and

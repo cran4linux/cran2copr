@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shinyphaser
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Interface to the 'Phaser.js' Game Framework
 
@@ -18,10 +18,12 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-shiny 
 Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-shiny 

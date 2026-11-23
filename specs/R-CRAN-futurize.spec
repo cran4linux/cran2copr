@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  futurize
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parallelize Common Functions via One Magic Function
 
@@ -36,12 +36,12 @@ packages that can be "futurized" are 'BiocParallel', 'plyr', 'crossmap',
 'pbapply' packages. There is also support for a growing set of
 domain-specific packages on CRAN (e.g. 'boot', 'caret', 'DiceKriging',
 'ez', 'fgsea', 'fwb', 'gamlss', 'glmmTMB', 'glmnet', 'kernelshap', 'lme4',
-'metafor', 'mgcv', 'modelsummary', 'parameters', 'partykit', 'pls',
-'pvclust', 'riskRegression', 'rugarch', 'sandwich', 'seriation', 'shapr',
-'Sim.DiffProc', 'SimDesign', 'stars', 'strucchange', 'SuperLearner',
-'terra', 'tm', 'TSP', and 'vegan') and on Bioconductor (e.g. 'DESeq2',
-'GenomicAlignments', 'GSVA', 'Rsamtools', 'scater', 'scuttle',
-'SingleCellExperiment', and 'sva').
+'metafor', 'mgcv', 'mlr3', 'mlr3tuning', 'modelsummary', 'parameters',
+'partykit', 'pls', 'pvclust', 'riskRegression', 'rugarch', 'sandwich',
+'seriation', 'shapr', 'Sim.DiffProc', 'SimDesign', 'stars', 'strucchange',
+'SuperLearner', 'terra', 'tm', 'TSP', and 'vegan') and on Bioconductor
+(e.g. 'bumphunter', 'DESeq2', 'GenomicAlignments', 'GSVA', 'Rsamtools',
+'scater', 'scuttle', 'SingleCellExperiment', and 'sva').
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  smdi
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Perform Structural Missing Data Investigations
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-CRAN-mice >= 3.19.0
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-dplyr 
@@ -28,7 +29,6 @@ BuildRequires:    R-CRAN-gt
 BuildRequires:    R-CRAN-Hotelling 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-mice 
 BuildRequires:    R-CRAN-naniar 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-pROC 
@@ -38,6 +38,7 @@ BuildRequires:    R-CRAN-survival
 BuildRequires:    R-CRAN-tableone 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-mice >= 3.19.0
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-caret 
 Requires:         R-CRAN-dplyr 
@@ -49,7 +50,6 @@ Requires:         R-CRAN-gt
 Requires:         R-CRAN-Hotelling 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-mice 
 Requires:         R-CRAN-naniar 
 Requires:         R-parallel 
 Requires:         R-CRAN-pROC 

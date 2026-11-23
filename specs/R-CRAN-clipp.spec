@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  clipp
-%global packver   1.2.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculating Likelihoods by Pedigree Paring
 
@@ -17,13 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-graphics >= 3.5.0
+BuildRequires:    R-grDevices >= 3.5.0
+BuildRequires:    R-methods >= 3.5.0
+BuildRequires:    R-stats4 >= 3.5.0
+Requires:         R-graphics >= 3.5.0
+Requires:         R-grDevices >= 3.5.0
+Requires:         R-methods >= 3.5.0
+Requires:         R-stats4 >= 3.5.0
 
 %description
 A fast and general implementation of the Elston-Stewart algorithm that can
 calculate the likelihoods of large and complex pedigrees. References for
 the Elston-Stewart algorithm are Elston & Stewart (1971)
 <doi:10.1159/000152448>, Lange & Elston (1975) <doi:10.1159/000152714> and
-Cannings et al. (1978) <doi:10.2307/1426718>.
+Cannings et al. (1978) <doi:10.2307/1426718>. This package is supported by
+the Genetic Epidemiology Research Alliance, a Centre of Research
+Excellence funded by Australia's National Health and Medical Research
+Council.
 
 %prep
 %setup -q -c -n %{packname}

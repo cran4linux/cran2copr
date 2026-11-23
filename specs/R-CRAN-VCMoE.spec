@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  VCMoE
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Varying-Coefficient Mixture-of-Experts Models
 
@@ -28,10 +28,12 @@ Requires:         R-utils
 Fits Gaussian, Binomial, and Negative-Binomial varying-coefficient
 mixture-of-experts models with local-linear estimation, explicit label
 alignment, bandwidth selection, diagnostics, bootstrap inference,
-analytic-style confidence bands, coefficient-specific analytic generalized
-likelihood-ratio test (GLRT) diagnostics with optional bootstrap
-calibration, and local-grid or joint-path expectation-maximization fitting
-engines.
+confidence bands, coefficient-specific generalized likelihood-ratio tests
+(GLRT) with analytic or bootstrap calibration, and local-grid or
+joint-path expectation-maximization fitting engines. For clustered
+observations it provides cluster-robust (CR2) intervals with wild cluster
+bootstrap bands and path tests, and a cluster-robust screen of candidate
+covariates for expert effects.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  funData
-%global packver   1.3-9
+%global packver   1.3-10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.9
+Version:          1.3.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          An S4 Class for Functional Data
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-fields
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 Requires:         R-methods 
 Requires:         R-CRAN-abind 
@@ -30,6 +31,7 @@ Requires:         R-CRAN-fields
 Requires:         R-CRAN-foreach 
 Requires:         R-graphics 
 Requires:         R-grDevices 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 
 %description

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  OptimalFactor
-%global packver   1.5.0
+%global packver   1.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Item Selection in Factor Analysis by Boosting and Specification Search
 
@@ -49,9 +49,10 @@ with WLSMV estimation and several rotation methods. A heuristic
 specification search for confirmatory models (MacCallum, 1986
 <doi:10.1037/0033-2909.100.1.107>) explores move, drop and covariance
 operations across seed configurations. It also evaluates the resampling
-stability of the item selection, the recovery of a known or theoretical
-structure, and offers an optional conceptual analysis of removed items
-through a large language model service.
+stability of the item selection and of the item assignment in confirmatory
+models, the recovery of a known or theoretical structure, and offers an
+optional conceptual analysis of removed items through a large language
+model service.
 
 %prep
 %setup -q -c -n %{packname}

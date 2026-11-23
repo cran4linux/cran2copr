@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  progressify
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Progress Reporting of Common Functions via One Magic Function
 
@@ -18,8 +18,10 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-progressr 
+BuildRequires:    R-utils 
 BuildRequires:    R-methods 
 Requires:         R-CRAN-progressr 
+Requires:         R-utils 
 Requires:         R-methods 
 
 %description
@@ -32,9 +34,9 @@ minimal refactoring, e.g. 'lapply(x, fcn) |> progressify()' and
 'purrr::map(x, fcn) |> progressify()'. It is compatible with the
 parallel-processing map-reduce packages 'future.apply', 'furrr',
 'crossmap', 'foreach', 'doFuture', and 'futurize'. It also supports
-domain-specific packages including 'boot', 'fwb', 'lme4', 'partykit',
-'sandwich', and 'SimDesign', e.g. 'boot::boot(data, stat, R) |>
-progressify()'.
+domain-specific packages including 'boot', 'car', 'fwb', 'lme4',
+'partykit', 'sandwich', 'SimDesign', 'Sim.DiffProc', and 'tm', e.g.
+'boot::boot(data, stat, R) |> progressify()'.
 
 %prep
 %setup -q -c -n %{packname}

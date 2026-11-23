@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dartRverse
-%global packver   1.0.6
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Install and Load the 'dartRverse' Suits of Packages
 
@@ -17,16 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-cli >= 3.4.0
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-devtools 
-BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-CRAN-remotes 
 BuildRequires:    R-CRAN-httr 
-Requires:         R-CRAN-cli 
+BuildRequires:    R-CRAN-BiocManager 
+Requires:         R-CRAN-cli >= 3.4.0
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-devtools 
-Requires:         R-CRAN-RCurl 
+Requires:         R-CRAN-remotes 
 Requires:         R-CRAN-httr 
+Requires:         R-CRAN-BiocManager 
 
 %description
 Provides a single function that supports the installation of all packages

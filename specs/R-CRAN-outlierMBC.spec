@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  outlierMBC
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sequential Outlier Identification for Model-Based Clustering
 
@@ -19,20 +19,22 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ClusterR 
 BuildRequires:    R-CRAN-dbscan 
-BuildRequires:    R-CRAN-flexCWM 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-mixture 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-spatstat.univar 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-CRAN-ContaminatedMixt 
 Requires:         R-CRAN-ClusterR 
 Requires:         R-CRAN-dbscan 
-Requires:         R-CRAN-flexCWM 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-mixture 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-spatstat.univar 
 Requires:         R-stats 
+Requires:         R-CRAN-mclust 
+Requires:         R-CRAN-ContaminatedMixt 
 
 %description
 Sequential outlier identification for Gaussian mixture models using the
