@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  zukomp
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Portable Byte Compression with a Pluggable Codec Registry
 
@@ -22,15 +22,17 @@ Requires:         R-utils
 %description
 Compresses and decompresses raw vectors through a single codec-neutral
 interface backed by a runtime registry, so the set of available codecs is
-discovered rather than fixed at compile time. The 'DEFLATE' family
-('gzip', 'zlib', and headerless 'DEFLATE') is built in from vendored
-'miniz' sources, requiring no system compression library. Decompression
-enforces configurable output-size and expansion-ratio limits and reports
-failures through structured conditions. A registered C-callable interface
-lets other packages drive the codecs from C and register codecs of their
-own. The formats are specified in Deutsch (1996) <doi:10.17487/RFC1951>,
-Deutsch and Gailly (1996) <doi:10.17487/RFC1950>, and Deutsch (1996)
-<doi:10.17487/RFC1952>.
+discovered rather than fixed at compile time. The DEFLATE family (gzip,
+zlib and headerless DEFLATE), Zstandard and LZ4 (frame and block formats)
+are built in from bundled 'miniz', 'zstd' and 'lz4' sources, requiring no
+system compression library. Decompression enforces configurable
+output-size and expansion-ratio limits and reports failures through
+structured conditions. A registered C-callable interface lets other
+packages drive the codecs from C and register codecs of their own. The
+formats are specified in Deutsch (1996) <doi:10.17487/RFC1951>, Deutsch
+and Gailly (1996) <doi:10.17487/RFC1950>, Deutsch (1996)
+<doi:10.17487/RFC1952>, and Collet and Kucherawy (2021)
+<doi:10.17487/RFC8878>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RcppAlgos
-%global packver   2.10.2
+%global packver   2.10.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.10.2
+Version:          2.10.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          High Performance Tools for Combinatorics and Computational Mathematics
 
@@ -43,8 +43,9 @@ mathematics. Some of these functions make use of the fast integer division
 library 'libdivide'. The primeSieve function is based on the segmented
 sieve of Eratosthenes implementation by Kim Walisch. It is also efficient
 for large numbers by using the cache friendly improvements originally
-developed by Tomás Oliveira. Finally, there is a prime counting function
-that implements Legendre's formula based on the work of Kim Walisch.
+developed by Tomás Oliveira. Prime counting supports Legendre, Meissel,
+and Lehmer methods. The Legendre implementation and shared partial-sieve
+calculation build on the work of Kim Walisch.
 
 %prep
 %setup -q -c -n %{packname}

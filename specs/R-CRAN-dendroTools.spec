@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dendroTools
-%global packver   1.2.16
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.16
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linear and Nonlinear Methods for Analyzing Daily and Monthly Dendroclimatological Data
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-plotly >= 4.7.1
 BuildRequires:    R-CRAN-randomForest >= 4.6.14
@@ -55,15 +55,35 @@ Requires:         R-CRAN-Cubist >= 0.2.2
 Requires:         R-stats 
 
 %description
-Provides novel dendroclimatological methods, primarily used by the
-Tree-ring research community. There are four core functions. The first one
-is daily_response(), which finds the optimal sequence of days that are
-related to one or more tree-ring proxy records. Similar function is
-daily_response_seascorr(), which implements partial correlations in the
-analysis of daily response functions. For the enthusiast of monthly data,
-there is monthly_response() function. The last core function is
-compare_methods(), which effectively compares several linear and nonlinear
-regression algorithms on the task of climate reconstruction.
+Provides methods for analyzing the relationships between tree-ring proxies
+and daily or monthly climate data. daily_response() and monthly_response()
+aggregate climate data over moving windows of different widths and
+positions, optionally extending into previous years. For each window, they
+calculate the correlation (Pearson, Spearman or Kendall) with a proxy, or
+the explained variance of linear models or Bayesian regularized neural
+networks with one or more proxies, and find the window with the strongest
+relationship. daily_response_seascorr() and monthly_response_seascorr()
+calculate partial correlations between a proxy and a primary climate
+variable, controlling for a second one, following 'seascorr' by Meko et
+al. (2011) <doi:10.1016/j.cageo.2011.01.013>. They also partition the
+variance explained in the optimal window between the two variables and can
+calculate the partial correlations of the second variable. The climate
+data in each window can be aggregated as means, sums and other statistics,
+or as the Standardized Precipitation-Evapotranspiration Index (SPEI) by
+Vicente-Serrano et al. (2010) <doi:10.1175/2009JCLI2909.1>, calculated
+from the climatic water balance that water_balance() derives from
+precipitation and temperature. The aggregated climate series can be
+detrended linearly or with the spline, mean, autoregressive and Friedman
+methods of dplR::detrend(). Windows that are not significant can be
+removed with a per-window test or with corrections for multiple testing.
+Bootstrap confidence intervals are available, and the optimal window can
+be checked for temporal stability and by cross-validation.
+compare_methods() compares multiple linear regression, neural networks,
+model trees and random forests for climate reconstruction. The methods are
+described in Jevsenak and Levanic (2018)
+<doi:10.1016/j.dendro.2018.01.005>, Jevsenak et al. (2018)
+<doi:10.1016/j.dendro.2018.10.001> and Jevsenak (2020)
+<doi:10.1016/j.dendro.2020.125753>.
 
 %prep
 %setup -q -c -n %{packname}

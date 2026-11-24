@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bGMYC4
-%global packver   4.1.6
+%global packver   4.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.6
+Version:          4.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian General Mixed Yule-Coalescent Model for Species Delimitation
 
@@ -18,17 +18,20 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ape >= 5.0
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-parallel 
 Requires:         R-CRAN-ape >= 5.0
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-future.apply 
+Requires:         R-parallel 
 
 %description
-Implements a Bayesian version of the general mixed Yule-coalescent model
-for species delimitation. It uses Markov Chain Monte Carlo simulation to
-evaluate the posterior distribution of the model and supports flexible
-prior specification on model parameters.
+Implements a Bayesian version of the general mixed Yule-coalescent (GMYC)
+model for species delimitation from single-locus data (Reid & Carstens
+2012, BMC Evolutionary Biology 12:196). Markov Chain Monte Carlo sampling
+evaluates the posterior distribution of species boundaries under flexible
+uniform priors, with branching rates profiled at their maximum likelihood
+estimates. Supports pooling over multiple posterior trees to propagate
+phylogenetic uncertainty into marginal probabilities of conspecificity,
+convergence diagnostics (split-Rhat, ESS, prior-vs-posterior contraction),
+and interactive heatmap visualization of the resulting matrices.
 
 %prep
 %setup -q -c -n %{packname}

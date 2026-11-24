@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cataScience
-%global packver   2.2.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive Training App for Data Science and AI Skills
 
@@ -71,11 +71,10 @@ An interactive 'shiny' training companion for people who are new to data,
 developed for World Health Organization data trainings. Bundles hands-on
 modules for importing data, missing values, outliers, text cleaning,
 merging, visualization, and basic statistics, plus a set of AI-skills
-pages (prompting levels, a prompt gallery, AI safety rules, and a
+pages (prompting levels, four practical tasks, AI safety rules, and a
 methodology case study) and an interactive quiz with per-session topic
-filters. Includes reusable data-quality, plotting and reporting functions
-and an extended workshop app with public health examples. Launch the
-original app with run_cata() or the workshop with run_catas().
+filters. Includes reusable data-quality, plotting and reporting functions.
+Launch the cat classroom with run_cata().
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  starling
-%global packver   1.1.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Record Linkage for Public Health Surveillance
 
@@ -17,14 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-reclin2 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-reclin2 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-rlang 

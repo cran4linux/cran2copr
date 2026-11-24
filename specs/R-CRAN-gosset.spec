@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gosset
-%global packver   1.5.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Data Analysis in Experimental Agriculture
 
@@ -17,44 +17,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-BradleyTerry2 
-BuildRequires:    R-CRAN-DescTools 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggparty 
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-partykit 
 BuildRequires:    R-CRAN-PlackettLuce 
 BuildRequires:    R-CRAN-psychotools 
 BuildRequires:    R-CRAN-qvcalc 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-parallel 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-methods 
-Requires:         R-CRAN-BradleyTerry2 
-Requires:         R-CRAN-DescTools 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggparty 
-Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-partykit 
 Requires:         R-CRAN-PlackettLuce 
 Requires:         R-CRAN-psychotools 
 Requires:         R-CRAN-qvcalc 
 Requires:         R-stats 
-Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
 Requires:         R-CRAN-patchwork 
 Requires:         R-parallel 
 
 %description
 Methods to analyse experimental agriculture data, from data synthesis to
-model selection and visualisation. The package is named after W.S. Gosset
-aka ‘Student’, a pioneer of modern statistics in small sample experimental
-design and analysis.
+model selection and visualisation, with a focus on ranking data from
+decentralised on-farm trials with the 'tricot' approach (van Etten et al.
+2019 <doi:10.1017/S0014479716000739>). Includes tools to build rankings,
+fit and cross-validate Plackett-Luce models and trees, compare traits with
+Kendall's tau, and summarise results as worth, regret and preference
+indices. The package is named after W.S. Gosset aka 'Student', a pioneer
+of modern statistics in small sample experimental design and analysis.
 
 %prep
 %setup -q -c -n %{packname}

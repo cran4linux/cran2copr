@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fastrda
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Redundancy Analysis (RDA) with High-Performance 'C++' Backend
 
@@ -26,11 +26,16 @@ Requires:         R-parallel
 
 %description
 Provides a high-performance implementation of redundancy analysis (RDA) in
-'C++' using 'Armadillo' and 'OpenMP'. Supports standard and partial RDA,
-centering, scaling, overall and axis-wise permutation tests, biplot
-visualization, score extraction, and prediction. Designed for large
-ecological, genomic, and other multivariate data sets where computational
-speed and memory efficiency are required.
+'C++' using 'Armadillo' and 'OpenMP'. The rank-revealing step uses an
+economical singular value decomposition that reports an explicit numerical
+rank and reciprocal condition number and supports Moore-Penrose
+minimum-norm coefficients for rank-deficient designs. Supports standard
+and partial RDA, centering, scaling, overall and axis-wise permutation
+tests (for partial RDA a scheme that permutes the predictors and
+re-residualizes them on the covariates, with a Freedman-Lane permutation
+as an option), biplot visualization, score extraction, and prediction.
+Designed for large ecological, genomic, and other multivariate data sets
+where computational speed and memory efficiency are required.
 
 %prep
 %setup -q -c -n %{packname}

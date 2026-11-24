@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  normalblockr
-%global packver   0.3.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Gaussian Graphical Models with Latent Clustering Structure
+Summary:          Gaussian Models with Latent Clustering of Variables
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,47 +17,45 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-sbm 
 BuildRequires:    R-CRAN-corrplot 
-BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-sbm 
 Requires:         R-CRAN-corrplot 
-Requires:         R-CRAN-scales 
 Requires:         R-CRAN-MASS 
 Requires:         R-stats 
 Requires:         R-CRAN-Rcpp 
 
 %description
-Implements the Normal-Block model, a Gaussian graphical model with a
-latent clustering structure for the multivariate analysis of continuous
-data. The model clusters variables and, building on the graphical lasso,
-infers a network of statistical dependencies between clusters rather than
-between individual variables, for known or unknown clusterings, with an
-optional zero-inflation extension for data with an excess of exact zeros.
-A complementary family clusters variables by their regression response to
-covariates rather than by their covariance, sharing one profile per
-cluster. See Tous & Chiquet (2026) <doi:10.1016/j.csda.2026.108347> for
-the model itself and its variational expectation-maximization estimation
-procedure.
+Implements two families of Gaussian models with a latent clustering of the
+variables, for multivariate data whose variables co-vary, or respond to
+covariates, in groups. In the Normal-Block-Var model, the clusters
+structure the covariance through latent variables, and a network is
+inferred between the clusters rather than between the variables, which
+reduces its dimension and eases its interpretation (Tous and Chiquet
+(2026) <doi:10.1016/j.csda.2026.108347>). In the Normal-Block-Mean model,
+the variables of a cluster share the same regression profile, and a
+network between the variables can be inferred from their residual
+covariance. In both families, the clustering is either known or inferred,
+the network can be sparse (graphical lasso), and zero-inflated variants
+handle data with an excess of zeros. The parameters are estimated by
+expectation-maximization or variational expectation-maximization
+algorithms, accelerated by squared extrapolation, and a split and merge
+procedure improves the fits of a collection of models. The number of
+clusters, the sparsity of the network and the shape of the covariance are
+chosen with penalized criteria, cross-validation or stability selection.
 
 %prep
 %setup -q -c -n %{packname}

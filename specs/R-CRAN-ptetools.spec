@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ptetools
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Panel Treatment Effects Tools
 
@@ -17,20 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-BMisc >= 1.4.8
+BuildRequires:    R-CRAN-BMisc >= 1.4.11
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-DRDID 
-BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-splines2 
-Requires:         R-CRAN-BMisc >= 1.4.8
+Requires:         R-CRAN-BMisc >= 1.4.11
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-DRDID 
-Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
+Requires:         R-parallel 
 Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-splines2 
 

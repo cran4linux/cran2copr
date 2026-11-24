@@ -1,52 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  psborrow
-%global packver   0.2.4
+%global packname  AFTMicroMed
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Dynamic Borrowing with Propensity Score
+Summary:          Microbiome Mediation Analysis with Accelerated Failure Time Model
 
-License:          Apache License (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-rjags 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-gamlss 
+BuildRequires:    R-CRAN-gamlss.dist 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-MatchIt 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-futile.logger 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-rjags 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-foreach 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-gamlss 
+Requires:         R-CRAN-gamlss.dist 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-numDeriv 
 Requires:         R-parallel 
-Requires:         R-CRAN-MatchIt 
+Requires:         R-stats 
 Requires:         R-CRAN-survival 
-Requires:         R-CRAN-futile.logger 
-Requires:         R-methods 
+Requires:         R-utils 
 
 %description
-A tool which aims to help evaluate the effect of external borrowing using
-an integrated approach described in Lewis et al., (2019)
-<doi:10.1080/19466315.2018.1497533> that combines propensity score and
-Bayesian dynamic borrowing methods.
+A causal mediation framework for microbiome data with survival outcomes.
+An accelerated failure time model is used to estimate mediation effects
+for individual microbial mediators while adjusting for covariates.
+Microbiome mediators are modeled using a two-part marginal framework that
+accounts for excess zeros and non-zero relative abundances through a
+zero-inflated beta distribution.
 
 %prep
 %setup -q -c -n %{packname}

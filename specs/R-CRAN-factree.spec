@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  factree
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Factor-Augmented Clustering Tree
 
@@ -17,28 +17,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-irlba 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-doRNG 
-BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-grid 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-irlba 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doParallel 
 Requires:         R-parallel 
-Requires:         R-CRAN-doRNG 
-Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-igraph 
+Requires:         R-grid 
 
 %description
-Implements the Factor-Augmented Clustering Tree (FACT) algorithm for
-clustering time series data. The method constructs a classification tree
-where splits are determined by covariates, and the splitting criterion is
-based on a group factor model representation of the time series within
-each node. Both threshold-based and permutation-based tests are supported
-for splitting decisions, with an option for parallel computation. For
-methodological details, see Hu, Li, Luo, and Wang (2025, in preparation),
-Factor-Augmented Clustering Tree for Time Series.
+Implements the Factor-Augmented Clustering Tree (FACT) for clustering time
+series using covariates and group factor models. The tree compares
+child-node factor spaces through projector eigenvalues and uses PCA
+residual energy to determine node-specific stopping tolerances. Working
+ranks are selected by PC2 (default), BIC1 or BIC3, and comparison ranks
+are selected automatically at each node or supplied as a fixed value. The
+package also recovers global and local factors and their loadings,
+provides factor-space distance measures and a data generator. Candidate
+splits can be evaluated in parallel.
 
 %prep
 %setup -q -c -n %{packname}

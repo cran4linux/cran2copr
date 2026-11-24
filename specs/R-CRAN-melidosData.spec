@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  melidosData
-%global packver   1.0.6
+%global packver   1.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Load Data from the MeLiDos Field Study
 
@@ -34,7 +34,7 @@ Requires:         R-CRAN-tibble
 
 %description
 In the MeLiDos field study, personal light exposure data were collected in
-9 sites, 7 countries, and 196 participants following the Guidolin et al.
+9 sites, 7 countries, and 191 participants following the Guidolin et al.
 (2024) <doi:10.1186/s12889-024-20206-4> protocol. Data originate from
 wearable devices collecting personal light exposure at the eye level,
 chest, and the wrist. Questionnaires were collected via 'REDCap' and

@@ -1,50 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CoDaLoMic
-%global packver   0.1.1
+%global packname  metascience
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Compositional Models to Longitudinal Microbiome Data
+Summary:          Catalogue and Shared Infrastructure for Open Metascience Tools
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-xtable 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-compositions 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-R2jags 
-BuildRequires:    R-CRAN-ggbiplot 
-BuildRequires:    R-CRAN-zCompositions 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-xtable 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-compositions 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-R2jags 
-Requires:         R-CRAN-ggbiplot 
-Requires:         R-CRAN-zCompositions 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-tools 
 Requires:         R-utils 
 
 %description
-Implementation of models to analyse compositional microbiome time series
-taking into account the interaction between groups of bacteria. The models
-implemented are described in Creus-Martí et al (2018,
-ISBN:978-84-09-07541-6), Creus-Martí et al (2021)
-<doi:10.1155/2021/9951817> and Creus-Martí et al (2022)
-<doi:10.1155/2022/4907527>.
+Catalogue and shared conventions for a set of independent, interoperable
+tools that study research: research indicators, narrative CVs, academic
+careers, artificial intelligence use in research, science communication
+and the integrity and reproducibility of research outputs. Lists the tools
+with their domain, maturity and release status; reports which of them are
+installed; validates and normalises persistent identifiers (DOI, 'ORCID'
+iD, 'ROR' ID) with their check digits; harmonises the result statuses the
+tools use, so that an unverifiable result is never read as a negative one;
+writes a machine-readable provenance manifest for any analysis; and offers
+a 'Shiny' interface with a section for each installed tool. Every tool
+remains usable on its own.
 
 %prep
 %setup -q -c -n %{packname}

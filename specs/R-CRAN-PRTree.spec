@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PRTree
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Probabilistic Regression Trees
 
@@ -35,16 +35,19 @@ Requires:         R-CRAN-rlang
 
 %description
 Implementation of Probabilistic Regression Trees (PRTree), providing
-functions for model fitting and prediction, with specific adaptations to
-handle missing values. The main computations are implemented in 'Fortran'
-for high efficiency. The package is based on the PRTree methodology
-described in Alkhoury et al. (2020), "Smooth and Consistent Probabilistic
-Regression Trees"
+functions for model fitting, cross-validation, visualization, and
+prediction, with specific adaptations to handle missing values. The main
+computations are implemented in 'Fortran' for high efficiency. The package
+is based on the PRTree methodology described in Alkhoury et al. (2020),
+"Smooth and Consistent Probabilistic Regression Trees"
 <https://proceedings.neurips.cc/paper_files/paper/2020/file/8289889263db4a40463e3f358bb7c7a1-Paper.pdf>.
-Details on the treatment of missing data and implementation aspects are
-presented in Prass, T.S.; Neimaier, A.S.; Pumi, G. (2025), "Handling
-Missing Data in Probabilistic Regression Trees: Methods and Implementation
-in R" <doi:10.48550/arXiv.2510.03634>.
+The theoretical framework for handling missing data in probabilistic
+regression trees is presented in Prass, T. S., Neimaier, A. S., & Pumi, G.
+(2026), "Handling Missing Data in Probabilistic Regression Trees"
+<doi:10.1016/j.apm.2026.117450>, while implementation details and usage in
+R are described in Prass, T. S., Neimaier, A. S., & Pumi, G. (2025),
+"PRTree: An R Package for Probabilistic Regression Trees with Built-in
+Missing Data Handling" <doi:10.48550/arXiv.2510.03634>.
 
 %prep
 %setup -q -c -n %{packname}

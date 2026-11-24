@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rapsimng.decide
-%global packver   0.1.0
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Decision-Oriented Analysis Interface for APSIM Next Generation Outputs
 
@@ -17,22 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-rapsimng 
+BuildRequires:    R-CRAN-rapsimng.decide.core >= 0.1.2
+BuildRequires:    R-CRAN-rapsimng.decide.cultivar >= 0.1.2
+BuildRequires:    R-CRAN-rapsimng.decide.sowing >= 0.1.2
+BuildRequires:    R-CRAN-rapsimng.decide.nitrogen >= 0.1.2
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rapsimng.decide.core 
-BuildRequires:    R-CRAN-rapsimng.decide.cultivar 
-BuildRequires:    R-CRAN-rapsimng.decide.sowing 
-BuildRequires:    R-CRAN-rapsimng.decide.nitrogen 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-rapsimng 
+Requires:         R-CRAN-rapsimng.decide.core >= 0.1.2
+Requires:         R-CRAN-rapsimng.decide.cultivar >= 0.1.2
+Requires:         R-CRAN-rapsimng.decide.sowing >= 0.1.2
+Requires:         R-CRAN-rapsimng.decide.nitrogen >= 0.1.2
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rapsimng.decide.core 
-Requires:         R-CRAN-rapsimng.decide.cultivar 
-Requires:         R-CRAN-rapsimng.decide.sowing 
-Requires:         R-CRAN-rapsimng.decide.nitrogen 
 
 %description
 Provides a high-level interface for analysing Agricultural Production

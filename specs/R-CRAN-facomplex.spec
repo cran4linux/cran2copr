@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  facomplex
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Methods for Assessing Factor Complexity and Simplicity in Factor Analysis Solutions
 
@@ -19,20 +19,24 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-lavaan 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-lavaan 
+Requires:         R-utils 
 
 %description
-Provides methods for estimating factor complexity coefficients in
-exploratory and confirmatory factor analysis (EFA/CFA) results. Included
-indices are the Hofman coefficient, Fleming's approach for factor
-simplicity, and others. Additional outputs include descriptive statistics
-(minimum, maximum, and mean) for target and non-target loadings, and
-visualization of results. References: Fleming, J.S. (2003)
-<doi:10.3758/bf03195531>; Hofmann, R.J. (1978)
-<doi:10.1207/s15327906mbr1302_9>; Kaiser, H.F. (1974)
-<doi:10.1007/BF02291575>; Bentler, P.M. (1977) <doi:10.1007/BF02294054>;
-Lorenzo-Seva, U. (2003) <doi:10.1007/BF02296652>.
+Provides methods for examining factorial complexity and simplicity in
+multidimensional scales, as well as in unidimensional scales when
+compared, in exploratory and ESEM factor analysis (EFA) results. The
+package implements coefficients derived from the work of Kaiser, Hofmann,
+Flemings, Bentler, and Lorenzo-Seva. The sums of the squares of the
+factorial loads (target and non-target loadings) can be estimated for
+descriptive purposes. Point estimates and confidence intervals are also
+obtained using bootstrap simulation.
 
 %prep
 %setup -q -c -n %{packname}

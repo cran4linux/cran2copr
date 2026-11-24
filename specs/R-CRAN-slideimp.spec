@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  slideimp
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Numeric Matrices K-NN and PCA Imputation
 
@@ -14,47 +14,53 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
-BuildRequires:    R-CRAN-bigmemory 
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
+BuildRequires:    R-CRAN-mirai >= 2.5.0
+BuildRequires:    R-CRAN-dqrng >= 0.4.1
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-collapse 
-BuildRequires:    R-CRAN-mirai 
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RhpcBLASctl 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-BH 
+BuildRequires:    R-CRAN-RcppEigen 
 BuildRequires:    R-CRAN-RcppThread 
-Requires:         R-CRAN-bigmemory 
+Requires:         R-CRAN-mirai >= 2.5.0
+Requires:         R-CRAN-dqrng >= 0.4.1
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-collapse 
-Requires:         R-CRAN-mirai 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RhpcBLASctl 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-utils 
 
 %description
-Fast k-nearest neighbors (K-NN) and principal component analysis (PCA)
-imputation algorithms for missing values in epigenetic data or other
-high-dimensional numeric matrices. For PCA, a locally optimal block
-preconditioned conjugate gradient (LOBPCG) eigensolver with warm starts of
-both the eigenblock and search direction is also supported. Two
-complementary imputation strategies are available. Group-wise imputation
-(e.g., by chromosome) is recommended for Illumina DNA methylation
-microarrays (e.g., 450K, EPIC) and other matrices with groupable columns.
-A sliding window approach for K-NN or PCA imputation is recommended only
-for whole-genome methylation data such as whole-genome bisulfite
-sequencing (WGBS) or Enzymatic Methyl-seq (EM-seq). The package also
-supports hyperparameter tuning via repeated cross-validation. The K-NN
-algorithm is described in: Hastie, T., Tibshirani, R., Sherlock, G.,
-Eisen, M., Brown, P. and Botstein, D.  (1999) "Imputing Missing Data for
-Gene Expression Arrays". The PCA imputation is an optimized
-reimplementation of the imputePCA() function from the 'missMDA' package
-described in: Josse, J. and Husson, F. (2016) <doi:10.18637/jss.v070.i01>
-"missMDA: A Package for Handling Missing Values in Multivariate Data
-Analysis".
+Fast k-nearest neighbor (K-NN) and principal component analysis (PCA)
+imputation of missing values in high-dimensional numeric matrices, such as
+DNA methylation data. PCA imputation can use a locally optimal block
+preconditioned conjugate gradient (LOBPCG) eigensolver, which warm-starts
+each iteration from the previous eigenblock and search direction.
+Group-wise imputation, for example by chromosome, is recommended for
+Illumina DNA methylation arrays such as 450K and EPIC, and for other
+matrices with groupable columns. Sliding-window imputation imputes columns
+ordered by position. Tuning functions choose hyperparameters by masking
+observed values, imputing them, and scoring the result over repeated
+random masks. The Bayesian PCA sampler draws multiple imputations of the
+missing values. For whole-genome methylation data, such as whole-genome
+bisulfite sequencing (WGBS) or Enzymatic Methyl-seq (EM-seq), the sampler
+is recommended because such data are sparsely observed. The K-NN method is
+described in Troyanskaya et al. (2001)
+<doi:10.1093/bioinformatics/17.6.520>. PCA imputation is an optimized
+reimplementation of imputePCA() from the 'missMDA' package, described in
+Josse and Husson (2016) <doi:10.18637/jss.v070.i01>. The sampler
+implements the Bayesian method of MIPCA() in 'missMDA', described in
+Audigier, Husson and Josse (2016) <doi:10.1080/00949655.2015.1104683>.
 
 %prep
 %setup -q -c -n %{packname}

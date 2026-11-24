@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vistributions
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualize Probability Distributions
 
@@ -18,9 +18,13 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-grid 
+Requires:         R-CRAN-scales 
 Requires:         R-stats 
 Requires:         R-utils 
 

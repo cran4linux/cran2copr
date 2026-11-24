@@ -1,42 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  saeHB.ZIB
-%global packver   0.1.1
+%global packname  BET
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Small Area Estimation using Hierarchical Bayesian under Zero Inflated Binomial Distribution
+Summary:          Binary Expansion Testing
 
-License:          GPL-3
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-rjags 
-BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-rjags 
-Requires:         R-stats 
-Requires:         R-grDevices 
-Requires:         R-graphics 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.3
+Requires:         R-CRAN-Rcpp >= 0.12.3
 
 %description
-Provides function for area level of small area estimation using
-hierarchical Bayesian (HB) method with Zero-Inflated Binomial distribution
-for variables of interest. Some dataset produced by a data generation are
-also provided. The 'rjags' package is employed to obtain parameter
-estimates. Model-based estimators involves the HB estimators which include
-the mean and the variation of mean.
+Nonparametric detection of nonuniformity and dependence with Binary
+Expansion Testing (BET). See Kai Zhang (2019) BET on Independence, Journal
+of the American Statistical Association, 114:528, 1620-1637,
+<DOI:10.1080/01621459.2018.1537921>, Kai Zhang, Wan Zhang, Zhigen Zhao,
+Wen Zhou. (2023). BEAUTY Powered BEAST, <doi:10.48550/arXiv.2103.00674>
+and Wan Zhang, Zhigen Zhao, Michael Baiocchi, Yao Li, Kai Zhang. (2023)
+SorBET: A Fast and Powerful Algorithm to Test Dependence of Variables,
+Technical report.
 
 %prep
 %setup -q -c -n %{packname}

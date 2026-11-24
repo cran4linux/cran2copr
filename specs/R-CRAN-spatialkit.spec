@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spatialkit
-%global packver   2.0.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial Tessellation, Modeling, and Cross-Validation Toolkit
+Summary:          Spatial Tessellation, Modelling, and Cross-Validation Toolkit
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-sf >= 1.0
 BuildRequires:    R-CRAN-dplyr >= 1.0
 BuildRequires:    R-CRAN-logger 
 BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-FNN 
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
@@ -29,6 +30,7 @@ Requires:         R-CRAN-sf >= 1.0
 Requires:         R-CRAN-dplyr >= 1.0
 Requires:         R-CRAN-logger 
 Requires:         R-CRAN-digest 
+Requires:         R-CRAN-FNN 
 Requires:         R-stats 
 Requires:         R-methods 
 Requires:         R-utils 
@@ -38,21 +40,26 @@ Requires:         R-parallel
 Constructs analysis regions from the distribution of the data itself, as
 an alternative to aggregating onto administrative boundaries that were
 drawn for unrelated purposes. Seeds and builds Voronoi, Delaunay,
-hexagonal and square tessellations with reproducible identifiers, selects
-a cell count from the spatial structure of the observations, assigns
-features to cells, and aggregates to cell level with optional
-design-effect corrections so that standard errors account for within-cell
-autocorrelation. Also manages coordinate reference systems. Fits
-geographically weighted regression (via 'GWmodel'; Lu et al. (2014)
-<doi:10.1080/10095020.2014.917453>), Bayesian spatial Gaussian process
-regression (via 'brms', using the Hilbert space approximation of
-Riutort-Mayol et al. (2023) <doi:10.1007/s11222-022-10167-2>) and random
-forests (via 'ranger', with the permutation importance of Strobl et al.
-(2007) <doi:10.1186/1471-2105-8-25>), each behind one S3 class with
-consistent predict, fitted, residuals and plot methods. Provides spatial
+hexagonal and square tessellations with reproducible identifiers. Chooses
+a cell count, by default from a target number of observations per cell, or
+by scoring a ladder of counts against the spatial structure of the
+observations. Assigns features to cells and reports for each cell a count,
+a mean with its standard error and a pooled value pulled toward the mean
+of the observations in the 8 nearest cells. A design effect can correct
+the standard errors for autocorrelation within the cells. Projects lon/lat
+input to a projected coordinate reference system chosen for the extent of
+the data. Fits geographically weighted regression (its kernels,
+diagnostics and forward selection follow 'GWmodel'; Lu et al. (2014)
+<doi:10.1080/10095020.2014.917453>), Bayesian Gaussian process regression
+(via 'brms', using the Hilbert space approximation of Riutort-Mayol et al.
+(2023) <doi:10.1007/s11222-022-10167-2>) and random forests (via 'ranger',
+with the permutation importance of Strobl et al. (2007)
+<doi:10.1186/1471-2105-8-25>), each behind one S3 class with consistent
+predict, fitted, residuals and plot methods. Provides spatial
 cross-validation with random, block, buffered, leave-location-out and
-nearest-neighbour distance-matched folds (Mila et al. (2022)
-<doi:10.1111/2041-210X.13851>), forward variable selection, model
+nearest-neighbour distance-matched folds (Milà et al. (2022)
+<doi:10.1111/2041-210X.13851>; Linnenbrink et al. (2024)
+<doi:10.5194/gmd-17-5897-2024>), forward variable selection, model
 comparison, prediction onto a regular surface, and the area of
 applicability of Meyer and Pebesma (2021) <doi:10.1111/2041-210X.13650> to
 flag where a fitted model extrapolates beyond its training data.

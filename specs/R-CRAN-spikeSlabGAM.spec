@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spikeSlabGAM
-%global packver   1.1-20
+%global packver   1.1-21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.20
+Version:          1.1.21
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Variable Selection and Model Choice for Generalized Additive Mixed Models
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.15.1
 Requires:         R-core >= 2.15.1
 BuildRequires:    R-CRAN-ggplot2 >= 2.0.0
-BuildRequires:    R-CRAN-gridExtra >= 2.0
+BuildRequires:    R-CRAN-gridExtra >= 2.0.0
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-interp 
@@ -30,7 +30,7 @@ BuildRequires:    R-CRAN-scales
 BuildRequires:    R-splines 
 BuildRequires:    R-parallel 
 Requires:         R-CRAN-ggplot2 >= 2.0.0
-Requires:         R-CRAN-gridExtra >= 2.0
+Requires:         R-CRAN-gridExtra >= 2.0.0
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-interp 

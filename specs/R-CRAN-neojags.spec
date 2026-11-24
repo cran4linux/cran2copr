@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  neojags
-%global packver   0.1.7
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Neo-Normal Distributions Family for Markov Chain Monte Carlo (MCMC) Models in 'JAGS'
 
@@ -16,16 +16,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.14.0
 Requires:         R-core >= 2.14.0
+BuildRequires:    R-CRAN-rjags >= 4.18
 BuildRequires:    R-CRAN-runjags 
-BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-rjags 
-BuildRequires:    R-CRAN-coda 
+Requires:         R-CRAN-rjags >= 4.18
 Requires:         R-CRAN-runjags 
-Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-rjags 
-Requires:         R-CRAN-coda 
 
 %description
 A 'JAGS' extension module provides neo-normal distributions family

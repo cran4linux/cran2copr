@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gratia
-%global packver   0.11.2
+%global packver   0.12.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.2
+Version:          0.12.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Graceful 'ggplot'-Based Graphics and Other Functions for GAMs Fitted Using 'mgcv'
 
@@ -14,59 +14,56 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.3
 BuildRequires:    R-CRAN-tibble >= 3.0.0
-BuildRequires:    R-CRAN-tweedie >= 2.3.5
-BuildRequires:    R-CRAN-mgcv >= 1.9.0
+BuildRequires:    R-CRAN-mgcv >= 1.9.4
+BuildRequires:    R-CRAN-patchwork >= 1.3.2
 BuildRequires:    R-CRAN-dplyr >= 1.2.0
-BuildRequires:    R-CRAN-patchwork >= 1.2.0
 BuildRequires:    R-CRAN-tidyselect >= 1.2.0
 BuildRequires:    R-CRAN-purrr >= 1.1.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-KernSmooth 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-mvnfast 
 BuildRequires:    R-stats 
-BuildRequires:    R-tools 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-pillar 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-ggokabeito 
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-mirai 
-Requires:         R-CRAN-ggplot2 >= 3.5.0
+BuildRequires:    R-utils 
+Requires:         R-CRAN-ggplot2 >= 4.0.3
 Requires:         R-CRAN-tibble >= 3.0.0
-Requires:         R-CRAN-tweedie >= 2.3.5
-Requires:         R-CRAN-mgcv >= 1.9.0
+Requires:         R-CRAN-mgcv >= 1.9.4
+Requires:         R-CRAN-patchwork >= 1.3.2
 Requires:         R-CRAN-dplyr >= 1.2.0
-Requires:         R-CRAN-patchwork >= 1.2.0
 Requires:         R-CRAN-tidyselect >= 1.2.0
 Requires:         R-CRAN-purrr >= 1.1.0
+Requires:         R-CRAN-Rcpp 
+Requires:         R-parallel 
+Requires:         R-CRAN-KernSmooth 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-vctrs 
 Requires:         R-grid 
 Requires:         R-CRAN-mvnfast 
 Requires:         R-stats 
-Requires:         R-tools 
 Requires:         R-grDevices 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-pillar 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-ggokabeito 
 Requires:         R-CRAN-withr 
 Requires:         R-CRAN-scales 
-Requires:         R-CRAN-mirai 
+Requires:         R-utils 
 
 %description
 Graceful 'ggplot'-based graphics and utility functions for working with

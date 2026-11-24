@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  confoundvis
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Common Interface for Visualizing and Reporting Sensitivity Analyses for Unmeasured Confounding
 
@@ -36,14 +36,21 @@ robustness of inference to replacement analysis (Frank, 2000,
 <doi:10.3102/0162373713493129>), partial R-squared omitted-variable bias
 analysis (Cinelli and Hazlett, 2020, <doi:10.1111/rssb.12348>), E-values
 (VanderWeele and Ding, 2017, <doi:10.7326/M16-2607>), and Rosenbaum bounds
-for matched pairs (Rosenbaum, 2002, <doi:10.1007/978-1-4757-3692-2>) are
+for matched pairs (Rosenbaum, 2002, <doi:10.1007/978-1-4757-3692-2>), the
+sensitivity of instrumental variable estimates (Cinelli and Hazlett, 2025,
+<doi:10.1093/biomet/asaf004>), and omitted-variable bias bounds for double
+machine learning (Chernozhukov et al., 2024, <doi:10.3386/w30302>), and
+the risk difference of a binary outcome under a binary unmeasured
+confounder (Lin, Psaty, and Kronmal, 1998, <doi:10.2307/2533848>) are
 stored in one object that keeps each framework's own parameter. Robustness
 curves, summary tables, and plain-language reports are available for every
 framework; two-parameter surfaces, the exact correlation contour, and
 observed-covariate benchmarks are provided where the corresponding
 framework defines them. Results can be computed from fitted models or
 matched-pair differences, or converted from the 'sensemakr', 'konfound',
-and 'EValue' packages, and agree with those packages.
+'EValue', and 'iv.sensemakr' packages, and agree with those packages. For
+fits from the 'DoubleML' package, which has no sensitivity analysis in R,
+the bounds of the Python 'doubleml' package are computed.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tinyshinyserver
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tiny 'shiny' Server - Lightweight Multi-App 'shiny' Proxy
 
@@ -14,45 +14,49 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-callr >= 3.7.0
+BuildRequires:    R-CRAN-curl >= 3.3
+BuildRequires:    R-CRAN-ps >= 1.7.0
+BuildRequires:    R-CRAN-jsonlite >= 1.6
+BuildRequires:    R-CRAN-httpuv >= 1.5.5
+BuildRequires:    R-CRAN-later >= 1.4.0
+BuildRequires:    R-CRAN-websocket >= 1.1.0
+BuildRequires:    R-CRAN-logger >= 0.2.0
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-callr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-later 
-BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-promises 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-httpuv 
-BuildRequires:    R-CRAN-websocket 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-logger 
-BuildRequires:    R-CRAN-openssl 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-quarto 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-callr >= 3.7.0
+Requires:         R-CRAN-curl >= 3.3
+Requires:         R-CRAN-ps >= 1.7.0
+Requires:         R-CRAN-jsonlite >= 1.6
+Requires:         R-CRAN-httpuv >= 1.5.5
+Requires:         R-CRAN-later >= 1.4.0
+Requires:         R-CRAN-websocket >= 1.1.0
+Requires:         R-CRAN-logger >= 0.2.0
 Requires:         R-methods 
 Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-callr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-later 
-Requires:         R-CRAN-curl 
 Requires:         R-CRAN-promises 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-httpuv 
-Requires:         R-CRAN-websocket 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-logger 
-Requires:         R-CRAN-openssl 
+Requires:         R-CRAN-glue 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-quarto 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
-A lightweight, 'WebSocket'-enabled proxy server for hosting multiple
-'shiny' applications with automatic health monitoring, session management,
-and resource cleanup. Provides a simple entry point to run the server
-using a JSON configuration file.
+A lightweight proxy server that hosts multiple 'shiny' applications,
+including interactive 'R Markdown' documents and 'Quarto' dashboards, each
+in its own R process. It forwards HTTP and 'WebSocket' traffic, keeps apps
+running or starts them on demand, restarts failed apps, and provides a web
+dashboard for monitoring and management. The server is configured with a
+JSON file.
 
 %prep
 %setup -q -c -n %{packname}
