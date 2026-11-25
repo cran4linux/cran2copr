@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rpanel
-%global packver   1.1-6.3.1
+%global packver   1.1-6.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.6.3.1
+Version:          1.1.6.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simple Interactive Controls for R using the 'tcltk' Package
 
@@ -24,9 +24,9 @@ BuildRequires:    R-tcltk
 Requires:         R-tcltk 
 
 %description
-A set of functions to build simple GUI controls for R functions.  These
-are built on the 'tcltk' package. Uses could include changing a parameter
-on a graph by animating it with a slider or a "doublebutton", up to more
+A set of functions to build simple GUI controls for R functions. These are
+built on the 'tcltk' package. Uses could include changing a parameter on a
+graph by animating it with a slider or a "doublebutton", up to more
 sophisticated control panels. Some functions for specific graphical tasks,
 referred to as 'cartoons', are provided.
 

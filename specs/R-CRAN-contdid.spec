@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  contdid
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Difference-in-Differences with a Continuous Treatment
 
@@ -18,7 +18,7 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-BMisc >= 1.4.8
-BuildRequires:    R-CRAN-ptetools >= 1.0.1
+BuildRequires:    R-CRAN-ptetools >= 1.1.0
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-splines2 
 BuildRequires:    R-CRAN-sandwich 
@@ -26,7 +26,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-npiv 
 Requires:         R-CRAN-BMisc >= 1.4.8
-Requires:         R-CRAN-ptetools >= 1.0.1
+Requires:         R-CRAN-ptetools >= 1.1.0
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-splines2 
 Requires:         R-CRAN-sandwich 

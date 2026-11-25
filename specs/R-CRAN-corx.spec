@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  corx
-%global packver   1.0.7.3
+%global packver   1.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7.3
+Version:          1.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create and Format Correlation Matrices
 
@@ -17,11 +17,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
+BuildRequires:    R-CRAN-tidyselect >= 1.2.0
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-ggcorrplot 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-clipr 
-BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-moments 
 BuildRequires:    R-CRAN-ggpubr 
@@ -30,11 +30,11 @@ BuildRequires:    R-stats
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-ppcor 
 BuildRequires:    R-CRAN-labelled 
+Requires:         R-CRAN-tidyselect >= 1.2.0
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-ggcorrplot 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-clipr 
-Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-moments 
 Requires:         R-CRAN-ggpubr 

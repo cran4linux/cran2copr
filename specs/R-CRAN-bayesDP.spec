@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bayesDP
-%global packver   1.3.8
+%global packver   1.3.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.8
+Version:          1.3.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Implementation of the Bayesian Discount Prior Approach for Clinical Trials
 
@@ -19,20 +19,26 @@ Requires:         R-core >= 3.6.0
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-detectseparation 
+BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-MCMCpack 
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-methods 
 Requires:         R-CRAN-survival 
+Requires:         R-CRAN-detectseparation 
+Requires:         R-CRAN-generics 
 Requires:         R-CRAN-MCMCpack 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-tibble 
 
 %description
 Functions for data augmentation using the Bayesian discount prior method
 for single arm and two-arm clinical trials, as described in Haddad et al.
 (2017) <doi:10.1080/10543406.2017.1300907>. The discount power prior
-methodology was developed in collaboration with the The Medical Device
+methodology was developed in collaboration with the Medical Device
 Innovation Consortium (MDIC) Computer Modeling & Simulation Working Group.
 
 %prep

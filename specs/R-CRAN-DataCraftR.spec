@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DataCraftR
-%global packver   0.3.2
+%global packver   0.5.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.5.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Datasets Interactively Using 'shiny'
 
@@ -14,28 +14,34 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bsicons 
+BuildRequires:    R-CRAN-shiny >= 1.8.1
 BuildRequires:    R-CRAN-bslib 
-BuildRequires:    R-CRAN-RcppColors 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinyWidgets 
-Requires:         R-CRAN-bsicons 
+BuildRequires:    R-stats 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-shiny >= 1.8.1
 Requires:         R-CRAN-bslib 
-Requires:         R-CRAN-RcppColors 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinyWidgets 
+Requires:         R-stats 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
-Set of 'shiny'-based 'RStudio' add-ins for interactively creating datasets
-through graphical interfaces. Users can adjust graphical elements to
-define data generation parameters, and the resulting datasets can be saved
-to temporary RDS files for further analysis or visualization. Methods are
-described in: Chang et al. (2024)
+Set of 'shiny'-based 'RStudio' add-ins for creating datasets by drawing.
+Users sketch scatter plots, histograms, density curves, boxplots,
+bivariate normal ellipses, regression curves with error bands, radar
+profiles, count bar plots and two-way contingency tables (mosaic plots) in
+an interactive gadget, and each drawing is returned as a data.frame
+together with a reproducible specification that can regenerate the same
+data. Methods are described in: Chang et al. (2024)
 <https://CRAN.R-project.org/package=shiny>; Bostock et al. (2011)
 <doi:10.1109/TVCG.2011.185>.
 

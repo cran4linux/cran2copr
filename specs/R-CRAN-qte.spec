@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  qte
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantile Treatment Effects
 
@@ -17,24 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ptetools >= 1.0.1
-BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-BMisc >= 1.4.11
+BuildRequires:    R-CRAN-ptetools >= 1.1.0
 BuildRequires:    R-CRAN-quantreg 
-BuildRequires:    R-CRAN-BMisc 
-BuildRequires:    R-CRAN-formula.tools 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-ptetools >= 1.0.1
-Requires:         R-parallel 
+Requires:         R-CRAN-BMisc >= 1.4.11
+Requires:         R-CRAN-ptetools >= 1.1.0
 Requires:         R-CRAN-quantreg 
-Requires:         R-CRAN-BMisc 
-Requires:         R-CRAN-formula.tools 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-data.table 
 
 %description
 Provides several methods for computing the Quantile Treatment Effect (QTE)

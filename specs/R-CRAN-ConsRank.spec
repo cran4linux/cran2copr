@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ConsRank
-%global packver   3.0
+%global packver   3.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0
+Version:          3.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compute the Median Ranking(s) According to the Kemeny's Axiomatic Approach
 
@@ -20,34 +20,32 @@ BuildRequires:    R-CRAN-rlist >= 0.4.2
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-proxy 
 BuildRequires:    R-CRAN-gtools 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-rlist >= 0.4.2
 Requires:         R-methods 
 Requires:         R-CRAN-proxy 
 Requires:         R-CRAN-gtools 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-Rcpp 
 
 %description
 Compute the median ranking according to the Kemeny's axiomatic approach.
 Rankings can or cannot contain ties, rankings can be both complete or
 incomplete. The package contains both branch-and-bound algorithms and
-heuristic solutions recently proposed. The searching space of the solution
-can either be restricted to the universe of the permutations or
-unrestricted to all possible ties. The package also provide some useful
-utilities for deal with preference rankings, including both element-weight
-Kemeny distance and correlation coefficient. This release includes also
-the median constrained bucket order algorithm. This release removes the
-functions previously declared as deprecated. These functions are now
-defunct and no longer available in the package. Essential references:
-Emond, E.J., and Mason, D.W. (2002) <doi:10.1002/mcda.313>; D'Ambrosio,
-A., Amodio, S., and Iorio, C. (2015) <doi:10.1285/i20705948v8n2p198>;
-Amodio, S., D'Ambrosio, A., and Siciliano R. (2016)
-<doi:10.1016/j.ejor.2015.08.048>; D'Ambrosio, A., Mazzeo, G., Iorio, C.,
-and Siciliano, R. (2017) <doi:10.1016/j.cor.2017.01.017>; Albano, A., and
-Plaia, A. (2021) <doi:10.1285/i20705948v14n1p117>; D'Ambrosio, A., Iorio,
-C., Staiano, M. and Siciliano, R (2019) <doi: 10.1007/s00180-018-0858-z>.
+heuristic solutions. The search space of the solution can be the universe
+of all rankings with ties, the permutations, or the bucket orders with a
+given number of buckets or with a given pattern of bucket sizes, top-k
+lists included. The package also provides some useful utilities to deal
+with preference rankings, including the element-weight Kemeny distance and
+correlation coefficient. Essential references: Emond, E.J., and Mason,
+D.W. (2002) <doi:10.1002/mcda.313>; D'Ambrosio, A., Amodio, S., and Iorio,
+C. (2015) <doi:10.1285/i20705948v8n2p198>; Amodio, S., D'Ambrosio, A., and
+Siciliano R. (2016) <doi:10.1016/j.ejor.2015.08.048>; D'Ambrosio, A.,
+Mazzeo, G., Iorio, C., and Siciliano, R. (2017)
+<doi:10.1016/j.cor.2017.01.017>; Albano, A., and Plaia, A. (2021)
+<doi:10.1285/i20705948v14n1p117>; D'Ambrosio, A., Iorio, C., Staiano, M.
+and Siciliano, R (2019) <doi:10.1007/s00180-018-0858-z>; Romano, M.,
+Coraggio, L., Conversano, C., and D'Ambrosio, A. (2026)
+<doi:10.48550/arXiv.2611.28925>.
 
 %prep
 %setup -q -c -n %{packname}

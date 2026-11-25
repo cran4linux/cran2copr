@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tseffects
-%global packver   0.4.1
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dynamic Effects from Single-Equation Time Series Models (with Interactions)
 
@@ -20,33 +20,31 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-mpoly 
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-insight 
 Requires:         R-CRAN-mpoly 
 Requires:         R-CRAN-car 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-sandwich 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-insight 
 
 %description
 Autoregressive distributed lag (A[R]DL) models (and their reparameterized
-equivalent, the Generalized Error-Correction Model [GECM]) are the
-workhorse dynamic linear models in uncovering dynamic inferences. ADL
-models are simple to estimate; this is what makes them attractive. Once
-these models are estimated, what is less clear is how to uncover a rich
-set of dynamic inferences from these models. We provide tools for
-recovering those inferences. These tools apply to traditional time-series
-quantities of interest and are built from the Impulse Response Function
-and Step Response Function (sometimes described as a pulse effect or a
-cumulative effect). They also allow for a variety of shock histories to be
-applied to the independent variable (beyond just a one-time, one-unit
-increase) as well as the recovery of inferences in levels for shocks
-applied to (in)dependent variables in differences through the Generalized
-Dynamic Response Function. These tools are also available for the general
-conditional dynamic model advocated by Warner, Vande Kamp, and Jordan
-(2026 <doi:10.1017/psrm.2026.10087>).
+equivalent, the Generalized Error-Correction Model [GECM]) are workhorse
+dynamic linear models in uncovering dynamic inferences. ADL models are
+simple to estimate; this is what makes them attractive. But generating
+dynamic quantities of interest from them is considerably more intensive.
+We provide tools for recovering those inferences. These tools apply to
+traditional time-series quantities of interest and are built from the
+Impulse Response Function for the dynamic linear model. They also allow
+for a variety of shock histories to be applied to the independent variable
+(beyond just a one-time, one-unit increase) as well as the recovery of
+inferences in levels for shocks applied to (in)dependent variables in
+differences through the Generalized Dynamic Response Function. These tools
+are also available for the general conditional dynamic model advocated by
+Warner, Vande Kamp, and Jordan (2026 <doi:10.1017/psrm.2026.10087>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  corto
-%global packver   1.4.0
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Inference of Gene Regulatory Networks
 
@@ -41,15 +41,15 @@ data using DPI (Data Processing Inequality) and bootstrapping to recover
 edges. An initial step is performed to calculate all significant edges
 between a list of source nodes (centroids) and target genes. Then a DPI
 step removes edges: by default, for each target only the edge from the
-centroid with the strongest correlation is kept; optionally, the ARACNe
+centroid with the strongest correlation is kept; optionally, the 'ARACNe'
 rule removes an edge only if it is the weakest in a triplet of two
 centroids and one target. A bootstrapping process then calculates the
 robustness of the network, eventually re-adding edges previously removed
 by DPI. The algorithm has been optimized to run outside a computing
 cluster, using a fast correlation implementation. The package finally
 provides functions to calculate network enrichment analysis from RNA-Seq
-and ATAC-Seq signatures as described in the article by Giorgi lab (2020)
-<doi:10.1093/bioinformatics/btaa223>.
+and ATAC-Seq signatures as described in the article by Mercatelli et al.
+(2020) <doi:10.1093/bioinformatics/btaa223>.
 
 %prep
 %setup -q -c -n %{packname}

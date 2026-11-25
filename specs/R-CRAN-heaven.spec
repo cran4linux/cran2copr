@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  heaven
-%global packver   2026.10.30
+%global packver   2026.11.24
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2026.10.30
+Version:          2026.11.24
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Data Preparation for Danish Registry Data
 

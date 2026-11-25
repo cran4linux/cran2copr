@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  segmented
-%global packver   2.2-2
+%global packver   2.3-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.2
+Version:          2.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regression Models with Break-Points / Change-Points Estimation (with Possibly Random Effects)
 
@@ -33,9 +33,11 @@ hypothesis testing is presented in Muggeo (2016,
 <doi:10.1080/00949655.2016.1149855>), and interval estimation for the
 breakpoint is discussed in Muggeo (2017, <doi:10.1111/anzs.12200>).
 Segmented mixed models, i.e. random effects in the change point, are
-discussed in Muggeo (2014, <doi:10.1177/1471082X13504721>). Estimation of
-piecewise-constant relationships and changepoints (mean-shift models) is
-discussed in Fasola et al. (2018, <doi:10.1007/s00180-017-0740-4>).
+discussed in Muggeo (2014, <doi:10.1177/1471082X13504721>); see Muggeo
+(2026, <doi:10.68365/jrepstat.2026.12>) for some worked examples.
+Estimation of piecewise-constant relationships and changepoints
+(mean-shift models) is discussed in Fasola et al. (2018,
+<doi:10.1007/s00180-017-0740-4>).
 
 %prep
 %setup -q -c -n %{packname}

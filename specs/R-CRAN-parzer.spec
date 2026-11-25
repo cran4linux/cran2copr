@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  parzer
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parse Messy Geographic Coordinates
 
@@ -25,7 +25,9 @@ decimal degree numeric values. Parse coordinates into their parts (degree,
 minutes, seconds); calculate hemisphere from coordinates; pull out
 individually degrees, minutes, or seconds; add and subtract degrees,
 minutes, and seconds. C++ code herein originally inspired from code
-written by Jeffrey D. Bogan, but then completely re-written.
+written by Jeffrey D. Bogan, but then completely re-written. A 'format'
+argument reads packed digits, such as coordinates from the International
+Civil Aviation Organization ('ICAO') or from GPS receivers ('NMEA').
 
 %prep
 %setup -q -c -n %{packname}

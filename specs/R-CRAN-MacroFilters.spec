@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MacroFilters
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Trend-Cycle Decomposition for Macroeconomic Time Series
 
@@ -17,14 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-Matrix >= 1.3.0
+BuildRequires:    R-CRAN-data.table >= 1.12.0
 BuildRequires:    R-CRAN-mboost 
 BuildRequires:    R-CRAN-tseries 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-Matrix >= 1.3.0
+Requires:         R-CRAN-data.table >= 1.12.0
 Requires:         R-CRAN-mboost 
 Requires:         R-CRAN-tseries 
 
@@ -35,10 +35,10 @@ real-time. Implements the MacroBoost Hybrid (MBH) filter using penalized
 P-splines and gradient boosting. Unlike the standard Hodrick-Prescott
 filter, 'MacroFilters' utilizes component-wise L2-boosting with robust
 loss functions (Huber) to handle extreme transient shocks (e.g., COVID-19)
-without inducing spurious trend shifts. The algorithm includes an
-automated two-layer diagnostic stage for unit roots and structural breaks,
-optimized via corrected AICc for computational efficiency. Methodology
-detailed in Kinel (2026) <doi:10.2139/ssrn.6371138>.
+without inducing spurious trend shifts. The boosted HP variant offers
+stopping rules based on BIC or an augmented Dickey-Fuller test, and all
+filters provide block-bootstrap uncertainty bands. Methodology detailed in
+Kinel (2026) <doi:10.2139/ssrn.6371138>.
 
 %prep
 %setup -q -c -n %{packname}

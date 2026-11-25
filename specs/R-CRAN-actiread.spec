@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  actiread
-%global packver   0.9.0
+%global packver   0.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Baseline Package for Reading Actigraphy and Activity Data
 
@@ -17,33 +17,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-actibase >= 0.9.0
 BuildRequires:    R-CRAN-read.gt3x >= 0.2.0
-BuildRequires:    R-CRAN-actibase 
 BuildRequires:    R-CRAN-GGIRread 
 BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-actibase >= 0.9.0
 Requires:         R-CRAN-read.gt3x >= 0.2.0
-Requires:         R-CRAN-actibase 
 Requires:         R-CRAN-GGIRread 
 Requires:         R-CRAN-R.utils 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-readr 
 Requires:         R-tools 
 Requires:         R-utils 

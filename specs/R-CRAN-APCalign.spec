@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  APCalign
-%global packver   2.0.1
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Resolving Plant Taxon Names Using the Australian Plant Census
 
@@ -17,30 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-stringdist 
-BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-arrow 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-stringi 
+BuildRequires:    R-CRAN-nanoparquet 
+Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-stringdist 
-Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-curl 
-Requires:         R-CRAN-arrow 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-nanoparquet 
 
 %description
 The process of resolving and updating taxon names is necessary when

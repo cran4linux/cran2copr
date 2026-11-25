@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  apaTables
-%global packver   2.0.8
+%global packver   2.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.8
+Version:          2.0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create American Psychological Association (APA) Style Tables
 
@@ -24,7 +25,6 @@ BuildRequires:    R-CRAN-broom
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-MBESS 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-methods 
@@ -33,7 +33,6 @@ Requires:         R-CRAN-broom
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-MBESS 
 
 %description
 A common task faced by researchers is the creation of APA style (i.e.,
@@ -41,10 +40,11 @@ American Psychological Association style) tables from statistical output.
 In R a large number of function calls are often needed to obtain all of
 the desired information for a single APA style table. As well, the process
 of manually creating APA style tables in a word processor is prone to
-transcription errors. This package creates Word files (.doc files)
+transcription errors. This package creates 'Word' files (.doc files)
 containing APA style tables for several types of analyses. Using this
-package minimizes transcription errors and reduces the number commands
-needed by the user.
+package minimizes transcription errors and reduces the number of commands
+needed by the user. The approach is described in Stanley and Spence (2018)
+<doi:10.1177/2515245918773743>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -54,6 +54,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

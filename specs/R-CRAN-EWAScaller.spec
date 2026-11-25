@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EWAScaller
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Query and Analyse the 'EWAS Atlas' Database
 
@@ -41,11 +41,14 @@ Provides a client for the 'EWAS Atlas' web services
 association study (EWAS) data by CpG (cytosine-phosphate-guanine) probe
 identifier, gene symbol, or genomic region, and to run trait, Gene
 Ontology, KEGG (Kyoto Encyclopedia of Genes and Genomes) pathway, and
-genomic location enrichment analyses on a set of CpG probes. Query
-functions support concurrent, rate-limited requests to the remote service.
-Results are returned as tidy data frames with dedicated summary and
-plotting methods, including word clouds of enriched 'EWAS Atlas' trait
-terms.
+genomic location enrichment analyses on a set of CpG probes. It also
+retrieves expression quantitative trait methylation (eQTM) associations,
+i.e. correlations between CpG methylation and gene expression in 'TCGA'
+(The Cancer Genome Atlas) tissue data. Query functions support concurrent,
+rate-limited requests to the remote service. Results are returned as tidy
+data frames with dedicated summary and customizable plotting methods,
+including word clouds of enriched 'EWAS Atlas' trait terms and eQTM
+heatmap, volcano, and scatter plots.
 
 %prep
 %setup -q -c -n %{packname}

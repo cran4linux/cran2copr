@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rvisual
-%global packver   0.1.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visual Data Analysis 'RStudio' 'Addin' with AI Copilot
 
@@ -54,7 +54,10 @@ data manipulation and analysis, designed for users transitioning from
 'SPSS' to R. Every visual action generates clean, reproducible R code
 using 'tidyverse' conventions ('dplyr', 'tidyr'). Includes a context-aware
 AI copilot supporting multiple 'LLM' providers ('OpenAI', 'Anthropic'
-Claude, 'Google Gemini') with built-in proxy support and privacy controls.
+Claude, 'Google Gemini') with built-in proxy support and privacy controls,
+and a guided supervised machine learning module (regression and
+classification with cross-validation) that also produces a reproducible
+script.
 
 %prep
 %setup -q -c -n %{packname}

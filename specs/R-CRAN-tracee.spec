@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tracee
-%global packver   0.0.4
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easily Save Output and Trace it Back to Code
 
@@ -17,18 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-NMdata >= 0.0.14
+BuildRequires:    R-CRAN-NMdata >= 0.2.4
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-flextable 
-Requires:         R-CRAN-NMdata >= 0.0.14
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-ragg 
+Requires:         R-CRAN-NMdata >= 0.2.4
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grid 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-flextable 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-ragg 
 
 %description
 Write output (plots and tables) ensuring traceability back to code.

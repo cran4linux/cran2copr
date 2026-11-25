@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  predictmeans
-%global packver   1.1.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Predicted Means for Linear and Semiparametric Models
 
@@ -14,62 +14,53 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-glmmTMB 
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-lmerTest 
-BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-glmmTMB 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-HRW 
-BuildRequires:    R-CRAN-lmeInfo 
-BuildRequires:    R-CRAN-lmeSplines 
+BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-pbkrtest 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-reformulas 
-BuildRequires:    R-CRAN-splines2 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-glmmTMB 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-lmerTest 
-Requires:         R-CRAN-car 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-glmmTMB 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-CRAN-HRW 
-Requires:         R-CRAN-lmeInfo 
-Requires:         R-CRAN-lmeSplines 
+Requires:         R-grid 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-MASS 
 Requires:         R-methods 
+Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-parallel 
-Requires:         R-CRAN-pbkrtest 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-reformulas 
-Requires:         R-CRAN-splines2 
 Requires:         R-stats 
 Requires:         R-utils 
 
 %description
-Providing functions to diagnose and make inferences from various linear
-models, such as those obtained from 'aov', 'lm', 'glm', 'gls', 'lme',
-'lmer', 'glmmTMB' and 'semireg'. Inferences include predicted means and
-standard errors, contrasts, multiple comparisons, permutation tests,
-adjusted R-square and graphs.
+Predicted means, standard errors, contrasts, multiple comparisons,
+permutation and bootstrap tests, R-squared and diagnostics for models
+fitted by 'aov', 'lm', 'glm', 'gls', 'lme', 'lmer', 'glmer', 'glmmTMB',
+'gam' and 'semireg'. Defaults are chosen on evidence: Kenward-Roger
+degrees of freedom and adjusted standard errors for REML 'lmer' fits
+(Kenward and Roger (1997) <doi:10.2307/2533558>), permutation p-values
+(b+1)/(B+1), stratum standard errors for 'aov' models with Error() terms
+as in 'Genstat', and equal-weight means over observed cells with a
+warning. Results are tested against 'SAS' PROC MIXED and 'Genstat' output
+and the 'pbkrtest', 'nlme' and 'emmeans' packages. Functions stop with a
+message rather than return a wrong result, give one-line advice triggered
+by the data, and give the same resampling results for any number of cores.
 
 %prep
 %setup -q -c -n %{packname}

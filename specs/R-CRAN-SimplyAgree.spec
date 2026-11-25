@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SimplyAgree
-%global packver   0.3.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flexible and Robust Agreement and Reliability Analyses
 
@@ -20,6 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-emmeans 
 BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-minqa 
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-dplyr 
@@ -33,13 +34,12 @@ BuildRequires:    R-CRAN-patchwork
 BuildRequires:    R-CRAN-insight 
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-scales 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-emmeans 
 Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-minqa 
 Requires:         R-CRAN-boot 
 Requires:         R-stats 
 Requires:         R-CRAN-dplyr 
@@ -53,8 +53,6 @@ Requires:         R-CRAN-patchwork
 Requires:         R-CRAN-insight 
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-scales 
 
