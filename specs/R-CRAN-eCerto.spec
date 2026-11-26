@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eCerto
-%global packver   0.8.30
+%global packver   0.8.31
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.30
+Version:          0.8.31
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Tests for the Production of Reference Materials
 

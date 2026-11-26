@@ -1,41 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rim
-%global packver   0.9.0
+%global packname  water
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to 'Maxima', Enabling Symbolic Computation
+Summary:          Actual Evapotranspiration with Energy Balance Models
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Recommends:       maxima
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-terra >= 1.7.0
+BuildRequires:    R-CRAN-sf >= 1.0.0
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-GlobalOptions 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-terra >= 1.7.0
+Requires:         R-CRAN-sf >= 1.0.0
 Requires:         R-methods 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-GlobalOptions 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-An interface to the powerful and fairly complete computer algebra system
-'Maxima'. It can be used to start and control 'Maxima' from within R by
-entering 'Maxima' commands. Results from 'Maxima' can be parsed and
-evaluated in R. It facilitates outputting results from 'Maxima' in 'LaTeX'
-and 'MathML'. 2D and 3D plots can be displayed directly. This package also
-registers a 'knitr'-engine enabling 'Maxima' code chunks to be written in
-'RMarkdown' documents.
+Estimates actual evapotranspiration with surface energy balance models.
+Implements the METRIC model (Allen et al. (2007)
+<doi:10.1061/(ASCE)0733-9437(2007)133:4(380)>) for Landsat 7, 8 and 9
+images, including Collection 2 Level-2 surface reflectance and surface
+temperature products, together with weather station data processing and
+reference evapotranspiration (ASCE Penman-Monteith).
 
 %prep
 %setup -q -c -n %{packname}

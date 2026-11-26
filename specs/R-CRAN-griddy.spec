@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  griddy
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Geospatial Distribution Dynamics for Simple Features
 
@@ -39,7 +39,8 @@ Tools for exploratory geospatial distribution dynamics with 'sf' objects
 and tidy data. Provides pooled and time-specific classification of
 longitudinal spatial values, classic discrete Markov transition matrices,
 spatial Markov matrices conditioned on spatial-lag classes, endpoint and
-adjacent rank mobility summaries, and 'ggplot2' visualizations. Methods
+adjacent rank mobility summaries, ergodic-chain summaries,
+transition-regime homogeneity tests, and 'ggplot2' visualizations. Methods
 follow Rey (2001) <doi:10.1111/j.1538-4632.2001.tb00444.x> and Rey et al.
 (2016) <doi:10.1007/s10109-016-0234-x>; design is inspired by the Python
 'PySAL' 'giddy' package <https://pysal.org/giddy/>.

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BayesianQDM
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Quantitative Decision-Making Framework for Binary, Continuous and Time-to-Event Endpoints
 
@@ -14,16 +14,18 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-grDevices 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Bayesian quantitative decision-making for proof-of-concept clinical trials
@@ -32,21 +34,23 @@ sizes, conjugate prior distributions, external data borrowed through power
 priors, a concurrent, external, hypothetical or fixed control group, and a
 decision criterion based on the posterior or posterior predictive
 probability of the treatment effect. The package computes the decision for
-observed data, the operating characteristics of a design under scenarios
-for the true parameters, the decision thresholds that control the
-probabilities of false Go and false NoGo decisions, and the observed data
-that lead to each decision. One or two binary endpoints (Beta-binomial and
-Dirichlet-multinomial models), one or two continuous endpoints
-(Normal-Inverse-chi-squared and Normal-Inverse-Wishart models) and one
-time-to-event endpoint evaluated by the milestone survival probability or
-the hazard ratio (exponential model with Gamma priors) are supported, with
-larger or smaller effects as favorable. The posterior distributions have
-closed forms, so Markov chain Monte Carlo (MCMC) sampling is not needed;
-the probabilities are computed from closed-form distribution functions, by
-exact summation, numerical integration, a moment-matching approximation or
-Monte Carlo simulation, with the main computations in C++. See Kang,
-Yamaguchi, and Han (2026) <doi:10.1080/10543406.2026.2655410> for the
-methodological framework.
+observed data, the operating characteristics of one or more designs under
+scenarios for the true parameters, the decision thresholds, or the
+smallest sample size, for which the probabilities of false Go and false
+NoGo decisions are at most given targets, and the observed data that lead
+to each decision. Reports of a design and its results can be written as
+drafts of the corresponding sections of a study protocol. One or two
+binary endpoints (Beta-binomial and Dirichlet-multinomial models), one or
+two continuous endpoints (Normal-Inverse-chi-squared and
+Normal-Inverse-Wishart models) and one time-to-event endpoint evaluated by
+the milestone survival probability or the hazard ratio (exponential model
+with Gamma priors) are supported, with larger or smaller effects as
+favorable. The posterior distributions have closed forms, so Markov chain
+Monte Carlo (MCMC) sampling is not needed; the probabilities are computed
+from closed-form distribution functions, by exact summation, numerical
+integration, a moment-matching approximation or Monte Carlo simulation,
+with the main computations in C++. See Kang, Yamaguchi, and Han (2026)
+<doi:10.1080/10543406.2026.2655410> for the methodological framework.
 
 %prep
 %setup -q -c -n %{packname}

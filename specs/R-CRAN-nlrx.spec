@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nlrx
-%global packver   0.4.6
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.6
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Setup, Run and Analyze 'NetLogo' Model Simulations from 'R' via 'XML'
 
@@ -16,16 +16,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 Recommends:       R-java
 Recommends:       pandoc
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-logolink >= 1.0.0
 BuildRequires:    R-CRAN-lhs 
 BuildRequires:    R-CRAN-sensitivity 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-furrr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
@@ -42,13 +41,15 @@ BuildRequires:    R-CRAN-igraph
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-EasyABC 
-Requires:         R-CRAN-XML 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-logolink >= 1.0.0
 Requires:         R-CRAN-lhs 
 Requires:         R-CRAN-sensitivity 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-furrr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-stats 
 Requires:         R-utils 
@@ -65,20 +66,24 @@ Requires:         R-CRAN-igraph
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-EasyABC 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-xml2 
 
 %description
 Setup, run and analyze 'NetLogo' (<https://www.netlogo.org>) model
-simulations in 'R'. 'nlrx' experiments use a similar structure as
-'NetLogos' Behavior Space experiments. However, 'nlrx' offers more
+simulations in 'R'. 'nlrx' experiments use a similar structure as the
+Behavior Space experiments of 'NetLogo'. However, 'nlrx' offers more
 flexibility and additional tools for running and analyzing complex
 simulation designs and sensitivity analyses. The user defines all
 information that is needed in an intuitive framework, using class objects.
 Experiments are submitted from 'R' to 'NetLogo' via 'XML' files that are
-dynamically written, based on specifications defined by the user. By
-nesting model calls in future environments, large simulation design with
-many runs can be executed in parallel. This also enables simulating
+dynamically written, based on specifications defined by the user.
+Simulations are organised into blocks that each run in one 'NetLogo'
+instance with several parallel threads, so large simulation designs with
+many runs can be executed efficiently. This also enables simulating
 'NetLogo' experiments on remote high performance computing machines. In
-order to use this package, 'Java' and 'NetLogo' (>= 5.3.1) need to be
+order to use this package, 'Java' and 'NetLogo' (>= 7.0.0) need to be
 available on the executing system.
 
 %prep

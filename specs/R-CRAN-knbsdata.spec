@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  textrecipes
-%global packver   1.2.0
+%global packname  knbsdata
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extra 'Recipes' for Text Processing
+Summary:          Discover, Retrieve and Cite Official Kenyan Statistics
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,44 +16,44 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
-BuildRequires:    R-CRAN-recipes >= 1.4.0
+BuildArch:        noarch
 BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-sparsevctrs >= 0.3.0
-BuildRequires:    R-CRAN-generics >= 0.1.0
+BuildRequires:    R-CRAN-httr2 >= 1.0.0
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-SnowballC 
+BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tokenizers 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-recipes >= 1.4.0
+BuildRequires:    R-CRAN-yaml 
 Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-sparsevctrs >= 0.3.0
-Requires:         R-CRAN-generics >= 0.1.0
+Requires:         R-CRAN-httr2 >= 1.0.0
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-SnowballC 
+Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tokenizers 
+Requires:         R-tools 
 Requires:         R-utils 
 Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-yaml 
 
 %description
-Converting text to numerical features requires specifically created
-procedures, which are implemented as steps according to the 'recipes'
-package. These steps allows for tokenization, filtering, counting (tf and
-tfidf) and feature hashing.
+Provides a consistent interface for discovering and retrieving official
+data and statistical products of the Kenya National Bureau of Statistics
+(KNBS): its survey archive <https://statistics.knbs.or.ke/nada/>,
+publications library, census, consumer price and economic data portals
+<https://opendata.knbs.or.ke/beta/databrowser/>, the open FinAccess survey
+microdata <https://finaccess.knbs.or.ke/>, and the Kenya Demographic and
+Health Survey indicators published through the DHS Program API
+<https://api.dhsprogram.com/>. Standardises them into documented schemas,
+preserves provenance metadata such as release dates and checksums, and
+generates reproducible citations. This is an independent open-source
+project and is not an official KNBS product.
 
 %prep
 %setup -q -c -n %{packname}

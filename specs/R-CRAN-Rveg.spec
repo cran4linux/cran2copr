@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rveg
-%global packver   0.1.11
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.11
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Digitization of Phytosociological Relevés
 
@@ -23,12 +23,21 @@ Requires:         R-utils
 Requires:         R-CRAN-xml2 
 
 %description
-Simple and fast tool for transforming phytosociological vegetation data
-into digital form for the following analysis. Danihelka, Chrtek, and
-Kaplan (2012, ISSN:00327786). Hennekens, and Schaminée (2001)
-<doi:10.2307/3237010>. Tichý (2002)
-<doi:10.1111/j.1654-1103.2002.tb02069.x>. Wickham, François, Henry, Müller
-(2022) <https://CRAN.R-project.org/package=dplyr>.
+Digitizes, manages, and classifies phytosociological vegetation plots.
+Includes a checklist of Czech vascular plants based on Danihelka, Chrtek,
+and Kaplan (2012) <https://www.preslia.cz/article/159>. Imports vegetation
+data from 'TURBOVEG' (Hennekens and Schaminée, 2001) <doi:10.2307/3237010>
+and exports data for 'JUICE' (Tichý, 2002)
+<doi:10.1111/j.1654-1103.2002.tb02069.x>. Supports vegetation
+classification using 'CzechVeg-ESy' expert rules (Chytrý et al., 2020)
+<doi:10.5281/zenodo.3605562> and a constancy-based classifier inspired by
+'VegKey' (Tichý and Chytrý, 2019) <doi:10.1111/jvs.12799>. The bundled
+default classification model was trained on 'CzechVeg-OpenStrat' (Chytrý
+et al., 2026) <doi:10.5281/zenodo.19231152>. Resolves plant synonyms using
+the World Checklist of Vascular Plants (Govaerts et al., 2021)
+<doi:10.1038/s41597-021-00997-6>, the taxonomic backbone of 'Plants of the
+World Online'. For package methodology, see Král and Douda (2025)
+<doi:10.1111/jvs.70012>.
 
 %prep
 %setup -q -c -n %{packname}

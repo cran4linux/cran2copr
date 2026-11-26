@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  roadDB
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access Data from the ROCEEH Out of Africa Database (ROAD)
 
@@ -34,14 +34,14 @@ Requires:         R-CRAN-glue
 
 %description
 Provides an R interface to the ROCEEH Out of Africa Database (ROAD)
-(<https://www.roceeh.uni-tuebingen.de/roadweb/smarty_road_simple_search.php>),
-a comprehensive resource for archaeological, anthropological,
-paleoenvironmental and geographic data from Africa and Eurasia dating from
-3,000,000 to 20,000 years BP. The package allows users to retrieve data
-from the online database at different levels of detail and customize
-search requests. Functions return data frame objects compatible with other
-R packages used in prehistoric and paleoenvironmental science, supporting
-reproducible workflows as an input provider.
+(<https://www.hadw-bw.de/en/roceeh>), a comprehensive resource for
+archaeological, anthropological, paleoenvironmental and geographic data
+from Africa and Eurasia dating from 3,000,000 to 20,000 years BP. The
+package allows users to retrieve data from the online database at
+different levels of detail and customize search requests. Functions return
+data frame objects compatible with other R packages used in prehistoric
+and paleoenvironmental science, supporting reproducible workflows as an
+input provider.
 
 %prep
 %setup -q -c -n %{packname}

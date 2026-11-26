@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggfourfold
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fourfold Displays for 'ggplot2'
 
@@ -20,17 +20,19 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
 BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-ggplot2 >= 4.0.0
 Requires:         R-grDevices 
 Requires:         R-grid 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 
 %description
 Draws fourfold displays of 2 x 2 (x k) contingency tables as a 'ggplot2'
 layer, following Friendly (1994)
-<https://datavis.ca/papers/4fold/4fold.pdf> and Friendly and Meyer (2016)
-<doi:10.1201/9781315374413>. Cell frequencies are shown as quarter-circles
+<https://friendly.github.io/papers/4fold/4fold.pdf> and Friendly and Meyer
+(2016) <doi:10.1201/b19022>. Cell frequencies are shown as quarter-circles
 or squares of proportional area, with confidence rings for the odds ratio
 and shading for the direction and strength of association. Stratified
 tables are shown with 'ggplot2' faceting and a corresponding 'ggplot2'

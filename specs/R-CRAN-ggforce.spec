@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggforce
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Accelerating 'ggplot2'
 
@@ -32,7 +32,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-systemfonts 
+BuildRequires:    R-CRAN-marquee 
 BuildRequires:    R-CRAN-cpp11 
 Requires:         R-CRAN-ggplot2 >= 3.5.0
 Requires:         R-CRAN-tweenr >= 0.1.5
@@ -50,7 +50,7 @@ Requires:         R-utils
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-vctrs 
-Requires:         R-CRAN-systemfonts 
+Requires:         R-CRAN-marquee 
 
 %description
 The aim of 'ggplot2' is to aid in visual data investigations. This focus

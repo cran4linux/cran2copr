@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  brulee
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          High-Level Modeling Functions with 'torch'
 
@@ -55,7 +55,8 @@ Requires:         R-CRAN-withr
 %description
 Provides high-level modeling functions to define and train models using
 the 'torch' R package. Models include linear, logistic, and multinomial
-regression as well as multilayer perceptrons.
+regression, multilayer perceptrons, modern neural neural networks, and the
+pretrained tabular foundational models such as 'TabICL' and 'TabPFN'.
 
 %prep
 %setup -q -c -n %{packname}

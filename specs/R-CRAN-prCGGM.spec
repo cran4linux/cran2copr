@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  prCGGM
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Prior-Informed Conditional Gaussian Graphical Models
 
@@ -42,11 +42,14 @@ confidence scores from the 'STRING' database as prior knowledge. Prior
 knowledge enters through a weighted sparse-group lasso penalty that is
 applied only to the population-level network, so that covariate-specific
 changes remain entirely data-driven. Node-wise regressions are fitted with
-'glmnet' and 'sparsegl', structural hyperparameters are tuned per node by
-the Bayesian information criterion, and personalised networks can be
-predicted for new individuals from their covariates. Estimation runs
-sequentially, in parallel on a single machine, or as 'SLURM' array jobs on
-computing clusters. The method is described in Mapelli et al. (2026)
+'glmnet' and 'sparsegl'; the penalty and the structural hyperparameters
+are selected per node by the Bayesian information criterion of the
+least-squares refit (or, optionally, by its extended version,
+cross-validation or stability selection), the selected edges are refitted
+by least squares, and personalised networks can be predicted for new
+individuals from their covariates. Estimation runs sequentially, in
+parallel on a single machine, or as 'SLURM' array jobs on computing
+clusters. The method is described in Mapelli et al. (2026)
 <doi:10.48550/arXiv.2606.31805>.
 
 %prep

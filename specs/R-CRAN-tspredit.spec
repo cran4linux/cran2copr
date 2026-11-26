@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tspredit
-%global packver   2.0.717
+%global packver   2.0.757
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.717
+Version:          2.0.757
 Release:          1%{?dist}%{?buildtag}
 Summary:          Time Series Prediction with Integrated Tuning
 
@@ -21,26 +21,24 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-CRAN-elmNNRcpp 
 BuildRequires:    R-CRAN-FNN 
-BuildRequires:    R-CRAN-forecast 
-BuildRequires:    R-CRAN-hht 
 BuildRequires:    R-CRAN-KFAS 
 BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-CRAN-randomForest 
-BuildRequires:    R-CRAN-wavelets 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-daltoolbox 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-reshape 
 Requires:         R-stats 
 Requires:         R-CRAN-e1071 
 Requires:         R-CRAN-elmNNRcpp 
 Requires:         R-CRAN-FNN 
-Requires:         R-CRAN-forecast 
-Requires:         R-CRAN-hht 
 Requires:         R-CRAN-KFAS 
 Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-randomForest 
-Requires:         R-CRAN-wavelets 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-daltoolbox 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-reshape 
 
 %description
 Time series prediction is a critical task in data analysis, requiring not

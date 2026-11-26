@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  epistandardiseR
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Direct Standardisation with Confidence Intervals
+Summary:          Direct Age, Sex and Deprivation Standardisation
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -29,13 +29,13 @@ Requires:         R-stats
 Requires:         R-CRAN-tidyr 
 
 %description
-Provides tools to compute directly standardised rates using the 2013
-European Standard Population for age and deprivation-standardised rates
-using a 10%% per decile assumption. Sex standardisation uses an assumed
-equal proportion of both males and females. The package Includes variance
-estimation and 95%% confidence intervals for population health
-applications. Functions support flexible grouping variables and age bands,
-enabling reproducible and automated analyses.
+Allows computation of directly standardised rates using the 2013 European
+Standard Population, deprivation-standardised rates using a 10%% per decile
+assumption, sex standardisation uses an assumed equal proportion of both
+males and females. Package allows multivariable standardisation using Age,
+Sex or Deprivation using the above methods. The package calculates 95%%
+confidence intervals using Byar's approximation. Functions support
+flexible grouping variables and age bands, enabling reproducible results.
 
 %prep
 %setup -q -c -n %{packname}

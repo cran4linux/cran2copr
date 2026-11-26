@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  exmort
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          All-Cause and Excess Mortality Calculator
 
@@ -21,11 +21,13 @@ BuildRequires:    R-CRAN-base64enc
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-flextable 
 BuildRequires:    R-CRAN-forecast 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-ISOweek 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-kableExtra 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-lubridate 
@@ -46,16 +48,19 @@ BuildRequires:    R-CRAN-shinyjs
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-DT 
+Requires:         R-CRAN-flextable 
 Requires:         R-CRAN-forecast 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-ISOweek 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-kableExtra 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-lubridate 
@@ -76,13 +81,16 @@ Requires:         R-CRAN-shinyjs
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-withr 
 Requires:         R-CRAN-zoo 
 
 %description
 An interactive 'shiny' application that estimates all-cause mortality and
-excess mortality from country-level weekly or monthly death counts. Users
-supply observed deaths and an event calendar (for example COVID-19 waves
-or typhoons); the app fits one or more statistical baseline models
+excess mortality from country-level weekly or monthly death counts.
+Monthly cause-specific analyses use historical-average or
+negative-binomial baselines. For all-cause mortality, users supply
+observed deaths and an event calendar (for example COVID-19 waves or
+typhoons); the app fits one or more statistical baseline models
 (historical average, negative binomial regression, quasi-Poisson
 regression, zero-inflated Poisson regression, ARIMA (autoregressive
 integrated moving average) and SARIMA (seasonal ARIMA) models, GAM
