@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FSA
-%global packver   0.10.1
+%global packver   0.10.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.1
+Version:          0.10.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simple Fisheries Stock Assessment Methods
 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-FlexParamCurve
 BuildRequires:    R-CRAN-lmtest 
 BuildRequires:    R-CRAN-plotrix 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringdist 
 BuildRequires:    R-CRAN-withr 
 Requires:         R-graphics 
 Requires:         R-grDevices 
@@ -40,6 +41,7 @@ Requires:         R-CRAN-FlexParamCurve
 Requires:         R-CRAN-lmtest 
 Requires:         R-CRAN-plotrix 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringdist 
 Requires:         R-CRAN-withr 
 
 %description

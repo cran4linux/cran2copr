@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RiskScorescvd
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cardiovascular Risk Scores Calculator
 
@@ -40,7 +40,7 @@ described in SCORE2 working group and ESC Cardiovascular risk
 collaboration (2021) <doi:10.1093/eurheartj/ehab309>. TIMI described in
 Antman EM, et al (2000) <doi:10.1001/jama.284.7.835>. SCORE2-Diabetes
 described in SCORE2-Diabetes working group and ESC Cardiovascular risk
-collaboration (2023) <doi:10.1093/eurheartj/ehab260>. SCORE2/OP with CKD
+collaboration (2023) <doi:10.1093/eurheartj/ehad260>. SCORE2/OP with CKD
 add-on described in Kunihiro M et al (2022) <doi:10.1093/eurjpc/zwac176>.
 
 %prep

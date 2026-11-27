@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  httk
-%global packver   2.7.4
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.4
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          High-Throughput Toxicokinetics
 
@@ -31,6 +31,9 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-Rdpack >= 2.3
 Requires:         R-CRAN-deSolve 
 Requires:         R-CRAN-msm 
@@ -46,6 +49,9 @@ Requires:         R-CRAN-purrr
 Requires:         R-methods 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
 
 %description
 Pre-made models that can be rapidly tailored to various chemicals and

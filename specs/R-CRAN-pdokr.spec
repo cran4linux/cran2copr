@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pdokr
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access Open Geodata from the Dutch 'PDOK' Platform
 
@@ -17,13 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-httr2 >= 1.1.1
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-httr2 >= 1.1.1
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-tibble 
@@ -34,11 +34,13 @@ from 'PDOK' (Publieke Dienstverlening Op de Kaart), the national geodata
 platform of the Netherlands. Datasets and their layers are searched and
 loaded as vector simple feature ('sf') objects through 'OGC' API Features
 endpoints, with automatic pagination and explicit coordinate reference
-system handling. Loaded layers can be filtered by any polygon area, and
-addresses or place names can be geocoded through the 'PDOK' location
-server. The focus is on vector feature data; raster, tile, and coverage
-services are out of scope. See <https://www.pdok.nl/> for more information
-about the platform and its services.
+system handling. Features can be filtered on the server by attribute
+values, with R expressions translated to the 'OGC' 'CQL2' filter language,
+and loaded layers can be filtered by any polygon area. Addresses or place
+names can be geocoded through the 'PDOK' location server. The focus is on
+vector feature data; raster, tile, and coverage services are out of scope.
+See <https://www.pdok.nl/> for more information about the platform and its
+services.
 
 %prep
 %setup -q -c -n %{packname}

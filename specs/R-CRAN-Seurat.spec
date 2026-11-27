@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Seurat
-%global packver   6.0.0
+%global packver   6.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.0.0
+Version:          6.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Single Cell Genomics
 
@@ -119,7 +119,8 @@ Satija R, Farrell J, Gennert D, et al (2015) <doi:10.1038/nbt.3192>,
 Macosko E, Basu A, Satija R, et al (2015)
 <doi:10.1016/j.cell.2015.05.002>, Stuart T, Butler A, et al (2019)
 <doi:10.1016/j.cell.2019.05.031>, Hao, Hao, et al (2020)
-<doi:10.1101/2020.10.12.335331>, Jiang, et al (2026) for more details.
+<doi:10.1101/2020.10.12.335331>, Jiang, et al (2026)
+<doi:10.1016/j.cell.2026.10.018> for more details.
 
 %prep
 %setup -q -c -n %{packname}

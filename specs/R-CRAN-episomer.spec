@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  episomer
-%global packver   3.0.35
+%global packver   4.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.35
+Version:          4.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Early Detection of Public Health Threats from Social Media Data
 
@@ -19,11 +19,13 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-emayili 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-urltools 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-keyring 
 BuildRequires:    R-CRAN-ggplot2 
@@ -48,13 +50,19 @@ BuildRequires:    R-CRAN-httr2
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-askpass 
+BuildRequires:    R-CRAN-bit64 
+BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-zip 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-curl 
+Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-emayili 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-urltools 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-keyring 
 Requires:         R-CRAN-ggplot2 
@@ -79,6 +87,10 @@ Requires:         R-CRAN-httr2
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-askpass 
+Requires:         R-CRAN-bit64 
+Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-zip 
 
 %description
 It allows you to automatically monitor trends of social media messages by

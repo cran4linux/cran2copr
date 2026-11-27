@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gtfs2gps
-%global packver   2.1-4
+%global packver   3.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.4
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Converting Transport Data from GTFS Format to GPS-Like Records
 
@@ -16,38 +16,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-furrr 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-gtfstools 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-units 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-sfheaders 
-BuildRequires:    R-CRAN-progressr 
-BuildRequires:    R-CRAN-lwgeom 
+BuildRequires:    R-CRAN-cli >= 3.4.0
+BuildRequires:    R-CRAN-gtfstools >= 2.0.1
+BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-cpp11 >= 0.4.0
 BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-parallelly 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-furrr 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-gtfstools 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-units 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-sfheaders 
-Requires:         R-CRAN-progressr 
-Requires:         R-CRAN-lwgeom 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-lwgeom 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-sfheaders 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-units 
+Requires:         R-CRAN-cli >= 3.4.0
+Requires:         R-CRAN-gtfstools >= 2.0.1
+Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-parallelly 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-lwgeom 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-sfheaders 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-units 
 
 %description
 Convert general transit feed specification (GTFS) data to global
-positioning system (GPS) records in 'data.table' format. It also has some
-functions to subset GTFS data in time and space and to convert both
-representations to simple feature format.
+positioning system (GPS) records in 'data.table' format. It also has
+functions to post-process these GPS records, for example converting them
+to simple feature format.
 
 %prep
 %setup -q -c -n %{packname}

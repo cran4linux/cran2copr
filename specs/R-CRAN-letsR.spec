@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  letsR
-%global packver   6.0
+%global packver   6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.0
+Version:          6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Handling and Analysis in Macroecology
 
@@ -17,25 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-sf >= 1.0.11
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-dbscan 
 BuildRequires:    R-CRAN-geosphere 
-BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-sf >= 1.0.11
 Requires:         R-CRAN-terra 
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-methods 
 Requires:         R-stats 
+Requires:         R-CRAN-dbscan 
 Requires:         R-CRAN-geosphere 
-Requires:         R-CRAN-sf 
 
 %description
-Handling, processing, and analyzing geographic data on species'
-distributions and environmental variables. Read Vilela & Villalobos (2015)
-<doi:10.1111/2041-210X.12401> for details.
+Tools for handling, processing, and analyzing species geographic
+distributions, environmental data, and biodiversity patterns across
+geographical, environmental, and attribute spaces. Includes functions for
+constructing and analyzing species distributions, estimating geographic
+ranges from occurrence records, and conducting spatial analyses in
+macroecology. See Vilela and Villalobos (2015)
+<doi:10.1111/2041-210X.12401> and Vilela et al. (2026)
+<doi:10.1111/2041-210X.70421> for details.
 
 %prep
 %setup -q -c -n %{packname}

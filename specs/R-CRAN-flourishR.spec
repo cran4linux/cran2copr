@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  flourishR
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Reproducible Wellbeing and Survey Data Analysis
 
@@ -14,25 +14,27 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-haven 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-haven 
 Requires:         R-CRAN-rlang 
 
 %description
-Provides lightweight tools for common tasks in wellbeing and survey data
-analysis, including recoding survey missing values, converting labelled
-variables, checking missingness, scoring multi-item scales, conducting
-analyses across countries, and visualising cross-national and longitudinal
-outcomes. Functions are designed to support transparent and reproducible
-workflows with large-scale survey and longitudinal data.
+Tools for cross-national and longitudinal survey research with dedicated
+support for the Global Flourishing Study (GFS). Provides data preparation,
+documented missing-value recoding, country labels, personality scoring,
+survey design, retention analysis, country-specific regression,
+random-effects meta-analysis, longitudinal transformations,
+repeated-measures models and visualisation. Supports reproducible
+workflows using country-specific survey weights and unweighted
+mixed-effects models.
 
 %prep
 %setup -q -c -n %{packname}

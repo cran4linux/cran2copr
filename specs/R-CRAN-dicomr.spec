@@ -1,0 +1,67 @@
+%global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
+%global packname  dicomr
+%global packver   0.1.0
+%global rlibdir   /usr/local/lib/R/library
+
+Name:             R-CRAN-%{packname}
+Version:          0.1.0
+Release:          1%{?dist}%{?buildtag}
+Summary:          Read, Write and Decode DICOM Medical Image Files
+
+License:          MIT + file LICENSE
+URL:              https://cran.r-project.org/package=%{packname}
+Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
+
+
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-tools 
+Requires:         R-CRAN-Rcpp >= 1.0.0
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-tools 
+
+%description
+A native reader and writer for DICOM (Digital Imaging and Communications
+in Medicine) files, the standard format for medical images, published by
+the National Electrical Manufacturers Association
+<https://www.dicomstandard.org/current>. Modeled on the 'Python' package
+'pydicom' and checked against it. Parses the file format in C++ (implicit
+and explicit value representations, both byte orders, deflated data sets,
+nested sequences and encapsulated pixel data), gives keyword and tag based
+access to data elements, writes data sets back to disk, and decodes pixel
+data into R arrays: uncompressed, RLE Lossless and JPEG Baseline (through
+'libjpeg'), with YBR to RGB color conversion. Includes helpers for cardiac
+and other ultrasound, such as calibration from the Sequence of Ultrasound
+Regions and frame timing for cine loops.
+
+%prep
+%setup -q -c -n %{packname}
+
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
+
+%build
+
+%install
+
+mkdir -p %{buildroot}%{rlibdir}
+%{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
+rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
+
+%files
+%{rlibdir}/%{packname}

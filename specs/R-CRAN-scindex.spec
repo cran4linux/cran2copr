@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scindex
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Strategic Convergence Index for Inter-Rater Reliability
 
@@ -31,15 +31,16 @@ specificity, and decision thresholds are estimated from observed
 classification responses using standard signal detection-theoretic
 transformations (DeCarlo, 1998) <doi:10.1037/1082-989X.3.2.186>. The
 package implements the Strategic Convergence Index (SCI; Gianeselli, 2026)
-<doi:10.1177/00131644261417643>, defined as SCI = 1 - [Var(t_i) /
-Var_max], where Var(t_i) denotes the variance of rater-specific decision
-thresholds and Var_max denotes the reference variance under maximal
-threshold dispersion. SCI quantifies convergence in rater decision
-criteria beyond observed agreement alone and complements classical
-agreement coefficients by distinguishing agreement in observed categorical
-outcomes from convergence in latent decision thresholds under an explicit
-signal detection-theoretic model of categorical judgment. The package
-provides structured summaries and threshold-based diagnostics for
+<doi:10.1177/00131644261417643>, computed as SCI = max(0, 1 - [Var(t_i) /
+Var_max]), where Var(t_i) denotes the sample variance of rater-specific
+decision thresholds and Var_max denotes the reference variance of a
+uniform distribution over a specified threshold interval (Gianeselli,
+2026) <doi:10.1177/00131644261455307>. SCI quantifies convergence in rater
+decision criteria beyond observed agreement alone and complements
+classical agreement coefficients by distinguishing agreement in observed
+categorical outcomes from convergence in latent decision thresholds under
+an explicit signal detection-theoretic model of categorical judgment. The
+package provides structured summaries and threshold-based diagnostics for
 applications in which similar agreement coefficients may reflect
 substantively different underlying decision criteria across raters.
 

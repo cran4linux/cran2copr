@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  prozor
-%global packver   0.3.1
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Minimal Protein Set Explaining Peptide Spectrum Matches
 
@@ -13,36 +14,34 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-AhoCorasickTrie 
-BuildRequires:    R-CRAN-docopt 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-seqinr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-AhoCorasickTrie 
-Requires:         R-CRAN-docopt 
-Requires:         R-CRAN-Matrix 
-Requires:         R-methods 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-seqinr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-graphics 
+Requires:         R-CRAN-R6 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Determine minimal protein set explaining peptide spectrum matches. Utility
-functions for creating fasta amino acid databases with decoys and
-contaminants. Peptide false discovery rate estimation for target decoy
-search results on psm, precursor, peptide and protein level. Computing
-dynamic swath window sizes based on MS1 or MS2 signal distributions.
+Determine the minimal set of proteins that explains the peptide spectrum
+matches (PSMs) of a mass spectrometry experiment, using a greedy parsimony
+algorithm. Annotate peptides with the proteins they match in 'FASTA'
+sequence databases, and create 'FASTA' databases with reversed decoy
+sequences and contaminant proteins. Compute and plot the coverage of
+protein sequences by the matched peptides. Estimate the false discovery
+rate (FDR) of target-decoy search results at the PSM, precursor, peptide
+and protein level, following Elias and Gygi (2007) <doi:10.1038/nmeth1019>
+and Käll et al. (2008) <doi:10.1021/pr700600n>. Compute variable precursor
+isolation windows for data-independent acquisition (DIA) from the
+distribution of precursor (MS1) masses.
 
 %prep
 %setup -q -c -n %{packname}

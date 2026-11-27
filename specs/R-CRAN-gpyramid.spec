@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gpyramid
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Identify Efficient Crossing Schemes for Gene Pyramiding
 
@@ -28,8 +28,8 @@ Requires:         R-CRAN-ape
 Calculates the cost of crossing in terms of the number of individuals and
 generations, which is theoretically formulated by Servin et al. (2004)
 <DOI:10.1534/genetics.103.023358>. This package has been designed for
-selecting appropriate parental genotypes and find the most efficient
-crossing scheme for gene pyramiding, especially for plant breeding.
+selecting appropriate parental genotypes and find the efficient crossing
+schemes for gene pyramiding, especially for plant breeding.
 
 %prep
 %setup -q -c -n %{packname}

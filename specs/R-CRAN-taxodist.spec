@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  taxodist
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Taxonomic Hierarchy Distances and Lineage Analysis
 
@@ -40,20 +40,27 @@ Requires:         R-tools
 
 %description
 Computes distances between taxonomic hierarchy nodes using lineage data
-retrieved from The Taxonomicon <http://taxonomicon.taxonomy.nl>. For
-distinct nodes, distance is defined as the reciprocal of the depth of
-their most recent common ancestor; identical nodes have distance zero.
-This definition yields an ultrametric within each connected hierarchy.
-Path length, Wu-Palmer, and rank-based distances are also available,
-together with the taxonomic diversity and distinctness indices of Clarke
-and Warwick (1998) <doi:10.1046/j.1365-2664.1998.3540523.x> and their
-randomization test. Functions are provided for auditable name resolution,
-online or user-supplied lineage analysis, node ranks, clade membership,
-pairwise, matrix, and cross-set distance calculation, classification trees
-with named clades, hierarchical clustering, principal coordinates
-analysis, portable and comparable JSON analysis bundles, and cache
-management. Distance matrices are returned as base R 'dist' objects. The
-distances represent classification depth rather than evolutionary time or
+retrieved from The Taxonomicon <http://taxonomicon.taxonomy.nl>, the Open
+Tree of Life reference taxonomy (Rees and Cranston, 2017)
+<doi:10.3897/BDJ.5.e12581>, or the NCBI Taxonomy (Schoch et al., 2020)
+<doi:10.1093/database/baaa062>. For distinct nodes, distance is defined as
+the reciprocal of the depth of their most recent common ancestor;
+identical nodes have distance zero. This definition yields an ultrametric
+within each connected hierarchy. Path length, Wu-Palmer, and rank-based
+distances are also available, together with the taxonomic diversity and
+distinctness indices of Clarke and Warwick (1998)
+<doi:10.1046/j.1365-2664.1998.3540523.x> and their randomization test, the
+taxonomic dissimilarities between samples of Clarke, Somerfield and
+Chapman (2006) <doi:10.1016/j.jembe.2005.12.017>, and standardized effect
+sizes of mean pairwise and nearest-taxon distances (Webb et al., 2002)
+<doi:10.1146/annurev.ecolsys.33.010802.150448>. Functions are provided for
+auditable name resolution, comparison of classifications, online or
+user-supplied lineage analysis, node ranks, clade membership, pairwise,
+matrix, and cross-set distance calculation, classification trees with
+named clades, hierarchical clustering, principal coordinates analysis,
+portable and comparable JSON analysis bundles, and cache management.
+Distance matrices are returned as base R 'dist' objects. The distances
+represent classification depth rather than evolutionary time or
 phylogenetic branch length.
 
 %prep

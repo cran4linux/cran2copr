@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  immunarch
-%global packver   0.10.3
+%global packver   0.11.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.3
+Version:          0.11.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multi-Modal Immune Repertoire Analytics for Immunotherapy and Vaccine Design in R
 
@@ -16,35 +16,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
+BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.1.0
-BuildRequires:    R-CRAN-reshape2 >= 1.4.2
+BuildRequires:    R-CRAN-tidyr >= 1.3.0
+BuildRequires:    R-CRAN-dplyr >= 1.2.0
+BuildRequires:    R-CRAN-duckplyr >= 1.2.0
 BuildRequires:    R-CRAN-data.table >= 1.12.6
-BuildRequires:    R-CRAN-duckplyr >= 1.1.2
-BuildRequires:    R-CRAN-pheatmap >= 1.0.12
 BuildRequires:    R-CRAN-dtplyr >= 1.0.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0
-BuildRequires:    R-CRAN-immundata >= 0.0.5
+BuildRequires:    R-CRAN-ggrepel >= 0.9.0
+BuildRequires:    R-CRAN-immundata > 0.1.0
 BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-circlize 
-BuildRequires:    R-CRAN-airr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-stringdist 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-rlist 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-dbplyr 
 BuildRequires:    R-CRAN-lifecycle 
@@ -54,34 +47,26 @@ BuildRequires:    R-CRAN-vctrs
 BuildRequires:    R-CRAN-ggthemes 
 BuildRequires:    R-CRAN-ggsci 
 Requires:         R-CRAN-ggplot2 >= 3.1.0
-Requires:         R-CRAN-reshape2 >= 1.4.2
+Requires:         R-CRAN-tidyr >= 1.3.0
+Requires:         R-CRAN-dplyr >= 1.2.0
+Requires:         R-CRAN-duckplyr >= 1.2.0
 Requires:         R-CRAN-data.table >= 1.12.6
-Requires:         R-CRAN-duckplyr >= 1.1.2
-Requires:         R-CRAN-pheatmap >= 1.0.12
 Requires:         R-CRAN-dtplyr >= 1.0.0
-Requires:         R-CRAN-Rcpp >= 1.0
-Requires:         R-CRAN-immundata >= 0.0.5
+Requires:         R-CRAN-ggrepel >= 0.9.0
+Requires:         R-CRAN-immundata > 0.1.0
 Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-glue 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-circlize 
-Requires:         R-CRAN-airr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-stringdist 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-rlist 
 Requires:         R-utils 
-Requires:         R-CRAN-glue 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-dbplyr 
 Requires:         R-CRAN-lifecycle 

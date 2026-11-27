@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  heplots
-%global packver   1.8.6
+%global packver   1.8.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.6
+Version:          1.8.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualizing Hypothesis Tests in Multivariate Linear Models
 
@@ -48,10 +48,10 @@ multivariate linear models. HE plots represent
 sums-of-squares-and-products matrices for linear hypotheses and for error
 using ellipses (in two dimensions) and ellipsoids (in three dimensions).
 It also provides other tools for analysis and graphical display of the
-models such as robust methods and homogeneity of variance covariance
-matrices. The related 'candisc' package provides visualizations in a
-reduced-rank canonical discriminant space when there are more than a few
-response variables.
+models such as robust methods, multivariate Box-Cox transformations, and
+homogeneity of variance covariance matrices. The related 'candisc' package
+provides visualizations in a reduced-rank canonical discriminant space
+when there are more than a few response variables.
 
 %prep
 %setup -q -c -n %{packname}

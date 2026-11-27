@@ -1,28 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BayesForge
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Inference using 'numpyro' and 'XLA'
+Summary:          Bayesian Inference
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-reticulate >= 1.45.0
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-reticulate 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-future 
+Requires:         R-CRAN-reticulate >= 1.45.0
 Requires:         R-CRAN-abind 
 Requires:         R-methods 
+Requires:         R-parallel 
+Requires:         R-CRAN-future 
 
 %description
 A high-performance probabilistic programming library that aims to unify
@@ -30,10 +34,7 @@ the modeling experience by providing an intuitive model-building syntax
 together with the flexibility of low-level abstraction coding. It also
 includes pre-built functions for high-level abstraction and supports
 hardware-accelerated computation for improved scalability, including
-parallelization, vectorization, and execution on CPU (Central Processing
-Unit), GPU (Graphics Processing Unit), or TPU (Tensor Processing Unit)
-using 'JAX' (Just-In-Time compiled Accelerated linear algebra) as the
-computational backend: Sosa (2026) <doi:10.64898/2026.01.19.700318>.
+parallelization, vectorization, and execution on CPU, GPU, or TPU.
 
 %prep
 %setup -q -c -n %{packname}

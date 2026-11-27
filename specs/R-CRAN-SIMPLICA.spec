@@ -1,37 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SIMPLICA
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Biclustering via Simplivariate Component Analysis
+Summary:          Simplivariate Component Analysis
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-GA 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggsci 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-GA 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggsci 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Identifies constant, additive, multiplicative, and user-defined
-simplivariate components in numeric data matrices using a genetic
-algorithm. Supports flexible pattern definitions and provides
-visualization for general biclustering applications across diverse
-domains. The method builds on simplivariate models as introduced in
-Hageman et al. (2008) <doi:10.1371/journal.pone.0003259> and is related to
-biclustering frameworks as reviewed by Madeira and Oliveira (2004)
+Identifies coherent biclusters in numeric data matrices using
+simplivariate component analysis. Components are extracted sequentially
+using a binary genetic algorithm to select subsets of rows and columns,
+followed by residual deflation. Six built-in component patterns are
+supported: constant, row, column, additive, multiplicative, and
+additive-multiplicative. Components may overlap, and missing values are
+handled without imputation. Cross-validation can be used for pattern
+selection after component extraction. User-defined component patterns and
+corresponding model complexity specifications can also be supplied. The
+method builds on simplivariate models as introduced in Hageman et al.
+(2008) <doi:10.1371/journal.pone.0003259> and is related to biclustering
+frameworks as reviewed by Madeira and Oliveira (2004)
 <doi:10.1109/TCBB.2004.2>.
 
 %prep

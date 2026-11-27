@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  NSO1212
-%global packver   1.4.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          National Statistical Office of Mongolia's Open Data API Handler
 
@@ -13,21 +14,23 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.6.0
+Requires:         R-core >= 4.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-httr 
+Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-jsonlite 
 
 %description
-National Statistical Office of Mongolia (NSO) is the national statistical
-service and an organization of Mongolian government. NSO provides open
-access to official data via its API <http://opendata.1212.mn/en/doc>. The
-package NSO1212 has functions for accessing the API service. The functions
-are compatible with the API v2.0 and get data sets and its detailed
-informations from the API.
+The National Statistical Office of Mongolia (NSO) is the national
+statistical service and an organization of the Mongolian government. NSO
+distributes data sets freely available for open access via its API
+<https://www.1212.mn/en/data-base/open-data>. NSO1212 is an R package that
+contains functions for effortlessly accessing such data through NSO’s API.
+Importing data with the package has an advantage in filtering and tidying
+data for further processing and analysis. The functions are compatible
+with the API v1.0 and get data sets and detailed information from the API.
 
 %prep
 %setup -q -c -n %{packname}
