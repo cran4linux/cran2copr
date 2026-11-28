@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pmxTools
-%global packver   1.6
+%global packver   1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6
+Version:          1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pharmacometric and Pharmacokinetic Toolkit
 
@@ -18,7 +18,6 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-chron 
 BuildRequires:    R-CRAN-xml2 
@@ -29,11 +28,9 @@ BuildRequires:    R-CRAN-ggdist
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-PKNCA 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-data.tree 
 Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-chron 
 Requires:         R-CRAN-xml2 
@@ -44,7 +41,6 @@ Requires:         R-CRAN-ggdist
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-PKNCA 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-data.tree 
 

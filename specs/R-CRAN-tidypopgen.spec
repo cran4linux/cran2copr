@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidypopgen
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Population Genetics
 
@@ -18,7 +18,7 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
 BuildRequires:    R-CRAN-dplyr >= 1.2.0
-BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.600
+BuildRequires:    R-CRAN-lifecycle >= 1.0.2
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-bigparallelr 
 BuildRequires:    R-CRAN-bigsnpr 
@@ -31,6 +31,7 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-runner 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-RSpectra 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyselect 
@@ -39,9 +40,11 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-gtable 
+BuildRequires:    R-CRAN-RcppEigen 
 BuildRequires:    R-CRAN-rmio 
 Requires:         R-CRAN-ggplot2 >= 3.5.0
 Requires:         R-CRAN-dplyr >= 1.2.0
+Requires:         R-CRAN-lifecycle >= 1.0.2
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-bigparallelr 
 Requires:         R-CRAN-bigsnpr 
@@ -54,6 +57,7 @@ Requires:         R-CRAN-MASS
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-runner 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-RSpectra 
 Requires:         R-CRAN-sf 
 Requires:         R-stats 
 Requires:         R-CRAN-tidyselect 

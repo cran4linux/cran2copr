@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  trackopt
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Track Numerical Optimization
 
@@ -17,27 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-optimizeR >= 1.2.0
-BuildRequires:    R-CRAN-oeli >= 0.7.2
+BuildRequires:    R-CRAN-optimizeR >= 1.4.0
+BuildRequires:    R-CRAN-oeli >= 0.7.9
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-optimizeR >= 1.2.0
-Requires:         R-CRAN-oeli >= 0.7.2
+Requires:         R-CRAN-optimizeR >= 1.4.0
+Requires:         R-CRAN-oeli >= 0.7.9
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 
 Requires:         R-utils 
 
 %description
-Tracks parameter values, gradients, and Hessians at each iteration of
-numerical optimizers. Useful for analyzing optimization progress,
-diagnosing issues, and studying convergence behavior.
+Tracks the path of a numerical optimizer, i.e., the parameter values,
+function values, gradients, and Hessians on the way from the starting
+values to the optimum. Any optimizer that is defined via the 'optimizeR'
+package can be tracked, either via its iterations or via the evaluations
+of the objective function. The path can be summarized and, for functions
+of one or two parameters, visualized.
 
 %prep
 %setup -q -c -n %{packname}

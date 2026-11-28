@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mixvlmc
-%global packver   0.2.2
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Variable Length Markov Chains with Covariates
 
@@ -14,40 +14,45 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.8.3
+BuildRequires:    R-CRAN-lifecycle >= 1.0.3
+BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-butcher 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-CRAN-pROC 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-VGAM 
 BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-xtable 
 Requires:         R-CRAN-Rcpp >= 1.0.8.3
+Requires:         R-CRAN-lifecycle >= 1.0.3
+Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-butcher 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-cli 
 Requires:         R-methods 
 Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-pROC 
-Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-VGAM 
 Requires:         R-CRAN-withr 
+Requires:         R-CRAN-xtable 
 
 %description
-Estimates Variable Length Markov Chains (VLMC) models and VLMC with
-covariates models from discrete sequences. Supports model selection via
-information criteria and simulation of new sequences from an estimated
-model. See Bühlmann, P. and Wyner, A. J. (1999)
-<doi:10.1214/aos/1018031204> for VLMC and Zanin Zambom, A., Kim, S. and
-Lopes Garcia, N. (2022) <doi:10.1111/jtsa.12615> for VLMC with covariates.
+Estimates Variable Length Markov Chains (VLMC) and VLMC with covariates
+from discrete sequences. Supports model selection via information
+criteria, likelihood computation, prediction and simulation of new
+sequences from an estimated model. See Bühlmann, P. and Wyner, A. J.
+(1999) <doi:10.1214/aos/1018031204> for VLMC and Zanin Zambom, A., Kim, S.
+and Lopes Garcia, N. (2022) <doi:10.1111/jtsa.12615> for VLMC with
+covariates.
 
 %prep
 %setup -q -c -n %{packname}

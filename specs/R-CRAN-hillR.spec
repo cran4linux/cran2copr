@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hillR
-%global packver   0.5.2
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Diversity Through Hill Numbers
 
@@ -18,17 +18,11 @@ BuildRequires:    R-devel >= 3.1
 Requires:         R-core >= 3.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-FD 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-ade4 
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-geiger 
 Requires:         R-CRAN-FD 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-ade4 
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-geiger 
 
 %description
 Calculate taxonomic, functional and phylogenetic diversity measures

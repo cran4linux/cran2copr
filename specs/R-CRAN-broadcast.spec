@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  broadcast
-%global packver   0.1.9.8
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9.8
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Broadcasted Array Operations Like 'NumPy'
+Summary:          Efficient Broadcasted Array Operations Like 'NumPy'
 
 License:          MPL-2.0
 URL:              https://cran.r-project.org/package=%{packname}
@@ -26,7 +26,7 @@ Implements efficient 'NumPy'-like broadcasted operations for atomic and
 recursive arrays. In the context of operations involving 2 (or more)
 arrays, “broadcasting” (AKA singleton expansion) refers to efficiently
 recycling array dimensions, without making copies. Besides linking to
-'Rcpp', 'broadcast' does not use any external libraries in any way;
+'Rcpp', 'broadcast' does not use any external libraries or generative AI;
 'broadcast' was essentially made from scratch and can be installed
 out-of-the-box. The implementations available in 'broadcast' include, but
 are not limited to, the following. 1) Broadcasted element-wise operations

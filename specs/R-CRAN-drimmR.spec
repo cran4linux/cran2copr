@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  drimmR
-%global packver   1.0.4
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation, Simulation and Reliability of Drifting Markov Models
 
@@ -19,32 +19,26 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-seqinr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-parallelly 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-seqinr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-parallel 
-Requires:         R-CRAN-parallelly 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-reshape2 
+Requires:         R-stats 
 
 %description
-Performs the drifting Markov models (DMM) which are non-homogeneous Markov
-models designed for modeling the heterogeneities of sequences in a more
-flexible way than homogeneous Markov chains or even hidden Markov models.
-In this context, we developed an R package dedicated to the estimation,
-simulation and the exact computation of associated reliability of drifting
-Markov models. The implemented methods are described in Vergne, N. (2008),
-<doi:10.2202/1544-6115.1326> and Barbu, V.S., Vergne, N. (2019)
-<doi:10.1007/s11009-018-9682-8> .
+Estimation, simulation and exact computation of reliability measures
+(reliability, availability, maintainability, failure rates) of drifting
+Markov models (DMM), which are non-homogeneous Markov models designed to
+model the heterogeneities of sequences more flexibly than homogeneous
+Markov chains or hidden Markov models. The probabilities of appearance of
+words along a sequence are also computed. The methods are described in
+Vergne (2008) <doi:10.2202/1544-6115.1326> and Barbu and Vergne (2019)
+<doi:10.1007/s11009-018-9682-8>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fude
-%global packver   0.4.1
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities for Fude Polygon
 
@@ -17,21 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-units 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-units 
 
 %description
-Provides utilities to facilitate handling of Fude Polygon data
-downloadable from the Ministry of Agriculture, Forestry and Fisheries
-website <https://open.fude.maff.go.jp>.
+Provides tools for reading and filtering Fude Polygon data published by
+Japan's Ministry of Agriculture, Forestry and Fisheries. The package also
+links land parcels to agricultural community boundaries and joins those
+boundaries with agricultural statistics.
 
 %prep
 %setup -q -c -n %{packname}

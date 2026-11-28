@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  distributions3
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Probability Distributions as S3 Objects
 
@@ -20,11 +20,16 @@ BuildRequires:    R-CRAN-rlang
 Requires:         R-CRAN-rlang 
 
 %description
-Tools to create and manipulate probability distributions using S3.
-Generics pdf(), cdf(), quantile(), and random() provide replacements for
-base R's d/p/q/r style functions.  Functions and arguments have been named
-carefully to minimize confusion for students in intro stats courses. The
-documentation for each distribution contains detailed mathematical notes.
+Tools to create and manipulate probability distributions using S3 objects
+and methods. Generic functions pdf(), cdf(), quantile(), and random()
+provide replacements for base R's d/p/q/r style functions. Additional
+methods are available for moments, namely mean(), variance(), skewness(),
+and kurtosis(). Functions and arguments have been named carefully to
+minimize confusion for students in intro stats courses. The documentation
+for each distribution contains detailed mathematical notes. Infrastructure
+for fitting distributional (regression) models is provided via score() and
+hessian() methods, along with further utilities for handling and assessing
+probability distributions.
 
 %prep
 %setup -q -c -n %{packname}

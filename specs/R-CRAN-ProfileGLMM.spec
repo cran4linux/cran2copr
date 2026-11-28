@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ProfileGLMM
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Profile Regression using Generalised Linear Mixed Models
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-MCMCpack
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-Spectrum 
 BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppDist 
 Requires:         R-CRAN-Rcpp 
@@ -30,6 +31,7 @@ Requires:         R-CRAN-MCMCpack
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-Spectrum 
 Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-abind 
 
 %description
 Implements a Bayesian profile regression using a generalized linear mixed

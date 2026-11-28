@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  datagrade
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Quality Assessment on the ISO/IEC 25012 Model
 
@@ -40,7 +40,8 @@ properties are computable from a table alone; the rest compare the data
 against expectations declared through a specification object, and are
 reported as not applicable rather than approximated when none is supplied.
 Also reports missing-data patterns, duplicates, redundant columns,
-outliers, multicollinearity and distributional deviations, and returns a
+outliers, multicollinearity and distributional deviations, compares two
+deliveries of the same data set measure by measure, and returns a
 structured object with plots rather than console text alone. The
 statistics implement the methodology of the author's master's
 dissertation, Demirhan (2024) "Assessing Data Quality Management Issues in

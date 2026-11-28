@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  smmR
-%global packver   1.0.5
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulation, Estimation and Reliability of Semi-Markov Models
 
@@ -19,10 +19,12 @@ Requires:         R-core
 BuildRequires:    R-CRAN-DiscreteWeibull 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-seqinr 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-DiscreteWeibull 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-seqinr 
+Requires:         R-utils 
 
 %description
 Performs parametric and non-parametric estimation and simulation for
@@ -37,7 +39,7 @@ the end of the sample paths. Reliability indicators such as reliability,
 maintainability, availability, BMP-failure rate, RG-failure rate, mean
 time to failure and mean time to repair are available as well. The
 implemented methods are described in Barbu, V.S., Limnios, N. (2008)
-<doi:10.1007/978-0-387-73173-5>, Barbu, V.S., Limnios, N. (2008)
+<doi:10.1007/978-0-387-73173-5>, Barbu, V.S., Limnios, N. (2006)
 <doi:10.1080/10485250701261913> and Trevezas, S., Limnios, N. (2011)
 <doi:10.1080/10485252.2011.555543>. Estimation and simulation of
 discrete-time k-th order Markov chains are also considered.

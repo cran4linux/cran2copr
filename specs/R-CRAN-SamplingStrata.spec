@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SamplingStrata
-%global packver   1.5-5
+%global packver   1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.5
+Version:          1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimal Stratification of Sampling Frames for Multipurpose Sampling Surveys
 
@@ -16,32 +16,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-SamplingBigData 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-SamplingBigData 
 Requires:         R-CRAN-glue 
 Requires:         R-methods 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Tools for the optimization of stratified sampling design. It determines a
-stratification of a sampling frame that minimizes sample cost while
-satisfying precision constraints in a multivariate and multidomain
-context. The approach relies on a genetic algorithm; each candidate
-partition of the frame is an individual whose fitness is evaluated via the
-Bethel-Chromy allocation to meet target precisions. Functions support
-analysis of optimization results, labeling of the frame with new strata,
-and drawing a sample according to the optimal allocation. Algorithmic
-components adapt code from the 'genalg' package. See M. Ballin and G.
-Barcaroli (2020) "R package SamplingStrata: new developments and extension
-to Spatial Sampling" <doi:10.48550/arXiv.2004.09366>.
+In the field of stratified sampling design, this package offers an
+approach for the determination of the best stratification of a sampling
+frame, the one that ensures the minimum sample cost under the condition to
+satisfy precision constraints in a multivariate and multidomain case. This
+approach is based on the use of the genetic algorithm: each solution (i.e.
+a particular partition in strata of the sampling frame) is considered as
+an individual in a population; the fitness of all individuals is evaluated
+applying the Bethel-Chromy algorithm to calculate the sampling size
+satisfying precision constraints on the target estimates. Functions in the
+package allows to: (a) analyse the obtained results of the optimisation
+step; (b) assign the new strata labels to the sampling frame; (c) select a
+sample from the new frame accordingly to the best allocation. Functions
+for the execution of the genetic algorithm are a modified version of the
+functions in the 'genalg' package.
 
 %prep
 %setup -q -c -n %{packname}
